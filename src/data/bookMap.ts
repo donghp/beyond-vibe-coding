@@ -50,8 +50,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 3 — AI KHÔNG NHỚ PROJECT CỦA BẠN',
     shortTitle: 'AI không nhớ project của bạn',
     slug: '03-ai-does-not-remember',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '04-context',
@@ -60,8 +60,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 4 — AI KHÔNG CHỈ CẦN CONTEXT. AI CẦN ĐÚNG CONTEXT.',
     shortTitle: 'AI không chỉ cần context. AI cần đúng context.',
     slug: '04-context',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '05-controlled-autonomy',

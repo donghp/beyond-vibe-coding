@@ -8,10 +8,10 @@ description: "Mastering the art of context engineering to minimize hallucination
 readingTime: "8 min"
 topics: ["context engineering", "prompt design", "token limit", "precision"]
 hero: "images/chapter-04-hero.webp"
-published: "2026-09-09"
-publicationStatus: "unpublished"
-contentStatus: "draft"
-updated: "2026-09-09"
+published: "2026-09-10"
+publicationStatus: "published"
+contentStatus: "complete"
+updated: "2026-09-10"
 version: "1.0.0"
 ---
 

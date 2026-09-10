@@ -8,10 +8,10 @@ description: "Why thinking of AI as a persistent assistant is an architectural m
 readingTime: "6 min"
 topics: ["context windows", "statelessness", "memory", "documentation"]
 hero: "images/chapter-03-hero.webp"
-published: "2026-09-09"
-publicationStatus: "unpublished"
-contentStatus: "draft"
-updated: "2026-09-09"
+published: "2026-09-10"
+publicationStatus: "published"
+contentStatus: "complete"
+updated: "2026-09-10"
 version: "1.0.0"
 ---
 
