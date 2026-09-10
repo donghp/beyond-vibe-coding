@@ -77,12 +77,14 @@ const firstChapterUrl = sortedChapters.length > 0
       </div>
 
       <!-- Bottom Right Dedicated Recipient & Author Signature -->
-      <div class="flex flex-col items-end self-end pb-8 sm:pb-12 mt-12 sm:mt-16 max-w-full">
-        <h2 class="sr-only">Thân tặng bạn Lê Ngọc Giáp — Chữ ký của Hồng Đông</h2>
+      <div class="flex flex-col items-end self-end pb-8 sm:pb-12 mt-12 sm:mt-16 max-w-full text-right gap-2 sm:gap-3">
+        <p class="font-serif italic text-xl sm:text-2xl md:text-[28px] font-medium text-navy-900 tracking-wide leading-snug select-text">
+          Thân tặng bạn Lê Ngọc Giáp
+        </p>
         <img 
-          src={`${cleanBase}/images/opening/dedication/dedication-lockup-le-ngoc-giap.png`}
-          alt="Trang đề tặng: Thân tặng bạn Lê Ngọc Giáp — Chữ ký của Hồng Đông"
-          class="w-64 sm:w-80 md:w-96 max-w-full h-auto object-contain select-none pointer-events-none"
+          src={`${cleanBase}/images/author-signature.png`}
+          alt="Chữ ký của Hồng Đông"
+          class="w-40 sm:w-56 md:w-64 max-w-full h-auto object-contain select-none pointer-events-none mt-1 sm:mt-2"
           loading="eager"
           decoding="async"
         />
