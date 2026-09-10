@@ -1,16 +1,16 @@
 ---
-id: "00-introduction"
-title: "Giới thiệu"
+id: "loi-mo-dau"
+title: "LỜI MỞ ĐẦU"
 subtitle: "Vì sao cuốn sách này tồn tại"
-shortTitle: "Giới thiệu"
+shortTitle: "Lời Mở Đầu"
 order: 0
-description: "An opening reflection on the evolution of software creation in the age of generative models."
+description: "Lợi mở đầu và định hướng tư duy xây dựng phần mềm trong kỷ nguyên AI."
 readingTime: "5 min"
 topics: ["paradigm shift", "software design", "intent"]
 hero: "/beyond-vibe-coding/images/chapter-00-hero.webp"
 published: "2026-09-09"
 publicationStatus: "unpublished"
-contentStatus: "draft"
+contentStatus: "complete"
 updated: "2026-09-09"
 version: "1.0.0"
 ---
