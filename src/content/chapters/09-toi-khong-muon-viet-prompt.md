@@ -9,8 +9,8 @@ readingTime: "10 min"
 topics: ["context", "prompting", "retrieval", "compiler"]
 hero: "images/chapter-09-hero.webp"
 published: "2026-09-10"
-publicationStatus: "unpublished"
-contentStatus: "draft"
+publicationStatus: "published"
+contentStatus: "complete"
 updated: "2026-09-10"
 version: "1.0.0"
 ---

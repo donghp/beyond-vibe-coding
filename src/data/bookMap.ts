@@ -110,8 +110,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 9 — TÔI KHÔNG MUỐN VIẾT PROMPT DÀI HƠN. TÔI MUỐN AI NHẬN ĐÚNG THỨ NÓ CẦN',
     shortTitle: 'Tôi không muốn viết prompt dài hơn',
     slug: '09-toi-khong-muon-viet-prompt',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '10-ai-da-noi-done',
