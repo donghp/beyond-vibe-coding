@@ -285,6 +285,14 @@ Một contract tốt nên trả lời tối thiểu:
 - Stopping Condition - điều kiện kết thúc.
 - Reporting - những gì executor phải báo cáo.
 
+:::bvc-visual{type="contract" id="V05-03"}
+OBJECTIVE: task goal
+SCOPE: authorized boundary
+ACTIONS: allowed/forbidden
+CRITERIA: acceptance/stopping
+VERIFICATION: check/report
+:::
+
 Tôi bắt đầu thấy Execution Contract giống như một “hợp đồng làm việc” cho AI.
 
 ### DISCOVERY ≠ EXECUTION

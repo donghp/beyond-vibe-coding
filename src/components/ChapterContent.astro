@@ -12,37 +12,6 @@ const { chapter } = Astro.props;
 // Render the incoming slot contents to HTML on the server-side
 let html = await Astro.slots.render('default');
 
-// Suppress duplicate initial chapter identity headings
-const expectedHeading1 = `CHƯƠNG ${chapter.data.order}`;
-const expectedHeading2 = chapter.data.title.toUpperCase();
-
-// Regex to find H1 headings
-const h1Regex = /<h1[^>]*>([\s\S]*?)<\/h1>/g;
-let matchH1;
-let suppressedCount = 0;
-
-// Need to match exactly the first two H1 tags
-const matches = [];
-while ((matchH1 = h1Regex.exec(html)) !== null) {
-  matches.push({
-    index: matchH1.index,
-    lastIndex: h1Regex.lastIndex,
-    content: matchH1[0],
-    text: matchH1[1].replace(/<\/?[^>]+(>|$)/g, '').trim() // Clean HTML tags to get raw text
-  });
-}
-
-// Logic: if first match is chapter number, and second is title, remove them
-if (matches.length >= 2) {
-  const m1 = matches[0];
-  const m2 = matches[1];
-  
-  if (m1.text === expectedHeading1 && m2.text === expectedHeading2) {
-    // Remove the two headings
-    html = html.slice(0, m1.index) + html.slice(m2.lastIndex);
-  }
-}
-
 // Chunking algorithm to find all compile-time HTML visual placeholders
 const regex = /<div class="bvc-visual-placeholder" data-type="([^"]+)" data-id="([^"]+)">([\s\S]*?)<\/div>/g;
 

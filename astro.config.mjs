@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import remarkDirective from 'remark-directive';
-import { remarkBvcVisual } from './src/lib/visual/remarkPlugin';
+import { remarkBvcVisual } from './src/lib/visual/remarkPlugin.ts';
+import { remarkSuppressDuplicateIdentity } from './src/lib/visual/remarkSuppress.ts';
 
 const isProduction = process.env.GITHUB_ACTIONS === 'true';
 
@@ -13,6 +14,7 @@ export default defineConfig({
     remarkPlugins: [
       remarkDirective,
       remarkBvcVisual,
+      remarkSuppressDuplicateIdentity,
     ],
   },
   server: {
