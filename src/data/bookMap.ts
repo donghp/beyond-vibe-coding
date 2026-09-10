@@ -13,14 +13,14 @@ export interface CanonicalBookItem {
 export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
   // Front Matter
   {
-    id: 'loi-mo-dau',
+    id: '00-loi-mo-dau',
     order: 0,
     section: 'front-matter',
     title: 'LỜI MỞ ĐẦU',
     shortTitle: 'Lời Mở Đầu',
-    slug: 'loi-mo-dau',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    slug: '00-loi-mo-dau',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   // Chapters 1 - 21
   {
@@ -300,7 +300,13 @@ import { getCollection } from 'astro:content';
 
 export async function getCanonicalBookMap() {
   const chapters = await getCollection('chapters');
-  const chapterMap = new Map(chapters.map(ch => [ch.id, ch]));
+  const chapterMap = new Map();
+  chapters.forEach(ch => {
+    chapterMap.set(ch.id, ch);
+    if (ch.data.id) {
+      chapterMap.set(ch.data.id, ch);
+    }
+  });
 
   return CANONICAL_BOOK_MAP.map(item => {
     const liveChapter = chapterMap.get(item.id);

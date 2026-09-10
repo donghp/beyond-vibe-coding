@@ -1,5 +1,5 @@
 ---
-id: "loi-mo-dau"
+id: "00-loi-mo-dau"
 title: "LỜI MỞ ĐẦU"
 subtitle: "Tư duy ngược để hoàn thành dự án phần mềm với AI"
 shortTitle: "Lời Mở Đầu"
@@ -9,7 +9,7 @@ readingTime: "12 min"
 topics: ["ai engineering", "vibe coding", "workflow", "mindset", "continuity"]
 hero: "images/chapter-00-hero.webp"
 published: "2026-09-10"
-publicationStatus: "unpublished"
+publicationStatus: "published"
 contentStatus: "complete"
 navigationPolicy: "NO_NAVIGATION_TREE_FOR_FOREWORD"
 updated: "2026-09-10"

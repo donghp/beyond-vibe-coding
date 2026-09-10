@@ -34,7 +34,7 @@ const baseUrl = import.meta.env.BASE_URL;
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        <span>Chương {prevChapter.data.order}</span>
+        <span>{prevChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${prevChapter.data.order}`}</span>
       </span>
       <span class="text-xs text-navy-500 line-clamp-1 group-hover:text-navy-700 font-normal">
         {prevChapter.data.title}
@@ -83,7 +83,7 @@ const baseUrl = import.meta.env.BASE_URL;
       class="w-full sm:w-2/5 border border-navy-200/80 bg-white rounded-xl p-4 flex flex-col gap-1 items-end hover:border-tech-blue hover:bg-navy-50/50 transition-all duration-150 focus:outline-none group text-right min-w-0 shadow-2xs"
     >
       <span class="text-xs font-bold text-navy-900 group-hover:text-tech-blue transition-colors flex items-center gap-1.5">
-        <span>Chương {nextChapter.data.order}</span>
+        <span>{nextChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${nextChapter.data.order}`}</span>
         <svg class="w-3.5 h-3.5 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>

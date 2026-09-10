@@ -134,7 +134,7 @@ const baseUrl = import.meta.env.BASE_URL;
           if (item.section === 'chapter') {
             numDisplay = item.order.toString().padStart(2, '0');
           } else if (item.section === 'front-matter') {
-            numDisplay = 'FM';
+            numDisplay = item.order === 0 ? '00' : 'FM';
           } else {
             numDisplay = 'BM';
           }

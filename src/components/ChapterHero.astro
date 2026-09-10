@@ -38,7 +38,7 @@ if (title.includes('.')) {
       <span class="text-navy-300">›</span>
       <a href={`${baseUrl}#chapters`} class="text-navy-700 hover:text-tech-blue transition-colors">Chapters</a>
       <span class="text-navy-300">›</span>
-      <span class="text-navy-950 font-bold">Chương {order}</span>
+      <span class="text-navy-950 font-bold">{order === 0 ? 'Lời mở đầu' : `Chương ${order}`}</span>
     </nav>
 
     <!-- Paging Links -->
@@ -47,9 +47,9 @@ if (title.includes('.')) {
         <a 
           href={`${baseUrl}chapters/${prevChapter.id}`} 
           class="text-navy-700 hover:text-tech-blue transition-colors flex items-center gap-1 font-semibold"
-          title={`Chương ${prevChapter.data.order}: ${prevChapter.data.shortTitle}`}
+          title={prevChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${prevChapter.data.order}: ${prevChapter.data.shortTitle}`}
         >
-          ← Chương {prevChapter.data.order}
+          ← {prevChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${prevChapter.data.order}`}
         </a>
       ) : (
         <span class="text-navy-300">← Bắt đầu</span>
@@ -61,9 +61,9 @@ if (title.includes('.')) {
         <a 
           href={`${baseUrl}chapters/${nextChapter.id}`} 
           class="text-navy-700 hover:text-tech-blue transition-colors flex items-center gap-1 font-semibold"
-          title={`Chương ${nextChapter.data.order}: ${nextChapter.data.shortTitle}`}
+          title={nextChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${nextChapter.data.order}: ${nextChapter.data.shortTitle}`}
         >
-          Chương {nextChapter.data.order} →
+          {nextChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${nextChapter.data.order}`} →
         </a>
       ) : (
         <span class="text-navy-300">Kết thúc →</span>
@@ -75,7 +75,7 @@ if (title.includes('.')) {
   <div class="flex items-start justify-between gap-4 mb-2">
     <div>
       <span class="text-xs font-sans font-bold tracking-[0.25em] text-tech-blue uppercase">
-        CHƯƠNG {order}
+        {order === 0 ? 'LỜI MỞ ĐẦU' : `CHƯƠNG ${order}`}
       </span>
     </div>
 

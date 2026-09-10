@@ -4,13 +4,14 @@ interface Props {
   version: string;
   readingTime: string;
   topicCount?: number;
+  navigationPolicy?: string;
 }
 
-const { slug, version, readingTime, topicCount = 5 } = Astro.props;
+const { slug, version, readingTime, topicCount = 5, navigationPolicy } = Astro.props;
 const githubSourceUrl = `https://github.com/donghp/beyond-vibe-coding/blob/main/src/content/chapters/${slug}.md`;
 ---
 
-<aside id="chapter-navigator" class="w-full min-[1280px]:w-[var(--right-rail-width)] border-l border-navy-100 p-5 flex flex-col gap-5 select-none shrink-0 transition-all duration-300 right-rail-container bg-[#fcfdfe]">
+<aside id="chapter-navigator" data-navigation-policy={navigationPolicy} class="w-full min-[1280px]:w-[var(--right-rail-width)] border-l border-navy-100 p-5 flex flex-col gap-5 select-none shrink-0 transition-all duration-300 right-rail-container bg-[#fcfdfe]">
   
   <!-- Book Mode Switch Toggle at Top of Right Rail (as in reference mockup) -->
   <div class="flex items-center justify-between pb-3 border-b border-navy-100">
@@ -162,8 +163,16 @@ const githubSourceUrl = `https://github.com/donghp/beyond-vibe-coding/blob/main/
   function buildTOC() {
     const parentContainer = document.getElementById('right-rail-anchors-nav');
     const contentBody = document.getElementById('chapter-content-body');
+    const chapterNav = document.getElementById('chapter-navigator');
     
     if (!parentContainer || !contentBody) return;
+
+    const navPolicy = chapterNav?.getAttribute('data-navigation-policy');
+    if (navPolicy === 'NO_NAVIGATION_TREE_FOR_FOREWORD') {
+      parentContainer.innerHTML = '<div class="text-xs text-navy-400 py-2 italic font-sans">Lời mở đầu — Toàn văn</div>';
+      spyScroll();
+      return;
+    }
 
     // Extract all H2 elements from content
     const headings = Array.from(contentBody.querySelectorAll('h2'));
@@ -219,7 +228,7 @@ const githubSourceUrl = `https://github.com/donghp/beyond-vibe-coding/blob/main/
   function spyScroll() {
     const items = document.querySelectorAll('.right-rail-toc-item');
     const contentBody = document.getElementById('chapter-content-body');
-    if (!contentBody || items.length === 0) return;
+    if (!contentBody) return;
 
     // Calculate reading scroll progress percentage
     const readerArticle = document.getElementById('chapter-reader');
@@ -237,6 +246,8 @@ const githubSourceUrl = `https://github.com/donghp/beyond-vibe-coding/blob/main/
       if (percentEl) percentEl.textContent = `${progress}%`;
       if (barEl) barEl.style.width = `${progress}%`;
     }
+
+    if (items.length === 0) return;
 
     const headings = Array.from(contentBody.querySelectorAll('h2'));
     const scrollPosition = window.scrollY + 140;
