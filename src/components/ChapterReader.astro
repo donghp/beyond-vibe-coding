@@ -5,8 +5,7 @@ interface Props {
   order: number;
 }
 
-const { chapterId, chapterTitle, order } = Astro.props;
-const orderStr = order.toString().padStart(2, '0');
+const { chapterId } = Astro.props;
 ---
 
 <article 

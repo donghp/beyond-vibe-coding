@@ -40,7 +40,7 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 2 — AI MẠNH HƠN KHÔNG CÓ NGHĨA LÀ BẠN SẼ ĐI NHANH HƠN',
     shortTitle: 'AI mạnh hơn không có nghĩa là đi nhanh hơn',
     slug: '02-working-with-ai',
-    publicationStatus: 'unpublished',
+    publicationStatus: 'published',
     contentStatus: 'complete',
   },
   {

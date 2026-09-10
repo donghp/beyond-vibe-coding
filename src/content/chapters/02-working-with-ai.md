@@ -8,9 +8,10 @@ description: "Từ cuộc đua tìm model tốt nhất đến một câu hỏi t
 readingTime: "18 min"
 topics: ["models", "routing", "cost", "fitness for task", "security", "orchestration"]
 hero: "images/chapter-02-hero.webp"
-published: "2026-09-09"
-publicationStatus: "unpublished"
+published: "2026-09-10"
+publicationStatus: "published"
 contentStatus: "complete"
+navigationPolicy: "ONE_ROOT_PLUS_FIVE_MAJOR_TOPICS"
 updated: "2026-09-10"
 version: "2.0.0"
 ---

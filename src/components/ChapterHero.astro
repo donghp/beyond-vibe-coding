@@ -13,7 +13,7 @@ interface Props {
   nextChapter?: { id: string; data: { order: number; shortTitle: string } };
 }
 
-const { order, title, subtitle, readingTime, published, version, topics, prevChapter, nextChapter } = Astro.props;
+const { order, title, subtitle, prevChapter, nextChapter } = Astro.props;
 const chapterIndexStr = order.toString().padStart(2, '0');
 
 // Format title semantic split: split into two lines on period or question mark if available

@@ -52,7 +52,6 @@ const canonicalItems = await getCanonicalBookMap();
       const isActive = activeChapterId === item.id;
       const slug = item.id;
       const label = getDerivedDisplayLabel(item);
-      const isFrontOrBack = item.section !== 'chapter';
       
       let numDisplay = '';
       if (item.section === 'chapter') {
