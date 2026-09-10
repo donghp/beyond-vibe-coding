@@ -9,8 +9,8 @@ readingTime: "8 min"
 topics: ["testing", "compilation", "evidence", "verification"]
 hero: "images/chapter-10-hero.webp"
 published: "2026-09-10"
-publicationStatus: "unpublished"
-contentStatus: "draft"
+publicationStatus: "published"
+contentStatus: "complete"
 updated: "2026-09-10"
 version: "1.0.0"
 ---

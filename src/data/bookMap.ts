@@ -120,8 +120,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 10 — AI ĐÃ NÓI "DONE". NHƯNG TÔI KHÔNG TIN',
     shortTitle: 'AI đã nói "Done". Nhưng tôi không tin',
     slug: '10-ai-da-noi-done',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '11-toi-khong-xay-memory',
