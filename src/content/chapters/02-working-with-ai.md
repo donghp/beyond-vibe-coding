@@ -7,7 +7,7 @@ order: 2
 description: "Từ cuộc đua tìm model tốt nhất đến một câu hỏi thực tế hơn: AI nào phù hợp nhất cho công việc tôi đang làm?"
 readingTime: "18 min"
 topics: ["models", "routing", "cost", "fitness for task", "security", "orchestration"]
-hero: "/beyond-vibe-coding/images/chapter-02-hero.webp"
+hero: "images/chapter-02-hero.webp"
 published: "2026-09-09"
 publicationStatus: "unpublished"
 contentStatus: "complete"

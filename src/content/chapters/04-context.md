@@ -7,7 +7,7 @@ order: 4
 description: "Mastering the art of context engineering to minimize hallucinations and maximize code precision."
 readingTime: "8 min"
 topics: ["context engineering", "prompt design", "token limit", "precision"]
-hero: "/beyond-vibe-coding/images/chapter-04-hero.webp"
+hero: "images/chapter-04-hero.webp"
 published: "2026-09-09"
 publicationStatus: "unpublished"
 contentStatus: "draft"

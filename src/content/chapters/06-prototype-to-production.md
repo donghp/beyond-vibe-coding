@@ -7,7 +7,7 @@ order: 6
 description: "A practical methodology for taking AI-generated drafts and hardening them against real-world failures."
 readingTime: "9 min"
 topics: ["hardening", "refactoring", "production-ready", "resilience"]
-hero: "/beyond-vibe-coding/images/chapter-06-hero.webp"
+hero: "images/chapter-06-hero.webp"
 published: "2026-09-09"
 publicationStatus: "unpublished"
 contentStatus: "draft"

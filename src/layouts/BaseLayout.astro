@@ -17,7 +17,7 @@ const baseUrl = import.meta.env.BASE_URL;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={`${baseUrl}/favicon.svg`} />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     
     <!-- SEO Metadata -->
     <title>{title.includes('BEYOND VIBE CODING') || title.includes('Beyond Vibe Coding') ? title : `${title} — Beyond Vibe Coding`}</title>
@@ -29,14 +29,14 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta property="og:url" content={`https://donghp.github.io${baseUrl}`} />
     <meta property="og:title" content={title.includes('BEYOND VIBE CODING') || title.includes('Beyond Vibe Coding') ? title : `${title} — Beyond Vibe Coding`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`https://donghp.github.io${baseUrl.replace(/\/$/, '')}/images/cover-vn.png`} />
+    <meta property="og:image" content={`https://donghp.github.io${baseUrl}images/cover-vn.png`} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={`https://donghp.github.io${baseUrl}`} />
     <meta property="twitter:title" content={title.includes('BEYOND VIBE CODING') || title.includes('Beyond Vibe Coding') ? title : `${title} — Beyond Vibe Coding`} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`https://donghp.github.io${baseUrl.replace(/\/$/, '')}/images/cover-vn.png`} />
+    <meta property="twitter:image" content={`https://donghp.github.io${baseUrl}images/cover-vn.png`} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

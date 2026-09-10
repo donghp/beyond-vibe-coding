@@ -6,7 +6,6 @@ import SearchDialog from '../../components/SearchDialog.astro';
 import Footer from '../../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
-const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
 
 // Query openings content collection
 const openings = await getCollection('openings');
@@ -28,8 +27,8 @@ const publishedChapters = await getCollection('chapters', ({ data }) => {
 const sortedChapters = publishedChapters.sort((a, b) => a.data.order - b.data.order);
 const firstChapter = sortedChapters.length > 0 ? sortedChapters[0] : null;
 const firstChapterUrl = firstChapter 
-  ? `${cleanBase}/chapters/${firstChapter.id}`
-  : `${cleanBase}/`;
+  ? `${baseUrl}chapters/${firstChapter.id}`
+  : baseUrl;
 const firstChapterLabel = firstChapter 
   ? `Bắt đầu đọc sách (${firstChapter.data.order === 0 ? 'Giới thiệu' : `Chương ${firstChapter.data.order}`})`
   : 'Về trang chủ';
@@ -120,7 +119,7 @@ const firstChapterLabel = firstChapter
     <!-- Paging Controls Bar -->
     <div class="w-full max-w-2xl mt-6 flex items-center justify-between select-none">
       <a 
-        href={`${cleanBase}/opening/dedication`}
+        href={`${baseUrl}opening/dedication`}
         class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-navy-200 bg-white hover:bg-navy-50 text-navy-700 text-xs font-bold transition-all shadow-2xs group cursor-pointer"
       >
         <span class="transition-transform group-hover:-translate-x-0.5">←</span>

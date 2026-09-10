@@ -7,7 +7,7 @@ order: 3
 description: "Why thinking of AI as a persistent assistant is an architectural mistake, and how to design around statelessness."
 readingTime: "6 min"
 topics: ["context windows", "statelessness", "memory", "documentation"]
-hero: "/beyond-vibe-coding/images/chapter-03-hero.webp"
+hero: "images/chapter-03-hero.webp"
 published: "2026-09-09"
 publicationStatus: "unpublished"
 contentStatus: "draft"

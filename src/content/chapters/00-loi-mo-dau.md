@@ -7,7 +7,7 @@ order: 0
 description: "Từ Vibe Coding đến AI Engineering, từ một thử nghiệm nhỏ đến một sản phẩm thực tế."
 readingTime: "12 min"
 topics: ["ai engineering", "vibe coding", "workflow", "mindset", "continuity"]
-hero: "/beyond-vibe-coding/images/chapter-00-hero.webp"
+hero: "images/chapter-00-hero.webp"
 published: "2026-09-10"
 publicationStatus: "unpublished"
 contentStatus: "complete"

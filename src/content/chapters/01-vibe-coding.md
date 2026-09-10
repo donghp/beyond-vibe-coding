@@ -7,7 +7,7 @@ order: 1
 description: "Từ một ý tưởng rất đơn giản đến câu hỏi: AI thực sự có thể giúp tôi đi bao xa?"
 readingTime: "15 min"
 topics: ["vibe coding", "task decomposition", "verification", "context", "continuity", "enerixfin"]
-hero: "/beyond-vibe-coding/images/chapter-01-hero.webp"
+hero: "images/chapter-01-hero.webp"
 published: "2026-09-09"
 publicationStatus: "published"
 contentStatus: "complete"

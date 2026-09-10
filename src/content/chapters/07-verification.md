@@ -7,7 +7,7 @@ order: 7
 description: "Why automatic linting, compiling, and runtime testing are mandatory counterparts to AI-generated code."
 readingTime: "7 min"
 topics: ["testing", "compilation", "linting", "validation"]
-hero: "/beyond-vibe-coding/images/chapter-07-hero.webp"
+hero: "images/chapter-07-hero.webp"
 published: "2026-09-09"
 publicationStatus: "unpublished"
 contentStatus: "draft"

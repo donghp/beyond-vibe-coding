@@ -230,7 +230,7 @@ body {
 /* Production-safe @font-face declaration for Dedication Recipient Signature */
 @font-face {
   font-family: "iCiel Brittany Signature";
-  src: url("/fonts/iCielBrittanySignature-Regular.ttf") format("truetype");
+  src: url("../../public/fonts/iCielBrittanySignature-Regular.ttf") format("truetype");
   font-display: swap;
 }
 

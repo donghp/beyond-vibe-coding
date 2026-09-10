@@ -7,7 +7,7 @@ order: 5
 description: "Từ Task Decomposition đến Execution Contract và Controlled Autonomy: thiết lập ranh giới kiểm soát cho AI."
 readingTime: "~ 10 phút đọc"
 topics: ["Task Decomposition", "Execution Contract", "Controlled Autonomy", "Authority Boundaries", "Verification"]
-hero: "/beyond-vibe-coding/images/chapter-05-hero.webp"
+hero: "images/chapter-05-hero.webp"
 published: "2026-09-09"
 publicationStatus: "published"
 contentStatus: "partial"
