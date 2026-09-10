@@ -227,6 +227,17 @@ body {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
+/* Production-safe @font-face declaration for Dedication Recipient Signature */
+@font-face {
+  font-family: "iCiel Brittany Signature";
+  src: url("/fonts/iCielBrittanySignature-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+.font-dedication-signature {
+  font-family: "iCiel Brittany Signature", cursive;
+}
+
 /* Goal Callout - Reference B */
 .goal-card {
   background-color: #f0fdf4;

@@ -6,6 +6,7 @@ import SearchDialog from '../../components/SearchDialog.astro';
 import Footer from '../../components/Footer.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
+const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
 
 // Find first published chapter for navigation target
 const publishedChapters = await getCollection('chapters', ({ data }) => {
@@ -13,8 +14,8 @@ const publishedChapters = await getCollection('chapters', ({ data }) => {
 });
 const sortedChapters = publishedChapters.sort((a, b) => a.data.order - b.data.order);
 const firstChapterUrl = sortedChapters.length > 0 
-  ? `${baseUrl}/chapters/${sortedChapters[0].id}`
-  : `${baseUrl}/`;
+  ? `${cleanBase}/chapters/${sortedChapters[0].id}`
+  : `${cleanBase}/`;
 ---
 
 <BaseLayout 
@@ -75,19 +76,15 @@ const firstChapterUrl = sortedChapters.length > 0
         </div>
       </div>
 
-      <!-- Bottom Right Dedicated Recipient & Author Signature Artwork -->
-      <div class="flex flex-col items-end self-end pb-8 sm:pb-12 mt-12 sm:mt-16 max-w-full gap-4">
+      <!-- Bottom Right Dedicated Recipient & Author Signature -->
+      <div class="flex flex-col items-end self-end pb-8 sm:pb-12 mt-12 sm:mt-16 max-w-full gap-2 sm:gap-3">
+        <p class="font-dedication-signature text-3xl sm:text-4xl md:text-5xl text-navy-950 text-right select-text leading-snug">
+          Thân tặng bạn Lê Ngọc Giáp
+        </p>
         <img 
-          src={`${baseUrl}/images/dedication-artwork.png`}
-          alt="Trang đề tặng: Thân tặng bạn Lê Ngọc Giáp"
-          class="w-64 sm:w-80 md:w-96 max-w-full h-auto object-contain select-none pointer-events-none"
-          loading="eager"
-          decoding="async"
-        />
-        <img 
-          src={`${baseUrl}/images/author-signature.png`}
+          src={`${cleanBase}/images/author-signature.png`}
           alt="Chữ ký của Hồng Đông"
-          class="w-40 sm:w-56 max-w-full h-auto object-contain select-none pointer-events-none"
+          class="w-40 sm:w-56 max-w-full h-auto object-contain select-none pointer-events-none mt-1"
           loading="eager"
           decoding="async"
         />
@@ -104,7 +101,7 @@ const firstChapterUrl = sortedChapters.length > 0
     <!-- Paging Controls Bar -->
     <div class="w-full max-w-2xl mt-6 flex items-center justify-between select-none">
       <a 
-        href={`${baseUrl}/`}
+        href={`${cleanBase}/`}
         class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-navy-200 bg-white hover:bg-navy-50 text-navy-700 text-xs font-bold transition-all shadow-2xs group cursor-pointer"
       >
         <span class="transition-transform group-hover:-translate-x-0.5">←</span>
@@ -112,7 +109,7 @@ const firstChapterUrl = sortedChapters.length > 0
       </a>
 
       <a 
-        href={`${baseUrl}/opening/danh-tang`}
+        href={`${cleanBase}/opening/danh-tang`}
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-navy-950 hover:bg-navy-900 text-white text-xs font-bold transition-all shadow-2xs group cursor-pointer"
       >
         <span>Trang tiếp theo</span>
