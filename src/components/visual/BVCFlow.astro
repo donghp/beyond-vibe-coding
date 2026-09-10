@@ -1,0 +1,147 @@
+---
+interface Props {
+  steps?: string[];
+  id?: string;
+  className?: string;
+}
+
+const { steps: propsSteps, id, className = "" } = Astro.props;
+
+// Default steps if none provided (Chapter 05 process candidate)
+const defaultSteps = [
+  "TASK",
+  "CLASSIFY RISK",
+  "DEFINE SCOPE",
+  "DEFINE EXECUTION CONTRACT",
+  "SELECT AUTONOMY LEVEL",
+  "EXECUTE",
+  "VERIFY"
+];
+
+const steps = propsSteps && propsSteps.length > 0 ? propsSteps : defaultSteps;
+
+// Grid layout constants
+const width = 480;
+const nodeWidth = 320;
+const nodeHeight = 44;
+const gapY = 32;
+const paddingY = 24;
+
+const totalHeight = paddingY * 2 + steps.length * nodeHeight + (steps.length - 1) * gapY;
+const cx = width / 2;
+---
+
+<div id={id} class={`bvc-flow-diagram w-full flex justify-center py-2 select-none ${className}`}>
+  <svg 
+    viewBox={`0 0 ${width} ${totalHeight}`} 
+    class="w-full max-w-[440px] h-auto drop-shadow-sm"
+    role="img" 
+    aria-labelledby={`flow-title-${id || 'def'} flow-desc-${id || 'def'}`}
+  >
+    <title id={`flow-title-${id || 'def'}`}>Quy trình kỹ thuật BVC</title>
+    <desc id={`flow-desc-${id || 'def'}`}>Quy trình các bước từ tiếp nhận Task đến Verify kết quả: {steps.join(" -> ")}</desc>
+
+    <!-- Marker Definitions for elegant downward arrow connectors -->
+    <defs>
+      <marker 
+        id="arrow" 
+        viewBox="0 0 10 10" 
+        refX="6" 
+        refY="5" 
+        markerWidth="6" 
+        markerHeight="6" 
+        orient="auto-start-reverse"
+      >
+        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0066cc" />
+      </marker>
+    </defs>
+
+    <!-- Main central vertical background timeline path -->
+    <line 
+      x1={cx} 
+      y1={paddingY} 
+      x2={cx} 
+      y2={totalHeight - paddingY} 
+      stroke="#e5eaf3" 
+      stroke-width="1.5" 
+      stroke-dasharray="3 3"
+    />
+
+    <!-- Loop through each semantic step node -->
+    {steps.map((step, idx) => {
+      const nodeX = cx - nodeWidth / 2;
+      const nodeY = paddingY + idx * (nodeHeight + gapY);
+      const isLast = idx === steps.length - 1;
+      const isFirst = idx === 0;
+
+      // Color treatments for nodes based on their state
+      // Terminal node (VERIFY) gets semantic green
+      const bgFill = isLast ? "#e8f8f0" : (isFirst ? "#eef6ff" : "#fbfbfd");
+      const strokeColor = isLast ? "#63b32e" : (isFirst ? "#0066cc" : "#cbd6e7");
+      const textColor = isLast ? "#1e6b30" : (isFirst ? "#0052a3" : "#0f1c3f");
+      const textWeight = isLast || isFirst ? "bold" : "medium";
+
+      return (
+        <g class="transition-all duration-300 hover:opacity-95">
+          <!-- Central Connecting Arrow (if not the last step) -->
+          {!isLast && (
+            <line 
+              x1={cx} 
+              y1={nodeY + nodeHeight} 
+              x2={cx} 
+              y2={nodeY + nodeHeight + gapY - 2} 
+              stroke="#0066cc" 
+              stroke-width="1.5" 
+              marker-end="url(#arrow)"
+            />
+          )}
+
+          <!-- Node Box -->
+          <rect 
+            x={nodeX} 
+            y={nodeY} 
+            width={nodeWidth} 
+            height={nodeHeight} 
+            rx="6" 
+            fill={bgFill} 
+            stroke={strokeColor} 
+            stroke-width="1.2" 
+          />
+
+          <!-- Number Badge -->
+          <circle 
+            cx={nodeX + 22} 
+            cy={nodeY + nodeHeight / 2} 
+            r="9" 
+            fill={isLast ? "#63b32e" : "#e5eaf3"} 
+          />
+          <text 
+            x={nodeX + 22} 
+            y={nodeY + nodeHeight / 2 + 3} 
+            font-family="'Inter', sans-serif"
+            font-size="9px" 
+            font-weight="bold" 
+            fill={isLast ? "#ffffff" : "#64748b"} 
+            text-anchor="middle"
+          >
+            {idx + 1}
+          </text>
+
+          <!-- Node Text Label -->
+          <text 
+            x={cx + 10} 
+            y={nodeY + nodeHeight / 2 + 4} 
+            font-family="'Inter', sans-serif"
+            font-size="11px" 
+            font-weight={textWeight} 
+            letter-spacing="0.03em"
+            fill={textColor} 
+            text-anchor="middle"
+          >
+            {step}
+          </text>
+        </g>
+      );
+    })}
+  </svg>
+</div>

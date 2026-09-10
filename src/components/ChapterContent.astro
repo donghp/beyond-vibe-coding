@@ -1,0 +1,111 @@
+---
+import BVCVisualFrame from './visual/BVCVisualFrame.astro';
+import BVCFlow from './visual/BVCFlow.astro';
+import BVCActionScope from './visual/BVCActionScope.astro';
+
+// Render the incoming slot contents to HTML on the server-side
+const html = await Astro.slots.render('default');
+
+// Chunking algorithm to find all compile-time HTML visual placeholders
+const regex = /<div class="bvc-visual-placeholder" data-type="([^"]+)" data-id="([^"]+)">([\s\S]*?)<\/div>/g;
+
+interface Chunk {
+  type: 'html' | 'visual';
+  content?: string;
+  visualType?: string;
+  visualId?: string;
+  lines?: string[];
+}
+
+const chunks: Chunk[] = [];
+let lastIndex = 0;
+let match;
+
+while ((match = regex.exec(html)) !== null) {
+  // Push preceding plain HTML
+  if (match.index > lastIndex) {
+    chunks.push({
+      type: 'html',
+      content: html.slice(lastIndex, match.index)
+    });
+  }
+
+  const visualType = match[1];
+  const visualId = match[2];
+  const rawContent = match[3];
+
+  // Clean raw HTML tags (breaks, paragraphs, encoding etc.)
+  const cleanedContent = rawContent
+    .replace(/<br\s*\/?>/gi, '\n') // turn breaks into standard newlines
+    .replace(/<\/?[^>]+(>|$)/g, '') // strip all other HTML tags
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"');
+
+  // Split lines, trim, and filter out decorative arrow separators (↓) and blank lines
+  const lines = cleanedContent
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line && line !== '↓' && line !== '↓');
+
+  chunks.push({
+    type: 'visual',
+    visualType,
+    visualId,
+    lines
+  });
+
+  lastIndex = regex.lastIndex;
+}
+
+// Push remaining trailing HTML
+if (lastIndex < html.length) {
+  chunks.push({
+    type: 'html',
+    content: html.slice(lastIndex)
+  });
+}
+---
+
+<div class="prose-editorial-body w-full flex flex-col">
+  {chunks.map((chunk) => {
+    if (chunk.type === 'html') {
+      return <Fragment set:html={chunk.content} />;
+    } else if (chunk.type === 'visual') {
+      // Map Chapter 05 pilot visuals to correct figures & captions
+      const isActionScope = chunk.visualType === 'action-scope';
+      const isFlow = chunk.visualType === 'flow';
+      
+      const figId = chunk.visualId === 'V05-01' ? "05.1" : (chunk.visualId === 'V05-02' ? "05.2" : undefined);
+      const figType = isActionScope ? "ARTIFACT" : "PROCESS";
+      const caption = chunk.visualId === 'V05-01' 
+        ? "Task Action Scope thiết lập ranh giới quyền hạn chi tiết cho các hoạt động đọc, ghi và thực thi của AI."
+        : (chunk.visualId === 'V05-02' 
+          ? "Vòng lặp thiết kế task có kiểm soát từ phân loại rủi ro đến bước thẩm định kết quả cuối cùng."
+          : undefined);
+
+      return (
+        <BVCVisualFrame figId={figId} figType={figType} caption={caption} id={chunk.visualId} borderless={isActionScope}>
+          {isActionScope && (
+            <BVCActionScope 
+              items={chunk.lines?.map(line => {
+                const colonIdx = line.indexOf(':');
+                if (colonIdx !== -1) {
+                  return {
+                    action: line.slice(0, colonIdx).trim(),
+                    scope: line.slice(colonIdx + 1).trim()
+                  };
+                }
+                return { action: "INFO", scope: line };
+              })} 
+            />
+          )}
+          {isFlow && (
+            <BVCFlow steps={chunk.lines} />
+          )}
+        </BVCVisualFrame>
+      );
+    }
+  })}
+</div>

@@ -235,21 +235,15 @@ Nó mô tả AI được phép làm gì trong task đó.
 
 Ví dụ:
 
-```text
+:::bvc-visual{type="action-scope" id="V05-01"}
 READ: allowed files
-
 WRITE: src/module-x/**
-
 CREATE: tests/module-x/**
-
 EXECUTE: unit tests only
-
 FORBIDDEN: production access
-
 FORBIDDEN: unrelated modules
-
 FORBIDDEN: dependency changes without authorization
-```
+:::
 
 Đây không phải là prompt decoration. Nó là một phần của execution boundary.
 
@@ -375,33 +369,15 @@ Task R4 có thể cần tách thành discovery trước, decision sau, implement
 
 Từ đó tôi bắt đầu thấy một vòng lặp:
 
-```text
+:::bvc-visual{type="flow" id="V05-02"}
 TASK
-
-↓
-
 CLASSIFY RISK
-
-↓
-
 DEFINE SCOPE
-
-↓
-
 DEFINE EXECUTION CONTRACT
-
-↓
-
 SELECT AUTONOMY LEVEL
-
-↓
-
 EXECUTE
-
-↓
-
 VERIFY
-```
+:::
 
 ### AI CẦN BIẾT KHI NÀO KHÔNG NÊN TIẾP TỤC
 

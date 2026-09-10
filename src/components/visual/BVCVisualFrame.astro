@@ -1,0 +1,48 @@
+---
+interface Props {
+  id?: string;
+  figId?: string;
+  figType?: string;
+  caption?: string;
+  className?: string;
+  borderless?: boolean;
+}
+
+const { id, figId, figType = "FIGURE", caption, className = "", borderless = false } = Astro.props;
+---
+
+<figure 
+  id={id} 
+  class={`bvc-visual-frame my-10 w-full max-w-[840px] mx-auto flex flex-col items-center gap-6 select-none print:break-inside-avoid print:shadow-none print:border-[#081321] transition-all duration-300 ${borderless ? 'bg-transparent border-none p-0' : 'bg-white border border-[#e5eaf3] rounded-lg p-5 sm:p-6 md:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.01)]'} ${className}`}
+>
+  <!-- Figure Heading Header -->
+  {figId && (
+    <div class="w-full flex items-center justify-between border-b border-[#e5eaf3] pb-3 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#64748B]">
+      <span class="text-[#081321] font-bold">{figType} {figId}</span>
+      <span class="text-[#64748B]">BEYOND VIBE CODING</span>
+    </div>
+  )}
+
+  <!-- Primary Diagram Canvas Slot -->
+  <div class="w-full flex justify-center items-center overflow-x-auto overflow-y-hidden py-2" aria-label={`Diagram representation for ${figType} ${figId || ''}`}>
+    <slot />
+  </div>
+
+  <!-- Figure Caption Footer -->
+  {caption && (
+    <figcaption class="w-full text-center text-xs sm:text-sm text-[#64748B] leading-relaxed border-t border-[#e5eaf3] pt-4 px-2 sm:px-6 max-w-[680px]">
+      {caption}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  /* Print fallbacks */
+  @media print {
+    .bvc-visual-frame {
+      break-inside: avoid;
+      border: 1px solid #081321;
+      padding: 1.5rem;
+    }
+  }
+</style>

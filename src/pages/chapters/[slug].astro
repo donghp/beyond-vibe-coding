@@ -11,6 +11,7 @@ import SearchDialog from '../../components/SearchDialog.astro';
 import BookMode from '../../components/BookMode.astro';
 import ChapterNavigation from '../../components/ChapterNavigation.astro';
 import Footer from '../../components/Footer.astro';
+import ChapterContent from '../../components/ChapterContent.astro';
 import { joinBase } from '../../utils/paths';
 
 // Generate static paths strictly for published chapter slugs
@@ -104,7 +105,9 @@ const prevCustomLink = currentIndex === 0 ? {
     />
 
     <!-- Render Markdown Body contents -->
-    <Content />
+    <ChapterContent>
+      <Content />
+    </ChapterContent>
 
     <!-- Sequential Pagination -->
     <ChapterNavigation prevChapter={prevChapter} nextChapter={nextChapter} prevCustomLink={prevCustomLink} />

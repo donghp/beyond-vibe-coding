@@ -1,0 +1,110 @@
+---
+interface ActionItem {
+  action: string;
+  scope: string;
+}
+
+interface Props {
+  items?: ActionItem[];
+  id?: string;
+  className?: string;
+}
+
+const { items: propsItems, id, className = "" } = Astro.props;
+
+// Default candidate values from Chapter 05 Action Scope
+const defaultItems: ActionItem[] = [
+  { action: "READ", scope: "allowed files" },
+  { action: "WRITE", scope: "src/module-x/**" },
+  { action: "CREATE", scope: "tests/module-x/**" },
+  { action: "EXECUTE", scope: "unit tests only" },
+  { action: "FORBIDDEN", scope: "production access" },
+  { action: "FORBIDDEN", scope: "unrelated modules" },
+  { action: "FORBIDDEN", scope: "dependency changes without authorization" }
+];
+
+const items = propsItems && propsItems.length > 0 ? propsItems : defaultItems;
+
+// Separate authorized actions from forbidden actions
+const authorizedItems = items.filter(item => item.action.toUpperCase() !== "FORBIDDEN");
+const forbiddenItems = items.filter(item => item.action.toUpperCase() === "FORBIDDEN");
+---
+
+<div id={id} class={`bvc-action-scope w-full max-w-[680px] mx-auto bg-[#fbfbfd] border border-[#e5eaf3] rounded-lg overflow-hidden transition-all duration-300 ${className}`}>
+  <!-- Frame Header -->
+  <div class="bg-[#f4f6fa] border-b border-[#e5eaf3] px-5 py-3 flex items-center justify-between select-none">
+    <div class="flex items-center gap-2">
+      <div class="w-2.5 h-2.5 rounded-full bg-[#0066cc]"></div>
+      <span class="text-xs font-mono font-bold tracking-wider text-[#0f1c3f] uppercase">AUTHORIZED BOUNDARY LAYER</span>
+    </div>
+    <span class="text-[10px] font-mono text-[#64748b]">BVC SPEC v1.0</span>
+  </div>
+
+  <!-- Content Grid -->
+  <div class="p-5 sm:p-6 flex flex-col gap-5">
+    
+    <!-- Section 1: Authorized Operations -->
+    {authorizedItems.length > 0 && (
+      <div class="flex flex-col gap-3">
+        <div class="text-[11px] font-bold font-mono tracking-wider text-[#64748b] uppercase pb-1 border-b border-dashed border-[#cbd6e7]">
+          ALLOWED INTERACTIONS
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {authorizedItems.map((item) => {
+            // Stylized label indicators for each action type
+            let colorClass = "text-[#0066cc] border-[#cbd6e7] bg-[#eef6ff]";
+            if (item.action.toUpperCase() === "READ") colorClass = "text-[#3c5688] border-[#cbd6e7] bg-[#f4f6fa]";
+            if (item.action.toUpperCase() === "WRITE") colorClass = "text-[#0066cc] border-[#cbd6e7] bg-[#eef6ff]";
+            if (item.action.toUpperCase() === "CREATE") colorClass = "text-[#3a86c8] border-[#cbd6e7] bg-[#eef6ff]";
+            if (item.action.toUpperCase() === "EXECUTE") colorClass = "text-[#2e7d32] border-[#a5d6a7] bg-[#e8f8f0]";
+
+            const isCodeValue = item.scope.includes('/') || item.scope.includes('*');
+
+            return (
+              <div class="flex items-center gap-3 border-l-2 border-[#0066cc] bg-white p-3 rounded shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+                <span class={`px-2 py-0.5 text-[9px] font-mono font-bold uppercase rounded border ${colorClass} tracking-wider min-w-[64px] text-center`}>
+                  {item.action}
+                </span>
+                <span class={`text-xs text-[#0f1c3f] ${isCodeValue ? 'font-mono bg-[#f4f6fa] px-1.5 py-0.5 rounded text-[11px]' : 'font-sans font-medium'}`}>
+                  {item.scope}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    <!-- Section 2: Forbidden Boundaries -->
+    {forbiddenItems.length > 0 && (
+      <div class="flex flex-col gap-3 mt-1">
+        <div class="text-[11px] font-bold font-mono tracking-wider text-[#d32f2f] uppercase pb-1 border-b border-dashed border-[#ffcdd2]">
+          CRITICAL CONSTRAINT LIMITS (FORBIDDEN)
+        </div>
+        
+        <div class="flex flex-col gap-2">
+          {forbiddenItems.map((item) => {
+            const isCodeValue = item.scope.includes('/') || item.scope.includes('*');
+            
+            return (
+              <div class="flex items-center gap-3 border-l-2 border-[#d32f2f] bg-[#fff5f5] p-3 rounded">
+                <span class="px-2 py-0.5 text-[9px] font-mono font-bold uppercase rounded border border-[#ffcdd2] bg-[#ffebee] text-[#d32f2f] tracking-wider min-w-[64px] text-center">
+                  LIMIT
+                </span>
+                <span class={`text-xs text-[#5c0000] ${isCodeValue ? 'font-mono bg-[#ffebee] px-1.5 py-0.5 rounded text-[11px]' : 'font-sans font-medium'}`}>
+                  {item.scope}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    <!-- Interactive Footer Sign-off -->
+    <div class="text-[10px] text-center text-[#64748b] font-sans border-t border-[#e5eaf3] pt-3 mt-1 select-none">
+      OUTSIDE THIS SCOPE &rarr; DO NOT EXECUTE &bull; IMMEDIATELY CEASE OPERATION
+    </div>
+  </div>
+</div>
