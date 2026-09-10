@@ -18,6 +18,8 @@ readingTime: "6 min"
 topics: ["context windows", "statelessness", "memory", "documentation"]
 published: "2026-09-10"
 version: "1.0.0"
+publicationStatus: "published"
+contentStatus: "complete"
 ---
 
 <!--
