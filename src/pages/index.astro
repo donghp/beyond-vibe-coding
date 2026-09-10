@@ -1,0 +1,243 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+import Footer from '../components/Footer.astro';
+
+// Fetch all chapters and sort by order
+const allChapters = await getCollection('chapters');
+const sortedChapters = allChapters.sort((a, b) => a.data.order - b.data.order);
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<BaseLayout 
+  title="Beyond Vibe Coding — An intentional way to build with AI" 
+  description="Tư duy ngược để hoàn thành dự án phần mềm với AI. Less Cost. More Real Value."
+  isReader={false}
+>
+  <Header slot="header" />
+
+  <!-- Book Opening Experience (Generous Whitespace, Editorial, Book First) -->
+  <div class="w-full bg-[#fbfbfd]">
+    
+    <!-- Hero Opening Section -->
+    <section class="max-w-6xl mx-auto px-6 pt-12 pb-16 sm:pt-20 sm:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Editorial Book Presentation -->
+        <div class="lg:col-span-7 flex flex-col items-start select-none">
+          <!-- Edition Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0fdf4] border border-[#bbf7d0] text-[#15803d] text-xs font-mono font-bold tracking-widest uppercase mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#16a34a] animate-pulse"></span>
+            <span>LIVING BOOK • DIGITAL EDITION</span>
+          </div>
+
+          <!-- Main Book Title -->
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-black text-navy-950 tracking-tight leading-[1.05] uppercase font-sans mb-3">
+            BEYOND <span class="text-tech-blue">VIBE</span> CODING
+          </h1>
+
+          <!-- Tagline -->
+          <p class="text-xl sm:text-2xl font-bold text-navy-800 tracking-tight mb-2 font-sans">
+            An intentional way to build with AI
+          </p>
+
+          <!-- Core Thesis (Vietnamese) -->
+          <p class="text-base sm:text-lg text-navy-600 font-medium leading-relaxed max-w-xl mb-6">
+            Tư duy ngược để hoàn thành dự án phần mềm với AI.
+          </p>
+
+          <!-- Author's Editorial Quote -->
+          <div class="w-full max-w-xl p-4 rounded-xl bg-white border border-navy-200/80 shadow-2xs mb-8">
+            <p class="text-xs sm:text-sm text-navy-800 leading-relaxed italic">
+              “Mục tiêu không phải là viết code nhanh hơn. Mục tiêu là tạo ra phần mềm có giá trị thực sự bền bỉ.”
+            </p>
+            <div class="flex items-center justify-between text-[11px] font-bold text-navy-500 uppercase tracking-wider mt-3 pt-2.5 border-t border-navy-100">
+              <span>HỒNG ĐÔNG</span>
+              <span class="text-tech-blue font-mono font-bold">LESS COST. MORE REAL VALUE.</span>
+            </div>
+          </div>
+
+          <!-- Primary & Secondary Actions -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a 
+              href={`${baseUrl}/opening/dedication`} 
+              class="inline-flex items-center gap-2.5 px-6 py-3.5 bg-tech-blue hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-sm hover:shadow transition-all focus:outline-none cursor-pointer"
+            >
+              <span>OPEN THE BOOK</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a 
+              href="#chapters" 
+              class="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-navy-50 text-navy-800 font-bold text-sm rounded-xl border border-navy-200/80 shadow-2xs transition-all focus:outline-none"
+            >
+              <span>EXPLORE CHAPTERS</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Authentic Book Cover Presentation -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative w-full max-w-[320px] aspect-[1055/1491] rounded-2xl overflow-hidden shadow-2xl border border-navy-200/80 bg-navy-950 transition-transform duration-300 hover:scale-[1.01] group">
+            <img 
+              src={`${baseUrl.replace(/\/$/, '')}/images/cover-vn.png`} 
+              alt="Beyond Vibe Coding — Bìa sách chính thức" 
+              class="w-full h-full object-contain"
+              width="1055"
+              height="1491"
+              loading="eager"
+            />
+          </div>
+          
+          <div class="flex items-center gap-2 text-xs text-navy-500 font-medium mt-4 select-none">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Bản điện tử đầy đủ • Đọc trực tuyến tự do</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Subtle Editorial Separator -->
+    <div class="w-full max-w-5xl mx-auto px-6">
+      <div class="h-[1px] bg-navy-200/60"></div>
+    </div>
+
+    <!-- Table of Contents / Chapters Index -->
+    <section id="chapters" class="max-w-4xl mx-auto px-6 py-16 sm:py-20 select-none">
+      <div class="flex items-center justify-between pb-4 mb-6 border-b border-navy-200">
+        <div class="flex flex-col">
+          <span class="text-xs font-mono font-bold tracking-widest text-navy-400 uppercase">TABLE OF CONTENTS</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy-950 uppercase tracking-tight mt-1 font-sans">
+            Mục lục các chương
+          </h2>
+        </div>
+        <span class="text-xs font-mono text-navy-500 font-semibold hidden sm:inline">
+          9 Chương • Sách số sống
+        </span>
+      </div>
+
+      <!-- Editorial Vertical Chapter List -->
+      <div class="flex flex-col divide-y divide-navy-100">
+        {sortedChapters.map((ch) => {
+          const isPublished = ch.data.publicationStatus === 'published';
+          const numStr = ch.data.order === 0 ? '0' : ch.data.order.toString().padStart(2, '0');
+          const isGolden = ch.id === '05-controlled-autonomy';
+          
+          if (!isPublished) {
+            return (
+              <div 
+                class="py-4 sm:py-5 px-3 -mx-3 rounded-xl flex items-start justify-between gap-4 select-none opacity-80"
+              >
+                <div class="flex items-start gap-4 sm:gap-6 min-w-0">
+                  <!-- Chapter Number -->
+                  <span class="text-sm sm:text-base font-mono font-bold shrink-0 pt-0.5 text-navy-400">
+                    {numStr}
+                  </span>
+
+                  <!-- Title & Subtitle -->
+                  <div class="flex flex-col min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <span class="text-sm sm:text-base font-bold tracking-tight text-navy-700">
+                        {ch.data.title}
+                      </span>
+                      <span class="px-2 py-0.5 text-[9px] font-mono font-bold tracking-wider text-navy-500 bg-navy-100/80 rounded-full font-sans uppercase">
+                        SẮP XUẤT BẢN
+                      </span>
+                    </div>
+                    
+                    {ch.data.subtitle && (
+                      <span class="text-xs sm:text-sm text-navy-400 font-normal mt-1 line-clamp-1">
+                        {ch.data.subtitle}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <!-- Status marker -->
+                <div class="flex items-center gap-3 shrink-0 pt-1 text-xs text-navy-400 font-medium">
+                  <span class="text-[11px] font-mono text-navy-400">Đang biên tập</span>
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <a 
+              href={`${baseUrl}/chapters/${ch.id}`}
+              class={`group py-4 sm:py-5 px-3 -mx-3 rounded-xl flex items-start justify-between gap-4 transition-all duration-150 hover:bg-[#f0f6fc] ${
+                isGolden ? 'bg-[#f4f8fd] border-l-4 border-tech-blue pl-4' : ''
+              }`}
+            >
+              <div class="flex items-start gap-4 sm:gap-6 min-w-0">
+                <!-- Chapter Number -->
+                <span class={`text-sm sm:text-base font-mono font-bold shrink-0 pt-0.5 ${
+                  isGolden ? 'text-tech-blue' : 'text-navy-400 group-hover:text-navy-700'
+                }`}>
+                  {numStr}
+                </span>
+
+                <!-- Title & Subtitle -->
+                <div class="flex flex-col min-w-0">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class={`text-sm sm:text-base font-bold tracking-tight ${
+                      isGolden ? 'text-tech-blue' : 'text-navy-950 group-hover:text-tech-blue'
+                    }`}>
+                      {ch.data.title}
+                    </span>
+                    {isGolden && (
+                      <span class="px-2 py-0.5 text-[10px] font-bold text-tech-blue bg-blue-50 border border-blue-200 rounded-full font-sans">
+                        Chương mẫu / Đọc ngay
+                      </span>
+                    )}
+                  </div>
+                  
+                  {ch.data.subtitle && (
+                    <span class="text-xs sm:text-sm text-navy-500 font-normal mt-1 line-clamp-1">
+                      {ch.data.subtitle}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <!-- Pacing & Read Arrow -->
+              <div class="flex items-center gap-3 shrink-0 pt-1 text-xs text-navy-400 group-hover:text-tech-blue font-medium">
+                <span class="hidden sm:inline font-mono">{ch.data.readingTime}</span>
+                <span class="font-bold transition-transform group-hover:translate-x-1">→</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Reading Philosophy Notice -->
+    <section class="max-w-4xl mx-auto px-6 pb-20 select-none">
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-navy-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="flex flex-col gap-1 max-w-xl">
+          <span class="text-xs font-mono font-bold text-[#15803d] tracking-widest uppercase">READ THE BOOK. FREE. ONLINE.</span>
+          <p class="text-xs sm:text-sm text-navy-700 leading-relaxed">
+            Beyond Vibe Coding được xuất bản dưới dạng Digital Book Experience mở. Đọc trực tiếp trên trình duyệt, không cần đăng ký tài khoản hay cài đặt thêm.
+          </p>
+        </div>
+
+        <a 
+          href={`${baseUrl}/chapters/05-controlled-autonomy`}
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-navy-950 hover:bg-navy-900 text-white font-bold text-xs shrink-0 transition-colors"
+        >
+          <span>Đọc ngay</span>
+          <span>→</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <SearchDialog slot="search-dialog" />
+  <Footer slot="footer" />
+</BaseLayout>

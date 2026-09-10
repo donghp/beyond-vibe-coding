@@ -1,0 +1,118 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<header class="sticky top-0 z-40 w-full h-[var(--header-height)] bg-[#fbfbfd]/95 backdrop-blur-md border-b border-navy-100 flex items-center justify-between px-6 transition-all duration-300 header-container">
+  <!-- Brand Identity -->
+  <a href={`${baseUrl}/`} class="flex flex-col select-none group focus:outline-none">
+    <div class="flex items-center gap-1.5 text-base sm:text-lg font-black tracking-tight uppercase leading-none font-sans">
+      <span class="text-navy-950">BEYOND</span>
+      <span class="text-tech-blue">VIBE</span>
+      <span class="text-navy-950">CODING</span>
+    </div>
+    <span class="text-[11px] text-navy-500 font-medium tracking-normal mt-0.5">An intentional way to build with AI</span>
+  </a>
+
+  <!-- Primary Book Navigation -->
+  <nav class="hidden lg:flex items-center gap-8 text-xs font-bold select-none">
+    <a 
+      href={`${baseUrl}/chapters/05-controlled-autonomy`} 
+      class="text-navy-950 relative py-1 hover:text-tech-blue transition-colors duration-150 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-tech-blue"
+    >
+      Chapters
+    </a>
+    <a href={`${baseUrl}/#glossary`} class="text-navy-600 hover:text-tech-blue transition-colors duration-150">Glossary</a>
+    <a href={`${baseUrl}/#about`} class="text-navy-600 hover:text-tech-blue transition-colors duration-150">About</a>
+    <a href={`${baseUrl}/#resources`} class="text-navy-600 hover:text-tech-blue transition-colors duration-150">Resources</a>
+  </nav>
+
+  <!-- Right Actions: Search & GitHub Profile -->
+  <div class="flex items-center gap-4">
+    <!-- Styled Search Box -->
+    <button 
+      id="search-trigger-btn"
+      class="flex items-center justify-between w-48 sm:w-64 px-3 py-1.5 text-xs text-navy-500 bg-white border border-navy-200 rounded-lg hover:border-tech-blue/40 hover:text-navy-700 transition-all duration-150 focus:outline-none cursor-pointer shadow-2xs"
+      aria-label="Search Chapters (Ctrl+K)"
+    >
+      <div class="flex items-center gap-2 truncate">
+        <svg class="w-3.5 h-3.5 text-navy-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="truncate text-[11px]">Search chapters, topics, ...</span>
+      </div>
+      <kbd class="hidden sm:inline-flex px-1.5 py-0.5 text-[10px] text-navy-400 bg-navy-50 border border-navy-200 rounded font-mono shrink-0">
+        Ctrl K
+      </kbd>
+    </button>
+
+    <!-- GitHub Donghp Profile Badge -->
+    <a 
+      href="https://github.com/donghp/beyond-vibe-coding" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="flex items-center gap-2 text-navy-950 hover:text-tech-blue transition-colors duration-150 focus:outline-none select-none pl-1"
+      aria-label="GitHub Repository"
+      title="Source on GitHub"
+    >
+      <svg class="w-6 h-6 text-navy-950" viewBox="0 0 24 24" fill="currentColor">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+      </svg>
+      <div class="hidden sm:flex flex-col text-left leading-tight">
+        <span class="text-xs font-extrabold text-navy-950">GitHub</span>
+        <span class="text-[10px] text-navy-500 font-mono">donghp</span>
+      </div>
+    </a>
+  </div>
+</header>
+
+
+<script>
+  // Sync the Book Mode button UI with active status classes on initialization
+  function updateBtnUI() {
+    const isBookMode = document.documentElement.classList.contains('book-mode-active');
+    const btn = document.getElementById('book-mode-toggle-btn');
+    const text = document.getElementById('book-mode-btn-text');
+    
+    if (btn && text) {
+      if (isBookMode) {
+        btn.classList.add('bg-navy-950', 'text-white', 'border-navy-950');
+        btn.classList.remove('text-navy-600', 'border-navy-100', 'hover:bg-navy-50');
+        text.textContent = "Exit Book Mode";
+      } else {
+        btn.classList.remove('bg-navy-950', 'text-white', 'border-navy-950');
+        btn.classList.add('text-navy-600', 'border-navy-100', 'hover:bg-navy-50');
+        text.textContent = "Book Mode";
+      }
+    }
+  }
+
+  // Initialize UI state
+  updateBtnUI();
+
+  // Listen to custom toggle events from BaseLayout keyboard event listener
+  window.addEventListener('book-mode-changed', () => {
+    updateBtnUI();
+  });
+
+  // Handle direct click on toggle button
+  document.getElementById('book-mode-toggle-btn')?.addEventListener('click', () => {
+    const isActive = document.documentElement.classList.toggle('book-mode-active');
+    localStorage.setItem('beyond-vibe-book-mode', String(isActive));
+    window.dispatchEvent(new CustomEvent('book-mode-changed', { detail: { isActive } }));
+    updateBtnUI();
+  });
+
+  // Trigger search dialog open event
+  document.getElementById('search-trigger-btn')?.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('open-search-dialog'));
+  });
+</script>
+
+<style>
+  /* Header collapses nicely under book mode active classes */
+  :global(.book-mode-active) .header-container {
+    border-color: transparent;
+    background-color: transparent;
+  }
+</style>

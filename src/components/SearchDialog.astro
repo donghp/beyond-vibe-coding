@@ -1,0 +1,167 @@
+---
+import { getCollection } from 'astro:content';
+
+const baseUrl = import.meta.env.BASE_URL;
+const publishedChapters = await getCollection('chapters', ({ data }) => {
+  return data.publicationStatus === 'published';
+});
+const chaptersIndexData = publishedChapters.map(c => ({
+  id: c.id,
+  title: c.data.title,
+  subtitle: c.data.subtitle || '',
+  slug: c.id,
+  order: c.data.order
+})).sort((a,b) => a.order - b.order);
+---
+
+<div 
+  id="search-dialog" 
+  class="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-10 bg-navy-950/40 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-200"
+  role="dialog" 
+  aria-modal="true"
+  aria-hidden="true"
+>
+  <!-- Backdrop click surface -->
+  <div class="absolute inset-0" id="search-backdrop"></div>
+
+  <!-- Search Card container -->
+  <div class="bg-white w-full max-w-2xl rounded-xl border border-navy-100 shadow-2xl flex flex-col overflow-hidden max-h-[80vh] relative z-10 translate-y-4 transition-transform duration-200" id="search-box">
+    
+    <!-- Search Bar -->
+    <div class="flex items-center gap-3 px-4 border-b border-navy-100 h-14 shrink-0">
+      <svg class="w-4 h-4 text-navy-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input 
+        type="search" 
+        id="search-input" 
+        class="flex-1 h-full bg-transparent border-0 outline-none text-sm text-navy-950 placeholder-navy-400 font-sans font-medium"
+        placeholder="Search chapters, headings, or core topics..."
+        autocomplete="off"
+      />
+      <!-- Close label -->
+      <span class="text-[10px] font-mono font-bold text-navy-400 border border-navy-100 px-1.5 py-0.5 rounded uppercase select-none">ESC</span>
+    </div>
+
+    <!-- Results Pane -->
+    <div class="flex-1 overflow-y-auto p-4 flex flex-col gap-2 min-h-[200px]" id="search-results">
+      <!-- Default state: quick list of all chapters -->
+      <div id="default-search-state" class="flex flex-col gap-2">
+        <h3 class="text-[10px] font-mono font-bold text-navy-400 uppercase tracking-wider mb-1 px-2">Table of Contents</h3>
+        <div class="flex flex-col gap-1">
+          {chaptersIndexData.map((ch) => (
+            <a 
+              href={`${baseUrl}/chapters/${ch.slug}`}
+              class="flex items-center gap-4 p-3 rounded-lg hover:bg-navy-50 group focus:outline-none focus:bg-navy-50"
+            >
+              <span class="text-xs font-mono font-bold text-navy-400 group-hover:text-tech-blue">
+                {ch.order.toString().padStart(2, '0')}
+              </span>
+              <div class="flex flex-col min-w-0">
+                <span class="text-xs font-bold text-navy-950 group-hover:text-tech-blue truncate">{ch.title}</span>
+                <span class="text-[10px] text-navy-400 truncate mt-0.5 font-medium">{ch.subtitle}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Active search results will mount here dynamically -->
+      <div id="active-results-list" class="hidden flex flex-col gap-1.5"></div>
+    </div>
+
+    <!-- Search Footer Stats -->
+    <div class="h-10 border-t border-navy-100 px-4 bg-navy-50 flex items-center justify-between text-[10px] text-navy-400 font-mono font-bold uppercase select-none">
+      <span>Fuzzy Chapters fallback enabled</span>
+      <span class="hidden sm:inline">Use ↑↓ keys to navigate, Enter to select</span>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ chaptersIndexData, baseUrl }}>
+  const dialog = document.getElementById('search-dialog');
+  const input = document.getElementById('search-input');
+  const activeList = document.getElementById('active-results-list');
+  const defaultState = document.getElementById('default-search-state');
+
+  function openSearch() {
+    if (!dialog) return;
+    dialog.classList.remove('opacity-0', 'pointer-events-none');
+    dialog.setAttribute('aria-hidden', 'false');
+    const searchBox = document.getElementById('search-box');
+    if (searchBox) searchBox.classList.remove('translate-y-4');
+    input?.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSearch() {
+    if (!dialog) return;
+    dialog.classList.add('opacity-0', 'pointer-events-none');
+    dialog.setAttribute('aria-hidden', 'true');
+    const searchBox = document.getElementById('search-box');
+    if (searchBox) searchBox.classList.add('translate-y-4');
+    if (input) input.value = '';
+    if (activeList) activeList.classList.add('hidden');
+    if (defaultState) defaultState.classList.remove('hidden');
+    document.body.style.overflow = '';
+  }
+
+  // Bind Open/Close events
+  window.addEventListener('open-search-dialog', openSearch);
+  document.getElementById('search-backdrop')?.addEventListener('click', closeSearch);
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearch();
+    }
+    if (e.key === 'Escape') {
+      closeSearch();
+    }
+  });
+
+  // Client-side fuzzy fallback filter
+  input?.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    if (!query) {
+      activeList.classList.add('hidden');
+      defaultState.classList.remove('hidden');
+      return;
+    }
+
+    const matches = chaptersIndexData.filter(ch => 
+      ch.title.toLowerCase().includes(query) || 
+      ch.subtitle.toLowerCase().includes(query)
+    );
+
+    activeList.innerHTML = '';
+    activeList.classList.remove('hidden');
+    defaultState.classList.add('hidden');
+
+    if (matches.length === 0) {
+      activeList.innerHTML = `
+        <div class="p-8 text-center text-xs text-navy-400 font-medium">
+          No matches found for "${query}"
+        </div>
+      `;
+      return;
+    }
+
+    matches.forEach(ch => {
+      const resultAnchor = document.createElement('a');
+      resultAnchor.href = `${baseUrl}/chapters/${ch.slug}`;
+      resultAnchor.className = "flex items-center gap-4 p-3 rounded-lg hover:bg-navy-50 group focus:outline-none focus:bg-navy-50";
+      resultAnchor.innerHTML = `
+        <span class="text-xs font-mono font-bold text-navy-400 group-hover:text-tech-blue">
+          ${ch.order.toString().padStart(2, '0')}
+        </span>
+        <div class="flex flex-col min-w-0">
+          <span class="text-xs font-bold text-navy-950 group-hover:text-tech-blue truncate">${ch.title}</span>
+          <span class="text-[10px] text-navy-400 truncate mt-0.5 font-medium">${ch.subtitle}</span>
+        </div>
+      `;
+      activeList.appendChild(resultAnchor);
+    });
+  });
+</script>

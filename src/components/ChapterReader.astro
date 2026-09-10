@@ -1,0 +1,32 @@
+---
+interface Props {
+  chapterId: string;
+  chapterTitle: string;
+  order: number;
+}
+
+const { chapterId, chapterTitle, order } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+const orderStr = order.toString().padStart(2, '0');
+---
+
+<article 
+  id="chapter-reader" 
+  class="flex-1 max-w-full px-5 sm:px-8 min-[1024px]:px-10 min-[1280px]:px-12 py-10 min-[1024px]:py-12 flex flex-col items-center bg-white min-h-screen border-r border-navy-100 reader-container transition-all duration-300"
+  data-chapter-id={chapterId}
+>
+  <!-- Main inner body width locked to typography reading sweet-spot (680px - 760px) -->
+  <div class="w-full max-w-[740px] flex flex-col">
+    <!-- Main Dynamic Text Body -->
+    <div id="chapter-content-body" class="prose-editorial max-w-none">
+      <slot />
+    </div>
+  </div>
+</article>
+
+<style>
+  /* In Book Mode, remove center margins and borders to make content pristine */
+  :global(.book-mode-active) .reader-container {
+    border-right-width: 0px !important;
+  }
+</style>

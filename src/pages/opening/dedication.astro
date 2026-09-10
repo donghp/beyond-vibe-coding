@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import SearchDialog from '../../components/SearchDialog.astro';
+import Footer from '../../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+// Find first published chapter for navigation target
+const publishedChapters = await getCollection('chapters', ({ data }) => {
+  return data.publicationStatus === 'published';
+});
+const sortedChapters = publishedChapters.sort((a, b) => a.data.order - b.data.order);
+const firstChapterUrl = sortedChapters.length > 0 
+  ? `${baseUrl}/chapters/${sortedChapters[0].id}`
+  : `${baseUrl}/`;
+---
+
+<BaseLayout 
+  title="Dedication — Beyond Vibe Coding" 
+  description="Thân tặng bạn Lê Ngọc Giáp — Beyond Vibe Coding"
+  isReader={false}
+>
+  <Header slot="header" />
+
+  <!-- Restrained, Quiet, Editorial Book Opening Sequence -->
+  <main class="w-full min-h-[calc(100vh-var(--header-height)-80px)] bg-[#f6f8fa] py-8 sm:py-12 px-4 sm:px-6 flex flex-col items-center justify-center select-none">
+    
+    <!-- Top Editorial Flow Indicator & Navigation -->
+    <div class="w-full max-w-2xl mb-6 flex items-center justify-between text-xs text-navy-500 font-sans">
+      <!-- Sequence Progress Step -->
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-navy-100 text-navy-800">
+          Trang Mở Đầu
+        </span>
+        <span class="text-navy-400 font-mono text-[11px]">01 / 02</span>
+      </div>
+
+      <!-- Quick Actions: Skip to Published Chapter -->
+      <a 
+        href={firstChapterUrl}
+        class="text-navy-500 hover:text-tech-blue font-semibold text-xs transition-colors flex items-center gap-1 group"
+        title="Bỏ qua phần mở đầu để vào đọc sách"
+      >
+        <span>Bỏ qua mở đầu</span>
+        <span class="transition-transform group-hover:translate-x-0.5">→</span>
+      </a>
+    </div>
+
+    <!-- Authentic Physical Page Representation -->
+    <div class="w-full max-w-2xl bg-white rounded-lg sm:rounded-xl border border-navy-200/90 shadow-editorial p-8 sm:p-16 md:p-20 min-h-[580px] sm:min-h-[720px] flex flex-col justify-between relative transition-all duration-300">
+      
+      <!-- Top Section: Book Title & Author -->
+      <div class="flex flex-col items-start pt-4 sm:pt-8">
+        <h1 class="text-2xl sm:text-4xl md:text-[40px] font-black text-navy-950 tracking-tight leading-none uppercase font-sans mb-3 sm:mb-4">
+          BEYOND VIBE CODING
+        </h1>
+        <p class="text-sm sm:text-base font-semibold text-navy-600 font-sans tracking-tight">
+          Hồng Đông
+        </p>
+
+        <!-- Signature Polychrome Vector Wavelet Accent (as on printed page) -->
+        <div class="mt-12 sm:mt-20 w-48 sm:w-64 h-8 text-tech-blue">
+          <svg viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <path d="M2 18H50L75 12L105 20L145 13" stroke="url(#accent-line-gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="accent-line-gradient" x1="2" y1="18" x2="145" y2="13" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#22c55e" />
+                <stop offset="0.45" stop-color="#0284c7" />
+                <stop offset="1" stop-color="#0066cc" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Bottom Right Signature & Dedicated Recipient Block -->
+      <div class="flex flex-col items-end self-end pb-8 sm:pb-12 mt-16 sm:mt-24">
+        <p class="text-lg sm:text-2xl font-serif italic text-navy-900 mb-4 sm:mb-6 select-text text-right">
+          Thân tặng bạn Lê Ngọc Giáp
+        </p>
+        
+        <!-- Hong Dong Stylized Signature Script -->
+        <div class="w-40 sm:w-56 text-tech-blue select-none">
+          <svg viewBox="0 0 200 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto text-navy-900">
+            <path d="M15 45 C35 25, 45 10, 50 25 C55 40, 48 55, 65 30 C75 15, 80 40, 95 35 C105 32, 110 20, 120 30 C130 40, 140 25, 155 35 C170 45, 185 30, 195 35" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M30 20 L40 55" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M10 52 C50 50, 110 53, 190 48" stroke="#0f172a" stroke-width="1.2" stroke-linecap="round" />
+            <text x="68" y="28" font-family="'Playfair Display', Georgia, serif" font-size="20" font-style="italic" font-weight="700" fill="#0a1128" letter-spacing="1">HongDong</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Subtle Book Footer -->
+      <div class="w-full pt-6 border-t border-navy-100 flex items-center justify-between text-[11px] font-mono text-navy-400 select-none">
+        <span class="tracking-wider uppercase">BEYOND VIBE CODING</span>
+        <span>Trang 02</span>
+      </div>
+
+    </div>
+
+    <!-- Paging Controls Bar -->
+    <div class="w-full max-w-2xl mt-6 flex items-center justify-between select-none">
+      <a 
+        href={`${baseUrl}/`}
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-navy-200 bg-white hover:bg-navy-50 text-navy-700 text-xs font-bold transition-all shadow-2xs group cursor-pointer"
+      >
+        <span class="transition-transform group-hover:-translate-x-0.5">←</span>
+        <span>Bìa sách</span>
+      </a>
+
+      <a 
+        href={`${baseUrl}/opening/danh-tang`}
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-navy-950 hover:bg-navy-900 text-white text-xs font-bold transition-all shadow-2xs group cursor-pointer"
+      >
+        <span>Trang tiếp theo</span>
+        <span class="transition-transform group-hover:translate-x-0.5">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <SearchDialog slot="search-dialog" />
+  <Footer slot="footer" />
+</BaseLayout>

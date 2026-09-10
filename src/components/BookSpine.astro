@@ -1,0 +1,203 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  activeChapterId?: string;
+}
+
+const { activeChapterId } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+
+// Fetch and sort all chapters by their 'order' metadata field
+const chapters = await getCollection('chapters');
+const sortedChapters = chapters.sort((a, b) => a.data.order - b.data.order);
+---
+
+<aside id="book-spine" class="w-full min-[1024px]:w-[var(--spine-width-tablet)] min-[1280px]:w-[var(--spine-width)] bg-[#f8fafc] border-r border-navy-100 p-5 flex flex-col gap-5 select-none shrink-0 transition-all duration-300 spine-container">
+  
+  <!-- Book Cover Presentation -->
+  <div class="flex flex-col pb-2">
+    <div class="relative w-full aspect-[1055/1491] rounded-xl overflow-hidden shadow-editorial border border-navy-200/80 bg-navy-950 group">
+      <img 
+        src={`${baseUrl.replace(/\/$/, '')}/images/cover-vn.png`} 
+        alt="Beyond Vibe Coding — Bìa sách chính thức" 
+        class="w-full h-full object-contain"
+        width="1055"
+        height="1491"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <!-- Book Opening & Chapter Navigation Index -->
+  <nav class="flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-420px)] pr-0.5">
+    <!-- Dedicated Book Opening Section -->
+    <div class="flex flex-col gap-1 pb-2 mb-2 border-b border-navy-100">
+      <a 
+        href={`${baseUrl}/opening/dedication`}
+        class="group flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs text-navy-600 hover:text-tech-blue hover:bg-navy-100/60 transition-colors"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-navy-300 group-hover:bg-tech-blue transition-colors"></span>
+        <span class="font-medium text-[11px] tracking-tight">Trang đề tặng (Dedication)</span>
+      </a>
+      <a 
+        href={`${baseUrl}/opening/danh-tang`}
+        class="group flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs text-navy-600 hover:text-tech-blue hover:bg-navy-100/60 transition-colors"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-navy-300 group-hover:bg-tech-blue transition-colors"></span>
+        <span class="font-medium text-[11px] tracking-tight">Lời đề từ (Dành Tặng)</span>
+      </a>
+    </div>
+
+    {sortedChapters.map((chapter) => {
+      const isPublished = chapter.data.publicationStatus === 'published';
+      const isActive = activeChapterId === chapter.id;
+      const slug = chapter.id;
+      const numStr = chapter.data.order === 0 ? '0' : chapter.data.order.toString().padStart(2, '0');
+      
+      if (!isPublished) {
+        return (
+          <div 
+            class="flex items-start gap-3 px-3 py-2.5 rounded-lg text-xs border-l-4 border-transparent text-navy-400 select-none opacity-80"
+            data-chapter-id={chapter.id}
+          >
+            <!-- Prominent Chapter Number -->
+            <span class="chapter-num-label text-xs font-mono font-bold shrink-0 pt-0.5 select-none w-5 text-navy-400">
+              {numStr}
+            </span>
+            
+            <!-- Chapter Titles & Coming Soon Badge -->
+            <div class="flex flex-col min-w-0 flex-1 leading-snug">
+              <div class="flex items-center justify-between gap-1.5">
+                <span class="tracking-tight font-medium text-navy-600 truncate">
+                  {chapter.data.shortTitle}
+                </span>
+                <span class="text-[9px] font-mono font-bold tracking-wider px-1.5 py-0.5 rounded bg-navy-100/80 text-navy-400 uppercase shrink-0">
+                  SẮP XUẤT BẢN
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <a 
+          href={`${baseUrl}/chapters/${slug}`}
+          class={`group flex items-start gap-3 px-3 py-2.5 rounded-lg text-xs transition-all duration-150 relative cursor-pointer ${
+            isActive 
+              ? 'bg-[#ebf4fd] text-tech-blue font-bold border-l-4 border-tech-blue' 
+              : 'text-navy-800 hover:bg-navy-100/60 hover:text-navy-950 border-l-4 border-transparent'
+          }`}
+          data-chapter-id={chapter.id}
+        >
+          <!-- Restrained Chapter Completion Indicator (Green check / dot) -->
+          <div class="completion-dot opacity-0 transition-opacity duration-200 shrink-0 pt-0.5" data-completed-dot-id={chapter.id} title="Đã hoàn thành">
+            <svg class="w-3.5 h-3.5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+
+          <!-- Prominent Chapter Number -->
+          <span class={`chapter-num-label text-xs font-mono font-bold shrink-0 pt-0.5 select-none w-5 ${
+            isActive ? 'text-tech-blue' : 'text-navy-400 group-hover:text-navy-700'
+          }`}>
+            {numStr}
+          </span>
+          
+          <!-- Chapter Titles -->
+          <div class="flex flex-col min-w-0 flex-1 leading-snug">
+            <span class={`tracking-tight ${isActive ? 'font-bold text-tech-blue' : 'font-semibold text-navy-900'}`}>
+              {chapter.data.shortTitle}
+            </span>
+          </div>
+        </a>
+      );
+    })}
+  </nav>
+
+  <!-- Green Free Reading Callout Card -->
+  <div class="mt-auto p-3.5 bg-[#f0fdf4] border border-[#bbf7d0] rounded-xl flex items-start gap-3 select-none">
+    <div class="w-7 h-7 rounded-lg bg-[#dcfce7] flex items-center justify-center shrink-0 text-[#15803d] mt-0.5">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <span class="text-[11px] font-black text-[#15803d] tracking-tight uppercase">READ THE BOOK. FREE. ONLINE.</span>
+      <p class="text-[11px] text-[#166534] leading-relaxed font-normal">
+        Beyond Vibe Coding is freely available to read online. The web edition is the living edition.
+      </p>
+    </div>
+  </div>
+</aside>
+
+<script>
+  // Reading statistics tracker
+  function updateProgress() {
+    try {
+      const storageKey = 'beyond-vibe-completed-chapters';
+      const completed = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      const chaptersCount = 9; // Total chapters (0 to 8)
+      
+      const percent = Math.min(Math.round((completed.length / chaptersCount) * 100), 100);
+      
+      const percentageEl = document.getElementById('spine-progress-percentage');
+      const progressBarEl = document.getElementById('spine-progress-bar');
+      const completedTextEl = document.getElementById('spine-completed-text');
+      
+      if (percentageEl) percentageEl.textContent = `${percent}%`;
+      if (progressBarEl) (progressBarEl as HTMLElement).style.width = `${percent}%`;
+      if (completedTextEl) completedTextEl.textContent = `${completed.length} of ${chaptersCount} completed`;
+
+      // Update completion marks inside list
+      document.querySelectorAll('.completion-dot').forEach((dot) => {
+        const id = dot.getAttribute('data-completed-dot-id');
+        if (completed.includes(id)) {
+          dot.classList.remove('opacity-0');
+          dot.classList.add('opacity-100');
+        } else {
+          dot.classList.add('opacity-0');
+          dot.classList.remove('opacity-100');
+        }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  // Load initial progress
+  updateProgress();
+
+  // Listen to reading completions
+  window.addEventListener('chapter-completion-updated', () => {
+    updateProgress();
+  });
+</script>
+
+<style>
+  /* Collapse spine in Book Mode on Desktop */
+  :global(.book-mode-active) .spine-container {
+    width: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-right-width: 0px !important;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* Transition for responsive behaviors */
+  .spine-container {
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                padding 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.2s ease-out;
+  }
+
+  /* Adjust number padding transitions */
+  .chapter-number {
+    transition: padding 0.2s ease-out;
+  }
+</style>

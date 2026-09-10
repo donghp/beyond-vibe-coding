@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeChapterId?: string;
+  isReader?: boolean;
+}
+
+const { title, description = "An intentional way to build with AI", activeChapterId, isReader = false } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}/favicon.svg`} />
+    
+    <!-- SEO Metadata -->
+    <title>{title.includes('BEYOND VIBE CODING') || title.includes('Beyond Vibe Coding') ? title : `${title} — Beyond Vibe Coding`}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`https://donghp.github.io${baseUrl}`} />
+    
+    <!-- OpenGraph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://donghp.github.io${baseUrl}`} />
+    <meta property="og:title" content={title.includes('BEYOND VIBE CODING') || title.includes('Beyond Vibe Coding') ? title : `${title} — Beyond Vibe Coding`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://donghp.github.io${baseUrl.replace(/\/$/, '')}/images/cover-vn.png`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={`https://donghp.github.io${baseUrl}`} />
+    <meta property="twitter:title" content={title.includes('BEYOND VIBE CODING') || title.includes('Beyond Vibe Coding') ? title : `${title} — Beyond Vibe Coding`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`https://donghp.github.io${baseUrl.replace(/\/$/, '')}/images/cover-vn.png`} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Anti-Flash Script to Initialize Book Mode Preferences before layout paint -->
+    <script is:inline>
+      (function() {
+        try {
+          const bookMode = localStorage.getItem('beyond-vibe-book-mode') === 'true';
+          if (bookMode) {
+            document.documentElement.classList.add('book-mode-active');
+          } else {
+            document.documentElement.classList.remove('book-mode-active');
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-[#fbfbfd] text-[#0a1128] min-h-screen flex flex-col selection:bg-[#cbd6e7] selection:text-[#0a1128]">
+    <!-- Header Component Slot -->
+    <slot name="header" />
+
+    <!-- Main Workspace Container -->
+    <main id="main-container" class={isReader ? "flex-1 flex flex-col min-[1024px]:flex-row max-w-[100vw] overflow-x-hidden relative" : "flex-1 flex flex-col w-full max-w-[100vw] overflow-x-hidden relative"}>
+      <slot />
+    </main>
+
+    <!-- Search Dialog Slot -->
+    <slot name="search-dialog" />
+
+    <!-- Footer Component Slot -->
+    <slot name="footer" />
+
+    <!-- Global Layout Keyboard Listeners & State Dispatchers -->
+    <script>
+      // Book Mode Keyboard Toggle Shortcut 'B' / 'Esc'
+      window.addEventListener('keydown', (e) => {
+        const isSearchOpen = document.getElementById('search-dialog')?.getAttribute('aria-hidden') === 'false';
+        if (isSearchOpen) return; // Prevent toggling when search input is focused
+
+        if (e.key.toLowerCase() === 'b' && !['input', 'textarea'].includes((e.target as HTMLElement).tagName.toLowerCase())) {
+          toggleBookMode();
+        } else if (e.key === 'Escape') {
+          if (document.documentElement.classList.contains('book-mode-active')) {
+            exitBookMode();
+          }
+        }
+      });
+
+      function toggleBookMode() {
+        const isActive = document.documentElement.classList.toggle('book-mode-active');
+        localStorage.setItem('beyond-vibe-book-mode', String(isActive));
+        // Dispatch custom event for child component reactive re-renders
+        window.dispatchEvent(new CustomEvent('book-mode-changed', { detail: { isActive } }));
+      }
+
+      function exitBookMode() {
+        document.documentElement.classList.remove('book-mode-active');
+        localStorage.setItem('beyond-vibe-book-mode', 'false');
+        window.dispatchEvent(new CustomEvent('book-mode-changed', { detail: { isActive: false } }));
+      }
+    </script>
+  </body>
+</html>

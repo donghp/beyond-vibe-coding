@@ -1,0 +1,39 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<div class="my-12 p-6 bg-green-muted/40 border border-green-restrained/15 rounded-lg max-w-[var(--reader-max-width)] relative overflow-hidden flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+  <!-- Subtle heart icon bg decoration -->
+  <div class="absolute right-3 bottom-2 text-green-restrained/5 pointer-events-none">
+    <svg class="w-24 h-24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+    </svg>
+  </div>
+
+  <div class="p-3 bg-white border border-green-restrained/20 rounded-lg shrink-0">
+    <!-- Gift icon -->
+    <svg class="w-6 h-6 text-green-restrained" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M20 12v10H4V12"></path>
+      <path d="M2 7h20v5H2z"></path>
+      <path d="M12 22V7"></path>
+      <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+      <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+    </svg>
+  </div>
+
+  <div class="flex-1 flex flex-col gap-1 min-w-0 z-10">
+    <h4 class="text-sm font-bold text-navy-950 uppercase tracking-tight">Support Open Publications</h4>
+    <p class="text-xs text-navy-700 leading-relaxed font-medium">
+      This book is entirely free to read online. Author support is completely optional and never a prerequisite. If you found these chapters valuable, consider sharing this link with other developers.
+    </p>
+  </div>
+
+  <div class="flex items-center gap-2 z-10 shrink-0 w-full sm:w-auto">
+    <button 
+      onclick="alert('Thank you! Sharing is the best support. Copying link...'); navigator.clipboard.writeText(window.location.href);"
+      class="w-full sm:w-auto text-center px-4 py-2 text-xs font-bold text-white bg-navy-950 rounded-md hover:bg-tech-blue transition-all duration-150 focus:outline-none shadow-sm cursor-pointer whitespace-nowrap"
+    >
+      Share This Book
+    </button>
+  </div>
+</div>

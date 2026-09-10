@@ -1,0 +1,96 @@
+---
+---
+
+<div class="fixed top-[var(--header-height)] left-0 w-full h-[3px] bg-navy-50 z-30 pointer-events-none select-none overflow-hidden progress-bar-container">
+  <div id="reading-progress-indicator" class="h-full bg-tech-blue rounded-r transition-all duration-100" style="width: 0%"></div>
+</div>
+
+<script>
+  function handleScroll() {
+    const doc = document.documentElement;
+    const body = document.body;
+    
+    // We calculate scroll progress based on the main reader component if possible
+    const reader = document.getElementById('chapter-content-body');
+    const indicator = document.getElementById('reading-progress-indicator');
+    
+    if (!indicator) return;
+
+    if (reader) {
+      const rect = reader.getBoundingClientRect();
+      const readerHeight = rect.height;
+      
+      // Calculate how much of the reader has scrolled past the viewport top
+      const scrolled = -rect.top;
+      const windowHeight = window.innerHeight;
+      const totalScrollable = readerHeight - windowHeight + 100; // Offset allowance
+      
+      if (totalScrollable <= 0) {
+        indicator.style.width = '0%';
+        return;
+      }
+      
+      let percentage = Math.min(Math.max((scrolled / totalScrollable) * 100, 0), 100);
+      indicator.style.width = `${percentage}%`;
+
+      // Custom event to dispatch the progress to ChapterNavigator / spine
+      window.dispatchEvent(new CustomEvent('chapter-scrolled', { detail: { percentage } }));
+
+      // If progress exceeds 90%, mark current chapter as complete
+      if (percentage >= 90) {
+        markCurrentChapterAsComplete();
+      }
+    } else {
+      // Fallback to overall window scroll
+      const scrollTop = doc.scrollTop || body.scrollTop;
+      const scrollHeight = doc.scrollHeight || body.scrollHeight;
+      const clientHeight = doc.clientHeight;
+      const totalScrollable = scrollHeight - clientHeight;
+      
+      if (totalScrollable <= 0) {
+        indicator.style.width = '0%';
+        return;
+      }
+      
+      const percentage = (scrollTop / totalScrollable) * 100;
+      indicator.style.width = `${percentage}%`;
+    }
+  }
+
+  function markCurrentChapterAsComplete() {
+    const currentId = document.getElementById('chapter-reader')?.getAttribute('data-chapter-id');
+    if (!currentId) return;
+
+    try {
+      const storageKey = 'beyond-vibe-completed-chapters';
+      const completed = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      if (!completed.includes(currentId)) {
+        completed.push(currentId);
+        localStorage.setItem(storageKey, JSON.stringify(completed));
+        // Dispatch completion status changes
+        window.dispatchEvent(new CustomEvent('chapter-completion-updated'));
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  // Bind scroll listeners
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', handleScroll, { passive: true });
+  
+  // Re-run on layout adjustments (like entering Book Mode)
+  window.addEventListener('book-mode-changed', () => {
+    setTimeout(handleScroll, 310); // Wait for transition animation to finish
+  });
+
+  // Initial calculation
+  handleScroll();
+</script>
+
+<style>
+  /* Collapse progress bar when header collapses in Book Mode */
+  :global(.book-mode-active) .progress-bar-container {
+    top: 0px !important;
+  }
+</style>

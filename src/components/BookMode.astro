@@ -1,0 +1,61 @@
+---
+---
+
+<div 
+  id="book-mode-helper" 
+  class="fixed bottom-6 right-6 z-30 flex items-center gap-3 bg-white border border-navy-100 p-3 rounded-lg shadow-editorial transition-all duration-300 md:flex translate-y-0 opacity-100 max-w-xs cursor-pointer select-none group"
+>
+  <!-- Book logo/indicator -->
+  <div class="w-8 h-8 rounded-md bg-navy-50 flex items-center justify-center text-navy-800 transition-colors group-hover:bg-tech-blue/10 group-hover:text-tech-blue shrink-0">
+    <!-- book icon -->
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+    </svg>
+  </div>
+
+  <div class="flex flex-col min-w-0">
+    <div class="flex items-center gap-1.5">
+      <span class="text-xs font-bold text-navy-950 uppercase tracking-tight" id="helper-status-title">Enter Book Mode</span>
+      <kbd class="text-[9px] font-mono font-bold text-navy-400 bg-navy-50 border border-navy-100 px-1 py-0.5 rounded leading-none">B</kbd>
+    </div>
+    <span class="text-[10px] text-navy-400 truncate mt-0.5 font-medium" id="helper-status-desc">Toggle clean distraction-free layout</span>
+  </div>
+</div>
+
+<script>
+  const helper = document.getElementById('book-mode-helper');
+  const title = document.getElementById('helper-status-title');
+  const desc = document.getElementById('helper-status-desc');
+
+  function updateHelperUI() {
+    const isBookMode = document.documentElement.classList.contains('book-mode-active');
+    if (title && desc && helper) {
+      if (isBookMode) {
+        title.textContent = "Exit Book Mode";
+        desc.textContent = "Press ESC or B to restore columns";
+        helper.classList.add('border-tech-blue/20', 'bg-tech-blue/5');
+      } else {
+        title.textContent = "Enter Book Mode";
+        desc.textContent = "Toggle clean distraction-free layout";
+        helper.classList.remove('border-tech-blue/20', 'bg-tech-blue/5');
+      }
+    }
+  }
+
+  // Bind click
+  helper?.addEventListener('click', () => {
+    const isActive = document.documentElement.classList.toggle('book-mode-active');
+    localStorage.setItem('beyond-vibe-book-mode', String(isActive));
+    window.dispatchEvent(new CustomEvent('book-mode-changed', { detail: { isActive } }));
+    updateHelperUI();
+  });
+
+  // Listen to external triggers
+  window.addEventListener('book-mode-changed', () => {
+    updateHelperUI();
+  });
+
+  // Initialize
+  updateHelperUI();
+</script>

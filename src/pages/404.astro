@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+import Footer from '../components/Footer.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<BaseLayout 
+  title="Trang không tìm thấy — Beyond Vibe Coding" 
+  description="Trang bạn yêu cầu hiện không tồn tại hoặc đang trong quá trình biên tập."
+  isReader={false}
+>
+  <Header slot="header" />
+
+  <main class="w-full min-h-[calc(100vh-var(--header-height)-120px)] bg-[#fbfbfd] py-16 px-6 flex flex-col items-center justify-center select-none text-center">
+    <div class="max-w-md mx-auto p-8 sm:p-12 rounded-2xl bg-white border border-navy-200/80 shadow-editorial flex flex-col items-center">
+      <span class="text-xs font-mono font-bold tracking-widest text-tech-blue uppercase mb-3 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-100">
+        404 • KHÔNG TÌM THẤY TRANG
+      </span>
+      
+      <h1 class="text-2xl sm:text-3xl font-black text-navy-950 font-sans tracking-tight mb-3">
+        Nội dung chưa sẵn sàng
+      </h1>
+      
+      <p class="text-sm text-navy-600 leading-relaxed mb-8">
+        Trang bạn đang truy cập có thể chưa được xuất bản hoặc đường dẫn không chính xác.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a 
+          href={`${baseUrl}/`}
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-navy-950 hover:bg-navy-900 text-white font-bold text-xs transition-colors"
+        >
+          <span>Về trang chủ</span>
+        </a>
+
+        <a 
+          href={`${baseUrl}/opening/dedication`}
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-navy-50 text-navy-800 font-bold text-xs border border-navy-200 transition-colors"
+        >
+          <span>Mở đầu sách</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <SearchDialog slot="search-dialog" />
+  <Footer slot="footer" />
+</BaseLayout>

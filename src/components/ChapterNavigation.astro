@@ -1,0 +1,105 @@
+---
+interface ChapterItem {
+  id: string;
+  data: {
+    title: string;
+    shortTitle: string;
+    order: number;
+  }
+}
+
+interface Props {
+  prevChapter?: ChapterItem;
+  nextChapter?: ChapterItem;
+  prevCustomLink?: {
+    href: string;
+    label: string;
+    subtitle: string;
+  };
+}
+
+const { prevChapter, nextChapter, prevCustomLink } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<nav class="w-full flex flex-col sm:flex-row gap-4 items-center justify-between my-12 border-t border-navy-100 pt-8 select-none">
+  <!-- Previous Chapter or Custom Link -->
+  {prevChapter ? (
+    <a 
+      href={`${baseUrl}/chapters/${prevChapter.id}`}
+      class="w-full sm:w-2/5 border border-navy-200/80 bg-white rounded-xl p-4 flex flex-col gap-1 hover:border-tech-blue hover:bg-navy-50/50 transition-all duration-150 focus:outline-none group min-w-0 shadow-2xs"
+    >
+      <span class="text-xs font-bold text-navy-900 group-hover:text-tech-blue transition-colors flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 transform transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Chương {prevChapter.data.order}</span>
+      </span>
+      <span class="text-xs text-navy-500 line-clamp-1 group-hover:text-navy-700 font-normal">
+        {prevChapter.data.title}
+      </span>
+    </a>
+  ) : prevCustomLink ? (
+    <a 
+      href={prevCustomLink.href}
+      class="w-full sm:w-2/5 border border-navy-200/80 bg-white rounded-xl p-4 flex flex-col gap-1 hover:border-tech-blue hover:bg-navy-50/50 transition-all duration-150 focus:outline-none group min-w-0 shadow-2xs"
+    >
+      <span class="text-xs font-bold text-navy-900 group-hover:text-tech-blue transition-colors flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 transform transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>{prevCustomLink.label}</span>
+      </span>
+      <span class="text-xs text-navy-500 line-clamp-1 group-hover:text-navy-700 font-normal">
+        {prevCustomLink.subtitle}
+      </span>
+    </a>
+  ) : (
+    <div class="w-full sm:w-2/5 hidden sm:block"></div>
+  )}
+
+  <!-- Back to Top Button -->
+  <button 
+    id="back-to-top-nav-btn"
+    type="button"
+    class="flex flex-col items-center justify-center gap-1 text-navy-400 hover:text-tech-blue transition-colors group cursor-pointer focus:outline-none shrink-0 py-2 sm:py-0"
+    title="Cuộn lên đầu trang"
+  >
+    <div class="w-8 h-8 rounded-full border border-navy-200 bg-white flex items-center justify-center text-navy-500 group-hover:border-tech-blue group-hover:text-tech-blue transition-all shadow-2xs">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </div>
+    <span class="text-[10px] font-bold uppercase tracking-wider text-navy-400 group-hover:text-tech-blue">Back to top</span>
+  </button>
+
+  <!-- Next Chapter -->
+  {nextChapter ? (
+    <a 
+      href={`${baseUrl}/chapters/${nextChapter.id}`}
+      class="w-full sm:w-2/5 border border-navy-200/80 bg-white rounded-xl p-4 flex flex-col gap-1 items-end hover:border-tech-blue hover:bg-navy-50/50 transition-all duration-150 focus:outline-none group text-right min-w-0 shadow-2xs"
+    >
+      <span class="text-xs font-bold text-navy-900 group-hover:text-tech-blue transition-colors flex items-center gap-1.5">
+        <span>Chương {nextChapter.data.order}</span>
+        <svg class="w-3.5 h-3.5 transform transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </span>
+      <span class="text-xs text-navy-500 line-clamp-1 group-hover:text-navy-700 font-normal">
+        {nextChapter.data.title}
+      </span>
+    </a>
+  ) : (
+    <div class="w-full sm:w-2/5 hidden sm:block"></div>
+  )}
+</nav>
+
+<script>
+  document.getElementById('back-to-top-nav-btn')?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
