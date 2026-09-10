@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+import AboutJourney from '../components/AboutJourney.astro';
+import { joinBase } from '../utils/paths';
+
+const title = "About — Beyond Vibe Coding";
+const description = "Khi AI có thể làm ngày càng nhiều, điều quan trọng hơn không phải là làm thêm bao nhiêu. Mà là biết điều gì thực sự đáng để làm.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Header slot="header" />
+
+  <div class="bg-white min-h-screen">
+    <!-- HERO SECTION -->
+    <section class="relative w-full">
+      <div class="max-w-7xl mx-auto px-6 pt-12 pb-32 space-y-16">
+        <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-100">
+          <img 
+            src={joinBase('images/about_banner.png')} 
+            alt="Một người ngồi tại quán cà phê trên núi, nhìn ra thung lũng mây trong ánh sáng buổi sớm." 
+            class="w-full aspect-[21/9] object-cover"
+          />
+        </div>
+        
+        <div class="space-y-12 max-w-4xl">
+          <div class="space-y-4">
+            <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em]">BEYOND VIBE CODING</span>
+            <p class="text-3xl md:text-4xl font-medium text-[#0B1D3A] tracking-tight leading-tight">
+              Một cách khác để nghĩ về việc xây phần mềm cùng AI.
+            </p>
+          </div>
+          <div class="w-12 h-px bg-slate-200"></div>
+          <p class="text-lg md:text-xl text-slate-500 font-medium italic max-w-2xl leading-relaxed">
+            "AI có thể giúp chúng ta đi nhanh hơn. Nhưng đi nhanh hơn không phải lúc nào cũng có nghĩa là đang đi đúng hướng."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POST-HERO EDITORIAL STATEMENT -->
+    <section class="py-48 px-6">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <span class="text-[10px] font-black text-[#0EA5E9] uppercase tracking-[0.5em]">ABOUT BEYOND VIBE CODING</span>
+        <div class="space-y-8">
+          <p class="text-4xl md:text-6xl font-black text-[#0B1D3A] leading-[1.1] tracking-tighter uppercase">
+            Khi AI có thể làm ngày càng nhiều, điều quan trọng hơn không phải là làm thêm bao nhiêu.
+          </p>
+          <p class="text-4xl md:text-6xl font-black text-[#0EA5E9] leading-[1.1] tracking-tighter uppercase">
+            Mà là biết điều gì thực sự đáng để làm.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CENTRAL QUESTION -->
+    <section class="py-64 px-6 bg-[#F3F6F9]/30">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+        <p class="text-2xl md:text-4xl font-medium text-slate-400 leading-tight">
+          AI có thể giúp tôi đi nhanh hơn.
+        </p>
+        <p class="text-3xl md:text-5xl font-black text-[#0B1D3A] leading-tight tracking-tight uppercase">
+          Nhưng tôi có đang đi đúng hướng?
+        </p>
+      </div>
+    </section>
+
+    <!-- THE STORY -->
+    <section class="py-48 px-6">
+      <div class="max-w-3xl mx-auto space-y-24">
+        <div class="prose prose-slate prose-xl text-[#0B1D3A]/80 leading-relaxed font-medium space-y-12">
+          <p>Chúng ta thường nói về AI bằng những từ như nhanh hơn, mạnh hơn, thông minh hơn và tự động hơn.</p>
+          
+          <p>Nhưng khi AI ngày càng nhanh, con người có còn đủ thời gian để nghĩ không?</p>
+          
+          <div class="py-12">
+            <p class="text-3xl font-black text-[#0B1D3A] uppercase tracking-tighter leading-tight">
+              Sự im lặng không có nghĩa là chậm lại. Đó là khi con người không để tốc độ của AI quyết định tốc độ suy nghĩ của mình.
+            </p>
+          </div>
+
+          <p>Beyond Vibe Coding hình thành từ chính những câu hỏi đó.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL CONTRAST -->
+    <section class="py-48 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+          <div class="space-y-8">
+            <span class="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em]">AI</span>
+            <ul class="space-y-4">
+              {['FAST', 'POWERFUL', 'AUTOMATED'].map(word => (
+                <li class="text-4xl font-black text-slate-100 uppercase tracking-tighter">{word}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="space-y-8">
+            <span class="text-[10px] font-black text-[#0EA5E9] uppercase tracking-[0.4em]">HUMAN</span>
+            <ul class="space-y-4">
+              {['PAUSE', 'INTENTION', 'JUDGMENT'].map(word => (
+                <li class="text-4xl font-black text-[#0B1D3A] uppercase tracking-tighter">{word}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY THIS BOOK EXISTS -->
+    <section class="py-48 px-6 bg-[#0B1D3A] text-white">
+      <div class="max-w-3xl mx-auto space-y-20">
+        <div class="space-y-4">
+          <h2 class="text-[11px] font-black text-[#0EA5E9] uppercase tracking-[0.4em]">VÌ SAO CÓ BEYOND VIBE CODING?</h2>
+        </div>
+
+        <div class="prose prose-invert prose-xl text-slate-300 leading-relaxed font-medium space-y-12">
+          <p>Tôi bắt đầu với Vibe Coding vì AI có thể biến một ý tưởng thành phần mềm nhanh hơn rất nhiều so với trước đây.</p>
+          
+          <p>Nhưng càng sử dụng AI, tôi càng nhận ra: Viết được code nhanh hơn không đồng nghĩa với việc xây được một sản phẩm tốt hơn.</p>
+          
+          <div class="space-y-12 pt-8">
+            <p class="text-2xl font-black text-white uppercase tracking-tighter">Những vấn đề mới xuất hiện không chỉ nằm ở code.</p>
+            <div class="grid grid-cols-2 gap-x-8 gap-y-12">
+              {[
+                { term: 'TASK', desc: 'Việc gì cần làm?' },
+                { term: 'CONTEXT', desc: 'Tại sao làm như vậy?' },
+                { term: 'STATE', desc: 'Project đang ở đâu?' },
+                { term: 'AUTHORITY', desc: 'Ai có quyền quyết định?' }
+              ].map(item => (
+                <div class="space-y-2">
+                  <span class="text-[#0EA5E9] font-black tracking-widest text-xs uppercase">{item.term}</span>
+                  <p class="text-sm text-slate-400">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p class="pt-12 text-white font-black uppercase tracking-widest leading-tight">
+            Làm thế nào để con người thiết kế một hệ thống quanh AI mà vẫn giữ được sự kiểm soát?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE JOURNEY -->
+    <section class="py-48 px-6 border-b border-slate-100">
+      <div class="max-w-7xl mx-auto text-center space-y-24">
+        <div class="space-y-4">
+          <h2 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">HÀNH TRÌNH CỦA SỰ HIỂU BIẾT</h2>
+        </div>
+        <AboutJourney />
+      </div>
+    </section>
+
+    <!-- HUMAN + AI SYNERGY -->
+    <section class="py-48 px-6">
+      <div class="max-w-5xl mx-auto text-center space-y-24">
+        <span class="text-[11px] font-black text-[#0EA5E9] uppercase tracking-[0.4em]">SYNERGY</span>
+        <div class="flex flex-col items-center space-y-16">
+          <div class="text-4xl md:text-5xl font-black text-[#0B1D3A] uppercase tracking-tighter">HUMAN INTENTION</div>
+          <div class="w-px h-12 bg-slate-100"></div>
+          <div class="text-4xl md:text-5xl font-black text-slate-200 uppercase tracking-tighter">AI CAPABILITY</div>
+          <div class="w-px h-12 bg-slate-100"></div>
+          <div class="text-3xl md:text-4xl font-black text-[#0EA5E9] uppercase tracking-tighter">CONTROLLED ACTION</div>
+          <div class="w-px h-12 bg-slate-100"></div>
+          <div class="text-3xl md:text-4xl font-black text-[#0B1D3A] uppercase tracking-tighter">VERIFICATION</div>
+          <div class="w-px h-12 bg-slate-100"></div>
+          <div class="text-5xl md:text-7xl font-black text-[#22C55E] uppercase tracking-tighter">REAL VALUE</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT THE BOOK EXPLORES (PROGRESSIVE REVEAL) -->
+    <section class="py-48 px-6 bg-[#F3F6F9]/50">
+      <div class="max-w-4xl mx-auto space-y-32">
+        {[
+          { term: 'TASK', desc: 'Xác định rõ ràng mục tiêu trong một thế giới của các executors tự động.' },
+          { term: 'CONTEXT', desc: 'Truyền đạt không chỉ cái gì, mà là tại sao và như thế nào.' },
+          { term: 'STATE', desc: 'Duy trì sự liên tục của dự án khi AI và con người cùng thay đổi.' },
+          { term: 'VERIFICATION', desc: 'Xây dựng niềm tin thông qua bằng chứng, không phải hy vọng.' }
+        ].map((item, i) => (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-baseline">
+            <div class="flex items-center space-x-6">
+              <span class="text-xs font-black text-slate-300">0{i + 1}</span>
+              <a href={joinBase('glossary')} class="text-4xl font-black text-[#0B1D3A] uppercase tracking-tighter hover:text-[#0EA5E9] transition-colors">
+                {item.term}
+              </a>
+            </div>
+            <p class="text-xl text-slate-500 font-medium">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- OPEN SOURCE PHILOSOPHY -->
+    <section class="py-48 px-6 bg-[#0B1D3A] text-white text-center overflow-hidden relative">
+      <div class="max-w-4xl mx-auto space-y-16 relative z-10">
+        <div class="flex flex-col items-center space-y-6">
+          <div class="text-3xl md:text-5xl font-black uppercase tracking-[0.1em] leading-none">THE BOOK IS FREE.</div>
+          <div class="text-3xl md:text-5xl font-black uppercase tracking-[0.1em] leading-none text-[#0EA5E9]">THE SOURCE IS OPEN.</div>
+          <div class="text-3xl md:text-5xl font-black uppercase tracking-[0.1em] leading-none">THE JOURNEY IS VISIBLE.</div>
+        </div>
+        <div class="w-12 h-px bg-white/20 mx-auto"></div>
+        <p class="text-lg md:text-xl text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto">
+          Cuốn sách được mở để mọi người có thể đọc. Nguồn được mở để mọi người có thể nhìn thấy cách nó được xây. Và hành trình được để lại đủ rõ để người đọc có thể tự khám phá.
+        </p>
+      </div>
+    </section>
+
+    <!-- FINAL MOMENT -->
+    <section class="py-64 px-6 text-center space-y-24">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <p class="text-2xl md:text-3xl font-medium text-slate-400 uppercase tracking-widest">AI có thể đi rất nhanh.</p>
+        <p class="text-4xl md:text-6xl font-black text-[#0B1D3A] uppercase tracking-tighter leading-tight">
+          Nhưng có những điều chỉ trở nên rõ ràng khi chúng ta chịu dừng lại.
+        </p>
+      </div>
+
+      <div class="pt-12">
+        <a 
+          href={joinBase('chapters/00-loi-mo-dau')} 
+          class="group inline-flex items-center space-x-6 text-lg font-black text-[#0B1D3A] uppercase tracking-[0.3em] hover:text-[#0EA5E9] transition-all"
+        >
+          <span>BẮT ĐẦU ĐỌC</span>
+          <div class="w-12 h-px bg-[#0B1D3A] group-hover:bg-[#0EA5E9] group-hover:w-16 transition-all"></div>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <SearchDialog slot="search-dialog" />
+  <Footer slot="footer" />
+</BaseLayout>
+

@@ -1,0 +1,48 @@
+---
+interface JourneyStep {
+  id: string;
+  label: string;
+  isMain?: boolean;
+}
+
+const steps: JourneyStep[] = [
+  { id: 'idea', label: 'IDEA' },
+  { id: 'vibe-coding', label: 'VIBE CODING' },
+  { id: 'prototype', label: 'PROTOTYPE' },
+  { id: 'engineering', label: 'ENGINEERING' },
+  { id: 'task', label: 'TASK' },
+  { id: 'context', label: 'CONTEXT' },
+  { id: 'knowledge', label: 'KNOWLEDGE' },
+  { id: 'state', label: 'STATE' },
+  { id: 'continuity', label: 'CONTINUITY' },
+  { id: 'multiple-ai', label: 'MULTIPLE AI' },
+  { id: 'governance', label: 'GOVERNANCE' },
+  { id: 'authority', label: 'AUTHORITY' },
+  { id: 'verification', label: 'VERIFICATION' },
+  { id: 'product', label: 'PRODUCT' },
+  { id: 'production', label: 'PRODUCTION' },
+  { id: 'value', label: 'VALUE' },
+];
+---
+
+<div class="py-12 flex flex-col items-center">
+  <div class="relative flex flex-col items-center">
+    {steps.map((step, index) => (
+      <div class="relative flex flex-col items-center">
+        <!-- Node -->
+        <div class="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+        
+        <!-- Label -->
+        <div class="absolute left-8 whitespace-nowrap text-[9px] font-black text-[#0B1D3A] tracking-[0.4em] uppercase">
+          {step.label}
+        </div>
+
+        {index < steps.length - 1 && (
+          <div class="h-10 flex items-center">
+            <div class="w-px h-full bg-slate-100"></div>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>

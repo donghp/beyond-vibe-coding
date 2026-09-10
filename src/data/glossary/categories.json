@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ai-systems-engineering",
+    "name": "AI Systems Engineering",
+    "description": "Kỹ thuật xây dựng hệ thống có AI tham gia như một executor bên trong một hệ thống engineering có kiểm soát."
+  },
+  {
+    "id": "engineering-method",
+    "name": "Engineering Method",
+    "description": "Phương pháp engineering được project sử dụng; cách project quy định task được phân tích, thực hiện và kiểm chứng."
+  },
+  {
+    "id": "governance",
+    "name": "Governance",
+    "description": "Quyền hạn và các quy tắc xác định ai được phép làm gì và trong điều kiện nào."
+  },
+  {
+    "id": "project-state",
+    "name": "Project State",
+    "description": "Các cơ chế liên quan đến việc theo dõi và quản lý trạng thái hiện tại của project."
+  },
+  {
+    "id": "knowledge",
+    "name": "Knowledge",
+    "description": "Kiến thức persistent của project; tri thức về kiến trúc và bối cảnh cần thiết cho các agent thông minh."
+  },
+  {
+    "id": "verification",
+    "name": "Verification",
+    "description": "Các cơ chế dùng evidence để chứng minh kết quả thực thi khớp với contract và yêu cầu."
+  },
+  {
+    "id": "visual-semantics",
+    "name": "Visual Semantics",
+    "description": "Ngữ nghĩa dùng cho hệ thống visual và ngôn ngữ biểu tượng trong các sơ đồ BVC."
+  }
+]

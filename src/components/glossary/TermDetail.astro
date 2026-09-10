@@ -1,0 +1,175 @@
+---
+/**
+ * BVC Master Visual Design - Glossary Term Detail
+ * VERSION: "1.0"
+ */
+import type { GlossaryTerm } from '../../lib/terminology/authority';
+import { getTermById } from '../../lib/terminology/authority';
+
+interface Props {
+  term: GlossaryTerm;
+}
+
+const { term } = Astro.props;
+
+const relatedTerms = term.relatedTerms
+  .map(id => getTermById(id))
+  .filter((t): t is GlossaryTerm => !!t);
+
+const contrastedTerms = (term.contrastsWith || [])
+  .map(id => getTermById(id))
+  .filter((t): t is GlossaryTerm => !!t);
+---
+
+<article class="glossary-term-detail space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+  <header class="space-y-6">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-[10px] font-black text-[#0EA5E9] uppercase tracking-[0.25em] px-3 py-1.5 bg-sky-50 rounded-full border border-sky-100">
+          {term.category}
+        </span>
+        {term.status === 'canonical' && (
+          <span class="text-[10px] font-black text-[#22C55E] uppercase tracking-[0.2em] flex items-center bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
+            <svg class="w-3 h-3 mr-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Canonical
+          </span>
+        )}
+      </div>
+      <div class="text-[10px] font-black text-slate-300 uppercase tracking-widest">
+        ID: {term.id}
+      </div>
+    </div>
+    
+    <div class="space-y-4">
+      <h1 class="text-5xl md:text-6xl font-black text-[#0B1D3A] tracking-tighter leading-none uppercase">
+        {term.canonicalTerm}
+      </h1>
+      <p class="text-2xl text-[#64748B] font-bold leading-tight max-w-2xl">
+        {term.shortDefinition}
+      </p>
+    </div>
+  </header>
+
+  <div class="h-[2px] w-12 bg-[#0EA5E9]"></div>
+
+  <section class="space-y-6">
+    <h3 class="text-[11px] font-black text-[#0B1D3A] uppercase tracking-[0.3em] flex items-center">
+      <span class="w-2 h-2 bg-[#0EA5E9] mr-3 rounded-full"></span>
+      Định nghĩa
+    </h3>
+    <div class="prose prose-slate prose-xl max-w-none text-[#0B1D3A]/80 leading-relaxed font-medium">
+      {term.definition}
+    </div>
+  </section>
+
+  {term.example && (
+    <section class="space-y-6">
+      <h3 class="text-[11px] font-black text-[#0B1D3A] uppercase tracking-[0.3em] flex items-center">
+        <span class="w-2 h-2 bg-[#0EA5E9] mr-3 rounded-full"></span>
+        Ví dụ
+      </h3>
+      <div class="p-6 bg-[#F3F6F9] rounded-2xl border-l-4 border-[#0EA5E9] italic text-slate-700 leading-relaxed">
+        {term.example}
+      </div>
+    </section>
+  )}
+
+  {term.whyItMatters && (
+    <section class="space-y-6">
+      <h3 class="text-[11px] font-black text-[#0B1D3A] uppercase tracking-[0.3em] flex items-center">
+        <span class="w-2 h-2 bg-[#22C55E] mr-3 rounded-full"></span>
+        Tại sao quan trọng
+      </h3>
+      <div class="text-lg text-[#0B1D3A]/70 leading-relaxed font-medium">
+        {term.whyItMatters}
+      </div>
+    </section>
+  )}
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8 border-t border-[#F3F6F9]">
+    {relatedTerms.length > 0 && (
+      <section class="space-y-6">
+        <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.25em]">Thuật ngữ liên quan</h3>
+        <div class="flex flex-col space-y-2">
+          {relatedTerms.map(rt => (
+            <a 
+              href={`/glossary?term=${rt.id}`}
+              class="group flex items-center justify-between p-4 bg-[#F3F6F9] border border-transparent rounded-2xl transition-all hover:bg-white hover:border-[#0EA5E9] hover:shadow-lg hover:shadow-sky-900/5"
+            >
+              <span class="text-sm font-black text-[#0B1D3A] uppercase tracking-wide group-hover:text-[#0EA5E9]">{rt.canonicalTerm}</span>
+              <svg class="w-4 h-4 text-slate-300 group-hover:text-[#0EA5E9] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {contrastedTerms.length > 0 && (
+      <section class="space-y-6">
+        <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.25em]">Phân biệt với</h3>
+        <div class="flex flex-col space-y-2">
+          {contrastedTerms.map(ct => (
+            <a 
+              href={`/glossary?term=${ct.id}`}
+              class="group flex items-center justify-between p-4 bg-[#F3F6F9] border border-transparent rounded-2xl transition-all hover:bg-white hover:border-[#F59E0B] hover:shadow-lg hover:shadow-amber-900/5"
+            >
+              <span class="text-sm font-black text-[#0B1D3A] uppercase tracking-wide group-hover:text-[#F59E0B]">{ct.canonicalTerm}</span>
+              <svg class="w-4 h-4 text-slate-300 group-hover:text-[#F59E0B] transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+
+  <section class="space-y-6 pt-8 border-t border-[#F3F6F9]">
+    <h3 class="text-[11px] font-black text-slate-400 uppercase tracking-[0.25em]">Được sử dụng trong</h3>
+    <div class="flex flex-wrap gap-3">
+      {term.chapters.map(ch => (
+        <a 
+          href={`/chapters/${ch}`}
+          class="flex items-center space-x-3 px-5 py-3 bg-white border border-slate-100 rounded-2xl group hover:border-[#0EA5E9] hover:shadow-md transition-all"
+        >
+          <span class="text-xs font-black text-[#64748B] group-hover:text-[#0EA5E9] tracking-widest">CHƯƠNG {ch}</span>
+          <svg class="w-4 h-4 text-slate-200 group-hover:text-[#0EA5E9] translate-x-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {term.visualSemantics && (
+    <section class="p-8 bg-[#0B1D3A] rounded-[2rem] space-y-6 shadow-2xl shadow-blue-900/20 overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-[#0EA5E9] blur-[80px] opacity-20"></div>
+      <div class="flex items-center justify-between relative z-10">
+        <h3 class="text-[11px] font-black text-white/40 uppercase tracking-[0.3em]">Visual Semantics</h3>
+        <div class="flex items-center space-x-3">
+          <div class={`w-3 h-3 rounded-full shadow-[0_0_12px_rgba(255,255,255,0.3)] bvc-bg-${term.visualSemantics.colorRole}`}></div>
+          <span class="text-[10px] font-black text-white uppercase tracking-widest">{term.visualSemantics.colorRole}</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3 relative z-10">
+        {term.visualSemantics.diagramRoles.map(role => (
+          <span class="text-[10px] font-black text-white/80 border border-white/10 bg-white/5 px-4 py-2 rounded-full uppercase tracking-[0.2em]">
+            {role}
+          </span>
+        ))}
+      </div>
+    </section>
+  )}
+</article>
+
+<style>
+  .bvc-bg-structure { background-color: #0B1D3A; }
+  .bvc-bg-active-flow { background-color: #0EA5E9; }
+  .bvc-bg-verified { background-color: #22C55E; }
+  .bvc-bg-warning { background-color: #F59E0B; }
+  .bvc-bg-critical { background-color: #DC2626; }
+</style>

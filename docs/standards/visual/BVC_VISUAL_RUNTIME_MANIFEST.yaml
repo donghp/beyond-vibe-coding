@@ -1,0 +1,67 @@
+bvc_visual_runtime:
+  id: BVC-VISUAL-RUNTIME-MANIFEST-V1.0
+  version: "1.0"
+  design_authority: docs/standards/visual/BVC_MASTER_VISUAL_DESIGN_V1.0.md
+  canonical_repository: https://github.com/donghp/beyond-vibe-coding
+  canonical_branch: main
+
+  source_model:
+    manuscript: canonical chapter Markdown files
+    transformation: "Markdown/AST -> semantic model -> Visual AST -> SVG/HTML/CSS"
+    runtime_ai_dependency: false
+    manuscript_write_back: false
+
+  tokens:
+    runtime_source: src/lib/visual/tokens.ts
+    css_source: src/styles/bvc-visual.css
+
+  engine:
+    classifier: src/lib/visual/diagramClassifier.ts
+    parser: src/lib/visual/diagramParser.ts
+    visual_ast: src/lib/visual/visualAst.ts
+    duplicate_identity: src/lib/visual/remarkSuppress.ts
+
+  renderers:
+    specification: src/components/visual/BVCSpecification.astro
+    flow: src/components/visual/BVCFlowDiagram.astro
+    architecture: src/components/visual/BVCArchitectureDiagram.astro
+    ladder: src/components/visual/BVCLadderDiagram.astro
+    decision: src/components/visual/BVCDecisionDiagram.astro
+
+  output:
+    primary: svg
+    secondary: html-css
+    raster_for_structured_diagrams: false
+
+  design_tokens:
+    colors:
+      deep_blue: "#0B1D3A"
+      sky_blue: "#0EA5E9"
+      energy_green: "#22C55E"
+      white: "#FFFFFF"
+      light_gray: "#F3F6F9"
+      slate: "#64748B"
+      amber: "#F59E0B"
+    semantic:
+      structure: "#0B1D3A"
+      flow: "#0EA5E9"
+      verified: "#22C55E"
+      warning: "#F59E0B"
+      critical: "#DC2626"
+
+  invariants:
+    default_manuscript_write: false
+    non_target_chapter_write: false
+    presentation_may_mutate_manuscript: false
+    ai_required_at_runtime: false
+    deterministic_rendering: true
+    max_visible_frames_per_visual: 1
+    duplicate_chapter_identity_allowed: false
+    automatic_git_init: false
+    automatic_remote_change: false
+    automatic_push: false
+
+  sync_model:
+    gais_preview: same_source_and_renderers
+    github_pages: same_source_and_renderers
+    required_equivalence: "GAIS Preview = Local Build = GitHub Build = Production"

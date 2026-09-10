@@ -1,0 +1,46 @@
+---
+/**
+ * BVC Master Visual Design - Main Diagram Dispatcher
+ * VERSION: "1.1"
+ */
+import { parseDiagram } from '../../lib/visual/diagramParser';
+import { decodeVisualText } from '../../lib/visual/utils';
+import BVCFlowDiagram from './BVCFlowDiagram.astro';
+import BVCSpecification from './BVCSpecification.astro';
+import BVCArchitectureDiagram from './BVCArchitectureDiagram.astro';
+import BVCLadderDiagram from './BVCLadderDiagram.astro';
+import BVCChecklist from './BVCChecklist.astro';
+import BVCDecisionDiagram from './BVCDecisionDiagram.astro';
+
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+const ast = parseDiagram(content);
+---
+
+{ast.type === 'VG-FLOW' && <BVCFlowDiagram ast={ast} />}
+{ast.type === 'VG-SPEC' && <BVCSpecification ast={ast} />}
+{ast.type === 'VG-ARCHITECTURE' && <BVCArchitectureDiagram ast={ast} />}
+{ast.type === 'VG-LADDER' && <BVCLadderDiagram ast={ast} />}
+{ast.type === 'VG-CHECKLIST' && <BVCChecklist ast={ast} />}
+{ast.type === 'VG-DECISION' && <BVCDecisionDiagram ast={ast} />}
+
+{ast.type === 'VG-ASCII' && (
+  <div class="bvc-visual-surface p-8 mx-auto max-w-2xl w-full overflow-x-auto bg-slate-50/20">
+    <div class="flex items-center space-x-2 mb-6 border-b border-slate-100 pb-4">
+      <div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+      <span class="bvc-section-label text-slate-400">Process Engine</span>
+    </div>
+    <pre class="font-mono text-[12px] leading-[1.8] text-slate-500 whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
+  </div>
+)}
+
+{(ast.type === 'CODE' || ast.type === 'PLAIN_TEXT') && (
+  <div class="my-6">
+    <pre class="bg-slate-900 text-slate-100 p-6 rounded-sm font-mono text-[13px] leading-relaxed overflow-x-auto">
+      <code>{decodeVisualText(ast.raw.trim())}</code>
+    </pre>
+  </div>
+)}

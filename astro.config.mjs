@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import remarkDirective from 'remark-directive';
 import { remarkBvcVisual } from './src/lib/visual/remarkPlugin.ts';
 import { remarkSuppressDuplicateIdentity } from './src/lib/visual/remarkSuppress.ts';
+import { remarkBvcDiagram } from './src/lib/visual/remarkDiagram.ts';
 
 const isProduction = process.env.GITHUB_ACTIONS === 'true';
 
@@ -13,6 +14,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       remarkDirective,
+      remarkBvcDiagram,
       remarkBvcVisual,
       remarkSuppressDuplicateIdentity,
     ],

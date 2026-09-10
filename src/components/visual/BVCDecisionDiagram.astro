@@ -1,0 +1,22 @@
+---
+/**
+ * BVC Master Visual Design - Decision Renderer (VG-DECISION)
+ * VERSION: "1.1"
+ */
+import type { VisualAST } from '../../lib/visual/visualAst';
+import { decodeVisualText } from '../../lib/visual/utils';
+
+interface Props {
+  ast: VisualAST;
+}
+
+const { ast } = Astro.props;
+---
+
+<div class="bvc-visual-surface p-8 mx-auto max-w-2xl w-full">
+  <div class="flex items-center space-x-2 mb-6 border-b border-slate-100 pb-4">
+    <div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+    <span class="bvc-section-label">Decision Logic</span>
+  </div>
+  <pre class="font-mono text-[12px] leading-[1.8] text-slate-600 whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
+</div>

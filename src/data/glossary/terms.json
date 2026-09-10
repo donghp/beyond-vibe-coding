@@ -1,0 +1,174 @@
+[
+  {
+    "id": "authority",
+    "canonicalTerm": "Authority",
+    "shortDefinition": "Quyền được phép đưa ra một quyết định hoặc thực hiện một thay đổi trong một hệ thống.",
+    "definition": "Authority xác định AI được phép quyết định hoặc thay đổi điều gì. Nó là lớp quản trị xác định ranh giới mà một executor có thể hoạt động.",
+    "example": "AI có thể biết cách deploy một ứng dụng, nhưng điều đó không có nghĩa AI có quyền tự deploy lên production.",
+    "whyItMatters": "Trong Beyond Vibe Coding, khả năng làm được một việc (Capability) không tự động tạo ra quyền được phép làm việc đó. Authority giúp kiểm soát rủi ro khi làm việc với AI tự chủ.",
+    "category": "Governance",
+    "status": "canonical",
+    "aliases": ["quyền hạn", "authorization"],
+    "relatedTerms": ["capability", "controlled-autonomy"],
+    "contrastsWith": ["capability"],
+    "chapters": ["05", "07", "08"],
+    "visualSemantics": {
+      "colorRole": "structure",
+      "diagramRoles": ["governance", "boundary"]
+    }
+  },
+  {
+    "id": "capability",
+    "canonicalTerm": "Capability",
+    "shortDefinition": "Khả năng kỹ thuật của một hệ thống để thực hiện một hành động cụ thể.",
+    "definition": "Capability đề cập đến sức mạnh chức năng của AI hoặc hệ thống. Việc có capability không đồng nghĩa với việc có authority để thực thi hành động đó trong môi trường production.",
+    "example": "Một Large Language Model có khả năng viết code xóa database, nhưng project không cấp authority cho nó làm việc đó.",
+    "whyItMatters": "Phân biệt rõ giữa 'có thể làm' và 'được phép làm' là nền tảng để xây dựng các hệ thống AI an toàn.",
+    "category": "AI Systems Engineering",
+    "status": "canonical",
+    "aliases": ["khả năng"],
+    "relatedTerms": ["authority", "controlled-autonomy"],
+    "contrastsWith": ["authority"],
+    "chapters": ["05"],
+    "visualSemantics": {
+      "colorRole": "active-flow",
+      "diagramRoles": ["execution"]
+    }
+  },
+  {
+    "id": "controlled-autonomy",
+    "canonicalTerm": "Controlled Autonomy",
+    "shortDefinition": "Mức tự chủ trong đó AI được phép tự quyết và thực hiện công việc bên trong một boundary đã được xác định.",
+    "definition": "Controlled Autonomy là trạng thái mà một AI executor hoạt động độc lập nhưng trong các ràng buộc nghiêm ngặt của một execution contract và dưới sự giám sát của engineering method.",
+    "example": "AI được cấp quyền tự sửa lỗi CSS trong một component cụ thể mà không cần hỏi lại, nhưng không được phép thay đổi logic API.",
+    "whyItMatters": "Nó cho phép tận dụng tốc độ của AI mà không làm mất đi quyền kiểm soát của con người. AI có thể làm nhiều hơn, nhưng phải dừng lại khi chạm tới ranh giới authority.",
+    "category": "AI Systems Engineering",
+    "status": "canonical",
+    "aliases": ["CA", "tự chủ có kiểm soát"],
+    "relatedTerms": ["authority", "capability", "execution-contract", "verification"],
+    "chapters": ["05", "07"],
+    "visualSemantics": {
+      "colorRole": "active-flow",
+      "diagramRoles": ["autonomy", "boundary"]
+    }
+  },
+  {
+    "id": "context",
+    "canonicalTerm": "Context",
+    "shortDefinition": "Thông tin mà AI thực sự cần để hiểu đúng task và thực hiện đúng trong hoàn cảnh hiện tại.",
+    "definition": "Context trong BVC không chỉ là dữ liệu thô, mà là thông tin có chủ đích, liên quan và đủ để AI executor hoàn thành một execution contract cụ thể.",
+    "example": "Thay vì gửi toàn bộ codebase, ta chỉ gửi schema database và API documentation liên quan đến task hiện tại.",
+    "whyItMatters": "Không phải cứ có nhiều thông tin là AI sẽ làm đúng. Context sai hoặc quá nhiễu sẽ làm giảm chất lượng reasoning của AI. Context Engineering là kỹ thuật đảm bảo AI nhận đúng thứ nó cần.",
+    "category": "Knowledge",
+    "status": "canonical",
+    "aliases": ["bối cảnh", "context engineering"],
+    "relatedTerms": ["project-state", "project-knowledge", "execution-contract"],
+    "chapters": ["04", "05"],
+    "visualSemantics": {
+      "colorRole": "active-flow",
+      "diagramRoles": ["knowledge"]
+    }
+  },
+  {
+    "id": "execution-contract",
+    "canonicalTerm": "Execution Contract",
+    "shortDefinition": "Thỏa thuận ràng buộc định nghĩa phạm vi và kết quả mong đợi của một task.",
+    "definition": "Execution Contract là cầu nối ngữ nghĩa chuyển đổi ý định cấp cao thành các ràng buộc có thể kiểm chứng. Nó định nghĩa input, output kỳ vọng và các ranh giới bất biến của công việc.",
+    "example": "Một contract quy định: 'Sửa lỗi hiển thị date, output chỉ được thay đổi file DateComponent.tsx, không được thêm thư viện mới'.",
+    "whyItMatters": "Nó tạo ra một 'hợp đồng' rõ ràng để con người và AI hiểu nhau, đồng thời cung cấp cơ sở để Verification kiểm tra kết quả.",
+    "category": "Engineering Method",
+    "status": "canonical",
+    "aliases": ["hợp đồng thực thi", "semantic contract"],
+    "relatedTerms": ["controlled-autonomy", "verification"],
+    "chapters": ["05", "07"],
+    "visualSemantics": {
+      "colorRole": "structure",
+      "diagramRoles": ["contract", "boundary"]
+    }
+  },
+  {
+    "id": "verification",
+    "canonicalTerm": "Verification",
+    "shortDefinition": "Quá trình kiểm tra để xác định kết quả thực tế có đáp ứng yêu cầu hay không.",
+    "definition": "Verification là bước cuối cùng trong vòng lặp BVC, nơi bằng chứng (evidence) được thu thập để chứng minh rằng công việc của AI khớp với execution contract và không gây ra sai lệch (drift) không mong muốn.",
+    "example": "Chạy unit test và kiểm tra diff code để xác nhận AI chỉ sửa đúng những gì được yêu cầu.",
+    "whyItMatters": "AI nói 'Done' không tự nó chứng minh rằng công việc đã đúng. Verification biến sự tin tưởng thành sự xác tín dựa trên bằng chứng.",
+    "category": "Verification",
+    "status": "canonical",
+    "aliases": ["kiểm chứng"],
+    "relatedTerms": ["evidence", "checkpoint"],
+    "chapters": ["07"],
+    "visualSemantics": {
+      "colorRole": "verified",
+      "diagramRoles": ["validation"]
+    }
+  },
+  {
+    "id": "evidence",
+    "canonicalTerm": "Evidence",
+    "shortDefinition": "Các artifact và log được tạo ra trong quá trình thực thi để hỗ trợ việc kiểm chứng.",
+    "definition": "Evidence bao gồm kết quả đầu ra hữu hình, các bản ghi log và các thay đổi trạng thái. Đây là nguyên liệu thô để quá trình Verification xác nhận sự tuân thủ hợp đồng.",
+    "example": "Kết quả chạy test case, ảnh chụp màn hình UI sau khi sửa, hoặc log truy vấn database.",
+    "whyItMatters": "Không có bằng chứng, Verification chỉ là lời nói suông. Evidence là cơ sở để con người tin cậy vào kết quả của AI.",
+    "category": "Verification",
+    "status": "canonical",
+    "aliases": ["bằng chứng"],
+    "relatedTerms": ["verification"],
+    "chapters": ["07"],
+    "visualSemantics": {
+      "colorRole": "verified",
+      "diagramRoles": ["artifact"]
+    }
+  },
+  {
+    "id": "project-state",
+    "canonicalTerm": "Project State",
+    "shortDefinition": "Trạng thái hiện tại, đã được xác minh của các artifact và cấu hình dự án.",
+    "definition": "Project State là 'ảnh chụp' của tất cả những gì dự án đang có tại một thời điểm: code, tài sản và metadata. Nó cho biết project đang ở đâu, đã làm gì và chưa làm gì.",
+    "example": "Commit hash hiện tại, danh sách các task đã hoàn thành, và cấu hình môi trường đang chạy.",
+    "whyItMatters": "AI tiếp theo không nên phải đoán project đang ở trạng thái nào. Một Project State rõ ràng giúp đảm bảo sự liên tục (Continuity).",
+    "category": "Project State",
+    "status": "canonical",
+    "aliases": ["trạng thái dự án"],
+    "relatedTerms": ["project-knowledge"],
+    "chapters": ["03", "04", "06"],
+    "visualSemantics": {
+      "colorRole": "structure",
+      "diagramRoles": ["state"]
+    }
+  },
+  {
+    "id": "project-knowledge",
+    "canonicalTerm": "Project Knowledge",
+    "shortDefinition": "Sự hiểu biết về bối cảnh, lịch sử và kiến trúc của dự án.",
+    "definition": "Project Knowledge vượt xa trạng thái thô; nó bao gồm lý do đằng sau các quyết định, các mẫu kiến trúc và ý định dài hạn mà AI cần để đưa ra các đề xuất sáng suốt.",
+    "example": "Tài liệu giải thích tại sao ta chọn dùng Firestore thay vì SQL cho tính năng chat.",
+    "whyItMatters": "Kiến thức này giúp AI hiểu 'tại sao' thay vì chỉ 'cái gì', từ đó đưa ra các giải pháp phù hợp với kiến trúc tổng thể.",
+    "category": "Knowledge",
+    "status": "canonical",
+    "aliases": ["tri thức dự án"],
+    "relatedTerms": ["project-state", "context"],
+    "chapters": ["03", "04"],
+    "visualSemantics": {
+      "colorRole": "active-flow",
+      "diagramRoles": ["knowledge"]
+    }
+  },
+  {
+    "id": "continuity",
+    "canonicalTerm": "Continuity",
+    "shortDefinition": "Khả năng để project tiếp tục công việc khi AI, Run hoặc môi trường thực thi thay đổi.",
+    "definition": "Continuity đảm bảo rằng tri thức và trạng thái dự án không bị mất đi khi thay đổi executor. Dự án có thể tiếp tục mạch lạc từ điểm dừng trước đó.",
+    "example": "Một AI mới vào có thể đọc Project State và tiếp tục task mà AI trước đó đang làm dở.",
+    "whyItMatters": "Project không nên phụ thuộc vào 'trí nhớ' ngắn hạn của một phiên chat AI duy nhất. Continuity tạo ra sự bền vững cho quá trình phát triển.",
+    "category": "Project State",
+    "status": "canonical",
+    "aliases": ["sự liên tục"],
+    "relatedTerms": ["project-knowledge", "project-state", "checkpoint"],
+    "chapters": ["03", "11", "12"],
+    "visualSemantics": {
+      "colorRole": "structure",
+      "diagramRoles": ["state"]
+    }
+  }
+]

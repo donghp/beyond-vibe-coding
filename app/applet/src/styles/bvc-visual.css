@@ -1,0 +1,76 @@
+/**
+ * BVC Master Visual Design Primitives
+ */
+
+@layer components {
+  /* Visual Surface */
+  .bvc-visual-surface {
+    @apply bg-white border border-slate-200/60 rounded-sm shadow-[0_2px_15px_-3px_rgba(0,0,0,0.03)];
+  }
+
+  /* Section Labels */
+  .bvc-section-label {
+    @apply text-[10px] font-black text-slate-400 uppercase tracking-[0.25em];
+  }
+
+  /* Node Primitives */
+  .bvc-node-primary {
+    @apply bg-white border border-slate-200 px-6 py-4 text-center rounded-sm transition-all;
+    @apply hover:border-blue-300 hover:shadow-md;
+  }
+
+  .bvc-node-label {
+    @apply text-[13px] font-bold text-slate-900 uppercase tracking-wider;
+  }
+
+  /* Specification Rows */
+  .bvc-spec-row {
+    @apply grid grid-cols-[140px_1fr] gap-x-8 py-3 items-baseline border-b border-slate-50 last:border-0;
+  }
+
+  .bvc-spec-key {
+    @apply text-[11px] font-bold text-slate-400 uppercase tracking-widest;
+  }
+
+  .bvc-spec-value {
+    @apply font-mono text-[13px] text-blue-900 bg-blue-50/40 px-3 py-1 rounded-sm border border-blue-100/30 w-fit;
+  }
+
+  /* Status Indicators */
+  .bvc-status-pill {
+    @apply text-[10px] font-black px-3 py-1 rounded-full border;
+  }
+
+  .bvc-status-pass {
+    @apply bg-green-50 text-green-600 border-green-100;
+  }
+
+  .bvc-status-fail {
+    @apply bg-red-50 text-red-600 border-red-100;
+  }
+
+  /* Architecture Layers */
+  .bvc-arch-anchor {
+    @apply bg-slate-900 text-white px-10 py-4 rounded-sm text-[12px] font-black tracking-[0.3em] uppercase;
+  }
+
+  .bvc-arch-contract {
+    @apply border-[1.5px] border-blue-600/30 bg-blue-50/20 px-8 py-5 rounded-sm text-center;
+    @apply text-[12px] font-black text-blue-900 tracking-[0.25em] uppercase;
+  }
+
+  .bvc-arch-adapter {
+    @apply bg-slate-50 border border-slate-200 px-8 py-5 rounded-sm text-center;
+    @apply text-[11px] font-bold text-slate-500 tracking-widest uppercase;
+  }
+
+  .bvc-arch-execution {
+    @apply bg-blue-600 text-white h-14 flex items-center justify-center rounded-sm shadow-xl shadow-blue-100;
+    @apply text-[12px] font-black tracking-[0.3em] uppercase;
+  }
+
+  .bvc-arch-verification {
+    @apply border-[1.5px] border-green-500/50 bg-green-50/30 h-14 flex items-center justify-center rounded-sm;
+    @apply text-[12px] font-black text-green-700 tracking-[0.3em] uppercase;
+  }
+}

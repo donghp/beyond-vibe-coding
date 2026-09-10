@@ -1,0 +1,48 @@
+---
+/**
+ * BVC Master Visual Design - Flow Renderer (VG-FLOW)
+ * VERSION: "1.1"
+ */
+import type { VisualAST } from '../../lib/visual/visualAst';
+import { decodeVisualText } from '../../lib/visual/utils';
+import { resolveVisualSemantics } from '../../lib/terminology/authority';
+import { BVC_TOKENS } from '../../lib/visual/tokens';
+
+interface Props {
+  ast: VisualAST;
+}
+
+const { ast } = Astro.props;
+---
+
+<div class="bvc-diagram-engine mx-auto max-w-2xl w-full my-12" data-type="VG-FLOW">
+  <div class="flex flex-col items-center">
+    {ast.nodes.map((node, index) => {
+      const semantics = node.semanticTermId ? resolveVisualSemantics(node.semanticTermId) : undefined;
+      const borderColor = semantics ? BVC_TOKENS.getSemanticColor(semantics.colorRole) : undefined;
+      
+      return (
+        <div class="w-full flex flex-col items-center">
+          <div class="bvc-flow-node" style={borderColor ? `border-color: ${borderColor}` : ''}>
+            <span class="bvc-flow-label">
+              {decodeVisualText(node.label)}
+            </span>
+          </div>
+
+          {index < ast.nodes.length - 1 && (
+            <div class="h-10 flex flex-col items-center justify-center relative w-full">
+              <!-- Centered Connector -->
+              <div class="w-[1.5px] h-full bg-slate-100 absolute left-1/2 -translate-x-1/2"></div>
+              <!-- Arrow Head -->
+              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                 <svg class="w-3 h-3 text-slate-300 fill-current" viewBox="0 0 24 24">
+                   <path d="M12 21l-8-9h16l-8 9z" />
+                 </svg>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    })}
+  </div>
+</div>

@@ -1,0 +1,240 @@
+---
+/**
+ * BVC Master Visual Design - Glossary Page
+ * VERSION: "1.0"
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SearchDialog from '../../components/SearchDialog.astro';
+import { getAllTerms, getAllCategories } from '../../lib/terminology/authority';
+import TermDetail from '../../components/glossary/TermDetail.astro';
+import FeaturedConcept from '../../components/glossary/FeaturedConcept.astro';
+
+const allTerms = getAllTerms().sort((a, b) => a.canonicalTerm.localeCompare(b.canonicalTerm));
+const categories = getAllCategories();
+
+// Group terms by first letter for A-Z index
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const termsByLetter = alphabet.reduce((acc, letter) => {
+  const matches = allTerms.filter(t => t.canonicalTerm.toUpperCase().startsWith(letter));
+  if (matches.length > 0) {
+    acc[letter] = matches;
+  }
+  return acc;
+}, {} as Record<string, typeof allTerms>);
+
+// Get initial term from query param
+const urlTermId = Astro.url.searchParams.get('term');
+const initialTerm = allTerms.find(t => t.id === urlTermId) || allTerms[0];
+---
+
+<BaseLayout 
+  title="Glossary — Beyond Vibe Coding"
+  description="Canonical terminology authority for Beyond Vibe Coding and AI Systems Engineering."
+  isReader={false}
+>
+  <Header slot="header" />
+
+  <main class="w-full bg-[#FFFFFF] min-h-screen">
+    <!-- Hero Header -->
+    <section class="max-w-7xl mx-auto px-6 pt-20 pb-16 border-b border-[#F3F6F9]">
+      <div class="flex flex-col items-center text-center space-y-8">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#F3F6F9] border border-slate-100 text-[#64748B] text-[10px] font-black uppercase tracking-[0.25em]">
+          <svg class="w-3 h-3 text-[#0EA5E9]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Semantic Authority V1.0</span>
+        </div>
+        
+        <div class="space-y-4">
+          <h1 class="text-6xl md:text-7xl font-black text-[#0B1D3A] tracking-tighter uppercase leading-none">
+            Glossary
+          </h1>
+          <p class="text-2xl md:text-3xl font-bold tracking-tight text-[#64748B]">
+            Common Terms. <span class="text-[#0EA5E9]">Deeper Understanding.</span>
+          </p>
+          <p class="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
+            Từ điển thuật ngữ của Beyond Vibe Coding — nơi các khái niệm được giải thích theo đúng cách cuốn sách sử dụng chúng.
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="w-full max-w-2xl relative">
+          <input 
+            type="text" 
+            placeholder="Tìm thuật ngữ..." 
+            class="w-full bg-white border border-[#F3F6F9] rounded-xl px-6 py-4 text-lg font-medium text-[#0B1D3A] focus:outline-none focus:border-[#0EA5E9] focus:ring-4 focus:ring-sky-50 shadow-sm transition-all"
+          />
+          <div class="absolute right-6 top-1/2 -translate-y-1/2 text-[#0EA5E9]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+          Tìm theo tên thuật ngữ, từ viết tắt hoặc khái niệm liên quan.
+        </p>
+      </div>
+    </section>
+
+    <!-- Navigation / Filters Bar -->
+    <section class="sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-[#F3F6F9]">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between overflow-x-auto no-scrollbar">
+        <div class="flex items-center space-x-6">
+          <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] whitespace-nowrap">Lọc theo</h3>
+          <div class="flex items-center space-x-2">
+            <button data-category-filter="all" class="category-btn px-4 py-1.5 rounded-full bg-[#0B1D3A] text-white text-[10px] font-black uppercase tracking-widest transition-all">Tất cả</button>
+            {categories.map(cat => (
+              <button data-category-filter={cat.name} class="category-btn px-4 py-1.5 rounded-full bg-white text-slate-500 text-[10px] font-black uppercase tracking-widest border border-slate-100 hover:border-[#0EA5E9] hover:text-[#0EA5E9] transition-all">
+                {cat.name}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-1 pl-8 border-l border-slate-100">
+          {alphabet.map(letter => (
+            <button data-letter-filter={letter} class={`letter-btn w-7 h-7 flex items-center justify-center rounded text-[10px] font-black transition-all ${termsByLetter[letter] ? 'text-[#0B1D3A] hover:bg-[#F3F6F9]' : 'text-slate-200 cursor-not-allowed'}`}>
+              {letter}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Sidebar Index (Left) -->
+        <aside class="lg:col-span-3 space-y-12 sticky top-32 max-h-[70vh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-slate-200">
+          <div id="term-index-container">
+            {Object.entries(termsByLetter).map(([letter, terms]) => (
+              <div class="space-y-4 mb-8 term-letter-section" data-letter={letter}>
+                <h4 class="text-4xl font-black text-slate-100 border-b-2 border-slate-50 pb-2">{letter}</h4>
+                <nav class="flex flex-col space-y-2">
+                  {terms.map(term => (
+                    <a 
+                      href={`?term=${term.id}`}
+                      data-term-id={term.id}
+                      data-term-name={term.canonicalTerm.toLowerCase()}
+                      data-category={term.category}
+                      class={`term-link px-4 py-3 rounded-xl text-sm font-bold tracking-tight transition-all ${
+                        term.id === initialTerm.id 
+                          ? 'bg-[#0B1D3A] text-white shadow-xl shadow-blue-900/20 translate-x-2 active-term' 
+                          : 'text-slate-600 hover:bg-[#F3F6F9] hover:text-[#0B1D3A]'
+                      }`}
+                    >
+                      {term.canonicalTerm}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            ))}
+          </div>
+        </aside>
+
+        <!-- Detail Area (Center) -->
+        <div class="lg:col-span-6 bg-white border border-[#F3F6F9] rounded-3xl p-8 md:p-12 shadow-sm min-h-[600px]">
+          <TermDetail term={initialTerm} />
+        </div>
+
+        <!-- Featured Concept (Right) -->
+        <aside class="lg:col-span-3">
+          <FeaturedConcept termId="context" />
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Client-side search and filtering
+    const searchInput = document.querySelector('input[type="text"]') as HTMLInputElement;
+    const termLinks = document.querySelectorAll('.term-link');
+    const letterSections = document.querySelectorAll('.term-letter-section');
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const letterButtons = document.querySelectorAll('.letter-btn');
+
+    let activeCategory = 'all';
+    let activeLetter = 'all';
+
+    function updateFilters() {
+      const query = searchInput.value.toLowerCase();
+
+      termLinks.forEach(link => {
+        const name = (link as HTMLElement).dataset.termName || '';
+        const category = (link as HTMLElement).dataset.category || '';
+        const letter = name.charAt(0).toUpperCase();
+
+        const matchesSearch = name.includes(query);
+        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const matchesLetter = activeLetter === 'all' || letter === activeLetter;
+        
+        if (matchesSearch && matchesCategory && matchesLetter) {
+          (link as HTMLElement).style.display = 'block';
+        } else {
+          (link as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Hide/show letter sections based on children visibility
+      letterSections.forEach(section => {
+        const links = section.querySelectorAll('.term-link');
+        const hasVisibleLinks = Array.from(links).some(l => (l as HTMLElement).style.display !== 'none');
+        (section as HTMLElement).style.display = hasVisibleLinks ? 'block' : 'none';
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', updateFilters);
+    }
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => b.classList.remove('bg-[#0B1D3A]', 'text-white'));
+        categoryButtons.forEach(b => b.classList.add('bg-white', 'text-slate-500', 'border-slate-100'));
+        
+        btn.classList.remove('bg-white', 'text-slate-500', 'border-slate-100');
+        btn.classList.add('bg-[#0B1D3A]', 'text-white');
+        
+        activeCategory = (btn as HTMLElement).dataset.categoryFilter || 'all';
+        updateFilters();
+      });
+    });
+
+    letterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if ((btn as HTMLElement).classList.contains('text-slate-200')) return;
+
+        letterButtons.forEach(b => b.classList.remove('bg-[#0B1D3A]', 'text-white'));
+        btn.classList.add('bg-[#0B1D3A]', 'text-white');
+        
+        activeLetter = (btn as HTMLElement).dataset.letterFilter || 'all';
+        updateFilters();
+      });
+    });
+  </script>
+
+  <SearchDialog slot="search-dialog" />
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  /* Custom scrollbar for the sidebar */
+  aside::-webkit-scrollbar {
+    width: 4px;
+  }
+  aside::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  aside::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+  }
+  aside::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+</style>
