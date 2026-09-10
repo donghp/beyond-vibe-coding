@@ -197,12 +197,12 @@ const githubSourceUrl = `https://github.com/donghp/beyond-vibe-coding/blob/main/
 
       const anchor = document.createElement('a');
       anchor.href = `#${id}`;
-      anchor.className = `group flex items-start py-1.5 text-xs text-navy-700 hover:text-navy-950 transition-colors duration-150 focus:outline-none relative right-rail-toc-item cursor-pointer leading-snug`;
+      anchor.className = `group flex items-start py-1.5 pl-7 text-xs text-navy-700 hover:text-navy-950 transition-colors duration-150 focus:outline-none relative right-rail-toc-item cursor-pointer leading-snug`;
       anchor.setAttribute('data-target-id', id);
       
-      // Circular section node positioned with exact center on the border line (left: 0 with translateX(-50%))
+      // Circular section node with clear separation between marker and text
       anchor.innerHTML = `
-        <span class="w-2.5 h-2.5 rounded-full bg-white border-2 border-navy-300 absolute left-0 -translate-x-1/2 top-2 transition-all duration-200 toc-bullet group-hover:border-navy-600"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-white border-2 border-navy-300 absolute left-3 -translate-x-1/2 top-2 transition-all duration-200 toc-bullet group-hover:border-navy-600"></span>
         <div class="flex flex-col min-w-0 pr-1">
           <span class="toc-title font-medium">${mainText}</span>
           ${subText ? `<span class="text-[10px] text-navy-400 font-normal leading-tight mt-0.5">${subText}</span>` : ''}
