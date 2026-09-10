@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { joinBase } from '../utils/paths';
 
 const baseUrl = import.meta.env.BASE_URL;
 const publishedChapters = await getCollection('chapters', ({ data }) => {
@@ -52,7 +53,7 @@ const chaptersIndexData = publishedChapters.map(c => ({
         <div class="flex flex-col gap-1">
           {chaptersIndexData.map((ch) => (
             <a 
-              href={`${baseUrl}chapters/${ch.slug}`}
+              href={joinBase(`chapters/${ch.slug}`)}
               class="flex items-center gap-4 p-3 rounded-lg hover:bg-navy-50 group focus:outline-none focus:bg-navy-50"
             >
               <span class="text-xs font-mono font-bold text-navy-400 group-hover:text-tech-blue">
@@ -80,6 +81,7 @@ const chaptersIndexData = publishedChapters.map(c => ({
 </div>
 
 <script define:vars={{ chaptersIndexData, baseUrl }}>
+  const cleanBase = baseUrl ? (baseUrl.endsWith('/') ? baseUrl : baseUrl + '/') : '/';
   const dialog = document.getElementById('search-dialog');
   const input = document.getElementById('search-input');
   const activeList = document.getElementById('active-results-list');
@@ -150,7 +152,7 @@ const chaptersIndexData = publishedChapters.map(c => ({
 
     matches.forEach(ch => {
       const resultAnchor = document.createElement('a');
-      resultAnchor.href = `${baseUrl}chapters/${ch.slug}`;
+      resultAnchor.href = `${cleanBase}chapters/${ch.slug}`;
       resultAnchor.className = "flex items-center gap-4 p-3 rounded-lg hover:bg-navy-50 group focus:outline-none focus:bg-navy-50";
       resultAnchor.innerHTML = `
         <span class="text-xs font-mono font-bold text-navy-400 group-hover:text-tech-blue">

@@ -3,8 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import SearchDialog from '../components/SearchDialog.astro';
 import Footer from '../components/Footer.astro';
-
-const baseUrl = import.meta.env.BASE_URL;
+import { joinBase } from '../utils/paths';
 ---
 
 <BaseLayout 
@@ -30,14 +29,14 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <div class="flex flex-wrap items-center justify-center gap-3">
         <a 
-          href={baseUrl}
+          href={joinBase('')}
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-navy-950 hover:bg-navy-900 text-white font-bold text-xs transition-colors"
         >
           <span>Về trang chủ</span>
         </a>
 
         <a 
-          href={`${baseUrl}opening/dedication`}
+          href={joinBase('opening/dedication')}
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-navy-50 text-navy-800 font-bold text-xs border border-navy-200 transition-colors"
         >
           <span>Mở đầu sách</span>

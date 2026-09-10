@@ -1,12 +1,12 @@
 ---
 import { getCanonicalBookMap, getDerivedDisplayLabel } from '../data/bookMap';
+import { joinBase } from '../utils/paths';
 
 interface Props {
   activeChapterId?: string;
 }
 
 const { activeChapterId } = Astro.props;
-const baseUrl = import.meta.env.BASE_URL;
 
 const canonicalItems = await getCanonicalBookMap();
 ---
@@ -17,7 +17,7 @@ const canonicalItems = await getCanonicalBookMap();
   <div class="flex flex-col pb-2">
     <div class="relative w-full aspect-[1055/1491] rounded-xl overflow-hidden shadow-editorial border border-navy-200/80 bg-navy-950 group">
       <img 
-        src={`${baseUrl}images/cover-vn.png`} 
+        src={joinBase('images/cover-vn.png')} 
         alt="Beyond Vibe Coding — Bìa sách chính thức" 
         class="w-full h-full object-contain"
         width="1055"
@@ -32,14 +32,14 @@ const canonicalItems = await getCanonicalBookMap();
     <!-- Dedicated Book Opening Section -->
     <div class="flex flex-col gap-1 pb-2 mb-2 border-b border-navy-100">
       <a 
-        href={`${baseUrl}opening/dedication`}
+        href={joinBase('opening/dedication')}
         class="group flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs text-navy-600 hover:text-tech-blue hover:bg-navy-100/60 transition-colors"
       >
         <span class="w-1.5 h-1.5 rounded-full bg-navy-300 group-hover:bg-tech-blue transition-colors"></span>
         <span class="font-medium text-[11px] tracking-tight">Trang đề tặng (Dedication)</span>
       </a>
       <a 
-        href={`${baseUrl}opening/danh-tang`}
+        href={joinBase('opening/danh-tang')}
         class="group flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs text-navy-600 hover:text-tech-blue hover:bg-navy-100/60 transition-colors"
       >
         <span class="w-1.5 h-1.5 rounded-full bg-navy-300 group-hover:bg-tech-blue transition-colors"></span>
@@ -88,7 +88,7 @@ const canonicalItems = await getCanonicalBookMap();
 
       return (
         <a 
-          href={`${baseUrl}chapters/${slug}`}
+          href={joinBase(`chapters/${slug}`)}
           class={`group flex items-start gap-3 px-3 py-2.5 rounded-lg text-xs transition-all duration-150 relative cursor-pointer ${
             isActive 
               ? 'bg-[#ebf4fd] text-tech-blue font-bold border-l-4 border-tech-blue' 

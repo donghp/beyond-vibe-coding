@@ -11,6 +11,7 @@ import SearchDialog from '../../components/SearchDialog.astro';
 import BookMode from '../../components/BookMode.astro';
 import ChapterNavigation from '../../components/ChapterNavigation.astro';
 import Footer from '../../components/Footer.astro';
+import { joinBase } from '../../utils/paths';
 
 // Generate static paths strictly for published chapter slugs
 export async function getStaticPaths() {
@@ -35,10 +36,9 @@ const currentIndex = sortedChapters.findIndex((ch) => ch.id === chapter.id);
 
 const prevChapter = currentIndex > 0 ? sortedChapters[currentIndex - 1] : undefined;
 const nextChapter = currentIndex < sortedChapters.length - 1 ? sortedChapters[currentIndex + 1] : undefined;
-const baseUrl = import.meta.env.BASE_URL;
 
 const prevCustomLink = currentIndex === 0 ? {
-  href: `${baseUrl}opening/danh-tang`,
+  href: joinBase('opening/danh-tang'),
   label: "Lời đề từ",
   subtitle: "Dành Tặng"
 } : undefined;

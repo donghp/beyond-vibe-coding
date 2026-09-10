@@ -4,8 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import SearchDialog from '../../components/SearchDialog.astro';
 import Footer from '../../components/Footer.astro';
-
-const baseUrl = import.meta.env.BASE_URL;
+import { joinBase } from '../../utils/paths';
 
 // Find first published chapter for navigation target
 const publishedChapters = await getCollection('chapters', ({ data }) => {
@@ -13,8 +12,8 @@ const publishedChapters = await getCollection('chapters', ({ data }) => {
 });
 const sortedChapters = publishedChapters.sort((a, b) => a.data.order - b.data.order);
 const firstChapterUrl = sortedChapters.length > 0 
-  ? `${baseUrl}chapters/${sortedChapters[0].id}`
-  : baseUrl;
+  ? joinBase(`chapters/${sortedChapters[0].id}`)
+  : joinBase('');
 ---
 
 <BaseLayout 
@@ -84,7 +83,7 @@ const firstChapterUrl = sortedChapters.length > 0
           Thân tặng bạn Lê Ngọc Giáp
         </p>
         <img 
-          src={`${baseUrl}images/author-signature.png`}
+          src={joinBase('images/author-signature.png')}
           alt="Chữ ký của Hồng Đông"
           class="w-[260px] sm:w-[310px] md:w-[350px] max-w-full h-auto object-contain select-none pointer-events-none mt-1 sm:mt-2"
           loading="eager"
@@ -103,7 +102,7 @@ const firstChapterUrl = sortedChapters.length > 0
     <!-- Paging Controls Bar -->
     <div class="w-full max-w-2xl mt-6 flex items-center justify-between select-none">
       <a 
-        href={baseUrl}
+        href={joinBase('')}
         class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-navy-200 bg-white hover:bg-navy-50 text-navy-700 text-xs font-bold transition-all shadow-2xs group cursor-pointer"
       >
         <span class="transition-transform group-hover:-translate-x-0.5">←</span>
@@ -111,7 +110,7 @@ const firstChapterUrl = sortedChapters.length > 0
       </a>
 
       <a 
-        href={`${baseUrl}opening/danh-tang`}
+        href={joinBase('opening/danh-tang')}
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-navy-950 hover:bg-navy-900 text-white text-xs font-bold transition-all shadow-2xs group cursor-pointer"
       >
         <span>Trang tiếp theo</span>

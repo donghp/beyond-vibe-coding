@@ -4,9 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import SearchDialog from '../components/SearchDialog.astro';
 import Footer from '../components/Footer.astro';
+import { joinBase } from '../utils/paths';
 
 const canonicalItems = await getCanonicalBookMap();
-const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
@@ -60,7 +60,7 @@ const baseUrl = import.meta.env.BASE_URL;
           <!-- Primary & Secondary Actions -->
           <div class="flex flex-wrap items-center gap-4">
             <a 
-              href={`${baseUrl}opening/dedication`} 
+              href={joinBase('opening/dedication')} 
               class="inline-flex items-center gap-2.5 px-6 py-3.5 bg-tech-blue hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-sm hover:shadow transition-all focus:outline-none cursor-pointer"
             >
               <span>OPEN THE BOOK</span>
@@ -71,7 +71,7 @@ const baseUrl = import.meta.env.BASE_URL;
             </a>
 
             <a 
-              href="#chapters" 
+              href={joinBase('#chapters')} 
               class="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-navy-50 text-navy-800 font-bold text-sm rounded-xl border border-navy-200/80 shadow-2xs transition-all focus:outline-none"
             >
               <span>EXPLORE CHAPTERS</span>
@@ -83,7 +83,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <div class="lg:col-span-5 flex flex-col items-center justify-center">
           <div class="relative w-full max-w-[320px] aspect-[1055/1491] rounded-2xl overflow-hidden shadow-2xl border border-navy-200/80 bg-navy-950 transition-transform duration-300 hover:scale-[1.01] group">
             <img 
-              src={`${baseUrl}images/cover-vn.png`} 
+              src={joinBase('images/cover-vn.png')} 
               alt="Beyond Vibe Coding — Bìa sách chính thức" 
               class="w-full h-full object-contain"
               width="1055"
@@ -178,7 +178,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
           return (
             <a 
-              href={`${baseUrl}chapters/${item.id}`}
+              href={joinBase(`chapters/${item.id}`)}
               class={`group py-4 sm:py-5 px-3 -mx-3 rounded-xl flex items-start justify-between gap-4 transition-all duration-150 hover:bg-[#f0f6fc] ${
                 isGolden ? 'bg-[#f4f8fd] border-l-4 border-tech-blue pl-4' : ''
               }`}
@@ -233,7 +233,7 @@ const baseUrl = import.meta.env.BASE_URL;
         </div>
 
         <a 
-          href={`${baseUrl}chapters/05-controlled-autonomy`}
+          href={joinBase('chapters/05-controlled-autonomy')}
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-navy-950 hover:bg-navy-900 text-white font-bold text-xs shrink-0 transition-colors"
         >
           <span>Đọc ngay</span>

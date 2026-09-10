@@ -1,5 +1,5 @@
 ---
-const baseUrl = import.meta.env.BASE_URL;
+import { joinBase } from '../utils/paths';
 ---
 
 <footer class="w-full bg-[#fbfbfd] border-t border-navy-100 py-8 px-6 select-none mt-auto transition-all duration-300 footer-container">
@@ -7,13 +7,13 @@ const baseUrl = import.meta.env.BASE_URL;
     
     <!-- Brand / Copyright -->
     <div class="flex items-center gap-3">
-      <span class="font-medium">Copyright @ 2026 Hồng Đông - <a href="mailto:sugiharavn@gmail.com" class="hover:text-tech-blue transition-colors" aria-label="Email Hồng Đông">Email : sugiharavn@gmail.com</a></span>
+      <span class="font-medium">Copyright © 2026 Hồng Đông</span>
     </div>
 
     <!-- Navigation / Source links -->
     <div class="flex items-center gap-5 font-medium">
-      <a href={baseUrl} class="hover:text-tech-blue transition-colors">Home</a>
-      <a href={`${baseUrl}#chapters`} class="hover:text-tech-blue transition-colors">Chapters</a>
+      <a href={joinBase('')} class="hover:text-tech-blue transition-colors">Home</a>
+      <a href={joinBase('#chapters')} class="hover:text-tech-blue transition-colors">Chapters</a>
       <a href="https://github.com/donghp/beyond-vibe-coding" target="_blank" rel="noopener noreferrer" class="hover:text-tech-blue transition-colors inline-flex items-center gap-1">
         <span>GitHub</span>
         <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

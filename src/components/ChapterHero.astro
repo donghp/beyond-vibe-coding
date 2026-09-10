@@ -1,4 +1,6 @@
 ---
+import { joinBase } from '../utils/paths';
+
 interface Props {
   order: number;
   title: string;
@@ -12,7 +14,6 @@ interface Props {
 }
 
 const { order, title, subtitle, readingTime, published, version, topics, prevChapter, nextChapter } = Astro.props;
-const baseUrl = import.meta.env.BASE_URL;
 const chapterIndexStr = order.toString().padStart(2, '0');
 
 // Format title semantic split: split into two lines on period or question mark if available
@@ -34,9 +35,9 @@ if (title.includes('.')) {
   <!-- Top Breadcrumb & Chapter Paging Header -->
   <div class="flex items-center justify-between text-xs font-semibold text-navy-500 pb-5 border-b border-navy-100/80 mb-6">
     <nav class="flex items-center gap-2" aria-label="breadcrumb">
-      <a href={baseUrl} class="text-navy-700 hover:text-tech-blue transition-colors">Home</a>
+      <a href={joinBase('')} class="text-navy-700 hover:text-tech-blue transition-colors">Home</a>
       <span class="text-navy-300">›</span>
-      <a href={`${baseUrl}#chapters`} class="text-navy-700 hover:text-tech-blue transition-colors">Chapters</a>
+      <a href={joinBase('#chapters')} class="text-navy-700 hover:text-tech-blue transition-colors">Chapters</a>
       <span class="text-navy-300">›</span>
       <span class="text-navy-950 font-bold">{order === 0 ? 'Lời mở đầu' : `Chương ${order}`}</span>
     </nav>
@@ -45,7 +46,7 @@ if (title.includes('.')) {
     <div class="flex items-center gap-3 text-xs font-medium">
       {prevChapter ? (
         <a 
-          href={`${baseUrl}chapters/${prevChapter.id}`} 
+          href={joinBase(`chapters/${prevChapter.id}`)} 
           class="text-navy-700 hover:text-tech-blue transition-colors flex items-center gap-1 font-semibold"
           title={prevChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${prevChapter.data.order}: ${prevChapter.data.shortTitle}`}
         >
@@ -59,7 +60,7 @@ if (title.includes('.')) {
 
       {nextChapter ? (
         <a 
-          href={`${baseUrl}chapters/${nextChapter.id}`} 
+          href={joinBase(`chapters/${nextChapter.id}`)} 
           class="text-navy-700 hover:text-tech-blue transition-colors flex items-center gap-1 font-semibold"
           title={nextChapter.data.order === 0 ? 'Lời mở đầu' : `Chương ${nextChapter.data.order}: ${nextChapter.data.shortTitle}`}
         >
@@ -114,7 +115,7 @@ if (title.includes('.')) {
   <div class="w-full aspect-[21/9] rounded-xl bg-navy-950 overflow-hidden relative shadow-sm border border-navy-100/80 my-1">
     <!-- Authentic Hero Image -->
     <img 
-      src={`${baseUrl}images/chapter-${chapterIndexStr}-hero.webp`} 
+      src={joinBase(`images/chapter-${chapterIndexStr}-hero.webp`)} 
       alt={`Chương ${order} Hero Visual`}
       class="w-full h-full object-cover object-center"
       loading="eager"
