@@ -71,7 +71,7 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     shortTitle: 'AI có thể làm. Nhưng AI có được phép làm không?',
     slug: '05-controlled-autonomy',
     publicationStatus: 'published',
-    contentStatus: 'partial',
+    contentStatus: 'complete',
   },
   {
     id: '06-prototype-to-production',
