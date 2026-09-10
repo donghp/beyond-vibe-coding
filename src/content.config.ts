@@ -40,6 +40,8 @@ const openingsCollection = defineCollection({
     author: z.string().optional(),
     bookTitle: z.string().optional(),
     heading: z.string().optional(),
+    sectionLabel: z.string().optional(),
+    intro: z.string().optional(),
     quoteEn: z.string().optional(),
     quoteVi: z.string().optional()
   })
