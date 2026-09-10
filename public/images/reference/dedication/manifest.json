@@ -1,0 +1,12 @@
+{
+  "sourceAsset": "dedication-artwork.png + author-signature.png",
+  "sourceDimensions": {
+    "recipientArtwork": "1600x240",
+    "authorSignature": "1600x640",
+    "compositeLockup": "1600x912"
+  },
+  "visualAuthority": "AUTHOR-SUPPLIED APPROVED REFERENCE",
+  "status": "FROZEN",
+  "purpose": "Dedication visual master",
+  "dateCreated": "2026-09-10"
+}
