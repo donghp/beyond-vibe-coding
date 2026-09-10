@@ -8,10 +8,10 @@ description: "Why the role of the software developer is expanding, not shrinking
 readingTime: "8 min"
 topics: ["future of work", "creativity", "system design", "craftsmanship"]
 hero: "images/chapter-08-hero.webp"
-published: "2026-09-09"
-publicationStatus: "unpublished"
-contentStatus: "draft"
-updated: "2026-09-09"
+published: "2026-09-10"
+publicationStatus: "published"
+contentStatus: "complete"
+updated: "2026-09-10"
 version: "1.0.0"
 ---
 

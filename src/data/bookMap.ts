@@ -80,8 +80,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 6 — KHI AI HẾT QUOTA, PROJECT KHÔNG ĐƯỢC DỪNG',
     shortTitle: 'Khi AI hết quota, project không được dừng',
     slug: '06-prototype-to-production',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '07-verification',
@@ -90,8 +90,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 7 — NHIỀU AI, MỘT CÁCH LÀM VIỆC',
     shortTitle: 'Nhiều AI, một cách làm việc',
     slug: '07-verification',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '08-ai-and-developers',
@@ -100,8 +100,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 8 — AI KHÔNG NÊN TỰ ĐIỀU KHIỂN PROJECT',
     shortTitle: 'AI không nên tự điều khiển project',
     slug: '08-ai-and-developers',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '09-toi-khong-muon-viet-prompt',
@@ -114,42 +114,42 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     contentStatus: 'draft',
   },
   {
-    id: '10-toi-khong-muon-ai-lam-nhieu',
+    id: '10-ai-da-noi-done',
     order: 10,
     section: 'chapter',
-    title: 'CHƯƠNG 10 — TÔI KHÔNG MUỐN AI LÀM NHIỀU HƠN. TÔI MUỐN AI LÀM ĐÚNG PHẦN VIỆC CỦA NÓ',
-    shortTitle: 'Tôi không muốn AI làm nhiều hơn',
-    slug: '10-toi-khong-muon-ai-lam-nhieu',
+    title: 'CHƯƠNG 10 — AI ĐÃ NÓI "DONE". NHƯNG TÔI KHÔNG TIN',
+    shortTitle: 'AI đã nói "Done". Nhưng tôi không tin',
+    slug: '10-ai-da-noi-done',
     publicationStatus: 'unpublished',
     contentStatus: 'draft',
   },
   {
-    id: '11-ai-da-noi-done',
+    id: '11-toi-khong-xay-memory',
     order: 11,
     section: 'chapter',
-    title: 'CHƯƠNG 11 — AI ĐÃ NÓI “DONE”. NHƯNG TÔI KHÔNG TIN',
-    shortTitle: 'AI đã nói "Done". Nhưng tôi không tin',
-    slug: '11-ai-da-noi-done',
+    title: 'CHƯƠNG 11 — TÔI KHÔNG XÂY MEMORY CHO AI. TÔI XÂY CONTINUITY CHO PROJECT',
+    shortTitle: 'Tôi không xây memory cho AI',
+    slug: '11-toi-khong-xay-memory',
     publicationStatus: 'unpublished',
     contentStatus: 'draft',
   },
   {
-    id: '12-toi-khong-xay-memory',
+    id: '12-toi-khong-xay-memory-part2',
     order: 12,
     section: 'chapter',
-    title: 'CHƯƠNG 12 — TÔI KHÔNG XÂY MEMORY CHO AI. TÔI XÂY CONTINUITY CHO PROJECT',
-    shortTitle: 'Tôi không xây memory cho AI',
-    slug: '12-toi-khong-xay-memory',
+    title: 'CHƯƠNG 12 — TÔI KHÔNG XÂY MEMORY CHO AI. TÔI XÂY CONTINUITY CHO PROJECT (PHẦN 2)',
+    shortTitle: 'Tôi không xây memory cho AI (Phần 2)',
+    slug: '12-toi-khong-xay-memory-part2',
     publicationStatus: 'unpublished',
     contentStatus: 'draft',
   },
   {
-    id: '13-toi-khong-muon-mot-ai-gioi',
+    id: '13-tu-duy-paecs',
     order: 13,
     section: 'chapter',
-    title: 'CHƯƠNG 13 — TÔI KHÔNG MUỐN MỘT AI GIỎI HƠN. TÔI MUỐN PROJECT CÓ THỂ TIẾP TỤC',
-    shortTitle: 'Tôi không muốn một AI giỏi hơn',
-    slug: '13-toi-khong-muon-mot-ai-gioi',
+    title: 'CHƯƠNG 13 — TỪ VIBE CODING ĐẾN KIẾN TRÚC SYSTEMATIC',
+    shortTitle: 'Từ Vibe Coding đến kiến trúc Systematic',
+    slug: '13-tu-duy-paecs',
     publicationStatus: 'unpublished',
     contentStatus: 'draft',
   },
@@ -310,7 +310,7 @@ export async function getCanonicalBookMap() {
 
   return CANONICAL_BOOK_MAP.map(item => {
     const liveChapter = chapterMap.get(item.id);
-    const hasManuscript = !!liveChapter || (item.order >= 1 && item.order <= 8); // Chapters 0-8 have actual markdown files in src/content/chapters
+    const hasManuscript = !!liveChapter || (item.order >= 1 && item.order <= 13); // Chapters 0-13 have actual markdown files in src/content/chapters
     
     if (liveChapter) {
       return {

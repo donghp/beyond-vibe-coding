@@ -8,10 +8,10 @@ description: "A practical methodology for taking AI-generated drafts and hardeni
 readingTime: "9 min"
 topics: ["hardening", "refactoring", "production-ready", "resilience"]
 hero: "images/chapter-06-hero.webp"
-published: "2026-09-09"
-publicationStatus: "unpublished"
-contentStatus: "draft"
-updated: "2026-09-09"
+published: "2026-09-10"
+publicationStatus: "published"
+contentStatus: "complete"
+updated: "2026-09-10"
 version: "1.0.0"
 ---
 
