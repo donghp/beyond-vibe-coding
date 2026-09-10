@@ -16,6 +16,7 @@ const chaptersCollection = defineCollection({
     published: z.string(),
     publicationStatus: z.enum(['unpublished', 'published', 'archived']).default('unpublished'),
     contentStatus: z.enum(['draft', 'partial', 'complete', 'final']).default('draft'),
+    navigationPolicy: z.string().optional(),
     updated: z.string().optional(),
     version: z.string()
   }).refine((data) => {
