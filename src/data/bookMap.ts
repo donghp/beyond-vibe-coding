@@ -41,7 +41,7 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     shortTitle: 'AI mạnh hơn không có nghĩa là đi nhanh hơn',
     slug: '02-working-with-ai',
     publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    contentStatus: 'complete',
   },
   {
     id: '03-ai-does-not-remember',
