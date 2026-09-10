@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCanonicalBookMap, getDerivedDisplayLabel } from '../data/bookMap';
 
 interface Props {
   activeChapterId?: string;
@@ -8,9 +8,7 @@ interface Props {
 const { activeChapterId } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 
-// Fetch and sort all chapters by their 'order' metadata field
-const chapters = await getCollection('chapters');
-const sortedChapters = chapters.sort((a, b) => a.data.order - b.data.order);
+const canonicalItems = await getCanonicalBookMap();
 ---
 
 <aside id="book-spine" class="w-full min-[1024px]:w-[var(--spine-width-tablet)] min-[1280px]:w-[var(--spine-width)] bg-[#f8fafc] border-r border-navy-100 p-5 flex flex-col gap-5 select-none shrink-0 transition-all duration-300 spine-container">
@@ -49,31 +47,38 @@ const sortedChapters = chapters.sort((a, b) => a.data.order - b.data.order);
       </a>
     </div>
 
-    {sortedChapters.map((chapter) => {
-      const isPublished = chapter.data.publicationStatus === 'published';
-      const isActive = activeChapterId === chapter.id;
-      const slug = chapter.id;
-      const numStr = chapter.data.order === 0 ? '0' : chapter.data.order.toString().padStart(2, '0');
+    {canonicalItems.map((item) => {
+      const isPublished = item.publicationStatus === 'published';
+      const isActive = activeChapterId === item.id;
+      const slug = item.id;
+      const label = getDerivedDisplayLabel(item);
+      const isFrontOrBack = item.section !== 'chapter';
       
+      let numDisplay = '';
+      if (item.section === 'chapter') {
+        numDisplay = item.order.toString().padStart(2, '0');
+      } else if (item.section === 'front-matter') {
+        numDisplay = 'FM';
+      } else {
+        numDisplay = 'BM';
+      }
+
       if (!isPublished) {
         return (
           <div 
-            class="flex items-start gap-3 px-3 py-2.5 rounded-lg text-xs border-l-4 border-transparent text-navy-400 select-none opacity-80"
-            data-chapter-id={chapter.id}
+            class="flex items-start gap-3 px-3 py-2 rounded-lg text-xs border-l-4 border-transparent text-navy-400 select-none opacity-80"
+            data-chapter-id={item.id}
           >
-            <!-- Prominent Chapter Number -->
-            <span class="chapter-num-label text-xs font-mono font-bold shrink-0 pt-0.5 select-none w-5 text-navy-400">
-              {numStr}
+            <span class="chapter-num-label text-[10px] font-mono font-bold shrink-0 pt-0.5 select-none w-5 text-navy-400">
+              {numDisplay}
             </span>
-            
-            <!-- Chapter Titles & Coming Soon Badge -->
             <div class="flex flex-col min-w-0 flex-1 leading-snug">
               <div class="flex items-center justify-between gap-1.5">
-                <span class="tracking-tight font-medium text-navy-600 truncate">
-                  {chapter.data.shortTitle}
+                <span class="tracking-tight font-medium text-navy-600 truncate text-[11px]">
+                  {item.shortTitle}
                 </span>
-                <span class="text-[9px] font-mono font-bold tracking-wider px-1.5 py-0.5 rounded bg-navy-100/80 text-navy-400 uppercase shrink-0">
-                  SẮP XUẤT BẢN
+                <span class="text-[8px] font-mono font-bold tracking-wider px-1.5 py-0.2 rounded bg-navy-100/80 text-navy-500 uppercase shrink-0">
+                  {label}
                 </span>
               </div>
             </div>
@@ -89,26 +94,23 @@ const sortedChapters = chapters.sort((a, b) => a.data.order - b.data.order);
               ? 'bg-[#ebf4fd] text-tech-blue font-bold border-l-4 border-tech-blue' 
               : 'text-navy-800 hover:bg-navy-100/60 hover:text-navy-950 border-l-4 border-transparent'
           }`}
-          data-chapter-id={chapter.id}
+          data-chapter-id={item.id}
         >
-          <!-- Restrained Chapter Completion Indicator (Green check / dot) -->
-          <div class="completion-dot opacity-0 transition-opacity duration-200 shrink-0 pt-0.5" data-completed-dot-id={chapter.id} title="Đã hoàn thành">
+          <div class="completion-dot opacity-0 transition-opacity duration-200 shrink-0 pt-0.5" data-completed-dot-id={item.id} title="Đã hoàn thành">
             <svg class="w-3.5 h-3.5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </div>
 
-          <!-- Prominent Chapter Number -->
           <span class={`chapter-num-label text-xs font-mono font-bold shrink-0 pt-0.5 select-none w-5 ${
             isActive ? 'text-tech-blue' : 'text-navy-400 group-hover:text-navy-700'
           }`}>
-            {numStr}
+            {numDisplay}
           </span>
           
-          <!-- Chapter Titles -->
           <div class="flex flex-col min-w-0 flex-1 leading-snug">
             <span class={`tracking-tight ${isActive ? 'font-bold text-tech-blue' : 'font-semibold text-navy-900'}`}>
-              {chapter.data.shortTitle}
+              {item.shortTitle}
             </span>
           </div>
         </a>

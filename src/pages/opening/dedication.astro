@@ -76,11 +76,18 @@ const firstChapterUrl = sortedChapters.length > 0
       </div>
 
       <!-- Bottom Right Dedicated Recipient & Author Signature Artwork -->
-      <div class="flex flex-col items-end self-end pb-8 sm:pb-12 mt-12 sm:mt-16 max-w-full">
+      <div class="flex flex-col items-end self-end pb-8 sm:pb-12 mt-12 sm:mt-16 max-w-full gap-4">
         <img 
-          src={`${baseUrl}/images/dedication-signature.png`}
-          alt="Trang đề tặng: Thân tặng bạn Lê Ngọc Giáp — Hồng Đông"
+          src={`${baseUrl}/images/dedication-artwork.png`}
+          alt="Trang đề tặng: Thân tặng bạn Lê Ngọc Giáp"
           class="w-64 sm:w-80 md:w-96 max-w-full h-auto object-contain select-none pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
+        <img 
+          src={`${baseUrl}/images/author-signature.png`}
+          alt="Chữ ký của Hồng Đông"
+          class="w-40 sm:w-56 max-w-full h-auto object-contain select-none pointer-events-none"
           loading="eager"
           decoding="async"
         />

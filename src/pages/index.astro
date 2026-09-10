@@ -1,13 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCanonicalBookMap, getDerivedDisplayLabel } from '../data/bookMap';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import SearchDialog from '../components/SearchDialog.astro';
 import Footer from '../components/Footer.astro';
 
-// Fetch all chapters and sort by order
-const allChapters = await getCollection('chapters');
-const sortedChapters = allChapters.sort((a, b) => a.data.order - b.data.order);
+const canonicalItems = await getCanonicalBookMap();
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
@@ -114,20 +112,32 @@ const baseUrl = import.meta.env.BASE_URL;
         <div class="flex flex-col">
           <span class="text-xs font-mono font-bold tracking-widest text-navy-400 uppercase">TABLE OF CONTENTS</span>
           <h2 class="text-2xl sm:text-3xl font-black text-navy-950 uppercase tracking-tight mt-1 font-sans">
-            Mục lục các chương
+            Mục lục toàn thư
           </h2>
         </div>
         <span class="text-xs font-mono text-navy-500 font-semibold hidden sm:inline">
-          9 Chương • Sách số sống
+          21 Chương & Back Matter • Sách số sống
         </span>
       </div>
 
-      <!-- Editorial Vertical Chapter List -->
+      <!-- Editorial Vertical Canonical List -->
       <div class="flex flex-col divide-y divide-navy-100">
-        {sortedChapters.map((ch) => {
-          const isPublished = ch.data.publicationStatus === 'published';
-          const numStr = ch.data.order === 0 ? '0' : ch.data.order.toString().padStart(2, '0');
-          const isGolden = ch.id === '05-controlled-autonomy';
+        {canonicalItems.map((item) => {
+          const isPublished = item.publicationStatus === 'published';
+          const label = getDerivedDisplayLabel(item);
+          const isGolden = item.id === '05-controlled-autonomy';
+          const liveData = (item as any).liveEntry?.data;
+          const subtitle = liveData?.subtitle;
+          const readingTime = liveData?.readingTime;
+
+          let numDisplay = '';
+          if (item.section === 'chapter') {
+            numDisplay = item.order.toString().padStart(2, '0');
+          } else if (item.section === 'front-matter') {
+            numDisplay = 'FM';
+          } else {
+            numDisplay = 'BM';
+          }
           
           if (!isPublished) {
             return (
@@ -135,33 +145,32 @@ const baseUrl = import.meta.env.BASE_URL;
                 class="py-4 sm:py-5 px-3 -mx-3 rounded-xl flex items-start justify-between gap-4 select-none opacity-80"
               >
                 <div class="flex items-start gap-4 sm:gap-6 min-w-0">
-                  <!-- Chapter Number -->
-                  <span class="text-sm sm:text-base font-mono font-bold shrink-0 pt-0.5 text-navy-400">
-                    {numStr}
+                  <span class="text-xs sm:text-sm font-mono font-bold shrink-0 pt-0.5 text-navy-400 w-8">
+                    {numDisplay}
                   </span>
 
-                  <!-- Title & Subtitle -->
                   <div class="flex flex-col min-w-0">
                     <div class="flex items-center gap-2 flex-wrap">
                       <span class="text-sm sm:text-base font-bold tracking-tight text-navy-700">
-                        {ch.data.title}
+                        {item.title}
                       </span>
                       <span class="px-2 py-0.5 text-[9px] font-mono font-bold tracking-wider text-navy-500 bg-navy-100/80 rounded-full font-sans uppercase">
-                        SẮP XUẤT BẢN
+                        {label}
                       </span>
                     </div>
                     
-                    {ch.data.subtitle && (
+                    {subtitle && (
                       <span class="text-xs sm:text-sm text-navy-400 font-normal mt-1 line-clamp-1">
-                        {ch.data.subtitle}
+                        {subtitle}
                       </span>
                     )}
                   </div>
                 </div>
 
-                <!-- Status marker -->
                 <div class="flex items-center gap-3 shrink-0 pt-1 text-xs text-navy-400 font-medium">
-                  <span class="text-[11px] font-mono text-navy-400">Đang biên tập</span>
+                  <span class="text-[11px] font-mono text-navy-400">
+                    {label === 'ĐANG BIÊN TẬP' ? 'Đang biên tập' : 'Sắp xuất bản'}
+                  </span>
                 </div>
               </div>
             );
@@ -169,26 +178,24 @@ const baseUrl = import.meta.env.BASE_URL;
 
           return (
             <a 
-              href={`${baseUrl}/chapters/${ch.id}`}
+              href={`${baseUrl}/chapters/${item.id}`}
               class={`group py-4 sm:py-5 px-3 -mx-3 rounded-xl flex items-start justify-between gap-4 transition-all duration-150 hover:bg-[#f0f6fc] ${
                 isGolden ? 'bg-[#f4f8fd] border-l-4 border-tech-blue pl-4' : ''
               }`}
             >
               <div class="flex items-start gap-4 sm:gap-6 min-w-0">
-                <!-- Chapter Number -->
-                <span class={`text-sm sm:text-base font-mono font-bold shrink-0 pt-0.5 ${
+                <span class={`text-xs sm:text-sm font-mono font-bold shrink-0 pt-0.5 w-8 ${
                   isGolden ? 'text-tech-blue' : 'text-navy-400 group-hover:text-navy-700'
                 }`}>
-                  {numStr}
+                  {numDisplay}
                 </span>
 
-                <!-- Title & Subtitle -->
                 <div class="flex flex-col min-w-0">
                   <div class="flex items-center gap-2 flex-wrap">
                     <span class={`text-sm sm:text-base font-bold tracking-tight ${
                       isGolden ? 'text-tech-blue' : 'text-navy-950 group-hover:text-tech-blue'
                     }`}>
-                      {ch.data.title}
+                      {item.title}
                     </span>
                     {isGolden && (
                       <span class="px-2 py-0.5 text-[10px] font-bold text-tech-blue bg-blue-50 border border-blue-200 rounded-full font-sans">
@@ -197,17 +204,16 @@ const baseUrl = import.meta.env.BASE_URL;
                     )}
                   </div>
                   
-                  {ch.data.subtitle && (
+                  {subtitle && (
                     <span class="text-xs sm:text-sm text-navy-500 font-normal mt-1 line-clamp-1">
-                      {ch.data.subtitle}
+                      {subtitle}
                     </span>
                   )}
                 </div>
               </div>
 
-              <!-- Pacing & Read Arrow -->
               <div class="flex items-center gap-3 shrink-0 pt-1 text-xs text-navy-400 group-hover:text-tech-blue font-medium">
-                <span class="hidden sm:inline font-mono">{ch.data.readingTime}</span>
+                {readingTime && <span class="hidden sm:inline font-mono">{readingTime}</span>}
                 <span class="font-bold transition-transform group-hover:translate-x-1">→</span>
               </div>
             </a>
