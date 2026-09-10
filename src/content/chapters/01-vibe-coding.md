@@ -9,7 +9,7 @@ readingTime: "15 min"
 topics: ["vibe coding", "task decomposition", "verification", "context", "continuity", "enerixfin"]
 hero: "/beyond-vibe-coding/images/chapter-01-hero.webp"
 published: "2026-09-09"
-publicationStatus: "unpublished"
+publicationStatus: "published"
 contentStatus: "complete"
 updated: "2026-09-09"
 version: "2.0.0"
