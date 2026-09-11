@@ -1,0 +1,39 @@
+---
+/**
+ * BVC Master Visual Design - Visual Quote Primitive
+ * Inspired by BVC Glossary Quote & Example blocks
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  quote?: string;
+  source?: string;
+  surface?: 'light-gray' | 'soft-blue' | 'white';
+  class?: string;
+}
+
+const {
+  quote,
+  source,
+  surface = 'light-gray',
+  class: className = ''
+} = Astro.props;
+
+const surfaceClass = {
+  'light-gray': 'bg-[#F3F6F9]',
+  'soft-blue': 'bg-[#F0F7FF]',
+  'white': 'bg-white'
+}[surface];
+---
+
+<div class={`bvc-visual-quote ${surfaceClass} rounded-2xl p-6 border-l-4 border-[#0EA5E9] shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-2 ${className}`}>
+  <div class="italic text-slate-700 leading-relaxed font-serif text-[15px] md:text-[16px]">
+    {quote ? `"${quote}"` : <slot />}
+  </div>
+  {source && (
+    <div class="text-[11px] font-black uppercase tracking-[0.2em] text-[#0EA5E9]">
+      — {source}
+    </div>
+  )}
+</div>

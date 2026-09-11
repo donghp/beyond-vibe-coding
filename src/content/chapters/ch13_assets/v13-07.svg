@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="100%" height="auto">
+  <defs>
+    <style>
+      .bg { fill: #FFFFFF; }
+      .border { stroke: #E2E8F0; stroke-width: 1.5; }
+      .title { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 800; fill: #0B1D3A; letter-spacing: 0.05em; text-transform: uppercase; }
+      .text { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; font-weight: 700; fill: #0B1D3A; }
+      .desc { font-family: 'Inter', system-ui, sans-serif; font-size: 9px; font-weight: 500; fill: #64748B; }
+      .line { stroke: #0EA5E9; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 7 5 L 0 8 z" fill="#0EA5E9" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" rx="6" />
+  <rect x="1" y="1" width="718" height="278" fill="none" class="border" rx="5" />
+
+  <!-- Multiple AI Proposals -->
+  <g transform="translate(40, 40)">
+    <rect width="180" height="50" rx="4" fill="#F0F7FF" stroke="#0EA5E9" stroke-width="1" />
+    <text x="90" y="24" text-anchor="middle" class="text">AI Agent 1: Proposal</text>
+    <text x="90" y="38" text-anchor="middle" class="desc">Non-binding candidate patch</text>
+  </g>
+
+  <g transform="translate(40, 105)">
+    <rect width="180" height="50" rx="4" fill="#F0F7FF" stroke="#0EA5E9" stroke-width="1" />
+    <text x="90" y="24" text-anchor="middle" class="text">AI Agent 2: Proposal</text>
+    <text x="90" y="38" text-anchor="middle" class="desc">Alternative implementation</text>
+  </g>
+
+  <g transform="translate(40, 170)">
+    <rect width="180" height="50" rx="4" fill="#F0F7FF" stroke="#0EA5E9" stroke-width="1" />
+    <text x="90" y="24" text-anchor="middle" class="text">AI Agent 3: Proposal</text>
+    <text x="90" y="38" text-anchor="middle" class="desc">Refactoring suggestion</text>
+  </g>
+
+  <!-- Flow Lines to Gate -->
+  <line x1="220" y1="65" x2="280" y2="120" class="line" marker-end="url(#arr)" />
+  <line x1="220" y1="130" x2="280" y2="130" class="line" marker-end="url(#arr)" />
+  <line x1="220" y1="195" x2="280" y2="140" class="line" marker-end="url(#arr)" />
+
+  <!-- Center: Single-Writer Gatekeeper -->
+  <g transform="translate(285, 75)">
+    <rect width="200" height="120" rx="6" fill="#FFFFFF" stroke="#0B1D3A" stroke-width="2" />
+    <rect x="15" y="15" width="170" height="26" rx="2" fill="#F3F6F9" />
+    <text x="100" y="32" text-anchor="middle" class="title">SINGLE-WRITER GATE</text>
+    <g transform="translate(20, 56)">
+      <text x="0" y="14" class="text">• Architectural Review</text>
+      <text x="0" y="32" class="text">• Test Suite Validation</text>
+      <text x="0" y="50" class="text">• Deterministic Selection</text>
+    </g>
+  </g>
+
+  <!-- Flow to Single Mutation -->
+  <line x1="485" y1="135" x2="535" y2="135" class="line" marker-end="url(#arr)" />
+
+  <!-- Right: Single Authorized Change -->
+  <g transform="translate(540, 85)">
+    <rect width="145" height="100" rx="4" fill="#E8F8F0" stroke="#22C55E" stroke-width="1.5" />
+    <circle cx="72" cy="30" r="12" fill="#22C55E" />
+    <path d="M 67 30 L 71 34 L 78 26" fill="none" stroke="#FFFFFF" stroke-width="2" />
+    <text x="72" y="62" text-anchor="middle" class="text" fill="#15803D">ONE ATOMIC</text>
+    <text x="72" y="76" text-anchor="middle" class="text" fill="#15803D">MUTATION</text>
+    <text x="72" y="90" text-anchor="middle" class="desc" fill="#166534">Verified &amp; Merged</text>
+  </g>
+</svg>

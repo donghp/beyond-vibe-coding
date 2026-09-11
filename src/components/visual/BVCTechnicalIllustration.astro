@@ -1,0 +1,95 @@
+---
+/**
+ * BVC Master Visual Design - Technical Illustration Engine
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+import type { VisualAST } from '../../lib/visual/visualAst';
+import SemanticComponent from './semantic/SemanticComponent.astro';
+import Connector from './primitives/Connector.astro';
+
+interface Props {
+  ast: VisualAST;
+}
+
+const { ast } = Astro.props;
+
+// Layout Engine
+const NODE_WIDTH = 140;
+const NODE_HEIGHT = 80;
+const HORIZONTAL_GAP = 60;
+const VERTICAL_GAP = 80;
+
+const nodesWithPos = ast.nodes.map((node, index) => {
+  return {
+    ...node,
+    x: 200 - NODE_WIDTH / 2, // Centered
+    y: 50 + index * (NODE_HEIGHT + VERTICAL_GAP)
+  };
+});
+
+const edgesWithPos = ast.edges.map(edge => {
+  const fromNode = nodesWithPos.find(n => n.id === edge.from);
+  const toNode = nodesWithPos.find(n => n.id === edge.to);
+  
+  if (fromNode && toNode) {
+    return {
+      ...edge,
+      from: { x: fromNode.x + NODE_WIDTH / 2, y: fromNode.y + NODE_HEIGHT },
+      to: { x: toNode.x + NODE_WIDTH / 2, y: toNode.y }
+    };
+  }
+  return null;
+}).filter(Boolean);
+
+const totalHeight = nodesWithPos.length * (NODE_HEIGHT + VERTICAL_GAP) + 100;
+---
+
+<div class="bvc-visual-surface p-6 md:p-8 mx-auto w-full overflow-x-auto bg-white border border-[#E2E8F0] rounded-2xl shadow-[0_4px_12px_-2px_rgba(11,29,58,0.03)]">
+  <div class="flex items-center justify-between mb-8 border-b border-[#E2E8F0] pb-4">
+    <div class="flex items-center space-x-2.5">
+      <div class="w-2 h-2 rounded-full bg-[#0EA5E9]"></div>
+      <span class="text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] text-[#0B1D3A]">
+        {ast.type.replace('VG-', '').replace(/-/g, ' ')}
+      </span>
+    </div>
+    {ast.purpose && (
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.18em] bg-[#F0F7FF] text-[#0EA5E9] border border-[#E0F2FE]">
+        {ast.purpose}
+      </span>
+    )}
+  </div>
+
+  <div class="relative mx-auto" style={`max-width: 400px; height: ${totalHeight}px;`}>
+    <svg 
+      viewBox={`0 0 400 ${totalHeight}`} 
+      class="w-full h-full"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Render Edges -->
+      {edgesWithPos.map(edge => (
+        <Connector 
+          from={edge!.from} 
+          to={edge!.to} 
+          type={edge!.type as any} 
+          label={edge!.label}
+        />
+      ))}
+
+      <!-- Render Nodes -->
+      {nodesWithPos.map(node => (
+        <SemanticComponent 
+          id={node.id}
+          type={node.type as string}
+          label={node.label}
+          subLabel={node.subLabel}
+          status={node.status}
+          x={node.x}
+          y={node.y}
+          width={NODE_WIDTH}
+          height={NODE_HEIGHT}
+        />
+      ))}
+    </svg>
+  </div>
+</div>

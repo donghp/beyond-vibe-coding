@@ -1,0 +1,241 @@
+# BVC Chapter Hero Manifest — Chapters 09–21
+# Prompt-ID: #000008
+# Prompt-Title: BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21 / BRAND-NEUTRAL / REAL-ENERGY + AI VISUAL UNIVERSE / EMBEDDED WATERMARK
+# Standard: BVC MASTER VISUAL ENGINE — BRAND-NEUTRAL REAL-ENERGY + AI UNIVERSE
+# Generated: 2026-09-11
+
+version: "3.0.0"
+governance:
+  rule: LIGHT_CANVAS_EDITORIAL_HERO
+  aspectRatio: "21:9"
+  targetFormat: "WEBP"
+  textInArtwork: "EMBEDDED_WATERMARK_ONLY"
+  brandNeutral: true
+  watermark: "@Beyond Vibe Coding - Hong Dong"
+  watermarkPlacement: "EMBEDDED_RASTER_LAYER"
+  watermarkSafeLocation: "BOTTOM_RIGHT_SAFE_ZONE"
+  provenance:
+    promptId: "#000008"
+    promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21 / BRAND-NEUTRAL / REAL-ENERGY + AI VISUAL UNIVERSE / EMBEDDED WATERMARK"
+
+heroes:
+  - chapter: 9
+    title: "Tôi không muốn viết prompt dài hơn. Tôi muốn AI nhận đúng thứ nó cần"
+    heroAsset: "/images/chapter-09-hero.webp"
+    semanticAnchor: "context-compiler"
+    engineeringConcept: "signal-over-noise-filtration"
+    energyContext: "solar-pv-and-bess-telemetry-streams"
+    visualMetaphor: "convergent-telemetry-focusing-into-analytical-signal"
+    composition: "high-key-foreground-data-convergence-into-crystal-stream"
+    lighting: "natural-morning-daylight-soft-clouds"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 10
+    title: "AI đã nói 'Done'. Nhưng tôi không tin"
+    heroAsset: "/images/chapter-10-hero.webp"
+    semanticAnchor: "verification-and-evidence"
+    engineeringConcept: "invariant-auditing-and-commissioning-proof"
+    energyContext: "bess-container-commissioning-and-scada-validation"
+    visualMetaphor: "engineer-inspecting-open-control-cabinet-with-precision-tools"
+    composition: "human-inspector-validating-cabinet-with-measured-evidence"
+    lighting: "clean-high-key-natural-daylight"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 11
+    title: "Tôi không xây memory cho AI. Tôi xây continuity cho project"
+    heroAsset: "/images/chapter-11-hero.webp"
+    semanticAnchor: "project-continuity"
+    engineeringConcept: "durable-infrastructure-state-vs-transient-memory"
+    energyContext: "utility-energy-corridor-and-asset-monitoring"
+    visualMetaphor: "unbroken-illuminated-data-pathway-bridging-field-to-station"
+    composition: "elevated-continuous-trajectory-toward-morning-horizon"
+    lighting: "warm-morning-sunrise-high-key-sky"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 12
+    title: "Tôi không xây memory cho AI. Tôi xây continuity cho project (Phần 2)"
+    heroAsset: "/images/chapter-12-hero.webp"
+    semanticAnchor: "paecs-structural-model"
+    engineeringConcept: "multi-tier-system-architecture"
+    energyContext: "grid-connected-solar-bess-control-topology"
+    visualMetaphor: "five-layered-translucent-architectural-planes"
+    composition: "geometric-layered-glass-planes-over-grid-schematics"
+    lighting: "bright-natural-ambient-daylight"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 13
+    title: "Tôi không muốn một AI giỏi hơn. Tôi muốn project có thể tiếp tục"
+    heroAsset: "/images/chapter-13-hero.webp"
+    semanticAnchor: "executor-substitution-and-continuity"
+    engineeringConcept: "unbroken-execution-contracts-across-tools"
+    energyContext: "energy-dispatch-center-and-continuous-grid-model"
+    visualMetaphor: "multiple-modular-consoles-interfacing-with-unified-model"
+    composition: "continuous-central-line-smooth-handoff-across-consoles"
+    lighting: "soft-high-key-ambient-light"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 14
+    title: "AI có thể viết code. Nhưng AI có đang xây sản phẩm không?"
+    heroAsset: "/images/chapter-14-hero.webp"
+    semanticAnchor: "product-value-vs-code-generation"
+    engineeringConcept: "real-world-commercial-utility-and-power-dispatch"
+    energyContext: "solar-powered-industrial-park-and-energy-management"
+    visualMetaphor: "studio-window-transition-to-active-operating-park"
+    composition: "live-telemetry-bridging-draft-to-functioning-system"
+    lighting: "warm-morning-sunlight-and-clean-blue-sky"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 15
+    title: "Những lỗi AI không nói với tôi"
+    heroAsset: "/images/chapter-15-hero.webp"
+    semanticAnchor: "silent-failure-and-invariant-auditing"
+    engineeringConcept: "subtle-sensor-drift-and-micro-boundary-detection"
+    energyContext: "precision-electrical-transducers-and-drift-auditing"
+    visualMetaphor: "optical-laser-beam-revealing-internal-micro-refraction"
+    composition: "precision-refraction-revealing-subtle-latent-anomaly"
+    lighting: "crisp-white-and-pale-blue-illumination"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 16
+    title: "Architecture vẫn là trách nhiệm của tôi"
+    heroAsset: "/images/chapter-16-hero.webp"
+    semanticAnchor: "architectural-stewardship"
+    engineeringConcept: "foundational-responsibility-and-system-integrity"
+    energyContext: "distributed-energy-resources-and-high-voltage-grid"
+    visualMetaphor: "systems-architect-overlooking-integrated-infrastructure"
+    composition: "wide-angle-overlook-human-agency-morning-horizon"
+    lighting: "pure-white-and-pale-sky-blue-morning-light"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 17
+    title: "AI có thể xây được. Nhưng ai có quyền cho phép release?"
+    heroAsset: "/images/chapter-17-hero.webp"
+    semanticAnchor: "release-governance-checkpoint"
+    engineeringConcept: "operational-approval-turnstile-and-energization-safety"
+    energyContext: "substation-interconnect-and-lockout-tagout-station"
+    visualMetaphor: "safety-lockout-station-and-release-verification-console"
+    composition: "human-governance-turnstile-pre-energization"
+    lighting: "high-key-sunlight-and-crisp-white-structures"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 18
+    title: "Tôi không thực sự dừng Vibe Coding"
+    heroAsset: "/images/chapter-18-hero.webp"
+    semanticAnchor: "disciplined-vibe-symbiosis"
+    engineeringConcept: "fluid-creative-exploration-inside-rigorous-constraints"
+    energyContext: "energy-algorithm-curves-and-computational-load-models"
+    visualMetaphor: "fluid-azure-stream-harmonizing-with-sharp-geometric-grid"
+    composition: "harmonious-integration-of-fluid-motion-and-strict-grid"
+    lighting: "high-key-white-canvas-spacious-negative-space"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 19
+    title: "Từ local project đến real product"
+    heroAsset: "/images/chapter-19-hero.webp"
+    semanticAnchor: "local-to-production-gateway"
+    engineeringConcept: "edge-gateway-telemetry-bridging-lab-to-utility"
+    energyContext: "edge-controller-connected-to-utility-scale-assets"
+    visualMetaphor: "optical-cable-running-from-workbench-to-operating-yard"
+    composition: "seamless-continuity-from-workbench-to-industrial-scale"
+    lighting: "bright-morning-daylight-and-pale-blue-horizon"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 20
+    title: "Tôi đưa EnerixFin ra khỏi laptop"
+    heroAsset: "/images/chapter-20-hero.webp"
+    semanticAnchor: "real-world-deployment"
+    engineeringConcept: "active-industrial-monitoring-and-field-verification"
+    energyContext: "commercial-bess-containers-and-industrial-rooftop-solar"
+    visualMetaphor: "field-technician-monitoring-live-system-on-tablet"
+    composition: "human-technician-beside-clean-modular-containers"
+    lighting: "high-key-natural-daylight-and-crisp-white-surfaces"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"
+
+  - chapter: 21
+    title: "Khách hàng đầu tiên không mua code"
+    heroAsset: "/images/chapter-21-hero.webp"
+    semanticAnchor: "human-centric-value"
+    engineeringConcept: "empathy-stakeholder-alignment-and-energy-cost-savings"
+    energyContext: "peak-shaving-and-facility-energy-cost-optimization"
+    visualMetaphor: "engineer-and-director-reviewing-tabletop-energy-metrics"
+    composition: "collaborative-consultation-solving-real-operational-needs"
+    lighting: "high-key-morning-sunlight-and-warm-natural-tones"
+    brandNeutral: true
+    watermark: "@Beyond Vibe Coding - Hong Dong"
+    watermarkEmbedded: true
+    status: "GENERATED"
+    provenance:
+      promptId: "#000008"
+      promptTitle: "BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21"

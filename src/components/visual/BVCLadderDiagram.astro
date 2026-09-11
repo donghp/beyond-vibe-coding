@@ -1,7 +1,8 @@
 ---
 /**
  * BVC Master Visual Design - Ladder Renderer (VG-LADDER)
- * VERSION: "1.1"
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
  */
 import type { VisualAST } from '../../lib/visual/visualAst';
 import { decodeVisualText } from '../../lib/visual/utils';
@@ -14,14 +15,14 @@ const { ast } = Astro.props;
 ---
 
 <div class="bvc-diagram-engine mx-auto max-w-2xl w-full" data-type="VG-LADDER">
-  <div class="space-y-0 border-l-[1.5px] border-slate-100 ml-6 pl-10 py-2">
+  <div class="space-y-0 border-l-[1.5px] border-[#E2E8F0] ml-6 pl-10 py-2">
     {ast.nodes.map((node, index) => (
       <div class="relative pb-10 last:pb-0">
-        <div class="absolute -left-[49px] top-1.5 w-4 h-4 rounded-full border-[3px] border-white bg-blue-600 shadow-sm z-10"></div>
+        <div class="absolute -left-[49px] top-1.5 w-4 h-4 rounded-full border-[3px] border-white bg-[#0EA5E9] shadow-sm z-10"></div>
         <div class="flex flex-col">
-          <span class="text-[10px] font-black text-blue-600/80 tracking-[0.2em] uppercase mb-1.5">LEVEL {node.level ?? index}</span>
-          <h4 class="text-[17px] font-bold text-slate-900 leading-tight tracking-tight">{decodeVisualText(node.label)}</h4>
-          {node.subLabel && <p class="text-[14px] text-slate-500 mt-2 font-medium leading-relaxed">{decodeVisualText(node.subLabel)}</p>}
+          <span class="text-[10px] font-black text-[#0EA5E9] tracking-[0.2em] uppercase mb-1.5">LEVEL {node.level ?? index}</span>
+          <h4 class="text-[17px] font-bold text-[#0B1D3A] leading-tight tracking-tight">{decodeVisualText(node.label)}</h4>
+          {node.subLabel && <p class="text-[14px] text-[#64748B] mt-2 font-medium leading-relaxed">{decodeVisualText(node.subLabel)}</p>}
         </div>
       </div>
     ))}

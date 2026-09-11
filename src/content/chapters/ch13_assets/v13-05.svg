@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="100%" height="auto">
+  <defs>
+    <style>
+      .bg { fill: #FFFFFF; }
+      .border { stroke: #E2E8F0; stroke-width: 1.5; }
+      .title { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 800; fill: #0B1D3A; letter-spacing: 0.06em; text-transform: uppercase; }
+      .text { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #0B1D3A; }
+      .desc { font-family: 'Inter', system-ui, sans-serif; font-size: 9px; font-weight: 500; fill: #64748B; }
+      .line { stroke: #0EA5E9; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 7 5 L 0 8 z" fill="#0EA5E9" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" rx="6" />
+  <rect x="1" y="1" width="718" height="278" fill="none" class="border" rx="5" />
+
+  <!-- Column 1: Engineering Method -->
+  <g transform="translate(40, 50)">
+    <rect width="190" height="175" rx="4" fill="#FFFFFF" stroke="#0B1D3A" stroke-width="2" />
+    <rect x="15" y="15" width="160" height="28" rx="2" fill="#F0F7FF" />
+    <text x="95" y="33" text-anchor="middle" class="title">ENGINEERING METHOD</text>
+    <g transform="translate(20, 60)">
+      <text x="0" y="16" class="text">• Architectural Invariants</text>
+      <text x="0" y="38" class="text">• Task Contracts &amp; Scopes</text>
+      <text x="0" y="60" class="text">• Verification Suites</text>
+      <text x="0" y="82" class="text">• Single Source of Truth</text>
+    </g>
+  </g>
+
+  <!-- Line 1 to 2 -->
+  <line x1="230" y1="135" x2="270" y2="135" class="line" marker-end="url(#arr)" />
+
+  <!-- Column 2: Executor Adapter -->
+  <g transform="translate(275, 40)">
+    <rect width="200" height="195" rx="6" fill="#F0F7FF" stroke="#0EA5E9" stroke-width="1.5" />
+    <rect x="15" y="15" width="170" height="28" rx="2" fill="#FFFFFF" stroke="#0EA5E9" stroke-width="1" />
+    <text x="100" y="33" text-anchor="middle" class="title" fill="#0284C7">EXECUTOR ADAPTER</text>
+    <g transform="translate(20, 60)">
+      <text x="0" y="16" class="text">1. Context Pruning &amp; Slicing</text>
+      <text x="0" y="30" class="desc">Filter non-relevant repo noise</text>
+      <text x="0" y="52" class="text">2. Tool Call Translation</text>
+      <text x="0" y="66" class="desc">Map native CLI &amp; API schemas</text>
+      <text x="0" y="88" class="text">3. Output Sanitization</text>
+      <text x="0" y="102" class="desc">Strip Markdown hallucination</text>
+    </g>
+  </g>
+
+  <!-- Line 2 to 3 -->
+  <line x1="475" y1="135" x2="515" y2="135" class="line" marker-end="url(#arr)" />
+
+  <!-- Column 3: Executor Runtime -->
+  <g transform="translate(520, 50)">
+    <rect width="160" height="175" rx="4" fill="#F3F6F9" stroke="#E2E8F0" stroke-width="1.5" />
+    <rect x="15" y="15" width="130" height="28" rx="2" fill="#FFFFFF" />
+    <text x="80" y="33" text-anchor="middle" class="title">AI RUNTIME</text>
+    <g transform="translate(20, 60)">
+      <text x="0" y="16" class="text">• Claude / OpenAI</text>
+      <text x="0" y="38" class="text">• Gemini / DeepSeek</text>
+      <text x="0" y="60" class="text">• Local LLM Engines</text>
+      <text x="0" y="82" class="text">• Ephemeral Agents</text>
+    </g>
+  </g>
+</svg>

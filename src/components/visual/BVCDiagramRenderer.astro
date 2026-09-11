@@ -1,16 +1,25 @@
 ---
 /**
  * BVC Master Visual Design - Main Diagram Dispatcher
- * VERSION: "1.1"
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * Standard: BVC SVOE — SEMANTIC STATE VISUALIZATION & CODE DISAMBIGUATION
+ * Provenance:
+ *   Prompt-ID: #000004
+ *   Prompt-Title: BVC MASTER VISUAL ENGINE — SVOE V1.1 FINAL / TEXT-ONLY PRESERVATION + CHAPTER 13 UPDATE
+ * VERSION: "2.2"
  */
 import { parseDiagram } from '../../lib/visual/diagramParser';
 import { decodeVisualText } from '../../lib/visual/utils';
+import { performVisualBackgroundCheck } from '../../lib/visual/visualQa';
 import BVCFlowDiagram from './BVCFlowDiagram.astro';
 import BVCSpecification from './BVCSpecification.astro';
 import BVCArchitectureDiagram from './BVCArchitectureDiagram.astro';
 import BVCLadderDiagram from './BVCLadderDiagram.astro';
 import BVCChecklist from './BVCChecklist.astro';
 import BVCDecisionDiagram from './BVCDecisionDiagram.astro';
+import BVCTechnicalIllustration from './BVCTechnicalIllustration.astro';
+import BVCStateDiagram from './BVCStateDiagram.astro';
+import BVCComparisonDiagram from './BVCComparisonDiagram.astro';
 
 interface Props {
   content: string;
@@ -18,28 +27,65 @@ interface Props {
 
 const { content } = Astro.props;
 const ast = parseDiagram(content);
+
+// Hard Visual QA Rule: VISUAL-BACKGROUND-CHECK
+const qaCheck = performVisualBackgroundCheck({
+  backgroundColor: '#FFFFFF',
+  classNames: ['bvc-visual-surface', 'bg-white'],
+  htmlOrSvgString: content
+});
+
+if (qaCheck.status === 'FAIL') {
+  console.warn('[BVC-VISUAL-QA-FAIL: VISUAL-BACKGROUND-CHECK]', qaCheck.violations);
+}
+
+const isTechnical = [
+  'VG-PIPELINE',
+  'VG-RAG',
+  'VG-DATA-EXTRACTION',
+  'VG-CHUNKING',
+  'VG-RECURSIVE-CHUNKING',
+  'VG-REORDERING',
+  'VG-EVIDENCE',
+  'VG-COMPONENT-MAP'
+].includes(ast.type);
 ---
 
+{ast.type === 'VG-COMPARISON' && <BVCComparisonDiagram ast={ast} />}
+{ast.type === 'VG-STATE' && <BVCStateDiagram ast={ast} />}
 {ast.type === 'VG-FLOW' && <BVCFlowDiagram ast={ast} />}
 {ast.type === 'VG-SPEC' && <BVCSpecification ast={ast} />}
-{ast.type === 'VG-ARCHITECTURE' && <BVCArchitectureDiagram ast={ast} />}
+{['VG-ARCHITECTURE', 'VG-ARCH-TOPDOWN', 'VG-ARCH-FANOUT'].includes(ast.type) && <BVCArchitectureDiagram ast={ast} />}
 {ast.type === 'VG-LADDER' && <BVCLadderDiagram ast={ast} />}
 {ast.type === 'VG-CHECKLIST' && <BVCChecklist ast={ast} />}
 {ast.type === 'VG-DECISION' && <BVCDecisionDiagram ast={ast} />}
+{isTechnical && <BVCTechnicalIllustration ast={ast} />}
 
 {ast.type === 'VG-ASCII' && (
-  <div class="bvc-visual-surface p-8 mx-auto max-w-2xl w-full overflow-x-auto bg-slate-50/20">
-    <div class="flex items-center space-x-2 mb-6 border-b border-slate-100 pb-4">
-      <div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
-      <span class="bvc-section-label text-slate-400">Process Engine</span>
+  <div class="bvc-visual-surface p-6 md:p-8 mx-auto max-w-2xl w-full overflow-x-auto bg-white border border-[#E2E8F0] rounded-2xl shadow-[0_4px_12px_-2px_rgba(11,29,58,0.03)]">
+    <div class="flex items-center space-x-2.5 mb-6 border-b border-[#E2E8F0] pb-4">
+      <div class="w-2 h-2 rounded-full bg-[#0EA5E9]"></div>
+      <span class="text-[10px] md:text-[11px] font-black uppercase tracking-[0.25em] text-[#0B1D3A]">Process Engine</span>
     </div>
-    <pre class="font-mono text-[12px] leading-[1.8] text-slate-500 whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
+    <pre class="font-mono text-[12px] leading-[1.8] text-[#0B1D3A] whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
   </div>
 )}
 
-{(ast.type === 'CODE' || ast.type === 'PLAIN_TEXT') && (
-  <div class="my-6">
-    <pre class="bg-slate-900 text-slate-100 p-6 rounded-sm font-mono text-[13px] leading-relaxed overflow-x-auto">
+{ast.type === 'PLAIN_TEXT' && (
+  <div class="bvc-textual-engineering-expression">
+    {decodeVisualText(ast.raw.trim()).split('\n').map((l: string) => {
+      const trimmed = l.trim();
+      if (trimmed === '↓' || trimmed === '→' || trimmed === '->' || trimmed === '=>') {
+        return <div class="bvc-textual-arrow text-[#0066CC] font-semibold">{trimmed}</div>;
+      }
+      return <div class="bvc-textual-line">{l}</div>;
+    })}
+  </div>
+)}
+
+{ast.type === 'CODE' && (
+  <div class="my-4">
+    <pre class="bg-[#F8FAFC] border border-[#E2E8F0] text-[#0B1D3A] p-4 rounded-lg font-mono text-[13px] leading-relaxed overflow-x-auto">
       <code>{decodeVisualText(ast.raw.trim())}</code>
     </pre>
   </div>

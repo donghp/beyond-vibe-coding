@@ -1,7 +1,12 @@
 ---
 /**
- * BVC Master Visual Design - Architecture Renderer (VG-ARCHITECTURE)
- * VERSION: "1.1"
+ * BVC Master Visual Design - Architecture Renderer
+ * Types: VG-ARCH-TOPDOWN, VG-ARCH-FANOUT, VG-ARCHITECTURE
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * Provenance:
+ *   Prompt-ID: #000004
+ *   Prompt-Title: BVC MASTER VISUAL ENGINE — SVOE V1.1 FINAL / TEXT-ONLY PRESERVATION + CHAPTER 13 UPDATE
+ * VERSION: "1.2"
  */
 import type { VisualAST } from '../../lib/visual/visualAst';
 import { decodeVisualText } from '../../lib/visual/utils';
@@ -12,74 +17,169 @@ interface Props {
 
 const { ast } = Astro.props;
 
-const isCh07Arch = ast.nodes.some(n => n.label === 'PROJECT');
+const isTopDown = ast.type === 'VG-ARCH-TOPDOWN' || ast.nodes.some(n => n.label.toUpperCase().includes('ENGINEERING METHOD') && n.label.toUpperCase().includes('SEMANTIC CONTRACT'));
+const isFanOut = ast.type === 'VG-ARCH-FANOUT' || ast.nodes.some(n => n.label.toUpperCase().includes('GEMINI ADAPTER') || n.label.toUpperCase().includes('DEEPSEEK ADAPTER'));
+
+const topDownSteps = [
+  { level: '01', title: 'Project', subtitle: 'Mục tiêu & Phạm vi hệ thống', role: 'root' },
+  { level: '02', title: 'Engineering Method', subtitle: 'Quy chuẩn kỹ thuật & Tiêu chuẩn nghiệm thu', role: 'method' },
+  { level: '03', title: 'Semantic Contract', subtitle: 'Ranh giới vào/ra & Hợp đồng ngữ nghĩa bất biến', role: 'contract' },
+  { level: '04', title: 'Executor Adapter', subtitle: 'Lớp cách ly & Chuyển đổi giao thức mô hình', role: 'adapter' },
+  { level: '05', title: 'AI Executor', subtitle: 'Công cụ thực thi (Gemini / DeepSeek / Claude)', role: 'executor' }
+];
+
+const fanOutAdapters = [
+  { name: 'Gemini Adapter', model: 'Gemini 2.5 Flash', badge: 'Fast Reasoning' },
+  { name: 'DeepSeek Adapter', model: 'DeepSeek R1', badge: 'Deep Logic' },
+  { name: 'Executor C Adapter', model: 'Specialized LLM', badge: 'Domain Expert' }
+];
 ---
 
-<div class="bvc-diagram-engine mx-auto max-w-2xl w-full" data-type="VG-ARCHITECTURE">
-  {isCh07Arch ? (
-    <div class="bvc-visual-surface p-12 overflow-hidden relative">
-      <div class="flex flex-col items-center space-y-12">
-        <div class="bvc-arch-anchor">Project</div>
-        
-        <div class="w-full flex justify-center items-center relative py-6">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-[85%] h-[1px] bg-slate-100"></div>
-          </div>
-          <div class="grid grid-cols-3 gap-6 w-full relative">
-             <div class="bg-white border border-slate-200 py-5 text-center shadow-sm z-10 rounded-sm">
-               <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Method</span>
-             </div>
-             <div class="bg-white border border-slate-200 py-5 text-center shadow-sm z-10 rounded-sm">
-               <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Governance</span>
-             </div>
-             <div class="bg-white border border-slate-200 py-5 text-center shadow-sm z-10 rounded-sm">
-               <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">State</span>
-             </div>
-          </div>
+<div class="bvc-diagram-engine mx-auto max-w-2xl w-full my-8" data-type={ast.type}>
+  {isTopDown && (
+    <div class="bvc-visual-surface p-6 sm:p-8 bg-white border border-[#E2E8F0] rounded-2xl shadow-[0_4px_16px_-4px_rgba(11,29,58,0.04)]">
+      
+      <!-- Header -->
+      <div class="flex items-center justify-between border-b border-[#F1F5F9] pb-4 mb-6">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-2 h-2 rounded-full bg-[#0EA5E9]"></div>
+          <span class="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1D3A]">
+            Hierarchical Architecture
+          </span>
         </div>
-
-        <div class="flex flex-col items-center w-full space-y-10">
-          <div class="w-px h-10 bg-slate-100"></div>
-          <div class="bvc-arch-contract">Semantic Contract</div>
-          <div class="w-px h-10 bg-slate-100"></div>
-          <div class="bvc-arch-adapter w-full max-w-xs">Executor Adapters</div>
-          
-          <div class="grid grid-cols-2 gap-16 relative w-full max-w-md pt-6">
-            <div class="absolute top-0 left-1/4 right-1/4 h-[1px] bg-slate-50"></div>
-             <div class="flex flex-col items-center space-y-4">
-                <div class="w-16 h-16 rounded-full border border-slate-100 flex items-center justify-center bg-slate-50/30">
-                   <span class="text-[11px] font-black text-slate-300 tracking-tighter">AI A</span>
-                </div>
-             </div>
-             <div class="flex flex-col items-center space-y-4">
-                <div class="w-16 h-16 rounded-full border border-slate-100 flex items-center justify-center bg-slate-50/30">
-                   <span class="text-[11px] font-black text-slate-300 tracking-tighter">AI B</span>
-                </div>
-             </div>
-          </div>
-
-          <div class="w-full flex flex-col items-center space-y-8 pt-6">
-             <div class="bvc-arch-execution w-full max-w-sm">Execution</div>
-             <div class="bvc-arch-verification w-full max-w-sm">
-               <div class="flex items-center space-x-3">
-                 <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                 <span>Verification</span>
-               </div>
-             </div>
-             <div class="bg-slate-50 border border-slate-100 h-14 w-full max-w-sm flex items-center justify-center text-slate-400 rounded-sm">
-               <span class="text-[11px] font-black tracking-[0.2em] uppercase">State Update</span>
-             </div>
-          </div>
+        <div class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-[#F8FAFC] text-[#64748B] border border-[#E2E8F0]">
+          V13-02 · TOPDOWN-HIERARCHY
         </div>
+      </div>
+
+      <!-- Top-Down Hierarchical Flow -->
+      <div class="flex flex-col items-center w-full space-y-3">
+        {topDownSteps.map((step, idx) => {
+          const isHighlight = step.role === 'method' || step.role === 'contract';
+          return (
+            <div class="w-full flex flex-col items-center">
+              <div class={`w-full max-w-md p-4 rounded-xl border transition-all flex items-center justify-between ${
+                isHighlight 
+                  ? 'bg-[#F0F7FF] border-[#BAE6FD] shadow-xs' 
+                  : 'bg-[#F8FAFC] border-[#E2E8F0]'
+              }`}>
+                <div class="flex items-center space-x-3.5">
+                  <span class="text-[10px] font-mono font-black text-[#94A3B8] w-5">
+                    {step.level}
+                  </span>
+                  <div>
+                    <h5 class={`text-sm font-bold tracking-tight ${isHighlight ? 'text-[#0284C7]' : 'text-[#0B1D3A]'}`}>
+                      {step.title}
+                    </h5>
+                    <p class="text-[11px] text-[#64748B] mt-0.5">
+                      {step.subtitle}
+                    </p>
+                  </div>
+                </div>
+                {isHighlight && (
+                  <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-white border border-[#BAE6FD] text-[#0284C7]">
+                    Cốt lõi
+                  </span>
+                )}
+              </div>
+
+              {idx < topDownSteps.length - 1 && (
+                <div class="h-6 flex items-center justify-center relative">
+                  <div class="w-[1.5px] h-full bg-[#CBD5E1]"></div>
+                  <div class="absolute bottom-0 text-[#94A3B8] text-[10px] leading-none">
+                    ↓
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Footer Note -->
+      <div class="mt-6 pt-4 border-t border-[#F1F5F9] text-[11px] text-[#64748B] text-center">
+        Dự án giao quyền qua Semantic Contract; AI Executor không tương tác trực tiếp với lõi hệ thống.
       </div>
     </div>
-  ) : (
-    <div class="bvc-visual-surface p-8 overflow-x-auto">
-      <div class="flex items-center space-x-2 mb-6 border-b border-slate-100 pb-4">
-        <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-        <span class="bvc-section-label">System Architecture</span>
+  )}
+
+  {!isTopDown && isFanOut && (
+    <div class="bvc-visual-surface p-6 sm:p-8 bg-white border border-[#E2E8F0] rounded-2xl shadow-[0_4px_16px_-4px_rgba(11,29,58,0.04)]">
+      
+      <!-- Header -->
+      <div class="flex items-center justify-between border-b border-[#F1F5F9] pb-4 mb-6">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-2 h-2 rounded-full bg-[#0EA5E9]"></div>
+          <span class="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1D3A]">
+            Polymorphic Fan-Out Architecture
+          </span>
+        </div>
+        <div class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-[#F8FAFC] text-[#64748B] border border-[#E2E8F0]">
+          V13-04 · ADAPTER-FANOUT
+        </div>
       </div>
-      <pre class="font-mono text-[12px] leading-[1.8] text-slate-600 whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
+
+      <!-- Root Method -->
+      <div class="flex flex-col items-center w-full">
+        <div class="w-full max-w-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3.5 text-center shadow-xs">
+          <span class="text-[10px] font-mono font-bold uppercase text-[#64748B] tracking-wider block">Authority Root</span>
+          <span class="text-sm font-bold text-[#0B1D3A] tracking-tight">ENGINEERING METHOD</span>
+        </div>
+
+        <div class="h-6 w-[1.5px] bg-[#CBD5E1] relative">
+          <span class="absolute bottom-0 -left-1 text-[10px] text-[#94A3B8]">↓</span>
+        </div>
+
+        <!-- Semantic Contract -->
+        <div class="w-full max-w-sm bg-[#F0F7FF] border-2 border-[#BAE6FD] rounded-xl p-3.5 text-center shadow-xs">
+          <span class="text-[10px] font-mono font-black uppercase text-[#0284C7] tracking-wider block">Invariant Interface</span>
+          <span class="text-sm font-black text-[#0B1D3A] tracking-tight">SEMANTIC CONTRACT</span>
+        </div>
+
+        <!-- Fan-out branching lines -->
+        <div class="w-full max-w-lg relative py-3 my-1">
+          <div class="h-[1.5px] bg-[#CBD5E1] w-[80%] mx-auto"></div>
+          <div class="flex justify-between w-[80%] mx-auto pt-1">
+            <span class="text-[10px] text-[#94A3B8]">↓</span>
+            <span class="text-[10px] text-[#94A3B8]">↓</span>
+            <span class="text-[10px] text-[#94A3B8]">↓</span>
+          </div>
+        </div>
+
+        <!-- 3-Column Adapters -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full">
+          {fanOutAdapters.map((ad) => (
+            <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3.5 flex flex-col justify-between text-center hover:border-[#0EA5E9] transition-colors">
+              <div>
+                <span class="text-[9px] font-mono font-bold uppercase text-[#64748B] block mb-1">
+                  {ad.badge}
+                </span>
+                <h6 class="text-xs font-bold text-[#0B1D3A] leading-tight">
+                  {ad.name}
+                </h6>
+              </div>
+              <div class="mt-3 pt-2.5 border-t border-[#E2E8F0] text-[11px] font-medium text-[#0284C7]">
+                {ad.model}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="mt-6 pt-4 border-t border-[#F1F5F9] text-[11px] text-[#64748B] text-center">
+        Thay đổi model AI chỉ cần thay đổi Executor Adapter; không sửa đổi Engineering Method hay Semantic Contract.
+      </div>
+    </div>
+  )}
+
+  {!isTopDown && !isFanOut && (
+    <div class="bvc-visual-surface p-6 sm:p-8 overflow-x-auto bg-white border border-[#E2E8F0] rounded-2xl shadow-[0_4px_16px_-4px_rgba(11,29,58,0.04)]">
+      <div class="flex items-center space-x-2 mb-6 border-b border-[#E2E8F0] pb-4">
+        <div class="w-2 h-2 rounded-full bg-[#0EA5E9]"></div>
+        <span class="text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1D3A]">System Architecture</span>
+      </div>
+      <pre class="font-mono text-[12px] leading-[1.8] text-[#0B1D3A] whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
     </div>
   )}
 </div>

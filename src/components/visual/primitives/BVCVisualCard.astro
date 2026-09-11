@@ -1,0 +1,44 @@
+---
+/**
+ * BVC Master Visual Design - Visual Card Primitive
+ * Inspired by BVC Glossary Visual System
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  surface?: 'white' | 'soft-blue' | 'pale-sky' | 'light-gray';
+  hoverable?: boolean;
+  padding?: 'sm' | 'md' | 'lg';
+  class?: string;
+  id?: string;
+}
+
+const {
+  surface = 'white',
+  hoverable = true,
+  padding = 'md',
+  class: className = '',
+  id
+} = Astro.props;
+
+const surfaceClass = {
+  'white': 'bg-white',
+  'soft-blue': 'bg-[#F0F7FF]',
+  'pale-sky': 'bg-[#EAF6FF]',
+  'light-gray': 'bg-[#F3F6F9]'
+}[surface];
+
+const paddingClass = {
+  'sm': 'p-4',
+  'md': 'p-6',
+  'lg': 'p-8'
+}[padding];
+---
+
+<div
+  id={id}
+  class={`bvc-visual-card ${surfaceClass} ${paddingClass} rounded-2xl border border-[#E2E8F0] shadow-[0_2px_8px_-2px_rgba(11,29,58,0.03)] transition-all duration-200 ${hoverable ? 'hover:border-[#0EA5E9] hover:shadow-[0_8px_20px_-4px_rgba(14,165,233,0.08)] hover:-translate-y-0.5' : ''} ${className}`}
+>
+  <slot />
+</div>

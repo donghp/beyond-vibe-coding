@@ -1,0 +1,151 @@
+---
+/**
+ * BVC Master Visual Design - State Snapshot Component (VG-STATE)
+ * VERSION: "1.0"
+ * 
+ * Semantic rendering of Project / Current State snapshots.
+ * Standard: BVC SVOE — SEMANTIC STATE VISUALIZATION & CODE DISAMBIGUATION
+ * Provenance:
+ *   Prompt-ID: #000003
+ *   Prompt-Title: BVC SVOE — SEMANTIC STATE VISUALIZATION / CURRENT STATE DETECTION
+ */
+
+import type { VisualAST } from '../../lib/visual/visualAst';
+
+interface Props {
+  ast: VisualAST;
+}
+
+const { ast } = Astro.props;
+const state = ast.state || {
+  stateType: 'Current State',
+  primaryEntity: ast.nodes[0]?.label || 'STATE SNAPSHOT',
+  stateValue: 'UNKNOWN'
+};
+
+const stateValueUpper = state.stateValue.toUpperCase();
+
+// Semantic status styling based on BVC Light Visual System
+let statusConfig = {
+  bg: 'bg-slate-50',
+  border: 'border-slate-200',
+  text: 'text-slate-700',
+  dot: 'bg-slate-400',
+  label: stateValueUpper
+};
+
+if (stateValueUpper.includes('NOT_VERIF') || stateValueUpper.includes('NOT VERIFIED')) {
+  statusConfig = {
+    bg: 'bg-amber-50',
+    border: 'border-amber-200',
+    text: 'text-amber-800',
+    dot: 'bg-amber-500',
+    label: 'NOT VERIFIED'
+  };
+} else if (stateValueUpper.includes('VERIFIED')) {
+  statusConfig = {
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200',
+    text: 'text-emerald-800',
+    dot: 'bg-emerald-500',
+    label: 'VERIFIED'
+  };
+} else if (stateValueUpper.includes('IMPLEMENTED')) {
+  statusConfig = {
+    bg: 'bg-sky-50',
+    border: 'border-sky-200',
+    text: 'text-sky-800',
+    dot: 'bg-sky-500',
+    label: 'IMPLEMENTED'
+  };
+} else if (stateValueUpper.includes('IN_PROGRESS') || stateValueUpper.includes('PROGRESS')) {
+  statusConfig = {
+    bg: 'bg-blue-50',
+    border: 'border-blue-200',
+    text: 'text-blue-800',
+    dot: 'bg-blue-500 animate-pulse',
+    label: 'IN PROGRESS'
+  };
+} else if (stateValueUpper.includes('BLOCKED') || stateValueUpper.includes('FAIL')) {
+  statusConfig = {
+    bg: 'bg-rose-50',
+    border: 'border-rose-200',
+    text: 'text-rose-800',
+    dot: 'bg-rose-500',
+    label: stateValueUpper.includes('BLOCKED') ? 'BLOCKED' : 'FAILED'
+  };
+} else if (stateValueUpper.includes('COMPLETED')) {
+  statusConfig = {
+    bg: 'bg-slate-100',
+    border: 'border-slate-300',
+    text: 'text-slate-800',
+    dot: 'bg-slate-500',
+    label: 'COMPLETED'
+  };
+}
+---
+
+<div 
+  class="bvc-state-diagram my-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_4px_12px_-2px_rgba(11,29,58,0.03)] overflow-hidden font-sans transition-all duration-200 hover:border-slate-300"
+  data-provenance-id="#000003"
+  data-provenance-title="BVC SVOE — SEMANTIC STATE VISUALIZATION / CURRENT STATE DETECTION"
+  data-visual-class="VG-STATE"
+>
+  <!-- Card Header -->
+  <div class="flex items-center justify-between px-5 py-3 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+      <span class="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-[#0B1D3A]">
+        {state.stateType}
+      </span>
+    </div>
+    <span class="text-[11px] font-mono text-slate-500">
+      SEMANTIC SNAPSHOT
+    </span>
+  </div>
+
+  <!-- Card Content Body -->
+  <div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="space-y-1.5">
+      <div class="text-xs font-mono uppercase tracking-wider text-slate-500">
+        Primary Entity
+      </div>
+      <div class="text-base sm:text-lg font-semibold text-[#0B1D3A] tracking-tight">
+        {state.primaryEntity}
+      </div>
+      {state.domain && (
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-slate-100 text-slate-600 border border-slate-200">
+          <span class="text-slate-500">Domain:</span>
+          <span class="font-medium text-slate-800">{state.domain}</span>
+        </div>
+      )}
+    </div>
+
+    <!-- State Value Pill -->
+    <div class="flex sm:flex-col items-start sm:items-end gap-2">
+      <div class="text-xs font-mono uppercase tracking-wider text-slate-500 sm:text-right hidden sm:block">
+        State Value
+      </div>
+      <div class={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl border text-xs font-mono font-medium ${statusConfig.bg} ${statusConfig.border} ${statusConfig.text}`}>
+        <span class={`w-2 h-2 rounded-full ${statusConfig.dot}`}></span>
+        <span>{statusConfig.label}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional Glossary Context Indicator -->
+  {state.semanticTermId && (
+    <div class="px-5 py-2.5 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+      <span class="font-mono text-[11px] text-slate-500">GLOSSARY ANCHOR</span>
+      <a 
+        href={`/beyond-vibe-coding/glossary?term=${state.semanticTermId}`}
+        class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+      >
+        <span>Explore #{state.semanticTermId}</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  )}
+</div>

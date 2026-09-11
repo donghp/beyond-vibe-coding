@@ -1,0 +1,23 @@
+---
+/**
+ * BVC Master Visual Design - Visual Annotation Primitive
+ * Inspired by BVC Glossary editorial footnotes & annotations
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  text?: string;
+  class?: string;
+}
+
+const {
+  text,
+  class: className = ''
+} = Astro.props;
+---
+
+<div class={`bvc-visual-annotation flex items-center space-x-2 text-[11px] text-[#64748B] italic ${className}`}>
+  <span class="w-1.5 h-1.5 rounded-full bg-slate-400 opacity-60"></span>
+  <span>{text ? text : <slot />}</span>
+</div>

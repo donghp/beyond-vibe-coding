@@ -118,7 +118,7 @@ const prevCustomLink = currentIndex === 0 ? {
     slug={chapter.id}
     version={chapter.data.version}
     readingTime={chapter.data.readingTime}
-    topicCount={chapter.data.topics.length}
+    topicCount={chapter.data.topics?.length ?? 0}
     navigationPolicy={chapter.data.navigationPolicy}
   />
 

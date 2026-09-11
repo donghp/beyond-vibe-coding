@@ -1,0 +1,77 @@
+---
+/**
+ * BVC Master Visual Design - Visual Node Primitive
+ * Inspired by BVC Glossary Visual System
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+import TechnicalIcon from '../icons/TechnicalIcon.astro';
+
+interface Props {
+  label: string;
+  subLabel?: string;
+  role?: 'structure' | 'flow' | 'verified' | 'warning' | 'critical';
+  status?: string;
+  icon?: string;
+  minWidth?: string;
+  class?: string;
+  id?: string;
+}
+
+const {
+  label,
+  subLabel,
+  role = 'structure',
+  status,
+  icon,
+  minWidth = '180px',
+  class: className = '',
+  id
+} = Astro.props;
+
+const roleBorderClass = {
+  'structure': 'border-[#E2E8F0] hover:border-[#0B1D3A]',
+  'flow': 'border-sky-200 hover:border-[#0EA5E9]',
+  'verified': 'border-emerald-200 hover:border-[#22C55E]',
+  'warning': 'border-amber-200 hover:border-[#F59E0B]',
+  'critical': 'border-rose-200 hover:border-[#DC2626]'
+}[role];
+
+const iconColorClass = {
+  'structure': 'text-[#0B1D3A]',
+  'flow': 'text-[#0EA5E9]',
+  'verified': 'text-[#22C55E]',
+  'warning': 'text-[#F59E0B]',
+  'critical': 'text-[#DC2626]'
+}[role];
+---
+
+<div
+  id={id}
+  style={`min-width: ${minWidth};`}
+  class={`bvc-visual-node bg-white border-1.5 ${roleBorderClass} rounded-2xl p-5 shadow-[0_2px_8px_-2px_rgba(11,29,58,0.03)] flex flex-col items-center justify-center text-center transition-all duration-200 ${className}`}
+>
+  {icon && (
+    <div class={`mb-2 ${iconColorClass}`}>
+      <TechnicalIcon name={icon} size={22} strokeWidth={2} />
+    </div>
+  )}
+
+  <span class="text-[12px] md:text-[13px] font-black text-[#0B1D3A] tracking-wider uppercase leading-snug">
+    {label}
+  </span>
+
+  {subLabel && (
+    <span class="text-[11px] text-[#64748B] font-medium italic mt-1 leading-tight">
+      {subLabel}
+    </span>
+  )}
+
+  {status && (
+    <div class="mt-2.5">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.18em] bg-[#F0FDF4] text-[#22C55E] border border-[#DCFCE7]">
+        {status}
+      </span>
+    </div>
+  )}
+</div>

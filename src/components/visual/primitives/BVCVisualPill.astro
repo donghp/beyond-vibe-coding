@@ -1,0 +1,55 @@
+---
+/**
+ * BVC Master Visual Design - Visual Pill Primitive
+ * Inspired by BVC Glossary Visual System
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  type?: 'canonical' | 'verified' | 'governance' | 'structure' | 'boundary' | 'evidence' | 'pass' | 'blocked' | 'eligible' | 'custom';
+  label: string;
+  dot?: boolean;
+  class?: string;
+}
+
+const {
+  type = 'structure',
+  label,
+  dot = false,
+  class: className = ''
+} = Astro.props;
+
+const pillStyles = {
+  canonical: 'bg-[#F0FDF4] text-[#22C55E] border-[#DCFCE7]',
+  verified: 'bg-[#F0FDF4] text-[#22C55E] border-[#DCFCE7]',
+  governance: 'bg-[#F0F7FF] text-[#0EA5E9] border-[#E0F2FE]',
+  structure: 'bg-[#F3F6F9] text-[#0B1D3A] border-[#E2E8F0]',
+  boundary: 'bg-[#F8FAFC] text-[#64748B] border-[#E2E8F0]',
+  evidence: 'bg-[#F0FDF4] text-[#16A34A] border-[#DCFCE7]',
+  pass: 'bg-[#F0FDF4] text-[#22C55E] border-[#DCFCE7]',
+  blocked: 'bg-[#FEF2F2] text-[#DC2626] border-[#FEE2E2]',
+  eligible: 'bg-[#F0F7FF] text-[#0284C7] border-[#BAE6FD]',
+  custom: 'bg-[#F3F6F9] text-[#0B1D3A] border-[#E2E8F0]'
+}[type];
+
+const dotStyles = {
+  canonical: 'bg-[#22C55E]',
+  verified: 'bg-[#22C55E]',
+  governance: 'bg-[#0EA5E9]',
+  structure: 'bg-[#0B1D3A]',
+  boundary: 'bg-[#64748B]',
+  evidence: 'bg-[#16A34A]',
+  pass: 'bg-[#22C55E]',
+  blocked: 'bg-[#DC2626]',
+  eligible: 'bg-[#0284C7]',
+  custom: 'bg-[#0B1D3A]'
+}[type];
+---
+
+<span class={`bvc-visual-pill inline-flex items-center space-x-1.5 px-3 py-1 rounded-full border text-[10px] font-black uppercase tracking-[0.2em] leading-none ${pillStyles} ${className}`}>
+  {dot && (
+    <span class={`w-1.5 h-1.5 rounded-full mr-0.5 ${dotStyles}`}></span>
+  )}
+  <span>{label}</span>
+</span>

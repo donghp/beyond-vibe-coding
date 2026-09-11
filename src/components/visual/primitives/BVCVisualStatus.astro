@@ -1,0 +1,47 @@
+---
+/**
+ * BVC Master Visual Design - Visual Status Indicator Primitive
+ * Inspired by BVC Glossary Visual System
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  status: 'CANONICAL' | 'VERIFIED' | 'GOVERNANCE' | 'STRUCTURE' | 'BOUNDARY' | 'EVIDENCE' | 'PASS' | 'BLOCKED' | 'ELIGIBLE';
+  label?: string;
+  class?: string;
+}
+
+const {
+  status,
+  label = status,
+  class: className = ''
+} = Astro.props;
+
+const statusStyles = {
+  CANONICAL: { bg: 'bg-[#F0FDF4]', text: 'text-[#22C55E]', border: 'border-[#DCFCE7]', icon: 'check' },
+  VERIFIED: { bg: 'bg-[#F0FDF4]', text: 'text-[#22C55E]', border: 'border-[#DCFCE7]', icon: 'check' },
+  GOVERNANCE: { bg: 'bg-[#F0F7FF]', text: 'text-[#0EA5E9]', border: 'border-[#E0F2FE]', icon: 'shield' },
+  STRUCTURE: { bg: 'bg-[#F3F6F9]', text: 'text-[#0B1D3A]', border: 'border-[#E2E8F0]', icon: 'grid' },
+  BOUNDARY: { bg: 'bg-[#F8FAFC]', text: 'text-[#64748B]', border: 'border-[#E2E8F0]', icon: 'box' },
+  EVIDENCE: { bg: 'bg-[#F0FDF4]', text: 'text-[#16A34A]', border: 'border-[#DCFCE7]', icon: 'file' },
+  PASS: { bg: 'bg-[#F0FDF4]', text: 'text-[#22C55E]', border: 'border-[#DCFCE7]', icon: 'check' },
+  BLOCKED: { bg: 'bg-[#FEF2F2]', text: 'text-[#DC2626]', border: 'border-[#FEE2E2]', icon: 'x' },
+  ELIGIBLE: { bg: 'bg-[#F0F7FF]', text: 'text-[#0284C7]', border: 'border-[#BAE6FD]', icon: 'check' },
+}[status] || { bg: 'bg-[#F3F6F9]', text: 'text-[#0B1D3A]', border: 'border-[#E2E8F0]', icon: 'circle' };
+---
+
+<span class={`inline-flex items-center space-x-1.5 px-3 py-1 rounded-full border text-[10px] font-black uppercase tracking-[0.2em] ${statusStyles.bg} ${statusStyles.text} ${statusStyles.border} ${className}`}>
+  {statusStyles.icon === 'check' && (
+    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  )}
+  {statusStyles.icon === 'x' && (
+    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  )}
+  <span>{label}</span>
+</span>

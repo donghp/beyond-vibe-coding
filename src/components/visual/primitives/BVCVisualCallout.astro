@@ -1,0 +1,72 @@
+---
+/**
+ * BVC Master Visual Design - Visual Callout Primitive
+ * Inspired by BVC Glossary Visual Semantic callouts
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  type?: 'callout' | 'insight' | 'warning' | 'evidence' | 'note';
+  title?: string;
+  class?: string;
+}
+
+const {
+  type = 'insight',
+  title,
+  class: className = ''
+} = Astro.props;
+
+const styles = {
+  callout: {
+    bg: 'bg-[#F0F7FF]',
+    border: 'border-[#E0F2FE]',
+    accent: 'border-l-4 border-[#0EA5E9]',
+    titleColor: 'text-[#0B1D3A]',
+    dotColor: 'bg-[#0EA5E9]'
+  },
+  insight: {
+    bg: 'bg-[#F0FDF4]',
+    border: 'border-[#DCFCE7]',
+    accent: 'border-l-4 border-[#22C55E]',
+    titleColor: 'text-[#0B1D3A]',
+    dotColor: 'bg-[#22C55E]'
+  },
+  warning: {
+    bg: 'bg-[#FFFBEB]',
+    border: 'border-[#FEF3C7]',
+    accent: 'border-l-4 border-[#F59E0B]',
+    titleColor: 'text-[#0B1D3A]',
+    dotColor: 'bg-[#F59E0B]'
+  },
+  evidence: {
+    bg: 'bg-white',
+    border: 'border-[#E2E8F0]',
+    accent: 'border-l-4 border-[#16A34A]',
+    titleColor: 'text-[#0B1D3A]',
+    dotColor: 'bg-[#16A34A]'
+  },
+  note: {
+    bg: 'bg-[#F3F6F9]',
+    border: 'border-[#E2E8F0]',
+    accent: 'border-l-4 border-[#64748B]',
+    titleColor: 'text-[#0B1D3A]',
+    dotColor: 'bg-[#64748B]'
+  }
+}[type];
+---
+
+<div class={`bvc-visual-callout ${styles.bg} ${styles.border} ${styles.accent} rounded-2xl p-6 shadow-[0_2px_8px_-2px_rgba(11,29,58,0.03)] space-y-3 ${className}`}>
+  {title && (
+    <div class="flex items-center space-x-2.5">
+      <span class={`w-2 h-2 rounded-full ${styles.dotColor}`}></span>
+      <h4 class={`text-[11px] font-black uppercase tracking-[0.25em] ${styles.titleColor}`}>
+        {title}
+      </h4>
+    </div>
+  )}
+  <div class="text-[13px] md:text-[14px] text-[#0B1D3A]/80 leading-relaxed font-medium">
+    <slot />
+  </div>
+</div>

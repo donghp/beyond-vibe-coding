@@ -133,6 +133,62 @@ ONE USER REQUEST
 
 All other chapters remain locked.
 
+### 1.5 BVC MVEA-001 — Light Visual Canvas Rule
+
+All BVC technical illustrations, diagrams, architectures, process diagrams, flow diagrams, component maps, evidence visuals, pipeline visuals, reordering visuals, chunking visuals, RAG visuals, and visual callouts MUST use a LIGHT CANVAS.
+
+BLACK OR DARK BACKGROUNDS ARE PROHIBITED.
+
+#### Primary Visual Canvas
+- Primary visual background: **WHITE** (`#FFFFFF`)
+
+#### Allowed Secondary Visual Surfaces
+- very light blue (`#F0F7FF`)
+- pale sky blue (`#EAF6FF`)
+- light gray (`#F3F6F9`)
+- very light mint (`#E8F8F0`) where semantically appropriate
+
+#### Deep Blue Policy
+Deep Blue (`#0B1D3A`) may be used ONLY for:
+- typography
+- connector strokes
+- outlines
+- labels
+- semantic emphasis
+
+Deep Blue MUST NOT be used as:
+- diagram canvas
+- outer visual background
+- large card background
+- code-block background
+- full-width visual panel background
+
+#### Code-like / Specification Visuals
+Code-like or specification visuals must NOT use dark terminal styling.
+Use:
+- white or very light gray canvas
+- crisp 1px light border (`#E2E8F0`)
+- Deep Blue / slate typography (`#0B1D3A`, `#64748B`)
+- syntax accents using Sky Blue (`#0EA5E9`), Energy Green (`#22C55E`), or muted amber (`#F59E0B`)
+
+#### Vector / Icon Rule
+Icons and components remain native SVG.
+Use:
+- Deep Blue stroke
+- Sky Blue accents
+- Energy Green verification indicators
+- light fills
+- white interiors
+Avoid black filled technical icons.
+
+#### Mandatory Visual QA Rules
+1. **VISUAL-BACKGROUND-CHECK**:
+   - FAIL if: background is black, background is dark navy, background luminance is below the approved light threshold, dark outer frame is used as a decorative canvas, technical visual relies on dark-card composition.
+   - PASS only when the primary visual canvas is white or approved pale/light tone.
+2. **NO-BROKEN-VISUAL-ASSET**:
+   - FAIL if: image placeholder is visible, missing image icon is visible, gray empty image box is visible, alt text is rendered instead of the intended visual, visual asset fails to resolve.
+   - A broken or missing visual must NEVER appear as an accepted production visual.
+
 ---
 
 ## 2. VISUAL DNA
@@ -304,24 +360,30 @@ Nested visible boxes are acceptable only when they represent a genuinely semanti
 
 ---
 
-## 7. MASTER VISUAL PRIMITIVES
+## 7. MASTER VISUAL PRIMITIVES (GLOSSARY-DERIVED SHARED VISUAL LANGUAGE)
 
-Build reusable JS/TS + HTML/CSS/SVG primitives.
+The BVC Master Visual Engine Architecture extracts and promotes the refined visual language of the BVC Glossary into shared, decoupled visual primitives (`/src/components/visual/primitives/`):
 
-Recommended primitives:
+### 7.1 Implemented Primitives
 
-- `BVCSurface`
-- `BVCSectionLabel`
-- `BVCNode`
-- `BVCConnector`
-- `BVCPill`
-- `BVCBadge`
-- `BVCDivider`
-- `BVCSpecRow`
-- `BVCSpecTable`
-- `BVCFlowNode`
-- `BVCDecisionNode`
-- `BVCStateNode`
+- `BVCVisualSurface`: Master container surface adhering strictly to the Light Canvas Rule (white, pale sky `#EAF6FF`, soft blue `#F0F7FF`, light gray `#F3F6F9`, light mint `#E8F8F0`), with 16px/20px/24px rounded corners and subtle card shadow.
+- `BVCVisualCard`: White/pale card surface with 16px corner radius, `#E2E8F0` border, and smooth elevation on hover.
+- `BVCVisualNode`: Semantic node card featuring high-contrast Deep Blue (`#0B1D3A`) uppercase typography, italic sub-label, and role-tinted borders.
+- `BVCVisualPill`: Semantic capsule badge (CANONICAL, VERIFIED, GOVERNANCE, STRUCTURE, BOUNDARY, EVIDENCE, PASS, BLOCKED, ELIGIBLE) in `rounded-full` geometry with `text-[10px] font-black uppercase tracking-[0.2em]`.
+- `BVCVisualBadge`: Category badge with soft tinted backgrounds and micro-typography.
+- `BVCVisualStatus`: Status indicator combining SVG check/cross micro-icons and semantic pill styling.
+- `BVCVisualQuote`: Editorial quote block featuring 16px rounded corners, left Sky Blue 4px accent, light gray/pale background, and serif italic typography.
+- `BVCVisualCallout`: Multi-purpose callout container supporting `insight`, `warning`, `evidence`, and `note` variations on light surfaces.
+- `BVCVisualSectionLabel`: Micro section heading featuring a colored dot indicator, Deep Blue uppercase text, and `tracking-[0.25em]`.
+- `BVCVisualAccentLine`: Thin editorial accent line (2px height, Sky Blue or Energy Green, rounded ends).
+- `BVCVisualCircleNode`: Circular node / center hub (72–96px) for central architectures or AI model hubs.
+- `BVCVisualGroup`: Boundary container featuring a dashed border, 20px radius, and group header.
+- `BVCVisualAnnotation`: Footnote / annotation text in italic slate-500.
+- `BVCVisualConnector`: Vector SVG connector for horizontal, vertical, and labeled flows.
+
+### 7.2 Glossary Dark Card Exception
+The Glossary's dark navy "VISUAL SEMANTICS" surface is reinterpreted using light canvas colors (white, pale blue, light gray) for all technical visuals and diagrams. Dark cards are prohibited in technical visual compositions.
+
 - `BVCLayer`
 - `BVCActor`
 - `BVCBoundary`
@@ -1211,6 +1273,54 @@ MV14 Unauthorized manuscript diff = hard failure
 MV15 Build PASS alone does not equal visual PASS
 MV16 Master Visual Library is global and reusable
 ```
+
+---
+
+## 37. SEMANTIC STATE VISUALIZATION & CODE DISAMBIGUATION (VG-STATE)
+
+```yaml
+standard: "BVC SVOE — SEMANTIC STATE VISUALIZATION"
+version: "1.1"
+status: "APPROVED"
+provenance:
+  promptId: "#000003"
+  promptTitle: "BVC SVOE — SEMANTIC STATE VISUALIZATION / CURRENT STATE DETECTION"
+```
+
+### 37.1 Core Principle: "Không phải mọi code block đều là code."
+
+Not every Markdown code block represents source code. Before rendering a block as a code specimen, the Semantic Visual Opportunity Engine (SVOE) classifies the block into its true semantic class:
+
+1. `CODE_SNIPPET` — Genuine programming source code (`def`, `return`, `function`, `const`, etc.).
+2. `SEMANTIC_STATE` — Structured state snapshot (`Current State:`, `DATABASE MIGRATION = IMPLEMENTED`).
+3. `SEMANTIC_CONTRAST` — Conceptual comparisons (`A VS B`).
+4. `FLOW` — Directional sequence or process (`A ↓ B ↓ C`).
+5. `CONFIGURATION` — Key-value YAML/specs (`engineering_method:`, `system_spec:`).
+6. `DATA_STRUCTURE` — ASCII architectures, checklists, tables.
+7. `TEXT_ONLY` — Plain text fallback.
+
+### 37.2 State Entity Model (VG-STATE)
+
+State expressions are parsed into structured semantic entities rather than flattened into a single text string:
+
+- **STATE TYPE**: `Current State`, `Project State`, `Task State`, `Verification State`, `Status Snapshot`.
+- **PRIMARY ENTITY**: e.g., `DATABASE MIGRATION`, `TASK`, `COMPONENT`.
+- **STATE VALUE**: e.g., `IMPLEMENTED`, `NOT VERIFIED`, `VERIFIED`, `IN PROGRESS`, `BLOCKED`.
+- **ASSOCIATED DOMAIN / SUBJECT**: e.g., `DATABASE`, `BACKEND`.
+- **GLOSSARY ANCHOR**: Linked to canonical terminology (e.g. `project-state`, `verification`).
+
+### 37.3 Status Visual Semantics & The "Implemented ≠ Verified" Invariant
+
+The engine preserves critical governance boundaries:
+
+- `IMPLEMENTED` → Neutral / sky-blue completed semantic treatment.
+- `VERIFIED` → Energy Green (`#22C55E` / `bg-emerald-50 text-emerald-800`).
+- `NOT VERIFIED` → Amber warning semantic treatment (`bg-amber-50 text-amber-800`).
+- `BLOCKED` / `FAILED` → Red alert semantic treatment (`bg-rose-50 text-rose-800`).
+- `IN PROGRESS` → Active blue pulsing indicator (`bg-blue-50 text-blue-800`).
+
+**Critical Invariant**:
+`IMPLEMENTED ≠ VERIFIED`. The system NEVER automatically infers `IMPLEMENTED = VERIFIED`.
 
 ---
 

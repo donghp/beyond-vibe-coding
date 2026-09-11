@@ -1,0 +1,167 @@
+---
+/**
+ * BVC Master Visual Design - Vector Primitive Shapes
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  type: string;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  label?: string;
+  subLabel?: string;
+  class?: string;
+  strokeWidth?: number;
+}
+
+const { 
+  type, 
+  x = 0, 
+  y = 0, 
+  width = 120, 
+  height = 60, 
+  label, 
+  subLabel,
+  class: className = "fill-white stroke-slate-400",
+  strokeWidth = 1.5
+} = Astro.props;
+
+const rx = type === 'rounded-rectangle' ? 8 : (type === 'pill' ? height / 2 : 0);
+---
+
+<g transform={`translate(${x}, ${y})`} class="bvc-shape">
+  {type === 'rectangle' || type === 'rounded-rectangle' || type === 'pill' ? (
+    <rect 
+      x={0} 
+      y={0} 
+      width={width} 
+      height={height} 
+      rx={rx} 
+      ry={rx} 
+      class={className}
+      stroke-width={strokeWidth}
+    />
+  ) : null}
+
+  {type === 'ellipse' && (
+    <ellipse 
+      cx={width / 2} 
+      cy={height / 2} 
+      rx={width / 2} 
+      ry={height / 2} 
+      class={className}
+      stroke-width={strokeWidth}
+    />
+  )}
+
+  {type === 'cylinder' && (
+    <g>
+      <path 
+        d={`M 0,${height/6} L 0,${height - height/6} A ${width/2},${height/6} 0 0 0 ${width},${height - height/6} L ${width},${height/6}`}
+        class={className}
+        stroke-width={strokeWidth}
+      />
+      <ellipse 
+        cx={width / 2} 
+        cy={height / 6} 
+        rx={width / 2} 
+        ry={height / 6} 
+        class={className}
+        stroke-width={strokeWidth}
+      />
+      <ellipse 
+        cx={width / 2} 
+        cy={height - height / 6} 
+        rx={width / 2} 
+        ry={height / 6} 
+        fill="none"
+        stroke="currentColor"
+        stroke-width={strokeWidth}
+        stroke-dasharray="4"
+        class="opacity-30"
+      />
+    </g>
+  )}
+
+  {type === 'diamond' && (
+    <path 
+      d={`M ${width/2},0 L ${width},${height/2} L ${width/2},${height} L 0,${height/2} Z`}
+      class={className}
+      stroke-width={strokeWidth}
+    />
+  )}
+
+  {type === 'hexagon' && (
+    <path 
+      d={`M ${width/4},0 L ${3*width/4},0 L ${width},${height/2} L ${3*width/4},${height} L ${width/4},${height} L 0,${height/2} Z`}
+      class={className}
+      stroke-width={strokeWidth}
+    />
+  )}
+
+  {type === 'document' && (
+    <g>
+      <path 
+        d={`M 0,0 L ${width - 15},0 L ${width},15 L ${width},${height} L 0,${height} Z`}
+        class={className}
+        stroke-width={strokeWidth}
+      />
+      <path 
+        d={`M ${width - 15},0 L ${width - 15},15 L ${width},15`}
+        fill="none"
+        stroke="currentColor"
+        stroke-width={strokeWidth}
+      />
+    </g>
+  )}
+
+  {type === 'stacked-documents' && (
+    <g>
+      <path d="M 10,10 L 110,10 L 110,70 L 10,70 Z" class={className} stroke-width={strokeWidth} transform="translate(10, 10)" />
+      <path d="M 5,5 L 105,5 L 105,65 L 5,65 Z" class={className} stroke-width={strokeWidth} transform="translate(5, 5)" />
+      <path d={`M 0,0 L ${width - 15},0 L ${width},15 L ${width},${height} L 0,${height} Z`} class={className} stroke-width={strokeWidth} />
+      <path d={`M ${width - 15},0 L ${width - 15},15 L ${width},15`} fill="none" stroke="currentColor" stroke-width={strokeWidth} />
+    </g>
+  )}
+
+  {type === 'funnel' && (
+    <path 
+      d={`M 0,0 L ${width},0 L ${2*width/3},${height} L ${width/3},${height} Z`}
+      class={className}
+      stroke-width={strokeWidth}
+    />
+  )}
+
+  {type === 'bracket' && (
+    <path 
+      d={`M 15,0 L 0,0 L 0,${height} L 15,${height} M ${width-15},0 L ${width},0 L ${width},${height} L ${width-15},${height}`}
+      fill="none"
+      stroke="currentColor"
+      stroke-width={strokeWidth}
+    />
+  )}
+
+  {label && (
+    <text 
+      x={width / 2} 
+      y={height / 2 + (subLabel ? -4 : 4)} 
+      text-anchor="middle" 
+      class="text-[12px] font-medium fill-slate-700 select-none pointer-events-none"
+    >
+      {label}
+    </text>
+  )}
+  
+  {subLabel && (
+    <text 
+      x={width / 2} 
+      y={height / 2 + 12} 
+      text-anchor="middle" 
+      class="text-[10px] fill-slate-400 select-none pointer-events-none"
+    >
+      {subLabel}
+    </text>
+  )}
+</g>

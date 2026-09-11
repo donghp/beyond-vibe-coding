@@ -1,0 +1,54 @@
+---
+/**
+ * BVC Master Visual Design - Visual Connector Primitive
+ * Inspired by BVC Glossary connection vectors
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  direction?: 'down' | 'right' | 'up' | 'left';
+  label?: string;
+  active?: boolean;
+  verified?: boolean;
+  length?: string;
+  class?: string;
+}
+
+const {
+  direction = 'down',
+  label,
+  active = false,
+  verified = false,
+  length = '3rem',
+  class: className = ''
+} = Astro.props;
+
+const strokeColor = verified ? '#22C55E' : active ? '#0EA5E9' : '#94A3B8';
+---
+
+<div class={`bvc-visual-connector flex flex-col items-center justify-center relative ${className}`}>
+  {direction === 'down' && (
+    <div class="flex flex-col items-center" style={`height: ${length};`}>
+      <div class="w-[1.5px] flex-1 transition-colors duration-200" style={`background-color: ${strokeColor};`}></div>
+      <svg class="w-3 h-3 -mt-1" viewBox="0 0 12 12" fill="none">
+        <path d="M2 4L6 8L10 4" stroke={strokeColor} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+  )}
+
+  {direction === 'right' && (
+    <div class="flex items-center" style={`width: ${length};`}>
+      <div class="h-[1.5px] flex-1 transition-colors duration-200" style={`background-color: ${strokeColor};`}></div>
+      <svg class="w-3 h-3 -ml-1" viewBox="0 0 12 12" fill="none">
+        <path d="M4 2L8 6L4 10" stroke={strokeColor} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+  )}
+
+  {label && (
+    <span class="mt-1 text-[9px] font-black uppercase tracking-[0.18em] px-2 py-0.5 rounded-full bg-[#F3F6F9] text-[#64748B] border border-slate-200">
+      {label}
+    </span>
+  )}
+</div>

@@ -1,60 +1,307 @@
 /**
  * BVC Master Visual Design Primitives
- * VERSION: "1.0"
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
  * 
  * Canonical Source: /docs/standards/visual/BVC_MASTER_VISUAL_DESIGN_V1.0.md
  */
 
+:root {
+  /* BVC MVEA-001 Master Palette Tokens */
+  --bvc-canvas: #FFFFFF;
+  --bvc-soft-blue: #F0F7FF;
+  --bvc-pale-sky: #EAF6FF;
+  --bvc-light-gray: #F3F6F9;
+  --bvc-deep-blue: #0B1D3A;
+  --bvc-sky-blue: #0EA5E9;
+  --bvc-energy-green: #22C55E;
+
+  /* Secondary Accents */
+  --bvc-mint: #86E7AC;
+  --bvc-teal: #14B8A6;
+  --bvc-azure: #38BDF8;
+  --bvc-slate: #64748B;
+  --bvc-slate-subtle: #F1F5F9;
+  --bvc-amber: #F59E0B;
+
+  /* Glossary-Derived Shared Tokens */
+  --bvc-surface-white: #FFFFFF;
+  --bvc-surface-soft: #F3F6F9;
+  --bvc-surface-blue: #F0F7FF;
+  --bvc-surface-pale: #EAF6FF;
+  --bvc-border-soft: #E2E8F0;
+  --bvc-border-subtle: #F1F5F9;
+  --bvc-text-deep: #0B1D3A;
+  --bvc-text-muted: #64748B;
+  --bvc-accent-sky: #0EA5E9;
+  --bvc-accent-green: #22C55E;
+  --bvc-accent-amber: #F59E0B;
+
+  /* Radii */
+  --bvc-radius-sm: 6px;
+  --bvc-radius-md: 12px;
+  --bvc-radius-lg: 16px;
+  --bvc-radius-xl: 20px;
+  --bvc-radius-2xl: 24px;
+  --bvc-radius-pill: 9999px;
+
+  /* Shadows */
+  --bvc-shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.02);
+  --bvc-shadow-card: 0 4px 12px -2px rgba(11, 29, 58, 0.04);
+  --bvc-shadow-hover: 0 8px 24px -4px rgba(14, 165, 233, 0.08);
+  --bvc-stroke-thin: 1.5px;
+}
+
 @layer components {
-  /* Visual Surface */
+  /* Master Visual Surface — Strictly Light Canvas with Glossary 16px Radius */
   .bvc-visual-surface {
+    background-color: var(--bvc-canvas);
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: var(--bvc-shadow-card);
+  }
+
+  /* Specific Light Surface Utilities */
+  .bvc-surface-white {
     background-color: #FFFFFF;
-    border: 1px solid #E2E8F0; /* Subtle border for visibility */
-    border-radius: 2px;
-    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.03);
+  }
+  .bvc-surface-soft-blue {
+    background-color: #F0F7FF;
+  }
+  .bvc-surface-pale-sky {
+    background-color: #EAF6FF;
+  }
+  .bvc-surface-light-gray {
+    background-color: #F3F6F9;
+  }
+  .bvc-surface-light-mint {
+    background-color: #E8F8F0;
+  }
+
+  /* Glossary-Derived Visual Primitives */
+  .bvc-visual-card {
+    background-color: var(--bvc-canvas);
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: var(--bvc-shadow-card);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bvc-visual-card:hover {
+    border-color: var(--bvc-sky-blue);
+    box-shadow: var(--bvc-shadow-hover);
+  }
+
+  .bvc-visual-node {
+    background-color: var(--bvc-canvas);
+    border: 1.5px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    box-shadow: var(--bvc-shadow-soft);
+    transition: all 0.2s ease;
+  }
+  .bvc-visual-node:hover {
+    border-color: var(--bvc-sky-blue);
+    box-shadow: var(--bvc-shadow-hover);
+    transform: translateY(-1px);
+  }
+
+  /* Glossary-Style Pill Badges */
+  .bvc-visual-pill {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    line-height: 1;
+  }
+  .bvc-visual-pill-canonical {
+    background-color: #F0FDF4;
+    color: #22C55E;
+    border-color: #DCFCE7;
+  }
+  .bvc-visual-pill-verified {
+    background-color: #F0FDF4;
+    color: #22C55E;
+    border-color: #DCFCE7;
+  }
+  .bvc-visual-pill-governance {
+    background-color: #F0F7FF;
+    color: #0EA5E9;
+    border-color: #E0F2FE;
+  }
+  .bvc-visual-pill-structure {
+    background-color: #F3F6F9;
+    color: #0B1D3A;
+    border-color: #E2E8F0;
+  }
+  .bvc-visual-pill-boundary {
+    background-color: #F8FAFC;
+    color: #64748B;
+    border-color: #E2E8F0;
+  }
+  .bvc-visual-pill-evidence {
+    background-color: #F0FDF4;
+    color: #16A34A;
+    border-color: #DCFCE7;
+  }
+  .bvc-visual-pill-pass {
+    background-color: #F0FDF4;
+    color: #22C55E;
+    border-color: #DCFCE7;
+  }
+  .bvc-visual-pill-blocked {
+    background-color: #FEF2F2;
+    color: #DC2626;
+    border-color: #FEE2E2;
+  }
+  .bvc-visual-pill-eligible {
+    background-color: #F0F7FF;
+    color: #0284C7;
+    border-color: #BAE6FD;
+  }
+
+  /* Quote / Callout Language */
+  .bvc-visual-quote {
+    background-color: #F3F6F9;
+    border-radius: 16px;
+    border-left: 4px solid #0EA5E9;
+    padding: 1.5rem;
+    font-style: italic;
+    color: #334155;
+    line-height: 1.65;
+    box-shadow: var(--bvc-shadow-soft);
+  }
+
+  .bvc-visual-callout {
+    background-color: #F0F7FF;
+    border-radius: 16px;
+    border: 1px solid #E0F2FE;
+    border-left: 4px solid #0EA5E9;
+    padding: 1.5rem;
+    color: #0B1D3A;
+    box-shadow: var(--bvc-shadow-soft);
+  }
+
+  .bvc-visual-insight {
+    background-color: #F0FDF4;
+    border-radius: 16px;
+    border: 1px solid #DCFCE7;
+    border-left: 4px solid #22C55E;
+    padding: 1.5rem;
+    color: #0B1D3A;
+    box-shadow: var(--bvc-shadow-soft);
+  }
+
+  .bvc-visual-warning {
+    background-color: #FFFBEB;
+    border-radius: 16px;
+    border: 1px solid #FEF3C7;
+    border-left: 4px solid #F59E0B;
+    padding: 1.5rem;
+    color: #0B1D3A;
+    box-shadow: var(--bvc-shadow-soft);
+  }
+
+  .bvc-visual-evidence {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    border-left: 4px solid #16A34A;
+    padding: 1.5rem;
+    color: #0B1D3A;
+    box-shadow: var(--bvc-shadow-card);
+  }
+
+  /* Micro Section Label */
+  .bvc-visual-section-label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--bvc-deep-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }
+
+  /* Thin Blue Accent Line */
+  .bvc-visual-accent-line {
+    height: 2px;
+    width: 3rem;
+    background-color: var(--bvc-sky-blue);
+    border-radius: 9999px;
+  }
+
+  /* Circle Node / Hub */
+  .bvc-visual-circle-node {
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    box-shadow: 0 4px 14px rgba(11, 29, 58, 0.12);
+  }
+
+  /* Visual Group Container */
+  .bvc-visual-group {
+    border-radius: 20px;
+    border: 1.5px dashed #CBD5E1;
+    background-color: #F8FAFC;
+    padding: 1.5rem;
+  }
+
+  /* Visual Annotation */
+  .bvc-visual-annotation {
+    font-size: 11px;
+    font-style: italic;
+    color: #64748B;
   }
 
   /* Section Labels */
   .bvc-section-label {
     font-size: 10px;
     font-weight: 900;
-    color: #64748B; /* Slate */
+    color: var(--bvc-deep-blue);
     text-transform: uppercase;
     letter-spacing: 0.25em;
   }
 
   /* Node Primitives */
   .bvc-node-primary {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    background-color: var(--bvc-canvas);
+    border: 1.5px solid #E2E8F0;
     padding: 1rem 1.5rem;
     text-align: center;
-    border-radius: 2px;
+    border-radius: 16px;
     transition: all 0.2s ease;
+    box-shadow: var(--bvc-shadow-soft);
   }
 
   .bvc-node-primary:hover {
-    border-color: #0EA5E9; /* Sky Blue */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-color: var(--bvc-sky-blue);
+    box-shadow: var(--bvc-shadow-hover);
   }
 
   .bvc-node-label {
     font-size: 13px;
-    font-weight: 600;
-    color: #0B1D3A; /* Deep Blue */
+    font-weight: 800;
+    color: var(--bvc-deep-blue);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
-  /* Flow Diagram Nodes */
+  /* Flow Diagram Nodes with Glossary 16px Radius */
   .bvc-flow-node {
-    background-color: #FFFFFF;
+    background-color: var(--bvc-canvas);
     border: 1.5px solid #E2E8F0;
     padding: 1rem 2rem;
-    border-radius: 8px;
-    min-width: 180px;
+    border-radius: 16px;
+    min-width: 200px;
     text-align: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: var(--bvc-shadow-card);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
@@ -62,24 +309,24 @@
   }
 
   .bvc-flow-node:hover {
-    border-color: #0EA5E9; /* Sky Blue */
+    border-color: var(--bvc-sky-blue);
     transform: translateY(-1px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--bvc-shadow-hover);
   }
 
   .bvc-flow-label {
     font-size: 13px;
     font-weight: 800;
-    color: #1E293B; /* Slate 800 */
+    color: var(--bvc-deep-blue);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     line-height: 1;
   }
 
   /* Specification Rows */
   .bvc-spec-row {
     display: grid;
-    grid-template-cols: 160px 1fr;
+    grid-template-columns: 160px 1fr;
     column-gap: 2rem;
     padding: 0.75rem 0;
     align-items: baseline;
@@ -92,20 +339,20 @@
 
   .bvc-spec-key {
     font-size: 11px;
-    font-weight: 600;
-    color: #64748B; /* Slate */
+    font-weight: 700;
+    color: #64748B;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
   }
 
   .bvc-spec-value {
     font-family: monospace;
     font-size: 13px;
-    color: #0B1D3A; /* Deep Blue */
-    background-color: #F3F6F9; /* Light Gray */
+    color: var(--bvc-deep-blue);
+    background-color: var(--bvc-light-gray);
     padding: 0.375rem 1rem;
-    border-radius: 2px;
-    border: 1px solid rgba(14, 165, 233, 0.1); /* Subtle Azure tint */
+    border-radius: 8px;
+    border: 1px solid rgba(14, 165, 233, 0.15);
     width: fit-content;
   }
 
@@ -113,89 +360,155 @@
   .bvc-status-pill {
     font-size: 10px;
     font-weight: 900;
-    padding: 0.25rem 0.75rem;
+    padding: 0.35rem 0.85rem;
     border-radius: 9999px;
     border: 1px solid transparent;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
   }
 
   .bvc-status-pass {
-    background-color: #F0FDF4; /* Very light Energy Green */
-    color: #22C55E; /* Energy Green */
+    background-color: #F0FDF4;
+    color: #22C55E;
     border-color: #DCFCE7;
   }
 
   .bvc-status-fail {
-    background-color: #FEF2F2; /* Very light Red */
-    color: #DC2626; /* Critical Red */
+    background-color: #FEF2F2;
+    color: #DC2626;
     border-color: #FEE2E2;
   }
 
-  /* Architecture Layers */
+  /* Architecture Layers — Glossary 16px / 20px radius and Light Canvas compliant */
   .bvc-arch-anchor {
-    background-color: #0B1D3A; /* Deep Blue */
-    color: #FFFFFF;
-    padding: 1rem 2.5rem;
-    border-radius: 2px;
-    font-size: 12px;
+    background-color: var(--bvc-canvas);
+    color: var(--bvc-deep-blue);
+    border: 2px solid var(--bvc-deep-blue);
+    padding: 1.25rem 3rem;
+    border-radius: 16px;
+    font-size: 13px;
     font-weight: 900;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(11, 29, 58, 0.15);
+    box-shadow: var(--bvc-shadow-card);
   }
 
   .bvc-arch-contract {
-    border: 1.5px solid rgba(14, 165, 233, 0.3); /* Sky Blue tint */
-    background-color: rgba(14, 165, 233, 0.05);
-    padding: 1.25rem 2rem;
-    border-radius: 2px;
+    border: 1.5px solid rgba(14, 165, 233, 0.3);
+    background-color: var(--bvc-soft-blue);
+    padding: 1.25rem 2.5rem;
+    border-radius: 16px;
     text-align: center;
     font-size: 12px;
     font-weight: 900;
-    color: #0B1D3A; /* Deep Blue */
+    color: var(--bvc-deep-blue);
     letter-spacing: 0.25em;
     text-transform: uppercase;
+    box-shadow: var(--bvc-shadow-soft);
   }
 
   .bvc-arch-adapter {
-    background-color: #F3F6F9; /* Light Gray */
+    background-color: var(--bvc-light-gray);
     border: 1px solid #E2E8F0;
     padding: 1.25rem 2rem;
-    border-radius: 2px;
+    border-radius: 16px;
     text-align: center;
     font-size: 11px;
-    font-weight: 600;
-    color: #64748B; /* Slate */
+    font-weight: 800;
+    color: var(--bvc-deep-blue);
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    box-shadow: var(--bvc-shadow-soft);
   }
 
   .bvc-arch-execution {
-    background-color: #0EA5E9; /* Sky Blue */
-    color: #FFFFFF;
-    height: 3.5rem;
+    background-color: var(--bvc-soft-blue);
+    border: 1.5px solid var(--bvc-sky-blue);
+    color: var(--bvc-deep-blue);
+    height: 3.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 2px;
+    border-radius: 16px;
     font-size: 12px;
     font-weight: 900;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+    box-shadow: 0 4px 12px -2px rgba(14, 165, 233, 0.08);
   }
 
   .bvc-arch-verification {
-    border: 1.5px solid rgba(34, 197, 94, 0.5); /* Energy Green tint */
-    background-color: rgba(34, 197, 94, 0.05);
-    height: 3.5rem;
+    border: 1.5px solid rgba(34, 197, 94, 0.4);
+    background-color: #F0FDF4;
+    height: 3.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 2px;
+    border-radius: 16px;
     font-size: 12px;
     font-weight: 900;
-    color: #15803D; /* Darker Energy Green */
-    letter-spacing: 0.3em;
+    color: #15803D;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
+    box-shadow: 0 4px 12px -2px rgba(34, 197, 94, 0.08);
+  }
+
+  /* BVC SVOE V2.0: TEXTUAL ENGINEERING EXPRESSION (PDF-Like Text Layout)
+   * Prompt-ID: #000009
+   * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+   */
+  .bvc-textual-engineering-expression {
+    background-color: transparent !important;
+    color: #0B1D3A !important;
+    margin: 1.25rem 0;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .bvc-textual-engineering-expression + .bvc-textual-engineering-expression {
+    margin-top: -0.25rem;
+  }
+
+  .bvc-textual-line {
+    line-height: 1.75;
+    color: #0B1D3A;
+    white-space: pre-wrap;
+  }
+
+  .bvc-textual-arrow {
+    line-height: 1.5;
+    color: #0066CC;
+    font-weight: 600;
+    padding: 0.1rem 0;
   }
 }
+
+/* Global Code Surface Sanitization - Strictly Light Canvas */
+pre,
+.astro-code,
+.prose-editorial pre {
+  background-color: #F8FAFC !important;
+  color: #0B1D3A !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+pre code,
+.astro-code code {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+pre[class*="dark"],
+.astro-code[class*="dark"] {
+  background-color: #F8FAFC !important;
+  color: #0B1D3A !important;
+}
+
+

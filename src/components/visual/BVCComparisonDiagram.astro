@@ -1,0 +1,108 @@
+---
+/**
+ * BVC Master Visual Design - Semantic Contrast / Comparison Renderer (VG-COMPARISON)
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * Standard: BVC SVOE V1.1 — SEMANTIC CONTRAST VISUALIZATION
+ * Provenance:
+ *   Prompt-ID: #000004
+ *   Prompt-Title: BVC MASTER VISUAL ENGINE — SVOE V1.1 FINAL / TEXT-ONLY PRESERVATION + CHAPTER 13 UPDATE
+ */
+import type { VisualAST } from '../../lib/visual/visualAst';
+import { decodeVisualText } from '../../lib/visual/utils';
+
+interface Props {
+  ast: VisualAST;
+}
+
+const { ast } = Astro.props;
+
+const entityA = ast.contrast?.entityA?.label || ast.nodes.find(n => n.id === 'entity-a')?.label || 'Entity A';
+const entityB = ast.contrast?.entityB?.label || ast.nodes.find(n => n.id === 'entity-b')?.label || 'Entity B';
+const relationSymbol = ast.contrast?.relationSymbol || '≠';
+const termIdA = ast.contrast?.entityA?.semanticTermId || 'AI_CAPABILITY';
+const termIdB = ast.contrast?.entityB?.semanticTermId || 'PROJECT_CONTINUITY';
+
+const subtitleA = entityA.toUpperCase().includes('AI CAPABILITY')
+  ? 'Mô hình ngôn ngữ lớn · Sức mạnh suy luận thuần túy'
+  : 'Thực thể độc lập';
+
+const subtitleB = entityB.toUpperCase().includes('PROJECT CONTINUITY')
+  ? 'Hệ phương pháp kỹ thuật · Độ bền vững hệ thống'
+  : 'Thực thể đối trọng';
+---
+
+<div class="bvc-diagram-engine mx-auto max-w-2xl w-full my-8" data-type="VG-COMPARISON" id="visual-v13-01">
+  <div class="bvc-visual-surface p-6 sm:p-8 bg-white border border-[#E2E8F0] rounded-2xl shadow-[0_4px_16px_-4px_rgba(11,29,58,0.04)]">
+    
+    <!-- Top Meta Header -->
+    <div class="flex items-center justify-between border-b border-[#F1F5F9] pb-4 mb-6">
+      <div class="flex items-center space-x-2.5">
+        <div class="w-2 h-2 rounded-full bg-[#0EA5E9]"></div>
+        <span class="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-[#0B1D3A]">
+          Semantic Contrast
+        </span>
+      </div>
+      <div class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-[#F8FAFC] text-[#64748B] border border-[#E2E8F0]">
+        V13-01 · CONCEPT-CONTRAST
+      </div>
+    </div>
+
+    <!-- Comparison Body: Two Entities with Central Relation -->
+    <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 md:gap-6 relative">
+      
+      <!-- Entity A Card -->
+      <div class="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-5 flex flex-col justify-between hover:border-[#CBD5E1] transition-colors">
+        <div>
+          <div class="text-[9px] font-mono font-bold uppercase tracking-wider text-[#64748B] mb-2 flex items-center space-x-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#94A3B8]"></span>
+            <span>{termIdA}</span>
+          </div>
+          <h4 class="text-base sm:text-lg font-bold text-[#0B1D3A] tracking-tight leading-snug">
+            {decodeVisualText(entityA)}
+          </h4>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#E2E8F0]/60 text-[11px] text-[#64748B] leading-relaxed">
+          {subtitleA}
+        </div>
+      </div>
+
+      <!-- Center Relation Node -->
+      <div class="flex md:flex-col items-center justify-center py-2 md:py-0 self-center">
+        <div class="w-12 h-12 rounded-full bg-[#F0F7FF] border-2 border-[#BAE6FD] flex items-center justify-center shadow-xs">
+          <span class="text-xl font-black text-[#0284C7] leading-none">
+            {relationSymbol}
+          </span>
+        </div>
+        <span class="ml-3 md:ml-0 md:mt-2 text-[9px] font-black uppercase tracking-[0.16em] text-[#0284C7]">
+          Khác biệt
+        </span>
+      </div>
+
+      <!-- Entity B Card -->
+      <div class="flex-1 bg-[#F0F7FF]/50 border border-[#BAE6FD]/80 rounded-xl p-5 flex flex-col justify-between hover:border-[#0EA5E9] transition-colors">
+        <div>
+          <div class="text-[9px] font-mono font-bold uppercase tracking-wider text-[#0284C7] mb-2 flex items-center space-x-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#0EA5E9]"></span>
+            <span>{termIdB}</span>
+          </div>
+          <h4 class="text-base sm:text-lg font-bold text-[#0B1D3A] tracking-tight leading-snug">
+            {decodeVisualText(entityB)}
+          </h4>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#BAE6FD]/60 text-[11px] text-[#475569] leading-relaxed">
+          {subtitleB}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Thesis Footer Callout -->
+    <div class="mt-6 pt-4 border-t border-[#F1F5F9] flex items-start space-x-3 text-[12px] text-[#475569] leading-relaxed">
+      <div class="w-1.5 h-1.5 rounded-full bg-[#0EA5E9] mt-1.5 shrink-0"></div>
+      <p>
+        <strong class="font-semibold text-[#0B1D3A]">Luận điểm cốt lõi:</strong> Năng lực mô hình thay đổi theo từng chu kỳ phát hành; tính liên tục và độ tin cậy của dự án phụ thuộc vào hệ thống quy chuẩn kỹ thuật (Engineering Method) và Semantic Contract độc lập.
+      </p>
+    </div>
+
+  </div>
+</div>

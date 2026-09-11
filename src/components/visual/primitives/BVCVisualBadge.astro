@@ -1,0 +1,35 @@
+---
+/**
+ * BVC Master Visual Design - Visual Badge Primitive
+ * Inspired by BVC Glossary Visual System
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  text: string;
+  category?: string;
+  color?: 'sky' | 'emerald' | 'amber' | 'slate' | 'navy';
+  class?: string;
+}
+
+const {
+  text,
+  category,
+  color = 'sky',
+  class: className = ''
+} = Astro.props;
+
+const colorClasses = {
+  sky: 'bg-sky-50 text-[#0EA5E9] border-sky-100',
+  emerald: 'bg-emerald-50 text-[#22C55E] border-emerald-100',
+  amber: 'bg-amber-50 text-[#F59E0B] border-amber-100',
+  slate: 'bg-[#F3F6F9] text-[#64748B] border-slate-200',
+  navy: 'bg-[#0B1D3A] text-white border-[#0B1D3A]'
+}[color];
+---
+
+<div class={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full border text-[10px] font-black uppercase tracking-[0.25em] ${colorClasses} ${className}`}>
+  {category && <span class="opacity-60">{category}:</span>}
+  <span>{text}</span>
+</div>

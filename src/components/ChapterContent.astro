@@ -1,8 +1,13 @@
 ---
+// Prompt-ID: #000010
+// Prompt-Title: BVC CHAPTER 13 — STRICT 7-VISUAL LOCK / APPROVED VISUAL WHITELIST / TEXT-ONLY EVERYTHING ELSE
+
 import BVCVisualFrame from './visual/BVCVisualFrame.astro';
 import BVCFlow from './visual/BVCFlow.astro';
 import BVCActionScope from './visual/BVCActionScope.astro';
 import BVCDiagramRenderer from './visual/BVCDiagramRenderer.astro';
+import { evaluateBlockForVisualization } from '../lib/visual/visualApproval';
+import { matchChapter13SvgToVisual } from '../lib/visual/chapter13Whitelist';
 
 interface Props {
   chapter: any;
@@ -11,7 +16,48 @@ interface Props {
 const { chapter } = Astro.props;
 let html = await Astro.slots.render('default');
 
-const regex = /<div class="bvc-visual-placeholder" data-type="([^"]+)" data-id="([^"]*)">([\s\S]*?)<\/div>/g;
+const chapterIdStr = chapter?.data?.chapterNumber 
+  ? String(chapter.data.chapterNumber) 
+  : (chapter?.id?.startsWith('13') || chapter?.slug?.startsWith('13') ? '13' : '');
+
+const isChapter13 = chapterIdStr === '13';
+
+// If Chapter 13, process image tags to enforce the strict 7-visual lock
+if (isChapter13) {
+  const imgRegex = /<p>\s*<img\s+([^>]*src="([^"]+)"[^>]*)>\s*<\/p>(?:\s*<p>\s*<em>(.*?)<\/em>(.*?)<\/p>)?/gi;
+  
+  html = html.replace(imgRegex, (_fullMatch, imgAttrs, src, captionTitle, captionRest) => {
+    const approvedVisual = matchChapter13SvgToVisual(src);
+    
+    if (approvedVisual) {
+      const fullCaption = approvedVisual.caption || (captionTitle ? (captionTitle + (captionRest || '')) : '');
+      let captionHtml = '';
+      if (fullCaption) {
+        captionHtml = '<figcaption class="w-full text-center text-xs sm:text-sm text-[#64748B] leading-relaxed border-t border-[#e5eaf3] pt-4 px-2 sm:px-6 max-w-[680px]">' + fullCaption + '</figcaption>';
+      }
+      return '<figure id="' + approvedVisual.id + '" class="bvc-visual-frame my-10 w-full max-w-[840px] mx-auto flex flex-col items-center gap-6 select-none bg-white border border-[#e5eaf3] rounded-lg p-5 sm:p-6 md:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.01)]">' +
+        '<div class="w-full flex items-center justify-between border-b border-[#e5eaf3] pb-3 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#64748B]">' +
+          '<span class="text-[#081321] font-bold">' + approvedVisual.figType + ' ' + approvedVisual.figId + '</span>' +
+          '<span class="text-[#64748B]">BEYOND VIBE CODING</span>' +
+        '</div>' +
+        '<div class="w-full flex justify-center items-center overflow-x-auto overflow-y-hidden py-2">' +
+          '<img ' + imgAttrs + ' class="max-w-full h-auto" />' +
+        '</div>' +
+        captionHtml +
+      '</figure>';
+    } else {
+      const title = captionTitle || 'Executor Capability Map';
+      const cleanDesc = captionRest ? captionRest.replace(/^[\s\-]+/, '').trim() : 'Routing based on current eligibility and contract invariants.';
+      return '<div class="bvc-textual-engineering-expression my-6 text-[#0B1D3A]">' +
+        '<div class="font-bold text-[#0B1D3A] text-sm mb-1">' + title + '</div>' +
+        '<div class="text-sm text-[#475569] leading-relaxed">' + cleanDesc + '</div>' +
+      '</div>';
+    }
+  });
+}
+
+const regex = /<div class="bvc-visual-placeholder" data-type="([^"]+)" data-id="([^"]*)"(?:[^>]*)>([\s\S]*?)<\/div>/g;
+
 
 interface Chunk {
   type: 'html' | 'visual';
@@ -82,7 +128,23 @@ if (lastIndex < html.length) {
       let visualComponent;
       
       if (chunk.visualType === 'text-diagram') {
-        visualComponent = <BVCDiagramRenderer content={chunk.rawParsedContent || ''} />;
+        const evalResult = evaluateBlockForVisualization(chapterIdStr, chunk.rawParsedContent || '');
+        if (evalResult.shouldRender) {
+          visualComponent = <BVCDiagramRenderer content={chunk.rawParsedContent || ''} />;
+        } else {
+          const lines = (chunk.rawParsedContent || '').split('\n');
+          visualComponent = (
+            <div class="bvc-textual-engineering-expression">
+              {lines.map((l: string) => {
+                const trimmed = l.trim();
+                if (trimmed === '↓' || trimmed === '→' || trimmed === '->' || trimmed === '=>') {
+                  return <div class="bvc-textual-arrow text-[#0066CC] font-semibold">{trimmed}</div>;
+                }
+                return <div class="bvc-textual-line">{l}</div>;
+              })}
+            </div>
+          );
+        }
       } else {
         const isActionScope = chunk.visualType === 'action-scope';
         const isFlow = chunk.visualType === 'flow';
@@ -126,3 +188,4 @@ if (lastIndex < html.length) {
     }
   })}
 </div>
+

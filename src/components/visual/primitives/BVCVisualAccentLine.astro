@@ -1,0 +1,29 @@
+---
+/**
+ * BVC Master Visual Design - Visual Accent Line Primitive
+ * Inspired by BVC Glossary thin blue editorial rules
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  width?: string;
+  color?: 'sky' | 'emerald' | 'deep-blue' | 'slate';
+  class?: string;
+}
+
+const {
+  width = 'w-12',
+  color = 'sky',
+  class: className = ''
+} = Astro.props;
+
+const colorClasses = {
+  sky: 'bg-[#0EA5E9]',
+  emerald: 'bg-[#22C55E]',
+  'deep-blue': 'bg-[#0B1D3A]',
+  slate: 'bg-slate-300'
+}[color];
+---
+
+<div class={`bvc-visual-accent-line h-[2px] ${width} ${colorClasses} rounded-full ${className}`}></div>

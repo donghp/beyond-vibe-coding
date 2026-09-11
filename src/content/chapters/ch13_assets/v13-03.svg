@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="100%" height="auto">
+  <defs>
+    <style>
+      .bg { fill: #FFFFFF; }
+      .border { stroke: #E2E8F0; stroke-width: 1.5; }
+      .title { font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 800; fill: #0B1D3A; letter-spacing: 0.05em; text-transform: uppercase; }
+      .label { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; font-weight: 700; fill: #0B1D3A; }
+      .sublabel { font-family: 'Inter', system-ui, sans-serif; font-size: 9px; font-weight: 500; fill: #64748B; }
+      .line { stroke: #0EA5E9; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 7 5 L 0 8 z" fill="#0EA5E9" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Surface -->
+  <rect width="100%" height="100%" class="bg" rx="6" />
+  <rect x="1" y="1" width="718" height="278" fill="none" class="border" rx="5" />
+
+  <!-- Left: Candidate Task -->
+  <g transform="translate(40, 95)">
+    <rect width="160" height="70" rx="4" fill="#F3F6F9" stroke="#E2E8F0" stroke-width="1.5" />
+    <text x="80" y="28" text-anchor="middle" class="label">CANDIDATE TASK</text>
+    <text x="80" y="44" text-anchor="middle" class="sublabel">Complexity Assessment</text>
+    <text x="80" y="56" text-anchor="middle" class="sublabel">Boundary Constraints</text>
+  </g>
+
+  <!-- Line to Gate -->
+  <line x1="200" y1="130" x2="260" y2="130" class="line" marker-end="url(#arr)" />
+
+  <!-- Center: Eligibility Gate -->
+  <g transform="translate(265, 60)">
+    <rect width="210" height="140" rx="6" fill="#F0F7FF" stroke="#0B1D3A" stroke-width="2" />
+    <rect x="15" y="15" width="180" height="26" rx="3" fill="#FFFFFF" stroke="#0EA5E9" stroke-width="1" />
+    <text x="105" y="32" text-anchor="middle" class="title">ELIGIBILITY GATE</text>
+
+    <!-- Checklist items inside gate -->
+    <g transform="translate(20, 56)">
+      <circle cx="6" cy="6" r="5" fill="#E8F8F0" stroke="#22C55E" stroke-width="1" />
+      <text x="18" y="9" class="sublabel">Context Window Sufficiency</text>
+      
+      <circle cx="6" cy="24" r="5" fill="#E8F8F0" stroke="#22C55E" stroke-width="1" />
+      <text x="18" y="27" class="sublabel">Tool Availability &amp; Permissions</text>
+
+      <circle cx="6" cy="42" r="5" fill="#E8F8F0" stroke="#22C55E" stroke-width="1" />
+      <text x="18" y="45" class="sublabel">Deterministic Reversibility</text>
+    </g>
+  </g>
+
+  <!-- Branch lines -->
+  <line x1="475" y1="100" x2="525" y2="70" class="line" marker-end="url(#arr)" />
+  <line x1="475" y1="160" x2="525" y2="190" class="line" marker-end="url(#arr)" />
+
+  <!-- Right Top: Admitted (Pass) -->
+  <g transform="translate(530, 45)">
+    <rect width="150" height="56" rx="4" fill="#E8F8F0" stroke="#22C55E" stroke-width="1.5" />
+    <text x="75" y="24" text-anchor="middle" class="label" fill="#15803D">ADMITTED [PASS]</text>
+    <text x="75" y="40" text-anchor="middle" class="sublabel" fill="#166534">Autonomous Execution Contract</text>
+  </g>
+
+  <!-- Right Bottom: Human Supervision (Fallback) -->
+  <g transform="translate(530, 165)">
+    <rect width="150" height="56" rx="4" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5" />
+    <text x="75" y="24" text-anchor="middle" class="label" fill="#B45309">SUPERVISED [GATE]</text>
+    <text x="75" y="40" text-anchor="middle" class="sublabel" fill="#92400E">Micro-tasking / Human In Loop</text>
+  </g>
+</svg>

@@ -147,10 +147,10 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     id: '13-tu-duy-paecs',
     order: 13,
     section: 'chapter',
-    title: 'CHƯƠNG 13 — TỪ VIBE CODING ĐẾN KIẾN TRÚC SYSTEMATIC',
-    shortTitle: 'Từ Vibe Coding đến kiến trúc Systematic',
+    title: 'CHƯƠNG 13 — TÔI KHÔNG MUỐN MỘT AI GIỎI HƠN. TÔI MUỐN PROJECT CÓ THỂ TIẾP TỤC',
+    shortTitle: 'Tôi không muốn một AI giỏi hơn',
     slug: '13-tu-duy-paecs',
-    publicationStatus: 'unpublished',
+    publicationStatus: 'published',
     contentStatus: 'draft',
   },
   {

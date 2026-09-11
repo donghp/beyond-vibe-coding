@@ -1,0 +1,104 @@
+---
+/**
+ * BVC Master Visual Design - Vector Connectors
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  type?: 'solid' | 'dashed' | 'dotted' | 'arrow' | 'curved' | 'orthogonal' | 'bidirectional';
+  from: { x: number; y: number };
+  to: { x: number; y: number };
+  label?: string;
+  class?: string;
+  strokeWidth?: number;
+}
+
+const { 
+  type = 'solid', 
+  from, 
+  to, 
+  label,
+  class: className = "stroke-slate-300",
+  strokeWidth = 1.5
+} = Astro.props;
+
+const dx = to.x - from.x;
+const dy = to.y - from.y;
+const midX = from.x + dx / 2;
+const midY = from.y + dy / 2;
+
+const isDashed = type === 'dashed';
+const isDotted = type === 'dotted';
+const isBidirectional = type === 'bidirectional';
+const hasArrow = type === 'arrow' || type === 'solid' || type === 'dashed' || type === 'curved' || type === 'orthogonal' || isBidirectional;
+
+// Path calculation
+let d = `M ${from.x},${from.y} L ${to.x},${to.y}`;
+
+if (type === 'curved') {
+  const cp1x = from.x + dx / 4;
+  const cp1y = from.y;
+  const cp2x = to.x - dx / 4;
+  const cp2y = to.y;
+  d = `M ${from.x},${from.y} C ${cp1x},${cp1y} ${cp2x},${cp2y} ${to.x},${to.y}`;
+} else if (type === 'orthogonal') {
+  d = `M ${from.x},${from.y} L ${midX},${from.y} L ${midX},${to.y} L ${to.x},${to.y}`;
+}
+
+const markerEnd = hasArrow ? `url(#arrowhead)` : undefined;
+const markerStart = isBidirectional ? `url(#arrowhead-start)` : undefined;
+---
+
+<g class="bvc-connector">
+  <defs>
+    <marker
+      id="arrowhead"
+      markerWidth="10"
+      markerHeight="7"
+      refX="9"
+      refY="3.5"
+      orient="auto"
+    >
+      <polygon points="0 0, 10 3.5, 0 7" class="fill-slate-300" />
+    </marker>
+    <marker
+      id="arrowhead-start"
+      markerWidth="10"
+      markerHeight="7"
+      refX="1"
+      refY="3.5"
+      orient="auto"
+    >
+      <polygon points="10 0, 0 3.5, 10 7" class="fill-slate-300" />
+    </marker>
+  </defs>
+
+  <path 
+    d={d}
+    fill="none"
+    class={className}
+    stroke-width={strokeWidth}
+    stroke-dasharray={isDashed ? "5,5" : (isDotted ? "2,2" : "none")}
+    marker-end={markerEnd}
+    marker-start={markerStart}
+  />
+
+  {label && (
+    <g transform={`translate(${midX}, ${midY - 10})`}>
+      <rect 
+        x={-label.length * 3 - 4} 
+        y={-8} 
+        width={label.length * 6 + 8} 
+        height={16} 
+        rx={4} 
+        class="fill-white/80"
+      />
+      <text 
+        text-anchor="middle" 
+        class="text-[10px] fill-slate-500 font-medium select-none pointer-events-none"
+      >
+        {label}
+      </text>
+    </g>
+  )}
+</g>

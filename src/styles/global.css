@@ -198,14 +198,15 @@ body {
 }
 
 .prose-editorial pre {
-  background-color: var(--color-navy-950);
-  color: #f8fafc;
+  background-color: #F8FAFC;
+  color: #0B1D3A;
   padding: 1.25rem;
   border-radius: var(--radius-md);
   overflow-x: auto;
-  margin: 2.25rem 0;
+  margin: 1.75rem 0;
   font-size: 0.875rem;
-  border: 1px solid var(--color-navy-800);
+  border: 1px solid #E2E8F0;
+  box-shadow: none;
 }
 
 .prose-editorial ul, .prose-editorial ol {

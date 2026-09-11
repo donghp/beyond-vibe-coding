@@ -1,0 +1,46 @@
+---
+/**
+ * BVC Master Visual Design - Visual Circle Node Primitive
+ * Inspired by BVC Glossary Featured Concept center hubs and AI circular nodes
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  label: string;
+  subLabel?: string;
+  size?: number; // size in px, e.g. 72, 80, 96
+  role?: 'center' | 'structure' | 'flow' | 'verified' | 'light';
+  class?: string;
+}
+
+const {
+  label,
+  subLabel,
+  size = 80,
+  role = 'center',
+  class: className = ''
+} = Astro.props;
+
+const roleClasses = {
+  center: 'bg-[#0B1D3A] text-white border-2 border-white shadow-xl shadow-blue-900/15',
+  structure: 'bg-white text-[#0B1D3A] border-2 border-[#0B1D3A] shadow-md',
+  flow: 'bg-white text-[#0EA5E9] border-2 border-[#0EA5E9] shadow-md',
+  verified: 'bg-white text-[#22C55E] border-2 border-[#22C55E] shadow-md',
+  light: 'bg-[#F0F7FF] text-[#0B1D3A] border border-[#BAE6FD] shadow-sm'
+}[role];
+---
+
+<div
+  style={`width: ${size}px; height: ${size}px;`}
+  class={`bvc-visual-circle-node rounded-full flex flex-col items-center justify-center text-center p-2 transition-transform duration-200 hover:scale-105 ${roleClasses} ${className}`}
+>
+  <span class="text-[10px] md:text-[11px] font-black uppercase tracking-widest leading-none">
+    {label}
+  </span>
+  {subLabel && (
+    <span class="text-[8px] font-bold uppercase tracking-wider opacity-80 mt-1">
+      {subLabel}
+    </span>
+  )}
+</div>

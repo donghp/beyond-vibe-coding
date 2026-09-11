@@ -12,6 +12,9 @@ export default defineConfig({
   site: 'https://donghp.github.io',
   base: isProduction ? '/beyond-vibe-coding' : '/',
   markdown: {
+    shikiConfig: {
+      theme: 'github-light',
+    },
     remarkPlugins: [
       remarkDirective,
       remarkBvcDiagram,

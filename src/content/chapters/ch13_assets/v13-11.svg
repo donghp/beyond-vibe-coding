@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="100%" height="auto">
+  <defs>
+    <style>
+      .bg { fill: #FFFFFF; }
+      .border { stroke: #E2E8F0; stroke-width: 1.5; }
+      .title { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 800; fill: #0B1D3A; letter-spacing: 0.06em; text-transform: uppercase; }
+      .text { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; font-weight: 700; fill: #0B1D3A; }
+      .desc { font-family: 'Inter', system-ui, sans-serif; font-size: 9px; font-weight: 500; fill: #64748B; }
+      .line { stroke: #0EA5E9; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 7 5 L 0 8 z" fill="#0EA5E9" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" rx="6" />
+  <rect x="1" y="1" width="718" height="278" fill="none" class="border" rx="5" />
+
+  <!-- Checkpoint -->
+  <g transform="translate(40, 95)">
+    <rect width="170" height="70" rx="4" fill="#F0F7FF" stroke="#0EA5E9" stroke-width="1.5" />
+    <text x="85" y="28" text-anchor="middle" class="text">INTERMEDIATE STATE</text>
+    <text x="85" y="44" text-anchor="middle" class="desc">Partial Step Finished</text>
+    <text x="85" y="56" text-anchor="middle" class="desc">Diff Buffer Ready</text>
+  </g>
+
+  <!-- Line to Gate -->
+  <line x1="210" y1="130" x2="270" y2="130" class="line" marker-end="url(#arr)" />
+
+  <!-- Continuation Gate -->
+  <g transform="translate(275, 55)">
+    <rect width="210" height="150" rx="6" fill="#FFFFFF" stroke="#0B1D3A" stroke-width="2" />
+    <rect x="15" y="15" width="180" height="26" rx="2" fill="#F3F6F9" />
+    <text x="105" y="32" text-anchor="middle" class="title">CONTINUATION GATE</text>
+    <g transform="translate(20, 60)">
+      <circle cx="6" cy="6" r="4" fill="#22C55E" />
+      <text x="18" y="9" class="desc" fill="#0B1D3A">Scope boundaries respected</text>
+      
+      <circle cx="6" cy="26" r="4" fill="#22C55E" />
+      <text x="18" y="29" class="desc" fill="#0B1D3A">No uncommitted dirty files</text>
+
+      <circle cx="6" cy="46" r="4" fill="#22C55E" />
+      <text x="18" y="49" class="desc" fill="#0B1D3A">Target tests still passing</text>
+    </g>
+  </g>
+
+  <!-- Branches -->
+  <line x1="485" y1="100" x2="535" y2="70" class="line" marker-end="url(#arr)" />
+  <line x1="485" y1="160" x2="535" y2="190" class="line" marker-end="url(#arr)" />
+
+  <!-- Output 1: Controlled Resume -->
+  <g transform="translate(540, 45)">
+    <rect width="145" height="56" rx="4" fill="#E8F8F0" stroke="#22C55E" stroke-width="1.5" />
+    <text x="72" y="24" text-anchor="middle" class="text" fill="#15803D">SAFE TO RESUME</text>
+    <text x="72" y="40" text-anchor="middle" class="desc" fill="#166534">Execute next chunk</text>
+  </g>
+
+  <!-- Output 2: Halt & Reconcile -->
+  <g transform="translate(540, 165)">
+    <rect width="145" height="56" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" />
+    <text x="72" y="24" text-anchor="middle" class="text" fill="#B91C1C">HALT EXECUTION</text>
+    <text x="72" y="40" text-anchor="middle" class="desc" fill="#991B1B">Drift detected / Inspect</text>
+  </g>
+</svg>

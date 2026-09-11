@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" width="100%" height="auto">
+  <defs>
+    <style>
+      .bg { fill: #FFFFFF; }
+      .border { stroke: #E2E8F0; stroke-width: 1.5; }
+      .title { font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 800; fill: #0B1D3A; letter-spacing: 0.06em; text-transform: uppercase; }
+      .text { font-family: 'Inter', system-ui, sans-serif; font-size: 10px; font-weight: 700; fill: #0B1D3A; }
+      .desc { font-family: 'Inter', system-ui, sans-serif; font-size: 9px; font-weight: 500; fill: #64748B; }
+      .line { stroke: #0EA5E9; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 2 L 7 5 L 0 8 z" fill="#0EA5E9" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" rx="6" />
+  <rect x="1" y="1" width="718" height="278" fill="none" class="border" rx="5" />
+
+  <!-- Outgoing Session N -->
+  <g transform="translate(40, 65)">
+    <rect width="170" height="150" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+    <rect x="15" y="15" width="140" height="26" rx="2" fill="#FFFFFF" />
+    <text x="85" y="32" text-anchor="middle" class="title">SESSION N (SOURCE)</text>
+    <g transform="translate(20, 56)">
+      <text x="0" y="16" class="text">• Completed Subtasks</text>
+      <text x="0" y="38" class="text">• Local Artifact State</text>
+      <text x="0" y="60" class="text">• Active Invariants</text>
+      <text x="0" y="80" class="desc" fill="#DC2626">Session context expiring</text>
+    </g>
+  </g>
+
+  <!-- Flow to Primitive -->
+  <line x1="210" y1="140" x2="260" y2="140" class="line" marker-end="url(#arr)" />
+
+  <!-- Center: Structured Handoff Primitive -->
+  <g transform="translate(265, 45)">
+    <rect width="210" height="190" rx="6" fill="#F0F7FF" stroke="#0B1D3A" stroke-width="2" />
+    <rect x="15" y="15" width="180" height="26" rx="2" fill="#FFFFFF" stroke="#0EA5E9" stroke-width="1" />
+    <text x="105" y="32" text-anchor="middle" class="title" fill="#0284C7">HANDOFF PRIMITIVE</text>
+    <g transform="translate(20, 56)">
+      <text x="0" y="16" class="text">1. State Manifest Checkpoint</text>
+      <text x="0" y="30" class="desc">JSON / YAML state serialization</text>
+      <text x="0" y="50" class="text">2. Verified File Scope List</text>
+      <text x="0" y="64" class="desc">Locked boundary declaration</text>
+      <text x="0" y="84" class="text">3. Remaining Subtask Queue</text>
+      <text x="0" y="98" class="desc">Explicit unfulfilled goals</text>
+    </g>
+  </g>
+
+  <!-- Flow to Next Session -->
+  <line x1="475" y1="140" x2="525" y2="140" class="line" marker-end="url(#arr)" />
+
+  <!-- Incoming Session N+1 -->
+  <g transform="translate(530, 65)">
+    <rect width="160" height="150" rx="4" fill="#E8F8F0" stroke="#22C55E" stroke-width="1.5" />
+    <rect x="15" y="15" width="130" height="26" rx="2" fill="#FFFFFF" />
+    <text x="80" y="32" text-anchor="middle" class="title" fill="#15803D">SESSION N+1 (TARGET)</text>
+    <g transform="translate(20, 56)">
+      <text x="0" y="16" class="text">• Fresh Clean Context</text>
+      <text x="0" y="38" class="text">• Zero Knowledge Loss</text>
+      <text x="0" y="60" class="text">• Instant Continuation</text>
+      <text x="0" y="80" class="desc" fill="#15803D">Continuous Engineering</text>
+    </g>
+  </g>
+</svg>

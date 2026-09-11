@@ -1,7 +1,8 @@
 ---
 /**
  * BVC Master Visual Design - Decision Renderer (VG-DECISION)
- * VERSION: "1.1"
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
  */
 import type { VisualAST } from '../../lib/visual/visualAst';
 import { decodeVisualText } from '../../lib/visual/utils';
@@ -13,10 +14,10 @@ interface Props {
 const { ast } = Astro.props;
 ---
 
-<div class="bvc-visual-surface p-8 mx-auto max-w-2xl w-full">
-  <div class="flex items-center space-x-2 mb-6 border-b border-slate-100 pb-4">
-    <div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-    <span class="bvc-section-label">Decision Logic</span>
+<div class="bvc-visual-surface bg-white p-8 mx-auto max-w-2xl w-full border border-[#E2E8F0] shadow-sm">
+  <div class="flex items-center space-x-2 mb-6 border-b border-[#E2E8F0] pb-4">
+    <div class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></div>
+    <span class="bvc-section-label text-[#0B1D3A]">Decision Logic</span>
   </div>
-  <pre class="font-mono text-[12px] leading-[1.8] text-slate-600 whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
+  <pre class="font-mono text-[12px] leading-[1.8] text-[#0B1D3A] whitespace-pre tabular-nums">{decodeVisualText(ast.raw.trim())}</pre>
 </div>

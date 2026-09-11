@@ -1,6 +1,7 @@
 bvc_visual_runtime:
   id: BVC-VISUAL-RUNTIME-MANIFEST-V1.0
-  version: "1.0"
+  version: "2.0"
+  governing_rule: "BVC MVEA-001 — LIGHT VISUAL CANVAS RULE"
   design_authority: docs/standards/visual/BVC_MASTER_VISUAL_DESIGN_V1.0.md
   canonical_repository: https://github.com/donghp/beyond-vibe-coding
   canonical_branch: main
@@ -14,6 +15,7 @@ bvc_visual_runtime:
   tokens:
     runtime_source: src/lib/visual/tokens.ts
     css_source: src/styles/bvc-visual.css
+    qa_engine: src/lib/visual/visualQa.ts
 
   engine:
     classifier: src/lib/visual/diagramClassifier.ts
@@ -35,11 +37,14 @@ bvc_visual_runtime:
 
   design_tokens:
     colors:
+      canvas: "#FFFFFF"
+      soft_blue: "#F0F7FF"
+      pale_sky: "#EAF6FF"
+      light_gray: "#F3F6F9"
       deep_blue: "#0B1D3A"
       sky_blue: "#0EA5E9"
       energy_green: "#22C55E"
       white: "#FFFFFF"
-      light_gray: "#F3F6F9"
       slate: "#64748B"
       amber: "#F59E0B"
     semantic:
@@ -60,6 +65,10 @@ bvc_visual_runtime:
     automatic_git_init: false
     automatic_remote_change: false
     automatic_push: false
+    light_canvas_only: true
+    dark_canvas_prohibited: true
+    visual_background_check: true
+    no_broken_visual_asset: true
 
   sync_model:
     gais_preview: same_source_and_renderers

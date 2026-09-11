@@ -1,0 +1,58 @@
+---
+/**
+ * BVC Master Visual Design - Visual Surface Primitive
+ * Inspired by BVC Glossary Visual System
+ * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * VERSION: "2.0"
+ */
+
+interface Props {
+  surface?: 'white' | 'soft-blue' | 'pale-sky' | 'light-gray' | 'light-mint';
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  rounded?: 'md' | 'lg' | 'xl' | '2xl';
+  border?: boolean;
+  shadow?: boolean;
+  class?: string;
+  id?: string;
+}
+
+const {
+  surface = 'white',
+  padding = 'lg',
+  rounded = '2xl',
+  border = true,
+  shadow = true,
+  class: className = '',
+  id
+} = Astro.props;
+
+const surfaceClasses = {
+  'white': 'bg-white',
+  'soft-blue': 'bg-[#F0F7FF]',
+  'pale-sky': 'bg-[#EAF6FF]',
+  'light-gray': 'bg-[#F3F6F9]',
+  'light-mint': 'bg-[#E8F8F0]'
+}[surface];
+
+const paddingClasses = {
+  'none': 'p-0',
+  'sm': 'p-4',
+  'md': 'p-6',
+  'lg': 'p-8',
+  'xl': 'p-10'
+}[padding];
+
+const roundedClasses = {
+  'md': 'rounded-xl',
+  'lg': 'rounded-2xl',
+  'xl': 'rounded-[20px]',
+  '2xl': 'rounded-[24px]'
+}[rounded];
+---
+
+<div 
+  id={id}
+  class={`bvc-visual-surface ${surfaceClasses} ${paddingClasses} ${roundedClasses} ${border ? 'border border-[#E2E8F0]' : 'border-0'} ${shadow ? 'shadow-[0_4px_12px_-2px_rgba(11,29,58,0.03)]' : ''} ${className}`}
+>
+  <slot />
+</div>

@@ -1,4 +1,9 @@
 ---
+// Prompt-ID: #000008
+// Prompt-Title: BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21 / BRAND-NEUTRAL / REAL-ENERGY + AI VISUAL UNIVERSE / EMBEDDED WATERMARK
+
+import fs from 'node:fs';
+import path from 'node:path';
 import { joinBase } from '../utils/paths';
 
 interface Props {
@@ -15,6 +20,11 @@ interface Props {
 
 const { order, title, subtitle, prevChapter, nextChapter } = Astro.props;
 const chapterIndexStr = order.toString().padStart(2, '0');
+
+// Safe hero asset resolution: guarantee NO-BROKEN-VISUAL-ASSET
+const heroRelPath = `images/chapter-${chapterIndexStr}-hero.webp`;
+const heroDiskPath = path.join(process.cwd(), 'public', heroRelPath);
+const heroSrc = fs.existsSync(heroDiskPath) ? joinBase(heroRelPath) : joinBase('images/cover.png');
 
 // Format title semantic split: split into two lines on period or question mark if available
 let line1 = title;
@@ -112,34 +122,14 @@ if (title.includes('.')) {
   <div class="w-full h-[2px] bg-tech-blue my-5"></div>
 
   <!-- Chapter Hero Visual Banner -->
-  <div class="w-full aspect-[21/9] rounded-xl bg-navy-950 overflow-hidden relative shadow-sm border border-navy-100/80 my-1">
+  <div class="w-full aspect-[21/9] rounded-xl bg-slate-50 overflow-hidden relative shadow-sm border border-navy-200/60 my-1">
     <!-- Authentic Hero Image -->
     <img 
-      src={joinBase(`images/chapter-${chapterIndexStr}-hero.webp`)} 
+      src={heroSrc} 
       alt={`Chương ${order} Hero Visual`}
       class="w-full h-full object-cover object-center"
       loading="eager"
+      referrerpolicy="no-referrer"
     />
-
-    <!-- Elegant Editorial Overlay preserved as approved system -->
-    <div class="absolute inset-0 bg-gradient-to-r from-navy-950/75 via-navy-950/45 to-navy-950/15 flex items-center justify-between px-6 py-4 sm:px-10 sm:py-6 select-text">
-      <div class="flex flex-col gap-1 text-white">
-        <span class="text-[11px] sm:text-xs md:text-sm font-extrabold tracking-widest uppercase font-sans text-white/95">
-          BETTER TOOLS.
-        </span>
-        <span class="text-[11px] sm:text-xs md:text-sm font-extrabold tracking-widest uppercase font-sans text-white/95">
-          A MORE INTENTIONAL YOU.
-        </span>
-        <span class="text-[11px] sm:text-xs md:text-sm font-extrabold tracking-widest uppercase font-sans text-white/95">
-          A BRIGHTER TOMORROW.
-        </span>
-      </div>
-
-      <div class="hidden sm:flex flex-col gap-1 text-right text-white/85 font-mono text-[10px] sm:text-[11px] tracking-wider uppercase">
-        <span class="text-cyan-restrained font-bold">HUMAN INTENTION</span>
-        <span class="text-white/75">AI CAPABILITY</span>
-        <span class="text-emerald-400 font-bold">REAL VALUE</span>
-      </div>
-    </div>
   </div>
 </header>

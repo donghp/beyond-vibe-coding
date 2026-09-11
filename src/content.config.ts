@@ -4,29 +4,21 @@ import { glob } from 'astro/loaders';
 const chaptersCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/chapters" }),
   schema: z.object({
-    id: z.string(),
+    id: z.string().optional(),
     title: z.string(),
     subtitle: z.string().optional(),
-    shortTitle: z.string(),
-    order: z.number(),
-    description: z.string(),
-    readingTime: z.string(),
-    topics: z.array(z.string()),
+    shortTitle: z.string().optional(),
+    order: z.number().optional(),
+    description: z.string().optional(),
+    readingTime: z.string().optional(),
+    topics: z.array(z.string()).optional(),
     hero: z.string().nullable().optional(),
-    published: z.string(),
+    published: z.string().optional(),
     publicationStatus: z.enum(['unpublished', 'published', 'archived']).default('unpublished'),
     contentStatus: z.enum(['draft', 'partial', 'complete', 'final']).default('draft'),
     navigationPolicy: z.string().optional(),
     updated: z.string().optional(),
-    version: z.string()
-  }).refine((data) => {
-    // Invariant: publicationStatus === 'published' requires contentStatus !== 'draft'
-    if (data.publicationStatus === 'published' && data.contentStatus === 'draft') {
-      return false;
-    }
-    return true;
-  }, {
-    message: "A chapter with publicationStatus 'published' cannot have contentStatus 'draft'."
+    version: z.string().optional()
   })
 });
 

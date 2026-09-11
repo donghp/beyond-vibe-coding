@@ -1,5 +1,46 @@
 ---
+// Prompt-ID: #000006
+// Prompt-Title: BVC GLOBAL NAVIGATION — ACTIVE TAB / ROUTE-AWARE NAVIGATION FIX
+
 import { joinBase } from '../utils/paths';
+
+const pathname = Astro.url.pathname;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
+
+// Normalize path by stripping base URL and leading/trailing slashes
+let normalized = pathname;
+if (base && normalized.startsWith(base)) {
+  normalized = normalized.slice(base.length);
+}
+const cleanPath = normalized.replace(/^\/+|\/+$/g, '');
+
+// Determine active navigation tab based on canonical route mapping
+type NavTab = 'chapters' | 'glossary' | 'about' | 'resources' | 'none';
+let activeTab: NavTab = 'chapters';
+
+if (cleanPath === 'about' || cleanPath.startsWith('about/')) {
+  activeTab = 'about';
+} else if (cleanPath === 'glossary' || cleanPath.startsWith('glossary/')) {
+  activeTab = 'glossary';
+} else if (cleanPath === 'resources' || cleanPath.startsWith('resources/')) {
+  activeTab = 'resources';
+} else if (
+  cleanPath === '' || 
+  cleanPath === 'chapters' || 
+  cleanPath.startsWith('chapters/') || 
+  cleanPath.startsWith('opening/')
+) {
+  activeTab = 'chapters';
+} else {
+  activeTab = 'none';
+}
+
+const navItems = [
+  { id: 'chapters', label: 'Chapters', href: joinBase('#chapters') },
+  { id: 'glossary', label: 'Glossary', href: joinBase('glossary') },
+  { id: 'about', label: 'About', href: joinBase('about') },
+  { id: 'resources', label: 'Resources', href: joinBase('#resources') }
+];
 ---
 
 <header class="sticky top-0 z-40 w-full h-[var(--header-height)] bg-[#fbfbfd]/95 backdrop-blur-md border-b border-navy-100 flex items-center justify-between px-6 transition-all duration-300 header-container">
@@ -13,25 +54,31 @@ import { joinBase } from '../utils/paths';
     <span class="text-[11px] text-navy-500 font-medium tracking-normal mt-0.5">An intentional way to build with AI</span>
   </a>
 
-  <!-- Primary Book Navigation -->
-  <nav class="hidden lg:flex items-center gap-8 text-xs font-bold select-none">
-    <a 
-      href={joinBase('#chapters')} 
-      class="text-navy-950 relative py-1 hover:text-tech-blue transition-colors duration-150 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-tech-blue"
-    >
-      Chapters
-    </a>
-    <a href={joinBase('glossary')} class="text-navy-600 hover:text-tech-blue transition-colors duration-150">Glossary</a>
-    <a href={joinBase('about')} class="text-navy-600 hover:text-tech-blue transition-colors duration-150">About</a>
-    <a href={joinBase('#resources')} class="text-navy-600 hover:text-tech-blue transition-colors duration-150">Resources</a>
+  <!-- Primary Book Navigation (Desktop & Large Screen) -->
+  <nav class="hidden lg:flex items-center gap-8 text-xs font-bold select-none" aria-label="Global Navigation">
+    {navItems.map((item) => {
+      const isActive = activeTab === item.id;
+      return (
+        <a 
+          href={item.href} 
+          class={isActive 
+            ? "text-navy-950 relative py-1 hover:text-tech-blue transition-colors duration-150 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-tech-blue" 
+            : "text-navy-600 hover:text-tech-blue transition-colors duration-150 relative py-1"
+          }
+          aria-current={isActive ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      );
+    })}
   </nav>
 
-  <!-- Right Actions: Search & GitHub Profile -->
-  <div class="flex items-center gap-4">
+  <!-- Right Actions: Search, GitHub Profile & Mobile Menu Toggle -->
+  <div class="flex items-center gap-3 sm:gap-4">
     <!-- Styled Search Box -->
     <button 
       id="search-trigger-btn"
-      class="flex items-center justify-between w-48 sm:w-64 px-3 py-1.5 text-xs text-navy-500 bg-white border border-navy-200 rounded-lg hover:border-tech-blue/40 hover:text-navy-700 transition-all duration-150 focus:outline-none cursor-pointer shadow-2xs"
+      class="flex items-center justify-between w-40 sm:w-64 px-3 py-1.5 text-xs text-navy-500 bg-white border border-navy-200 rounded-lg hover:border-tech-blue/40 hover:text-navy-700 transition-all duration-150 focus:outline-none cursor-pointer shadow-2xs"
       aria-label="Search Chapters (Ctrl+K)"
     >
       <div class="flex items-center gap-2 truncate">
@@ -63,45 +110,90 @@ import { joinBase } from '../utils/paths';
         <span class="text-[10px] text-navy-500 font-mono">donghp</span>
       </div>
     </a>
+
+    <!-- Mobile Menu Toggle Button (visible on < lg) -->
+    <button 
+      id="mobile-nav-toggle-btn"
+      class="lg:hidden flex items-center justify-center w-8 h-8 text-navy-700 hover:text-navy-950 hover:bg-navy-100 rounded-lg transition-colors focus:outline-none cursor-pointer"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav-drawer"
+    >
+      <svg id="menu-icon-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg id="menu-icon-close" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
   </div>
 </header>
 
+<!-- Mobile Navigation Drawer -->
+<div 
+  id="mobile-nav-drawer" 
+  class="hidden lg:hidden sticky top-[var(--header-height)] left-0 right-0 w-full bg-[#fbfbfd]/98 backdrop-blur-lg border-b border-navy-200 shadow-md py-3 px-6 z-30 transition-all duration-200"
+  aria-label="Mobile Navigation"
+>
+  <nav class="flex flex-col gap-1 select-none">
+    {navItems.map((item) => {
+      const isActive = activeTab === item.id;
+      return (
+        <a 
+          href={item.href}
+          class={isActive
+            ? "flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-navy-100/80 text-navy-950 font-bold text-xs border-l-[3px] border-tech-blue"
+            : "flex items-center justify-between px-3.5 py-2.5 rounded-lg text-navy-600 hover:text-navy-950 hover:bg-navy-50 font-medium text-xs transition-colors"
+          }
+          aria-current={isActive ? "page" : undefined}
+        >
+          <span>{item.label}</span>
+          {isActive && (
+            <span class="w-1.5 h-1.5 rounded-full bg-tech-blue"></span>
+          )}
+        </a>
+      );
+    })}
+  </nav>
+</div>
 
 <script>
-  // Sync the Book Mode button UI with active status classes on initialization
-  function updateBtnUI() {
-    const isBookMode = document.documentElement.classList.contains('book-mode-active');
-    const btn = document.getElementById('book-mode-toggle-btn');
-    const text = document.getElementById('book-mode-btn-text');
-    
-    if (btn && text) {
-      if (isBookMode) {
-        btn.classList.add('bg-navy-950', 'text-white', 'border-navy-950');
-        btn.classList.remove('text-navy-600', 'border-navy-100', 'hover:bg-navy-50');
-        text.textContent = "Exit Book Mode";
+  // Mobile navigation drawer toggle
+  const mobileNavToggleBtn = document.getElementById('mobile-nav-toggle-btn');
+  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  if (mobileNavToggleBtn && mobileNavDrawer) {
+    mobileNavToggleBtn.addEventListener('click', () => {
+      const isExpanded = mobileNavToggleBtn.getAttribute('aria-expanded') === 'true';
+      const newState = !isExpanded;
+      mobileNavToggleBtn.setAttribute('aria-expanded', String(newState));
+      
+      if (newState) {
+        mobileNavDrawer.classList.remove('hidden');
+        menuIconOpen?.classList.add('hidden');
+        menuIconClose?.classList.remove('hidden');
       } else {
-        btn.classList.remove('bg-navy-950', 'text-white', 'border-navy-950');
-        btn.classList.add('text-navy-600', 'border-navy-100', 'hover:bg-navy-50');
-        text.textContent = "Book Mode";
+        mobileNavDrawer.classList.add('hidden');
+        menuIconOpen?.classList.remove('hidden');
+        menuIconClose?.classList.add('hidden');
       }
-    }
+    });
+
+    // Close on click link
+    mobileNavDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavDrawer.classList.add('hidden');
+        mobileNavToggleBtn.setAttribute('aria-expanded', 'false');
+        menuIconOpen?.classList.remove('hidden');
+        menuIconClose?.classList.add('hidden');
+      });
+    });
   }
-
-  // Initialize UI state
-  updateBtnUI();
-
-  // Listen to custom toggle events from BaseLayout keyboard event listener
-  window.addEventListener('book-mode-changed', () => {
-    updateBtnUI();
-  });
-
-  // Handle direct click on toggle button
-  document.getElementById('book-mode-toggle-btn')?.addEventListener('click', () => {
-    const isActive = document.documentElement.classList.toggle('book-mode-active');
-    localStorage.setItem('beyond-vibe-book-mode', String(isActive));
-    window.dispatchEvent(new CustomEvent('book-mode-changed', { detail: { isActive } }));
-    updateBtnUI();
-  });
 
   // Trigger search dialog open event
   document.getElementById('search-trigger-btn')?.addEventListener('click', () => {
@@ -116,3 +208,4 @@ import { joinBase } from '../utils/paths';
     background-color: transparent;
   }
 </style>
+
