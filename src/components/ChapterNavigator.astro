@@ -1,4 +1,7 @@
 ---
+// Prompt-ID: #000014
+// Prompt-Title: BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE
+
 interface Props {
   slug: string;
   version: string;
@@ -195,10 +198,10 @@ const { navigationPolicy } = Astro.props;
       }
 
       const text = heading.textContent?.trim() || '';
-      let mainText = text;
+      let mainText = text.replace(/^\d+\.\d+\.?\s*/, '');
       let subText = '';
-      if (text.includes(':')) {
-        const parts = text.split(':');
+      if (mainText.includes(':')) {
+        const parts = mainText.split(':');
         mainText = parts[0].trim();
         subText = parts.slice(1).join(':').trim();
       }

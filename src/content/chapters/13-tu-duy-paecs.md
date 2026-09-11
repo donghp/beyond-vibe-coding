@@ -184,9 +184,6 @@ Gemini
 Checkpoint
 ↓
 Handoff
-```
-
-```text
 ↓
 RUN-011
 DeepSeek
@@ -201,9 +198,8 @@ DeepSeek
 Unavailable
 ↓
 RUN-012
-```
-
 Executor C
+```
 
 Project vẫn tiếp tục.
 
@@ -247,9 +243,6 @@ Project
 Engineering Method
 ↓
 Semantic Contract
-```
-
-```text
 ↓
 Executor Adapter
 ↓
@@ -411,18 +404,15 @@ Different Executors
 ↓
 Same Project Semantics
 ↓
-Same
-```
-
-```text
-Governance
+Same Governance
 ↓
 Same State Model
 ↓
 Same Verification
+Principles
 ```
 
-Principles Đó là interoperability ở cấp engineering.
+Đó là interoperability ở cấp engineering.
 
 Nhưng không phải task nào cũng có thể đổi Executor
 
@@ -478,26 +468,17 @@ Data Sensitivity
 Security Boundary
 ↓
 Governance
-```
-
-```text
 ↓
 Capability
 ↓
 State Compatibility
 ↓
 Verification
-```
-
-```text
 Capability
 ↓
 Quality / Risk
 ↓
 Availability / Quota
-```
-
-```text
 ↓
 Effective Cost
 ```
@@ -539,10 +520,8 @@ Ví dụ:
 ```text
 Current State:
 DATABASE MIGRATION = IMPLEMENTED
-DATABASE
+DATABASE MIGRATION = NOT VERIFIED
 ```
-
-MIGRATION = NOT VERIFIED
 
 Executor mới không được hiểu nó thành:
 
@@ -669,18 +648,11 @@ ENGINEERING METHOD
 ↓
 SEMANTIC CONTRACT
 │
-```
-
-```text
-┌────────────────┼────────────────┐
-↓ ↓ ↓
-Gemini Adapter
-```
-
-```text
-DeepSeek Adapter Adapter C
-↓ ↓ ↓
-Gemini DeepSeek Executor C
+┌───────────────┼───────────────┐
+↓               ↓               ↓
+Gemini Adapter  DeepSeek Adapter Adapter C
+↓               ↓               ↓
+Gemini          DeepSeek        Executor C
 ```
 
 Adapter xử lý:
@@ -753,13 +725,11 @@ Ví dụ:
 
 ```text
 engineering_method:
-id: ENERIX-EM
-version: "1.2"
-commit:
+  id: ENERIX-EM
+  version: "1.2"
+  commit: af82d1
+  sha256: "..."
 ```
-
-af82d1
-sha256: "..."
 
 Executor phải load đúng method.
 
@@ -770,10 +740,8 @@ METHOD COMPATIBILITY CHECK
 ↓
 FAIL
 ↓
-EXECUTION
+EXECUTION BLOCKED
 ```
-
-BLOCKED
 
 Điều này nghe rất nghiêm.
 
@@ -838,21 +806,11 @@ Một engineering system có nhiều executor.
 Ví dụ:
 
 ```text
-Executor A
-→ Analyze
-Executor B
-→
+Executor A → Analyze
+Executor B → Implement
+Executor C → Review
+Executor D → Verify
 ```
-
-```text
-Implement
-Executor C
-→ Review
-Executor D
-→
-```
-
-Verify
 
 Nhưng tất cả cùng nhìn vào:
 
@@ -860,10 +818,8 @@ Nhưng tất cả cùng nhìn vào:
 ONE PROJECT STATE
 ONE KNOWLEDGE BASE
 ONE METHOD
-ONE
+ONE GOVERNANCE
 ```
-
-GOVERNANCE
 
 Đó mới là cách nhiều AI có thể tạo ra leverage.
 
@@ -899,9 +855,6 @@ Vì vậy:
 AI A → Proposal A
 AI B → Proposal B
 AI C → Proposal C
-```
-
-```text
 ↓
 Authority / Review
 ↓
@@ -944,9 +897,6 @@ DISCOVERY
 PROPOSAL
 ↓
 AUTHORIZED EXECUTION
-```
-
-```text
 ↓
 VERIFICATION
 ↓
@@ -972,21 +922,11 @@ Một engineering system có nhiều executor.
 Ví dụ:
 
 ```text
-Executor A
-→ Analyze
-Executor B
-→
+Executor A → Analyze
+Executor B → Implement
+Executor C → Review
+Executor D → Verify
 ```
-
-```text
-Implement
-Executor C
-→ Review
-Executor D
-→
-```
-
-Verify
 
 Nhưng tất cả cùng nhìn vào:
 
@@ -994,10 +934,8 @@ Nhưng tất cả cùng nhìn vào:
 ONE PROJECT STATE
 ONE KNOWLEDGE BASE
 ONE METHOD
-ONE
+ONE GOVERNANCE
 ```
-
-GOVERNANCE
 
 Đó mới là cách nhiều AI có thể tạo ra leverage.
 
@@ -1031,20 +969,14 @@ Ví dụ:
 Allowed:
 - inspect files
 - modify implementation
-- run
-```
+- run tests
 
-```text
-tests
 Not Allowed:
 - change architecture
-- modify
-```
-
-production data
+- modify production data
 - release
 - alter governance
-
+```
 Đây chính là Controlled Autonomy.
 
 Tự động hóa tốt không phải:
@@ -1123,10 +1055,9 @@ Project chủ yếu cần biết:
 AI EXECUTOR
 │
 ┌───────────────┼───────────────┐
-↓ ↓ ↓
+↓               ↓               ↓
+Gemini          DeepSeek        Executor C
 ```
-
-Gemini DeepSeek Executor C
 
 Tên model là implementation detail.
 
@@ -1335,31 +1266,17 @@ Ví dụ:
 State valid?
 ↓ yes
 Task authorized?
-↓
-```
-
-```text
-yes
+↓ yes
 Executor eligible?
 ↓ yes
-Evidence
-```
-
-```text
-sufficient?
+Evidence sufficient?
 ↓ yes
 Method compatible?
-↓
-```
-
-```text
-yes
+↓ yes
 Workspace unlocked?
 ↓ yes
-→ EXECUTION
+→ EXECUTION AUTHORIZED
 ```
-
-AUTHORIZED
 
 Một điều kiện fail:
 
@@ -1392,8 +1309,6 @@ AI mới tiếp tục.
 *Controlled Continuation Gate* - All required conditions must pass.
 
 ## TÔI MUỐN KIỂM TRA MỘT HỆ THỐNG BẰNG MỘC CÂU HỎI DUY NHẤT
-
-### Tôi muốn kiểm tra một hệ thống bằng một câu hỏi duy nhất
 
 “Tắt AI hiện tại đi. Project có tiếp tục được không?”
 
@@ -1473,19 +1388,12 @@ ONE PROJECT
 ONE METHOD
 ↓
 ONE GOVERNANCE
-```
-
-```text
 ↓
 ONE STATE
 ↓
 ONE EVIDENCE MODEL
 ↓
-ONE
-```
-
-```text
-CONTINUITY MODEL
+ONE CONTINUITY MODEL
 ↓
 MULTIPLE ELIGIBLE EXECUTORS
 ```
@@ -1531,9 +1439,6 @@ One Engineering System
 │
 ├── Executor A
 ├── Executor B
-```
-
-```text
 ├── Executor C
 ├── Human
 └── Specialized Tools

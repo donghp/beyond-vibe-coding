@@ -1,3 +1,6 @@
+// Prompt-ID: #000014
+// Prompt-Title: BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE
+
 /**
  * BVC Master Visual Design - Visual Approval Gate & Budget Manager
  * VERSION: "3.0"
@@ -10,8 +13,8 @@
  * 
  * Canonical Source: /docs/standards/visual/BVC_MASTER_VISUAL_DESIGN_V1.0.md
  * Provenance:
- *   Prompt-ID: #000010
- *   Prompt-Title: BVC CHAPTER 13 — STRICT 7-VISUAL LOCK / APPROVED VISUAL WHITELIST / TEXT-ONLY EVERYTHING ELSE
+ *   Prompt-ID: #000014
+ *   Prompt-Title: BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE
  */
 
 import type { VisualCandidate, DiagramType } from './visualAst';

@@ -1,19 +1,24 @@
+// Prompt-ID: #000014
+// Prompt-Title: BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE
+
 /**
  * BVC Master Visual Design - Diagram Classifier & Code Block Disambiguation
- * VERSION: "2.0"
+ * VERSION: "3.0"
  * 
  * Deterministic classification of source blocks into semantic visual categories.
  * Standard: BVC SVOE — SEMANTIC STATE VISUALIZATION & CODE DISAMBIGUATION
  * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+ * Standard: SOURCE-PRESERVING ASCII ARCHITECTURE STANDARD
  * Provenance:
- *   Prompt-ID: #000009
- *   Prompt-Title: BVC CHAPTER 13 — TEXT-ONLY ENGINEERING EXPRESSION / REMOVE DARK CODE BLOCKS / PDF-LIKE PRESENTATION
+ *   Prompt-ID: #000014
+ *   Prompt-Title: BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE
  */
 
 import type { DiagramType } from './visualAst';
 
 export type CodeBlockSemanticClass = 
   | 'CODE_SNIPPET'
+  | 'TEXTUAL_ARCHITECTURE'
   | 'TEXTUAL_ENGINEERING_EXPRESSION'
   | 'SEMANTIC_STATE'
   | 'SEMANTIC_CONTRAST'
@@ -77,6 +82,42 @@ export function isCodeSnippet(content: string): boolean {
     if (codePatterns.some(pattern => pattern.test(line))) {
       return true;
     }
+  }
+
+  return false;
+}
+
+/**
+ * Detects whether content represents TEXTUAL_ARCHITECTURE (ASCII architecture trees,
+ * box-drawing branchings, fanouts) that must preserve raw text geometry.
+ * 
+ * Prompt-ID: #000012
+ * Rule: TEXTUAL_ARCHITECTURE -> <pre class="bvc-textual-architecture"> with white-space: pre
+ */
+export function isTextualArchitecture(content: string): boolean {
+  const trimmed = content.trim();
+  if (!trimmed) return false;
+
+  // 1. Check for tree connectors or box-drawing branchings
+  if (content.includes('├──') || content.includes('└──') || content.includes('┌──') || content.includes('───┼───') || content.includes('┬') || content.includes('┴') || content.includes('├') || content.includes('┤')) {
+    return true;
+  }
+
+  // 2. Multi-column 2D branchings (e.g. AI EXECUTOR, ENGINEERING METHOD / SEMANTIC CONTRACT / EXECUTOR ADAPTER)
+  const upper = content.toUpperCase();
+  if (upper.includes('AI EXECUTOR') && (content.includes('│') || content.includes('|') || content.includes('┌') || content.includes('↓'))) {
+    return true;
+  }
+  if (upper.includes('ONE ENGINEERING SYSTEM') && (content.includes('│') || content.includes('├──') || content.includes('└──'))) {
+    return true;
+  }
+  if (upper.includes('ENGINEERING METHOD') && upper.includes('SEMANTIC CONTRACT') && (content.includes('│') || content.includes('┌') || content.includes('┼') || upper.includes('ADAPTER'))) {
+    return true;
+  }
+
+  // 3. Multi-line vertical pipe/box connectors with horizontal branches
+  if (content.includes('│') && (content.includes('┌') || content.includes('├') || content.includes('┼') || content.includes('└──') || content.includes('├──'))) {
+    return true;
   }
 
   return false;
@@ -224,6 +265,10 @@ export function isTextualEngineeringExpression(content: string): boolean {
  * Rule: WHEN IN DOUBT, PRESERVE TEXT.
  */
 export function isLowValueOrTextOnly(content: string): boolean {
+  if (isTextualArchitecture(content)) {
+    return false;
+  }
+
   if (isTextualEngineeringExpression(content)) {
     return true;
   }
@@ -246,8 +291,6 @@ export function isLowValueOrTextOnly(content: string): boolean {
  * Detects whether content represents high-value system architecture.
  */
 export function isArchitectureBlock(content: string): { isArch: boolean; layout: DiagramType } {
-  const upper = content.toUpperCase();
-
   // Box-drawing architecture with explicit connection symbols
   if ((content.includes('┌') && content.includes('┐')) || (content.includes('┌') && content.includes('┼'))) {
     return { isArch: true, layout: 'VG-ARCH-FANOUT' };
@@ -298,38 +341,43 @@ export function classifyCodeBlock(content: string): CodeBlockClassification {
     return { semanticClass: 'SEMANTIC_CONTRAST', diagramType: 'VG-COMPARISON' };
   }
 
-  // 3. Textual engineering expressions (Must remain pure text, PDF-like, white canvas)
+  // 3. Textual Architecture: 2D ASCII trees, box-drawings, fanouts (Must preserve exact text geometry)
+  if (isTextualArchitecture(trimmed)) {
+    return { semanticClass: 'TEXTUAL_ARCHITECTURE', diagramType: 'PLAIN_TEXT' };
+  }
+
+  // 4. Textual engineering expressions (Must remain pure text, PDF-like, white canvas)
   if (isTextualEngineeringExpression(trimmed)) {
     return { semanticClass: 'TEXTUAL_ENGINEERING_EXPRESSION', diagramType: 'PLAIN_TEXT' };
   }
 
-  // 4. Low-value or spec blocks that MUST default to TEXT_ONLY
+  // 5. Low-value or spec blocks that MUST default to TEXT_ONLY
   if (isLowValueOrTextOnly(trimmed)) {
     return { semanticClass: 'TEXT_ONLY', diagramType: 'PLAIN_TEXT' };
   }
 
-  // 5. Semantic state
+  // 6. Semantic state
   if (isStateBlock(trimmed)) {
     return { semanticClass: 'SEMANTIC_STATE', diagramType: 'VG-STATE' };
   }
 
-  // 6. Architecture: Top-down, Fan-out, Box-drawing
+  // 7. Architecture: Top-down, Fan-out, Box-drawing
   const arch = isArchitectureBlock(trimmed);
   if (arch.isArch) {
     return { semanticClass: 'ARCHITECTURE', diagramType: arch.layout };
   }
 
-  // 7. Progression / Ladder
+  // 8. Progression / Ladder
   if (content.toUpperCase().includes('LEVEL') && lines.length >= 3) {
     return { semanticClass: 'FLOW', diagramType: 'VG-LADDER' };
   }
 
-  // 8. Data structure / Checklist
+  // 9. Data structure / Checklist
   if (content.includes('[PASS]') || content.includes('[FAIL]') || content.includes('[ ]')) {
     return { semanticClass: 'DATA_STRUCTURE', diagramType: 'VG-CHECKLIST' };
   }
 
-  // 9. Technical illustrations (RAG, Chunking, Evidence, etc.)
+  // 10. Technical illustrations (RAG, Chunking, Evidence, etc.)
   if (content.toUpperCase().includes('RETRIEVER') || 
       (content.toUpperCase().includes('VECTOR STORE') && content.toUpperCase().includes('EMBEDDING'))) {
     return { semanticClass: 'DATA_STRUCTURE', diagramType: 'VG-RAG' };
@@ -356,5 +404,6 @@ export function classifyDiagram(content: string): DiagramType {
   const result = classifyCodeBlock(content);
   return result.diagramType;
 }
+
 
 

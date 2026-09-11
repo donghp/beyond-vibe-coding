@@ -1,0 +1,157 @@
+// Prompt-ID: #000014
+// Prompt-Title: BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE
+
+/**
+ * BVC Chapter 13 Pilot Registry & Presentation Governance
+ * 
+ * Target: /chapters/13-tu-duy-paecs/
+ * Engine: BVC-MVEA
+ * Mode: BVC_CHAPTER_13_PILOT
+ */
+
+export const BVC_CHAPTER_13_PILOT_MODE = 'BVC_CHAPTER_13_PILOT' as const;
+
+export interface Chapter13PilotConfig {
+  chapter: {
+    number: number;
+    slug: string;
+    route: string;
+    title: string;
+    subtitle: string;
+  };
+  presentation: {
+    mode: typeof BVC_CHAPTER_13_PILOT_MODE;
+    engine: 'BVC-MVEA';
+    version: 'pilot';
+  };
+  visualPolicy: {
+    mode: 'strict-whitelist';
+    maxRenderedVisuals: number;
+    autoVisualization: boolean;
+    autoCandidateRendering: boolean;
+    unapprovedVisualBehavior: 'text-only';
+  };
+  approvedVisuals: Array<{
+    id: string;
+    type: string;
+    concept: string;
+    figId: string;
+    sourceAsset?: string;
+    caption: string;
+    status: 'APPROVED';
+  }>;
+  textPolicy: {
+    preserveWhitespace: boolean;
+    preserveAsciiGeometry: boolean;
+    preserveLineBreaks: boolean;
+    preserveIndentation: boolean;
+    autoDiagramForTextualArchitecture: boolean;
+  };
+  mobile: {
+    textualArchitectureOverflow: 'horizontal-scroll';
+  };
+  provenance: {
+    promptId: string;
+    promptTitle: string;
+  };
+}
+
+export const CHAPTER_13_PILOT_REGISTRY: Chapter13PilotConfig = {
+  chapter: {
+    number: 13,
+    slug: 'tu-duy-paecs',
+    route: '/chapters/13-tu-duy-paecs/',
+    title: 'TÔI KHÔNG MUỐN MỘT AI GIỎI HƠN. TÔI MUỐN PROJECT CÓ THỂ TIẾP TỤC',
+    subtitle: 'Từ Continuity đến một hệ thống AI Engineering có thể thay đổi Executor mà không mất công việc'
+  },
+  presentation: {
+    mode: BVC_CHAPTER_13_PILOT_MODE,
+    engine: 'BVC-MVEA',
+    version: 'pilot'
+  },
+  visualPolicy: {
+    mode: 'strict-whitelist',
+    maxRenderedVisuals: 7,
+    autoVisualization: false,
+    autoCandidateRendering: false,
+    unapprovedVisualBehavior: 'text-only'
+  },
+  approvedVisuals: [
+    {
+      id: 'V13-01',
+      type: 'SEMANTIC CONTRAST',
+      concept: 'AI Capability ≠ Project Continuity',
+      figId: '13.1',
+      caption: 'AI Capability và Project Continuity là hai trục độc lập trong kiến trúc engineering.',
+      status: 'APPROVED'
+    },
+    {
+      id: 'V13-02',
+      type: 'ARCHITECTURE',
+      concept: 'ONE METHOD → MULTIPLE EXECUTORS → ONE CONTINUOUS PROJECT',
+      figId: '13.2',
+      sourceAsset: 'v13-02.svg',
+      caption: 'Một Method duy nhất điều phối nhiều Executor khác nhau mà không làm mất tính liên tục của Project.',
+      status: 'APPROVED'
+    },
+    {
+      id: 'V13-03',
+      type: 'ELIGIBILITY GATE',
+      concept: 'Candidate Task → Eligibility Gate → Admitted / Supervised',
+      figId: '13.3',
+      sourceAsset: 'v13-03.svg',
+      caption: 'Kiểm tra điều kiện hợp lệ của Executor trước khi cho phép nhận quyền thực thi.',
+      status: 'APPROVED'
+    },
+    {
+      id: 'V13-04',
+      type: 'ARCHITECTURE',
+      concept: 'Engineering Method → Executor Adapter → AI Runtime',
+      figId: '13.4',
+      sourceAsset: 'v13-05.svg',
+      caption: 'Engineering Method giữ vai trò ổn định, Executor Adapter xử lý đặc thù của từng provider.',
+      status: 'APPROVED'
+    },
+    {
+      id: 'V13-05',
+      type: 'GOVERNANCE / SINGLE-WRITER',
+      concept: 'Multiple AI Proposals → Single-Writer Gate → One Atomic Mutation',
+      figId: '13.5',
+      sourceAsset: 'v13-07.svg',
+      caption: 'Nhiều AI có thể tự do đề xuất thay đổi, nhưng chỉ một thay đổi được xác thực qua Single-Writer Gate.',
+      status: 'APPROVED'
+    },
+    {
+      id: 'V13-06',
+      type: 'CONTROLLED CONTINUATION GATE',
+      concept: 'Intermediate State → Continuation Gate → Safe Resume / Halt Execution',
+      figId: '13.6',
+      sourceAsset: 'v13-11.svg',
+      caption: 'Quá trình tiếp tục thực thi chỉ diễn ra khi tất cả các điều kiện an toàn và tính toàn vẹn được thỏa mãn.',
+      status: 'APPROVED'
+    },
+    {
+      id: 'V13-07',
+      type: 'HANDOFF / CONTINUITY',
+      concept: 'Session N → Handoff Primitive → Session N+1',
+      figId: '13.7',
+      sourceAsset: 'v13-12.svg',
+      caption: 'Đồng bộ hóa trạng thái thông qua Handoff Primitive cho phép thay thế Executor mà không mất mát ngữ cảnh.',
+      status: 'APPROVED'
+    }
+  ],
+  textPolicy: {
+    preserveWhitespace: true,
+    preserveAsciiGeometry: true,
+    preserveLineBreaks: true,
+    preserveIndentation: true,
+    autoDiagramForTextualArchitecture: false
+  },
+  mobile: {
+    textualArchitectureOverflow: 'horizontal-scroll'
+  },
+  provenance: {
+    promptId: '#000014',
+    promptTitle: 'BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE'
+  }
+};

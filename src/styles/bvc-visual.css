@@ -1,3 +1,6 @@
+/* Prompt-ID: #000014 */
+/* Prompt-Title: BVC MASTER VISUAL SYSTEM — SEMANTIC TEXT MICRO-VISUAL / LIGHT-FRAMED STRUCTURED TEXT / CHAPTER 13 PILOT UPGRADE */
+
 /**
  * BVC Master Visual Design Primitives
  * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
@@ -486,12 +489,33 @@
     font-weight: 600;
     padding: 0.1rem 0;
   }
+
+  /* BVC SOURCE-PRESERVING ASCII ARCHITECTURE STANDARD
+   * Prompt-ID: #000012
+   * Prompt-Title: BVC MASTER VISUAL SYSTEM / MVEA — SOURCE-PRESERVING ASCII ARCHITECTURE STANDARD / CHAPTER 13 CANONICALIZATION
+   * Standard: BVC MVEA-001 — LIGHT VISUAL CANVAS RULE
+   */
+  .bvc-textual-architecture {
+    background-color: transparent !important;
+    color: #0B1D3A !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.65 !important;
+    white-space: pre !important;
+    overflow-x: auto !important;
+    margin: 1.5rem 0 !important;
+    padding: 0.5rem 0 0.5rem 0.5rem !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Global Code Surface Sanitization - Strictly Light Canvas */
-pre,
+pre:not(.bvc-textual-architecture),
 .astro-code,
-.prose-editorial pre {
+.prose-editorial pre:not(.bvc-textual-architecture) {
   background-color: #F8FAFC !important;
   color: #0B1D3A !important;
   border: 1px solid #E2E8F0 !important;
@@ -499,16 +523,17 @@ pre,
   box-shadow: none !important;
 }
 
-pre code,
+pre:not(.bvc-textual-architecture) code,
 .astro-code code {
   color: inherit !important;
   background-color: transparent !important;
 }
 
-pre[class*="dark"],
+pre[class*="dark"]:not(.bvc-textual-architecture),
 .astro-code[class*="dark"] {
   background-color: #F8FAFC !important;
   color: #0B1D3A !important;
 }
+
 
 
