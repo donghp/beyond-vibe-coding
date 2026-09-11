@@ -130,8 +130,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 11 — TÔI KHÔNG XÂY MEMORY CHO AI. TÔI XÂY CONTINUITY CHO PROJECT',
     shortTitle: 'Tôi không xây memory cho AI',
     slug: '11-toi-khong-xay-memory',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '12-toi-khong-xay-memory-part2',
@@ -140,8 +140,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 12 — TÔI KHÔNG XÂY MEMORY CHO AI. TÔI XÂY CONTINUITY CHO PROJECT (PHẦN 2)',
     shortTitle: 'Tôi không xây memory cho AI (Phần 2)',
     slug: '12-toi-khong-xay-memory-part2',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '13-tu-duy-paecs',

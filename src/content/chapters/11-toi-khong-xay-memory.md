@@ -9,8 +9,8 @@ readingTime: "9 min"
 topics: ["continuity", "state", "checkpoint", "handoff"]
 hero: "images/chapter-11-hero.webp"
 published: "2026-09-10"
-publicationStatus: "unpublished"
-contentStatus: "draft"
+publicationStatus: "published"
+contentStatus: "complete"
 updated: "2026-09-10"
 version: "1.0.0"
 ---
