@@ -338,13 +338,13 @@ Tôi muốn một điều khác:
 
 Đó là lúc tôi bắt đầu xây dựng những khái niệm như:
 
-**Project State (trạng thái được lưu lại của project, cho biết đã làm gì, đang ở đâu và còn gì chưa hoàn tất).**
+**Project State** (trạng thái được lưu lại của project, cho biết đã làm gì, đang ở đâu và còn gì chưa hoàn tất).
 
-**Checkpoint (điểm lưu trạng thái đủ để công việc có thể dừng và tiếp tục an toàn).**
+**Checkpoint** (điểm lưu trạng thái đủ để công việc có thể dừng và tiếp tục an toàn).
 
-**Handoff (bàn giao trạng thái và ngữ cảnh công việc cho executor hoặc người tiếp theo).**
+**Handoff** (bàn giao trạng thái và ngữ cảnh công việc cho executor hoặc người tiếp theo).
 
-**Continuity (khả năng tiếp tục công việc qua thời gian, session hoặc executor mà không mất trạng thái và ngữ cảnh).**
+**Continuity** (khả năng tiếp tục công việc qua thời gian, session hoặc executor mà không mất trạng thái và ngữ cảnh).
 
 Và cuối cùng là một hệ thống mà tôi gọi là **PAECS** (hệ thống duy trì continuity của project qua state, checkpoint và handoff giữa các engineering run).
 
