@@ -4,70 +4,91 @@ import { joinBase } from '../utils/paths';
 /**
  * Beyond Vibe Coding — Author Bonus Component (Ủng hộ tác giả)
  *
- * An elegant, non-intrusive way for readers to optionally support the author.
- * Completely optional — reading remains 100% free.
+ * Implements the approved design from BYC_BONUS_DESIGN.png:
+ * - 5 Stacked Bonus Cards (30K, 50K, 100K, 200K, 300K) with crisp QR codes and warm illustrations
+ * - Heartfelt top copy & author mascot illustration
+ * - Responsive modal / bottom sheet
+ * - Completely optional, non-intrusive appreciation mechanism
  */
 
-interface BonusOption {
+interface BonusItem {
   id: string;
   amount: string;
-  rawAmount: number;
-  label: string;
-  icon: string;
-  message: string;
+  itemName: string;
+  quote: string;
+  secondary: string;
   qrFile: string;
+  qrAlt: string;
+  qrLabel: string;
+  bgTint: string;
+  borderTint: string;
 }
 
-const bonusOptions: BonusOption[] = [
+const bonusItems: BonusItem[] = [
   {
     id: '30k',
     amount: '30.000đ',
-    rawAmount: 30000,
-    label: 'Một chén trà',
-    icon: '🍵',
-    message: 'Ghi nhận công sức cặm cụi gõ phím và thiết kế của tác giả.',
+    itemName: 'Chén trà',
+    quote: '“Ghi nhận công sức cặm cụi gõ phím và thiết kế của tác giả.”',
+    secondary: 'Một chén trà ấm, thêm động lực. 🍃',
     qrFile: 'BONUS_30K.png',
+    qrAlt: 'Mã QR ủng hộ tác giả 30.000đ',
+    qrLabel: 'QR 30K',
+    bgTint: 'bg-[#f4f9eb]',
+    borderTint: 'border-[#e0edd0]',
   },
   {
     id: '50k',
     amount: '50.000đ',
-    rawAmount: 50000,
-    label: 'Một ly cà phê',
-    icon: '☕',
-    message: 'Đọc khá cuốn, có thêm nhiều góc nhìn tham khảo tốt.',
+    itemName: 'Ly cà phê',
+    quote: '“Đọc khá cuốn, có thêm nhiều góc nhìn tham khảo tốt.”',
+    secondary: 'Một ly cà phê để tỉnh táo viết tiếp. ☕',
     qrFile: 'BONUS_50K.png',
+    qrAlt: 'Mã QR ủng hộ tác giả 50.000đ',
+    qrLabel: 'QR 50K',
+    bgTint: 'bg-[#fdf7ee]',
+    borderTint: 'border-[#f6ebd7]',
   },
   {
     id: '100k',
     amount: '100.000đ',
-    rawAmount: 100000,
-    label: 'Một chầu nước hoa quả',
-    icon: '🍹',
-    message: 'Góc nhìn hữu ích, mở ra thêm nhiều cách tiếp cận mới với AI.',
+    itemName: 'Chầu nước hoa quả',
+    quote: '“Góc nhìn sắc bén, mở ra nhiều cách tiếp cận mới với AI.”',
+    secondary: 'Một chầu nước hoa quả, cho ngày dài sáng tạo. 🍹',
     qrFile: 'BONUS_100K.png',
+    qrAlt: 'Mã QR ủng hộ tác giả 100.000đ',
+    qrLabel: 'QR 100K',
+    bgTint: 'bg-[#fff8ee]',
+    borderTint: 'border-[#fee9cb]',
   },
   {
     id: '200k',
     amount: '200.000đ',
-    rawAmount: 200000,
-    label: 'Vài vại bia mát',
-    icon: '🍺',
-    message: 'Thực chiến, kiến trúc rõ ràng và gỡ rối được nhiều vấn đề.',
+    itemName: 'Vài vại bia mát',
+    quote: '“Thực chiến, kiến trúc rõ ràng và gỡ rối được nhiều vấn đề.”',
+    secondary: 'Vài vại bia để ăn mừng những ý tưởng hay. 🍻',
     qrFile: 'BONUS_200K.png',
+    qrAlt: 'Mã QR ủng hộ tác giả 200.000đ',
+    qrLabel: 'QR 200K',
+    bgTint: 'bg-[#f0f8ff]',
+    borderTint: 'border-[#d8edfc]',
   },
   {
     id: '300k',
     amount: '300.000đ',
-    rawAmount: 300000,
-    label: 'Một chầu xôm tụ',
-    icon: '🎉',
-    message: 'Kiến thức xuất sắc, thay đổi hoàn toàn tư duy làm hệ thống của tôi!',
+    itemName: 'Một chầu xôm tụ',
+    quote: '“Kiến thức xuất sắc, thay đổi hoàn toàn tư duy làm hệ thống của tôi!”',
+    secondary: 'Một chầu xôm tụ để cùng chúc mừng. 🎉',
     qrFile: 'BONUS_300K.png',
+    qrAlt: 'Mã QR ủng hộ tác giả 300.000đ',
+    qrLabel: 'QR 300K',
+    bgTint: 'bg-[#fff2f4]',
+    borderTint: 'border-[#fedce2]',
   },
 ];
 ---
 
-<!-- Fixed bottom-right trigger button -->
+<!-- Fixed bottom-right trigger button replacing old ENTER BOOK MODE -->
 <div 
   id="author-bonus-trigger-container"
   class="fixed bottom-6 right-6 z-30 flex items-center select-none"
@@ -80,58 +101,115 @@ const bonusOptions: BonusOption[] = [
     aria-expanded="false"
     aria-controls="author-bonus-dialog"
     aria-label="Ủng hộ tác giả — Hoàn toàn tự nguyện"
-    class="flex items-center gap-2 px-3.5 py-2.5 bg-white/95 backdrop-blur-sm border border-navy-200/90 hover:border-tech-blue/50 text-navy-800 hover:text-navy-950 rounded-xl shadow-editorial hover:shadow-md transition-all duration-200 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-tech-blue/30"
+    class="flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md border border-navy-200/90 hover:border-tech-blue/60 text-navy-900 rounded-full shadow-editorial hover:shadow-lg transition-all duration-200 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-tech-blue/30"
   >
-    <!-- Coffee / Heart icon -->
-    <span class="text-sm leading-none flex items-center justify-center filter grayscale group-hover:grayscale-0 transition-all">☕</span>
-    <span class="text-xs font-semibold tracking-tight text-navy-900 group-hover:text-tech-blue transition-colors">
+    <span class="text-base leading-none">☕</span>
+    <span class="text-xs sm:text-sm font-bold tracking-tight text-navy-900 group-hover:text-tech-blue transition-colors">
       Ủng hộ tác giả
     </span>
-    <span class="text-xs text-rose-500/90 group-hover:text-rose-600 transition-colors leading-none">❤️</span>
+    <span class="text-xs sm:text-sm text-rose-500 group-hover:scale-110 transition-transform leading-none">❤️</span>
   </button>
 </div>
 
-<!-- Modal Dialog / Bottom Sheet Panel -->
+<!-- Modal Dialog / Bottom Sheet Panel matching BYC_BONUS_DESIGN.png -->
 <div 
   id="author-bonus-dialog"
   role="dialog"
   aria-modal="true"
-  aria-labelledby="author-bonus-title"
+  aria-labelledby="author-bonus-heading"
+  aria-describedby="author-bonus-desc"
   aria-hidden="true"
-  class="fixed inset-0 z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-all duration-200"
+  class="fixed inset-0 z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-all duration-250 ease-out"
 >
   <!-- Backdrop -->
   <div 
     id="author-bonus-backdrop"
-    class="fixed inset-0 bg-navy-950/40 backdrop-blur-[2px] transition-opacity duration-200 cursor-pointer"
+    class="fixed inset-0 bg-navy-950/45 backdrop-blur-[3px] transition-opacity duration-250 cursor-pointer"
     aria-hidden="true"
   ></div>
 
-  <!-- Modal Container -->
+  <!-- Modal Container matching design -->
   <div 
     id="author-bonus-panel"
-    class="relative z-10 w-full sm:max-w-xl max-h-[92vh] sm:max-h-[85vh] overflow-y-auto bg-white rounded-t-2xl sm:rounded-2xl border border-navy-100/80 shadow-2xl p-5 sm:p-7 flex flex-col gap-5 transform translate-y-6 sm:translate-y-0 sm:scale-95 transition-all duration-200"
-    style="padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem));"
+    class="relative z-10 w-full sm:max-w-xl md:max-w-2xl max-h-[92vh] overflow-y-auto bg-white rounded-t-[32px] sm:rounded-[28px] border border-slate-200/80 shadow-2xl p-5 sm:p-7 flex flex-col gap-4 transform translate-y-8 sm:translate-y-0 sm:scale-95 transition-all duration-250 ease-out scrollbar-thin"
+    style="padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 1.5rem));"
   >
-    <!-- Header -->
-    <div class="flex items-start justify-between gap-4 pb-3 border-b border-navy-100">
-      <div class="flex flex-col gap-1">
-        <div class="flex items-center gap-2">
-          <span class="text-base">☕</span>
-          <h3 id="author-bonus-title" class="text-base sm:text-lg font-bold text-navy-950 tracking-tight">
-            Nếu cuốn sách này hữu ích với bạn...
-          </h3>
+    <!-- Mobile top drag indicator handle -->
+    <div class="sm:hidden w-12 h-1.5 bg-slate-300 rounded-full mx-auto -mt-1 mb-1"></div>
+
+    <!-- Header Section -->
+    <div class="relative flex flex-col sm:flex-row items-start justify-between gap-4">
+      <div class="flex flex-col flex-1 pr-10 sm:pr-0">
+        <!-- Eyebrow Gratitude Line -->
+        <div class="flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#0284c7] uppercase tracking-wider mb-1.5">
+          <span>CẢM ƠN BẠN ĐÃ ĐỒNG HÀNH!</span>
+          <span class="text-rose-500">❤️</span>
         </div>
-        <p class="text-xs sm:text-[13px] text-navy-600 leading-relaxed">
-          Bạn có thể ủng hộ tác giả một chút bonus. Hoàn toàn tự nguyện — đọc tiếp miễn phí vẫn rất vui.
+
+        <!-- Main Headline -->
+        <h2 id="author-bonus-heading" class="text-lg sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug mb-2">
+          Nếu cuốn sách này hữu ích với bạn...
+        </h2>
+
+        <!-- Supporting Explanation Body -->
+        <p id="author-bonus-desc" class="text-xs sm:text-[13.5px] text-slate-600 leading-relaxed max-w-md">
+          Bạn có thể ủng hộ tác giả một chút bonus. Điều này giúp tôi có thêm năng lượng để tiếp tục viết, chia sẻ và cập nhật những nội dung chất lượng hơn. Hoàn toàn tự nguyện — đọc tiếp miễn phí vẫn rất vui! 😊
         </p>
       </div>
 
+      <!-- Mascot Illustration (Author with warm mug & inspirational quote) -->
+      <div class="hidden sm:flex flex-col items-center justify-center shrink-0 w-32 relative select-none">
+        <svg viewBox="0 0 140 140" class="w-28 h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ambient soft cloud / glow -->
+          <circle cx="75" cy="70" r="48" fill="#f0f9ff" />
+          <path d="M100 35C108 35 115 42 115 50C115 52 114 54 113 56C118 58 122 64 122 70C122 78 116 84 108 84L45 84C38 84 32 78 32 71C32 64 37 59 43 58C43 48 51 40 61 40C64 40 68 41 71 43C76 38 83 35 91 35Z" fill="#e0f2fe" opacity="0.6"/>
+          
+          <!-- Inspiration curved text & sparks -->
+          <path id="curve-path" d="M 68 44 Q 95 24 128 46" fill="transparent" />
+          <text font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-style="italic" font-weight="600" fill="#0284c7">
+            <textPath href="#curve-path">
+              Good ideas make a brighter tomorrow
+            </textPath>
+          </text>
+          
+          <!-- Radiating spark rays -->
+          <path d="M102 18L104 23M116 22L114 26M92 20L95 24" stroke="#38bdf8" stroke-width="1.2" stroke-linecap="round"/>
+          
+          <!-- Floating Heart -->
+          <path d="M124 55C124 52.8 122.2 51 120 51C118.5 51 117.2 51.9 116.6 53.2C116 51.9 114.7 51 113.2 51C111 51 109.2 52.8 109.2 55C109.2 58 114 62 116.6 64C119.2 62 124 58 124 55Z" fill="#ef4444"/>
+
+          <!-- Character: Head & Hair -->
+          <circle cx="68" cy="72" r="21" fill="#fed7aa"/>
+          <path d="M47 68C47 52 57 44 71 44C83 44 91 52 89 65C87 63 83 61 80 62C77 63 75 66 73 67C71 63 67 61 62 61C57 61 52 64 50 67C48 67 47 68 47 68Z" fill="#1e293b"/>
+          <path d="M48 62C46 55 52 48 60 46C65 45 72 45 77 47C84 50 88 56 89 63C86 58 80 56 74 57C69 58 65 62 62 64C59 60 54 58 48 62Z" fill="#0f172a"/>
+
+          <!-- Face details: eyes smiling, blushing cheeks, smile -->
+          <path d="M58 70C60 68 63 68 65 70" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M72 70C74 68 77 68 79 70" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M68 76C68 78 69.5 80 71 80C72.5 80 74 78 74 76" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round" fill="#fda4af"/>
+          <circle cx="56" cy="75" r="2.5" fill="#fca5a5" opacity="0.6"/>
+          <circle cx="81" cy="75" r="2.5" fill="#fca5a5" opacity="0.6"/>
+
+          <!-- Body & Arms holding coffee mug -->
+          <path d="M52 93C52 87 59 84 69 84C79 84 86 87 86 93L88 120H50L52 93Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <path d="M54 94C56 99 64 104 74 104C78 104 84 100 85 95" stroke="#0f172a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+          <!-- Coffee mug with Heart -->
+          <rect x="68" y="94" width="22" height="20" rx="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+          <path d="M90 98C94 98 96 101 96 104C96 107 94 110 90 110" stroke="#0284c7" stroke-width="2" fill="none"/>
+          <path d="M81 101C81 99.8 80 99 79 99C78.2 99 77.5 99.5 77 100.2C76.5 99.5 75.8 99 75 99C74 99 73 99.8 73 101C73 102.5 76 105 77 106C78 105 81 102.5 81 101Z" fill="#ef4444"/>
+          <!-- Steam rising from mug -->
+          <path d="M74 90C73 87 75 85 74 82" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M80 90C81 87 79 85 80 82" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Top-right Close Button -->
       <button
         id="author-bonus-close-btn"
         type="button"
         aria-label="Đóng bảng ủng hộ tác giả"
-        class="w-8 h-8 rounded-lg flex items-center justify-center text-navy-400 hover:text-navy-900 hover:bg-navy-50 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-tech-blue/30 cursor-pointer"
+        class="absolute top-0 right-0 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-tech-blue/30 cursor-pointer"
       >
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -140,156 +218,221 @@ const bonusOptions: BonusOption[] = [
       </button>
     </div>
 
-    <!-- 5 Friendly Choices Selector -->
-    <div class="flex flex-col gap-2">
-      <span class="text-[11px] font-bold uppercase tracking-wider text-navy-400 select-none">
-        Chọn mức ủng hộ tùy tâm:
+    <!-- Editorial Section Divider -->
+    <div class="flex items-center gap-3 my-1">
+      <div class="h-[1px] bg-sky-200/80 flex-1"></div>
+      <span class="text-[10px] sm:text-[11px] font-bold text-[#0284c7] uppercase tracking-wider select-none shrink-0">
+        MỘT CHÚT BONUS, NẾU BẠN MUỐN
       </span>
-      <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" role="tablist" aria-label="Các mức ủng hộ tác giả">
-        {bonusOptions.map((opt, idx) => (
-          <button
-            type="button"
-            role="tab"
-            id={`bonus-tab-${opt.id}`}
-            aria-selected={idx === 1 ? 'true' : 'false'}
-            aria-controls={`bonus-panel-${opt.id}`}
-            data-option-id={opt.id}
-            class={`bonus-tab-btn flex flex-col items-center justify-center p-2.5 rounded-xl border transition-all duration-150 cursor-pointer text-center select-none ${
-              idx === 1 
-                ? 'border-tech-blue bg-tech-blue/8 text-navy-950 font-bold shadow-xs' 
-                : 'border-navy-100 hover:border-navy-200 bg-navy-50/40 hover:bg-navy-50 text-navy-700'
-            }`}
+      <div class="h-[1px] bg-sky-200/80 flex-1"></div>
+    </div>
+
+    <!-- Five Bonus Cards List matching visual layout in BYC_BONUS_DESIGN.png -->
+    <div class="flex flex-col gap-3">
+      {bonusItems.map((item) => {
+        const primarySrc = joinBase(`images/bonus/${item.qrFile}`);
+        const fallbackSrc = joinBase(`images/${item.qrFile}`);
+        const fallbackRoot = joinBase(item.qrFile);
+
+        return (
+          <div 
+            id={`bonus-card-${item.id}`}
+            class={`flex items-center justify-between gap-3 p-3 sm:p-3.5 rounded-2xl border ${item.borderTint} ${item.bgTint} hover:shadow-sm transition-all duration-150`}
           >
-            <span class="text-base mb-0.5 leading-none">{opt.icon}</span>
-            <span class="text-xs font-bold text-navy-950 tracking-tight leading-tight">{opt.amount}</span>
-            <span class="text-[10px] text-navy-500 font-medium truncate w-full mt-0.5">{opt.label}</span>
-          </button>
-        ))}
-      </div>
+            {/* Left Area: Warm Themed Vector Illustration */}
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white/90 border border-slate-200/60 shadow-2xs flex items-center justify-center shrink-0 p-1.5 overflow-hidden">
+              {item.id === '30k' && (
+                <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="32" cy="48" rx="22" ry="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
+                  <ellipse cx="32" cy="47" rx="16" ry="3" fill="#f1f5f9"/>
+                  <path d="M18 30C18 42 24 45 32 45C40 45 46 42 46 30H18Z" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+                  <ellipse cx="32" cy="30" rx="14" ry="4" fill="#84cc16"/>
+                  <ellipse cx="32" cy="30" rx="11" ry="2.5" fill="#a3e635"/>
+                  <path d="M44 32C48 32 50 35 50 38C50 41 48 43 43 43" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+                  <path d="M12 40C12 40 16 35 20 38C20 38 18 44 12 40Z" fill="#65a30d"/>
+                  <path d="M14 43C14 43 19 40 23 44C23 44 19 48 14 43Z" fill="#4d7c0f"/>
+                  <path d="M44 24C44 24 48 18 53 20C53 20 52 26 44 24Z" fill="#65a30d"/>
+                  <path d="M28 24C27 21 29 19 28 16" stroke="#a3e635" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M34 23C35 20 33 18 34 15" stroke="#a3e635" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              )}
+
+              {item.id === '50k' && (
+                <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="32" cy="48" rx="22" ry="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
+                  <ellipse cx="32" cy="47" rx="16" ry="3" fill="#f8fafc"/>
+                  <path d="M17 28C17 42 23 45 32 45C41 45 47 42 47 28H17Z" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+                  <ellipse cx="32" cy="28" rx="15" ry="4.5" fill="#78350f"/>
+                  <ellipse cx="32" cy="28" rx="12" ry="3" fill="#92400e"/>
+                  <ellipse cx="32" cy="28" rx="8" ry="1.8" fill="#b45309"/>
+                  <path d="M45 31C50 31 52 34 52 37C52 40 50 42 44 42" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+                  <ellipse cx="14" cy="48" rx="4" ry="2.5" transform="rotate(-20 14 48)" fill="#451a03"/>
+                  <path d="M12 47Q14 48 16 49" stroke="#78350f" stroke-width="0.8"/>
+                  <ellipse cx="20" cy="51" rx="3.5" ry="2.2" transform="rotate(15 20 51)" fill="#451a03"/>
+                  <path d="M18 51Q20 51 22 51" stroke="#78350f" stroke-width="0.8"/>
+                  <path d="M29 22C28 19 30 17 29 14" stroke="#d97706" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M35 21C36 18 34 16 35 13" stroke="#d97706" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              )}
+
+              {item.id === '100k' && (
+                <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 20L25 50C25 52 28 53 32 53C36 53 39 52 39 50L42 20H22Z" fill="#fed7aa" stroke="#94a3b8" stroke-width="1.5" opacity="0.9"/>
+                  <path d="M23 25L25.5 49C25.5 50.5 28 51.5 32 51.5C36 51.5 38.5 50.5 38.5 49L41 25H23Z" fill="#ea580c"/>
+                  <ellipse cx="32" cy="25" rx="9" ry="2" fill="#fb923c"/>
+                  <rect x="27" y="30" width="6" height="6" rx="1" fill="#ffffff" opacity="0.6"/>
+                  <rect x="31" y="38" width="5" height="5" rx="1" fill="#ffffff" opacity="0.6"/>
+                  <path d="M34 12L38 28L35 44" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M34 12L36 20" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="21" cy="24" r="8" fill="#f97316" stroke="#c2410c" stroke-width="1"/>
+                  <circle cx="21" cy="24" r="6.5" fill="#fdba74"/>
+                  <circle cx="21" cy="24" r="2" fill="#ffffff"/>
+                  <path d="M21 18L21 30M15 24L27 24M17 20L25 28M17 28L25 20" stroke="#f97316" stroke-width="0.8"/>
+                </svg>
+              )}
+
+              {item.id === '200k' && (
+                <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g transform="rotate(10 24 40)">
+                    <rect x="18" y="24" width="14" height="22" rx="3" fill="#fbbf24" stroke="#78350f" stroke-width="1.2"/>
+                    <path d="M18 28H32M18 34H32M18 40H32" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="2 2"/>
+                    <path d="M18 28C14 28 13 32 13 35C13 38 14 42 18 42" stroke="#78350f" stroke-width="1.5" fill="none"/>
+                    <path d="M16 24C16 21 19 20 22 21C24 19 28 19 30 21C33 20 35 22 34 24Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                  </g>
+                  <g transform="rotate(-10 40 40)">
+                    <rect x="32" y="24" width="14" height="22" rx="3" fill="#fbbf24" stroke="#78350f" stroke-width="1.2"/>
+                    <path d="M32 28H46M32 34H46M32 40H46" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="2 2"/>
+                    <path d="M46 28C50 28 51 32 51 35C51 38 50 42 46 42" stroke="#78350f" stroke-width="1.5" fill="none"/>
+                    <path d="M30 24C30 21 33 20 36 21C38 19 42 19 44 21C47 20 49 22 48 24Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                  </g>
+                  <path d="M32 16L32 12M30 14L34 14M28 18L26 16M36 18L38 16" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              )}
+
+              {item.id === '300k' && (
+                <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="24" r="5" fill="#fed7aa"/>
+                  <path d="M12 22C12 18 16 16 20 18C20 20 18 22 18 24" fill="#1e293b"/>
+                  <path d="M10 36C10 31 13 29 18 29C23 29 24 31 24 36Z" fill="#3b82f6"/>
+                  <circle cx="27" cy="21" r="5.5" fill="#fcd34d"/>
+                  <path d="M22 19C23 15 29 14 32 17C31 19 29 21 28 23" fill="#0f172a"/>
+                  <path d="M21 36C21 29 25 27 30 27C35 27 37 29 37 36Z" fill="#10b981"/>
+                  <circle cx="39" cy="22" r="5" fill="#fed7aa"/>
+                  <path d="M35 18C36 15 42 16 44 19C43 21 40 22 39 24" fill="#b91c1c"/>
+                  <path d="M33 36C33 30 36 28 41 28C46 28 48 30 48 36Z" fill="#f59e0b"/>
+                  <circle cx="49" cy="25" r="4.5" fill="#fde047"/>
+                  <path d="M45 22C46 19 51 19 53 22" fill="#1e293b"/>
+                  <path d="M44 36C44 32 47 30 51 30C55 30 56 32 56 36Z" fill="#ec4899"/>
+                  <path d="M8 38C8 36 12 35 32 35C52 35 56 36 56 38L54 52H10L8 38Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+                  <ellipse cx="22" cy="40" rx="4.5" ry="1.5" fill="#f87171"/>
+                  <ellipse cx="32" cy="41" rx="6" ry="2" fill="#fbbf24"/>
+                  <ellipse cx="42" cy="40" rx="4.5" ry="1.5" fill="#34d399"/>
+                  <circle cx="12" cy="14" r="1" fill="#f43f5e"/>
+                  <circle cx="50" cy="15" r="1" fill="#3b82f6"/>
+                  <circle cx="32" cy="12" r="1.2" fill="#eab308"/>
+                  <path d="M16 11L18 13M44 11L46 13" stroke="#8b5cf6" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+              )}
+            </div>
+
+            {/* Middle Area: Title, Quote & Friendly Note */}
+            <div class="flex-1 flex flex-col min-w-0 pr-1">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug">
+                {item.amount} <span class="font-normal text-slate-400">—</span> {item.itemName}
+              </h3>
+
+              <p class="text-xs sm:text-[12.5px] text-slate-600 leading-snug mt-0.5 sm:mt-1 font-normal line-clamp-2">
+                {item.quote}
+              </p>
+
+              <span class="text-[11px] sm:text-xs text-slate-500 font-normal mt-1 flex items-center gap-1">
+                {item.secondary}
+              </span>
+            </div>
+
+            {/* Right Area: Crisp VietQR Code Card */}
+            <div class="w-20 sm:w-24 shrink-0 bg-white rounded-xl border border-slate-200/90 p-1.5 flex flex-col items-center justify-center shadow-2xs">
+              <div class="w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center relative bg-white">
+                <img 
+                  id={`qr-img-${item.id}`}
+                  src={primarySrc}
+                  data-fallback-1={fallbackSrc}
+                  data-fallback-2={fallbackRoot}
+                  alt={item.qrAlt}
+                  width="72"
+                  height="72"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-contain select-none"
+                  onerror={`
+                    if (this.getAttribute('data-tried') !== '2') {
+                      if (!this.getAttribute('data-tried')) {
+                        this.setAttribute('data-tried', '1');
+                        this.src = this.getAttribute('data-fallback-1');
+                      } else {
+                        this.setAttribute('data-tried', '2');
+                        this.src = this.getAttribute('data-fallback-2');
+                      }
+                    }
+                  `}
+                />
+              </div>
+              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400 tracking-tight mt-1 select-none">
+                {item.qrLabel}
+              </span>
+            </div>
+          </div>
+        );
+      })}
     </div>
 
-    <!-- Active Details Display Area -->
-    <div class="bg-navy-50/50 border border-navy-100 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-5">
-      <!-- QR Image Container -->
-      <div class="relative w-48 h-48 sm:w-44 sm:h-44 bg-white rounded-lg p-2.5 border border-navy-200/80 shadow-xs shrink-0 flex items-center justify-center">
-        {bonusOptions.map((opt, idx) => {
-          const primarySrc = joinBase(`images/bonus/${opt.qrFile}`);
-          const fallbackSrc1 = joinBase(`images/${opt.qrFile}`);
-          const fallbackSrc2 = joinBase(opt.qrFile);
-
-          return (
-            <img 
-              id={`bonus-qr-img-${opt.id}`}
-              src={primarySrc}
-              data-fallback-1={fallbackSrc1}
-              data-fallback-2={fallbackSrc2}
-              alt={`Mã VietQR ủng hộ tác giả ${opt.amount} (${opt.label})`}
-              width="200"
-              height="200"
-              loading="lazy"
-              referrerpolicy="no-referrer"
-              class={`bonus-qr-image w-full h-full object-contain rounded transition-opacity duration-200 ${
-                idx === 1 ? 'block opacity-100' : 'hidden opacity-0'
-              }`}
-              onerror={`
-                if (this.getAttribute('data-tried') !== '2') {
-                  if (!this.getAttribute('data-tried')) {
-                    this.setAttribute('data-tried', '1');
-                    this.src = this.getAttribute('data-fallback-1');
-                  } else {
-                    this.setAttribute('data-tried', '2');
-                    this.src = this.getAttribute('data-fallback-2');
-                  }
-                }
-              `}
-            />
-          );
-        })}
+    <!-- Closing Gratitude Block matching BYC_BONUS_DESIGN.png -->
+    <div class="rounded-2xl bg-[#f0f7ff] border border-[#d8e9fc] p-3.5 sm:p-4 flex items-center gap-3.5 mt-1 select-none">
+      <!-- Heart with sparkle lines -->
+      <div class="shrink-0 flex items-center justify-center">
+        <svg viewBox="0 0 36 36" class="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 10L9 13M4 18L8 18M6 26L9 23" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M26 6L24 9M32 10L28 12M33 18L29 18" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M26 19C26 14.5 22.5 12 19 15C15.5 12 12 14.5 12 19C12 24.5 19 30 19 30C19 30 26 24.5 26 19Z" fill="#ef4444"/>
+        </svg>
       </div>
 
-      <!-- Detail message & description -->
-      <div class="flex-1 flex flex-col gap-2.5 text-center sm:text-left min-w-0">
-        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
-          <span id="bonus-active-badge-amount" class="text-sm font-bold text-navy-950 tracking-tight">
-            50.000đ
-          </span>
-          <span class="text-xs text-navy-400">•</span>
-          <span id="bonus-active-badge-label" class="text-xs font-semibold text-tech-blue">
-            Một ly cà phê ☕
-          </span>
-        </div>
-
-        <blockquote 
-          id="bonus-active-message"
-          class="text-xs sm:text-[13px] text-navy-700 italic bg-white border-l-2 border-tech-blue/80 p-2.5 rounded-r-md leading-relaxed"
-        >
-          "Đọc khá cuốn, có thêm nhiều góc nhìn tham khảo tốt."
-        </blockquote>
-
-        <p class="text-[11px] text-navy-500 leading-relaxed font-normal">
-          Quét mã VietQR bằng bất kỳ ứng dụng ngân hàng hoặc ví điện tử nào để gửi bonus trực tiếp đến tác giả.
+      <!-- Gratitude text & author attribution -->
+      <div class="flex-1 flex flex-col gap-1">
+        <p class="text-xs sm:text-[13px] text-slate-700 italic leading-relaxed font-normal">
+          “Mỗi sự ủng hộ, dù nhỏ, đều giúp cuốn sách này đi xa hơn. Cảm ơn bạn đã là một phần của hành trình.”
         </p>
+        <div class="flex items-center justify-end gap-1.5 text-[11px] sm:text-xs text-slate-500 font-medium pt-0.5">
+          <span>— Tác giả Beyond Vibe Coding</span>
+          <svg class="w-3.5 h-3.5 text-[#0284c7]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 3C10 3 4 9 4 16C4 18 5 20 6 21C6 17 9 12 14 10C12 12 11 15 11 18C11 19.5 11.5 20.5 12 21C14 21 16 19 18 16C19 14 20 11 20 8C20 6 19 4 17 3Z" fill="currentColor"/>
+          </svg>
+        </div>
       </div>
     </div>
 
-    <!-- Editorial Footer Message -->
-    <div class="pt-3 border-t border-navy-100 flex flex-col gap-1 text-center sm:text-left">
-      <p class="text-xs text-navy-600 leading-relaxed">
-        Mỗi sự ủng hộ, dù nhỏ, đều giúp cuốn sách này đi xa hơn. Cảm ơn bạn đã là một phần của hành trình này.
-      </p>
-      <span class="text-[11px] text-navy-400 font-medium">
-        — Tác giả Beyond Vibe Coding
-      </span>
+    <!-- Bottom Close Button -->
+    <div class="flex items-center justify-center pt-2 select-none">
+      <button
+        id="author-bonus-bottom-close-btn"
+        type="button"
+        class="px-12 sm:px-14 py-2.5 rounded-2xl border border-slate-300 text-slate-800 font-semibold text-xs sm:text-sm hover:bg-slate-50 active:bg-slate-100 transition-colors shadow-2xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-tech-blue/30"
+      >
+        Đóng
+      </button>
     </div>
   </div>
 </div>
 
 <script>
-  // Client-side interactions for Author Bonus Modal
+  // Client-side controller for Author Bonus Dialog
   const openBtn = document.getElementById('author-bonus-open-btn');
   const closeBtn = document.getElementById('author-bonus-close-btn');
+  const bottomCloseBtn = document.getElementById('author-bonus-bottom-close-btn');
   const backdrop = document.getElementById('author-bonus-backdrop');
   const dialog = document.getElementById('author-bonus-dialog');
   const panel = document.getElementById('author-bonus-panel');
-  const tabBtns = document.querySelectorAll<HTMLButtonElement>('.bonus-tab-btn');
-  const qrImages = document.querySelectorAll<HTMLImageElement>('.bonus-qr-image');
-  
-  const badgeAmount = document.getElementById('bonus-active-badge-amount');
-  const badgeLabel = document.getElementById('bonus-active-badge-label');
-  const activeMessage = document.getElementById('bonus-active-message');
-
-  const optionsData: Record<string, { amount: string; label: string; icon: string; message: string }> = {
-    '30k': {
-      amount: '30.000đ',
-      label: 'Một chén trà',
-      icon: '🍵',
-      message: 'Ghi nhận công sức cặm cụi gõ phím và thiết kế của tác giả.',
-    },
-    '50k': {
-      amount: '50.000đ',
-      label: 'Một ly cà phê',
-      icon: '☕',
-      message: 'Đọc khá cuốn, có thêm nhiều góc nhìn tham khảo tốt.',
-    },
-    '100k': {
-      amount: '100.000đ',
-      label: 'Một chầu nước hoa quả',
-      icon: '🍹',
-      message: 'Góc nhìn hữu ích, mở ra thêm nhiều cách tiếp cận mới với AI.',
-    },
-    '200k': {
-      amount: '200.000đ',
-      label: 'Vài vại bia mát',
-      icon: '🍺',
-      message: 'Thực chiến, kiến trúc rõ ràng và gỡ rối được nhiều vấn đề.',
-    },
-    '300k': {
-      amount: '300.000đ',
-      label: 'Một chầu xôm tụ',
-      icon: '🎉',
-      message: 'Kiến thức xuất sắc, thay đổi hoàn toàn tư duy làm hệ thống của tôi!',
-    },
-  };
 
   let isBonusOpen = false;
 
@@ -302,7 +445,7 @@ const bonusOptions: BonusOption[] = [
     openBtn?.setAttribute('aria-expanded', 'true');
 
     if (panel) {
-      panel.classList.remove('translate-y-6', 'sm:scale-95');
+      panel.classList.remove('translate-y-8', 'sm:scale-95');
       panel.classList.add('translate-y-0', 'sm:scale-100');
     }
 
@@ -319,57 +462,19 @@ const bonusOptions: BonusOption[] = [
 
     if (panel) {
       panel.classList.remove('translate-y-0', 'sm:scale-100');
-      panel.classList.add('translate-y-6', 'sm:scale-95');
+      panel.classList.add('translate-y-8', 'sm:scale-95');
     }
 
     openBtn?.focus();
   }
 
-  function selectOption(optionId: string) {
-    const data = optionsData[optionId];
-    if (!data) return;
-
-    // Update tabs
-    tabBtns.forEach((btn) => {
-      const isSelected = btn.getAttribute('data-option-id') === optionId;
-      btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-      if (isSelected) {
-        btn.className = 'bonus-tab-btn flex flex-col items-center justify-center p-2.5 rounded-xl border transition-all duration-150 cursor-pointer text-center select-none border-tech-blue bg-tech-blue/8 text-navy-950 font-bold shadow-xs';
-      } else {
-        btn.className = 'bonus-tab-btn flex flex-col items-center justify-center p-2.5 rounded-xl border transition-all duration-150 cursor-pointer text-center select-none border-navy-100 hover:border-navy-200 bg-navy-50/40 hover:bg-navy-50 text-navy-700';
-      }
-    });
-
-    // Update QR image visibility
-    qrImages.forEach((img) => {
-      if (img.id === `bonus-qr-img-${optionId}`) {
-        img.classList.remove('hidden', 'opacity-0');
-        img.classList.add('block', 'opacity-100');
-      } else {
-        img.classList.remove('block', 'opacity-100');
-        img.classList.add('hidden', 'opacity-0');
-      }
-    });
-
-    // Update text
-    if (badgeAmount) badgeAmount.textContent = data.amount;
-    if (badgeLabel) badgeLabel.textContent = `${data.label} ${data.icon}`;
-    if (activeMessage) activeMessage.textContent = `"${data.message}"`;
-  }
-
   // Event Listeners
   openBtn?.addEventListener('click', openBonusDialog);
   closeBtn?.addEventListener('click', closeBonusDialog);
+  bottomCloseBtn?.addEventListener('click', closeBonusDialog);
   backdrop?.addEventListener('click', closeBonusDialog);
 
-  tabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const optionId = btn.getAttribute('data-option-id');
-      if (optionId) selectOption(optionId);
-    });
-  });
-
-  // Global ESC key listener for dialog
+  // Global ESC key listener
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isBonusOpen) {
       e.stopPropagation();
@@ -377,3 +482,20 @@ const bonusOptions: BonusOption[] = [
     }
   });
 </script>
+
+<style>
+  /* Custom thin scrollbar for bonus modal */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+</style>
