@@ -126,7 +126,7 @@ if (title.includes('.')) {
     <!-- Authentic Hero Image -->
     <img 
       src={heroSrc} 
-      alt={`Chương ${order} Hero Visual`}
+      alt={order === 0 ? 'Lời mở đầu Hero Visual' : `Chương ${order} Hero Visual`}
       class="w-full h-full object-cover object-center"
       loading="eager"
       referrerpolicy="no-referrer"

@@ -71,7 +71,7 @@ Mà vì:
 
 > "Done" chưa phải là evidence.
 
-## TÔI ĐG TỪNG COI "TEST PASS" LÀ ĐỦ
+## TÔI ĐÃ TỪNG COI "TEST PASS" LÀ ĐỦ
 
 Đây là một suy nghĩ rất dễ mắc phải.
 
