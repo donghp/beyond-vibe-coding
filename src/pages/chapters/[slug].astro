@@ -11,7 +11,7 @@ import ChapterReader from '../../components/ChapterReader.astro';
 import ChapterHero from '../../components/ChapterHero.astro';
 import ChapterNavigator from '../../components/ChapterNavigator.astro';
 import SearchDialog from '../../components/SearchDialog.astro';
-import BookMode from '../../components/BookMode.astro';
+import AuthorBonus from '../../components/AuthorBonus.astro';
 import ChapterNavigation from '../../components/ChapterNavigation.astro';
 import Footer from '../../components/Footer.astro';
 import ChapterContent from '../../components/ChapterContent.astro';
@@ -126,7 +126,7 @@ const prevCustomLink = currentIndex === 0 ? {
   />
 
   <SearchDialog slot="search-dialog" />
-  <BookMode slot="search-dialog" />
+  <AuthorBonus slot="search-dialog" />
   <Footer slot="footer" />
 </BaseLayout>
 
