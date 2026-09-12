@@ -4,11 +4,12 @@ import { joinBase } from '../utils/paths';
 /**
  * Beyond Vibe Coding — Author Bonus Component (Ủng hộ tác giả)
  *
- * Implements the approved design from BYC_BONUS_DESIGN.png:
- * - 5 Stacked Bonus Cards (30K, 50K, 100K, 200K, 300K) with crisp QR codes and warm illustrations
- * - Heartfelt top copy & author mascot illustration
- * - Responsive modal / bottom sheet
- * - Completely optional, non-intrusive appreciation mechanism
+ * Visual Refinement Pass (#000027.BVC):
+ * - Quiet editorial author-appreciation moment matching BYC_BONUS_DESIGN.png
+ * - Soft tinted card backgrounds and understated borders (no payment UI look)
+ * - Refined proportions: [ILLUSTRATION] [CONTENT] [QR] with wide text breathing room
+ * - Sits gracefully on desktop and mobile with ultra-thin scrollbar and iOS safe areas
+ * - Non-commercial, warm, and friendly
  */
 
 interface BonusItem {
@@ -22,6 +23,7 @@ interface BonusItem {
   qrLabel: string;
   bgTint: string;
   borderTint: string;
+  iconBg: string;
 }
 
 const bonusItems: BonusItem[] = [
@@ -34,8 +36,9 @@ const bonusItems: BonusItem[] = [
     qrFile: 'BONUS_30K.png',
     qrAlt: 'Mã QR ủng hộ tác giả 30.000đ',
     qrLabel: 'QR 30K',
-    bgTint: 'bg-[#f4f9eb]',
-    borderTint: 'border-[#e0edd0]',
+    bgTint: 'bg-[#f7fbf2]',
+    borderTint: 'border-[#e4f0d7]',
+    iconBg: 'bg-[#ecf6df]',
   },
   {
     id: '50k',
@@ -46,8 +49,9 @@ const bonusItems: BonusItem[] = [
     qrFile: 'BONUS_50K.png',
     qrAlt: 'Mã QR ủng hộ tác giả 50.000đ',
     qrLabel: 'QR 50K',
-    bgTint: 'bg-[#fdf7ee]',
-    borderTint: 'border-[#f6ebd7]',
+    bgTint: 'bg-[#fbf7f0]',
+    borderTint: 'border-[#f2e7d3]',
+    iconBg: 'bg-[#f7eedc]',
   },
   {
     id: '100k',
@@ -58,8 +62,9 @@ const bonusItems: BonusItem[] = [
     qrFile: 'BONUS_100K.png',
     qrAlt: 'Mã QR ủng hộ tác giả 100.000đ',
     qrLabel: 'QR 100K',
-    bgTint: 'bg-[#fff8ee]',
-    borderTint: 'border-[#fee9cb]',
+    bgTint: 'bg-[#fef9f2]',
+    borderTint: 'border-[#fde7ce]',
+    iconBg: 'bg-[#feeeda]',
   },
   {
     id: '200k',
@@ -70,8 +75,9 @@ const bonusItems: BonusItem[] = [
     qrFile: 'BONUS_200K.png',
     qrAlt: 'Mã QR ủng hộ tác giả 200.000đ',
     qrLabel: 'QR 200K',
-    bgTint: 'bg-[#f0f8ff]',
-    borderTint: 'border-[#d8edfc]',
+    bgTint: 'bg-[#f3f9fe]',
+    borderTint: 'border-[#dceefa]',
+    iconBg: 'bg-[#e4f2fc]',
   },
   {
     id: '300k',
@@ -82,8 +88,9 @@ const bonusItems: BonusItem[] = [
     qrFile: 'BONUS_300K.png',
     qrAlt: 'Mã QR ủng hộ tác giả 300.000đ',
     qrLabel: 'QR 300K',
-    bgTint: 'bg-[#fff2f4]',
-    borderTint: 'border-[#fedce2]',
+    bgTint: 'bg-[#fef4f6]',
+    borderTint: 'border-[#fbdee3]',
+    iconBg: 'bg-[#fde5ea]',
   },
 ];
 ---
@@ -91,7 +98,7 @@ const bonusItems: BonusItem[] = [
 <!-- Fixed bottom-right trigger button replacing old ENTER BOOK MODE -->
 <div 
   id="author-bonus-trigger-container"
-  class="fixed bottom-6 right-6 z-30 flex items-center select-none"
+  class="fixed bottom-5 right-5 z-30 flex items-center select-none"
   style="padding-bottom: env(safe-area-inset-bottom, 0px);"
 >
   <button
@@ -101,13 +108,13 @@ const bonusItems: BonusItem[] = [
     aria-expanded="false"
     aria-controls="author-bonus-dialog"
     aria-label="Ủng hộ tác giả — Hoàn toàn tự nguyện"
-    class="flex items-center gap-2 px-4 py-2.5 bg-white/95 backdrop-blur-md border border-navy-200/90 hover:border-tech-blue/60 text-navy-900 rounded-full shadow-editorial hover:shadow-lg transition-all duration-200 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-tech-blue/30"
+    class="flex items-center gap-2 px-3.5 py-2 bg-white/95 backdrop-blur-md border border-slate-200/90 hover:border-tech-blue/50 text-slate-800 hover:text-tech-blue rounded-full shadow-editorial hover:shadow-md transition-all duration-200 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-tech-blue/30"
   >
-    <span class="text-base leading-none">☕</span>
-    <span class="text-xs sm:text-sm font-bold tracking-tight text-navy-900 group-hover:text-tech-blue transition-colors">
+    <span class="text-sm leading-none">☕</span>
+    <span class="text-xs font-semibold tracking-tight transition-colors">
       Ủng hộ tác giả
     </span>
-    <span class="text-xs sm:text-sm text-rose-500 group-hover:scale-110 transition-transform leading-none">❤️</span>
+    <span class="text-xs text-rose-500 group-hover:scale-110 transition-transform leading-none">❤️</span>
   </button>
 </div>
 
@@ -119,55 +126,55 @@ const bonusItems: BonusItem[] = [
   aria-labelledby="author-bonus-heading"
   aria-describedby="author-bonus-desc"
   aria-hidden="true"
-  class="fixed inset-0 z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-all duration-250 ease-out"
+  class="fixed inset-0 z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-all duration-200 ease-out p-0 sm:p-4"
 >
   <!-- Backdrop -->
   <div 
     id="author-bonus-backdrop"
-    class="fixed inset-0 bg-navy-950/45 backdrop-blur-[3px] transition-opacity duration-250 cursor-pointer"
+    class="fixed inset-0 bg-navy-950/40 backdrop-blur-[2px] transition-opacity duration-200 cursor-pointer"
     aria-hidden="true"
   ></div>
 
-  <!-- Modal Container matching design -->
+  <!-- Modal Container matching refined design -->
   <div 
     id="author-bonus-panel"
-    class="relative z-10 w-full sm:max-w-xl md:max-w-2xl max-h-[92vh] overflow-y-auto bg-white rounded-t-[32px] sm:rounded-[28px] border border-slate-200/80 shadow-2xl p-5 sm:p-7 flex flex-col gap-4 transform translate-y-8 sm:translate-y-0 sm:scale-95 transition-all duration-250 ease-out scrollbar-thin"
-    style="padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 1.5rem));"
+    class="relative z-10 w-full sm:max-w-xl md:max-w-2xl max-h-[90vh] sm:max-h-[86vh] overflow-y-auto bg-white rounded-t-[28px] sm:rounded-[24px] border border-slate-200/70 shadow-xl p-4 sm:p-6 md:p-7 flex flex-col gap-3.5 transform translate-y-6 sm:translate-y-0 sm:scale-[0.97] transition-all duration-200 ease-out scrollbar-thin"
+    style="padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem));"
   >
     <!-- Mobile top drag indicator handle -->
-    <div class="sm:hidden w-12 h-1.5 bg-slate-300 rounded-full mx-auto -mt-1 mb-1"></div>
+    <div class="sm:hidden w-10 h-1 bg-slate-300/80 rounded-full mx-auto -mt-1 mb-1"></div>
 
     <!-- Header Section -->
-    <div class="relative flex flex-col sm:flex-row items-start justify-between gap-4">
-      <div class="flex flex-col flex-1 pr-10 sm:pr-0">
+    <div class="relative flex items-start justify-between gap-3">
+      <div class="flex flex-col flex-1 pr-8 sm:pr-2">
         <!-- Eyebrow Gratitude Line -->
-        <div class="flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#0284c7] uppercase tracking-wider mb-1.5">
+        <div class="flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-[#0284c7] uppercase tracking-wider mb-1">
           <span>CẢM ƠN BẠN ĐÃ ĐỒNG HÀNH!</span>
           <span class="text-rose-500">❤️</span>
         </div>
 
         <!-- Main Headline -->
-        <h2 id="author-bonus-heading" class="text-lg sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug mb-2">
+        <h2 id="author-bonus-heading" class="text-base sm:text-xl font-bold text-slate-900 tracking-tight leading-snug mb-1.5">
           Nếu cuốn sách này hữu ích với bạn...
         </h2>
 
         <!-- Supporting Explanation Body -->
-        <p id="author-bonus-desc" class="text-xs sm:text-[13.5px] text-slate-600 leading-relaxed max-w-md">
+        <p id="author-bonus-desc" class="text-xs sm:text-[13px] text-slate-600 leading-relaxed max-w-sm sm:max-w-md">
           Bạn có thể ủng hộ tác giả một chút bonus. Điều này giúp tôi có thêm năng lượng để tiếp tục viết, chia sẻ và cập nhật những nội dung chất lượng hơn. Hoàn toàn tự nguyện — đọc tiếp miễn phí vẫn rất vui! 😊
         </p>
       </div>
 
-      <!-- Mascot Illustration (Author with warm mug & inspirational quote) -->
-      <div class="hidden sm:flex flex-col items-center justify-center shrink-0 w-32 relative select-none">
-        <svg viewBox="0 0 140 140" class="w-28 h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mascot Illustration (Author with warm mug & inspirational quote) - Compact & in top-right corner -->
+      <div class="hidden sm:flex flex-col items-center justify-center shrink-0 w-24 relative select-none mr-6 -mt-1">
+        <svg viewBox="0 0 140 140" class="w-20 h-20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Ambient soft cloud / glow -->
           <circle cx="75" cy="70" r="48" fill="#f0f9ff" />
           <path d="M100 35C108 35 115 42 115 50C115 52 114 54 113 56C118 58 122 64 122 70C122 78 116 84 108 84L45 84C38 84 32 78 32 71C32 64 37 59 43 58C43 48 51 40 61 40C64 40 68 41 71 43C76 38 83 35 91 35Z" fill="#e0f2fe" opacity="0.6"/>
           
           <!-- Inspiration curved text & sparks -->
-          <path id="curve-path" d="M 68 44 Q 95 24 128 46" fill="transparent" />
-          <text font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-style="italic" font-weight="600" fill="#0284c7">
-            <textPath href="#curve-path">
+          <path id="curve-path-refined" d="M 68 44 Q 95 24 128 46" fill="transparent" />
+          <text font-family="system-ui, -apple-system, sans-serif" font-size="7" font-style="italic" font-weight="600" fill="#0284c7">
+            <textPath href="#curve-path-refined">
               Good ideas make a brighter tomorrow
             </textPath>
           </text>
@@ -198,7 +205,6 @@ const bonusItems: BonusItem[] = [
           <rect x="68" y="94" width="22" height="20" rx="3" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
           <path d="M90 98C94 98 96 101 96 104C96 107 94 110 90 110" stroke="#0284c7" stroke-width="2" fill="none"/>
           <path d="M81 101C81 99.8 80 99 79 99C78.2 99 77.5 99.5 77 100.2C76.5 99.5 75.8 99 75 99C74 99 73 99.8 73 101C73 102.5 76 105 77 106C78 105 81 102.5 81 101Z" fill="#ef4444"/>
-          <!-- Steam rising from mug -->
           <path d="M74 90C73 87 75 85 74 82" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
           <path d="M80 90C81 87 79 85 80 82" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
@@ -209,26 +215,26 @@ const bonusItems: BonusItem[] = [
         id="author-bonus-close-btn"
         type="button"
         aria-label="Đóng bảng ủng hộ tác giả"
-        class="absolute top-0 right-0 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-tech-blue/30 cursor-pointer"
+        class="w-7 h-7 rounded-full bg-slate-100/80 hover:bg-slate-200/90 text-slate-400 hover:text-slate-700 flex items-center justify-center transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-tech-blue/30 cursor-pointer"
       >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
     </div>
 
-    <!-- Editorial Section Divider -->
-    <div class="flex items-center gap-3 my-1">
-      <div class="h-[1px] bg-sky-200/80 flex-1"></div>
-      <span class="text-[10px] sm:text-[11px] font-bold text-[#0284c7] uppercase tracking-wider select-none shrink-0">
+    <!-- Editorial Micro Section Divider -->
+    <div class="flex items-center gap-2.5 my-0.5">
+      <div class="h-[1px] bg-sky-100 flex-1"></div>
+      <span class="text-[9.5px] sm:text-[10.5px] font-semibold text-[#0284c7]/80 uppercase tracking-widest select-none shrink-0">
         MỘT CHÚT BONUS, NẾU BẠN MUỐN
       </span>
-      <div class="h-[1px] bg-sky-200/80 flex-1"></div>
+      <div class="h-[1px] bg-sky-100 flex-1"></div>
     </div>
 
     <!-- Five Bonus Cards List matching visual layout in BYC_BONUS_DESIGN.png -->
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-2.5 sm:gap-3">
       {bonusItems.map((item) => {
         const primarySrc = joinBase(`images/bonus/${item.qrFile}`);
         const fallbackSrc = joinBase(`images/${item.qrFile}`);
@@ -237,10 +243,10 @@ const bonusItems: BonusItem[] = [
         return (
           <div 
             id={`bonus-card-${item.id}`}
-            class={`flex items-center justify-between gap-3 p-3 sm:p-3.5 rounded-2xl border ${item.borderTint} ${item.bgTint} hover:shadow-sm transition-all duration-150`}
+            class={`flex items-center justify-between gap-2.5 sm:gap-3.5 p-2.5 sm:p-3 rounded-2xl border ${item.borderTint} ${item.bgTint} hover:shadow-xs transition-all duration-150`}
           >
             {/* Left Area: Warm Themed Vector Illustration */}
-            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white/90 border border-slate-200/60 shadow-2xs flex items-center justify-center shrink-0 p-1.5 overflow-hidden">
+            <div class={`w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 rounded-xl ${item.iconBg} border border-white/60 shadow-2xs flex items-center justify-center shrink-0 p-1 overflow-hidden select-none`}>
               {item.id === '30k' && (
                 <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="32" cy="48" rx="22" ry="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
@@ -335,32 +341,32 @@ const bonusItems: BonusItem[] = [
               )}
             </div>
 
-            {/* Middle Area: Title, Quote & Friendly Note */}
-            <div class="flex-1 flex flex-col min-w-0 pr-1">
-              <h3 class="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug">
+            {/* Middle Area: Title, Quote & Friendly Note with generous breathing space */}
+            <div class="flex-1 flex flex-col min-w-0 px-1 sm:px-2">
+              <h3 class="text-xs sm:text-sm md:text-[14.5px] font-bold text-slate-800 tracking-tight leading-snug">
                 {item.amount} <span class="font-normal text-slate-400">—</span> {item.itemName}
               </h3>
 
-              <p class="text-xs sm:text-[12.5px] text-slate-600 leading-snug mt-0.5 sm:mt-1 font-normal line-clamp-2">
+              <p class="text-[11.5px] sm:text-xs text-slate-600 leading-snug mt-0.5 sm:mt-1 font-normal line-clamp-2">
                 {item.quote}
               </p>
 
-              <span class="text-[11px] sm:text-xs text-slate-500 font-normal mt-1 flex items-center gap-1">
+              <span class="text-[10.5px] sm:text-[11.5px] text-slate-500 font-normal mt-0.5 sm:mt-1 flex items-center gap-1">
                 {item.secondary}
               </span>
             </div>
 
-            {/* Right Area: Crisp VietQR Code Card */}
-            <div class="w-20 sm:w-24 shrink-0 bg-white rounded-xl border border-slate-200/90 p-1.5 flex flex-col items-center justify-center shadow-2xs">
-              <div class="w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center relative bg-white">
+            {/* Right Area: Crisp VietQR Code Card in refined soft container */}
+            <div class="w-[70px] sm:w-[82px] shrink-0 bg-white/95 rounded-xl border border-slate-200/70 p-1 sm:p-1.5 flex flex-col items-center justify-center shadow-2xs">
+              <div class="w-13 h-13 sm:w-15 sm:h-15 flex items-center justify-center relative bg-white">
                 <img 
                   id={`qr-img-${item.id}`}
                   src={primarySrc}
                   data-fallback-1={fallbackSrc}
                   data-fallback-2={fallbackRoot}
                   alt={item.qrAlt}
-                  width="72"
-                  height="72"
+                  width="64"
+                  height="64"
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer"
@@ -378,7 +384,7 @@ const bonusItems: BonusItem[] = [
                   `}
                 />
               </div>
-              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400 tracking-tight mt-1 select-none">
+              <span class="text-[9.5px] sm:text-[10.5px] font-semibold text-slate-400 tracking-tight mt-0.5 select-none">
                 {item.qrLabel}
               </span>
             </div>
@@ -388,10 +394,10 @@ const bonusItems: BonusItem[] = [
     </div>
 
     <!-- Closing Gratitude Block matching BYC_BONUS_DESIGN.png -->
-    <div class="rounded-2xl bg-[#f0f7ff] border border-[#d8e9fc] p-3.5 sm:p-4 flex items-center gap-3.5 mt-1 select-none">
+    <div class="rounded-2xl bg-[#f0f7ff]/75 border border-[#d8e9fc]/80 p-3 sm:p-3.5 flex items-center gap-3 mt-0.5 select-none">
       <!-- Heart with sparkle lines -->
       <div class="shrink-0 flex items-center justify-center">
-        <svg viewBox="0 0 36 36" class="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 36 36" class="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6 10L9 13M4 18L8 18M6 26L9 23" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
           <path d="M26 6L24 9M32 10L28 12M33 18L29 18" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
           <path d="M26 19C26 14.5 22.5 12 19 15C15.5 12 12 14.5 12 19C12 24.5 19 30 19 30C19 30 26 24.5 26 19Z" fill="#ef4444"/>
@@ -399,25 +405,25 @@ const bonusItems: BonusItem[] = [
       </div>
 
       <!-- Gratitude text & author attribution -->
-      <div class="flex-1 flex flex-col gap-1">
-        <p class="text-xs sm:text-[13px] text-slate-700 italic leading-relaxed font-normal">
+      <div class="flex-1 flex flex-col gap-0.5">
+        <p class="text-[11.5px] sm:text-xs text-slate-700 italic leading-relaxed font-normal">
           “Mỗi sự ủng hộ, dù nhỏ, đều giúp cuốn sách này đi xa hơn. Cảm ơn bạn đã là một phần của hành trình.”
         </p>
-        <div class="flex items-center justify-end gap-1.5 text-[11px] sm:text-xs text-slate-500 font-medium pt-0.5">
+        <div class="flex items-center justify-end gap-1 text-[10.5px] sm:text-[11.5px] text-slate-500 font-medium">
           <span>— Tác giả Beyond Vibe Coding</span>
-          <svg class="w-3.5 h-3.5 text-[#0284c7]" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-3 h-3 text-[#0284c7]" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17 3C10 3 4 9 4 16C4 18 5 20 6 21C6 17 9 12 14 10C12 12 11 15 11 18C11 19.5 11.5 20.5 12 21C14 21 16 19 18 16C19 14 20 11 20 8C20 6 19 4 17 3Z" fill="currentColor"/>
           </svg>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Close Button -->
-    <div class="flex items-center justify-center pt-2 select-none">
+    <!-- Bottom Close Button (Quiet, non-CTA outline style) -->
+    <div class="flex items-center justify-center pt-1 select-none">
       <button
         id="author-bonus-bottom-close-btn"
         type="button"
-        class="px-12 sm:px-14 py-2.5 rounded-2xl border border-slate-300 text-slate-800 font-semibold text-xs sm:text-sm hover:bg-slate-50 active:bg-slate-100 transition-colors shadow-2xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-tech-blue/30"
+        class="px-10 sm:px-12 py-2 rounded-xl border border-slate-200/90 text-slate-600 hover:text-slate-900 font-medium text-xs sm:text-sm hover:bg-slate-50 active:bg-slate-100 transition-colors shadow-2xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-tech-blue/30"
       >
         Đóng
       </button>
@@ -445,7 +451,7 @@ const bonusItems: BonusItem[] = [
     openBtn?.setAttribute('aria-expanded', 'true');
 
     if (panel) {
-      panel.classList.remove('translate-y-8', 'sm:scale-95');
+      panel.classList.remove('translate-y-6', 'sm:scale-[0.97]');
       panel.classList.add('translate-y-0', 'sm:scale-100');
     }
 
@@ -462,7 +468,7 @@ const bonusItems: BonusItem[] = [
 
     if (panel) {
       panel.classList.remove('translate-y-0', 'sm:scale-100');
-      panel.classList.add('translate-y-8', 'sm:scale-95');
+      panel.classList.add('translate-y-6', 'sm:scale-[0.97]');
     }
 
     openBtn?.focus();
@@ -484,18 +490,22 @@ const bonusItems: BonusItem[] = [
 </script>
 
 <style>
-  /* Custom thin scrollbar for bonus modal */
+  /* Custom unobtrusive thin scrollbar for bonus modal */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+  }
   .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
   .scrollbar-thin::-webkit-scrollbar-track {
     background: transparent;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: rgba(148, 163, 184, 0.25);
     border-radius: 9999px;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: rgba(148, 163, 184, 0.45);
   }
 </style>
