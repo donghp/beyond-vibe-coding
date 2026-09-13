@@ -263,13 +263,13 @@ Software engineering không thể loại bỏ mọi assumption.
 Một số assumption là hợp lý.
 Ví dụ:
 
-> Phiên bản **PostgreSQL** (hệ quản trị cơ sở dữ liệu quan hệ) (hệ quản trị cơ sở dữ liệu quan hệ) được cố định.
+> Phiên bản **PostgreSQL**   được cố định.
 
-> API sử dụng **JSON** (định dạng dữ liệu có cấu trúc thường dùng trong trao đổi giữa các hệ thống) (định dạng dữ liệu có cấu trúc thường dùng trong trao đổi giữa các hệ thống).
+> API sử dụng **JSON**.
 
-> Timezone (múi giờ) của hệ thống được chuẩn hóa.
+> Timezone  của hệ thống được chuẩn hóa.
 
-> File upload (tệp được tải lên hệ thống) giới hạn 20 MB.
+> File upload  giới hạn 20 MB.
 
 Vấn đề không phải:
 
@@ -356,7 +356,7 @@ Security
 Done
 ```
 
-**Security** (an toàn và kiểm soát truy cập) phải xuất hiện ngay từ:
+**Security** phải xuất hiện ngay từ:
 
 ```text
 Requirement
@@ -388,7 +388,7 @@ Hai câu hỏi khác nhau.
 
 ### Data Integrity còn khó chịu hơn
 
-Một **application** (ứng dụng phần mềm) có thể vẫn chạy trong khi dữ liệu đã sai.
+Một **application**  có thể vẫn chạy trong khi dữ liệu đã sai.
 Đây là loại lỗi tôi đặc biệt sợ.
 Ví dụ:
 User thực hiện:
