@@ -170,8 +170,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 15 — NHỮNG LỖI AI KHÔNG NÓI VỚI TÔI',
     shortTitle: 'Những lỗi AI không nói với tôi',
     slug: '15-nhung-loi-ai-khong-noi',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '16-architecture-van-la-trach-nhiem',

@@ -22,11 +22,16 @@ topics: ["product engineering", "outcome", "vertical slice", "validation", "gove
 
 <!-- Canonical structured manuscript. No PDF page coordinates or running chrome are encoded here. -->
 
+<!--
+Prompt-ID: #000029.BVC Chapter 14 Final Editorial Revision
+Prompt-Title: CHƯƠNG 14 - Final Vietnamese Editorial, Terminology & Publishing Revision
+-->
+
 # CHƯƠNG 14
 
 # AI CÓ THỂ VIẾT CODE. NHƯNG AI CÓ ĐANG XÂY SẢN PHẨM KHÔNG?
 
-*Từ Code Generation đến Product Engineering*
+*Từ **Code Generation** (khả năng tạo mã nguồn từ yêu cầu hoặc mô tả) đến **Product Engineering** (cách xây sản phẩm trong đó nhu cầu người dùng, yêu cầu, kỹ thuật và kiểm chứng được nối thành một chuỗi hoàn chỉnh)*
 
 
 
@@ -42,11 +47,11 @@ Một số lỗi được sửa chỉ trong vài phút.
 
 Nhiều màn hình xuất hiện.
 
-Nhiều API được tạo.
+Nhiều **API** (giao diện cho phép các thành phần phần mềm giao tiếp với nhau) được tạo.
 
 Database ngày càng đầy đủ.
 
-Nhìn vào repository, tôi có cảm giác project đang tiến rất nhanh.
+Nhìn vào **repository** (kho chứa source code và lịch sử thay đổi của dự án), tôi có cảm giác project đang tiến rất nhanh.
 
 Nhưng rồi tôi tự hỏi:
 
@@ -62,7 +67,7 @@ Một chức năng có thể đã được implement.
 
 Nhưng user có giải quyết được vấn đề không?
 
-Một workflow có thể chạy.
+Một **workflow** (quy trình sử dụng từ bước đầu đến bước cuối để đạt một kết quả) có thể chạy.
 
 Nhưng có tạo ra kết quả mà người dùng thực sự cần không?
 
@@ -72,7 +77,7 @@ Nhưng người nhận có dùng nó để đưa ra quyết định không?
 
 Một financial model có thể tính được NPV và IRR.
 
-Nhưng assumptions có minh bạch đủ để người sử dụng tin vào kết quả không?
+Nhưng **assumptions** (các giả định và điều kiện đầu vào được sử dụng làm cơ sở cho tính toán hoặc quyết định) có minh bạch đủ để người sử dụng tin vào kết quả không?
 
 Một sơ đồ điện có thể được sinh ra.
 
@@ -80,17 +85,17 @@ Nhưng người dùng có hiểu đúng phạm vi của nó không?
 
 Tôi nhận ra mình đang nhìn thấy một khoảng cách rất lớn:
 
-Code Progress ≠ Product Progress.
+Tiến độ code không đồng nghĩa với tiến độ của sản phẩm.
 
 Đó là lúc tôi bắt đầu bước sang một cách nghĩ khác.
 
 Không còn chỉ là:
 
-Code Generation.
+**Code Generation**.
 
 Mà là:
 
-Product Engineering.
+**Product Engineering**.
 
 ## CODE PROGRESS KHÔNG PHẢI PRODUCT PROGRESS
 
@@ -98,25 +103,25 @@ Product Engineering.
 
 AI tạo code rất nhanh.
 
-Đó chính là một trong những lý do tôi thích Vibe Coding.
+Đó chính là một trong những lý do tôi thích **Vibe Coding** (cách làm việc với AI bằng ngôn ngữ tự nhiên, cho phép thử nghiệm và tạo code rất nhanh).
 
 Tôi có thể mô tả một ý tưởng.
 
-AI biến nó thành component.
+AI biến nó thành **component** (thành phần phần mềm thực hiện một phần chức năng hoặc giao diện).
 
-Một prompt khác.
+Một **prompt** (yêu cầu hoặc chỉ dẫn đưa cho AI) khác.
 
-AI tạo API.
+AI tạo **API**.
 
-Một prompt nữa.
+Một **prompt** nữa.
 
-AI tạo schema.
+AI tạo **schema** (cấu trúc mô tả cách dữ liệu được tổ chức).
 
-Rồi thêm một prompt:
+Rồi thêm một **prompt**:
 
 “Connect everything.”
 
-Sau một thời gian ngắn, repository có thể thay đổi rất nhiều.
+Sau một thời gian ngắn, **repository** có thể thay đổi rất nhiều.
 
 Điều đó tạo ra một cảm giác rất mạnh:
 
@@ -136,7 +141,7 @@ Features ↑
 mà:
 
 ```text
-User Value ↔
+User Value không đổi
 ```
 
 hoặc thậm chí:
@@ -151,47 +156,47 @@ Confusion ↑
 
 Bởi vì AI làm cho output nhìn thấy được tăng lên rất nhanh.
 
-Nhưng product value lại thường nằm ở những thứ khó nhìn thấy hơn.
+Nhưng **product value** (giá trị thực mà sản phẩm tạo ra cho người dùng hoặc tổ chức) lại thường nằm ở những thứ khó nhìn thấy hơn.
 
-### Code là Output. Product là Outcome.
+### Code là **Output** (kết quả hệ thống tạo ra). Product là **Outcome** (kết quả thực tế người dùng nhận được).
 
 Tôi bắt đầu phân biệt hai từ rất rõ.
 
-Output là thứ hệ thống tạo ra.
+**Output** (kết quả được tạo ra bởi hệ thống) là thứ hệ thống tạo ra.
 
-Outcome là kết quả thực tế mà người dùng nhận được.
+**Outcome** (kết quả thực tế mà người dùng nhận được sau khi sử dụng) là kết quả thực tế mà người dùng nhận được.
 
 Ví dụ:
 
-API trả về đúng JSON.
+**API** trả về đúng JSON.
 
 Đó là output.
 
 Nhưng:
 
-Người dùng hoàn thành được workflow nhanh hơn.
+Người dùng hoàn thành được **workflow** nhanh hơn.
 
 Đó mới là outcome.
 
 Một báo cáo được tạo ra.
 
-Output.
+**Output**.
 
 Nhưng khách hàng dùng báo cáo đó để quyết định đầu tư.
 
-Outcome.
+**Outcome**.
 
 Một financial model chạy được.
 
-Output.
+**Output**.
 
 Nhưng mô hình đó giúp người dùng đánh giá dự án tốt hơn.
 
-Outcome.
+**Outcome**.
 
 Một màn hình đẹp được tạo ra.
 
-Output.
+**Output**.
 
 Nhưng user có thực sự hiểu mình cần làm gì tiếp theo không?
 
@@ -199,9 +204,9 @@ Nhưng user có thực sự hiểu mình cần làm gì tiếp theo không?
 
 Từ đó tôi bắt đầu tự nhắc mình:
 
-Do not confuse generated output with delivered value.
+Đừng nhầm kết quả do AI tạo ra với giá trị mà sản phẩm thực sự mang lại.
 
-### Product bắt đầu từ một vấn đề, không phải từ một component
+### Product bắt đầu từ một vấn đề, không phải từ một **component**
 
 Một AI rất dễ bắt đầu bằng câu:
 
@@ -235,9 +240,9 @@ Tôi chỉ có:
 
 UI idea.
 
-Đây là lý do tôi bắt đầu đưa Product Intent lên trước Implementation.
+Đây là lý do tôi bắt đầu đưa **Product Intent** (ý định sản phẩm, điều sản phẩm thực sự muốn đạt được cho người dùng) lên trước Implementation.
 
-### Product Intent
+### **Product Intent**
 
 Tôi dùng một cách rất đơn giản để ép mình quay về câu hỏi gốc.
 
@@ -281,21 +286,21 @@ Nhưng chúng giúp tôi ngăn một điều rất nguy hiểm:
 
 AI tự quyết định product thay tôi.
 
-### AI rất giỏi trả lời câu hỏi “Build how?”
+### AI rất giỏi trả lời câu hỏi “Xây như thế nào?”
 
 Nhưng product thường bắt đầu bằng:
 
-Build what?
+Xây cái gì?
 
 Và trước đó nữa:
 
-Why?
+Tại sao phải xây?
 
 AI có thể rất giỏi:
 
 - chọn framework;
-- viết component;
-- thiết kế API;
+- viết **component**;
+- thiết kế **API**;
 - tạo database;
 - refactor;
 - test.
@@ -317,15 +322,15 @@ AI có thể support product thinking.
 
 Nhưng human intent phải có trước.
 
-### Tôi bắt đầu phân biệt Product Scope và Engineering Scope
+### Tôi bắt đầu phân biệt **Product Scope** (phạm vi sản phẩm, những gì sản phẩm thực sự cam kết làm cho người dùng) và **Engineering Scope** (phạm vi kỹ thuật, những gì hệ thống cần thay đổi để thực hiện yêu cầu sản phẩm)
 
 Đây là một phân biệt rất hữu ích.
 
-Product Scope trả lời:
+**Product Scope** trả lời:
 
 Sản phẩm phải làm được gì cho người dùng?
 
-Engineering Scope trả lời:
+**Engineering Scope** trả lời:
 
 Để làm được điều đó, hệ thống cần thay đổi những gì?
 
@@ -339,13 +344,13 @@ thời gian.
 
 Engineering scope có thể bao gồm:
 
-- input schema;
+- input **schema**;
 - file import;
 - parsing;
 - validation;
 - database storage;
 - calculation;
-- API;
+- **API**;
 - UI;
 - error handling;
 - testing.
@@ -355,7 +360,7 @@ Nhưng nếu product requirement chưa rõ, AI có thể xây một thứ techni
 
 không giải quyết đúng bài toán.
 
-### Tôi không muốn AI tự mở rộng Product Scope
+### Tôi không muốn AI tự mở rộng **Product Scope**
 
 Đây là một vấn đề tôi gặp càng nhiều càng thấy rõ.
 
@@ -383,21 +388,17 @@ Mỗi ý tưởng riêng lẻ đều có vẻ hợp lý.
 
 Nhưng tổng thể:
 
-One Requirement
+Một yêu cầu
 
-```text
 ↓
-```
 
-Many Unrequested Features
+Nhiều chức năng không được yêu cầu
 
-```text
 ↓
-```
 
-Scope Drift
+**Scope Drift** (sự trôi khỏi phạm vi được phê duyệt, khi công việc dần mở rộng sang những thứ ban đầu không được yêu cầu) (sự trôi khỏi phạm vi được phê duyệt)
 
-Đó là Scope Drift.
+Đó là **Scope Drift** (sự trôi khỏi phạm vi được phê duyệt).
 
 AI không làm sai vì nó không đủ thông minh.
 
@@ -407,7 +408,7 @@ Vấn đề là:
 
 Nó tối ưu theo khả năng xây, không nhất thiết theo giá trị product.
 
-### Capability Does Not Create Product Authority
+### Năng lực không đồng nghĩa với quyền quyết định sản phẩm
 
 Đây là một nguyên tắc tôi đã nói ở các chương trước.
 
@@ -427,111 +428,93 @@ Human product intent quyết định.
 
 Đây là cách tôi muốn:
 
-Product Intent
+**Product Intent**
 
-```text
 ↓
-```
 
 Requirement
 
-```text
 ↓
-```
 
-Engineering Task
+**Engineering Task** (công việc kỹ thuật được giao để thực hiện một yêu cầu trong phạm vi đã xác định)
 
-```text
 ↓
-```
 
-Authorization
+**Authorization** (quyền cho phép thực hiện một thay đổi hoặc hành động trong một phạm vi cụ thể)
 
-```text
 ↓
-```
 
-Execution
+Thực thi
 
 Không phải:
 
 AI
 
-```text
 ↓
-```
 
 Build whatever seems useful
 
 ### Tôi muốn AI biết “Why this task exists”
 
-Đây là nơi Context Engineering hỗ trợ Product Engineering.
+Đây là nơi **Context Engineering** (cách cung cấp đúng ngữ cảnh, mục tiêu, ràng buộc và trạng thái để AI thực hiện công việc chính xác) hỗ trợ **Product Engineering**.
 
 Một task tốt không chỉ có:
 
-“Change file X.”
+“Thay đổi file X.”
 
 Nó nên có:
 
-“Task này tồn tại để giải quyết requirement Y cho workflow Z.”
+“Task này tồn tại để giải quyết requirement Y cho **workflow** Z.”
 
 Ví dụ:
 
-Product Goal:
+Mục tiêu sản phẩm:
 
-Reduce manual electricity bill analysis.
+Giảm thời gian và công sức phân tích hóa đơn điện thủ công.
 
-Requirement:
+Yêu cầu:
 
-User can import monthly electricity bills.
+Người dùng có thể nhập hóa đơn điện theo từng tháng.
 
-Task:
+Công việc:
 
-Implement CSV import validation.
+Xây dựng cơ chế kiểm tra dữ liệu khi nhập file CSV.
 
-Why:
+Lý do:
 
-Prevent invalid data from entering the calculation pipeline.
+Ngăn dữ liệu không hợp lệ đi vào chuỗi xử lý tính toán.
 
-Acceptance:
+Điều kiện đạt:
 
-Valid files import successfully.
+File hợp lệ được nhập thành công.
 
-Invalid files return actionable errors.
+File không hợp lệ phải trả về thông báo lỗi đủ rõ để người dùng biết cách xử lý.
 
-Calculation engine remains unchanged.
+Bộ máy tính toán không bị thay đổi ngoài phạm vi đã được phê duyệt.
 
 Khi AI hiểu “why”, nó ít có xu hướng tự ý thay đổi phần không thuộc scope.
 
-### Tôi bắt đầu dùng Vertical Slice
+### Tôi bắt đầu dùng **Vertical Slice** (một lát cắt hoàn chỉnh đi xuyên từ đầu đến cuối của một chức năng hoặc hành trình người dùng)
 
-Một trong những cách tôi thích nhất để tránh việc xây quá nhiều thứ cùng lúc là Vertical Slice.
+Một trong những cách tôi thích nhất để tránh việc xây quá nhiều thứ cùng lúc là **Vertical Slice**.
 
 Thay vì:
 
 Build all UI
 
-```text
 ↓
-```
 
-Build all API
+Build all **API**
 
-```text
 ↓
-```
 
 Build all DB
 
-```text
 ↓
-```
 
 Build all calculations
 
-```text
 ↓
-```
 
 Connect later
 
@@ -539,41 +522,29 @@ Tôi muốn:
 
 One real user problem
 
-```text
 ↓
-```
 
 Input
 
-```text
 ↓
-```
 
 Logic
 
-```text
 ↓
-```
 
 Data
 
-```text
 ↓
-```
 
 UI
 
-```text
 ↓
-```
 
 Verification
 
-```text
 ↓
-```
 
-Real Outcome
+Real **Outcome**
 
 Tức là một lát cắt đi từ đầu đến cuối.
 
@@ -587,27 +558,27 @@ Một vertical slice giúp tôi kiểm tra:
 
 Tôi có thể xây một dashboard rất đẹp.
 
-Nhưng nếu dashboard không đi qua workflow thực tế, nó chỉ là presentation layer.
+Nhưng nếu dashboard không đi qua **workflow** thực tế, nó chỉ là **presentation layer** (lớp trình bày giao diện, chịu trách nhiệm hiển thị thông tin cho người dùng).
 
 Tôi có thể xây một form rất đẹp.
 
-Nhưng nếu dữ liệu từ form không đi vào đúng calculation pipeline, nó chưa phải product
+Nhưng nếu dữ liệu từ form không đi vào đúng **calculation pipeline** (chuỗi xử lý tính toán từ dữ liệu đầu vào đến kết quả cuối cùng), nó chưa phải product
 
 capability hoàn chỉnh.
 
 Tôi có thể xây một report generator.
 
-Nhưng nếu report không có evidence hoặc assumptions rõ ràng, nó có thể tạo ra một false sense
+Nhưng nếu report không có **evidence** (bằng chứng cho thấy một điều đã thực sự xảy ra, đã được kiểm tra hoặc có thể xác minh) hoặc **assumptions** rõ ràng, nó có thể tạo ra một false sense
 
 of certainty.
 
-Product Engineering yêu cầu:
+**Product Engineering** yêu cầu:
 
-The entire user journey works.
+Toàn bộ hành trình sử dụng của người dùng phải hoạt động từ đầu đến cuối.
 
 Không chỉ một màn hình.
 
-### Prototype Trap
+### **Prototype Trap** (cái bẫy khi prototype trông hoàn chỉnh hơn mức độ trưởng thành thật của nó)
 
 AI làm prototype rất nhanh.
 
@@ -615,7 +586,7 @@ AI làm prototype rất nhanh.
 
 Nhưng nó tạo ra một cái bẫy:
 
-Prototype nhìn đủ đẹp để tôi tưởng nó gần production hơn thực tế.
+**Prototype** (bản thử nghiệm nhanh để kiểm tra một ý tưởng hoặc cách tương tác) nhìn đủ đẹp để tôi tưởng nó gần **production** (môi trường và trạng thái thực tế mà người dùng sử dụng sản phẩm) hơn thực tế.
 
 Một prototype có thể có:
 
@@ -637,7 +608,7 @@ Observability ✗
 
 Edge Cases ✗
 
-Prototype trả lời:
+**Prototype** trả lời:
 
 “Ý tưởng này có thể hoạt động như thế nào?”
 
@@ -649,9 +620,9 @@ Hai câu hỏi khác nhau.
 
 ## PRODUCT INTENT, SCOPE VÀ WORKFLOW
 
-### Tôi bắt đầu dùng Product State
+### Tôi bắt đầu dùng **Product State** (trạng thái hiện tại của capability và mức độ hoàn thiện của sản phẩm)
 
-Project State là:
+**Project State** (trạng thái hiện tại của hệ thống và công việc kỹ thuật) là:
 
 hệ thống engineering đang ở đâu.
 
@@ -663,47 +634,33 @@ Ví dụ:
 
 Idea
 
-```text
 ↓
-```
 
 Defined
 
-```text
 ↓
-```
 
 Prototyped
 
-```text
 ↓
-```
 
-Implemented
+**Implemented** (đã triển khai, nghĩa là code cần thiết đã tồn tại)
 
-```text
 ↓
-```
 
-Verified
+**Verified** (đã kiểm chứng, nghĩa là có bằng chứng cho thấy hành vi đáp ứng điều kiện đạt)
 
-```text
 ↓
-```
 
-Released
+**Released** (đã phát hành, nghĩa là thay đổi đã được đưa tới người dùng theo quyền phát hành đã xác định)
 
-```text
 ↓
-```
 
 Observed
 
-```text
 ↓
-```
 
-Validated
+**Validated** (đã được kiểm chứng ở cấp sản phẩm, nghĩa là có bằng chứng cho thấy nó tạo ra kết quả mong muốn)
 
 Một feature có thể:
 
@@ -715,9 +672,9 @@ validated.
 
 Điều đó rất quan trọng.
 
-Bởi vì verification kỹ thuật không chứng minh product-market value.
+Bởi vì **verification** (kiểm tra xem thứ đã xây có đúng với yêu cầu và thiết kế đã đặt ra hay không) kỹ thuật không chứng minh product-market value.
 
-### “Validated” là một trạng thái khác
+### “**Validated**” là một trạng thái khác
 
 Một chức năng có thể vượt qua:
 
@@ -728,22 +685,22 @@ Nhưng user vẫn không sử dụng nó.
 
 Khi đó:
 
-Technically Verified
+Đã được kiểm chứng về kỹ thuật
 
 không có nghĩa:
 
-Product Validated.
+Đã được kiểm chứng ở cấp sản phẩm.
 
 Product validation liên quan tới:
 
-- actual usage;
-- user behavior;
-- workflow completion;
-- feedback;
-- business outcome.
-Tôi không muốn trộn hai loại verification này.
+- **cách sản phẩm thực sự được sử dụng trong thực tế** (cách sản phẩm thực sự được sử dụng trong thực tế);
+- **cách người dùng thực sự tương tác và hành động** (cách người dùng thực sự tương tác và hành động);
+- **workflow** completion;
+- **feedback** (phản hồi từ người sử dụng và các bên liên quan);
+- **kết quả thực tế mà sản phẩm tạo ra cho hoạt động kinh doanh** (kết quả thực tế mà sản phẩm tạo ra cho hoạt động kinh doanh).
+Tôi không muốn trộn hai loại **verification** này.
 
-### Engineering Verification và Product Validation
+### **Engineering Verification** (kiểm tra xem thứ đã xây có đúng với yêu cầu và thiết kế đã đặt ra hay không) và **Product Validation** (kiểm chứng xem sản phẩm có thực sự giải quyết đúng nhu cầu và tạo ra kết quả mong muốn hay không)
 
 Tôi bắt đầu nhìn chúng như hai lớp:
 
@@ -751,21 +708,15 @@ ENGINEERING
 
 Requirement
 
-```text
 ↓
-```
 
 Implementation
 
-```text
 ↓
-```
 
 Evidence
 
-```text
 ↓
-```
 
 Verification
 
@@ -773,27 +724,19 @@ PRODUCT
 
 User Need
 
-```text
 ↓
-```
 
 Workflow
 
-```text
 ↓
-```
 
 Usage
 
-```text
 ↓
-```
 
-Outcome
+**Outcome**
 
-```text
 ↓
-```
 
 Validation
 
@@ -807,7 +750,7 @@ Product hỏi:
 
 Một product tốt cần cả hai.
 
-### AI rất giỏi optimization trong scope. Human phải chọn scope
+### AI rất giỏi tối ưu trong một phạm vi đã được xác định. Con người phải là người chọn phạm vi đó.
 
 đúng
 
@@ -845,13 +788,13 @@ Nhưng tôi phải quyết định:
 
 flow đó có đúng business logic không.
 
-### EnerixFin làm tôi nhìn Product Engineering rất rõ
+### EnerixFin làm tôi nhìn **Product Engineering** rất rõ
 
 EnerixFin không bắt đầu từ:
 
 “Tôi muốn xây một dashboard AI.”
 
-Nó bắt đầu từ một workflow thực tế.
+Nó bắt đầu từ một **workflow** thực tế.
 
 Người dùng có những dữ liệu như:
 
@@ -865,35 +808,27 @@ Từ đó cần đi qua:
 
 Input
 
-```text
 ↓
-```
 
 Analysis
 
-```text
 ↓
-```
 
 Design
 
-```text
 ↓
-```
 
 Economics
 
-```text
 ↓
-```
 
 Proposal
 
-Chính workflow đó mới là product.
+Chính **workflow** đó mới là product.
 
-Code chỉ là cách tôi hiện thực hóa workflow.
+Code chỉ là cách tôi hiện thực hóa **workflow**.
 
-### Một phần mềm Solar/BESS không chỉ là một calculator
+### Một phần mềm Solar/**BESS** (hệ thống lưu trữ năng lượng bằng pin) không chỉ là một calculator
 
 Đây là điều AI rất dễ hiểu sai nếu task không đủ context.
 
@@ -905,77 +840,55 @@ Tôi muốn hỗ trợ một chuỗi công việc:
 
 Customer Data
 
-```text
 ↓
-```
 
 Site Analysis
 
-```text
 ↓
-```
 
 PVOUT
 
-```text
 ↓
-```
 
 Roof Area
 
-```text
 ↓
-```
 
 Solar Capacity
 
-```text
 ↓
-```
 
 Generation
 
-```text
 ↓
-```
 
 Load Analysis
 
-```text
 ↓
-```
 
-BESS Concept
+**BESS** Concept
 
-```text
 ↓
-```
 
 CAPEX
 
-```text
 ↓
-```
 
 Cash Flow
 
-```text
 ↓
-```
 
 Investment Analysis
 
-```text
 ↓
-```
 
 Proposal
 
-Nếu tôi chỉ hoàn thành các calculator riêng lẻ, tôi có nhiều technical features.
+Nếu tôi chỉ hoàn thành các calculator riêng lẻ, tôi có nhiều **technical features** (các chức năng kỹ thuật được xây dựng ở cấp hệ thống nhưng chưa chắc tạo thành một quy trình sản phẩm hoàn chỉnh).
 
-Nhưng chưa chắc tôi có một product workflow hoàn chỉnh.
+Nhưng chưa chắc tôi có một product **workflow** hoàn chỉnh.
 
-### Workflow Completion mới là thứ tôi quan tâm
+### **Workflow Completion** (khả năng hoàn tất trọn vẹn một quy trình từ đầu đến cuối) mới là thứ tôi quan tâm
 
 Tôi bắt đầu tự hỏi:
 
@@ -999,7 +912,7 @@ Nếu một bước bị đứt, product chưa hoàn chỉnh dù mỗi module ri
 
 Đây là lý do:
 
-Feature completeness ≠ Workflow completeness.
+**Feature completeness** (mức độ một chức năng đã được triển khai đủ các phần cần thiết theo yêu cầu) (mức độ một chức năng đã được triển khai đủ các phần cần thiết theo yêu cầu) không đồng nghĩa với **Workflow completeness** (mức độ toàn bộ quy trình sử dụng đã hoàn chỉnh, không bị đứt ở giữa) (mức độ toàn bộ quy trình sử dụng đã hoàn chỉnh, không bị đứt ở giữa).
 
 ### Tôi không muốn AI xây “feature cemetery”
 
@@ -1013,7 +926,7 @@ Cuối cùng có thể có hàng chục feature mà user rất ít dùng.
 
 Tôi gọi đó là:
 
-Feature Cemetery.
+**Feature Cemetery** (nghĩa trang tính năng, tức những tính năng đã được xây nhưng hầu như không được sử dụng hoặc không tạo ra giá trị).
 
 Feature tồn tại.
 
@@ -1023,21 +936,21 @@ UI tồn tại.
 
 Nhưng value không tồn tại.
 
-Đây là một dạng technical debt rất đặc biệt:
+Đây là một dạng **technical debt** (nợ kỹ thuật, phần chi phí sửa chữa hoặc duy trì phát sinh từ những lựa chọn kỹ thuật chưa tốt hoặc giải pháp tạm thời) rất đặc biệt:
 
-Product Debt.
+**Product Debt** (khoản nợ của chính sản phẩm, phát sinh khi sản phẩm tiếp tục mang những quyết định, tính năng hoặc hành vi chưa chứng minh được giá trị hoặc không còn phù hợp với nhu cầu thực tế).
 
-### Product Debt
+### **Product Debt**
 
-Technical Debt thường là:
+**Technical Debt** (nợ kỹ thuật, phần chi phí sửa chữa hoặc duy trì phát sinh từ những lựa chọn kỹ thuật chưa tốt hoặc giải pháp tạm thời) thường là:
 
 “Chúng ta biết code này chưa tốt.”
 
-Product Debt có thể là:
+**Product Debt** có thể là:
 
 “Chúng ta đã xây thứ này nhưng chưa biết nó có thực sự cần không.”
 
-Product Debt nguy hiểm vì AI làm chi phí xây feature thấp.
+**Product Debt** nguy hiểm vì AI làm chi phí xây feature thấp.
 
 Khi chi phí build giảm mạnh, con người dễ xây quá nhiều.
 
@@ -1049,23 +962,23 @@ Vì vậy tôi cần discipline để nói:
 
 Không phải feature nào AI có thể xây cũng đáng xây.
 
-### “Build Fast” không có nghĩa “Build Everything”
+### “Xây nhanh” không có nghĩa “Xây mọi thứ”
 
 Tôi vẫn muốn tốc độ.
 
 Nhưng tôi muốn:
 
-Fast learning.
+**Fast learning** (học nhanh từ phản hồi và kết quả thực tế).
 
 chứ không phải:
 
-Fast accumulation.
+**Fast accumulation** (tích lũy rất nhanh code, tính năng và độ phức tạp mà chưa chắc đã tạo thêm giá trị).
 
-Prototype nhanh.
+**Prototype** nhanh.
 
-Test hypothesis nhanh.
+**Test hypothesis** (kiểm tra một giả thuyết bằng một thử nghiệm có mục đích rõ ràng) nhanh.
 
-Thu feedback nhanh.
+Thu **feedback** nhanh.
 
 Loại bỏ nhanh.
 
@@ -1073,57 +986,43 @@ Giữ lại thứ có value.
 
 Đó là một kiểu tốc độ khác.
 
-### Product Engineering cần Feedback Loop
+### **Product Engineering** cần **Feedback Loop** (vòng lặp lấy phản hồi từ việc sử dụng để học, thay đổi và kiểm chứng lại)
 
 Một product thật phải có:
 
 Build
 
-```text
 ↓
-```
 
 Use
 
-```text
 ↓
-```
 
 Observe
 
-```text
 ↓
-```
 
 Learn
 
-```text
 ↓
-```
 
-Change
+Thay đổi
 
-```text
 ↓
-```
 
 Verify
 
-```text
 ↓
-```
 
-Release
+Phát hành
 
-```text
 ↓
-```
 
 Use again
 
 AI làm cho đoạn:
 
-Build → Change
+Build → Thay đổi
 
 rất nhanh.
 
@@ -1139,17 +1038,17 @@ Không phải product development.
 
 Đây là một bước suy nghĩ khá mạnh đối với tôi.
 
-Code verification có thể nói:
+Code **verification** có thể nói:
 
 “Function works.”
 
-Nhưng user feedback có thể nói:
+Nhưng user **feedback** có thể nói:
 
-“Function này khiến workflow chậm hơn.”
+“Function này khiến **workflow** chậm hơn.”
 
 Hai điều đều có thể đúng.
 
-Vì vậy product verification không thể hoàn toàn tách khỏi user reality.
+Vì vậy product **verification** không thể hoàn toàn tách khỏi user reality.
 
 Tôi không muốn:
 
@@ -1159,7 +1058,7 @@ là phản ứng đầu tiên.
 
 Nếu nhiều user cùng dùng “sai”, có thể product đang truyền đạt sai.
 
-### AI không tự động hiểu User Intent
+### AI không tự động hiểu **User Intent** (ý định của người dùng, tức điều họ thực sự muốn đạt được khi sử dụng hệ thống)
 
 AI có thể suy đoán user intent.
 
@@ -1179,35 +1078,29 @@ Vì vậy cần:
 
 AI Interpretation
 
-```text
 ↓
-```
 
 Validation
 
-```text
 ↓
-```
 
 Evidence
 
-```text
 ↓
-```
 
 User Confirmation where required
 
-Đây là Controlled Intelligence.
+Đây là **Controlled Intelligence** (năng lực AI được vận hành trong phạm vi, quyền hạn và điều kiện đã được kiểm soát).
 
-### Recommendation không phải Decision
+### **Recommendation** (đề xuất dựa trên phân tích, chưa phải quyết định) không phải Quyết định
 
 EnerixFin có thể đề xuất:
 
-- sizing;
-- configuration;
-- economic scenarios;
+- **sizing** (xác định quy mô hoặc dung lượng phù hợp cho một hệ thống);
+- **configuration** (xác định các thông số và cách cấu hình để hệ thống hoạt động);
+- **economic scenarios** (các kịch bản kinh tế dùng để đánh giá kết quả dưới những giả định khác nhau);
 - options.
-Nhưng recommendation không đồng nghĩa decision.
+Nhưng recommendation không đồng nghĩa **decision** (quyết định chính thức có trách nhiệm và thẩm quyền).
 
 Ví dụ:
 
@@ -1225,19 +1118,19 @@ AI có thể hỗ trợ phân tích.
 
 Authority cho quyết định vẫn thuộc về con người hoặc tổ chức có thẩm quyền.
 
-### Preliminary Engineering không phải Issued Engineering
+### **Preliminary Engineering** (thiết kế kỹ thuật sơ bộ, dùng để nghiên cứu, đánh giá và hình thành phương án ban đầu) không phải **Issued Engineering** (bộ thiết kế kỹ thuật đã được phát hành chính thức để làm cơ sở thực hiện)
 
 Đây cũng là một ranh giới tôi muốn giữ.
 
 AI có thể hỗ trợ:
 
-preliminary electrical concept.
+**preliminary electrical concept** (phương án điện sơ bộ, mô tả cách hệ thống điện dự kiến được tổ chức trước khi thiết kế chính thức).
 
 Có thể hỗ trợ:
 
 - SLD concept;
 - integration concept;
-- preliminary sizing;
+- preliminary **sizing**;
 - calculation.
 Nhưng điều đó không tự động biến output thành:
 
@@ -1245,15 +1138,15 @@ hồ sơ thiết kế được phê duyệt;
 
 hay:
 
-Issued-for-Construction engineering.
+**Issued-for-Construction engineering** (bộ hồ sơ thiết kế đã được phát hành chính thức để sử dụng cho thi công).
 
 Scope của product phải được nói rõ.
 
-AI càng giỏi, boundary này càng quan trọng.
+AI càng giỏi, **boundary** (ranh giới xác định phần nào thuộc phạm vi được phép xử lý và phần nào nằm ngoài phạm vi đó) này càng quan trọng.
 
 Bởi vì output càng đẹp thì người dùng càng dễ tin rằng nó có authority cao hơn thực tế.
 
-### Tôi nhận ra Product Engineering cần “Truth Labels”
+### Tôi nhận ra **Product Engineering** cần “**Truth Labels** (nhãn trạng thái sự thật, cho biết một thông tin đang là giả định, đề xuất, minh họa, đã kiểm chứng hay đã được phê duyệt)”
 
 Tôi muốn người sử dụng biết output đang ở cấp độ nào.
 
@@ -1263,11 +1156,11 @@ Actual
 
 Kết quả thực tế đã được thực hiện.
 
-Illustrative
+**Illustrative** (mang tính minh họa, dùng để giúp người đọc hình dung chứ không phải kết quả hoặc thiết kế chính thức)
 
 Ví dụ minh họa.
 
-Target Capability
+Target **Capability** (khả năng mà sản phẩm cung cấp cho người dùng)
 
 Khả năng dự kiến.
 
@@ -1275,7 +1168,7 @@ Reference Example
 
 Ví dụ tham chiếu.
 
-Author Interpretation
+**Author Interpretation** (diễn giải của tác giả, tức cách tác giả hiểu hoặc rút ra ý nghĩa từ thông tin nguồn)
 
 Diễn giải của tác giả.
 
@@ -1283,7 +1176,7 @@ Diễn giải của tác giả.
 
 Nó cũng là tư duy tốt khi xây product có AI.
 
-The clearer the provenance, the safer the trust.
+The clearer the **provenance** (nguồn gốc và quá trình hình thành của một thông tin, để có thể truy ngược nó đến đâu), the safer the trust.
 
 ### Product Trust không đến từ giao diện đẹp
 
@@ -1293,13 +1186,13 @@ Nhưng confidence không phải trust.
 
 Trust cần:
 
-- provenance;
-- assumptions;
-- evidence;
-- consistency;
-- verification;
-- predictable behavior.
-Đặc biệt trong các workflow liên quan đến financial analysis hoặc engineering, “trông chuyên
+- **provenance**;
+- **assumptions**;
+- **evidence**;
+- **consistency** (tính nhất quán, để cùng một thông tin hoặc quy tắc không bị diễn giải khác nhau);
+- **verification**;
+- **predictable behavior** (hành vi có thể dự đoán được khi đầu vào và điều kiện tương đương).
+Đặc biệt trong các **workflow** liên quan đến financial analysis hoặc engineering, “trông chuyên
 
 nghiệp” không được trở thành bằng chứng duy nhất.
 
@@ -1307,9 +1200,9 @@ Một con số có font đẹp vẫn có thể sai.
 
 ## PRODUCT STATE, VALIDATION VÀ EVIDENCE
 
-### Product Requirement phải có Acceptance Criteria
+### **Product Requirement** (yêu cầu sản phẩm, mô tả điều sản phẩm cần làm hoặc cần đạt được để giải quyết một nhu cầu) phải có **Acceptance Criteria** (các điều kiện cụ thể dùng để xác định một yêu cầu đã đạt hay chưa)
 
-Tôi bắt đầu thấy Acceptance Criteria quan trọng hơn việc viết prompt dài.
+Tôi bắt đầu thấy **Acceptance Criteria** quan trọng hơn việc viết **prompt** dài.
 
 Ví dụ:
 
@@ -1321,41 +1214,31 @@ Acceptance:
 
 Valid file
 
-```text
 ↓
-```
 
 Accepted
 
 Invalid file
 
-```text
 ↓
-```
 
 Rejected with actionable error
 
 Duplicate
 
-```text
 ↓
-```
 
 Handled according to rule
 
 Accepted data
 
-```text
 ↓
-```
 
 Persisted
 
 Calculation
 
-```text
 ↓
-```
 
 Unaffected outside approved scope
 
@@ -1381,39 +1264,31 @@ Tôi hỏi:
 
 “Tests đó đang chứng minh requirement nào?”
 
-Nếu không trả lời được, tôi vẫn chưa có product verification đầy đủ.
+Nếu không trả lời được, tôi vẫn chưa có product **verification** đầy đủ.
 
 Từ đó tôi thích chain:
 
 REQUIREMENT
 
-```text
 ↓
-```
 
 IMPLEMENTATION
 
-```text
 ↓
-```
 
 EVIDENCE
 
-```text
 ↓
-```
 
 VERIFICATION
 
-```text
 ↓
-```
 
 STATE TRANSITION
 
 Đây chính là một trong những arrow flows quan trọng của hệ thống tôi.
 
-### Test Coverage không phải Requirement Coverage
+### **Test Coverage** (tỷ lệ phần code hoặc logic được kiểm thử) không phải **Requirement Coverage** (mức độ các yêu cầu đã được kiểm tra đầy đủ)
 
 Một hệ thống có 90% test coverage vẫn có thể thiếu một requirement quan trọng.
 
@@ -1423,13 +1298,13 @@ tính toán đúng.
 
 Nhưng:
 
-không hiển thị assumptions.
+không hiển thị **assumptions**.
 
 Test coverage có thể cao.
 
 Requirement coverage vẫn thiếu.
 
-Vì vậy product verification phải đi từ:
+Vì vậy product **verification** phải đi từ:
 
 Requirement.
 
@@ -1441,25 +1316,25 @@ Code.
 
 Một task có thể:
 
-Implemented
+**Implemented**
 
 Code đã tồn tại.
 
-Verified
+**Verified**
 
-Có evidence cho thấy behavior đáp ứng acceptance criteria.
+Có **evidence** cho thấy behavior đáp ứng acceptance criteria.
 
-Released
+**Released**
 
 Thay đổi đã được đưa tới user theo release authority.
 
-Adopted
+**Adopted** (được chấp nhận sử dụng, nghĩa là người dùng thực sự sử dụng)
 
 User thực sự sử dụng.
 
-Validated
+**Validated**
 
-Có evidence cho thấy nó tạo ra intended outcome.
+Có **evidence** cho thấy nó tạo ra intended outcome.
 
 Đó là năm tầng rất khác nhau.
 
@@ -1473,33 +1348,33 @@ Done
 
 AI cực mạnh ở:
 
-Implemented.
+**Implemented**.
 
 Nó cũng có thể hỗ trợ:
 
-Verified.
+**Verified**.
 
 AI có thể hỗ trợ:
 
-Release preparation.
+Phát hành preparation.
 
 Nhưng:
 
-Adopted.
+**Adopted**.
 
 và:
 
-Validated.
+**Validated**.
 
 cần user reality.
 
-Đó là phần mà không một prompt nào có thể thay thế.
+Đó là phần mà không một **prompt** nào có thể thay thế.
 
 ### Product không kết thúc khi code được merge
 
 Đây là một trong những câu tôi muốn giữ lại.
 
-Merge is not product completion.
+Merge không phải là hoàn thành sản phẩm.
 
 Merge chỉ là một engineering event.
 
@@ -1507,29 +1382,21 @@ Sau đó:
 
 Deploy
 
-```text
 ↓
-```
 
-Release
+Phát hành
 
-```text
 ↓
-```
 
 Observe
 
-```text
 ↓
-```
 
 User
 
-```text
 ↓
-```
 
-Outcome
+**Outcome**
 
 Nếu user không nhận được value:
 
@@ -1541,7 +1408,7 @@ Tôi không muốn giới hạn AI chỉ ở coding.
 
 AI có thể:
 
-- phân tích feedback;
+- phân tích **feedback**;
 - tìm patterns trong usage;
 - đề xuất requirements;
 - implement;
@@ -1549,15 +1416,15 @@ AI có thể:
 - diagnose;
 - document;
 - prepare releases.
-Nhưng tôi muốn mọi bước đều có boundary.
+Nhưng tôi muốn mọi bước đều có **boundary**.
 
 AI không tự biến:
 
-feedback
+**feedback**
 
 thành:
 
-product decision.
+product **decision**.
 
 Nó tạo:
 
@@ -1565,55 +1432,41 @@ proposal.
 
 Con người hoặc policy chuyển:
 
-proposal → decision.
+proposal → **decision**.
 
-### Đây là nơi Product Engineering và Governance gặp nhau
+### Đây là nơi **Product Engineering** và Governance gặp nhau
 
 Một feature đi qua:
 
 Idea
 
-```text
 ↓
-```
 
 Proposal
 
-```text
 ↓
-```
 
-Decision
+Quyết định
 
-```text
 ↓
-```
 
 Requirement
 
-```text
 ↓
-```
 
 Task
 
-```text
 ↓
-```
 
 Implementation
 
-```text
 ↓
-```
 
 Verification
 
-```text
 ↓
-```
 
-Release
+Phát hành
 
 Mỗi transition có một loại authority khác nhau.
 
@@ -1621,7 +1474,7 @@ AI có thể hỗ trợ hầu hết các bước.
 
 Nhưng authority không mặc định đi theo capability.
 
-### Tôi muốn Product Governance nhẹ nhưng rõ
+### Tôi muốn **Product Governance** (quản trị sản phẩm, tức cách xác định quyền quyết định, mức kiểm soát và điều kiện thay đổi sản phẩm) nhẹ nhưng rõ
 
 Không phải mọi feature cần một cuộc họp.
 
@@ -1633,7 +1486,7 @@ Một thay đổi liên quan tới:
 - customer data;
 - financial results;
 - security;
-- critical workflow
+- critical **workflow**
 cần nhiều control hơn.
 
 Đó là:
@@ -1660,7 +1513,7 @@ Risk cao.
 
 Hoặc:
 
-thay đổi logic BESS degradation.
+thay đổi **logic BESS degradation** (quy tắc và mô hình mô tả cách khả năng của hệ thống pin **BESS** suy giảm theo thời gian và mức sử dụng).
 
 Risk cao hơn nữa nếu result đi vào investment proposal.
 
@@ -1688,7 +1541,7 @@ AI không được tự thay chỉ vì formula mới “cleaner”.
 
 Đây là:
 
-Business Rule Authority.
+**Business Rule Authority** (quyền xác định và bảo vệ những quy tắc nghiệp vụ mà hệ thống phải tuân theo).
 
 ### Product Knowledge phải có Authority
 
@@ -1708,7 +1561,7 @@ Superseded Requirement
 
 AI phải biết cái nào là authoritative.
 
-Đây là Semantic Authority áp dụng vào product.
+Đây là **Semantic Authority** (xác định nguồn thông tin nào có quyền được xem là đúng trong một ngữ cảnh cụ thể) áp dụng vào product.
 
 ### “Latest Requirement” không nhất thiết là “Approved Requirement”
 
@@ -1740,9 +1593,9 @@ Vì vậy knowledge manifest phải giúp resolve:
 
 current product authority.
 
-### Tôi bắt đầu coi “Product Context” là một artifact riêng
+### Tôi bắt đầu coi “**Product Context** (bộ thông tin mô tả sản phẩm hiện tại, người dùng, mục tiêu, **workflow**, giới hạn, quy tắc và trạng thái)” là một artifact riêng
 
-Product Context có thể chứa:
+**Product Context** có thể chứa:
 
 Current Product Goal
 
@@ -1758,7 +1611,7 @@ Out-of-Scope Areas
 
 Business Rules
 
-Current Release
+Current Phát hành
 
 Open Product Questions
 
@@ -1766,7 +1619,7 @@ AI mới không phải đoán.
 
 Nó được load context.
 
-### Product Context không phải Marketing Copy
+### **Product Context** không phải Marketing Copy
 
 Một trang:
 
@@ -1774,21 +1627,21 @@ Một trang:
 
 không đủ để AI build.
 
-Product Context phải cụ thể:
+**Product Context** phải cụ thể:
 
-User A cần workflow X.
+User A cần **workflow** X.
 
 Input là Y.
 
 Rule Z.
 
-Output Q.
+**Output** Q.
 
 Constraint C.
 
 Không được làm R.
 
-Đó là engineering-grade product context.
+Đó là **engineering-grade product context** (ngữ cảnh sản phẩm đủ cụ thể để kỹ thuật và AI có thể thực hiện mà không phải tự đoán).
 
 ### Tôi không muốn biến Book thành brochure về EnerixFin
 
@@ -1804,15 +1657,15 @@ mọi capability đã hoàn thiện.
 
 Tôi phải luôn phân biệt:
 
-Actual Output
+Actual **Output**
 
 và:
 
-Target Capability.
+Target **Capability**.
 
-Điều này cũng chính là Product Truth.
+Điều này cũng chính là **Product Truth** (trạng thái thông tin được coi là đúng của sản phẩm tại một thời điểm và trong một phạm vi nhất định).
 
-### Product Engineering đòi hỏi biết nói “chưa có”
+### **Product Engineering** đòi hỏi biết nói “chưa có”
 
 Một sản phẩm đáng tin không cần giả vờ hoàn chỉnh.
 
@@ -1850,9 +1703,9 @@ polished explanation.
 
 Nhưng:
 
-polish ≠ maturity.
+**polish** (mức độ chỉn chu về hình thức) ≠ maturity.
 
-Một product tốt cần evidence.
+Một product tốt cần **evidence**.
 
 ### “Demo Success” là một trạng thái rất nguy hiểm
 
@@ -1860,13 +1713,13 @@ Demo chạy:
 
 success.
 
-Nhưng production workflow:
+Nhưng **production** **workflow**:
 
 unknown.
 
 Đó là lý do tôi muốn test theo:
 
-real workflow.
+real **workflow**.
 
 Không phải chỉ:
 
@@ -1886,47 +1739,39 @@ người dùng kiểm tra.
 
 output được sử dụng.
 
-Đó là evidence mạnh hơn:
+Đó là **evidence** mạnh hơn:
 
 “AI said everything works.”
 
-### Product Engineering làm tôi quay lại Principle của Chương 11
+### **Product Engineering** làm tôi quay lại Principle của Chương 11
 
 Tôi từng nói:
 
-Done is a claim. Verified is a state.
+**Done** (tuyên bố rằng công việc đã hoàn thành, chưa tự chứng minh mức độ kiểm chứng) là một **claim** (tuyên bố về trạng thái hoặc kết quả); **Verified** (đã có bằng chứng cho thấy hành vi đáp ứng điều kiện kiểm chứng) là một **state** (trạng thái được ghi nhận trong hệ thống).
 
 Chương này bổ sung một tầng nữa:
 
-Verified does not automatically mean Valuable.
+Đã được kiểm chứng không tự động có nghĩa là có giá trị thực.
 
 Vì:
 
 Done
 
-```text
 ↓
-```
 
-Verified
+**Verified**
 
-```text
 ↓
-```
 
-Released
+**Released**
 
-```text
 ↓
-```
 
 Used
 
-```text
 ↓
-```
 
-Validated
+**Validated**
 
 Mỗi trạng thái có ý nghĩa riêng.
 
@@ -1938,7 +1783,7 @@ prototype UI,
 
 AI không nên nghĩ:
 
-production ready.
+**production** ready.
 
 Nếu task là:
 
@@ -1950,11 +1795,11 @@ product validated.
 
 Nếu test pass:
 
-không đồng nghĩa user outcome đã verified.
+không đồng nghĩa **user outcome** (kết quả thực tế người dùng nhận được) đã được kiểm chứng.
 
 Context và State phải làm rõ tầng này.
 
-### Đây là lúc “Product State” trở thành một phần của Project
+### Đây là lúc “**Product State**” trở thành một phần của Project
 
 State
 
@@ -1982,18 +1827,18 @@ Cấu trúc như vậy giúp tôi tránh một trong những lỗi nguy hiểm n
 
 nhìn code và tưởng sản phẩm đã hoàn thành.
 
-### Tôi không muốn Product Engineering giết Vibe Coding
+### Tôi không muốn **Product Engineering** giết **Vibe Coding**
 
 Ngược lại.
 
-Vibe Coding rất hữu ích ở giai đoạn:
+**Vibe Coding** rất hữu ích ở giai đoạn:
 
 exploration.
 
 Tôi có thể thử:
 
 - UI;
-- workflow;
+- **workflow**;
 - interaction;
 - concept.
 Nhanh.
@@ -2004,9 +1849,9 @@ engineering discipline bắt đầu.
 
 Đó là:
 
-Fast Exploration. Disciplined Commitment.
+Khám phá nhanh. Cam kết có kỷ luật.
 
-### Prototype có thể chết
+### **Prototype** có thể chết
 
 Đây là một nguyên tắc rất lành mạnh.
 
@@ -2018,15 +1863,15 @@ Tôi không cần giữ cả 5.
 
 Tôi có thể:
 
-Prototype A → Reject
+**Prototype** A → Reject
 
-Prototype B → Reject
+**Prototype** B → Reject
 
-Prototype C → Learn
+**Prototype** C → Learn
 
-Prototype D → Keep
+**Prototype** D → Keep
 
-Prototype E → Merge idea
+**Prototype** E → Merge idea
 
 Đó là product discovery.
 
@@ -2042,9 +1887,9 @@ Vì prototype cost thấp, tôi có thể cho phép một số exploration artif
 
 Đừng promoted prototype thành core architecture mà không có lý do.
 
-Prototype chỉ trở thành trusted product code sau khi pass promotion criteria.
+**Prototype** chỉ trở thành trusted product code sau khi pass **promotion criteria** (các điều kiện dùng để quyết định một prototype có đủ tốt và đủ an toàn để đưa vào sản phẩm chính thức).
 
-### Promotion
+### **Promotion** (quá trình nâng một prototype từ trạng thái thử nghiệm lên trạng thái được chấp nhận cho sản phẩm chính thức)
 
 Một prototype có thể được promote khi:
 
@@ -2053,7 +1898,7 @@ Một prototype có thể được promote khi:
 - architecture phù hợp;
 - security phù hợp;
 - test đủ;
-- evidence có;
+- **evidence** có;
 - scope được chấp nhận;
 - owner rõ.
 Đó là một transition.
@@ -2068,29 +1913,21 @@ Tôi thích từ này vì nó mô tả đúng quá trình:
 
 Experimental
 
-```text
 ↓
-```
 
 Evaluated
 
-```text
 ↓
-```
 
-Verified
+**Verified**
 
-```text
 ↓
-```
 
 Promoted
 
-```text
 ↓
-```
 
-Trusted Product Capability
+Trusted Product **Capability**
 
 AI có thể làm nhanh phần experimental.
 
@@ -2102,19 +1939,19 @@ Nếu tôi cứ lấy prototype ghép lại, architecture sẽ drift.
 
 Một feature prototype tốt vẫn có thể có:
 
-wrong boundary.
+**wrong boundary** (ranh giới kiến trúc được đặt sai).
 
 Do đó:
 
-Prototype may prove behavior without proving architecture.
+**Prototype** may prove behavior without proving architecture.
 
 Đây là lý do Chapter 16 sẽ nói sâu hơn về architecture responsibility.
 
-### Nhưng Product Engineering phải phát hiện vấn đề trước
+### Nhưng **Product Engineering** phải phát hiện vấn đề trước
 
 Architecture Review
 
-Nếu workflow đã sai, architecture review không cứu được.
+Nếu **workflow** đã sai, architecture review không cứu được.
 
 Ví dụ:
 
@@ -2122,57 +1959,45 @@ user không cần chức năng này.
 
 Không có architecture nào làm nó trở thành product tốt.
 
-Đây là reason Product Intent phải đi trước Architecture Commitment.
+Đây là reason **Product Intent** phải đi trước Architecture Commitment.
 
 ## PRODUCT GOVERNANCE, AUTHORITY VÀ CONTROLLED AUTONOMY
 
-### Tôi muốn Product Engineering dẫn đường cho AI Engineering
+### Tôi muốn **Product Engineering** dẫn đường cho AI Engineering
 
 Không phải ngược lại.
 
 Sai:
 
-AI Capability
+AI **Capability**
 
-```text
 ↓
-```
 
 Feature
 
-```text
 ↓
-```
 
 Product
 
 Đúng hơn:
 
-User Problem
+Vấn đề của người dùng
 
-```text
 ↓
-```
 
-Product Outcome
+Product **Outcome**
 
-```text
 ↓
-```
 
 Requirement
 
-```text
 ↓
-```
 
-Engineering Task
+**Engineering Task**
 
-```text
 ↓
-```
 
-AI Execution
+AI Thực thi
 
 AI nằm sau product intent.
 
@@ -2212,7 +2037,7 @@ Không phải mọi task đều tạo user-visible feature.
 
 Nhưng mọi task quan trọng đều nên có reason.
 
-### Có những task chỉ tạo “Product Health”
+### Có những task chỉ tạo “**Product Health** (tình trạng sức khỏe của sản phẩm về độ tin cậy, an toàn, khả năng vận hành và tính bền vững)”
 
 Một refactor không tạo feature.
 
@@ -2232,13 +2057,13 @@ Nhưng:
 
 giúp phát hiện incident.
 
-Vì vậy Product Progress không chỉ là feature count.
+Vì vậy **Product Progress** (mức độ sản phẩm tiến gần hơn tới việc tạo ra kết quả có giá trị cho người dùng) không chỉ là feature count.
 
 Nó gồm:
 
-capability + reliability + trust + operational readiness.
+capability + reliability + trust + **operational readiness** (mức độ sản phẩm sẵn sàng vận hành trong môi trường thực tế).
 
-### Tôi muốn AI hiểu cả non-feature work
+### Tôi muốn AI hiểu cả **non-feature work** (công việc không trực tiếp tạo thêm chức năng giao diện nhưng bảo vệ độ tin cậy, dữ liệu, bảo mật hoặc khả năng vận hành)
 
 Nếu task là:
 
@@ -2252,7 +2077,7 @@ Nó phải hiểu:
 
 đây là trust/control capability.
 
-Đó là lý do Product Context cần bao gồm:
+Đó là lý do **Product Context** cần bao gồm:
 
 risk và responsibility.
 
@@ -2268,9 +2093,9 @@ Nó có thể:
 - giảm security risk;
 - tăng confidence;
 - tăng recovery ability.
-Product Engineering cần nhìn cả những giá trị này.
+**Product Engineering** cần nhìn cả những giá trị này.
 
-### Tôi bắt đầu nhìn AI như một Product Development Multiplier
+### Tôi bắt đầu nhìn AI như một **Product Development Multiplier** (năng lực làm tăng tốc độ và hiệu quả phát triển sản phẩm, chứ không tự sở hữu quyền quyết định sản phẩm)
 
 Không phải:
 
@@ -2278,7 +2103,7 @@ Product Creator.
 
 AI có thể làm tốc độ:
 
-Idea → Prototype
+Idea → **Prototype**
 
 rất nhanh.
 
@@ -2310,11 +2135,11 @@ AI sau đó có thể giúp tôi sửa.
 
 Đó là:
 
-AI-accelerated learning loop.
+**AI-accelerated learning loop** (vòng lặp học tập được tăng tốc nhờ AI).
 
 Và đây có thể là giá trị lớn hơn cả coding speed.
 
-### Product Engineering là quá trình giảm uncertainty
+### **Product Engineering** là quá trình giảm uncertainty
 
 Khi bắt đầu:
 
@@ -2328,11 +2153,11 @@ Sau usage:
 
 Tôi hiểu thêm.
 
-Sau feedback:
+Sau **feedback**:
 
 Tôi hiểu thêm.
 
-Sau production:
+Sau **production**:
 
 Tôi hiểu thêm.
 
@@ -2340,39 +2165,29 @@ Vì vậy product development là:
 
 Uncertainty
 
-```text
 ↓
-```
 
 Experiment
 
-```text
 ↓
-```
 
 Evidence
 
-```text
 ↓
-```
 
-Learning
+Điều học được
 
-```text
 ↓
-```
 
-Decision
+Quyết định
 
-```text
 ↓
-```
 
 Build
 
 AI làm experiment và build nhanh hơn.
 
-Nhưng evidence và decision vẫn phải được coi trọng.
+Nhưng **evidence** và **decision** vẫn phải được coi trọng.
 
 ### Tôi không muốn AI thay uncertainty bằng confidence giả
 
@@ -2388,7 +2203,7 @@ Nhưng “best” trong product context phụ thuộc vào:
 
 - user;
 - market;
-- workflow;
+- **workflow**;
 - constraint;
 - business model.
 AI có thể đưa:
@@ -2397,13 +2212,13 @@ recommendation.
 
 Không nên tự động biến recommendation thành truth.
 
-### Product Engineering cũng là Evidence Engineering
+### **Product Engineering** cũng là Evidence Engineering
 
 Mỗi product assumption nên có nơi để kiểm chứng.
 
 Ví dụ:
 
-User will prefer workflow A.
+User will prefer **workflow** A.
 
 Evidence:
 
@@ -2421,25 +2236,25 @@ Evidence:
 
 domain validation / approved methodology.
 
-Tôi càng phân biệt assumption với evidence, product càng đáng tin.
+Tôi càng phân biệt assumption với **evidence**, product càng đáng tin.
 
 ### Tôi bắt đầu nhận ra một sản phẩm tốt có nhiều loại Evidence
 
 Có:
 
-technical evidence.
+technical **evidence**.
 
 Có:
 
-product evidence.
+product **evidence**.
 
 Có:
 
-business evidence.
+business **evidence**.
 
 Có:
 
-user evidence.
+user **evidence**.
 
 Ví dụ:
 
@@ -2449,7 +2264,7 @@ Technical
 
 Product
 
-→ workflow complete
+→ **workflow** complete
 
 User
 
@@ -2459,11 +2274,11 @@ Business
 
 → outcome / willingness to pay
 
-Không một loại evidence nào có thể thay thế hoàn toàn các loại khác.
+Không một loại **evidence** nào có thể thay thế hoàn toàn các loại khác.
 
-### Đây cũng là lý do “First Customer” rất quan trọng
+### Đây cũng là lý do “khách hàng đầu tiên” rất quan trọng
 
-Một user thật có thể cung cấp evidence mà không một AI nào có thể tự tạo ra trong chân không:
+Một user thật có thể cung cấp **evidence** mà không một AI nào có thể tự tạo ra trong chân không:
 
 họ có cần không?
 
@@ -2477,9 +2292,9 @@ họ sẵn sàng trả bao nhiêu?
 
 Nhưng Chapter 14 là nơi tôi bắt đầu chuẩn bị tư duy cho nó:
 
-Product is validated by reality.
+Sản phẩm chỉ thực sự được kiểm chứng bằng thực tế.
 
-### Tôi không muốn Product Engineering trở thành waterfall
+### Tôi không muốn **Product Engineering** trở thành waterfall
 
 Tôi cũng không muốn đi sang cực đối diện.
 
@@ -2499,33 +2314,23 @@ Tôi muốn:
 
 Understand enough
 
-```text
 ↓
-```
 
 Build small
 
-```text
 ↓
-```
 
 Verify
 
-```text
 ↓
-```
 
 Observe
 
-```text
 ↓
-```
 
 Learn
 
-```text
 ↓
-```
 
 Commit carefully
 
@@ -2535,7 +2340,7 @@ Commit carefully
 
 Và đây là tin tốt.
 
-Vibe Coding không cần bị loại bỏ.
+**Vibe Coding** không cần bị loại bỏ.
 
 Nó có thể trở thành engine của experimentation.
 
@@ -2543,27 +2348,19 @@ Ví dụ:
 
 Idea
 
-```text
 ↓
-```
 
-AI Prototype
+AI **Prototype**
 
-```text
 ↓
-```
 
 User Try
 
-```text
 ↓
-```
 
 Feedback
 
-```text
 ↓
-```
 
 Revision
 
@@ -2571,29 +2368,21 @@ Nhưng khi một direction được chọn:
 
 Selected
 
-```text
 ↓
-```
 
-Engineering Task
+**Engineering Task**
 
-```text
 ↓
-```
 
 Governance
 
-```text
 ↓
-```
 
 Verification
 
-```text
 ↓
-```
 
-Promotion
+**Promotion**
 
 Đó là Controlled Vibe Engineering.
 
@@ -2613,7 +2402,7 @@ Commitment cần nhiều discipline hơn.
 
 ### Đây là lý do tôi thích câu:
 
-Fast Exploration. Disciplined Commitment.
+Khám phá nhanh. Cam kết có kỷ luật.
 
 Nó cho phép tôi giữ:
 
@@ -2623,13 +2412,13 @@ mà không đánh mất:
 
 engineering discipline.
 
-### Một Product Task tốt phải có “Done Criteria” và “Value Criteria”
+### Một Product Task tốt phải có “**Done Criteria** (điều kiện xác định phần kỹ thuật đã hoàn thành)” và “**Value Criteria** (điều kiện xác định người dùng hoặc sản phẩm đã nhận được giá trị gì)”
 
-Done Criteria
+**Done Criteria**
 
 engineering đã hoàn thành gì?
 
-Value Criteria
+**Value Criteria**
 
 user đã nhận được gì?
 
@@ -2655,7 +2444,7 @@ Không chỉ:
 
 Mà:
 
-“The requested workflow now supports X under conditions Y.”
+“The requested **workflow** now supports X under conditions Y.”
 
 Điều này thay đổi cách tôi review.
 
@@ -2663,21 +2452,21 @@ Tôi không chỉ review diff.
 
 Tôi review outcome.
 
-### Nhưng outcome claim cũng phải có evidence
+### Nhưng outcome claim cũng phải có **evidence**
 
 AI không được tự nói:
 
 “This saves users two hours.”
 
-trừ khi có evidence.
+trừ khi có **evidence**.
 
 Nó có thể nói:
 
-“The workflow is designed to reduce manual steps.”
+“The **workflow** is designed to reduce manual steps.”
 
 Đó là target/intent.
 
-Nếu actual usage chứng minh:
+Nếu **cách sản phẩm thực sự được sử dụng trong thực tế** chứng minh:
 
 “Users reduced time by approximately X.”
 
@@ -2697,7 +2486,7 @@ không nên là một câu text.
 
 Nó nên có:
 
-- evidence reference;
+- **evidence** reference;
 - validation scope;
 - date;
 - current version.
@@ -2711,17 +2500,17 @@ AI có thể hallucinate:
 
 Nếu system yêu cầu:
 
-evidence.
+**evidence**.
 
 thì claim sẽ bị chặn.
 
 AI có thể nói:
 
-“This workflow is production ready.”
+“This **workflow** is **production** ready.”
 
 System hỏi:
 
-evidence?
+**evidence**?
 
 Nếu không có:
 
@@ -2757,11 +2546,11 @@ Verify where authorized.
 
 Nhưng:
 
-Product Truth must be established by evidence and authority.
+**Product Truth** must be established by **evidence** and authority.
 
-### Tôi bắt đầu hiểu sâu hơn về “Controlled Autonomy”
+### Tôi bắt đầu hiểu sâu hơn về “**Controlled Autonomy** (tự chủ có kiểm soát, trong đó AI được phép tự thực hiện một số công việc nhưng bị giới hạn bởi phạm vi, quyền hạn, trạng thái và điều kiện dừng)”
 
-Controlled Autonomy không chỉ là:
+**Controlled Autonomy** không chỉ là:
 
 “AI không được drop database.”
 
@@ -2775,7 +2564,7 @@ AI có thể khám phá.
 
 Nhưng không tự biến discovery thành policy.
 
-### Product Scope cũng cần Least Privilege
+### **Product Scope** cũng cần **Least Privilege** (nguyên tắc chỉ cấp quyền tối thiểu cần thiết để hoàn thành công việc)
 
 Một task:
 
@@ -2783,9 +2572,9 @@ Một task:
 
 không được tự động mở rộng thành:
 
-“Redesign import workflow.”
+“Redesign import **workflow**.”
 
-Đó là Scope Least Privilege.
+Đó là Scope **Least Privilege**.
 
 AI chỉ được quyền thay đổi những gì cần để hoàn thành authorized outcome.
 
@@ -2829,43 +2618,33 @@ thì AI càng ít phải đoán.
 
 Và AI càng ít phải đoán:
 
-verification càng dễ.
+**verification** càng dễ.
 
 Đây là một chain rất mạnh:
 
-Clear Product Intent
+Clear **Product Intent**
 
-```text
 ↓
-```
 
 Clear Requirement
 
-```text
 ↓
-```
 
 Clear Task
 
-```text
 ↓
-```
 
 Clear Context
 
-```text
 ↓
-```
 
-Better Execution
+Better Thực thi
 
-```text
 ↓
-```
 
 Better Verification
 
-### Product Engineering không chống AI. Nó làm AI hữu dụng hơn.
+### **Product Engineering** không chống AI. Nó làm AI hữu dụng hơn.
 
 Đây là điều tôi muốn khẳng định.
 
@@ -2883,9 +2662,9 @@ Tôi cần AI:
 
 làm đúng phần product cần.
 
-### Tôi không muốn prompt trở thành nơi Product Strategy bị chôn
+### Tôi không muốn **prompt** trở thành nơi Product Strategy bị chôn
 
-Product decision nên tồn tại trong product artifacts.
+Product **decision** nên tồn tại trong product artifacts.
 
 Không:
 
@@ -2895,7 +2674,7 @@ Mà:
 
 requirement artifact.
 
-product decision artifact.
+product **decision** artifact.
 
 current product context.
 
@@ -2903,7 +2682,7 @@ state.
 
 Đây chính là continuity ở cấp product.
 
-### Product Memory
+### **Product Memory** (bộ nhớ về các quyết định, phạm vi, hành vi chấp nhận và giới hạn hiện tại của product)
 
 Nếu gọi theo ngôn ngữ đơn giản:
 
@@ -2923,7 +2702,7 @@ Không cần hỏi tôi lại mọi lần.
 
 ## TỪ VIBE CODING ĐẾN PRODUCT ENGINEERING
 
-### Một AI không có Product Context có thể viết code rất đẹp và vẫn phá product
+### Một AI không có **Product Context** có thể viết code rất đẹp và vẫn phá product
 
 Đây là điều mà tôi muốn người đọc nhớ.
 
@@ -2943,89 +2722,63 @@ tất cả đều có thể là một cách rất hiệu quả để xây nhầm
 
 Đó là lý do:
 
-Product Intent precedes AI Execution.
+Ý định sản phẩm phải đi trước việc thực thi của AI.
 
 ### Tôi muốn giữ một chuỗi duy nhất
 
-Cuối cùng, Product Engineering trong cách tôi nhìn có thể được rút lại thành:
+Cuối cùng, **Product Engineering** trong cách tôi nhìn có thể được rút lại thành:
 
 USER PROBLEM
 
-```text
 ↓
-```
 
 PRODUCT OUTCOME
 
-```text
 ↓
-```
 
 REQUIREMENT
 
-```text
 ↓
-```
 
 TASK
 
-```text
 ↓
-```
 
 AUTHORIZATION
 
-```text
 ↓
-```
 
 CONTEXT
 
-```text
 ↓
-```
 
 AI EXECUTOR
 
-```text
 ↓
-```
 
 CHANGE
 
-```text
 ↓
-```
 
 EVIDENCE
 
-```text
 ↓
-```
 
 VERIFICATION
 
-```text
 ↓
-```
 
 RELEASE
 
-```text
 ↓
-```
 
 USER
 
-```text
 ↓
-```
 
 OBSERVATION
 
-```text
 ↓
-```
 
 PRODUCT VALIDATION
 
@@ -3033,37 +2786,29 @@ Nếu một mắt xích biến mất, tôi cần biết mình đang thiếu gì.
 
 ### Đây là một vòng lặp, không phải một pipeline một chiều
 
-Sau Product Validation:
+Sau **Product Validation**:
 
-Observation
+Quan sát thực tế
 
-```text
 ↓
-```
 
-Learning
+Điều học được
 
-```text
 ↓
-```
 
-New Product Requirement
+New **Product Requirement**
 
 Rồi quay lại:
 
 Requirement
 
-```text
 ↓
-```
 
 Task
 
-```text
 ↓
-```
 
-Execution
+Thực thi
 
 Đó là vòng đời thật.
 
@@ -3077,7 +2822,7 @@ learns continuously.
 
 ### Và AI làm vòng đời đó rẻ hơn rất nhiều
 
-Prototype nhanh hơn.
+**Prototype** nhanh hơn.
 
 Analysis nhanh hơn.
 
@@ -3091,7 +2836,7 @@ Iteration nhanh hơn.
 
 Điều đó rất lớn.
 
-Nhưng chính vì iteration rẻ, tôi cần Product Governance để quyết định:
+Nhưng chính vì iteration rẻ, tôi cần **Product Governance** để quyết định:
 
 iteration nào đáng tiếp tục.
 
@@ -3099,11 +2844,11 @@ iteration nào đáng tiếp tục.
 
 Đây là một câu tôi tự nhắc mình:
 
-Speed without direction is acceleration, not progress.
+Tốc độ không có hướng đi chỉ là sự tăng tốc, chưa phải tiến bộ.
 
 AI có thể tăng tốc.
 
-Product Intent quyết định hướng.
+**Product Intent** quyết định hướng.
 
 Engineering Method quyết định cách đi.
 
@@ -3117,9 +2862,9 @@ EnerixFin cho tôi một environment rất thực tế để quan sát:
 
 AI coding.
 
-Engineering workflow.
+Engineering **workflow**.
 
-Product workflow.
+Product **workflow**.
 
 Technical analysis.
 
@@ -3133,7 +2878,7 @@ Tôi không xem nó như bằng chứng rằng mọi thứ đã được giải 
 
 Tôi xem nó như:
 
-engineering laboratory in the real world.
+phòng thí nghiệm kỹ thuật trong thế giới thực.
 
 Tôi xây.
 
@@ -3151,7 +2896,7 @@ hệ thống tương lai
 
 Đây cũng là một bài học quan trọng.
 
-Nếu một workflow hoạt động tốt trên EnerixFin, điều đó không có nghĩa architecture tương lai
+Nếu một **workflow** hoạt động tốt trên EnerixFin, điều đó không có nghĩa architecture tương lai
 
 phải copy 100%.
 
@@ -3159,33 +2904,23 @@ Tôi muốn:
 
 Observe
 
-```text
 ↓
-```
 
 Measure
 
-```text
 ↓
-```
 
 Learn
 
-```text
 ↓
-```
 
 Validate
 
-```text
 ↓
-```
 
 Extract
 
-```text
 ↓
-```
 
 Redesign
 
@@ -3193,7 +2928,7 @@ Chỉ những lessons đã được validate mới trở thành reusable princip
 
 Đó là cách tránh biến prototype thành dogma.
 
-### Product Engineering làm tôi hiểu vì sao “AI as Programmer” là chưa đủ
+### **Product Engineering** làm tôi hiểu vì sao “AI với vai trò lập trình viên” là chưa đủ
 
 AI programmer:
 
@@ -3203,23 +2938,19 @@ AI Engineering Executor:
 
 thực hiện task trong context và governance.
 
-Product Engineering system:
+**Product Engineering** system:
 
 xác định vì sao task tồn tại và outcome nào cần đạt.
 
 Ba tầng này khác nhau.
 
-Product Intent
+**Product Intent**
 
-```text
 ↓
-```
 
 Engineering System
 
-```text
 ↓
-```
 
 AI Executor
 
@@ -3252,7 +2983,7 @@ Bởi vì product direction liên quan tới:
 - responsibility.
 Đó là authority.
 
-### Đây là lúc tôi bắt đầu hiểu “Human-in-the-loop” một cách tốt
+### Đây là lúc tôi bắt đầu hiểu “**Human-in-the-loop** (mô hình trong đó con người tham gia vào những điểm quyết định quan trọng thay vì phải giám sát mọi thao tác của AI)” một cách tốt
 
 hơn
 
@@ -3271,7 +3002,7 @@ Ví dụ:
 - critical financial logic;
 - security;
 - unresolved ambiguity.
-AI có thể tự động hóa phần còn lại trong boundary.
+AI có thể tự động hóa phần còn lại trong **boundary**.
 
 Đó là một cách hiệu quả hơn nhiều so với:
 
@@ -3297,7 +3028,7 @@ state transition;
 
 risk.
 
-### Tôi bắt đầu nhìn task như một Product Contract
+### Tôi bắt đầu nhìn task như một **Product Contract** (hợp đồng làm việc ở cấp sản phẩm, mô tả rõ vì sao công việc tồn tại, làm gì, cho ai, trong phạm vi nào và điều kiện nào để được coi là đạt)
 
 Một task tốt phải trả lời:
 
@@ -3323,7 +3054,7 @@ Stop Condition
 
 Khi đủ rõ, AI có rất ít khoảng trống để “sáng tạo sai chỗ”.
 
-### Product Engineering làm rõ vai trò của Creativity
+### **Product Engineering** làm rõ vai trò của Creativity
 
 AI creativity rất hữu ích ở:
 
@@ -3341,15 +3072,15 @@ Nhưng creativity phải được chuyển thành commitment qua:
 
 evaluation.
 
-evidence.
+**evidence**.
 
 authority.
 
-Đây là cách tôi giữ creativity mà không để nó phá product consistency.
+Đây là cách tôi giữ creativity mà không để nó phá product **consistency**.
 
 ### Tôi không muốn giết sự ngẫu hứng
 
-Một trong những lý do tôi thích Vibe Coding là:
+Một trong những lý do tôi thích **Vibe Coding** là:
 
 nó cho phép tôi thử.
 
@@ -3361,7 +3092,7 @@ ngẫu hứng ở edge, kỷ luật ở core.
 
 Đó là một trong những nguyên tắc xuyên suốt cuốn sách này.
 
-### Product Core cần chậm hơn Product Edge
+### **Product Core** (phần lõi của product, nơi các hành vi và nguyên tắc đã được xác nhận cần ổn định) cần chậm hơn **Product Edge** (vùng ngoài của product, nơi ưu tiên thử nghiệm và khám phá)
 
 Ở edge:
 
@@ -3389,7 +3120,7 @@ one authorized truth.
 
 Đó là cách tôi nghĩ về:
 
-Vibe Fast at the Edge. Engineer Carefully at the Core.
+Nhanh ở vùng thử nghiệm. Cẩn thận ở phần lõi.
 
 ### Tôi muốn người đọc đừng sợ việc xóa code
 
@@ -3407,15 +3138,15 @@ Một feature không tạo value:
 
 deprecate.
 
-Một workflow gây confusion:
+Một **workflow** gây confusion:
 
 redesign.
 
 Không phải mọi code đã viết đều đáng bảo vệ.
 
-Code ownership không được cao hơn product value.
+Code ownership không được cao hơn **product value**.
 
-### Product Engineering có quyền nói “No”
+### **Product Engineering** có quyền nói “No”
 
 Đây có thể là một trong những kỹ năng khó nhất.
 
@@ -3445,7 +3176,7 @@ Mỗi abstraction không cần thiết là:
 
 complexity avoided.
 
-Mỗi workflow không cần thiết là:
+Mỗi **workflow** không cần thiết là:
 
 support avoided.
 
@@ -3465,7 +3196,7 @@ Không:
 
 Mà:
 
-AI makes validated product decisions cheaper to implement and revise.
+AI làm cho các quyết định sản phẩm đã được kiểm chứng trở nên rẻ hơn để triển khai và điều chỉnh.
 
 Đó là một cách đặt AI đúng vị trí.
 
@@ -3491,8 +3222,8 @@ Nhưng một product cần:
 - requirements;
 - constraints;
 - business rules;
-- evidence;
-- verification;
+- **evidence**;
+- **verification**;
 - release;
 - observation;
 - validation.
@@ -3502,81 +3233,57 @@ Nhưng nó không tự động sở hữu:
 
 product intent và product authority.
 
-### Cách tôi muốn AI tham gia vào Product Engineering
+### Cách tôi muốn AI tham gia vào **Product Engineering**
 
 Tôi hình dung:
 
 HUMAN / PRODUCT INTENT
 
-```text
 ↓
-```
 
 PRODUCT CONTEXT
 
-```text
 ↓
-```
 
 REQUIREMENT
 
-```text
 ↓
-```
 
 ENGINEERING TASK
 
-```text
 ↓
-```
 
 AUTHORITY
 
-```text
 ↓
-```
 
 CONTEXT COMPILER
 
-```text
 ↓
-```
 
 AI EXECUTOR
 
-```text
 ↓
-```
 
 CHANGE
 
-```text
 ↓
-```
 
 EVIDENCE
 
-```text
 ↓
-```
 
 VERIFICATION
 
-```text
 ↓
-```
 
 RELEASE
 
-```text
 ↓
-```
 
 USER OUTCOME
 
-```text
 ↓
-```
 
 LEARNING
 
@@ -3596,7 +3303,7 @@ AI generated 100,000 lines of code.
 
 Mà:
 
-AI helped move a real user problem toward a verified outcome.
+AI giúp đưa một vấn đề thực của người dùng đến một kết quả đã được kiểm chứng.
 
 Đó là một tiêu chuẩn hoàn toàn khác.
 
@@ -3608,7 +3315,7 @@ Không phải mọi product problem đều cần AI.
 
 Không phải mọi feature đều cần agent.
 
-Không phải mọi workflow đều cần automation.
+Không phải mọi **workflow** đều cần automation.
 
 Không phải mọi codebase đều cần orchestration.
 
@@ -3620,7 +3327,7 @@ Một SQL query tốt hơn một model call.
 
 Một deterministic calculation tốt hơn một LLM.
 
-Một checklist tốt hơn một autonomous workflow.
+Một checklist tốt hơn một autonomous **workflow**.
 
 AI Engineering không phải:
 
@@ -3644,7 +3351,7 @@ tôi quên hỏi output đó đang dẫn tới đâu.
 
 Vì vậy tôi muốn luôn quay về:
 
-User → Problem → Outcome.
+User → Problem → **Outcome**.
 
 ### Nếu hôm nay tôi bắt đầu một feature mới
 
@@ -3654,13 +3361,13 @@ Tôi sẽ không bắt đầu bằng:
 
 Tôi sẽ bắt đầu bằng:
 
-Product Intent
+**Product Intent**
 
 Ai?
 
 Vấn đề gì?
 
-Outcome gì?
+**Outcome** gì?
 
 Requirement
 
@@ -3694,9 +3401,9 @@ Tôi sẽ xác nhận thế nào?
 
 Đó là cách tôi muốn dùng AI.
 
-### Và tôi nhận ra đây chính là “Beyond Vibe Coding”
+### Và tôi nhận ra đây chính là “Beyond **Vibe Coding**”
 
-Không phải bỏ Vibe Coding.
+Không phải bỏ **Vibe Coding**.
 
 Không phải sợ AI.
 
@@ -3704,7 +3411,7 @@ Không phải quay lại cách lập trình cũ.
 
 Mà là:
 
-đưa Vibe Coding vào trong một hệ thống product engineering có kiểm soát.
+đưa **Vibe Coding** vào trong một hệ thống product engineering có kiểm soát.
 
 Tôi vẫn có thể:
 
@@ -3750,9 +3457,9 @@ Một release thành công cũng chưa chắc là một product thành công.
 
 Tôi bắt đầu nhìn product theo chuỗi:
 
-User Problem → Product Outcome → Requirement → Task → Execution →
+Vấn đề của người dùng → Product **Outcome** → Requirement → Task → Thực thi →
 
-Verification → Release → User Outcome → Learning.
+Verification → Phát hành → User **Outcome** → Điều học được.
 
 AI có thể tham gia vào gần như toàn bộ chuỗi đó.
 
@@ -3764,7 +3471,7 @@ context;
 
 authority;
 
-evidence;
+**evidence**;
 
 state;
 
@@ -3826,7 +3533,7 @@ và làm một thứ hoàn toàn khác với điều tôi dự đoán.
 
 Một dữ liệu đặc biệt.
 
-Một workflow bất thường.
+Một **workflow** bất thường.
 
 Một permission sai.
 
