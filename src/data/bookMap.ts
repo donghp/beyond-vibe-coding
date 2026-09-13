@@ -160,8 +160,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 14 — AI CÓ THỂ VIẾT CODE. NHƯNG AI CÓ ĐANG XÂY SẢN PHẨM KHÔNG?',
     shortTitle: 'AI có thể viết code. Nhưng có đang xây sản phẩm?',
     slug: '14-ai-co-the-viet-code',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'complete',
   },
   {
     id: '15-nhung-loi-ai-khong-noi',
