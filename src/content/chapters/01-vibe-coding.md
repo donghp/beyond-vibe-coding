@@ -657,7 +657,7 @@ Nếu một bug đã được sửa nhưng không có evidence, người khác r
 
 Nếu một Engineering Run kết thúc mà không có checkpoint, Engineering Run tiếp theo phải đoán.
 
-I bắt đầu đi đến một nguyên tắc:
+Tôi bắt đầu đi đến một nguyên tắc:
 
 NO AI MEMORY IS CANONICAL.
 
