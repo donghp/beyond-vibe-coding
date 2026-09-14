@@ -190,8 +190,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 17 — AI CÓ THỂ XÂY ĐƯỢC. NHƯNG AI CÓ QUYỀN CHO PHÉP RELEASE?',
     shortTitle: 'AI có thể xây được. Nhưng ai có quyền release?',
     slug: '17-ai-co-the-xay-duoc',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'final',
   },
   {
     id: '18-toi-khong-thuc-su-dung',
