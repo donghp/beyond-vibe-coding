@@ -13,6 +13,7 @@ canonical_page_start: 57
 source_page_count: 32
 approved_major_topics: 5
 navigation_policy: "ONE_ROOT_PLUS_FIVE_MAJOR_TOPICS"
+hero: "images/chapter-03-hero.webp"
 description: "Why thinking of AI as a persistent assistant is an architectural mistake, and how to design around statelessness."
 readingTime: "6 min"
 topics: ["context windows", "statelessness", "memory", "documentation"]

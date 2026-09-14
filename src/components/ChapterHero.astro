@@ -1,6 +1,6 @@
 ---
-// Prompt-ID: #000033
-// Prompt-Title: BVC — CHAPTER 16 HERO BANNER ASSET REPLACEMENT
+// Prompt-ID: #000035
+// Prompt-Title: BVC — CHAPTER 03 HERO BANNER — FORCE NEW CANONICAL WEBP ASSET
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,13 +21,13 @@ interface Props {
 const { order, title, subtitle, prevChapter, nextChapter } = Astro.props;
 const chapterIndexStr = order.toString().padStart(2, '0');
 
-// Safe hero asset resolution: prioritize PNG if available, fallback to WebP, fallback to cover
-const heroPngRel = `images/chapter-${chapterIndexStr}-hero.png`;
+// Safe hero asset resolution: prioritize WebP if available, fallback to PNG, fallback to cover
 const heroWebpRel = `images/chapter-${chapterIndexStr}-hero.webp`;
-const heroRelPath = fs.existsSync(path.join(process.cwd(), 'public', heroPngRel))
-  ? heroPngRel
-  : fs.existsSync(path.join(process.cwd(), 'public', heroWebpRel))
-    ? heroWebpRel
+const heroPngRel = `images/chapter-${chapterIndexStr}-hero.png`;
+const heroRelPath = fs.existsSync(path.join(process.cwd(), 'public', heroWebpRel))
+  ? heroWebpRel
+  : fs.existsSync(path.join(process.cwd(), 'public', heroPngRel))
+    ? heroPngRel
     : 'images/cover.png';
 const heroSrc = joinBase(heroRelPath);
 
