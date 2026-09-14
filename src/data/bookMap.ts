@@ -180,8 +180,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 16 — ARCHITECTURE VẪN LÀ TRÁCH NHIỆM CỦA TÔI',
     shortTitle: 'Architecture vẫn là trách nhiệm của tôi',
     slug: '16-architecture-van-la-trach-nhiem',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'final',
   },
   {
     id: '17-ai-co-the-xay-duoc',

@@ -1,6 +1,6 @@
 ---
-// Prompt-ID: #000008
-// Prompt-Title: BVC CHAPTER HERO VISUAL REGENERATION — CHAPTERS 09–21 / BRAND-NEUTRAL / REAL-ENERGY + AI VISUAL UNIVERSE / EMBEDDED WATERMARK
+// Prompt-ID: #000033
+// Prompt-Title: BVC — CHAPTER 16 HERO BANNER ASSET REPLACEMENT
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,10 +21,15 @@ interface Props {
 const { order, title, subtitle, prevChapter, nextChapter } = Astro.props;
 const chapterIndexStr = order.toString().padStart(2, '0');
 
-// Safe hero asset resolution: guarantee NO-BROKEN-VISUAL-ASSET
-const heroRelPath = `images/chapter-${chapterIndexStr}-hero.webp`;
-const heroDiskPath = path.join(process.cwd(), 'public', heroRelPath);
-const heroSrc = fs.existsSync(heroDiskPath) ? joinBase(heroRelPath) : joinBase('images/cover.png');
+// Safe hero asset resolution: prioritize PNG if available, fallback to WebP, fallback to cover
+const heroPngRel = `images/chapter-${chapterIndexStr}-hero.png`;
+const heroWebpRel = `images/chapter-${chapterIndexStr}-hero.webp`;
+const heroRelPath = fs.existsSync(path.join(process.cwd(), 'public', heroPngRel))
+  ? heroPngRel
+  : fs.existsSync(path.join(process.cwd(), 'public', heroWebpRel))
+    ? heroWebpRel
+    : 'images/cover.png';
+const heroSrc = joinBase(heroRelPath);
 
 // Format title semantic split: split into two lines on period or question mark if available
 let line1 = title;
