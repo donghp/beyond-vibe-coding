@@ -200,8 +200,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 18 — TÔI KHÔNG THỰC SỰ DỪNG VIBE CODING',
     shortTitle: 'Tôi không thực sự dừng vibe coding',
     slug: '18-toi-khong-thuc-su-dung',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'final',
   },
   {
     id: '19-tu-local-project-den-real',
