@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "source": "Decision 42/2026/QĐ-TTg, Appendix I",
+  "status": "official-regulatory-taxonomy",
+  "sectors": [
+    {
+      "sector_id": "SEC-01-ENERGY",
+      "code": "ENERGY",
+      "name_vi": "Năng lượng",
+      "name_en": "Energy",
+      "sub_sectors": [
+        "Công nghiệp sản xuất năng lượng",
+        "Tiêu thụ năng lượng trong công nghiệp, thương mại, dịch vụ và dân dụng",
+        "Khai thác than",
+        "Khai thác dầu và khí tự nhiên"
+      ]
+    },
+    {
+      "sector_id": "SEC-02-TRANSPORT",
+      "code": "TRANSPORT",
+      "name_vi": "Giao thông vận tải",
+      "name_en": "Transport",
+      "sub_sectors": [
+        "Tiêu thụ năng lượng trong giao thông vận tải"
+      ]
+    },
+    {
+      "sector_id": "SEC-03-CONSTRUCTION",
+      "code": "CONSTRUCTION",
+      "name_vi": "Xây dựng",
+      "name_en": "Construction",
+      "sub_sectors": [
+        "Tiêu thụ năng lượng trong ngành xây dựng",
+        "Các quá trình công nghiệp trong sản xuất vật liệu xây dựng"
+      ]
+    },
+    {
+      "sector_id": "SEC-04-PROCESSES",
+      "code": "INDUSTRIAL_PROCESSES",
+      "name_vi": "Các quá trình công nghiệp",
+      "name_en": "Industrial Processes",
+      "sub_sectors": [
+        "Sản xuất hóa chất",
+        "Sản xuất kim loại",
+        "Công nghiệp điện tử",
+        "Sản xuất và sử dụng chất thay thế các chất làm suy giảm tầng ozon",
+        "Sản xuất công nghiệp và quá trình công nghiệp khác"
+      ]
+    },
+    {
+      "sector_id": "SEC-05-AGRI_LAND",
+      "code": "AGRICULTURE_FORESTRY_LAND",
+      "name_vi": "Nông nghiệp, lâm nghiệp và sử dụng đất",
+      "name_en": "Agriculture, Forestry and Land Use",
+      "sub_sectors": [
+        "Chăn nuôi",
+        "Lâm nghiệp và thay đổi sử dụng đất",
+        "Trồng trọt",
+        "Tiêu thụ năng lượng trong nông nghiệp, lâm nghiệp và thủy sản"
+      ]
+    },
+    {
+      "sector_id": "SEC-06-WASTE",
+      "code": "WASTE",
+      "name_vi": "Chất thải",
+      "name_en": "Waste",
+      "sub_sectors": [
+        "Chôn lấp chất thải rắn",
+        "Xử lý sinh học chất thải rắn",
+        "Xử lý và xả nước thải",
+        "Thiêu hủy chất thải"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "skeleton-established",
+  "activities": [
+    {
+      "activity_type_id": "ACT-GRID-ELEC",
+      "name_vi": "Điện lưới quốc gia",
+      "name_en": "National Grid Electricity",
+      "category": "SCOPE_2_ELECTRICITY",
+      "default_unit": "kWh",
+      "status": "registered"
+    },
+    {
+      "activity_type_id": "ACT-DIESEL-STATIONARY",
+      "name_vi": "Dầu Diesel (Đốt cố định - Máy phát / Lò hơi)",
+      "name_en": "Diesel Fuel (Stationary Combustion)",
+      "category": "SCOPE_1_STATIONARY_COMBUSTION",
+      "default_unit": "liter",
+      "status": "registered"
+    },
+    {
+      "activity_type_id": "ACT-COAL-ANTRACITE",
+      "name_vi": "Than Antracite (Đốt cố định)",
+      "name_en": "Anthracite Coal (Stationary)",
+      "category": "SCOPE_1_STATIONARY_COMBUSTION",
+      "default_unit": "ton",
+      "status": "registered"
+    }
+  ]
+}

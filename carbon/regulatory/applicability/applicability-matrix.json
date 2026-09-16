@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "baseline",
+  "matrix": [
+    {
+      "sector_id": "SEC-01-ENERGY",
+      "threshold_description": "Cơ sở sản xuất điện hoặc cơ sở tiêu thụ năng lượng hàng năm từ 1.000 TOE trở lên (hoặc 3.000 tấn CO2e/năm)",
+      "primary_authority": "Bộ Công Thương",
+      "applicable_methodology": "METH-BCT-38-2023"
+    },
+    {
+      "sector_id": "SEC-03-CONSTRUCTION",
+      "threshold_description": "Cơ sở sản xuất xi măng, vật liệu xây dựng có lượng tiêu thụ năng lượng lớn",
+      "primary_authority": "Bộ Xây dựng",
+      "applicable_methodology": "METH-BXD-13-2024"
+    }
+  ]
+}

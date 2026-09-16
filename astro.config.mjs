@@ -28,9 +28,15 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      fs: {
+        allow: ['.', 'carbon'],
+      },
+    },
     resolve: {
       alias: {
         '@': '/src',
+        '/carbon': '/carbon',
       },
     },
   },

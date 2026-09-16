@@ -1,0 +1,48 @@
+manifest_version: "1.0.0"
+product_name: "ENERIX Carbon"
+product_type: "Regulatory-aware Carbon & GHG Emissions Engineering Platform"
+as_of: "2026-09-16"
+status: "INITIAL_SKELETON_ESTABLISHED"
+runtime_mode: "repository-native / zero-backend demo"
+demo_url: "https://donghp.github.io/beyond-vibe-coding/carbon/"
+database_architecture:
+  backend_database: false
+  postgres: false
+  supabase: false
+  mongodb: false
+  browser_persistence: "localStorage / IndexedDB"
+  data_formats: ["Markdown", "YAML", "JSON", "JavaScript"]
+
+authorities:
+  legal: "Authoritative Vietnamese Laws, Decrees, Decisions, and Ministry Circulars"
+  methodology: "Ministry MRV Circulars and TCVN ISO 14064-1/2/3 / GHG Protocol"
+  calculation: "Deterministic JavaScript Execution Engine"
+  ai: "Advisory / Retrieval / Normalization only"
+
+calculation_model_classes:
+  - id: "MODEL-01"
+    name: "SIMPLE_FACTOR"
+    status: "contract-defined"
+  - id: "MODEL-02"
+    name: "FACTOR_WITH_CONVERSION"
+    status: "contract-defined"
+  - id: "MODEL-03"
+    name: "MULTI_GAS"
+    status: "contract-defined"
+  - id: "MODEL-04"
+    name: "PARAMETERIZED"
+    status: "contract-defined"
+  - id: "MODEL-05"
+    name: "COMPOSITE"
+    status: "contract-defined"
+  - id: "MODEL-06"
+    name: "DYNAMIC"
+    status: "contract-defined"
+  - id: "MODEL-07"
+    name: "PROJECT_REDUCTION"
+    status: "contract-defined"
+
+governing_artifacts:
+  - "carbon/knowledge/governance/ENERIX-CARBON-BASE-LOGIC-001.md"
+  - "carbon/knowledge/governance/ENERIX-CARBON-GOVERNING-FRAMEWORK-001.md"
+  - "carbon/knowledge/governance/ENERIX-CARBON-REGULATORY-REGISTRY-001.yaml"

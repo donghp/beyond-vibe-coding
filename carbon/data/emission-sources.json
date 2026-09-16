@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "skeleton-established",
+  "emission_source_categories": [
+    {
+      "code": "SCOPE_1",
+      "name_vi": "Phát thải trực tiếp (Scope 1)",
+      "name_en": "Direct GHG Emissions (Scope 1)",
+      "types": ["STATIONARY_COMBUSTION", "MOBILE_COMBUSTION", "PROCESS_EMISSIONS", "FUGITIVE_EMISSIONS"]
+    },
+    {
+      "code": "SCOPE_2",
+      "name_vi": "Phát thải gián tiếp từ năng lượng (Scope 2)",
+      "name_en": "Energy Indirect GHG Emissions (Scope 2)",
+      "types": ["PURCHASED_ELECTRICITY", "PURCHASED_STEAM", "PURCHASED_COOLING"]
+    },
+    {
+      "code": "SCOPE_3",
+      "name_vi": "Phát thải gián tiếp khác (Scope 3)",
+      "name_en": "Other Indirect GHG Emissions (Scope 3)",
+      "types": ["UPSTREAM_SUPPLY_CHAIN", "DOWNSTREAM_USE", "WASTE_DISPOSAL"]
+    }
+  ]
+}

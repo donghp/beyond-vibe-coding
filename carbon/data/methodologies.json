@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "skeleton-established",
+  "methodologies": [
+    {
+      "methodology_id": "METH-BCT-38-2023",
+      "title": "Phương pháp MRV ngành Công Thương (Thông tư 38/2023/TT-BCT)",
+      "authority": "Bộ Công Thương",
+      "sector_id": "SEC-01-ENERGY",
+      "calculation_model_class": "MODEL-02",
+      "status": "registered"
+    },
+    {
+      "methodology_id": "METH-BXD-13-2024",
+      "title": "Phương pháp MRV ngành Xây dựng (Thông tư 13/2024/TT-BXD)",
+      "authority": "Bộ Xây dựng",
+      "sector_id": "SEC-03-CONSTRUCTION",
+      "calculation_model_class": "MODEL-03",
+      "status": "registered"
+    },
+    {
+      "methodology_id": "METH-BNN-19-2024",
+      "title": "Phương pháp MRV ngành Chăn nuôi & Nông nghiệp (Thông tư 19/2024/TT-BNNPTNT)",
+      "authority": "Bộ Nông nghiệp và Phát triển nông thôn",
+      "sector_id": "SEC-05-AGRI_LAND",
+      "calculation_model_class": "MODEL-04",
+      "status": "registered"
+    },
+    {
+      "methodology_id": "METH-BTNMT-17-2022",
+      "title": "Phương pháp MRV ngành Chất thải (Thông tư 17/2022/TT-BTNMT)",
+      "authority": "Bộ Tài nguyên và Môi trường",
+      "sector_id": "SEC-06-WASTE",
+      "calculation_model_class": "MODEL-03",
+      "status": "registered"
+    }
+  ]
+}

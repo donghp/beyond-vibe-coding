@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "contract-defined",
+  "calculation_models": [
+    {
+      "model_id": "MODEL-01",
+      "code": "SIMPLE_FACTOR",
+      "description": "Calculation via direct Activity Data multiplied by Emission Factor: E = AD × EF",
+      "status": "contract-defined"
+    },
+    {
+      "model_id": "MODEL-02",
+      "code": "FACTOR_WITH_CONVERSION",
+      "description": "Calculation with unit/energy conversion: E = AD × ConvFactor × EF",
+      "status": "contract-defined"
+    },
+    {
+      "model_id": "MODEL-03",
+      "code": "MULTI_GAS",
+      "description": "Multi-gas specific calculation aggregated with GWP: CO2e = Σ(Gas_i × GWP_i)",
+      "status": "contract-defined"
+    },
+    {
+      "model_id": "MODEL-04",
+      "code": "PARAMETERIZED",
+      "description": "Parameterized model: E = f(AD, parameters, EF_basis)",
+      "status": "contract-defined"
+    },
+    {
+      "model_id": "MODEL-05",
+      "code": "COMPOSITE",
+      "description": "Composite calculation summing sub-model outputs: E = Σ(SubModel_k)",
+      "status": "contract-defined"
+    },
+    {
+      "model_id": "MODEL-06",
+      "code": "DYNAMIC",
+      "description": "Dynamic time-dependent decay or stock-flow model",
+      "status": "contract-defined"
+    },
+    {
+      "model_id": "MODEL-07",
+      "code": "PROJECT_REDUCTION",
+      "description": "Project reduction calculation: ER = BaselineEmissions - ProjectEmissions - Leakage",
+      "status": "contract-defined"
+    }
+  ]
+}

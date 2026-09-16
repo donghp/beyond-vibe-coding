@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "baseline",
+  "edges": [
+    {
+      "source": "DEC-119-2025-ND-CP",
+      "relationship": "AMENDS",
+      "target": "DEC-06-2022-ND-CP"
+    },
+    {
+      "source": "DEC-83-2026-ND-CP",
+      "relationship": "AMENDS",
+      "target": "DEC-06-2022-ND-CP"
+    },
+    {
+      "source": "QD-42-2026",
+      "relationship": "SUPERSEDES",
+      "target": "QD-13-2024"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "official-reference",
+  "gwp_datasets": [
+    {
+      "dataset_id": "GWP-IPCC-AR5",
+      "name": "IPCC Fifth Assessment Report (AR5 - 100yr)",
+      "source": "IPCC / MONRE TT 17/2022/TT-BTNMT",
+      "effective_from": "2022-01-01",
+      "gwp_values": {
+        "CO2": 1,
+        "CH4": 28,
+        "N2O": 265,
+        "SF6": 23500,
+        "NF3": 16100
+      }
+    },
+    {
+      "dataset_id": "GWP-IPCC-AR6",
+      "name": "IPCC Sixth Assessment Report (AR6 - 100yr)",
+      "source": "IPCC AR6 WG1 Chapter 7",
+      "effective_from": "2024-01-01",
+      "gwp_values": {
+        "CO2": 1,
+        "CH4": 27.9,
+        "N2O": 273,
+        "SF6": 25200,
+        "NF3": 17400
+      }
+    }
+  ]
+}

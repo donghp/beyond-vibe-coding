@@ -1,0 +1,243 @@
+/* ENERIX Carbon - Enterprise Design Language Standard V7.0 */
+:root {
+  --color-navy-900: #0b192c;
+  --color-navy-800: #1e293b;
+  --color-navy-700: #334155;
+  --color-sky-600: #0284c7;
+  --color-sky-500: #0ea5e9;
+  --color-sky-100: #e0f2fe;
+  --color-sky-50: #f0f9ff;
+  --color-green-600: #16a34a;
+  --color-green-100: #dcfce7;
+  --color-amber-600: #d97706;
+  --color-amber-100: #fef3c7;
+  --color-bg-canvas: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-border: #e2e8f0;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DejaVu Sans Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-canvas);
+  color: var(--color-navy-800);
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout Grid */
+#carbon-app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.carbon-header {
+  height: 56px;
+  background-color: var(--color-navy-900);
+  color: #ffffff;
+  display: flex;
+  items-center: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.carbon-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.carbon-header .brand-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  background-color: var(--color-sky-600);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.carbon-main-body {
+  display: flex;
+  flex: 1;
+}
+
+.carbon-sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid var(--color-border);
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  shrink: 0;
+}
+
+.carbon-nav-group {
+  margin-bottom: 20px;
+}
+
+.carbon-nav-header {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  padding: 0 16px 8px 16px;
+}
+
+.carbon-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  color: var(--color-navy-700);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.carbon-nav-item:hover {
+  background-color: var(--color-sky-50);
+  color: var(--color-sky-600);
+}
+
+.carbon-nav-item.active {
+  background-color: var(--color-sky-50);
+  color: var(--color-sky-600);
+  border-left-color: var(--color-sky-600);
+  font-weight: 600;
+}
+
+.carbon-content-stage {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+  max-width: 1400px;
+}
+
+/* Common UI Components */
+.page-title-bar {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-navy-900);
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.enerix-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.enerix-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-navy-900);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.enerix-table-wrapper {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.enerix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.enerix-table th {
+  background: #f8fafc;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: var(--color-navy-700);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.enerix-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: var(--color-navy-800);
+}
+
+.enerix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.status-badge.mandatory {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.status-badge.active, .status-badge.registered {
+  background: var(--color-green-100);
+  color: var(--color-green-600);
+}
+
+.status-badge.pending, .status-badge.transitional {
+  background: var(--color-amber-100);
+  color: var(--color-amber-600);
+}
+
+.mono-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}

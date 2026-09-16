@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "demo-only",
+  "activity_records": [
+    {
+      "activity_id": "ACT-REC-001",
+      "facility_id": "FAC-2026-001",
+      "period": "2026-Q1",
+      "activity_type": "ACT-GRID-ELEC",
+      "quantity": 1500000,
+      "unit": "kWh",
+      "evidence_ref": "EVI-INV-2026-01"
+    },
+    {
+      "activity_id": "ACT-REC-002",
+      "facility_id": "FAC-2026-001",
+      "period": "2026-Q1",
+      "activity_type": "ACT-DIESEL-STATIONARY",
+      "quantity": 25000,
+      "unit": "liter",
+      "evidence_ref": "EVI-INV-2026-02"
+    }
+  ]
+}

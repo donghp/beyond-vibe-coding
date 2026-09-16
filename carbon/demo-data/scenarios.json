@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "demo-only",
+  "scenarios": [
+    {
+      "scenario_id": "SCEN-2026-BASE",
+      "name": "2026 Baseline Inventory (Q1-Q4 Projection)",
+      "facility_id": "FAC-2026-001",
+      "target_year": 2026,
+      "estimated_co2e_tons": 1082.35
+    }
+  ]
+}

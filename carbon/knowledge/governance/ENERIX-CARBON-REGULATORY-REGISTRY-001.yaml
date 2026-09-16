@@ -1,0 +1,104 @@
+version: 1.0.0
+registry_id: EC-REGISTRY-001
+status: draft-for-engineering-baseline
+as_of: 2026-09-16
+product: ENERIX Carbon
+sources:
+  - id: LAW-72-2020-QH14
+    title: Luật Bảo vệ môi trường 2020
+    class: law
+    file: 005.Luật_Bảo_vệ_Môi_trường_2020_72.md
+    authority: Quốc hội
+  - id: DEC-06-2022-ND-CP
+    title: Nghị định 06/2022/NĐ-CP
+    class: decree
+    file: 002.Nghi_Dinh_06_2022_ND_CP.md
+    authority: Chính phủ
+    effective_from: 2022-01-07
+  - id: DEC-119-2025-ND-CP
+    title: Nghị định 119/2025/NĐ-CP
+    class: decree
+    file: 001.Nghi_Dinh_119_2025_ND_CP.md
+    authority: Chính phủ
+    effective_from: 2025-08-01
+    relationship:
+      - type: AMENDS
+        target: DEC-06-2022-ND-CP
+  - id: DEC-83-2026-ND-CP
+    title: Nghị định 83/2026/NĐ-CP
+    class: decree
+    file: 000.Nghi_Dinh_83_2026_ND_CP.md
+    authority: Chính phủ
+    effective_from: 2026-03-23
+    relationship:
+      - type: AMENDS
+        target: DEC-06-2022-ND-CP
+        via_existing_amendments: true
+  - id: QD-42-2026
+    title: Quyết định 42/2026/QĐ-TTg
+    class: decision
+    file: 004.Quyết-định-42-2026-QĐ-TTg.md
+    authority: Thủ tướng Chính phủ
+    effective_from: 2026-09-25
+    subject: mandatory-ghg-inventory-facility-list
+  - id: QD-263-2026
+    title: Quyết định 263/QĐ-TTg
+    class: decision
+    file: 006.263-2026-QĐ-TTg.md
+    authority: Thủ tướng Chính phủ
+    effective_from: 2026-02-09
+    subject: pilot-ghg-allowance-2025-2026
+  - id: TT-38-2023-TT-BCT
+    title: Thông tư 38/2023/TT-BCT
+    class: circular
+    file: 007.Thông-tư-38-2023-TT-BCT.md
+    authority: Bộ Công Thương
+    subject: ghg-mrv-industry-and-trade
+  - id: TT-13-2024-TT-BXD
+    title: Thông tư 13/2024/TT-BXD
+    class: circular
+    file: 008.Thông-tư-13-2024-TT-BXD.md
+    authority: Bộ Xây dựng
+    effective_from: 2025-02-05
+    subject: ghg-mrv-construction
+  - id: TT-19-2024-TT-BNNPTNT
+    title: Thông tư 19/2024/TT-BNNPTNT
+    class: circular
+    file: 009.Thông-tư-19-2024-TT-BNNPTNT.md
+    authority: Bộ Nông nghiệp và Phát triển nông thôn
+    effective_from: 2024-12-03
+    subject: ghg-mrv-livestock
+  - id: TT-17-2022-TT-BTNMT
+    title: Thông tư 17/2022/TT-BTNMT
+    class: circular
+    file: 010.Thông-tư-17-2022-TT-BTNMT.md
+    authority: Bộ Tài nguyên và Môi trường
+    subject: ghg-mrv-waste-management
+  - id: ISO-14064-1-2025
+    title: TCVN ISO 14064-1:2025
+    class: national-standard
+    file: 011.TCVN_ISO_14064-1-2025.md
+    subject: organizational-ghg-inventory
+  - id: ISO-14064-2-2025
+    title: TCVN ISO 14064-2:2025
+    class: national-standard
+    file: 012.TCVN_ISO_14064-2-2025.md
+    subject: project-ghg-reductions
+  - id: ISO-14064-3-2025
+    title: TCVN ISO 14064-3:2025
+    class: national-standard
+    file: 013.TCVN_ISO_14064-3-2025.md
+    subject: ghg-verification-validation
+  - id: GHG-PROTOCOL-CORP-REVISED
+    title: GHG Protocol Corporate Accounting and Reporting Standard, Revised Edition
+    class: international-methodology
+    file: 014.ghg_protocol-revised_EN.md
+    subject: corporate-ghg-accounting-reporting
+  - id: GHG-PROTOCOL-VN-HANDBOOK-2023
+    title: Sổ tay Hướng dẫn Báo cáo Phát thải Khí Nhà kính
+    class: guidance
+    file: 015.GHG_Protocol_SO-TAY-Phat-THAI-KHI-NHA-KINH.md
+    subject: vietnamese-ghg-reporting-guidance
+    issued: 2023-07
+notes:
+  - Regulatory registry maps source files and legal/technical metadata.

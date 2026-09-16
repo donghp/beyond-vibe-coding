@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "pending-source",
+  "notes": "Emission factors are versioned parameters requiring explicit source document provenance.",
+  "emission_factors": [
+    {
+      "factor_id": "EF-VN-GRID-2024",
+      "factor_name": "Hệ số phát thải lưới điện Việt Nam (Grid EF 2024)",
+      "gas": "CO2e",
+      "value": 0.6766,
+      "unit": "kg CO2e/kWh",
+      "tier": "TIER_2_NATIONAL",
+      "source_document_id": "MONRE-OFFICIAL-GRID-2024",
+      "valid_from": "2024-01-01",
+      "valid_to": null,
+      "status": "demo-only"
+    },
+    {
+      "factor_id": "EF-DIESEL-CO2",
+      "factor_name": "Hệ số phát thải Dầu Diesel (IPCC Tier 1 Default)",
+      "gas": "CO2",
+      "value": 2.68,
+      "unit": "kg CO2/liter",
+      "tier": "TIER_1_DEFAULT",
+      "source_document_id": "IPCC-2006-VOL2",
+      "valid_from": "2006-01-01",
+      "valid_to": null,
+      "status": "demo-only"
+    }
+  ]
+}

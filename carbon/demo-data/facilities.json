@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "demo-only",
+  "facilities": [
+    {
+      "facility_id": "FAC-2026-001",
+      "tax_id": "0101234567",
+      "legal_name": "Công ty Cổ phần Nhiệt điện Phả Lại",
+      "facility_name": "Nhà máy Nhiệt điện Phả Lại 1 & 2",
+      "address": "Phường Phả Lại, Thành phố Chí Linh",
+      "province": "Hải Dương",
+      "sector_id": "SEC-01-ENERGY",
+      "sub_sector_id": "Công nghiệp sản xuất năng lượng",
+      "business_activity": "Sản xuất và kinh doanh điện năng",
+      "regulatory_status": "MANDATORY",
+      "legal_basis": "Quyết định 42/2026/QĐ-TTg, Phụ lục II",
+      "valid_from": "2026-09-25",
+      "valid_to": null
+    },
+    {
+      "facility_id": "FAC-2026-002",
+      "tax_id": "3700123456",
+      "legal_name": "Công ty TNHH Xi măng Vicem Hà Tiên",
+      "facility_name": "Nhà máy Xi măng Vicem Hà Tiên",
+      "address": "Thị trấn Kiên Lương, Huyện Kiên Lương",
+      "province": "Kiên Giang",
+      "sector_id": "SEC-03-CONSTRUCTION",
+      "sub_sector_id": "Các quá trình công nghiệp trong sản xuất vật liệu xây dựng",
+      "business_activity": "Sản xuất clinker và xi măng",
+      "regulatory_status": "MANDATORY",
+      "legal_basis": "Quyết định 42/2026/QĐ-TTg, Phụ lục II",
+      "valid_from": "2026-09-25",
+      "valid_to": null
+    }
+  ]
+}

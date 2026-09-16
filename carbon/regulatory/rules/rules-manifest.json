@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "as_of": "2026-09-16",
+  "status": "skeleton-established",
+  "rules": [
+    {
+      "rule_id": "RULE-QD-42-2026-PRIMARY",
+      "document_id": "QD-42-2026",
+      "name": "Quyết định 42/2026/QĐ-TTg Mandatory Facility Listing",
+      "effective_from": "2026-09-25",
+      "status": "pending-effective-date",
+      "supersedes_rule_id": "RULE-QD-13-2024-PRIMARY"
+    }
+  ]
+}
