@@ -1,0 +1,16 @@
+audit_id: "EC-GITHUB-PAGES-DEMO-HARDENING-001"
+task_id: "#0031"
+date: "2026-09-16"
+status: "GITHUB_PAGES_DEMO_HARDENING_ALIGNED"
+summary: "Hardened ENERIX Carbon for GitHub Pages demo deployment."
+files_modified:
+  - "/carbon/app/router.js"
+  - "/carbon/app/app.js"
+  - "/package.json"
+files_created:
+  - "/.github/workflows/deploy.yml"
+  - "/carbon/engine/test-github-pages-demo.js"
+  - "/carbon/docs/audit/EC-GITHUB-PAGES-DEMO-HARDENING-001.md"
+test_count_new: 24
+total_canonical_tests: 462
+authority_boundary_check: "PASSED"

@@ -15,31 +15,43 @@ import { renderReportsPage } from '../ui/pages/reports.js';
 import { renderKnowledgePage } from '../ui/pages/knowledge.js';
 
 export class Router {
+  static routes = {
+    'overview': renderOverviewPage,
+    'regulatory-check': renderRegulatoryCheckPage,
+    'facilities': renderFacilitiesPage,
+    'inventory': renderInventoryPage,
+    'activity-data': renderActivityDataPage,
+    'emission-factors': renderEmissionFactorsPage,
+    'methodologies': renderMethodologiesPage,
+    'calculations': renderCalculationsPage,
+    'evidence-trace': renderEvidenceTracePage,
+    'reports': renderReportsPage,
+    'knowledge': renderKnowledgePage
+  };
+
   constructor(contentContainer) {
     this.container = contentContainer;
-    this.routes = {
-      'overview': renderOverviewPage,
-      'regulatory-check': renderRegulatoryCheckPage,
-      'facilities': renderFacilitiesPage,
-      'inventory': renderInventoryPage,
-      'activity-data': renderActivityDataPage,
-      'emission-factors': renderEmissionFactorsPage,
-      'methodologies': renderMethodologiesPage,
-      'calculations': renderCalculationsPage,
-      'evidence-trace': renderEvidenceTracePage,
-      'reports': renderReportsPage,
-      'knowledge': renderKnowledgePage
-    };
+
+    window.addEventListener('hashchange', () => {
+      const route = this.getRouteFromHash();
+      stateStore.setRoute(route);
+    });
+  }
+
+  getRouteFromHash() {
+    const hash = window.location.hash.substring(1);
+    return Router.routes[hash] ? hash : 'overview';
   }
 
   renderCurrentRoute() {
     const route = stateStore.getRoute();
-    const renderFn = this.routes[route] || renderOverviewPage;
+    const renderFn = Router.routes[route] || renderOverviewPage;
     if (this.container) {
       this.container.innerHTML = renderFn();
       if (typeof renderFn.attachEvents === 'function') {
         renderFn.attachEvents(this.container);
       }
+      window.location.hash = route;
     }
   }
 }

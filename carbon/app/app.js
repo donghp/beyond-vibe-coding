@@ -22,6 +22,15 @@ export async function initApp() {
   `;
 
   await dataProvider.loadAll();
+
+  // Initialize route from hash
+  const initialRoute = window.location.hash.substring(1);
+  if (initialRoute && Object.keys(Router.routes).includes(initialRoute)) {
+    stateStore.setRoute(initialRoute);
+  } else {
+    stateStore.setRoute('overview');
+  }
+
   stateStore.recompute();
 
   const headerRoot = document.getElementById('header-root');
