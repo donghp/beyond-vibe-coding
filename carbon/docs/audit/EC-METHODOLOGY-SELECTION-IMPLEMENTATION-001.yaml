@@ -1,0 +1,118 @@
+audit_id: "EC-METHODOLOGY-SELECTION-IMPLEMENTATION-001"
+verification_date: "2026-09-16"
+status: "APPROVED"
+compliance_standard: "EC-MTH-001"
+verifier: "ENERIX Carbon Automated Audit Service"
+summary:
+  total_scenarios: 20
+  passed: 20
+  failed: 0
+  integrity_score: 1.00
+  compliance_rating: "COMPLIANT"
+
+engine_metadata:
+  file_path: "/carbon/engine/methodology-engine.js"
+  metadata_only_selector: true
+  zero_numerical_operations: true
+  fail_closed_mode: true
+  reproducibility_hashing: true
+
+test_verification_runs:
+  - id: "TC-MTH-001"
+    name: "Single clearly applicable methodology"
+    outcome: "PASS"
+  - id: "TC-MTH-002"
+    name: "Clearly non-applicable methodology"
+    outcome: "PASS"
+  - id: "TC-MTH-003"
+    name: "Missing activity context"
+    outcome: "PASS"
+    result_code: "REQUIRES_REVIEW"
+  - id: "TC-MTH-004"
+    name: "Ambiguous sector mapping"
+    outcome: "PASS"
+    result_code: "REQUIRES_REVIEW"
+  - id: "TC-MTH-005"
+    name: "Historical methodology selection"
+    outcome: "PASS"
+    resolved_id: "METH-BXD-13-2024"
+    resolved_version: "1.0.0"
+  - id: "TC-MTH-006"
+    name: "Methodology effective_from boundary"
+    outcome: "PASS"
+  - id: "TC-MTH-007"
+    name: "Methodology effective_to boundary"
+    outcome: "PASS"
+    resolved_id: "METH-MOC-CEMENT-2026"
+    resolved_version: "2.0.0"
+  - id: "TC-MTH-008"
+    name: "Multiple valid candidates without precedence"
+    outcome: "PASS"
+    result_code: "REQUIRES_REVIEW"
+  - id: "TC-MTH-009"
+    name: "Invalid methodology status"
+    outcome: "PASS"
+    result_code: "BLOCKED"
+  - id: "TC-MTH-010"
+    name: "Missing provenance"
+    outcome: "PASS"
+    result_code: "BLOCKED"
+    fail_closed_validated: true
+  - id: "TC-MTH-011"
+    name: "Missing required evidence"
+    outcome: "PASS"
+    result_code: "BLOCKED"
+    fail_closed_validated: true
+  - id: "TC-MTH-012"
+    name: "Evidence present but methodology still ambiguous"
+    outcome: "PASS"
+    result_code: "REQUIRES_REVIEW"
+  - id: "TC-MTH-013"
+    name: "Multiple calculation model bindings"
+    outcome: "PASS"
+    bindings_preserved: true
+  - id: "TC-MTH-014"
+    name: "Regulatory applicability unresolved"
+    outcome: "PASS"
+    result_code: "REQUIRES_REVIEW"
+  - id: "TC-MTH-015"
+    name: "Temporal straddling methodology context"
+    outcome: "PASS"
+    result_code: "REQUIRES_REVIEW"
+  - id: "TC-MTH-016"
+    name: "Deterministic repeated selection"
+    outcome: "PASS"
+    iterations: 50
+    idempotent: true
+  - id: "TC-MTH-017"
+    name: "Historical selection reproducibility"
+    outcome: "PASS"
+    reproducibility_signature_verified: true
+  - id: "TC-MTH-018"
+    name: "Methodology revision creates new version"
+    outcome: "PASS"
+  - id: "TC-MTH-019"
+    name: "Parameter requirement without numerical fallback"
+    outcome: "PASS"
+    result_code: "BLOCKED"
+    fail_closed_validated: true
+  - id: "TC-MTH-020"
+    name: "Controlled issue register preservation"
+    outcome: "PASS"
+    total_preserved: 14
+
+preserved_issues:
+  - "ISSUE-MTH-001"
+  - "ISSUE-MTH-002"
+  - "ISSUE-MTH-003"
+  - "ISSUE-TEMP-001"
+  - "ISSUE-TEMP-002"
+  - "ISSUE-TEMP-003"
+  - "ISSUE-SPM-001"
+  - "ISSUE-SPM-002"
+  - "ISSUE-SPM-003"
+  - "ISSUE-RRM-001"
+  - "ISSUE-RRM-002"
+  - "ISSUE-RRM-003"
+  - "ISSUE-EFR-001"
+  - "ISSUE-GWP-001"

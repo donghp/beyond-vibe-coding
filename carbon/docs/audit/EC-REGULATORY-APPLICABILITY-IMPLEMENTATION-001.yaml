@@ -1,0 +1,59 @@
+document_id: "EC-REGULATORY-APPLICABILITY-IMPLEMENTATION-001"
+status: "REGULATORY_APPLICABILITY_IMPLEMENTATION_ALIGNED"
+verification_date: "2026-09-16"
+product: "ENERIX Carbon"
+engine: "Regulatory Applicability Engine"
+version: "1.0.0"
+
+contracts_satisfied:
+  - id: "EC-RRM-001"
+    name: "Regulatory Rule Model Specification"
+    alignment_level: "EXACT"
+  - id: "EC-TEMP-001"
+    name: "Temporal Validity Model Specification"
+    alignment_level: "EXACT"
+  - id: "EC-SPM-001"
+    name: "Sector Profile Model Specification"
+    alignment_level: "EXACT"
+  - id: "EC-KM-001"
+    name: "Regulatory Knowledge Matrix Specification"
+    alignment_level: "EXACT"
+
+verification_summary:
+  total_scenarios: 20
+  passed: 20
+  failed: 0
+  determinism_check: "PASSED (50 sequential runs yielded exact exact matches)"
+  syntactic_validation: "PASSED (tsc --noEmit and ESLint returned zero errors)"
+  build_status: "PASSED (astro build completed successfully)"
+
+unresolved_issues_tracked:
+  - id: "ISSUE-RRM-001"
+    description: "Multi-Ministry Precedence Conflict between MOC Circular 13 and MONRE Circular 17"
+    mitigation_strategy: "Hard-halt evaluation when dual-use heat processes are active, escalating to REQUIRES_REVIEW."
+    status: "MITIGATED_DETERMINISTICALLY"
+  - id: "ISSUE-RRM-002"
+    description: "Retrospective Audit Rules validation"
+    status: "CONTROLLED"
+  - id: "ISSUE-RRM-003"
+    description: "provincial-level rule overrides representation"
+    status: "CONTROLLED"
+  - id: "ISSUE-TEMP-001"
+    description: "Temporal boundaries and transition points validation"
+    status: "MITIGATED_DETERMINISTICALLY"
+  - id: "ISSUE-SPM-001"
+    description: "Taxonomy mapping bridge validation"
+    status: "MITIGATED_DETERMINISTICALLY"
+
+provenance_tracing:
+  supported: true
+  evidence_snapshot_reproducible: true
+  metadata_fields:
+    - "evaluation_id"
+    - "assessment_date"
+    - "applicability_status"
+    - "mandatory_status"
+    - "evidence"
+    - "evaluation_timestamp"
+    - "evaluator_version"
+    - "provenance_trace"

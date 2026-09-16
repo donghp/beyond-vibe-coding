@@ -9,7 +9,11 @@
     "preview": "astro preview",
     "clean": "rm -rf dist .astro",
     "lint": "tsc --noEmit",
-    "test:carbon": "node carbon/engine/test-runner.js"
+    "test:carbon": "node carbon/engine/test-runner.js",
+    "test:regulatory": "node carbon/engine/test-regulatory.js",
+    "test:temporal": "node carbon/engine/test-temporal.js",
+    "test:methodology": "node carbon/engine/test-methodology.js",
+    "test:all": "node carbon/engine/test-runner.js && node carbon/engine/test-regulatory.js && node carbon/engine/test-temporal.js && node carbon/engine/test-methodology.js"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",

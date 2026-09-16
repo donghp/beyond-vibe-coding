@@ -1,0 +1,235 @@
+document_id: "EC-TEMP-001"
+document_version: "1.0.0"
+document_status: "APPROVED_BASELINE"
+source_path: "/carbon/docs/regulatory/EC-TEMP-001.md"
+
+sections:
+  - id: 1
+    name: "Document Control"
+  - id: 2
+    name: "Purpose"
+  - id: 3
+    name: "Scope"
+  - id: 4
+    name: "Temporal Principles"
+  - id: 5
+    name: "Temporal Value Objects"
+  - id: 6
+    name: "Publication vs. Effective Date"
+  - id: 7
+    name: "Effective Window"
+  - id: 8
+    name: "Validity Predicate"
+  - id: 9
+    name: "Point vs. Interval"
+  - id: 10
+    name: "Regulatory Transition"
+  - id: 11
+    name: "Partial Amendment"
+  - id: 12
+    name: "Reporting Period Straddling Transition"
+  - id: 13
+    name: "Activity Data Segmentation"
+  - id: 14
+    name: "Calculation Context Versioning"
+  - id: 15
+    name: "Temporal Snapshot"
+  - id: 16
+    name: "Temporal Conflict"
+  - id: 17
+    name: "Temporal Precedence"
+  - id: 18
+    name: "Historical Reproducibility"
+  - id: 19
+    name: "Temporal Queries"
+  - id: 20
+    name: "Applicability Graph"
+  - id: 21
+    name: "Regulatory Document Versioning"
+  - id: 22
+    name: "Methodology Timing"
+  - id: 23
+    name: "Emission Factor (EF) Timing"
+  - id: 24
+    name: "Global Warming Potential (GWP) Timing"
+  - id: 25
+    name: "Historical Immutability"
+  - id: 26
+    name: "Multi-Regulation Context"
+  - id: 27
+    name: "Temporal Status"
+  - id: 28
+    name: "Temporal Status vs. Applicability"
+  - id: 29
+    name: "Relationship to RRM"
+  - id: 30
+    name: "Relationship to KM"
+  - id: 31
+    name: "Relationship to UCM"
+  - id: 32
+    name: "Relationship to Domain Model"
+  - id: 33
+    name: "Implementation Boundary"
+  - id: 34
+    name: "Controlled Open Issues"
+  - id: 35
+    name: "Machine-Readable Model"
+  - id: 36
+    name: "Reconciliation"
+  - id: 37
+    name: "Acceptance Criteria"
+  - id: 38
+    name: "Revision History"
+
+temporal_concepts:
+  effective_from: "DEFINED"
+  effective_to: "DEFINED"
+  publication_date: "DEFINED"
+  reporting_period: "DEFINED"
+  activity_period: "DEFINED"
+  assessment_date: "DEFINED"
+  validity_interval: "DEFINED"
+  open_ended_interval: "DEFINED"
+  boundary_semantics: "DEFINED"
+  overlap: "DEFINED"
+  containment: "DEFINED"
+  adjacency: "PARTIALLY_DEFINED"
+  intersection: "PARTIALLY_DEFINED"
+  subtraction: "NOT_DEFINED"
+  splitting: "DEFINED"
+  normalization: "NOT_DEFINED"
+  ordering: "DEFINED"
+  transition: "DEFINED"
+  historical_state: "DEFINED"
+  temporal_snapshot: "DEFINED"
+  reproducibility: "DEFINED"
+  temporal_binding: "DEFINED"
+
+interval_semantics:
+  lower_boundary: "inclusive"
+  upper_boundary: "exclusive"
+  boundary_representation: "[t_start, t_end)"
+  open_ended_representation: "[t_start, null)"
+  zero_length_behavior: "NOT_SPECIFIED"
+  malformed_behavior: "FAIL_CLOSED"
+  overlap_rule: "a_start < b_end AND b_start < a_end"
+  adjacency_rule: "Contiguous points sharing boundary without overlapping"
+
+interval_operations:
+  - name: "contains"
+    purpose: "Evaluate point-in-time containment"
+    input: "EventDate, EffectivePeriod"
+    output: "boolean"
+  - name: "overlaps"
+    purpose: "Evaluate interval overlaps via validity predicate"
+    input: "EffectivePeriod, ReportingPeriod"
+    output: "boolean"
+  - name: "split"
+    purpose: "Divide reporting/activity period by regulatory transition dates"
+    input: "Interval, Date"
+    output: "List of Intervals"
+  - name: "sort"
+    purpose: "Arrange boundaries/segments chronologically"
+    input: "List of Intervals"
+    output: "Ordered List of Intervals"
+
+segmentation_rules:
+  straddle_trigger: "Regulatory transition boundary strictly within Reporting/Activity period"
+  mandatory_segmentation: true
+  boundary_assignment: "Transition date belongs to successor segment (Segment B)"
+  prohibited_zero_length_segments: true
+  preserved_metadata:
+    - "original_activity_id"
+    - "split_reason"
+    - "evaluated_rules_references"
+  parent_period_preservation: true
+
+transition_relationships:
+  - name: "AMENDS"
+    meaning: "Newer rule modifies sub-attributes of parent, keeping rule identity"
+    historical_validity: "Preserved"
+  - name: "REPLACES"
+    meaning: "Newer rule completely overrides old rule at chronological boundary"
+    historical_validity: "Preserved"
+  - name: "SUPERSEDES"
+    meaning: "Old rule declared legally void; lineage path preserved"
+    historical_validity: "Preserved"
+  - name: "APPLIES_DURING"
+    meaning: "Transitional or grace periods map to matching activity windows"
+    historical_validity: "Preserved"
+
+temporal_bindings:
+  emission_factors: "ACTIVITY_DATE"
+  gwp_datasets: "REGULATORY_RULE"
+  methodology: "METHODOLOGY_DEFINED"
+  sector_profiles: "SOURCE_DEFINED"
+
+historical_rules:
+  archiving: "WORM (write-once, read-many) state storage"
+  in_place_mutation: "Strictly prohibited"
+  reproducibility: "Past report reconstruction matches original decimal-exact outputs"
+
+determinism_requirements:
+  no_dynamic_queries: "No current-timestamp logic allowed"
+  lineage_graph: "DAG representing chronological relations"
+  version_decoupling: "Document version, rule version, and effective version are independent"
+
+failure_semantics:
+  missing_effective_date: "UNKNOWN / SOURCE_VERIFICATION_REQUIRED"
+  temporal_conflict: "BLOCKED / REQUIRES_REVIEW"
+  methodology_gap: "UNKNOWN / HALTS"
+  malformed_interval: "FAIL_CLOSED"
+
+controlled_open_issues:
+  - id: "ISSUE-TEMP-001"
+    title: "Missing Statutory End Dates"
+    status: "OPEN_CONTROLLED"
+  - id: "ISSUE-TEMP-002"
+    title: "Mid-Month Transition Auditing"
+    status: "OPEN_CONTROLLED"
+  - id: "ISSUE-TEMP-003"
+    title: "Retrospective Circular Mandates"
+    status: "OPEN_CONTROLLED"
+
+cross_specification_dependencies:
+  - document_id: "EC-RRM-001"
+    type: "Rule AST predicates and definitions"
+  - document_id: "EC-KM-001"
+    type: "Gazetted legal timestamps mapping source"
+  - document_id: "EC-UCM-001"
+    type: "Calculation parameters input compiler"
+  - document_id: "EC-DM-001"
+    type: "Base temporal object formats"
+
+ambiguities:
+  - "Mid-month billing splits where raw meter readings are unavailable introduces measurement uncertainty"
+  - "Behavior when effective_from equals effective_to is unspecified"
+
+implementation_readiness:
+  left_closed_right_open: "IMPLEMENTABLE"
+  point_containment: "IMPLEMENTABLE"
+  validity_predicate: "IMPLEMENTABLE"
+  straddle_splits: "IMPLEMENTABLE"
+  data_segmentation: "IMPLEMENTABLE"
+  transition_lineage: "IMPLEMENTABLE"
+  worm_archiving: "IMPLEMENTABLE_WITH_EXPLICIT_CONTEXT"
+  unresolved_methodology_timing: "IMPLEMENTABLE"
+  mid_month_billing_splits: "REQUIRES_GOVERNED_DECISION"
+
+requirements_for_0017:
+  - "Build deterministic temporal utility engine in javascript"
+  - "Validate intervals and fail closed on invalid inputs"
+  - "Support contains, overlaps, split, and sort operations"
+  - "Prohibit inclusive-inclusive interval conversions"
+  - "Log and track ISSUE-TEMP-001 through ISSUE-TEMP-003"
+
+non_requirements:
+  - "Do not use timezone padding or 23:59:59.999 hacks"
+  - "Do not fallback to publication date if effective from is missing"
+  - "Do not overwrite historical rule parameters in-place"
+  - "Do not execute dynamic, current-timestamp database queries during calculations"
+
+analysis_metadata:
+  timestamp: "2026-09-16T09:41:00-07:00"
+  analyst: "Google AI Studio Coding Agent"
+  project: "ENERIX Carbon"
