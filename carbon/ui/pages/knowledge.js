@@ -1,15 +1,10 @@
 /**
  * ENERIX Carbon - Regulatory Knowledge Base View
  */
+import { dataProvider } from '../../app/data-provider.js';
+
 export function renderKnowledgePage() {
-  const docs = [
-    { id: 'LAW-72-2020-QH14', title: 'Luật Bảo vệ môi trường 2020 (72/2020/QH14)', type: 'Law', authority: 'Quốc hội' },
-    { id: 'DEC-06-2022-ND-CP', title: 'Nghị định 06/2022/NĐ-CP giảm nhẹ phát thải KNK', type: 'Decree', authority: 'Chính phủ' },
-    { id: 'DEC-119-2025-ND-CP', title: 'Nghị định 119/2025/NĐ-CP sửa đổi NĐ 06/2022', type: 'Decree', authority: 'Chính phủ' },
-    { id: 'DEC-83-2026-ND-CP', title: 'Nghị định 83/2026/NĐ-CP sửa đổi NĐ 06/2022', type: 'Decree', authority: 'Chính phủ' },
-    { id: 'QD-42-2026', title: 'Quyết định 42/2026/QĐ-TTg Danh mục cơ sở kiểm kê KNK', type: 'Decision', authority: 'Thủ tướng Chính phủ' },
-    { id: 'QD-263-2026', title: 'Quyết định 263/QĐ-TTg Thí điểm hạn ngạch KNK 2025-2026', type: 'Decision', authority: 'Thủ tướng Chính phủ' }
-  ];
+  const docs = dataProvider.getKnowledgeItems();
 
   return `
     <div class="page-title-bar">
@@ -30,14 +25,47 @@ export function renderKnowledgePage() {
         <tbody>
           ${docs.map(d => `
             <tr>
-              <td class="mono-text">${d.id}</td>
+              <td class="mono-text">${d.document_id}</td>
               <td style="font-weight:600;">${d.title}</td>
-              <td>${d.type}</td>
-              <td>${d.authority}</td>
+              <td>${d.category}</td>
+              <td>${d.authority_class}</td>
             </tr>
           `).join('')}
         </tbody>
       </table>
     </div>
+    <div id="knowledge-detail-view" style="margin-top:24px;display:none;">
+    </div>
   `;
 }
+
+renderKnowledgePage.attachEvents = (container) => {
+  container.querySelectorAll('tbody tr').forEach(row => {
+    row.style.cursor = 'pointer';
+    row.addEventListener('click', () => {
+      const docId = row.querySelector('.mono-text').textContent;
+      const doc = dataProvider.getKnowledgeItem(docId);
+      if (doc) {
+        const detailView = container.querySelector('#knowledge-detail-view');
+        detailView.innerHTML = `
+          <div class="enerix-card">
+            <h2 class="card-title">Knowledge Detail: ${doc.title}</h2>
+            <div class="card-content">
+              <p><strong>ID:</strong> ${doc.document_id}</p>
+              <p><strong>Category:</strong> ${doc.category}</p>
+              <p><strong>Authority:</strong> ${doc.authority_class}</p>
+              <p><strong>Version:</strong> ${doc.version}</p>
+            </div>
+            <button class="enerix-button" id="close-detail">Close</button>
+          </div>
+        `;
+        detailView.style.display = 'block';
+        
+        container.querySelector('#close-detail').addEventListener('click', (e) => {
+          e.stopPropagation();
+          detailView.style.display = 'none';
+        });
+      }
+    });
+  });
+};

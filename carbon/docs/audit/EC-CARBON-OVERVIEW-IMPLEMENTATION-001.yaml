@@ -1,0 +1,57 @@
+audit_id: "EC-CARBON-OVERVIEW-IMPLEMENTATION-001"
+published_date: "2026-09-16"
+status: "OVERVIEW_DECISION_WORKSPACE_FULLY_IMPLEMENTED"
+governing_standard: "EC-TEST-001"
+phase: "G5_PRODUCT_DEMO_OPERATIONALIZATION"
+task_id: "#0029"
+
+components:
+  ui_page: "/carbon/ui/pages/overview.js"
+  test_suite: "/carbon/engine/test-carbon-overview.js"
+  state_provider: "/carbon/app/state-store.js"
+  data_provider: "/carbon/app/data-provider.js"
+
+pillars_verified:
+  - pillar: "REGULATORY"
+    legal_basis: "Quyết định 42/2026/QĐ-TTg"
+    applicability_status: "APPLICABLE"
+    obligation: "MANDATORY"
+  - pillar: "TEMPORAL"
+    boundary_date: "2026-09-25"
+    segmentation_rule: "ISSUE-TEMP-001"
+    fail_closed_enforced: true
+  - pillar: "DATA_HEALTH"
+    activity_records_count: 2
+    verified_documents_count: 2
+    qaqc_status: "HEALTHY"
+  - pillar: "CALCULATION"
+    total_emissions_tco2e: 1082.32
+    scope_1_tco2e: 67.42
+    scope_2_tco2e: 1014.90
+    scope_3_status: "NOT_INCLUDED"
+    gwp_dataset: "GWP-IPCC-AR5"
+  - pillar: "ASSURANCE_GOVERNANCE"
+    report_readiness_state: "REPORT_READY"
+    human_sign_offs_count: 2
+    non_ai_policy_enforced: true
+
+controlled_issues_disclosed:
+  - issue_id: "ISSUE-TEMP-001"
+    severity: "BLOCKING"
+    remedy: "ENABLE_TEMPORAL_SEGMENTATION"
+  - issue_id: "ISSUE-GWP-001"
+    severity: "CONTROLLED_DISCLOSURE"
+    remedy: "IPCC_AR5_100YR_BINDING"
+  - issue_id: "ISSUE-RRM-001"
+    facility_id: "FAC-2026-003"
+    severity: "REQUIRES_REVIEW"
+    remedy: "MULTI_MINISTRY_METHODOLOGY_SELECTION"
+
+verification:
+  suite_index: 15
+  test_count: 24
+  passed: 24
+  failed: 0
+  total_project_tests: 363
+  total_suites: 15
+  all_passed: true

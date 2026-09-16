@@ -21,7 +21,13 @@
     "test:readiness": "node carbon/engine/test-report-readiness.js",
     "test:appstate": "node carbon/engine/test-app-state.js",
     "test:regws": "node carbon/engine/test-regulatory-workspace.js",
-    "test:all": "node carbon/engine/test-runner.js && node carbon/engine/test-regulatory.js && node carbon/engine/test-temporal.js && node carbon/engine/test-methodology.js && node carbon/engine/test-plan.js && node carbon/engine/test-activity.js && node carbon/engine/test-document.js && node carbon/engine/test-provenance.js && node carbon/engine/test-qa-qc.js && node carbon/engine/test-report-readiness.js && node carbon/engine/test-app-state.js && node carbon/engine/test-regulatory-workspace.js"
+    "test:calcstudio": "node carbon/engine/test-calculation-studio.js",
+    "test:evidencetrace": "node carbon/engine/test-evidence-trace.js",
+    "test:carbonoverview": "node carbon/engine/test-carbon-overview.js",
+    "test:reportingblueprint": "node carbon/engine/test-reporting-blueprint.js",
+    "test:reportui": "node carbon/engine/test-reports-ui.js",
+    "test:rkb": "node carbon/engine/test-reports-knowledge-base.js",
+    "test:all": "node carbon/engine/test-runner.js && node carbon/engine/test-regulatory.js && node carbon/engine/test-temporal.js && node carbon/engine/test-methodology.js && node carbon/engine/test-plan.js && node carbon/engine/test-activity.js && node carbon/engine/test-document.js && node carbon/engine/test-provenance.js && node carbon/engine/test-qa-qc.js && node carbon/engine/test-report-readiness.js && node carbon/engine/test-app-state.js && node carbon/engine/test-regulatory-workspace.js && node carbon/engine/test-calculation-studio.js && node carbon/engine/test-evidence-trace.js && node carbon/engine/test-carbon-overview.js && node carbon/engine/test-reporting-blueprint.js && node carbon/engine/test-reports-ui.js && node carbon/engine/test-reports-knowledge-base.js"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",
@@ -31,6 +37,7 @@
     "astro": "^7.3.2",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
+    "js-yaml": "^5.4.2",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "react": "^19.0.1",

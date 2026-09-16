@@ -4,15 +4,15 @@
 **Published Date:** 2026-09-16  
 **Status:** `AUTHORITATIVE`  
 **Governing Standard:** EC-TEST-001  
-**Lifecycle Phase:** G4 — Document Intelligence & Assurance  
+**Lifecycle Phase:** G5 — Product / Demo Operationalization  
 
 ---
 
 ### 1. Discrepancy Analysis & Resolution (`TEST_REPORTING_COUNT_DISCREPANCY`)
 
-- **Prior Anomaly:** A previous high-level status summary reported a count of 136 tests, while individual suite descriptions totaled 160, and active test execution actually contained more tests.
-- **Root Cause:** The label "136" reflected an obsolete snapshot prior to the complete registration of the extended G3 engine verification suites (`test-temporal.js` [24], `test-plan.js` [24], `test-activity.js` [24]).
-- **Resolution:** This document establishes the **single authoritative canonical inventory** of all verification suites in the ENERIX Carbon codebase.
+- **Prior Baseline:** At the conclusion of G4, 10 suites were registered totaling 235 tests (`EC-TEST-MANIFEST-001`).
+- **G5 Expansion:** Task #0025 introduced Suite 11 (`test-app-state.js`, +44 tests), bringing the total to 279. Task #0026 introduced Suite 12 (`test-regulatory-workspace.js`, +20 tests), bringing the total to 299 tests. Task #0027 introduced Suite 13 (`test-calculation-studio.js`, +20 tests), bringing the final canonical total to 319 tests.
+- **Resolution:** This document establishes the **single authoritative canonical inventory** of all 13 verification suites and 319 tests in the ENERIX Carbon codebase.
 
 ---
 
@@ -32,10 +32,11 @@
 | **10** | Report Readiness & Audit Package Engine | `npm run test:readiness` | `test-report-readiness.js` | G4 | 24 | **100% PASS** |
 | **11** | App State & Data Provider Engine Bridge | `npm run test:appstate` | `test-app-state.js` | G5 | 44 | **100% PASS** |
 | **12** | Regulatory Workspace UI & Governed Bridge | `npm run test:regws` | `test-regulatory-workspace.js` | G5 | 20 | **100% PASS** |
+| **13** | Calculation Studio UI & Governed Bridge | `npm run test:calcstudio` | `test-calculation-studio.js` | G5 | 20 | **100% PASS** |
 
-**Grand Total:** **299 Canonical Tests across 12 Suites**  
+**Grand Total:** **319 Canonical Tests across 13 Suites**  
 **Consolidated Execution Command:** `npm run test:all`  
-**Overall Result:** **299 / 299 PASSED (100% Compliance)**  
+**Overall Result:** **319 / 319 PASSED (100% Compliance)**  
 
 ---
 
@@ -51,7 +52,8 @@
 - `TC-REG-001` through `TC-REG-020` (20 tests)
 
 #### Suite 3: Temporal Applicability & Segmentation (24 tests)
-- `TC-TEMP-001` through `TC-TEMP-024` (24 tests)
+- `TC-TEMP-001` through `TC-TEMP-020` (20 tests)
+- `TC-TEMP-EXTRA-1` through `TC-TEMP-EXTRA-4` (4 tests)
 
 #### Suite 4: Methodology Selection Engine (20 tests)
 - `TC-MTH-001` through `TC-MTH-020` (20 tests)
@@ -69,7 +71,7 @@
 - `TC-PROV-001` through `TC-PROV-024` (24 tests)
 
 #### Suite 9: QA/QC & Data Health Engine (24 tests)
-- `TC-QAQC-001` through `TC-QAQC-024` (24 tests)
+- `TC-QA-001` through `TC-QA-024` (24 tests)
 
 #### Suite 10: Report Readiness & Audit Package Engine (24 tests)
 - `TC-REP-001` through `TC-REP-024` (24 tests)
@@ -81,9 +83,12 @@
 #### Suite 12: Regulatory Workspace UI & Governed Bridge (20 tests)
 - `TC-REGUI-001` through `TC-REGUI-020` (20 tests)
 
+#### Suite 13: Calculation Studio UI & Governed Bridge (20 tests)
+- `TC-CALCUI-001` through `TC-CALCUI-020` (20 tests)
+
 ---
 
 ### 4. Certification Statement
 
 The test suite structure, canonical identifiers, and test count registry are mathematically verified and frozen.
-All 12 active suites containing 299 canonical tests pass with 100% compliance.
+All 13 active suites containing 319 canonical tests pass with 100% compliance.

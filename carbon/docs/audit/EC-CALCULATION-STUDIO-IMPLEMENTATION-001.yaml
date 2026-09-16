@@ -1,0 +1,121 @@
+artifact_id: "EC-CALCULATION-STUDIO-IMPLEMENTATION-001"
+published_date: "2026-09-16"
+status: "CALCULATION_STUDIO_IMPLEMENTATION_ALIGNED_WITH_OPEN_ISSUES"
+phase: "G5_PRODUCT_DEMO_OPERATIONALIZATION"
+task_ref: "#0027_AND_0027_1"
+governing_standard: "EC-TEST-001"
+implementation_file: "/carbon/ui/pages/calculations.js"
+state_store_file: "/carbon/app/state-store.js"
+verification_file: "/carbon/engine/test-calculation-studio.js"
+
+authority_boundaries:
+  ui_role: "INSPECTOR_AND_EXECUTION_TRIGGER_ONLY"
+  calculation_authority: "G2_CALCULATION_ENGINE_AND_STATE_STORE"
+  formula_leakage_detected: false
+  threshold_duplication_detected: false
+  fail_closed_mode: true
+
+semantic_audit_summary:
+  gwp_representation:
+    dynamic_binding: true
+    fallback_on_unresolved: "UNKNOWN / REQUIRES_REVIEW"
+    governed_registry_catalog: true
+    open_issue_preserved: "ISSUE-GWP-001"
+  hash_terminology:
+    cryptographic_claims_removed: true
+    integrity_hash_labeled: true
+    reproducibility_hash_labeled: true
+  test_reconciliation:
+    canonical_manifest: "/carbon/docs/audit/EC-CANONICAL-TEST-MANIFEST-001.yaml"
+    total_suites: 13
+    total_tests: 319
+    passed_tests: 319
+    failed_tests: 0
+    skipped_tests: 0
+    pass_rate: "100%"
+
+open_controlled_issues:
+  - issue_id: "ISSUE-GWP-001"
+    title: "GWP Standard & Horizon Selection"
+    status: "OPEN_CONTROLLED"
+  - issue_id: "ISSUE-TEMP-001"
+    title: "Decision 42/2026/QĐ-TTg Temporal Boundary Split"
+    status: "OPEN_CONTROLLED"
+  - issue_id: "ISSUE-TEMP-002"
+    title: "Dual Regulatory Regime Emissions Aggregation"
+    status: "OPEN_CONTROLLED"
+  - issue_id: "ISSUE-RRM-001"
+    title: "MOC vs MONRE MRV Methodology Precedence Conflict"
+    status: "OPEN_CONTROLLED"
+
+components:
+  - id: "COMP-CALC-01"
+    name: "Calculation Studio Header & Blocker Alert"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["CalculationStudioViewModel.facility", "CalculationStudioViewModel.temporal_status"]
+    outputs: ["Facility Selector", "Framework Badges", "Fail-Closed Blocker Alert"]
+  - id: "COMP-CALC-02"
+    name: "Governed Validation Gates (G3 Blueprint)"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["CalculationPlan.validation_gates"]
+    outputs: ["6 Statutory Gate Cards", "Re-evaluate Trigger", "Execute Engine Run Button"]
+  - id: "COMP-CALC-03"
+    name: "Deterministic Calculation Snapshot & Scope Cards"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["CalculationSnapshot.total_co2e_tons", "CalculationSnapshot.scope_breakdown"]
+    outputs: ["Total Gross GHG Banner", "Scope 1 Card", "Scope 2 Card", "Scope 3 Disclosure"]
+  - id: "COMP-CALC-04"
+    name: "Greenhouse Gas Species Composition Table"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["CalculationSnapshot.individual_ghg_gases", "GwpDataset.gwp_values"]
+    outputs: ["CO2 / CH4 / N2O Masses", "Dynamic GWP Multipliers", "CO2e Equivalent Breakdown"]
+  - id: "COMP-CALC-05"
+    name: "Sequential Calculation Steps Trace"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["CalculationPlan.steps", "CalculationSnapshot.step_trace"]
+    outputs: ["STEP-01 to STEP-03 Cards with Model Class and Factor References"]
+  - id: "COMP-CALC-06"
+    name: "Bound Activity Data Ledger & Audit Evidence"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["StateStore.activityRecords", "StateStore.documents"]
+    outputs: ["Activity Ledger Table", "Document Evidence Tags"]
+  - id: "COMP-CALC-07"
+    name: "Emission Factor Registry & Governed GWP Catalog"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["DataProvider.getEmissionFactors()", "DataProvider.getGwpDatasets()"]
+    outputs: ["Emission Factors Table", "GWP Standards Catalog Table"]
+  - id: "COMP-CALC-08"
+    name: "Calculation Integrity Manifest & Reproducibility Lineage"
+    source: "/carbon/ui/pages/calculations.js"
+    inputs: ["CalculationSnapshot.snapshot_id", "CalculationSnapshot.audit_hash", "CalculationSnapshot.reproducibility_hash"]
+    outputs: ["Integrity Hash Block", "Lineage Timestamp", "QA/QC Health Status"]
+
+test_suite:
+  suite_id: "SUITE-013"
+  suite_name: "Calculation Studio UI & Governed Execution Bridge"
+  test_file: "/carbon/engine/test-calculation-studio.js"
+  total_tests: 20
+  passed_tests: 20
+  failed_tests: 0
+  pass_rate: "100%"
+  test_ids:
+    - "TC-CALCUI-001"
+    - "TC-CALCUI-002"
+    - "TC-CALCUI-003"
+    - "TC-CALCUI-004"
+    - "TC-CALCUI-005"
+    - "TC-CALCUI-006"
+    - "TC-CALCUI-007"
+    - "TC-CALCUI-008"
+    - "TC-CALCUI-009"
+    - "TC-CALCUI-010"
+    - "TC-CALCUI-011"
+    - "TC-CALCUI-012"
+    - "TC-CALCUI-013"
+    - "TC-CALCUI-014"
+    - "TC-CALCUI-015"
+    - "TC-CALCUI-016"
+    - "TC-CALCUI-017"
+    - "TC-CALCUI-018"
+    - "TC-CALCUI-019"
+    - "TC-CALCUI-020"

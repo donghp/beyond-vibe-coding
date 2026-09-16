@@ -150,18 +150,28 @@ export function renderRegulatoryCheckPage(options = {}) {
         ${formatBadge(vm.temporal_issue_status)}
       </div>
 
-      <p style="font-size:13px;color:#475569;margin-bottom:14px;">
-        Evaluates regulatory regime transitions across the reporting period. Pursuant to <strong>Quyết định 42/2026/QĐ-TTg</strong>, 
-        the statutory list of regulated facilities took legal effect on <strong>25 September 2026</strong>, replacing 
-        prior Quyết định 13/2024/QĐ-TTg baselines.
-      </p>
+      <!-- Legal Semantics Distinction Box: Amendment Lineage vs Applicability List -->
+      <div style="background:#f8fafc;border:1px solid var(--color-border);border-radius:6px;padding:12px 16px;margin-bottom:14px;font-size:12px;line-height:1.6;color:#334155;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div>
+            <div style="font-weight:700;color:var(--color-navy-900);margin-bottom:4px;">A. Legal Amendment Lineage (Statutory Framework)</div>
+            <div><strong>NĐ 06/2022/NĐ-CP</strong> → amended by <strong>NĐ 119/2025/NĐ-CP</strong> → amended by <strong>NĐ 83/2026/NĐ-CP</strong> (Issued: 23/03/2026, Effective: 23/03/2026).</div>
+            <div style="font-size:11px;color:#64748b;margin-top:2px;">Governs overarching MRV mandates, carbon quota allocations, and statutory verification rules.</div>
+          </div>
+          <div>
+            <div style="font-weight:700;color:var(--color-navy-900);margin-bottom:4px;">B. Applicability List Effective Period (Facility Registry)</div>
+            <div><strong>QĐ 13/2024/QĐ-TTg</strong> (Prior List) → <strong>QĐ 42/2026/QĐ-TTg</strong> (Issued: 10/08/2026, Effective: <strong>25/09/2026</strong>).</div>
+            <div style="font-size:11px;color:#64748b;margin-top:2px;">Establishes the chronological boundary (2026-09-25) where this facility transitioned from voluntary to mandatory MRV.</div>
+          </div>
+        </div>
+      </div>
 
       ${!isTemporalSegmented ? `
         <div class="enerix-alert enerix-alert-warning">
           <div style="font-size:18px;">⚠️</div>
           <div style="flex:1;">
             <div style="font-weight:700;margin-bottom:4px;">Temporal Straddle Detected — Unsegmented Reporting Period</div>
-            <div>The reporting period (${reportingPeriod.period_start} to ${reportingPeriod.period_end}) straddles the statutory transition boundary on <strong>2026-09-25</strong>. Aggregating activity data into a single unsegmented period violates EC-TEMP-001 and prevents verified MRV submission.</div>
+            <div>The reporting period (${reportingPeriod.period_start} to ${reportingPeriod.period_end}) straddles the facility applicability list transition boundary on <strong>2026-09-25</strong> (QĐ 42/2026/QĐ-TTg). Aggregating activity data across this boundary into a single unsegmented period violates EC-TEMP-001 and prevents verified statutory MRV submission.</div>
             <div style="margin-top:10px;">
               <button id="btn-toggle-temporal" class="enerix-btn enerix-btn-primary">
                 Enable Temporal Segmentation (EC-TEMP-001)
@@ -174,7 +184,7 @@ export function renderRegulatoryCheckPage(options = {}) {
           <div style="font-size:18px;">✓</div>
           <div style="flex:1;">
             <div style="font-weight:700;margin-bottom:4px;">Temporal Segmentation Active (SEGMENTED_COMPLIANT)</div>
-            <div>The reporting year is partitioned into two distinct chronological compliance segments across the 2026-09-25 boundary. Activity data and factor bindings are isolated per regime.</div>
+            <div>The reporting year is partitioned into two distinct chronological compliance segments across the 2026-09-25 applicability list boundary. Activity data and factor bindings are isolated per regime.</div>
             <div style="margin-top:10px;">
               <button id="btn-toggle-temporal" class="enerix-btn enerix-btn-outline enerix-btn-sm">
                 Disable Segmentation (Test Failure Mode)
@@ -191,7 +201,8 @@ export function renderRegulatoryCheckPage(options = {}) {
             </div>
             <div class="mono-text" style="font-size:12px;color:#64748b;margin-top:4px;">2026-01-01 → 2026-09-24</div>
             <div style="font-size:12px;color:#334155;margin-top:6px;">
-              <strong>Governing Regime:</strong> QĐ 13/2024/QĐ-TTg & NĐ 06/2022/NĐ-CP
+              <div><strong>Applicability List:</strong> QĐ 13/2024/QĐ-TTg (Facility Not Listed)</div>
+              <div style="margin-top:2px;"><strong>Framework Lineage:</strong> NĐ 06/2022/NĐ-CP (amended by NĐ 119/2025; NĐ 83/2026 from 2026-03-23)</div>
             </div>
           </div>
 
@@ -202,7 +213,8 @@ export function renderRegulatoryCheckPage(options = {}) {
             </div>
             <div class="mono-text" style="font-size:12px;color:#166534;margin-top:4px;">2026-09-25 → 2026-12-31</div>
             <div style="font-size:12px;color:#166534;margin-top:6px;">
-              <strong>Governing Regime:</strong> QĐ 42/2026/QĐ-TTg (Phụ lục II) & NĐ 83/2026/NĐ-CP
+              <div><strong>Applicability List:</strong> QĐ 42/2026/QĐ-TTg (Phụ lục II Mandate)</div>
+              <div style="margin-top:2px;"><strong>Framework Lineage:</strong> NĐ 06/2022/NĐ-CP as amended by NĐ 83/2026/NĐ-CP</div>
             </div>
           </div>
         </div>

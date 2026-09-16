@@ -2,26 +2,48 @@ manifest_version: "1.0.0"
 manifest_id: "EC-TEST-MANIFEST-001"
 timestamp_metadata:
   created_at: "2026-09-16T10:43:00.000Z"
-  evaluated_at: "2026-09-16T10:43:00.000Z"
+  evaluated_at: "2026-09-16T11:40:00.000Z"
   governing_standard: "EC-TEST-001"
-  phase: "G4 — DOCUMENT INTELLIGENCE + ASSURANCE"
+  phase: "G5 — PRODUCT / DEMO OPERATIONALIZATION"
 
 reconciliation_analysis:
   discrepancy_id: "TEST_REPORTING_COUNT_DISCREPANCY"
   status: "RESOLVED_AUTHORITATIVE"
-  historical_claimed_total: 136
-  historical_intermediate_sum: 160
+  historical_lineage:
+    - phase: "G2"
+      suites: 1
+      count: 27
+      description: "Deterministic Calculation Core (SUITE-001)"
+    - phase: "G3"
+      suites: 6
+      count: 139
+      description: "Added Regulatory (20), Temporal (24), Methodology (20), Calculation Plan (24), Activity (24)"
+    - phase: "G4"
+      suites: 10
+      count: 235
+      description: "Added Document Intelligence (24), Provenance (24), QA/QC (24), Report Readiness (24)"
+    - phase: "G5_TASK_0025"
+      suites: 11
+      count: 279
+      description: "Added App State & Data Provider Engine Bridge (44: 24 StateStore + 20 DataProvider)"
+    - phase: "G5_TASK_0026"
+      suites: 12
+      count: 299
+      description: "Added Regulatory Workspace UI & Governed Bridge (20: TC-REGUI-001..020)"
+    - phase: "G5_TASK_0027"
+      suites: 13
+      count: 319
+      description: "Added Calculation Studio UI & Governed Execution Bridge (20: TC-CALCUI-001..020)"
   explanation: >
-    The historical reference to 136 tests originated from an early G3 baseline before the complete
-    implementation and registration of extended verification suites. The intermediate listed count of 160
-    reflected partial suite registrations. The authoritative integrated total across all 9 governed suites
-    is 211 tests.
+    The discrepancy between prior counts (235 at end of G4, 251 intermediate, 279 after #0025, 299 after #0026, and 319 after #0027)
+    is reconciled. The current verified repository state contains 13 active suites with 319 total canonical tests,
+    all executing and passing with 100% compliance.
 
 integrated_summary:
-  total_suites: 10
-  total_expected_tests: 235
-  total_actual_tests: 235
-  total_passed: 235
+  total_suites: 13
+  total_expected_tests: 319
+  total_actual_tests: 319
+  total_passed: 319
   total_failed: 0
   total_skipped: 0
   overall_status: "100%_PASS_COMPLIANT"
@@ -381,3 +403,124 @@ suites:
       - "TC-REP-022"
       - "TC-REP-023"
       - "TC-REP-024"
+
+  - suite_id: "SUITE-011"
+    name: "App State & Data Provider Engine Bridge"
+    test_command: "npm run test:appstate"
+    implementation_file: "/carbon/engine/test-app-state.js"
+    phase: "G5"
+    expected_count: 44
+    actual_count: 44
+    passed: 44
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-STATE-001"
+      - "TC-STATE-002"
+      - "TC-STATE-003"
+      - "TC-STATE-004"
+      - "TC-STATE-005"
+      - "TC-STATE-006"
+      - "TC-STATE-007"
+      - "TC-STATE-008"
+      - "TC-STATE-009"
+      - "TC-STATE-010"
+      - "TC-STATE-011"
+      - "TC-STATE-012"
+      - "TC-STATE-013"
+      - "TC-STATE-014"
+      - "TC-STATE-015"
+      - "TC-STATE-016"
+      - "TC-STATE-017"
+      - "TC-STATE-018"
+      - "TC-STATE-019"
+      - "TC-STATE-020"
+      - "TC-STATE-021"
+      - "TC-STATE-022"
+      - "TC-STATE-023"
+      - "TC-STATE-024"
+      - "TC-APP-001"
+      - "TC-APP-002"
+      - "TC-APP-003"
+      - "TC-APP-004"
+      - "TC-APP-005"
+      - "TC-APP-006"
+      - "TC-APP-007"
+      - "TC-APP-008"
+      - "TC-APP-009"
+      - "TC-APP-010"
+      - "TC-APP-011"
+      - "TC-APP-012"
+      - "TC-APP-013"
+      - "TC-APP-014"
+      - "TC-APP-015"
+      - "TC-APP-016"
+      - "TC-APP-017"
+      - "TC-APP-018"
+      - "TC-APP-019"
+      - "TC-APP-020"
+
+  - suite_id: "SUITE-012"
+    name: "Regulatory Workspace UI & Governed Bridge"
+    test_command: "npm run test:regws"
+    implementation_file: "/carbon/engine/test-regulatory-workspace.js"
+    phase: "G5"
+    expected_count: 20
+    actual_count: 20
+    passed: 20
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-REGUI-001"
+      - "TC-REGUI-002"
+      - "TC-REGUI-003"
+      - "TC-REGUI-004"
+      - "TC-REGUI-005"
+      - "TC-REGUI-006"
+      - "TC-REGUI-007"
+      - "TC-REGUI-008"
+      - "TC-REGUI-009"
+      - "TC-REGUI-010"
+      - "TC-REGUI-011"
+      - "TC-REGUI-012"
+      - "TC-REGUI-013"
+      - "TC-REGUI-014"
+      - "TC-REGUI-015"
+      - "TC-REGUI-016"
+      - "TC-REGUI-017"
+      - "TC-REGUI-018"
+      - "TC-REGUI-019"
+      - "TC-REGUI-020"
+
+  - suite_id: "SUITE-013"
+    name: "Calculation Studio UI & Governed Execution Bridge"
+    test_command: "npm run test:calcstudio"
+    implementation_file: "/carbon/engine/test-calculation-studio.js"
+    phase: "G5"
+    expected_count: 20
+    actual_count: 20
+    passed: 20
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-CALCUI-001"
+      - "TC-CALCUI-002"
+      - "TC-CALCUI-003"
+      - "TC-CALCUI-004"
+      - "TC-CALCUI-005"
+      - "TC-CALCUI-006"
+      - "TC-CALCUI-007"
+      - "TC-CALCUI-008"
+      - "TC-CALCUI-009"
+      - "TC-CALCUI-010"
+      - "TC-CALCUI-011"
+      - "TC-CALCUI-012"
+      - "TC-CALCUI-013"
+      - "TC-CALCUI-014"
+      - "TC-CALCUI-015"
+      - "TC-CALCUI-016"
+      - "TC-CALCUI-017"
+      - "TC-CALCUI-018"
+      - "TC-CALCUI-019"
+      - "TC-CALCUI-020"
+

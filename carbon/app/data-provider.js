@@ -87,7 +87,8 @@ export const CATALOG_CLASSIFICATIONS = Object.freeze({
   'demo-data/scenarios.json': DATA_SOURCE_CLASSIFICATION.DEMO_FIXTURE,
   'demo-data/activities.json': DATA_SOURCE_CLASSIFICATION.DEMO_FIXTURE,
   'demo-data/demo-activities.json': DATA_SOURCE_CLASSIFICATION.DEMO_FIXTURE,
-  'demo-data/demo-documents.json': DATA_SOURCE_CLASSIFICATION.DEMO_FIXTURE
+  'demo-data/demo-documents.json': DATA_SOURCE_CLASSIFICATION.DEMO_FIXTURE,
+  'demo-data/reports.json': DATA_SOURCE_CLASSIFICATION.DEMO_FIXTURE
 });
 
 export class DataProvider {
@@ -103,6 +104,7 @@ export class DataProvider {
     this.scenarios = [];
     this.demoActivities = [];
     this.knowledgeManifest = null;
+    this.reports = [];
     this.isLoaded = false;
     this.status = PROVIDER_STATUS.LOADING;
     this.lastError = null;
@@ -132,7 +134,7 @@ export class DataProvider {
   /**
    * Universal JSON loader supporting both Node.js filesystem and browser fetch.
    */
-  async loadJsonResource(relativePath) {
+  async loadJsonResource(relativePath, isYaml = false) {
     // 1. Node.js environment detection
     if (typeof process !== 'undefined' && process.versions && process.versions.node) {
       try {
@@ -141,6 +143,11 @@ export class DataProvider {
         const fullPath = path.resolve(process.cwd(), 'carbon', relativePath);
         if (fs.existsSync(fullPath)) {
           const content = fs.readFileSync(fullPath, 'utf8');
+          if (isYaml) {
+            // Very simple YAML parser for our structured manifests
+            const yaml = await import('js-yaml');
+            return yaml.load(content);
+          }
           return JSON.parse(content);
         }
       } catch (err) {
@@ -152,12 +159,24 @@ export class DataProvider {
     if (typeof fetch === 'function') {
       try {
         const res = await fetch(`./${relativePath}`);
-        if (res.ok) return await res.json();
+        if (res.ok) {
+          if (isYaml) {
+             const yaml = await import('js-yaml');
+             return yaml.load(await res.text());
+          }
+          return await res.json();
+        }
       } catch (_) {}
 
       try {
         const res = await fetch(`/carbon/${relativePath}`);
-        if (res.ok) return await res.json();
+        if (res.ok) {
+          if (isYaml) {
+             const yaml = await import('js-yaml');
+             return yaml.load(await res.text());
+          }
+          return await res.json();
+        }
       } catch (_) {}
     }
 
@@ -179,7 +198,9 @@ export class DataProvider {
         modelsData,
         facilitiesData,
         scenariosData,
-        demoActsData
+        demoActsData,
+        reportsData,
+        knowledgeManifestData
       ] = await Promise.all([
         this.loadJsonResource('data/sectors.json'),
         this.loadJsonResource('data/activities.json'),
@@ -190,7 +211,9 @@ export class DataProvider {
         this.loadJsonResource('data/calculation-models.json'),
         this.loadJsonResource('demo-data/facilities.json'),
         this.loadJsonResource('demo-data/scenarios.json'),
-        this.loadJsonResource('demo-data/activities.json')
+        this.loadJsonResource('demo-data/activities.json'),
+        this.loadJsonResource('demo-data/reports.json'),
+        this.loadJsonResource('knowledge-manifest.yaml', true)
       ]);
 
       this.sectors = sectorsData?.sectors || [];
@@ -203,6 +226,8 @@ export class DataProvider {
       this.facilities = facilitiesData?.facilities || [];
       this.scenarios = scenariosData?.scenarios || [];
       this.demoActivities = demoActsData?.activity_records || [];
+      this.reports = reportsData?.inventory_reports || [];
+      this.knowledgeManifest = knowledgeManifestData?.documents || [];
 
       this.isLoaded = true;
       if (this.sectors.length === 0 && this.facilities.length === 0) {
@@ -326,6 +351,11 @@ export class DataProvider {
     if (!facilityId) return this.demoActivities;
     return this.demoActivities.filter(a => a.facility_id === facilityId);
   }
+
+  getReports() { return this.reports; }
+  getReport(reportId) { return this.reports.find(r => r.report_id === reportId) || null; }
+  getKnowledgeItems() { return this.knowledgeManifest; }
+  getKnowledgeItem(id) { return this.knowledgeManifest.find(item => item.document_id === id) || null; }
 
   // Entity Lookups
   getFacility(facilityId) {

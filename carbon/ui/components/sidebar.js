@@ -18,7 +18,7 @@ export function renderSidebar(currentRoute) {
         { id: 'activity-data', label: 'Activity Data Ledger', icon: '📋' },
         { id: 'emission-factors', label: 'Emission Factors Registry', icon: '⚡' },
         { id: 'methodologies', label: 'Ministry MRV Circulars', icon: '📘' },
-        { id: 'calculations', label: 'Calculation Models', icon: '🧮' }
+        { id: 'calculations', label: 'Calculation Studio', icon: '🧮' }
       ]
     },
     {

@@ -1,0 +1,12 @@
+audit_id: "EC-REPORTS-KNOWLEDGE-BASE-CORRECTIVE-001"
+task_id: "#0030-C1"
+date: "2026-09-16"
+status: "REPORTS_KNOWLEDGE_BASE_IMPLEMENTATION_ALIGNED"
+summary: "Corrective implementation of RKB workspaces, expanding detail views and ensuring canonical contract alignment."
+files_modified:
+  - "/carbon/ui/pages/reports.js"
+  - "/carbon/ui/pages/knowledge.js"
+  - "/carbon/engine/test-reports-knowledge-base.js"
+test_count: 30
+total_canonical_tests: 438
+authority_boundary_check: "PASSED"
