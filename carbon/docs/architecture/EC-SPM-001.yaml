@@ -1,0 +1,296 @@
+# ENERIX Carbon — Sector Profile Model (SPM) Schema
+# Document ID: EC-SPM-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/architecture/EC-SPM-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/architecture/EC-SPM-001.json"
+title: "Sector Profile Model (SPM) Contract"
+description: "Machine-readable contract schemas for sector-adaptive domain configuration, taxonomy mapping, activity mapping, and methodology bindings."
+
+definitions:
+
+  # 1. SECTOR PROFILE
+  SectorProfile:
+    type: "object"
+    required:
+      - "sector_profile_id"
+      - "sector_profile_version"
+      - "name"
+      - "status"
+      - "effective_from"
+      - "taxonomy_mappings"
+      - "processes"
+      - "source_mappings"
+    properties:
+      sector_profile_id:
+        type: "string"
+        pattern: "^SEC-[A-Z0-9_-]+$"
+      sector_profile_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      status:
+        type: "string"
+        enum: ["DRAFT", "ACTIVE", "SUPERSEDES", "REPLACED", "RETIRED"]
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+      taxonomy_mappings:
+        type: "array"
+        items:
+          $ref: "#/definitions/SectorTaxonomyMapping"
+      processes:
+        type: "array"
+        items:
+          $ref: "#/definitions/SectorProcess"
+      source_mappings:
+        type: "array"
+        items:
+          $ref: "#/definitions/SectorEmissionSourceMapping"
+      qa_qc_additions:
+        type: "array"
+        items:
+          type: "string"
+
+  # 2. SECTOR TAXONOMY MAPPING
+  SectorTaxonomyMapping:
+    type: "object"
+    required:
+      - "external_system"
+      - "external_code"
+      - "external_label"
+      - "internal_sector_id"
+      - "mapping_status"
+    properties:
+      external_system:
+        type: "string"
+        enum: ["DECISION_42_2026_TTG", "IPCC_2006", "TCVN_ISO_14064_1_2025"]
+      external_code:
+        type: "string"
+      external_label:
+        type: "string"
+      internal_sector_id:
+        type: "string"
+        pattern: "^SEC-REG-[A-Z0-9_-]+$"
+      mapping_status:
+        type: "string"
+        enum: ["EXACT", "MAPPED", "PARTIAL", "AMBIGUOUS", "NOT_MAPPED", "UNKNOWN"]
+      source_reference:
+        type: "string"
+      effective_period:
+        type: "object"
+        properties:
+          effective_from:
+            type: "string"
+            format: "date"
+          effective_to:
+            type: ["string", "null"]
+            format: "date"
+
+  # 3. SECTOR PROCESS
+  SectorProcess:
+    type: "object"
+    required:
+      - "process_id"
+      - "process_name"
+      - "activities"
+    properties:
+      process_id:
+        type: "string"
+        pattern: "^PROC-[A-Z0-9_-]+$"
+      process_name:
+        type: "string"
+      description:
+        type: "string"
+      activities:
+        type: "array"
+        items:
+          $ref: "#/definitions/SectorActivityMapping"
+
+  # 4. SECTOR ACTIVITY MAPPING
+  SectorActivityMapping:
+    type: "object"
+    required:
+      - "activity_id"
+      - "activity_name"
+      - "emission_source_ref"
+      - "gas_coverage"
+      - "unit_expectations"
+      - "required_status"
+      - "methodology_binding"
+      - "model_binding"
+      - "data_requirements"
+    properties:
+      activity_id:
+        type: "string"
+        pattern: "^ACT-[A-Z0-9_-]+$"
+      activity_name:
+        type: "string"
+      emission_source_ref:
+        type: "string"
+        pattern: "^SRC-[A-Z0-9_-]+$"
+      gas_coverage:
+        type: "array"
+        items:
+          type: "string"
+          enum: ["CO2", "CH4", "N2O", "SF6", "NF3", "HFCs", "PFCs"]
+      unit_expectations:
+        type: "array"
+        items:
+          type: "string"
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "OPTIONAL"]
+      methodology_binding:
+        $ref: "#/definitions/SectorMethodologyBinding"
+      model_binding:
+        $ref: "#/definitions/SectorCalculationModelBinding"
+      data_requirements:
+        type: "array"
+        items:
+          $ref: "#/definitions/SectorDataRequirement"
+      evidence_requirements:
+        type: "array"
+        items:
+          $ref: "#/definitions/SectorEvidenceRequirement"
+      regulatory_references:
+        type: "array"
+        items:
+          $ref: "#/definitions/SectorRegulatoryReference"
+
+  # 5. SECTOR EMISSION SOURCE MAPPING
+  SectorEmissionSourceMapping:
+    type: "object"
+    required:
+      - "source_id"
+      - "source_name"
+      - "source_class"
+    properties:
+      source_id:
+        type: "string"
+        pattern: "^SRC-[A-Z0-9_-]+$"
+      source_name:
+        type: "string"
+      source_class:
+        type: "string"
+        enum:
+          - "stationary_combustion"
+          - "mobile_combustion"
+          - "purchased_electricity"
+          - "industrial_process"
+          - "fugitive"
+          - "waste"
+          - "wastewater"
+          - "agricultural"
+          - "livestock"
+          - "land_related"
+
+  # 6. SECTOR METHODOLOGY BINDING
+  SectorMethodologyBinding:
+    type: "object"
+    required:
+      - "methodology_id"
+      - "relationship_strength"
+    properties:
+      methodology_id:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      relationship_strength:
+        type: "string"
+        enum: ["REQUIRED", "ALLOWED", "CONDITIONAL", "REFERENCE"]
+
+  # 7. SECTOR CALCULATION MODEL BINDING
+  SectorCalculationModelBinding:
+    type: "object"
+    required:
+      - "model_id"
+    properties:
+      model_id:
+        type: "string"
+        enum:
+          - "MODEL-01"
+          - "MODEL-02"
+          - "MODEL-03"
+          - "MODEL-04"
+          - "MODEL-05"
+          - "MODEL-06"
+          - "MODEL-07"
+          - "MODEL-08"
+          - "MODEL-09"
+          - "MODEL-10"
+
+  # 8. SECTOR DATA REQUIREMENT
+  SectorDataRequirement:
+    type: "object"
+    required:
+      - "requirement_id"
+      - "data_type"
+      - "unit"
+      - "required_status"
+    properties:
+      requirement_id:
+        type: "string"
+      data_type:
+        type: "string"
+        enum: ["Numeric", "Categorical"]
+      unit:
+        type: "string"
+      periodicity:
+        type: "string"
+        enum: ["Hourly", "Daily", "Monthly", "Batch", "Annual"]
+      source_type:
+        type: "string"
+        enum:
+          - "manual"
+          - "document"
+          - "invoice"
+          - "spreadsheet"
+          - "meter"
+          - "SCADA"
+          - "inverter"
+          - "BESS"
+          - "EMS"
+          - "API"
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "OPTIONAL"]
+      validation_range:
+        type: "object"
+        properties:
+          min:
+            type: "number"
+          max:
+            type: "number"
+
+  # 9. SECTOR EVIDENCE REQUIREMENT
+  SectorEvidenceRequirement:
+    type: "object"
+    required:
+      - "evidence_class"
+      - "required_status"
+    properties:
+      evidence_class:
+        type: "string"
+        enum: ["electricity_bill", "fuel_invoice", "meter_record", "production_record", "laboratory_result", "CEMS_record"]
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "OPTIONAL"]
+
+  # 10. SECTOR REGULATORY REFERENCE
+  SectorRegulatoryReference:
+    type: "object"
+    required:
+      - "regulatory_document_id"
+    properties:
+      regulatory_document_id:
+        type: "string"
+      clause_reference:
+        type: "string"

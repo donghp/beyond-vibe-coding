@@ -338,3 +338,29 @@ documents:
     amendment_relationships: []
     applicability: "platform-wide"
     notes: "Machine-readable contract schemas for temporal applicability value objects and activity period segmentation."
+
+  - document_id: "EC-SPM-001"
+    file: "carbon/docs/architecture/EC-SPM-001.md"
+    category: "architecture"
+    authority_class: "GOVERNING_SPECIFICATION"
+    title: "ENERIX Carbon — Sector Profile Model"
+    version: "1.0.0"
+    issued_date: "2026-09-16"
+    effective_date: "2026-09-16"
+    status: "active"
+    amendment_relationships: []
+    applicability: "platform-wide"
+    notes: "Formal Specification of the sector-adaptive configuration modeling structure."
+
+  - document_id: "EC-SPM-001-YAML"
+    file: "carbon/docs/architecture/EC-SPM-001.yaml"
+    category: "architecture"
+    authority_class: "GOVERNING_SPECIFICATION"
+    title: "ENERIX Carbon — Sector Profile Model Schema"
+    version: "1.0.0"
+    issued_date: "2026-09-16"
+    effective_date: "2026-09-16"
+    status: "active"
+    amendment_relationships: []
+    applicability: "platform-wide"
+    notes: "Machine-readable contract schemas for sector-adaptive domain configuration and taxonomy mapping."

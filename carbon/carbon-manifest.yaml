@@ -52,3 +52,5 @@ governing_artifacts:
   - "carbon/docs/regulatory/EC-RRM-001.yaml"
   - "carbon/docs/regulatory/EC-TEMP-001.md"
   - "carbon/docs/regulatory/EC-TEMP-001.yaml"
+  - "carbon/docs/architecture/EC-SPM-001.md"
+  - "carbon/docs/architecture/EC-SPM-001.yaml"
