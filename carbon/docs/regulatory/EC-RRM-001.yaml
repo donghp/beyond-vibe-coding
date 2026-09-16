@@ -1,0 +1,423 @@
+# ENERIX Carbon — Regulatory Rule Model (RRM) Schema
+# Document ID: EC-RRM-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/regulatory/EC-RRM-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/regulatory/EC-RRM-001.json"
+title: "Regulatory Rule Model (RRM) Contract"
+description: "Machine-readable contract schemas for representing, validating, and evaluating regulatory applicability rules."
+
+# ==========================================================
+# RECONCILIATION & UNIQUENESS ANALYSIS
+# ==========================================================
+controlled_schema_issues:
+  - issue_id: "RULE_ID_UNIQUENESS"
+    title: "Rule ID Collision Within Single Section"
+    description: |
+      The pattern 'RULE-{DOC_ID}-{SECTION_REF}' specified in EC-RRM-001.md does not guarantee absolute uniqueness
+      if a single legislative section or clause (e.g., Article 5, Clause 1) contains multiple discrete logical rules
+      (e.g., separate rules for energy vs. waste sector thresholds within the same article).
+    resolution_recommendation: |
+      Append a sub-rule discriminator or rule type suffix (e.g., 'RULE-{DOC_ID}-{SECTION_REF}-{RULE_TYPE_SHORT}')
+      to enforce absolute uniqueness in physical indexes.
+    status: "OPEN_CONTROLLED"
+
+# ==========================================================
+# CANONICAL SCHEMA DEFINITIONS
+# ==========================================================
+definitions:
+
+  # 1. REGULATORY RULE
+  RegulatoryRule:
+    type: "object"
+    required:
+      - "rule_id"
+      - "rule_version"
+      - "source_refs"
+      - "assertion_refs"
+      - "authority_class"
+      - "jurisdiction"
+      - "effective_from"
+      - "status"
+      - "derivation_status"
+      - "review_status"
+      - "rule_type"
+      - "predicate"
+    properties:
+      rule_id:
+        type: "string"
+        pattern: "^RULE-[A-Z0-9_-]+$"
+        description: "Globally unique rule identifier. See RULE_ID_UNIQUENESS finding."
+      rule_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        description: "Semantic versioning representation."
+      source_refs:
+        type: "array"
+        minItems: 1
+        items:
+          type: "string"
+          description: "Lineage pointer to primary source section, e.g., 'DOC-DEC-GOV-2022-06:A5C1'."
+      assertion_refs:
+        type: "array"
+        minItems: 1
+        items:
+          type: "string"
+          pattern: "^KA-[A-Z0-9_-]+$"
+          description: "Reference to KnowledgeAssertion ID from EC-KM-001."
+      authority_class:
+        type: "string"
+        enum: ["TIER_A", "TIER_B"]
+        description: "Statutory hierarchy class derived from EC-KM-001."
+      jurisdiction:
+        type: "string"
+        pattern: "^[A-Z]{2}(-[A-Z0-9]+)?$"
+        description: "ISO 3166-1/2 jurisdiction code, e.g., 'VN' or 'VN-HN'."
+      effective_from:
+        type: "string"
+        format: "date"
+        description: "Inclusive date from which the rule has legal force."
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+        description: "Exclusive date until which the rule has legal force. Null if active."
+      status:
+        type: "string"
+        enum: ["DRAFT", "ACTIVE", "SUPERSEDED", "RETIRED"]
+      derivation_status:
+        type: "string"
+        enum: ["SOURCE_DIRECT", "DERIVED", "INTERPRETED", "ENGINEERING_JUDGMENT"]
+      review_status:
+        type: "string"
+        enum: ["PENDING_REVIEW", "APPROVED_BY_COMMITTEE", "REJECTED"]
+      supersedes:
+        type: ["string", "null"]
+        description: "ID of the rule this entry replaces."
+      superseded_by:
+        type: ["string", "null"]
+        description: "ID of the newer rule that supersedes this entry."
+      rule_type:
+        type: "string"
+        enum:
+          - "MANDATORY_INVENTORY"
+          - "FACILITY_APPLICABILITY"
+          - "SECTOR_APPLICABILITY"
+          - "THRESHOLD"
+          - "REPORTING_REQUIREMENT"
+          - "METHODOLOGY_REQUIREMENT"
+          - "GHG_SCOPE_REQUIREMENT"
+          - "TRANSITIONAL_RULE"
+      predicate:
+        $ref: "#/definitions/PredicateGroup"
+      methodology_refs:
+        type: "array"
+        items:
+          type: "string"
+          pattern: "^METH-[A-Z0-9_-]+$"
+          description: "Identifiers of bound technical methodologies."
+      required_activity_data_refs:
+        type: "array"
+        items:
+          type: "string"
+          description: "Parameter codes of required ActivityData."
+      emission_source_refs:
+        type: "array"
+        items:
+          type: "string"
+          enum: ["direct", "indirect", "process", "fugitive"]
+      competent_authority_refs:
+        type: "array"
+        items:
+          type: "string"
+          description: "Identifiers of the responsible administrative bodies."
+
+  # 2. PREDICATE
+  Predicate:
+    type: "object"
+    required:
+      - "parameter"
+      - "operator"
+    properties:
+      parameter:
+        type: "string"
+        description: "Field path in the ApplicabilityContext (e.g., 'facility_attributes.annual_coal_consumption')."
+      operator:
+        type: "string"
+        enum:
+          - "EQUALS"
+          - "NOT_EQUALS"
+          - "GREATER_THAN"
+          - "GREATER_THAN_OR_EQUAL"
+          - "LESS_THAN"
+          - "LESS_THAN_OR_EQUAL"
+          - "IN"
+          - "NOT_IN"
+          - "BETWEEN"
+          - "OVERLAPS"
+          - "EXISTS"
+          - "NOT_EXISTS"
+      value:
+        type: ["string", "number", "boolean", "array"]
+        description: "Comparison operand. For BETWEEN, must be an array of exactly 2 numbers."
+      unit:
+        type: "string"
+        description: "Physical unit of measure (e.g., 't', 'tOE', 'MWh') corresponding to UCM standards."
+
+  # 3. PREDICATE GROUP (AST Tree Structure)
+  PredicateGroup:
+    type: "object"
+    additionalProperties: false
+    properties:
+      operator:
+        type: "string"
+        enum: ["AND", "OR", "NOT"]
+      conditions:
+        type: "array"
+        items:
+          anyOf:
+            - $ref: "#/definitions/Predicate"
+            - $ref: "#/definitions/PredicateGroup"
+
+  # 4. RULESET
+  RuleSet:
+    type: "object"
+    required:
+      - "ruleset_id"
+      - "version"
+      - "members"
+      - "jurisdiction"
+      - "sector"
+      - "effective_from"
+    properties:
+      ruleset_id:
+        type: "string"
+        pattern: "^RSET-[A-Z0-9_-]+$"
+      version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      members:
+        type: "array"
+        minItems: 1
+        items:
+          type: "string"
+          description: "RegulatoryRule ID list."
+      jurisdiction:
+        type: "string"
+        description: "Target geographic area."
+      sector:
+        type: "string"
+        description: "Standardised industry sector."
+      regulatory_program:
+        type: "string"
+        description: "Optional statutory program reference."
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+      provenance:
+        $ref: "#/definitions/RuleDerivation"
+
+  # 5. APPLICABILITY CONTEXT
+  ApplicabilityContext:
+    type: "object"
+    required:
+      - "facility_id"
+      - "sector"
+      - "location"
+      - "reporting_period"
+      - "jurisdiction"
+      - "assessment_date"
+    properties:
+      facility_id:
+        type: "string"
+        pattern: "^FAC-[A-Z0-9_-]+$"
+        description: "Validated identifier of the facility."
+      facility_attributes:
+        type: "object"
+        description: "Audited operational metrics."
+      sector:
+        type: "string"
+        description: "Standardised sector code."
+      subsector:
+        type: "string"
+        description: "Standardised subsector code."
+      location:
+        type: "object"
+        required:
+          - "province"
+        properties:
+          province:
+            type: "string"
+          district:
+            type: "string"
+          municipality:
+            type: "string"
+      reporting_period:
+        type: "object"
+        required:
+          - "period_start"
+          - "period_end"
+        properties:
+          period_start:
+            type: "string"
+            format: "date"
+          period_end:
+            type: "string"
+            format: "date"
+      activity_period:
+        type: "object"
+        properties:
+          period_start:
+            type: "string"
+            format: "date"
+          period_end:
+            type: "string"
+            format: "date"
+      activity_type:
+        type: "string"
+      operational_status:
+        type: "string"
+        enum: ["ACTIVE", "TRANSITIONAL", "DECOMMISSIONED"]
+      organizational_status:
+        type: "string"
+      jurisdiction:
+        type: "string"
+      assessment_date:
+        type: "string"
+        format: "date"
+
+  # 6. APPLICABILITY EVALUATION
+  ApplicabilityEvaluation:
+    type: "object"
+    required:
+      - "evaluation_id"
+      - "rule_id"
+      - "rule_version"
+      - "context_snapshot"
+      - "evaluation_timestamp"
+      - "result"
+      - "explanation"
+    properties:
+      evaluation_id:
+        type: "string"
+        pattern: "^EVAL-[A-Z0-9_-]+$"
+      rule_id:
+        type: "string"
+      rule_version:
+        type: "string"
+      context_snapshot:
+        $ref: "#/definitions/ApplicabilityContext"
+      evaluation_timestamp:
+        type: "string"
+        format: "date-time"
+      result:
+        type: "string"
+        enum: ["APPLICABLE", "NOT_APPLICABLE", "UNKNOWN", "REQUIRES_REVIEW", "BLOCKED"]
+      explanation:
+        type: "object"
+        required:
+          - "why"
+          - "how"
+          - "source"
+        properties:
+          why:
+            type: "string"
+            description: "Deterministic narrative of condition evaluations."
+          how:
+            type: "object"
+            description: "Evaluation path and AST node states."
+          source:
+            type: "string"
+            description: "Verified statutory section."
+      review_state:
+        type: "string"
+        enum: ["AUTO_GENERATED", "AUDITED_BY_VERIFIER"]
+
+  # 7. RULE CONFLICT
+  RuleConflict:
+    type: "object"
+    required:
+      - "conflict_id"
+      - "affected_rule_ids"
+      - "affected_facility_id"
+      - "temporal_context"
+      - "conflict_type"
+      - "resolution_status"
+    properties:
+      conflict_id:
+        type: "string"
+        pattern: "^CONF-[A-Z0-9_-]+$"
+      affected_rule_ids:
+        type: "array"
+        items:
+          type: "string"
+      affected_facility_id:
+        type: "string"
+      temporal_context:
+        type: "string"
+      conflict_type:
+        type: "string"
+        enum: ["JURISDICTIONAL_OVERLAP", "CONTRADICTORY_THRESHOLDS", "AMBIGUOUS_STATUTE", "UNKNOWN"]
+      resolution_status:
+        type: "string"
+        enum: ["OPEN_CONTROLLED_AMBIGUITY", "RESOLVED_BY_AUTHORITY", "DEFERRED"]
+      resolution_authority:
+        type: "string"
+
+  # 8. RULE DERIVATION (Provenance)
+  RuleDerivation:
+    type: "object"
+    required:
+      - "source_document_id"
+      - "source_clause"
+      - "cryptographic_source_hash"
+      - "extracted_by"
+      - "extraction_timestamp"
+      - "reviewed_by"
+      - "governed_timestamp"
+    properties:
+      source_document_id:
+        type: "string"
+      source_clause:
+        type: "string"
+      cryptographic_source_hash:
+        type: "string"
+      extracted_by:
+        type: "string"
+      extraction_timestamp:
+        type: "string"
+        format: "date-time"
+      reviewed_by:
+        type: "string"
+      governed_timestamp:
+        type: "string"
+        format: "date-time"
+
+  # 9. MANDATORY INVENTORY STATUS
+  MandatoryInventoryStatus:
+    type: "string"
+    enum: ["MANDATORY", "NOT_MANDATORY", "UNKNOWN", "REQUIRES_REVIEW"]
+    description: "Evaluated separately from basic applicability result."
+
+  # 10. TEMPORAL RELATIONSHIP
+  TemporalRelationship:
+    type: "object"
+    required:
+      - "relationship_type"
+      - "target_rule_id"
+    properties:
+      relationship_type:
+        type: "string"
+        enum: ["AMENDS", "REPLACES", "SUPERSEDES", "APPLIES_DURING"]
+      target_rule_id:
+        type: "string"
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"

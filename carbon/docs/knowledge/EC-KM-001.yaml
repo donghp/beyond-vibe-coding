@@ -1,0 +1,238 @@
+manifest_version: "1.0.0"
+specification_id: "EC-KM-001"
+title: "ENERIX Carbon — Knowledge Matrix & Authority Mapping Contract"
+version: "1.0.0"
+as_of: "2026-09-16"
+status: "APPROVED_BASELINE"
+
+governing_frameworks:
+  - "carbon/docs/architecture/EC-CONTEXT-001.md"
+  - "carbon/docs/data-model/EC-DOMAIN-MODEL-001.yaml"
+  - "carbon/docs/methodology/EC-CALCULATION-MODEL-CATALOG-001.yaml"
+  - "carbon/docs/methodology/EC-UCM-001.md"
+  - "carbon/docs/methodology/EC-UCM-001.yaml"
+  - "carbon/knowledge/governance/ENERIX-CARBON-BASE-LOGIC-001.md"
+  - "carbon/knowledge/governance/ENERIX-CARBON-GOVERNING-FRAMEWORK-001.md"
+
+authority_hierarchy:
+  - tier: "TIER_A"
+    name: "LEGAL_AND_REGULATORY_AUTHORITY"
+    documents: ["Laws", "Decrees", "Prime Minister Decisions"]
+    overrides: ["TIER_B", "TIER_C", "TIER_D", "TIER_E", "TIER_F", "TIER_G", "TIER_H"]
+    rule: "Statutory mandates override circular guidelines and enterprise defaults."
+
+  - tier: "TIER_B"
+    name: "MANDATORY_MINISTERIAL_GUIDANCE"
+    documents: ["Ministry Circulars (MOIT, MOC, MARD, MONRE)"]
+    overrides: ["TIER_C", "TIER_D", "TIER_E", "TIER_F", "TIER_G", "TIER_H"]
+    rule: "Ministerial circular MRV requirements bind sector calculations."
+
+  - tier: "TIER_C"
+    name: "GOVERNING_ENTERPRISE_SPECIFICATION"
+    documents: ["EC-CONTEXT-001", "EC-DOMAIN-MODEL-001", "EC-UCM-001", "EC-KM-001"]
+    overrides: ["TIER_D", "TIER_E", "TIER_F", "TIER_G", "TIER_H"]
+    rule: "Platform architectural laws and domain model contracts."
+
+  - tier: "TIER_D"
+    name: "TECHNICAL_STANDARDS"
+    documents: ["TCVN ISO 14064-1/2/3:2025", "GHG Protocol Corporate Standard"]
+    overrides: ["TIER_E", "TIER_F", "TIER_G", "TIER_H"]
+    rule: "International and national GHG accounting standards."
+
+  - tier: "TIER_E"
+    name: "METHODOLOGY_CONTRACTS"
+    documents: ["MRV Calculation Procedures", "Tier Allocations"]
+    overrides: ["TIER_F", "TIER_G", "TIER_H"]
+    rule: "Approved methodology calculation steps."
+
+  - tier: "TIER_F"
+    name: "ENGINEERING_REGISTRIES"
+    documents: ["Versioned EFDB", "IPCC GWP Datasets", "NCV Tables"]
+    overrides: ["TIER_G", "TIER_H"]
+    rule: "Governed numerical parameters and factor registries."
+
+  - tier: "TIER_G"
+    name: "IMPLEMENTATION_ARTIFACTS"
+    documents: ["JavaScript Execution Engine", "UI Components"]
+    overrides: ["TIER_H"]
+    rule: "Deterministic executable code."
+
+  - tier: "TIER_H"
+    name: "AI_GENERATED_ADVISORY_CONTENT"
+    documents: ["LLM Summaries", "Suggested Tags", "Context Search Results"]
+    overrides: []
+    rule: "Strictly advisory. ZERO authority to create rules or execute calculations."
+
+assertion_types:
+  - "LEGAL_REQUIREMENT"
+  - "DEFINITIONS"
+  - "APPLICABILITY_RULE"
+  - "REPORTING_REQUIREMENT"
+  - "FACILITY_THRESHOLD"
+  - "SECTOR_CLASSIFICATION"
+  - "METHODOLOGY_REQUIREMENT"
+  - "ACTIVITY_DATA_REQUIREMENT"
+  - "EMISSION_SOURCE_REQUIREMENT"
+  - "EMISSION_FACTOR_REFERENCE"
+  - "GWP_REFERENCE"
+  - "UNIT_REQUIREMENT"
+  - "QA_QC_REQUIREMENT"
+  - "UNCERTAINTY_REQUIREMENT"
+  - "RECALCULATION_REQUIREMENT"
+  - "REPORTING_FORM_REQUIREMENT"
+  - "REDUCTION_METHOD_REFERENCE"
+  - "GOVERNANCE_RULE"
+  - "TECHNICAL_STANDARD_REQUIREMENT"
+
+lifecycle_states:
+  - "DISCOVERED"
+  - "INGESTED"
+  - "PARSED"
+  - "IDENTIFIED"
+  - "EXTRACTED"
+  - "REVIEWED"
+  - "GOVERNED"
+  - "SUPERSEDED"
+  - "ARCHIVED"
+
+schemas:
+  source_identity_schema:
+    type: "object"
+    required:
+      - "source_id"
+      - "title"
+      - "document_type"
+      - "authority_class"
+      - "jurisdiction"
+      - "issuer"
+      - "publication_date"
+      - "effective_from"
+      - "status"
+      - "language"
+      - "source_path"
+      - "version"
+    properties:
+      source_id: { type: "string" }
+      title: { type: "string" }
+      document_type: { type: "string", enum: ["LAW", "DECREE", "DECISION", "CIRCULAR", "TECHNICAL_STANDARD", "GUIDANCE_MANUAL", "ENTERPRISE_SPEC"] }
+      authority_class: { type: "string", enum: ["LEGAL_AUTHORITY", "METHODOLOGY_AUTHORITY", "TECHNICAL_STANDARD", "GUIDANCE_MANUAL", "GOVERNING_SPECIFICATION"] }
+      jurisdiction: { type: "string" }
+      issuer: { type: "string" }
+      publication_date: { type: "string", format: "date" }
+      effective_from: { type: "string", format: "date" }
+      effective_to: { type: ["string", "null"], format: "date" }
+      supersedes: { type: "array", items: { type: "string" } }
+      superseded_by: { type: "array", items: { type: "string" } }
+      status: { type: "string", enum: ["ACTIVE", "AMENDED", "SUPERSEDED", "PENDING_EFFECTIVE", "ARCHIVED"] }
+      language: { type: "string" }
+      source_path: { type: "string" }
+      source_hash: { type: ["string", "null"] }
+      version: { type: "string" }
+
+  knowledge_assertion_schema:
+    type: "object"
+    required:
+      - "assertion_id"
+      - "source_id"
+      - "statement"
+      - "assertion_type"
+      - "authority_class"
+      - "jurisdiction"
+      - "effective_from"
+      - "certainty_state"
+      - "status"
+    properties:
+      assertion_id: { type: "string" }
+      source_id: { type: "string" }
+      statement: { type: "string" }
+      assertion_type: { type: "string" }
+      authority_class: { type: "string" }
+      jurisdiction: { type: "string" }
+      effective_from: { type: "string", format: "date" }
+      effective_to: { type: ["string", "null"], format: "date" }
+      applicability_scope: { type: "object" }
+      sector_scope: { type: "array", items: { type: "string" } }
+      entity_scope: { type: "string" }
+      activity_scope: { type: "array", items: { type: "string" } }
+      gas_scope: { type: "array", items: { type: "string" } }
+      methodology_refs: { type: "array", items: { type: "string" } }
+      regulatory_rule_refs: { type: "array", items: { type: "string" } }
+      calculation_model_refs: { type: "array", items: { type: "string" } }
+      parameter_refs: { type: "array", items: { type: "string" } }
+      evidence_refs: { type: "array", items: { type: "string" } }
+      certainty_state: { type: "string", enum: ["VERIFIED_FACT", "HIGH_CONFIDENCE_INTERPRETATION", "REQUIRES_HUMAN_REVIEW", "CONFLICTED"] }
+      provenance: { type: "object" }
+      status: { type: "string", enum: ["ACTIVE", "DEPRECATED", "SUPERSEDED"] }
+
+  minimum_trace_schema:
+    type: "object"
+    required:
+      - "WHO"
+      - "WHAT"
+      - "WHERE"
+      - "WHEN"
+      - "WHY"
+      - "AUTHORITY"
+      - "SOURCE"
+      - "APPLIES_TO"
+      - "AFFECTS"
+      - "DERIVED_FROM"
+    properties:
+      WHO: { type: "string" }
+      WHAT: { type: "string" }
+      WHERE: { type: "string" }
+      WHEN: { type: "string" }
+      WHY: { type: "string" }
+      AUTHORITY: { type: "string" }
+      SOURCE: { type: "string" }
+      APPLIES_TO: { type: "string" }
+      AFFECTS: { type: "string" }
+      DERIVED_FROM: { type: "string" }
+
+sector_mapping_registry:
+  - regulatory_sector_group: "Energy Generation & Supply"
+    official_code: "SECTOR_01_ENERGY"
+    governing_circular: "CIRCULAR-38-2023-MOIT"
+    sector_profile_id: "SECTOR_ENERGY"
+  - regulatory_sector_group: "Transport"
+    official_code: "SECTOR_02_TRANSPORT"
+    governing_circular: "CIRCULAR-38-2023-MOIT"
+    sector_profile_id: "SECTOR_TRANSPORT"
+  - regulatory_sector_group: "Construction & Building Materials"
+    official_code: "SECTOR_03_CONSTRUCTION"
+    governing_circular: "CIRCULAR-13-2024-MOC"
+    sector_profile_id: "SECTOR_CONSTRUCTION"
+  - regulatory_sector_group: "Industrial Processes & Product Use"
+    official_code: "SECTOR_04_IPPU"
+    governing_circular: "CIRCULAR-38-2023-MOIT"
+    sector_profile_id: "SECTOR_IPPU"
+  - regulatory_sector_group: "Agriculture, Forestry & Land Use"
+    official_code: "SECTOR_05_AFOLU"
+    governing_circular: "CIRCULAR-19-2024-MARD"
+    sector_profile_id: "SECTOR_AFOLU"
+  - regulatory_sector_group: "Waste & Wastewater Management"
+    official_code: "SECTOR_06_WASTE"
+    governing_circular: "CIRCULAR-17-2022-MONRE"
+    sector_profile_id: "SECTOR_WASTE"
+
+controlled_open_issues:
+  - issue_id: "ISSUE-KM-001"
+    title: "Missing Physical Text for Registered Legal Documents"
+    description: "LAW-72-2020, DEC-06-2022, DEC-119-2025, DEC-83-2026, QD-42-2026 are registered in knowledge-manifest.yaml as pending-source."
+    owning_artifact: "Document Repository"
+    classification: "SOURCE_VERIFICATION_REQUIRED"
+    status: "OPEN_CONTROLLED"
+
+  - issue_id: "ISSUE-KM-002"
+    title: "MOC/MARD Sub-sector Threshold Harmonization"
+    description: "MOC Circular 13/2024 and MARD Circular 19/2024 contain specific sub-sector thresholds requiring mapping to QĐ 42/2026 facility categories."
+    owning_artifact: "EC-SPM-001"
+    classification: "DEFERRED_TO_OTHER_ARTIFACT"
+    status: "OPEN_CONTROLLED"
+
+  - issue_id: "ISSUE-KM-003"
+    title: "IPCC AR5 vs AR6 GWP Transition Window"
+    description: "Ministry circulars reference IPCC AR5 100-year GWPs, while international voluntary reporting defaults to AR6."
+    owning_artifact: "EC-EFDB-001"
+    classification: "HUMAN_JUDGMENT_REQUIRED"
+    status: "OPEN_CONTROLLED"

@@ -1,0 +1,270 @@
+spec_version: "1.0.0"
+artifact_id: "EC-DM-001"
+title: "ENERIX Carbon — Machine-Readable Domain Model Schema"
+status: "APPROVED_BASELINE"
+issued_date: "2026-09-16"
+effective_date: "2026-09-16"
+governing_documents:
+  - "EC-CONTEXT-001"
+  - "EC-UCM-001"
+  - "EC-KM-001"
+
+entities:
+  RegulatoryDocument:
+    id: "E-01"
+    name: "RegulatoryDocument"
+    domain: "Regulatory Domain"
+    owner: "Regulatory Architecture Committee"
+    lifecycle_states: ["DRAFT", "PENDING_EFFECTIVE", "EFFECTIVE", "AMENDED", "SUPERSEDED", "ARCHIVED"]
+    immutability: "IMMUTABLE_AFTER_EFFECTIVE"
+    attributes:
+      id: { type: "string", pattern: "^DOC-[A-Z]+-[A-Z]+-\\d{4}-\\d+$", required: true, primary_key: true }
+      code: { type: "string", required: true }
+      title: { type: "string", required: true }
+      document_type: { type: "enum", enum: ["LAW", "DECREE", "DECISION", "CIRCULAR", "TECHNICAL_STANDARD"], required: true }
+      issuing_authority: { type: "string", required: true }
+      issued_date: { type: "date", required: true }
+      effective_from: { type: "date", required: true }
+      effective_to: { type: "date", required: false, nullable: true }
+      status: { type: "enum", enum: ["EFFECTIVE", "SUPERSEDED", "PENDING_EFFECTIVE_DATE", "DRAFT"], required: true }
+      superseded_by: { type: "string", required: false, nullable: true }
+      file_ref: { type: "string", required: false }
+
+  RegulatoryRule:
+    id: "E-02"
+    name: "RegulatoryRule"
+    domain: "Regulatory Domain"
+    owner: "Regulatory Rules Engine"
+    lifecycle_states: ["ACTIVE", "AMENDED", "SUPERSEDED", "EXPIRED"]
+    immutability: "VERSIONED_APPEND_ONLY"
+    attributes:
+      id: { type: "string", pattern: "^RULE-DOC-.*", required: true, primary_key: true }
+      document_id: { type: "string", required: true, foreign_key: "RegulatoryDocument.id" }
+      article_clause: { type: "string", required: true }
+      rule_type: { type: "enum", enum: ["MANDATORY_INVENTORY_OBLIGATION", "REPORTING_DEADLINE", "TRANSITIONAL_RULE", "METHODOLOGY_BINDING"], required: true }
+      sector_id: { type: "string", required: true }
+      sub_sector_id: { type: "string", required: false }
+      applicability_condition: { type: "object", required: true }
+      effective_from: { type: "date", required: true }
+      effective_to: { type: "date", required: false, nullable: true }
+      reporting_frequency: { type: "enum", enum: ["BIENNIAL", "ANNUAL", "QUARTERLY", "MONTHLY"], required: true }
+
+  Facility:
+    id: "E-03"
+    name: "Facility"
+    domain: "Facility Domain"
+    owner: "Facility Operations & Compliance Manager"
+    lifecycle_states: ["REGISTERED", "ACTIVE_MANDATORY", "ACTIVE_VOLUNTARY", "TRANSITIONAL", "DECOMMISSIONED", "ARCHIVED"]
+    immutability: "MUTABLE_WITH_AUDIT"
+    attributes:
+      id: { type: "string", pattern: "^FAC-[A-Z]+-[A-Z]+-\\d+$", required: true, primary_key: true }
+      code: { type: "string", required: true }
+      legal_name: { type: "string", required: true }
+      tax_id: { type: "string", required: false }
+      address: { type: "string", required: true }
+      province: { type: "string", required: true }
+      sector_id: { type: "string", required: true }
+      sub_sector_id: { type: "string", required: true }
+      business_activity: { type: "string", required: true }
+      capacity_value: { type: "number", required: false }
+      capacity_unit: { type: "string", required: false }
+      regulatory_status: { type: "enum", enum: ["MANDATORY", "NOT_MANDATORY", "TRANSITIONAL", "HISTORICAL_MANDATORY", "PENDING_EFFECTIVE_DATE", "UNKNOWN_REQUIRES_REVIEW"], required: true }
+
+  ActivityData:
+    id: "E-04"
+    name: "ActivityData"
+    domain: "Activity Data Domain"
+    owner: "Activity Data & Measurement Team"
+    lifecycle_states: ["DRAFT", "PENDING_REVIEW", "APPROVED", "SUPERSEDED", "REJECTED"]
+    immutability: "VERSIONED_APPEND_ONLY"
+    attributes:
+      id: { type: "string", pattern: "^AD-FAC-.*", required: true, primary_key: true }
+      facility_id: { type: "string", required: true, foreign_key: "Facility.id" }
+      activity_name: { type: "string", required: true }
+      source_category: { type: "string", required: true }
+      scope: { type: "enum", enum: ["SCOPE_1", "SCOPE_2", "SCOPE_3"], required: true }
+      value: { type: "number", required: true }
+      unit: { type: "string", required: true }
+      period_start: { type: "date", required: true }
+      period_end: { type: "date", required: true }
+      data_quality_tier: { type: "enum", enum: ["TIER_1_DEFAULT", "TIER_2_NATIONAL", "TIER_3_FACILITY_SPECIFIC"], required: true }
+      evidence_ids: { type: "array", items: { type: "string" }, required: true }
+
+  EmissionFactor:
+    id: "E-05"
+    name: "EmissionFactor"
+    domain: "Factor Registry Domain"
+    owner: "Emission Factor Registry Manager"
+    lifecycle_states: ["PROPOSED", "GOVERNED", "SUPERSEDED", "DEPRECATED"]
+    immutability: "VERSIONED_APPEND_ONLY"
+    attributes:
+      id: { type: "string", pattern: "^EF-[A-Z]+-.*", required: true, primary_key: true }
+      factor_name: { type: "string", required: true }
+      activity_type: { type: "string", required: true }
+      gas: { type: "enum", enum: ["CO2", "CH4", "N2O", "HFCs", "PFCs", "SF6", "NF3", "MULTI_GAS"], required: true }
+      value: { type: "number", required: true }
+      unit: { type: "string", required: true }
+      source_authority: { type: "string", required: true }
+      source_document: { type: "string", required: true }
+      valid_from: { type: "date", required: true }
+      valid_to: { type: "date", required: false, nullable: true }
+      tier: { type: "enum", enum: ["TIER_1", "TIER_2", "TIER_3"], required: true }
+
+  GwpDataset:
+    id: "E-06"
+    name: "GwpDataset"
+    domain: "Factor Registry Domain"
+    owner: "Technical Standards Committee"
+    lifecycle_states: ["ACTIVE", "SUPERSEDED", "HISTORICAL"]
+    immutability: "STRICTLY_IMMUTABLE"
+    attributes:
+      id: { type: "string", pattern: "^GWP-[A-Z]+-.*", required: true, primary_key: true }
+      dataset_name: { type: "string", required: true }
+      authority: { type: "string", required: true }
+      effective_year: { type: "number", required: true }
+      factors: { type: "object", required: true }
+
+  Methodology:
+    id: "E-07"
+    name: "Methodology"
+    domain: "Methodology Domain"
+    owner: "MRV Methodology Working Group"
+    lifecycle_states: ["DRAFT", "APPROVED", "REVISED", "SUPERSEDED"]
+    immutability: "VERSIONED_APPEND_ONLY"
+    attributes:
+      id: { type: "string", pattern: "^METH-[A-Z]+-.*", required: true, primary_key: true }
+      code: { type: "string", required: true }
+      title: { type: "string", required: true }
+      governing_document_id: { type: "string", required: true, foreign_key: "RegulatoryDocument.id" }
+      applicable_sectors: { type: "array", items: { type: "string" }, required: true }
+      calculation_model_id: { type: "string", required: true, foreign_key: "CalculationModel.id" }
+      supported_scopes: { type: "array", items: { type: "string" }, required: true }
+      required_activity_units: { type: "array", items: { type: "string" }, required: true }
+      default_ef_ids: { type: "array", items: { type: "string" }, required: true }
+
+  CalculationModel:
+    id: "E-08"
+    name: "CalculationModel"
+    domain: "Calculation Domain"
+    owner: "Lead Calculation Engine Architect"
+    lifecycle_states: ["STABLE_SPECIFICATION", "DEPRECATED"]
+    immutability: "STRICTLY_IMMUTABLE"
+    attributes:
+      id: { type: "string", pattern: "^MODEL-\\d{2}$", required: true, primary_key: true }
+      name: { type: "string", required: true }
+      formula_expression: { type: "string", required: true }
+      required_inputs: { type: "array", items: { type: "string" }, required: true }
+      required_parameters: { type: "array", items: { type: "string" }, required: true }
+      output_schema: { type: "object", required: true }
+
+  Evidence:
+    id: "E-09"
+    name: "Evidence"
+    domain: "Evidence Domain"
+    owner: "Evidence & Assurance Custodian"
+    lifecycle_states: ["UPLOADED", "VERIFIED", "REJECTED", "ARCHIVED"]
+    immutability: "CRYPTOGRAPHICALLY_SEALED"
+    attributes:
+      id: { type: "string", pattern: "^EVI-FAC-.*", required: true, primary_key: true }
+      facility_id: { type: "string", required: true, foreign_key: "Facility.id" }
+      title: { type: "string", required: true }
+      evidence_type: { type: "enum", enum: ["UTILITY_BILL", "FUEL_INVOICE", "METER_LOG", "CALIBRATION_CERTIFICATE", "LAB_TEST", "PRODUCTION_RECORD"], required: true }
+      file_path: { type: "string", required: true }
+      issue_date: { type: "date", required: true }
+      verified_by: { type: "string", required: false }
+      hash_signature: { type: "string", required: true }
+
+  CalculationRun:
+    id: "E-10"
+    name: "CalculationRun"
+    domain: "Calculation Domain"
+    owner: "Deterministic Calculation Engine"
+    lifecycle_states: ["EXECUTED", "VERIFIED", "SUPERSEDED_BY_RECALCULATION", "ARCHIVED"]
+    immutability: "STRICTLY_IMMUTABLE"
+    attributes:
+      id: { type: "string", pattern: "^RUN-FAC-.*", required: true, primary_key: true }
+      facility_id: { type: "string", required: true, foreign_key: "Facility.id" }
+      reporting_period: { type: "string", required: true }
+      methodology_id: { type: "string", required: true, foreign_key: "Methodology.id" }
+      model_id: { type: "string", required: true, foreign_key: "CalculationModel.id" }
+      activity_data_snapshot: { type: "object", required: true }
+      emission_factor_snapshot: { type: "object", required: true }
+      gwp_dataset_snapshot: { type: "object", required: true }
+      parameters_snapshot: { type: "object", required: true }
+      calculated_emissions: { type: "object", required: true }
+      executed_at: { type: "datetime", required: true }
+      engine_version: { type: "string", required: true }
+      audit_hash: { type: "string", required: true }
+
+value_objects:
+  - name: "Quantity"
+    fields: { value: "number", unit: "string" }
+  - name: "Unit"
+    fields: { symbol: "string", dimensionality: "string" }
+  - name: "TimePeriod"
+    fields: { period_start: "date", period_end: "date" }
+  - name: "EffectivePeriod"
+    fields: { effective_from: "date", effective_to: "date" }
+  - name: "GeographicLocation"
+    fields: { province: "string", address: "string", latitude: "number", longitude: "number" }
+  - name: "SourceReference"
+    fields: { document_id: "string", article: "string", clause: "string", page: "number" }
+  - name: "ProvenanceReference"
+    fields: { author_id: "string", timestamp: "datetime", engine_version: "string", audit_hash: "string" }
+  - name: "GasSpecies"
+    enum: ["CO2", "CH4", "N2O", "HFCs", "PFCs", "SF6", "NF3", "CO2e"]
+
+relationships:
+  - parent: "RegulatoryDocument"
+    child: "RegulatoryRule"
+    cardinality: "1:1..*"
+    type: "Composition"
+  - parent: "RegulatoryDocument"
+    child: "Methodology"
+    cardinality: "1:0..*"
+    type: "Authorization"
+  - parent: "RegulatoryRule"
+    child: "Facility"
+    cardinality: "M:N"
+    type: "Evaluation"
+  - parent: "Facility"
+    child: "ActivityData"
+    cardinality: "1:0..*"
+    type: "Ownership"
+  - parent: "Facility"
+    child: "Evidence"
+    cardinality: "1:0..*"
+    type: "Ownership"
+  - parent: "Facility"
+    child: "CalculationRun"
+    cardinality: "1:0..*"
+    type: "ExecutionHistory"
+  - parent: "ActivityData"
+    child: "Evidence"
+    cardinality: "0..*:0..*"
+    type: "Substantiation"
+  - parent: "Methodology"
+    child: "CalculationModel"
+    cardinality: "N:1"
+    type: "ModelBinding"
+  - parent: "CalculationRun"
+    child: "Facility"
+    cardinality: "N:1"
+    type: "SnapshotBinding"
+
+controlled_open_issues:
+  - issue_id: "ISSUE-DM-001"
+    description: "Legal Entity vs Facility Ownership & Multi-tenant boundary definition."
+    owning_artifact: "EC-DOMAIN-MODEL-002"
+    classification: "HUMAN_JUDGMENT_REQUIRED"
+    status: "OPEN_CONTROLLED"
+  - issue_id: "ISSUE-DM-002"
+    description: "Multi-tenant CEMS Shared Stack Allocation Entity specification."
+    owning_artifact: "EC-UCM-002 / EC-MTH-001"
+    classification: "DEFERRED_TO_OTHER_ARTIFACT"
+    status: "OPEN_CONTROLLED"
+  - issue_id: "ISSUE-DM-003"
+    description: "MOC/MARD Sector Sub-category Harmonization with Decision 42/2026."
+    owning_artifact: "EC-SPM-001"
+    classification: "DEFERRED_TO_OTHER_ARTIFACT"
+    status: "OPEN_CONTROLLED"

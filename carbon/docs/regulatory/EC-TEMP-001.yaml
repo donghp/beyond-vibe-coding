@@ -1,0 +1,241 @@
+# ENERIX Carbon — Temporal Regulation Model (TRM) Schema
+# Document ID: EC-TEMP-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/regulatory/EC-TEMP-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/regulatory/EC-TEMP-001.json"
+title: "Temporal Regulation Model (TRM) Contract"
+description: "Machine-readable contract schemas for temporal applicability, period segmentation, and historical compliance snapshots."
+
+definitions:
+
+  # 1. EFFECTIVE PERIOD
+  EffectivePeriod:
+    type: "object"
+    required:
+      - "effective_from"
+    properties:
+      effective_from:
+        type: "string"
+        format: "date"
+        description: "Inclusive start of statutory force, starting at 00:00:00 UTC+7."
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+        description: "Exclusive end of statutory force, starting at 00:00:00 UTC+7. Null if active."
+
+  # 2. TEMPORAL RELATIONSHIP
+  TemporalRelationship:
+    type: "object"
+    required:
+      - "relationship_type"
+      - "target_artifact_id"
+    properties:
+      relationship_type:
+        type: "string"
+        enum: ["AMENDS", "REPLACES", "SUPERSEDES", "APPLIES_DURING"]
+      target_artifact_id:
+        type: "string"
+        description: "Identifier of the target Document, Rule, or Methodology."
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+
+  # 3. TEMPORAL SNAPSHOT
+  TemporalSnapshot:
+    type: "object"
+    required:
+      - "snapshot_id"
+      - "snapshot_timestamp"
+      - "reporting_period"
+      - "active_ruleset_version"
+      - "methodology_versions"
+      - "factor_versions"
+      - "gwp_dataset_version"
+    properties:
+      snapshot_id:
+        type: "string"
+        pattern: "^SNAP-[A-Z0-9_-]+$"
+      snapshot_timestamp:
+        type: "string"
+        format: "date-time"
+      reporting_period:
+        type: "object"
+        required:
+          - "period_start"
+          - "period_end"
+        properties:
+          period_start:
+            type: "string"
+            format: "date"
+          period_end:
+            type: "string"
+            format: "date"
+      active_ruleset_version:
+        type: "string"
+        pattern: "^RSET-[A-Z0-9_-]+_V[0-9]+\\.[0-9]+\\.[0-9]+$"
+      methodology_versions:
+        type: "array"
+        items:
+          type: "object"
+          required:
+            - "methodology_id"
+            - "version"
+          properties:
+            methodology_id:
+              type: "string"
+            version:
+              type: "string"
+      factor_versions:
+        type: "array"
+        items:
+          type: "object"
+          required:
+            - "factor_id"
+            - "version"
+          properties:
+            factor_id:
+              type: "string"
+            version:
+              type: "string"
+      gwp_dataset_version:
+        type: "object"
+        required:
+          - "dataset_id"
+          - "version"
+        properties:
+          dataset_id:
+            type: "string"
+          version:
+            type: "string"
+
+  # 4. TEMPORAL CONFLICT
+  TemporalConflict:
+    type: "object"
+    required:
+      - "conflict_id"
+      - "conflict_type"
+      - "affected_artifact_ids"
+      - "temporal_context"
+      - "resolution_status"
+    properties:
+      conflict_id:
+        type: "string"
+        pattern: "^CONF-TEMP-[A-Z0-9_-]+$"
+      conflict_type:
+        type: "string"
+        enum:
+          - "OVERLAPPING_VALIDITY_WINDOWS"
+          - "INCONSISTENT_EFFECTIVE_DATES"
+          - "MISSING_EFFECTIVE_DATE"
+          - "CONFLICTING_TRANSITION_PROVISIONS"
+          - "PARTIAL_AMENDMENT_AMBIGUITY"
+      affected_artifact_ids:
+        type: "array"
+        items:
+          type: "string"
+      temporal_context:
+        type: "string"
+        description: "The affected reporting period range string."
+      source_references:
+        type: "array"
+        items:
+          type: "string"
+      resolution_status:
+        type: "string"
+        enum: ["OPEN_CONTROLLED_AMBIGUITY", "RESOLVED_BY_AUTHORITY", "DEFERRED"]
+      resolution_authority:
+        type: "string"
+
+  # 5. TEMPORAL APPLICABILITY CONTEXT
+  TemporalApplicabilityContext:
+    type: "object"
+    required:
+      - "assessment_date"
+      - "reporting_period"
+    properties:
+      assessment_date:
+        type: "string"
+        format: "date"
+      reporting_period:
+        type: "object"
+        required:
+          - "period_start"
+          - "period_end"
+        properties:
+          period_start:
+            type: "string"
+            format: "date"
+          period_end:
+            type: "string"
+            format: "date"
+      activity_period:
+        type: "object"
+        properties:
+          period_start:
+            type: "string"
+            format: "date"
+          period_end:
+            type: "string"
+            format: "date"
+      event_date:
+        type: "string"
+        format: "date"
+
+  # 6. TEMPORAL SEGMENTATION (Activity Data Period Splitting)
+  TemporalSegmentation:
+    type: "object"
+    required:
+      - "original_activity_id"
+      - "original_activity_period"
+      - "split_reason"
+      - "segments"
+    properties:
+      original_activity_id:
+        type: "string"
+      original_activity_period:
+        type: "object"
+        required:
+          - "period_start"
+          - "period_end"
+        properties:
+          period_start:
+            type: "string"
+            format: "date"
+          period_end:
+            type: "string"
+            format: "date"
+      split_reason:
+        type: "string"
+        description: "The regulatory transition event prompting the split."
+      segments:
+        type: "array"
+        minItems: 2
+        items:
+          type: "object"
+          required:
+            - "segment_id"
+            - "segment_period"
+            - "applicable_rule_id"
+          properties:
+            segment_id:
+              type: "string"
+            segment_period:
+              type: "object"
+              required:
+                - "period_start"
+                - "period_end"
+              properties:
+                period_start:
+                  type: "string"
+                  format: "date"
+                period_end:
+                  type: "string"
+                  format: "date"
+            applicable_rule_id:
+              type: "string"
