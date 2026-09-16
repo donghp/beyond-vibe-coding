@@ -1,0 +1,384 @@
+# ENERIX Carbon — Methodology Model Schema
+# Document ID: EC-MTH-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/methodology/EC-MTH-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/methodology/EC-MTH-001.json"
+title: "Methodology Model & Registry (MMR) Contract"
+description: "Machine-readable schemas for validating methodology definitions, steps, parameters, bindings, selection, and conflict resolutions."
+
+definitions:
+
+  # 1. METHODOLOGY DEFINITION
+  Methodology:
+    type: "object"
+    required:
+      - "methodology_id"
+      - "methodology_version"
+      - "name"
+      - "status"
+      - "authority_class"
+      - "jurisdiction"
+      - "source_refs"
+      - "effective_from"
+      - "steps"
+      - "activity_requirements"
+      - "source_requirements"
+      - "gas_coverage"
+      - "parameter_requirements"
+      - "ef_binding_contract"
+      - "gwp_binding_contract"
+      - "model_bindings"
+    properties:
+      methodology_id:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      methodology_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      status:
+        type: "string"
+        enum: ["DRAFT", "ACTIVE", "SUPERSEDES", "REPLACED", "RETIRED"]
+      authority_class:
+        type: "string"
+        enum: ["TIER_A", "TIER_B"]
+      jurisdiction:
+        type: "string"
+        pattern: "^[A-Z]{2}$"
+      source_refs:
+        type: "array"
+        items:
+          type: "string"
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+      supersedes:
+        type: ["string", "null"]
+      superseded_by:
+        type: ["string", "null"]
+      steps:
+        type: "array"
+        items:
+          $ref: "#/definitions/MethodStep"
+      activity_requirements:
+        type: "array"
+        items:
+          $ref: "#/definitions/ActivityDataRequirement"
+      source_requirements:
+        type: "array"
+        items:
+          $ref: "#/definitions/EmissionSourceRequirement"
+      gas_coverage:
+        type: "array"
+        items:
+          $ref: "#/definitions/GasRequirement"
+      parameter_requirements:
+        type: "array"
+        items:
+          $ref: "#/definitions/ParameterRequirement"
+      ef_binding_contract:
+        $ref: "#/definitions/EmissionFactorRequirement"
+      gwp_binding_contract:
+        $ref: "#/definitions/GwpRequirement"
+      model_bindings:
+        type: "array"
+        items:
+          $ref: "#/definitions/CalculationModelBinding"
+      qa_qc_additions:
+        type: "array"
+        items:
+          type: "string"
+      provenance:
+        type: "object"
+        properties:
+          created_by:
+            type: "string"
+          reviewed_by:
+            type: "string"
+          cryptographic_hash:
+            type: "string"
+
+  # 2. METHOD STEP
+  MethodStep:
+    type: "object"
+    required:
+      - "step_number"
+      - "step_name"
+      - "step_class"
+    properties:
+      step_number:
+        type: "integer"
+        minimum: 1
+      step_name:
+        type: "string"
+      step_class:
+        type: "string"
+        enum:
+          - "DEFINE_BOUNDARIES"
+          - "IDENTIFY_SOURCES"
+          - "COLLECT_DATA"
+          - "NORMALIZE_DATA"
+          - "SELECT_TIER"
+          - "BIND_MODEL"
+          - "APPLY_EF"
+          - "APPLY_GWP"
+          - "QA_QC"
+          - "UNCERTAINTY"
+          - "RECALCULATION"
+          - "REPORTING"
+      description:
+        type: "string"
+
+  # 3. ACTIVITY DATA REQUIREMENT
+  ActivityDataRequirement:
+    type: "object"
+    required:
+      - "activity_identifier"
+      - "data_type"
+      - "unit"
+      - "required_status"
+    properties:
+      activity_identifier:
+        type: "string"
+        pattern: "^ACT-[A-Z0-9_-]+$"
+      data_type:
+        type: "string"
+        enum: ["Numeric", "Categorical"]
+      unit:
+        type: "string"
+      periodicity:
+        type: "string"
+        enum: ["Hourly", "Daily", "Monthly", "Batch", "Annual"]
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "RECOMMENDED", "OPTIONAL"]
+      source_types:
+        type: "array"
+        items:
+          type: "string"
+          enum: ["manual", "document", "invoice", "spreadsheet", "meter", "SCADA", "API"]
+      quality_constraints:
+        type: "object"
+        properties:
+          accuracy_tolerance_percent:
+            type: "number"
+          normalization_standard:
+            type: "string"
+      evidence_requirements:
+        type: "array"
+        items:
+          $ref: "#/definitions/MethodologyEvidenceRequirement"
+
+  # 4. EMISSION SOURCE REQUIREMENT
+  EmissionSourceRequirement:
+    type: "object"
+    required:
+      - "source_class"
+      - "required_status"
+    properties:
+      source_class:
+        type: "string"
+        enum:
+          - "stationary_combustion"
+          - "mobile_combustion"
+          - "purchased_electricity"
+          - "industrial_process"
+          - "fugitive"
+          - "waste"
+          - "wastewater"
+          - "agricultural"
+          - "livestock"
+          - "land_related"
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "OPTIONAL"]
+
+  # 5. GAS REQUIREMENT
+  GasRequirement:
+    type: "object"
+    required:
+      - "gas_species"
+      - "required_status"
+    properties:
+      gas_species:
+        type: "string"
+        enum: ["CO2", "CH4", "N2O", "SF6", "NF3", "HFCs", "PFCs"]
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "OPTIONAL", "EXCLUDED"]
+
+  # 6. PARAMETER REQUIREMENT
+  ParameterRequirement:
+    type: "object"
+    required:
+      - "parameter_id"
+      - "unit"
+      - "type"
+      - "required_status"
+    properties:
+      parameter_id:
+        type: "string"
+        pattern: "^PAR-[A-Z0-9_-]+$"
+      description:
+        type: "string"
+      unit:
+        type: "string"
+      type:
+        type: "string"
+        enum: ["NCV", "EF", "GWP", "OXIDATION_FACTOR", "PURITY", "CONVERSION_FACTOR"]
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "RECOMMENDED", "OPTIONAL"]
+      source_ref:
+        type: "string"
+      effective_period:
+        type: "object"
+        properties:
+          effective_from:
+            type: "string"
+            format: "date"
+          effective_to:
+            type: ["string", "null"]
+            format: "date"
+
+  # 7. EMISSION FACTOR REQUIREMENT
+  EmissionFactorRequirement:
+    type: "object"
+    required:
+      - "ef_type"
+      - "enforcement_level"
+    properties:
+      ef_type:
+        type: "string"
+      enforcement_level:
+        type: "string"
+        enum: ["MANDATORY", "RECOMMENDED", "DEFAULT_TIER"]
+      registry_query_template:
+        type: "string"
+
+  # 8. GWP REQUIREMENT
+  GwpRequirement:
+    type: "object"
+    required:
+      - "gwp_dataset_standard"
+      - "gwp_application_basis"
+      - "gwp_enforcement_status"
+    properties:
+      gwp_dataset_standard:
+        type: "string"
+        enum: ["IPCC-SAR", "IPCC-TAR", "IPCC-AR4", "IPCC-AR5", "IPCC-AR6"]
+      gwp_application_basis:
+        type: "string"
+        enum: ["20_YEAR_TIME_HORIZON", "100_YEAR_TIME_HORIZON", "500_YEAR_TIME_HORIZON"]
+      gwp_enforcement_status:
+        type: "string"
+        enum: ["MANDATORY", "RECOMMENDED"]
+
+  # 9. CALCULATION MODEL BINDING
+  CalculationModelBinding:
+    type: "object"
+    required:
+      - "model_id"
+      - "selection_strength"
+    properties:
+      model_id:
+        type: "string"
+        enum:
+          - "MODEL-01"
+          - "MODEL-02"
+          - "MODEL-03"
+          - "MODEL-04"
+          - "MODEL-05"
+          - "MODEL-06"
+          - "MODEL-07"
+          - "MODEL-08"
+          - "MODEL-09"
+          - "MODEL-10"
+      selection_strength:
+        type: "string"
+        enum: ["REQUIRED", "ALLOWED", "CONDITIONAL", "DEFAULT"]
+
+  # 10. METHODOLOGY EVIDENCE REQUIREMENT
+  MethodologyEvidenceRequirement:
+    type: "object"
+    required:
+      - "evidence_class"
+      - "required_status"
+    properties:
+      evidence_class:
+        type: "string"
+        enum: ["electricity_bill", "fuel_invoice", "meter_record", "production_record", "laboratory_result", "CEMS_record"]
+      required_status:
+        type: "string"
+        enum: ["MANDATORY", "OPTIONAL"]
+
+  # 11. METHODOLOGY SELECTION
+  MethodologySelection:
+    type: "object"
+    required:
+      - "selection_id"
+      - "facility_id"
+      - "reporting_period"
+      - "selected_methodology_id"
+      - "selection_reason"
+      - "review_state"
+    properties:
+      selection_id:
+        type: "string"
+        pattern: "^SEL-[A-Z0-9_-]+$"
+      facility_id:
+        type: "string"
+      reporting_period:
+        type: "string"
+      selected_methodology_id:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      selection_reason:
+        type: "string"
+      applicable_rule_references:
+        type: "array"
+        items:
+          type: "string"
+      review_state:
+        type: "string"
+        enum: ["DRAFT", "SUBMITTED", "APPROVED", "REJECTED_AUDIT"]
+      evidence_compliance_status:
+        type: "boolean"
+
+  # 12. METHODOLOGY CONFLICT
+  MethodologyConflict:
+    type: "object"
+    required:
+      - "conflict_id"
+      - "affected_methodology_ids"
+      - "affected_facility_id"
+      - "resolution_status"
+    properties:
+      conflict_id:
+        type: "string"
+        pattern: "^CONF-[A-Z0-9_-]+$"
+      affected_methodology_ids:
+        type: "array"
+        items:
+          type: "string"
+          pattern: "^METH-[A-Z0-9_-]+$"
+      affected_facility_id:
+        type: "string"
+      temporal_context:
+        type: "string"
+      conflict_description:
+        type: "string"
+      resolution_status:
+        type: "string"
+        enum: ["OPEN_UNRESOLVED", "OPEN_CONTROLLED_AMBIGUITY", "RESOLVED_DECREE", "EXCLUDED_BY_TIMELIMIT"]
+      resolution_authority:
+        type: "string"

@@ -1,0 +1,244 @@
+# ENERIX Carbon — GWP Dataset Schema
+# Document ID: EC-GWP-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/methodology/EC-GWP-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/methodology/EC-GWP-001.json"
+title: "GWP Dataset Contract"
+description: "Machine-readable schemas for validating global warming potential dataset definitions, selections, validity, conflicts, and provenance."
+
+definitions:
+
+  # 1. GWP DATASET DEFINITION
+  GwpDataset:
+    type: "object"
+    required:
+      - "gwp_dataset_id"
+      - "dataset_version"
+      - "name"
+      - "status"
+      - "assessment_basis"
+      - "time_horizon"
+      - "gas_values"
+      - "effective_from"
+      - "provenance"
+    properties:
+      gwp_dataset_id:
+        type: "string"
+        pattern: "^GWP-[A-Z0-9_-]+$"
+      dataset_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      status:
+        type: "string"
+        enum: ["DRAFT", "REVIEW", "GOVERNED", "ACTIVE", "EXPIRED", "SUPERSEDED", "RETIRED", "REQUIRES_REVIEW", "BLOCKED"]
+      assessment_basis:
+        type: "string"
+        enum: ["IPCC-SAR", "IPCC-TAR", "IPCC-AR4", "IPCC-AR5", "IPCC-AR6"]
+      time_horizon:
+        type: "string"
+        enum: ["20_YEAR_TIME_HORIZON", "100_YEAR_TIME_HORIZON", "500_YEAR_TIME_HORIZON"]
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+      supersedes:
+        type: ["string", "null"]
+      superseded_by:
+        type: ["string", "null"]
+      gas_values:
+        type: "array"
+        items:
+          $ref: "#/definitions/GwpGasValue"
+      provenance:
+        $ref: "#/definitions/GwpProvenance"
+
+  # 2. GWP GAS VALUE MODEL
+  GwpGasValue:
+    type: "object"
+    required:
+      - "gas_species"
+      - "gwp_value"
+      - "unit_semantics"
+      - "assessment_basis"
+      - "time_horizon"
+    properties:
+      gas_species:
+        type: "string"
+        enum: ["CO2", "CH4", "N2O", "SF6", "NF3", "HFCs", "PFCs"]
+      gwp_value:
+        type: "number"
+      unit_semantics:
+        type: "string"
+      assessment_basis:
+        type: "string"
+        enum: ["IPCC-SAR", "IPCC-TAR", "IPCC-AR4", "IPCC-AR5", "IPCC-AR6"]
+      time_horizon:
+        type: "string"
+        enum: ["20_YEAR_TIME_HORIZON", "100_YEAR_TIME_HORIZON", "500_YEAR_TIME_HORIZON"]
+      source_reference:
+        type: "string"
+
+  # 3. GWP APPLICABILITY & TEMPORAL VALIDITY
+  GwpApplicability:
+    type: "object"
+    required:
+      - "jurisdiction"
+    properties:
+      jurisdiction:
+        type: "string"
+        pattern: "^[A-Z]{2}$"
+      methodology_binding:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      regulatory_binding:
+        type: "string"
+
+  GwpTemporalValidity:
+    type: "object"
+    required:
+      - "effective_from"
+    properties:
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+
+  # 4. GWP PROVENANCE & SOURCE
+  GwpProvenance:
+    type: "object"
+    required:
+      - "source_document_id"
+      - "publishing_authority"
+      - "release_date"
+    properties:
+      source_document_id:
+        type: "string"
+      table_reference:
+        type: "string"
+      row_reference:
+        type: "string"
+      publishing_authority:
+        type: "string"
+      release_date:
+        type: "string"
+        format: "date"
+      verification_hash:
+        type: "string"
+      registered_by:
+        type: "string"
+      registered_at:
+        type: "string"
+        format: "date-time"
+
+  GwpSource:
+    type: "object"
+    required:
+      - "source_id"
+      - "title"
+    properties:
+      source_id:
+        type: "string"
+      title:
+        type: "string"
+      publisher:
+        type: "string"
+      published_date:
+        type: "string"
+        format: "date"
+
+  # 5. GWP DATASET SELECTION
+  GwpDatasetSelection:
+    type: "object"
+    required:
+      - "selection_id"
+      - "facility_id"
+      - "reporting_period"
+      - "selected_dataset_id"
+      - "selected_dataset_version"
+      - "selection_reason"
+    properties:
+      selection_id:
+        type: "string"
+        pattern: "^SEL-GWP-[A-Z0-9_-]+$"
+      facility_id:
+        type: "string"
+      reporting_period:
+        type: "string"
+      methodology_id:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      regulatory_context:
+        type: "string"
+      selected_dataset_id:
+        type: "string"
+        pattern: "^GWP-[A-Z0-9_-]+$"
+      selected_dataset_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      selection_reason:
+        type: "string"
+      validation_status:
+        type: "string"
+        enum: ["UNVERIFIED", "VERIFIED", "APPROVED_BY_AUDITOR"]
+
+  # 6. GWP CONFLICT
+  GwpConflict:
+    type: "object"
+    required:
+      - "conflict_id"
+      - "dataset_id_a"
+      - "dataset_id_b"
+      - "affected_context"
+      - "resolution_status"
+    properties:
+      conflict_id:
+        type: "string"
+        pattern: "^CONF-GWP-[A-Z0-9_-]+$"
+      dataset_id_a:
+        type: "string"
+        pattern: "^GWP-[A-Z0-9_-]+$"
+      dataset_id_b:
+        type: "string"
+        pattern: "^GWP-[A-Z0-9_-]+$"
+      affected_context:
+        type: "string"
+      temporal_context:
+        type: "string"
+      conflict_description:
+        type: "string"
+      resolution_status:
+        type: "string"
+        enum: ["OPEN_UNRESOLVED", "OPEN_CONTROLLED", "RESOLVED_BY_AUTHORITY"]
+      resolution_authority:
+        type: "string"
+
+  # 7. GWP VERSION
+  GwpVersion:
+    type: "object"
+    required:
+      - "dataset_id"
+      - "version"
+      - "change_log"
+    properties:
+      dataset_id:
+        type: "string"
+        pattern: "^GWP-[A-Z0-9_-]+$"
+      version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      change_log:
+        type: "string"
+      released_at:
+        type: "string"
+        format: "date-time"

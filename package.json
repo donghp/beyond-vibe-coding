@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "clean": "rm -rf dist .astro",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test:carbon": "node carbon/engine/test-runner.js"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",

@@ -1,0 +1,252 @@
+# ENERIX Carbon — Emission Factor Registry Schema
+# Document ID: EC-EFR-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/methodology/EC-EFR-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/methodology/EC-EFR-001.json"
+title: "Emission Factor Registry (EFR) Contract"
+description: "Machine-readable schemas for validating emission factor definitions, selections, temporal validity, conflicts, and provenance."
+
+definitions:
+
+  # 1. EMISSION FACTOR DEFINITION
+  EmissionFactor:
+    type: "object"
+    required:
+      - "emission_factor_id"
+      - "factor_version"
+      - "name"
+      - "status"
+      - "jurisdiction"
+      - "authority_class"
+      - "source_refs"
+      - "effective_from"
+      - "value_contract"
+      - "applicability"
+      - "provenance"
+    properties:
+      emission_factor_id:
+        type: "string"
+        pattern: "^EFR-[A-Z0-9_-]+$"
+      factor_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      status:
+        type: "string"
+        enum: ["DRAFT", "REVIEW", "GOVERNED", "ACTIVE", "EXPIRED", "SUPERSEDED", "RETIRED", "REQUIRES_REVIEW", "BLOCKED"]
+      jurisdiction:
+        type: "string"
+        pattern: "^[A-Z]{2}$"
+      authority_class:
+        type: "string"
+        enum: ["TIER_A", "TIER_B"]
+      source_refs:
+        type: "array"
+        items:
+          type: "string"
+      effective_from:
+        type: "string"
+        format: "date"
+      effective_to:
+        type: ["string", "null"]
+        format: "date"
+      supersedes:
+        type: ["string", "null"]
+      superseded_by:
+        type: ["string", "null"]
+      value_contract:
+        $ref: "#/definitions/FactorValueContract"
+      applicability:
+        $ref: "#/definitions/FactorApplicability"
+      provenance:
+        $ref: "#/definitions/FactorProvenance"
+
+  # 2. FACTOR VALUE CONTRACT
+  FactorValueContract:
+    type: "object"
+    required:
+      - "value"
+      - "unit_denominator"
+      - "unit_numerator"
+      - "gas"
+    properties:
+      value:
+        type: "number"
+      unit_denominator:
+        type: "string"
+      unit_numerator:
+        type: "string"
+      gas:
+        type: "string"
+        enum: ["CO2", "CH4", "N2O", "SF6", "NF3", "HFCs", "PFCs", "CO2e"]
+      basis:
+        type: "string"
+      uncertainty_percent:
+        type: "number"
+      precision_decimal_places:
+        type: "integer"
+        minimum: 0
+      source_reference:
+        type: "string"
+
+  # 3. FACTOR APPLICABILITY
+  FactorApplicability:
+    type: "object"
+    required:
+      - "activity_data_context"
+      - "emission_source_class"
+    properties:
+      activity_data_context:
+        type: "string"
+        pattern: "^ACT-[A-Z0-9_-]+$"
+      emission_source_class:
+        type: "string"
+        enum:
+          - "stationary_combustion"
+          - "mobile_combustion"
+          - "purchased_electricity"
+          - "industrial_process"
+          - "fugitive"
+          - "waste"
+          - "wastewater"
+          - "agricultural"
+          - "livestock"
+          - "land_related"
+      methodology_binding:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      sector_binding:
+        type: "string"
+        pattern: "^SEC-[A-Z0-9_-]+$"
+
+  # 4. FACTOR PROVENANCE
+  FactorProvenance:
+    type: "object"
+    required:
+      - "source_document_id"
+      - "publishing_authority"
+      - "release_date"
+    properties:
+      source_document_id:
+        type: "string"
+      table_reference:
+        type: "string"
+      row_reference:
+        type: "string"
+      publishing_authority:
+        type: "string"
+      release_date:
+        type: "string"
+        format: "date"
+      verification_hash:
+        type: "string"
+      registered_by:
+        type: "string"
+      registered_at:
+        type: "string"
+        format: "date-time"
+
+  # 5. EMISSION FACTOR SELECTION
+  EmissionFactorSelection:
+    type: "object"
+    required:
+      - "selection_id"
+      - "facility_id"
+      - "reporting_period"
+      - "activity_period"
+      - "selected_factor_id"
+      - "selected_factor_version"
+      - "selection_reason"
+    properties:
+      selection_id:
+        type: "string"
+        pattern: "^SEL-EF-[A-Z0-9_-]+$"
+      facility_id:
+        type: "string"
+      reporting_period:
+        type: "string"
+      activity_period:
+        type: "object"
+        properties:
+          start_date:
+            type: "string"
+            format: "date"
+          end_date:
+            type: "string"
+            format: "date"
+      methodology_id:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      sector_profile_id:
+        type: "string"
+        pattern: "^SEC-[A-Z0-9_-]+$"
+      jurisdiction:
+        type: "string"
+        pattern: "^[A-Z]{2}$"
+      selected_factor_id:
+        type: "string"
+        pattern: "^EFR-[A-Z0-9_-]+$"
+      selected_factor_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      selection_reason:
+        type: "string"
+      validation_status:
+        type: "string"
+        enum: ["UNVERIFIED", "VERIFIED", "APPROVED_BY_AUDITOR"]
+      evidence_refs:
+        type: "array"
+        items:
+          $ref: "#/definitions/FactorEvidence"
+
+  # 6. FACTOR EVIDENCE
+  FactorEvidence:
+    type: "object"
+    required:
+      - "evidence_class"
+      - "source_reference"
+    properties:
+      evidence_class:
+        type: "string"
+        enum: ["regulatory_decree", "lab_certificate", "meter_calibration_record", "commercial_invoice"]
+      source_reference:
+        type: "string"
+      file_hash:
+        type: "string"
+
+  # 7. FACTOR CONFLICT
+  FactorConflict:
+    type: "object"
+    required:
+      - "conflict_id"
+      - "factor_id_a"
+      - "factor_id_b"
+      - "affected_context"
+      - "resolution_status"
+    properties:
+      conflict_id:
+        type: "string"
+        pattern: "^CONF-EF-[A-Z0-9_-]+$"
+      factor_id_a:
+        type: "string"
+        pattern: "^EFR-[A-Z0-9_-]+$"
+      factor_id_b:
+        type: "string"
+        pattern: "^EFR-[A-Z0-9_-]+$"
+      affected_context:
+        type: "string"
+      temporal_context:
+        type: "string"
+      conflict_description:
+        type: "string"
+      resolution_status:
+        type: "string"
+        enum: ["OPEN_UNRESOLVED", "OPEN_CONTROLLED", "RESOLVED_BY_AUTHORITY"]
+      resolution_authority:
+        type: "string"

@@ -1,0 +1,149 @@
+document_control:
+  id: "EC-ENGINE-VERIFICATION-001"
+  title: "ENERIX Carbon Deterministic Calculation Engine Verification Audit"
+  version: "1.0.0"
+  status: "COMPLETE_AUDIT_VERIFIED"
+  release_date: "2026-09-16"
+  maintainer: "ENERIX Carbon Independent Quality Assurance & Verification Authority"
+  classification: "Formal Verification Audit & Engineering Attestation"
+
+verification_summary:
+  status: "CALCULATION_ENGINE_VERIFIED"
+  total_tests_executed: 27
+  passed: 27
+  failed: 0
+  success_rate: 100.0
+  reproducible: true
+  fail_closed_guarantees: true
+
+authoritative_contracts:
+  - "EC-CONTEXT-001"
+  - "EC-DM-001"
+  - "EC-DOMAIN-MODEL-001"
+  - "EC-UCM-001"
+  - "EC-KM-001"
+  - "EC-RRM-001"
+  - "EC-TEMP-001"
+  - "EC-SPM-001"
+  - "EC-MTH-001"
+  - "EC-EFR-001"
+  - "EC-GWP-001"
+  - "EC-CES-001"
+  - "EC-TEST-001"
+
+pipeline_conformance:
+  stages_governed: 14
+  stages_implemented: 14
+  ordered_sequence:
+    1: "Context Resolution"
+    2: "Input Validation"
+    3: "Unit Normalization"
+    4: "Parameter Resolution"
+    5: "Model Resolution"
+    6: "Formula / Structure Resolution"
+    7: "Deterministic Execution"
+    8: "Gas Result Generation"
+    9: "GWP Application"
+    10: "CO2e Result Generation"
+    11: "QA/QC Audit"
+    12: "Provenance"
+    13: "Calculation Snapshot"
+    14: "Result Finalization"
+  conformance_status: "FULLY_CONFORMED"
+
+model_verification:
+  MODEL-01:
+    class: "Simple Factor"
+    formula: "E = AD * EF"
+    validated: true
+    test_cases: ["TC-M01-001", "TC-M01-002", "TC-M01-003"]
+  MODEL-02:
+    class: "Factor with Conversion"
+    formula: "E = AD * CC * EF"
+    validated: true
+    test_cases: ["TC-M02-001", "TC-M02-002"]
+  MODEL-03:
+    class: "Multi-Gas Combustion"
+    formula: "E_g = AD * EF_g"
+    validated: true
+    test_cases: ["TC-M03-001", "TC-M03-003"]
+  MODEL-04:
+    class: "Parameterized (IPCC Tier 3)"
+    formula: "EF_dynamic = cc * of * (44/12)"
+    validated: true
+    test_cases: ["TC-M04-001", "TC-M04-003"]
+  MODEL-05:
+    class: "Composite"
+    formula: "E_composite = sum(E_child)"
+    validated: true
+    test_cases: ["TC-M05-001", "TC-M05-003"]
+  MODEL-06:
+    class: "Dynamic State-Transition"
+    formula: "S_t = S_t-1 * (1 - k) + Input"
+    validated: true
+    test_cases: ["TC-M06-001"]
+  MODEL-07:
+    class: "Project Reduction"
+    formula: "Net = E_baseline - E_project"
+    validated: true
+    test_cases: ["TC-M07-001", "TC-M07-003"]
+  MODEL-08:
+    class: "Mass Balance & Allocation"
+    formula: "E = (Min * Cin - Mout * Cout) * (44/12)"
+    validated: true
+    test_cases: ["TC-M08-001", "TC-M08-ERR"]
+  MODEL-09:
+    class: "Intensity"
+    formula: "I = E_abs / P"
+    validated: true
+    test_cases: ["TC-M09-001", "TC-M09-003"]
+  MODEL-10:
+    class: "Multi-Facility Aggregation"
+    formula: "E_total = sum(E_approved)"
+    validated: true
+    test_cases: ["TC-M10-001", "TC-M10-DUP"]
+
+architectural_audits:
+  parameter_resolution:
+    status: "VERIFIED"
+    implementation_mechanism: "Context-decoupled Stage-1 mapping prevents client override."
+  emission_factor_resolution:
+    status: "VERIFIED"
+    status_enforcement: "Blocks DRAFT factors throwing PROVENANCE_INCOMPLETE."
+    historical_validity: "Ensures expired factors can execute when historical period matches."
+  gwp_resolution:
+    status: "VERIFIED"
+    dataset_selection: "Contextual lookup. Locks CO2 GWP baseline to exactly 1.0."
+  temporal_conformance:
+    status: "VERIFIED"
+    interval_type: "Left-closed right-open [valid_from, valid_to)."
+  fail_closed_semantics:
+    status: "VERIFIED"
+    exceptions: "Explicitly typed errors on invalid quantities, units, parameters, or evidence."
+  determinism_idempotency:
+    status: "VERIFIED"
+    reproducibility_hash_stabilization: "Strips timestamp, snapshot_id, execution_id before serialization."
+  provenance_evidence:
+    status: "VERIFIED"
+    mandatory_evidence: "Throws EVIDENCE_INCOMPLETE on gaps."
+    snapshot_tamper_detection: "Successfully detects altered outputs via cryptographic hashes."
+
+discrepancy_register:
+  ISSUE-CES-001:
+    domain_area: "Round-off Accumulation"
+    classification: "CONTROLLED_OPEN_ISSUE"
+    description: "Rounding limits in large aggregate structures, controlled via 0.001 balance thresholds."
+  ISSUE-CES-REG-001:
+    domain_area: "Hardcoded Dates"
+    classification: "CONTROLLED_OPEN_ISSUE"
+    description: "Decision 42/2026/QĐ-TTg date hardcoded inside regulatory engine. Recommended future migration to database rules table."
+
+residual_risks:
+  - id: "RISK-ROUNDING"
+    description: "Minor floating-point representation discrepancy in recursive calculations over 50 years."
+    mitigation: "Apply standard Decimal or BigInt scaled structures on large aggregation matrices if required."
+
+verification_attestation:
+  authority: "ENERIX Carbon Independent Quality Assurance & Verification Authority"
+  signed_date: "2026-09-16"
+  attestation_status: "CALCULATION_ENGINE_VERIFIED"

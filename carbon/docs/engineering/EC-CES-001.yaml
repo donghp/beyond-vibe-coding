@@ -1,0 +1,313 @@
+# ENERIX Carbon — Deterministic Calculation Engine Schema
+# Document ID: EC-CES-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/engineering/EC-CES-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/engineering/EC-CES-001.json"
+title: "Deterministic Calculation Engine Contract"
+description: "Machine-readable schemas for validating calculation requests, execution contexts, trace details, snapshots, results, errors, and provenance."
+
+definitions:
+
+  # 1. CALCULATION REQUEST
+  CalculationRequest:
+    type: "object"
+    required:
+      - "calculation_run_id"
+      - "facility_id"
+      - "reporting_period"
+      - "activity_data_refs"
+      - "methodology_ref"
+      - "calculation_model_ref"
+      - "emission_factor_refs"
+      - "gwp_dataset_ref"
+      - "engine_version"
+    properties:
+      calculation_run_id:
+        type: "string"
+        pattern: "^RUN-[A-Z0-9_-]+$"
+      facility_id:
+        type: "string"
+        pattern: "^FAC-[A-Z0-9_-]+$"
+      reporting_period:
+        type: "string"
+      activity_data_refs:
+        type: "array"
+        items:
+          type: "string"
+          pattern: "^ACT-[A-Z0-9_-]+$"
+      methodology_ref:
+        type: "string"
+        pattern: "^METH-[A-Z0-9_-]+$"
+      calculation_model_ref:
+        type: "string"
+        pattern: "^MODEL-[0-9]{2}$"
+      emission_factor_refs:
+        type: "array"
+        items:
+          type: "string"
+          pattern: "^EFR-[A-Z0-9_-]+$"
+      gwp_dataset_ref:
+        type: "string"
+        pattern: "^GWP-[A-Z0-9_-]+$"
+      parameter_refs:
+        type: "array"
+        items:
+          type: "string"
+          pattern: "^PARAM-[A-Z0-9_-]+$"
+      regulatory_context_ref:
+        type: "string"
+      temporal_context_ref:
+        type: "string"
+      evidence_refs:
+        type: "array"
+        items:
+          type: "string"
+      engine_version:
+        type: "string"
+        pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+
+  # 2. CALCULATION CONTEXT
+  CalculationContext:
+    type: "object"
+    required:
+      - "resolved_at"
+      - "facility"
+      - "reporting_period"
+      - "methodology"
+      - "calculation_model"
+      - "emission_factors"
+      - "gwp_dataset"
+    properties:
+      resolved_at:
+        type: "string"
+        format: "date-time"
+      facility:
+        type: "object"
+      reporting_period:
+        type: "string"
+      methodology:
+        type: "object"
+      calculation_model:
+        type: "object"
+      emission_factors:
+        type: "array"
+        items:
+          type: "object"
+      gwp_dataset:
+        type: "object"
+      parameters:
+        type: "array"
+        items:
+          type: "object"
+      regulatory_context:
+        type: "object"
+      temporal_context:
+        type: "object"
+
+  # 3. CALCULATION EXECUTION & TRACE
+  CalculationExecution:
+    type: "object"
+    required:
+      - "execution_id"
+      - "run_id"
+      - "started_at"
+      - "completed_at"
+      - "pipeline_stages"
+      - "execution_trace"
+    properties:
+      execution_id:
+        type: "string"
+        pattern: "^EXEC-[A-Z0-9_-]+$"
+      run_id:
+        type: "string"
+        pattern: "^RUN-[A-Z0-9_-]+$"
+      started_at:
+        type: "string"
+        format: "date-time"
+      completed_at:
+        type: "string"
+        format: "date-time"
+      pipeline_stages:
+        type: "array"
+        items:
+          type: "string"
+          enum:
+            - "CONTEXT_RESOLUTION"
+            - "INPUT_VALIDATION"
+            - "UNIT_NORMALIZATION"
+            - "PARAMETER_RESOLUTION"
+            - "MODEL_RESOLUTION"
+            - "STRUCTURE_RESOLUTION"
+            - "DETERMINISTIC_EXECUTION"
+            - "GAS_RESULT_GENERATION"
+            - "GWP_APPLICATION"
+            - "CO2E_RESULT"
+            - "QA_QC"
+            - "PROVENANCE"
+            - "SNAPSHOT"
+            - "RESULT_FINALIZATION"
+      execution_trace:
+        type: "array"
+        items:
+          $ref: "#/definitions/CalculationTrace"
+
+  CalculationTrace:
+    type: "object"
+    required:
+      - "step_id"
+      - "action"
+      - "input_variables"
+      - "output_variables"
+    properties:
+      step_id:
+        type: "string"
+      action:
+        type: "string"
+      input_variables:
+        type: "object"
+      output_variables:
+        type: "object"
+      formula_reference:
+        type: "string"
+
+  # 4. RESULTS
+  GasResult:
+    type: "object"
+    required:
+      - "gas"
+      - "mass"
+      - "unit"
+    properties:
+      gas:
+        type: "string"
+        enum: ["CO2", "CH4", "N2O", "SF6", "NF3", "HFCs", "PFCs"]
+      mass:
+        type: "number"
+      unit:
+        type: "string"
+
+  CO2eResult:
+    type: "object"
+    required:
+      - "gas"
+      - "equivalent_mass"
+      - "unit"
+      - "applied_gwp"
+    properties:
+      gas:
+        type: "string"
+        enum: ["CO2", "CH4", "N2O", "SF6", "NF3", "HFCs", "PFCs"]
+      equivalent_mass:
+        type: "number"
+      unit:
+        type: "string"
+      applied_gwp:
+        type: "number"
+
+  # 5. CALCULATION ERROR
+  CalculationError:
+    type: "object"
+    required:
+      - "error_code"
+      - "message"
+      - "category"
+      - "timestamp"
+    properties:
+      error_code:
+        type: "string"
+        enum:
+          - "INVALID_INPUT"
+          - "MISSING_PARAMETER"
+          - "MISSING_EMISSION_FACTOR"
+          - "MISSING_GWP"
+          - "INVALID_UNIT"
+          - "INCOMPATIBLE_METHODOLOGY"
+          - "MODEL_CONSTRAINT_VIOLATION"
+          - "REGULATORY_CONTEXT_MISSING"
+          - "PROVENANCE_INCOMPLETE"
+          - "EVIDENCE_INCOMPLETE"
+          - "RECONCILIATION_FAILED"
+          - "QA_QC_FAILED"
+      message:
+        type: "string"
+      category:
+        type: "string"
+      timestamp:
+        type: "string"
+        format: "date-time"
+      execution_state_snapshot:
+        type: "object"
+
+  # 6. CALCULATION SNAPSHOT
+  CalculationSnapshot:
+    type: "object"
+    required:
+      - "snapshot_id"
+      - "timestamp"
+      - "raw_activity_data"
+      - "frozen_emission_factor"
+      - "frozen_gwp_dataset"
+      - "reproducibility_hash"
+    properties:
+      snapshot_id:
+        type: "string"
+        pattern: "^SNAP-[A-Z0-9_-]+$"
+      timestamp:
+        type: "string"
+        format: "date-time"
+      raw_activity_data:
+        type: "array"
+        items:
+          type: "object"
+      frozen_emission_factor:
+        type: "object"
+      frozen_gwp_dataset:
+        type: "object"
+      frozen_parameters:
+        type: "array"
+        items:
+          type: "object"
+      reproducibility_hash:
+        type: "string"
+
+  # 7. PROVENANCE
+  CalculationProvenance:
+    type: "object"
+    required:
+      - "calculation_run_id"
+      - "engine_version"
+      - "model_version"
+      - "methodology_version"
+      - "ef_version"
+      - "gwp_version"
+      - "input_references"
+      - "formula_reference"
+    properties:
+      calculation_run_id:
+        type: "string"
+        pattern: "^RUN-[A-Z0-9_-]+$"
+      engine_version:
+        type: "string"
+      model_version:
+        type: "string"
+      methodology_version:
+        type: "string"
+      ef_version:
+        type: "string"
+      gwp_version:
+        type: "string"
+      input_references:
+        type: "array"
+        items:
+          type: "string"
+      formula_reference:
+        type: "string"
+      source_evidence:
+        type: "array"
+        items:
+          type: "string"
+      temporal_context:
+        type: "object"

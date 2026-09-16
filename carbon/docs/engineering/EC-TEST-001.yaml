@@ -1,0 +1,236 @@
+# ENERIX Carbon — Calculation Test Corpus Schema
+# Document ID: EC-TEST-001.yaml (Machine-Readable Contract Companion)
+# Version: 1.0.0
+# Status: APPROVED_BASELINE
+# Reconciled Against: /carbon/docs/engineering/EC-TEST-001.md
+
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://enerix.carbon/schemas/engineering/EC-TEST-001.json"
+title: "Calculation Test Corpus Catalog Schema"
+description: "Machine-readable schema representing calculation test cases, inputs, expected outputs, errors, and traceability links."
+
+definitions:
+
+  TestCase:
+    type: "object"
+    required:
+      - "test_id"
+      - "test_class"
+      - "objective"
+      - "specification_reference"
+      - "preconditions"
+      - "input_data"
+      - "expected_behavior"
+    properties:
+      test_id:
+        type: "string"
+        pattern: "^TC-[A-Z0-9_-]+$"
+      test_class:
+        type: "string"
+        enum:
+          - "UNIT_FORMULA"
+          - "MODEL_CONTRACT"
+          - "INPUT_VALIDATION"
+          - "UNIT_NORMALIZATION"
+          - "PARAMETER_RESOLUTION"
+          - "EF_SELECTION"
+          - "GWP_SELECTION"
+          - "TEMPORAL"
+          - "COMPOSITE_AGGREGATION"
+          - "ALLOCATION"
+          - "INTENSITY"
+          - "DYNAMIC_MODEL"
+          - "REDUCTION_MODEL"
+          - "PROVENANCE_SNAPSHOT"
+          - "REPRODUCIBILITY_IDEMPOTENCY"
+          - "ERROR_FAIL_CLOSED"
+      objective:
+        type: "string"
+      specification_reference:
+        type: "string"
+        pattern: "^EC-[A-Z0-9_-]+$"
+      preconditions:
+        type: "array"
+        items:
+          type: "string"
+      input_data:
+        type: "object"
+        required:
+          - "activity_data"
+        properties:
+          activity_data:
+            type: "array"
+            items:
+              $ref: "#/definitions/ActivityDataFixture"
+          emission_factors:
+            type: "array"
+            items:
+              $ref: "#/definitions/EmissionFactorFixture"
+          gwp_dataset:
+            $ref: "#/definitions/GwpDatasetFixture"
+          parameters:
+            type: "array"
+            items:
+              $ref: "#/definitions/ParameterFixture"
+          conversion_constants:
+            type: "array"
+            items:
+              $ref: "#/definitions/ConversionConstantFixture"
+      expected_behavior:
+        type: "object"
+        required:
+          - "status"
+        properties:
+          status:
+            type: "string"
+            enum: ["SUCCESS", "FAILURE", "REQUIRES_REVIEW"]
+          expected_output:
+            $ref: "#/definitions/ExpectedOutputAssertion"
+          expected_error:
+            $ref: "#/definitions/ExpectedErrorAssertion"
+          reproducibility_requirement:
+            type: "string"
+            enum: ["IDEMPOTENT", "SNAPSHOT_DEPENDENT"]
+
+  # FIXTURES
+  ActivityDataFixture:
+    type: "object"
+    required:
+      - "id"
+      - "value"
+      - "unit"
+    properties:
+      id:
+        type: "string"
+      value:
+        type: "number"
+      unit:
+        type: "string"
+      metadata_tag:
+        type: "string"
+        enum: ["REAL_SOURCE_DATA", "TEST_ONLY_SYNTHETIC"]
+
+  EmissionFactorFixture:
+    type: "object"
+    required:
+      - "id"
+      - "value"
+      - "unit_numerator"
+      - "unit_denominator"
+    properties:
+      id:
+        type: "string"
+      value:
+        type: "number"
+      unit_numerator:
+        type: "string"
+      unit_denominator:
+        type: "string"
+      effective_from:
+        type: "string"
+      effective_to:
+        type: "string"
+      metadata_tag:
+        type: "string"
+        enum: ["REAL_SOURCE_DATA", "TEST_ONLY_SYNTHETIC"]
+
+  GwpDatasetFixture:
+    type: "object"
+    required:
+      - "id"
+      - "multipliers"
+    properties:
+      id:
+        type: "string"
+      multipliers:
+        type: "object"
+        additionalProperties:
+          type: "number"
+      metadata_tag:
+        type: "string"
+        enum: ["REAL_SOURCE_DATA", "TEST_ONLY_SYNTHETIC"]
+
+  ParameterFixture:
+    type: "object"
+    required:
+      - "id"
+      - "value"
+    properties:
+      id:
+        type: "string"
+      value:
+        type: "number"
+      metadata_tag:
+        type: "string"
+        enum: ["REAL_SOURCE_DATA", "TEST_ONLY_SYNTHETIC"]
+
+  ConversionConstantFixture:
+    type: "object"
+    required:
+      - "id"
+      - "value"
+    properties:
+      id:
+        type: "string"
+      value:
+        type: "number"
+      metadata_tag:
+        type: "string"
+        enum: ["REAL_SOURCE_DATA", "TEST_ONLY_SYNTHETIC"]
+
+  # EXPECTED OUTCOMES
+  ExpectedOutputAssertion:
+    type: "object"
+    required:
+      - "total_co2e"
+    properties:
+      total_co2e:
+        type: "number"
+      gas_breakdown:
+        type: "array"
+        items:
+          type: "object"
+          required:
+            - "gas"
+            - "mass"
+          properties:
+            gas:
+              type: "string"
+            mass:
+              type: "number"
+      traceability_assertions:
+        type: "object"
+        required:
+          - "why"
+          - "how"
+          - "source"
+        properties:
+          why:
+            type: "string"
+          how:
+            type: "string"
+          source:
+            type: "string"
+
+  ExpectedErrorAssertion:
+    type: "object"
+    required:
+      - "error_code"
+    properties:
+      error_code:
+        type: "string"
+        enum:
+          - "INVALID_INPUT"
+          - "MISSING_PARAMETER"
+          - "MISSING_EMISSION_FACTOR"
+          - "MISSING_GWP"
+          - "INVALID_UNIT"
+          - "INCOMPATIBLE_METHODOLOGY"
+          - "MODEL_CONSTRAINT_VIOLATION"
+          - "REGULATORY_CONTEXT_MISSING"
+          - "PROVENANCE_INCOMPLETE"
+          - "EVIDENCE_INCOMPLETE"
+          - "RECONCILIATION_FAILED"
+          - "QA_QC_FAILED"
+      error_message_contains:
+        type: "string"
