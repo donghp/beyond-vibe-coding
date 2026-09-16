@@ -1,0 +1,93 @@
+artifact_id: EC-APP-STATE-DATA-PROVIDER-IMPLEMENTATION-001
+task_ref: "#0025"
+phase: G5
+title: Carbon App State / Data Provider Hardening
+date: "2026-09-16"
+status: VERIFIED_AUDIT_SEALED
+
+governed_components:
+  data_provider:
+    file: /carbon/app/data-provider.js
+    role: Universal repository catalog loader and frozen engine registry
+    engines_registered:
+      - regulatoryEngine
+      - temporalEngine
+      - methodologyEngine
+      - planEngine
+      - activityEvidenceEngine
+      - calculationEngine
+      - documentIntelligenceEngine
+      - provenanceEngine
+      - qaqcEngine
+      - reportReadinessEngine
+  state_store:
+    file: /carbon/app/state-store.js
+    role: Reactive state orchestrator and governed pipeline evaluator
+    compliance_rules:
+      - zero_ui_calculation_leakage
+      - fail_closed_ai_sign_off_rejection
+      - controlled_issue_governance
+      - deterministic_pipeline_evaluation
+
+test_suite:
+  file: /carbon/engine/test-app-state.js
+  total_tests: 24
+  passed: 24
+  failed: 0
+  compliance: 100%
+  test_cases:
+    - id: TC-STATE-001
+      status: PASSED
+    - id: TC-STATE-002
+      status: PASSED
+    - id: TC-STATE-003
+      status: PASSED
+    - id: TC-STATE-004
+      status: PASSED
+    - id: TC-STATE-005
+      status: PASSED
+    - id: TC-STATE-006
+      status: PASSED
+    - id: TC-STATE-007
+      status: PASSED
+    - id: TC-STATE-008
+      status: PASSED
+    - id: TC-STATE-009
+      status: PASSED
+    - id: TC-STATE-010
+      status: PASSED
+    - id: TC-STATE-011
+      status: PASSED
+    - id: TC-STATE-012
+      status: PASSED
+    - id: TC-STATE-013
+      status: PASSED
+    - id: TC-STATE-014
+      status: PASSED
+    - id: TC-STATE-015
+      status: PASSED
+    - id: TC-STATE-016
+      status: PASSED
+    - id: TC-STATE-017
+      status: PASSED
+    - id: TC-STATE-018
+      status: PASSED
+    - id: TC-STATE-019
+      status: PASSED
+    - id: TC-STATE-020
+      status: PASSED
+    - id: TC-STATE-021
+      status: PASSED
+    - id: TC-STATE-022
+      status: PASSED
+    - id: TC-STATE-023
+      status: PASSED
+    - id: TC-STATE-024
+      status: PASSED
+
+cumulative_audit:
+  total_suites: 11
+  total_tests: 251
+  passed_tests: 251
+  failed_tests: 0
+  zero_calculation_leakage_verified: true

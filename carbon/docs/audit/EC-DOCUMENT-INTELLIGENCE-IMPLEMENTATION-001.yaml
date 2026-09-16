@@ -1,0 +1,128 @@
+audit_id: "EC-DOCUMENT-INTELLIGENCE-IMPLEMENTATION-001"
+verification_date: "2026-09-16"
+status: "APPROVED"
+compliance_standards:
+  - "EC-UCM-001"
+  - "EC-DOMAIN-MODEL-001"
+verifier: "ENERIX Carbon Automated Audit Service"
+final_status: "DOCUMENT_INTELLIGENCE_IMPLEMENTATION_ALIGNED"
+
+config:
+  overall_confidence_threshold: 0.80
+  key_field_confidence_threshold: 0.85
+  allowed_classifications:
+    - "FUEL_INVOICE"
+    - "UTILITY_BILL"
+    - "METER_LOG"
+    - "SCADA_EXPORT"
+    - "LAB_TEST_RESULT"
+
+entities:
+  Document:
+    fields:
+      - "document_id"
+      - "file_path"
+      - "file_size"
+      - "mime_type"
+      - "sha256_hash"
+      - "uploaded_at"
+      - "uploaded_by"
+      - "status"
+      - "metadata"
+  DocumentClassification:
+    fields:
+      - "document_id"
+      - "document_type"
+      - "confidence"
+      - "classified_by"
+      - "classified_at"
+  ExtractionCandidate:
+    fields:
+      - "candidate_id"
+      - "document_id"
+      - "extracted_fields"
+      - "field_confidences"
+      - "overall_confidence"
+      - "extracted_at"
+      - "extracted_by"
+      - "status"
+      - "issues"
+  ApprovedHandoff:
+    fields:
+      - "handoff_id"
+      - "document_id"
+      - "candidate_id"
+      - "activity_data_record"
+      - "evidence_record"
+      - "approved_by"
+      - "approved_at"
+      - "status"
+
+gating_rules:
+  auto_approval_eligibility: "overall_confidence >= 0.80 AND all key field_confidences >= 0.85 AND validation_status is VALIDATED_OK"
+  fail_closed_violations:
+    - "MISSING_FACILITY_ID"
+    - "MISSING_QUANTITY"
+    - "INVALID_QUANTITY_TYPE"
+    - "NEGATIVE_QUANTITY"
+    - "MISSING_UNIT"
+    - "MISSING_ACTIVITY_TYPE"
+    - "MISSING_DATES"
+    - "PLAN_MISMATCH"
+    - "FACILITY_MISMATCH"
+    - "UNIT_INCOMPATIBLE"
+
+test_verification_runs:
+  - id: "TC-DOC-001"
+    outcome: "PASS"
+  - id: "TC-DOC-002"
+    outcome: "PASS"
+  - id: "TC-DOC-003"
+    outcome: "PASS"
+  - id: "TC-DOC-004"
+    outcome: "PASS"
+  - id: "TC-DOC-005"
+    outcome: "PASS"
+  - id: "TC-DOC-006"
+    outcome: "PASS"
+  - id: "TC-DOC-007"
+    outcome: "PASS"
+  - id: "TC-DOC-008"
+    outcome: "PASS"
+  - id: "TC-DOC-009"
+    outcome: "PASS"
+  - id: "TC-DOC-010"
+    outcome: "PASS"
+  - id: "TC-DOC-011"
+    outcome: "PASS"
+  - id: "TC-DOC-012"
+    outcome: "PASS"
+  - id: "TC-DOC-013"
+    outcome: "PASS"
+  - id: "TC-DOC-014"
+    outcome: "PASS"
+  - id: "TC-DOC-015"
+    outcome: "PASS"
+  - id: "TC-DOC-016"
+    outcome: "PASS"
+  - id: "TC-DOC-017"
+    outcome: "PASS"
+  - id: "TC-DOC-018"
+    outcome: "PASS"
+  - id: "TC-DOC-019"
+    outcome: "PASS"
+  - id: "TC-DOC-020"
+    outcome: "PASS"
+  - id: "TC-DOC-021"
+    outcome: "PASS"
+  - id: "TC-DOC-022"
+    outcome: "PASS"
+  - id: "TC-DOC-023"
+    outcome: "PASS"
+  - id: "TC-DOC-024"
+    outcome: "PASS"
+
+static_audit:
+  zero_numerical_calculations_verified: true
+  zero_default_values_substituted_verified: true
+  no_external_dependencies_verified: true

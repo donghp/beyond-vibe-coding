@@ -2,11 +2,12 @@
  * ENERIX Carbon - Executive Dashboard View
  */
 import { dataProvider } from '../../app/data-provider.js';
-import { formatCO2e, formatBadge } from '../../app/formatters.js';
+import { stateStore } from '../../app/state-store.js';
+import { formatBadge } from '../../app/formatters.js';
 
 export function renderOverviewPage() {
+  const vm = stateStore.getOverviewViewModel();
   const facilities = dataProvider.getFacilities();
-  const mandatoryCount = facilities.filter(f => f.regulatory_status === 'MANDATORY').length;
 
   return `
     <div class="page-title-bar">
@@ -17,14 +18,14 @@ export function renderOverviewPage() {
     <div class="card-grid">
       <div class="enerix-card">
         <div class="enerix-card-title">Regulated Facilities <span>🏭</span></div>
-        <div style="font-size:28px;font-weight:700;color:var(--color-navy-900);">${facilities.length}</div>
-        <div style="font-size:12px;color:#64748b;margin-top:4px;">${mandatoryCount} Mandatory under QĐ 42/2026</div>
+        <div style="font-size:28px;font-weight:700;color:var(--color-navy-900);">${vm.total_facilities}</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">${vm.mandatory_facilities} Mandatory under QĐ 42/2026</div>
       </div>
 
       <div class="enerix-card">
         <div class="enerix-card-title">Scope 1 & 2 Emissions <span>🌱</span></div>
-        <div style="font-size:28px;font-weight:700;color:var(--color-sky-600);">${formatCO2e(1031.35)}</div>
-        <div style="font-size:12px;color:#64748b;margin-top:4px;">2026 Q1 Verified Runs</div>
+        <div style="font-size:28px;font-weight:700;color:var(--color-sky-600);">${vm.total_emissions_formatted}</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">${vm.active_facility_name} | Governed Run</div>
       </div>
 
       <div class="enerix-card">

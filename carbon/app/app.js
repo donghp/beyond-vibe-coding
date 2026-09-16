@@ -22,6 +22,7 @@ export async function initApp() {
   `;
 
   await dataProvider.loadAll();
+  stateStore.recompute();
 
   const headerRoot = document.getElementById('header-root');
   const sidebarRoot = document.getElementById('sidebar-root');

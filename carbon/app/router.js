@@ -37,6 +37,9 @@ export class Router {
     const renderFn = this.routes[route] || renderOverviewPage;
     if (this.container) {
       this.container.innerHTML = renderFn();
+      if (typeof renderFn.attachEvents === 'function') {
+        renderFn.attachEvents(this.container);
+      }
     }
   }
 }

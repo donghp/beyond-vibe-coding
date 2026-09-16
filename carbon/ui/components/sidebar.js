@@ -7,7 +7,7 @@ export function renderSidebar(currentRoute) {
       group: 'Enterprise Compliance',
       items: [
         { id: 'overview', label: 'Executive Dashboard', icon: '📊' },
-        { id: 'regulatory-check', label: 'Regulatory Applicability', icon: '⚖️' },
+        { id: 'regulatory-check', label: 'Regulatory Workspace', icon: '⚖️' },
         { id: 'facilities', label: 'Regulated Facilities', icon: '🏭' },
         { id: 'inventory', label: 'GHG Inventory (Scopes)', icon: '🌱' }
       ]

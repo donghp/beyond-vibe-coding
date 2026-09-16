@@ -237,6 +237,140 @@ body {
   color: var(--color-amber-600);
 }
 
+.status-badge.neutral {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+/* Button & Control Standards */
+.enerix-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.enerix-btn:hover {
+  opacity: 0.92;
+}
+
+.enerix-btn-primary {
+  background-color: var(--color-sky-600);
+  color: #ffffff;
+}
+
+.enerix-btn-primary:hover {
+  background-color: #0369a1;
+}
+
+.enerix-btn-outline {
+  background-color: #ffffff;
+  border-color: var(--color-border);
+  color: var(--color-navy-700);
+}
+
+.enerix-btn-outline:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.enerix-btn-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.enerix-select {
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--color-navy-900);
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.enerix-select:focus {
+  border-color: var(--color-sky-600);
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+}
+
+/* Alert Boxes */
+.enerix-alert {
+  padding: 14px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.enerix-alert-warning {
+  background-color: #fffbeb;
+  border: 1px solid #fef3c7;
+  color: #92400e;
+}
+
+.enerix-alert-success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.enerix-alert-danger {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.enerix-alert-info {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #075985;
+}
+
+/* Condition Chips */
+.condition-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  margin: 2px 4px 2px 0;
+}
+
+.condition-chip.matched {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.condition-chip.unmet {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.condition-chip.unresolved {
+  background-color: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
 .mono-text {
   font-family: var(--font-mono);
   font-size: 12px;

@@ -1,0 +1,74 @@
+artifact_id: "EC-REGULATORY-WORKSPACE-IMPLEMENTATION-001"
+published_date: "2026-09-16"
+status: "AUTHORITATIVE"
+phase: "G5_PRODUCT_DEMO_OPERATIONALIZATION"
+task_ref: "#0026"
+governing_standard: "EC-TEST-001"
+implementation_file: "/carbon/ui/pages/regulatory-check.js"
+verification_file: "/carbon/engine/test-regulatory-workspace.js"
+
+authority_boundaries:
+  ui_role: "CONSUMER_ONLY"
+  derivation_permitted: false
+  formula_leakage_detected: false
+  threshold_duplication_detected: false
+  fail_closed_mode: true
+
+components:
+  - id: "COMP-REGWS-01"
+    name: "Executive Statutory Applicability Card"
+    source: "/carbon/ui/pages/regulatory-check.js"
+    inputs: ["StateStore.getRegulatoryViewModel()"]
+    outputs: ["Facility Header", "Status Badge", "Mandate Badge", "Citation"]
+  - id: "COMP-REGWS-02"
+    name: "Sector Classification & Taxonomy Bridge"
+    source: "/carbon/ui/pages/regulatory-check.js"
+    inputs: ["RegulatoryViewModel.taxonomy_mapping", "RegulatoryViewModel.methodology_implication"]
+    outputs: ["Internal Code", "Statutory National Code", "Mapping State", "Methodology Link"]
+  - id: "COMP-REGWS-03"
+    name: "Temporal Boundary Studio"
+    source: "/carbon/ui/pages/regulatory-check.js"
+    inputs: ["RegulatoryViewModel.is_temporal_segmented", "RegulatoryViewModel.temporal_issue_status"]
+    outputs: ["Timeline Visualization", "Segment 1 / Segment 2 Split", "Interactive Segmentation Toggle"]
+  - id: "COMP-REGWS-04"
+    name: "Jurisdictional Precedence Conflict Analysis"
+    source: "/carbon/ui/pages/regulatory-check.js"
+    inputs: ["RegulatoryViewModel.conflicts", "RegulatoryViewModel.rule_evaluations"]
+    outputs: ["Conflict Alert Banner", "Predicate Evaluation AST Trace"]
+  - id: "COMP-REGWS-05"
+    name: "Governed Controlled Issues Ledger"
+    source: "/carbon/ui/pages/regulatory-check.js"
+    inputs: ["DataProvider.getControlledIssues()", "RegulatoryViewModel.disclosures"]
+    outputs: ["Issue Ledger Table", "Auditor Disclosure Form", "Historical Filings Log"]
+  - id: "COMP-REGWS-06"
+    name: "Statutory Compliance Matrix"
+    source: "/carbon/ui/pages/regulatory-check.js"
+    inputs: ["RegulatoryViewModel.facilities_matrix"]
+    outputs: ["Multi-Facility Summary Table"]
+
+test_suite:
+  total_tests: 20
+  passed_tests: 20
+  failed_tests: 0
+  pass_rate: "100%"
+  test_ids:
+    - "TC-REGUI-001"
+    - "TC-REGUI-002"
+    - "TC-REGUI-003"
+    - "TC-REGUI-004"
+    - "TC-REGUI-005"
+    - "TC-REGUI-006"
+    - "TC-REGUI-007"
+    - "TC-REGUI-008"
+    - "TC-REGUI-009"
+    - "TC-REGUI-010"
+    - "TC-REGUI-011"
+    - "TC-REGUI-012"
+    - "TC-REGUI-013"
+    - "TC-REGUI-014"
+    - "TC-REGUI-015"
+    - "TC-REGUI-016"
+    - "TC-REGUI-017"
+    - "TC-REGUI-018"
+    - "TC-REGUI-019"
+    - "TC-REGUI-020"

@@ -15,9 +15,15 @@ export function formatNumber(num) {
 export function formatBadge(status) {
   const s = String(status || '').toUpperCase();
   let cssClass = 'status-badge';
-  if (s.includes('MANDATORY')) cssClass += ' mandatory';
-  else if (s.includes('ACTIVE') || s.includes('REGISTERED')) cssClass += ' active';
-  else if (s.includes('PENDING') || s.includes('TRANSITIONAL')) cssClass += ' pending';
+  if (s.includes('MANDATORY') || s.includes('BLOCKED') || s.includes('BLOCKING') || s.includes('CONFLICT') || s.includes('FAIL') || s.includes('ERROR')) {
+    cssClass += ' mandatory';
+  } else if (s.includes('ACTIVE') || s.includes('REGISTERED') || s.includes('COMPLIANT') || s.includes('READY') || s.includes('EXACT') || s.includes('APPROVED')) {
+    cssClass += ' active';
+  } else if (s.includes('PENDING') || s.includes('TRANSITIONAL') || s.includes('REVIEW') || s.includes('SEGMENTATION') || s.includes('STRADDLE') || s.includes('AMBIGUOUS') || s.includes('PARTIAL') || s.includes('WARNING')) {
+    cssClass += ' pending';
+  } else {
+    cssClass += ' neutral';
+  }
 
   return `<span class="${cssClass}">${status}</span>`;
 }

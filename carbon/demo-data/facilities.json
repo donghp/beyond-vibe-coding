@@ -16,7 +16,12 @@
       "regulatory_status": "MANDATORY",
       "legal_basis": "Quyết định 42/2026/QĐ-TTg, Phụ lục II",
       "valid_from": "2026-09-25",
-      "valid_to": null
+      "valid_to": null,
+      "attributes": {
+        "annual_energy_consumption": 1500,
+        "annual_ghg_emissions_co2e": 25000,
+        "is_dual_use_heat": false
+      }
     },
     {
       "facility_id": "FAC-2026-002",
@@ -31,7 +36,52 @@
       "regulatory_status": "MANDATORY",
       "legal_basis": "Quyết định 42/2026/QĐ-TTg, Phụ lục II",
       "valid_from": "2026-09-25",
-      "valid_to": null
+      "valid_to": null,
+      "attributes": {
+        "annual_energy_consumption": 1200,
+        "annual_ghg_emissions_co2e": 38000,
+        "is_dual_use_heat": false
+      }
+    },
+    {
+      "facility_id": "FAC-2026-003",
+      "tax_id": "1800555666",
+      "legal_name": "Công ty Xi măng & Đồng xử lý Chất thải Holcim Hòn Chông",
+      "facility_name": "Tổ hợp Xi măng & Đồng xử lý Holcim Hòn Chông",
+      "address": "Xã Bình An, Huyện Kiên Lương",
+      "province": "Kiên Giang",
+      "sector_id": "SEC-03-CONSTRUCTION",
+      "sub_sector_id": "Đồng xử lý nhiệt chất thải & Sản xuất xi măng",
+      "business_activity": "Sản xuất clinker và thu hồi nhiệt đồng xử lý chất thải",
+      "regulatory_status": "REQUIRES_REVIEW",
+      "legal_basis": "Tranh chấp thẩm quyền MOC Circular 13 & MONRE Circular 17",
+      "valid_from": "2026-09-25",
+      "valid_to": null,
+      "attributes": {
+        "annual_energy_consumption": 1800,
+        "annual_ghg_emissions_co2e": 42000,
+        "is_dual_use_heat": true
+      }
+    },
+    {
+      "facility_id": "FAC-2026-004",
+      "tax_id": "0800777888",
+      "legal_name": "Công ty Cổ phần Chế biến Thực phẩm Nông sản Hải Dương",
+      "facility_name": "Nhà máy Chế biến Thực phẩm Hải Hưng",
+      "address": "Cụm công nghiệp Cẩm Giàng",
+      "province": "Hải Dương",
+      "sector_id": "SEC-01-ENERGY",
+      "sub_sector_id": "Chế biến thực phẩm và đồ uống",
+      "business_activity": "Chế biến tinh bột và sấy nông sản",
+      "regulatory_status": "NOT_MANDATORY",
+      "legal_basis": "Dưới ngưỡng 1.000 TOE (QĐ 42/2026/QĐ-TTg)",
+      "valid_from": "2026-09-25",
+      "valid_to": null,
+      "attributes": {
+        "annual_energy_consumption": 480,
+        "annual_ghg_emissions_co2e": 450,
+        "is_dual_use_heat": false
+      }
     }
   ]
 }

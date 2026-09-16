@@ -1,0 +1,137 @@
+audit_id: "EC-QAQC-DATA-HEALTH-IMPLEMENTATION-001"
+task_id: "#0023_QAQC_DATA_HEALTH_ENGINE"
+verification_date: "2026-09-16"
+status: "APPROVED"
+compliance_standards:
+  - "EC-UCM-001"
+  - "EC-DOMAIN-MODEL-001"
+  - "EC-KM-001"
+  - "EC-TEMP-001"
+  - "EC-RRM-001"
+  - "EC-SPM-001"
+  - "EC-MTH-001"
+  - "EC-EFR-001"
+  - "EC-GWP-001"
+  - "EC-TEST-001"
+verifier: "ENERIX Carbon Automated Audit Service"
+final_status: "QAQC_DATA_HEALTH_IMPLEMENTATION_ALIGNED"
+
+architectural_principles:
+  authority_separation: "QA/QC and Data Health is an assurance authority, NOT a calculation authority. Contains zero emissions math or GWP multiplications."
+  fail_closed_validation: "Unresolved blocking defects strictly prevent calculation execution."
+  controlled_ambiguity: "Non-fatal warnings and statistical anomalies trigger human auditor review rather than silent auto-resolution."
+  immutability: "Inspection issues and health reports are immutable frozen artifacts."
+
+severity_classification:
+  BLOCKED:
+    description: "Fatal error preventing calculation execution and report certification"
+    examples:
+      - "MISSING_QUANTITY"
+      - "NEGATIVE_QUANTITY"
+      - "MISSING_UNIT"
+      - "UNIT_INCOMPATIBLE"
+      - "INVALID_TEMPORAL_INTERVAL"
+      - "OUT_OF_REPORTING_PERIOD"
+      - "UNSEGMENTED_TEMPORAL_STRADDLE"
+      - "TEMPORAL_OVERLAP_CONFLICT"
+      - "EXACT_DUPLICATE_DETECTED"
+      - "CONFLICTING_MEASUREMENTS_DETECTED"
+      - "MISSING_MANDATORY_EVIDENCE"
+      - "ATTACHED_EVIDENCE_REJECTED"
+      - "REJECTED_ACTIVITY_DATA"
+      - "SUPERSEDED_ACTIVITY_DATA"
+      - "MISSING_PROVENANCE"
+      - "BROKEN_PROVENANCE_SOURCE"
+      - "AI_APPROVAL_VIOLATION"
+      - "ORPHAN_ACTIVITY_DATA"
+      - "UNRESOLVED_REGULATORY_APPLICABILITY"
+      - "MISSING_APPLICABLE_METHODOLOGY"
+      - "DRAFT_METHODOLOGY_NOT_PERMITTED"
+      - "MISSING_GWP_DATASET"
+      - "NO_EMISSION_FACTORS_AVAILABLE"
+      - "DRAFT_EMISSION_FACTOR"
+      - "SUPERSEDED_EMISSION_FACTOR"
+      - "INVALID_EMISSION_FACTOR_VALUE"
+      - "MISSING_CALCULATION_PLAN"
+      - "EMPTY_PLAN_STEPS"
+      - "BROKEN_STEP_DEPENDENCY"
+  REQUIRES_REVIEW:
+    description: "Warning, ambiguity, or statistical anomaly requiring human auditor verification"
+    examples:
+      - "ZERO_QUANTITY"
+      - "OUTLIER_DETECTED"
+      - "UNAPPROVED_ACTIVITY_DATA"
+      - "MISSING_EVIDENCE_OPTIONAL"
+      - "ATTACHED_EVIDENCE_NOT_APPROVED"
+      - "TEMPORAL_GAP_DETECTED"
+      - "AMBIGUOUS_METHODOLOGY_SELECTION"
+  INFORMATIONAL:
+    description: "Contextual audit advice or non-impeding observation"
+  PASSED:
+    description: "Fully verified and clean verification"
+
+readiness_states:
+  CALCULATION_READY: "100% of blocking checks pass; zero blocking defects; inventory is ready for deterministic calculation run."
+  REVIEW_REQUIRED: "Zero blocking defects; one or more warning or human review items present."
+  BLOCKED: "One or more fatal defects prevent calculation execution."
+  INCOMPLETE: "Missing core activity data, unpopulated inputs, or empty calculation plan."
+
+health_scoring_dimensions:
+  completeness:
+    weight: 0.25
+    description: "Presence of all mandatory record attributes, plans, and factors"
+  validity:
+    weight: 0.25
+    description: "Numeric integrity, realistic bounds, and absence of NaN/negative values"
+  evidence_provenance:
+    weight: 0.20
+    description: "Traceability, verified evidence attachment, and valid human authority"
+  temporal:
+    weight: 0.15
+    description: "Chronological bounds, reporting period containment, and absence of straddles/gaps/overlaps"
+  consistency:
+    weight: 0.15
+    description: "Unit alignment, sector compatibility, absence of duplicate or conflicting records"
+
+controlled_issues_alignment:
+  ISSUE-PROV-001:
+    summary: "Cryptographic algorithm not specified; non-cryptographic reproducibility/integrity hash used."
+    qaqc_status: "RESPECTED"
+  ISSUE-PROV-002:
+    summary: "Missing evidence under Tier 1 is flagged as REQUIRES_REVIEW, whereas Tier 2/3 is BLOCKED."
+    qaqc_status: "RESPECTED"
+  ISSUE-TEMP-001:
+    summary: "Unsegmented temporal straddling across regulatory amendment boundary (2026-09-25) is BLOCKED."
+    qaqc_status: "RESPECTED"
+
+test_verification:
+  suite_path: "/carbon/engine/test-qa-qc.js"
+  test_count: 24
+  passed: 24
+  failed: 0
+  pass_rate: "100%"
+  test_cases:
+    - "TC-QAQC-001"
+    - "TC-QAQC-002"
+    - "TC-QAQC-003"
+    - "TC-QAQC-004"
+    - "TC-QAQC-005"
+    - "TC-QAQC-006"
+    - "TC-QAQC-007"
+    - "TC-QAQC-008"
+    - "TC-QAQC-009"
+    - "TC-QAQC-010"
+    - "TC-QAQC-011"
+    - "TC-QAQC-012"
+    - "TC-QAQC-013"
+    - "TC-QAQC-014"
+    - "TC-QAQC-015"
+    - "TC-QAQC-016"
+    - "TC-QAQC-017"
+    - "TC-QAQC-018"
+    - "TC-QAQC-019"
+    - "TC-QAQC-020"
+    - "TC-QAQC-021"
+    - "TC-QAQC-022"
+    - "TC-QAQC-023"
+    - "TC-QAQC-024"

@@ -1,0 +1,383 @@
+manifest_version: "1.0.0"
+manifest_id: "EC-TEST-MANIFEST-001"
+timestamp_metadata:
+  created_at: "2026-09-16T10:43:00.000Z"
+  evaluated_at: "2026-09-16T10:43:00.000Z"
+  governing_standard: "EC-TEST-001"
+  phase: "G4 — DOCUMENT INTELLIGENCE + ASSURANCE"
+
+reconciliation_analysis:
+  discrepancy_id: "TEST_REPORTING_COUNT_DISCREPANCY"
+  status: "RESOLVED_AUTHORITATIVE"
+  historical_claimed_total: 136
+  historical_intermediate_sum: 160
+  explanation: >
+    The historical reference to 136 tests originated from an early G3 baseline before the complete
+    implementation and registration of extended verification suites. The intermediate listed count of 160
+    reflected partial suite registrations. The authoritative integrated total across all 9 governed suites
+    is 211 tests.
+
+integrated_summary:
+  total_suites: 10
+  total_expected_tests: 235
+  total_actual_tests: 235
+  total_passed: 235
+  total_failed: 0
+  total_skipped: 0
+  overall_status: "100%_PASS_COMPLIANT"
+
+suites:
+  - suite_id: "SUITE-001"
+    name: "Deterministic Calculation Core"
+    test_command: "npm run test:carbon"
+    implementation_file: "/carbon/engine/test-runner.js"
+    phase: "G2"
+    expected_count: 27
+    actual_count: 27
+    passed: 27
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-UCM-001"
+      - "TC-UCM-002"
+      - "TC-UCM-003"
+      - "TC-UCM-004"
+      - "TC-UCM-005"
+      - "TC-ENG-001"
+      - "TC-ENG-002"
+      - "TC-ENG-003"
+      - "TC-ENG-004"
+      - "TC-ENG-005"
+      - "TC-ENG-006"
+      - "TC-ENG-007"
+      - "TC-ENG-008"
+      - "TC-MOD-001"
+      - "TC-MOD-002"
+      - "TC-MOD-003"
+      - "TC-MOD-004"
+      - "TC-MOD-005"
+      - "TC-MOD-006"
+      - "TC-MOD-007"
+      - "TC-MOD-008"
+      - "TC-MOD-009"
+      - "TC-MOD-010"
+      - "TC-VAL-001"
+      - "TC-VAL-002"
+      - "TC-VAL-003"
+      - "TC-VAL-004"
+
+  - suite_id: "SUITE-002"
+    name: "Regulatory Applicability Engine"
+    test_command: "npm run test:regulatory"
+    implementation_file: "/carbon/engine/test-regulatory.js"
+    phase: "G3"
+    expected_count: 20
+    actual_count: 20
+    passed: 20
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-REG-001"
+      - "TC-REG-002"
+      - "TC-REG-003"
+      - "TC-REG-004"
+      - "TC-REG-005"
+      - "TC-REG-006"
+      - "TC-REG-007"
+      - "TC-REG-008"
+      - "TC-REG-009"
+      - "TC-REG-010"
+      - "TC-REG-011"
+      - "TC-REG-012"
+      - "TC-REG-013"
+      - "TC-REG-014"
+      - "TC-REG-015"
+      - "TC-REG-016"
+      - "TC-REG-017"
+      - "TC-REG-018"
+      - "TC-REG-019"
+      - "TC-REG-020"
+
+  - suite_id: "SUITE-003"
+    name: "Temporal Applicability & Segmentation"
+    test_command: "npm run test:temporal"
+    implementation_file: "/carbon/engine/test-temporal.js"
+    phase: "G3"
+    expected_count: 24
+    actual_count: 24
+    passed: 24
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-TEMP-001"
+      - "TC-TEMP-002"
+      - "TC-TEMP-003"
+      - "TC-TEMP-004"
+      - "TC-TEMP-005"
+      - "TC-TEMP-006"
+      - "TC-TEMP-007"
+      - "TC-TEMP-008"
+      - "TC-TEMP-009"
+      - "TC-TEMP-010"
+      - "TC-TEMP-011"
+      - "TC-TEMP-012"
+      - "TC-TEMP-013"
+      - "TC-TEMP-014"
+      - "TC-TEMP-015"
+      - "TC-TEMP-016"
+      - "TC-TEMP-017"
+      - "TC-TEMP-018"
+      - "TC-TEMP-019"
+      - "TC-TEMP-020"
+      - "TC-TEMP-021"
+      - "TC-TEMP-022"
+      - "TC-TEMP-023"
+      - "TC-TEMP-024"
+
+  - suite_id: "SUITE-004"
+    name: "Methodology Selection Engine"
+    test_command: "npm run test:methodology"
+    implementation_file: "/carbon/engine/test-methodology.js"
+    phase: "G3"
+    expected_count: 20
+    actual_count: 20
+    passed: 20
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-MTH-001"
+      - "TC-MTH-002"
+      - "TC-MTH-003"
+      - "TC-MTH-004"
+      - "TC-MTH-005"
+      - "TC-MTH-006"
+      - "TC-MTH-007"
+      - "TC-MTH-008"
+      - "TC-MTH-009"
+      - "TC-MTH-010"
+      - "TC-MTH-011"
+      - "TC-MTH-012"
+      - "TC-MTH-013"
+      - "TC-MTH-014"
+      - "TC-MTH-015"
+      - "TC-MTH-016"
+      - "TC-MTH-017"
+      - "TC-MTH-018"
+      - "TC-MTH-019"
+      - "TC-MTH-020"
+
+  - suite_id: "SUITE-005"
+    name: "Calculation Plan Engine"
+    test_command: "npm run test:plan"
+    implementation_file: "/carbon/engine/test-plan.js"
+    phase: "G3"
+    expected_count: 24
+    actual_count: 24
+    passed: 24
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-PLAN-001"
+      - "TC-PLAN-002"
+      - "TC-PLAN-003"
+      - "TC-PLAN-004"
+      - "TC-PLAN-005"
+      - "TC-PLAN-006"
+      - "TC-PLAN-007"
+      - "TC-PLAN-008"
+      - "TC-PLAN-009"
+      - "TC-PLAN-010"
+      - "TC-PLAN-011"
+      - "TC-PLAN-012"
+      - "TC-PLAN-013"
+      - "TC-PLAN-014"
+      - "TC-PLAN-015"
+      - "TC-PLAN-016"
+      - "TC-PLAN-017"
+      - "TC-PLAN-018"
+      - "TC-PLAN-019"
+      - "TC-PLAN-020"
+      - "TC-PLAN-021"
+      - "TC-PLAN-022"
+      - "TC-PLAN-023"
+      - "TC-PLAN-024"
+
+  - suite_id: "SUITE-006"
+    name: "Activity Data & Evidence Engine"
+    test_command: "npm run test:activity"
+    implementation_file: "/carbon/engine/test-activity.js"
+    phase: "G3"
+    expected_count: 24
+    actual_count: 24
+    passed: 24
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-ACT-001"
+      - "TC-ACT-002"
+      - "TC-ACT-003"
+      - "TC-ACT-004"
+      - "TC-ACT-005"
+      - "TC-ACT-006"
+      - "TC-ACT-007"
+      - "TC-ACT-008"
+      - "TC-ACT-009"
+      - "TC-ACT-010"
+      - "TC-ACT-011"
+      - "TC-ACT-012"
+      - "TC-ACT-013"
+      - "TC-ACT-014"
+      - "TC-ACT-015"
+      - "TC-ACT-016"
+      - "TC-ACT-017"
+      - "TC-ACT-018"
+      - "TC-ACT-019"
+      - "TC-ACT-020"
+      - "TC-ACT-021"
+      - "TC-ACT-022"
+      - "TC-ACT-023"
+      - "TC-ACT-024"
+
+  - suite_id: "SUITE-007"
+    name: "Document Intelligence Engine"
+    test_command: "npm run test:document"
+    implementation_file: "/carbon/engine/test-document.js"
+    phase: "G4"
+    expected_count: 24
+    actual_count: 24
+    passed: 24
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-DOC-001"
+      - "TC-DOC-002"
+      - "TC-DOC-003"
+      - "TC-DOC-004"
+      - "TC-DOC-005"
+      - "TC-DOC-006"
+      - "TC-DOC-007"
+      - "TC-DOC-008"
+      - "TC-DOC-009"
+      - "TC-DOC-010"
+      - "TC-DOC-011"
+      - "TC-DOC-012"
+      - "TC-DOC-013"
+      - "TC-DOC-014"
+      - "TC-DOC-015"
+      - "TC-DOC-016"
+      - "TC-DOC-017"
+      - "TC-DOC-018"
+      - "TC-DOC-019"
+      - "TC-DOC-020"
+      - "TC-DOC-021"
+      - "TC-DOC-022"
+      - "TC-DOC-023"
+      - "TC-DOC-024"
+
+  - suite_id: "SUITE-008"
+    name: "Evidence & Provenance Engine"
+    test_command: "npm run test:provenance"
+    implementation_file: "/carbon/engine/test-provenance.js"
+    phase: "G4"
+    expected_count: 24
+    actual_count: 24
+    passed: 24
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-PROV-001"
+      - "TC-PROV-002"
+      - "TC-PROV-003"
+      - "TC-PROV-004"
+      - "TC-PROV-005"
+      - "TC-PROV-006"
+      - "TC-PROV-007"
+      - "TC-PROV-008"
+      - "TC-PROV-009"
+      - "TC-PROV-010"
+      - "TC-PROV-011"
+      - "TC-PROV-012"
+      - "TC-PROV-013"
+      - "TC-PROV-014"
+      - "TC-PROV-015"
+      - "TC-PROV-016"
+      - "TC-PROV-017"
+      - "TC-PROV-018"
+      - "TC-PROV-019"
+      - "TC-PROV-020"
+      - "TC-PROV-021"
+      - "TC-PROV-022"
+      - "TC-PROV-023"
+      - "TC-PROV-024"
+
+  - suite_id: "SUITE-009"
+    name: "QA/QC & Data Health Engine"
+    test_command: "npm run test:qaqc"
+    implementation_file: "/carbon/engine/test-qa-qc.js"
+    phase: "G4"
+    expected_count: 24
+    actual_count: 24
+    passed: 24
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-QA-001"
+      - "TC-QA-002"
+      - "TC-QA-003"
+      - "TC-QA-004"
+      - "TC-QA-005"
+      - "TC-QA-006"
+      - "TC-QA-007"
+      - "TC-QA-008"
+      - "TC-QA-009"
+      - "TC-QA-010"
+      - "TC-QA-011"
+      - "TC-QA-012"
+      - "TC-QA-013"
+      - "TC-QA-014"
+      - "TC-QA-015"
+      - "TC-QA-016"
+      - "TC-QA-017"
+      - "TC-QA-018"
+      - "TC-QA-019"
+      - "TC-QA-020"
+      - "TC-QA-021"
+      - "TC-QA-022"
+      - "TC-QA-023"
+      - "TC-QA-024"
+
+  - suite_id: "SUITE-010"
+    name: "Report Readiness & Audit Package Engine"
+    test_command: "npm run test:readiness"
+    implementation_file: "/carbon/engine/test-report-readiness.js"
+    phase: "G4"
+    expected_count: 24
+    actual_count: 24
+    passed: 24
+    failed: 0
+    skipped: 0
+    test_ids:
+      - "TC-REP-001"
+      - "TC-REP-002"
+      - "TC-REP-003"
+      - "TC-REP-004"
+      - "TC-REP-005"
+      - "TC-REP-006"
+      - "TC-REP-007"
+      - "TC-REP-008"
+      - "TC-REP-009"
+      - "TC-REP-010"
+      - "TC-REP-011"
+      - "TC-REP-012"
+      - "TC-REP-013"
+      - "TC-REP-014"
+      - "TC-REP-015"
+      - "TC-REP-016"
+      - "TC-REP-017"
+      - "TC-REP-018"
+      - "TC-REP-019"
+      - "TC-REP-020"
+      - "TC-REP-021"
+      - "TC-REP-022"
+      - "TC-REP-023"
+      - "TC-REP-024"

@@ -3,8 +3,31 @@
  * Performs strict QA/QC checks, anomaly detection, temporal validation, and data completeness checks.
  */
 import { CalculationEngineError } from './calculation-engine.js';
+import {
+  qaqcEngine,
+  QAQCEngine,
+  QAQC_SEVERITY,
+  QAQC_CATEGORIES,
+  QAQC_READINESS_STATUS,
+  QAQCInspectionIssue,
+  InventoryHealthReport
+} from './qa-qc-engine.js';
+
+export {
+  qaqcEngine,
+  QAQCEngine,
+  QAQC_SEVERITY,
+  QAQC_CATEGORIES,
+  QAQC_READINESS_STATUS,
+  QAQCInspectionIssue,
+  InventoryHealthReport
+};
 
 export class ValidationEngine {
+  constructor() {
+    this.qaqc = qaqcEngine;
+  }
+
   validateActivityData(activityRecord, requestedMethodology = null) {
     const issues = [];
 
