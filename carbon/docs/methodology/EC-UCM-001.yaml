@@ -1,0 +1,116 @@
+spec_version: "1.1.0"
+title: "ENERIX Carbon — Universal Emission Calculation Model (UCM) Machine-Readable Specification"
+artifact_id: "EC-UCM-001"
+status: "APPROVED_BASELINE"
+effective_date: "2026-09-16"
+authors: ["ENERIX Carbon Architecture Working Group"]
+
+governing_documents:
+  - "EC-CONTEXT-001"
+  - "EC-DOMAIN-MODEL-001"
+  - "EC-CALCULATION-MODEL-CATALOG-001"
+  - "ADR-000-CONTEXT-REHYDRATION"
+
+pipeline_stages:
+  - stage: 1
+    name: "INPUTS"
+    description: "Ingest canonical calculation input contract."
+    deterministic: true
+  - stage: 2
+    name: "VALIDATION"
+    description: "Pre-execution validation against domain schema and constraints."
+    deterministic: true
+  - stage: 3
+    name: "NORMALIZATION"
+    description: "Convert raw units to target model units."
+    deterministic: true
+  - stage: 4
+    name: "PARAMETERS"
+    description: "Fetch and bind versioned process parameters."
+    deterministic: true
+  - stage: 5
+    name: "FORMULA_MODEL"
+    description: "Bind normalized input to CalculationModel formula."
+    deterministic: true
+  - stage: 6
+    name: "EXECUTION"
+    description: "Pure arithmetic calculation of gas quantities."
+    deterministic: true
+  - stage: 7
+    name: "GAS_RESULTS"
+    description: "Compute mass quantities per gas species in metric tonnes."
+    deterministic: true
+  - stage: 8
+    name: "GWP_APPLICATION"
+    description: "Multiply gas masses by GWP dataset values."
+    deterministic: true
+  - stage: 9
+    name: "CO2E_RESULT"
+    description: "Aggregate gas CO2e contributions into total tCO2e."
+    deterministic: true
+  - stage: 10
+    name: "QA_QC"
+    description: "Execute arithmetic, range, and completeness verification."
+    deterministic: true
+  - stage: 11
+    name: "PROVENANCE"
+    description: "Construct unbroken audit lineage trace."
+    deterministic: true
+  - stage: 12
+    name: "EVIDENCE"
+    description: "Link verified physical evidence artifacts."
+    deterministic: true
+  - stage: 13
+    name: "RESULT_VERSION"
+    description: "Freeze snapshot parameters and generate audit hash."
+    deterministic: true
+
+canonical_input_schema:
+  facility_id: { type: "string", required: true }
+  reporting_period: { type: "string", required: true }
+  source_category: { type: "string", required: true }
+  scope: { type: "enum", enum: ["SCOPE_1", "SCOPE_2", "SCOPE_3"], required: true }
+  activity_data_value: { type: "number", required: true }
+  activity_data_unit: { type: "string", required: true }
+  methodology_id: { type: "string", required: true }
+  calculation_model_id: { type: "string", required: true }
+  emission_factor_id: { type: "string", required: false }
+  gwp_dataset_id: { type: "string", required: true }
+  regulatory_rule_id: { type: "string", required: false }
+  evidence_ids: { type: "array", items: { type: "string" }, required: false }
+
+error_codes:
+  - "INVALID_INPUT"
+  - "MISSING_PARAMETER"
+  - "MISSING_EMISSION_FACTOR"
+  - "MISSING_GWP"
+  - "INVALID_UNIT"
+  - "INCOMPATIBLE_METHODOLOGY"
+  - "MODEL_CONSTRAINT_VIOLATION"
+  - "REGULATORY_CONTEXT_MISSING"
+  - "PROVENANCE_INCOMPLETE"
+  - "EVIDENCE_INCOMPLETE"
+  - "RECONCILIATION_FAILED"
+
+model_mapping:
+  MODEL-01: { name: "SIMPLE_FACTOR", stateful: false, multi_gas: false, formula: "E = AD * EF" }
+  MODEL-02: { name: "FACTOR_WITH_CONVERSION", stateful: false, multi_gas: false, formula: "E = AD * EF * Conv" }
+  MODEL-03: { name: "MULTI_GAS", stateful: false, multi_gas: true, formula: "E_g = AD * EF_g; CO2e = Sum(E_g * GWP_g)" }
+  MODEL-04: { name: "PARAMETERIZED", stateful: false, multi_gas: true, formula: "E = f(AD, Parameters, EF)" }
+  MODEL-05: { name: "COMPOSITE", stateful: false, multi_gas: true, formula: "E_total = Sum(E_child)" }
+  MODEL-06: { name: "DYNAMIC", stateful: true, multi_gas: true, formula: "E_t = f(S_t, k, r)" }
+  MODEL-07: { name: "PROJECT_REDUCTION", stateful: false, multi_gas: true, formula: "ER = Baseline_E - Project_E - Leakage_E" }
+  MODEL-08: { name: "MASS_BALANCE", stateful: false, multi_gas: true, formula: "E = Mass_In*C_In - Mass_Out*C_Out" }
+  MODEL-09: { name: "MEASUREMENT_BASED", stateful: false, multi_gas: true, formula: "E = Conc * Flow * Hours" }
+  MODEL-10: { name: "ENERGY_FLOW_CONVERSION", stateful: false, multi_gas: true, formula: "E = Vol * NCV * CC * OF * (44/12)" }
+
+controlled_open_issues:
+  - issue_id: "ISSUE-UCM-001"
+    area: "Multi-Tenant CEMS"
+    description: "Allocation of shared continuous stack emissions across independent legal entities operating on a single industrial site."
+  - issue_id: "ISSUE-UCM-002"
+    area: "Mid-Period Regulatory Transition"
+    description: "Facility reporting period straddles the effective date of a new ministry circular."
+  - issue_id: "ISSUE-UCM-003"
+    area: "Biogenic Carbon Netting"
+    description: "Reporting conventions for biogenic CO2 emissions under national vs GHG Protocol standards."

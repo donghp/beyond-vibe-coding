@@ -1,0 +1,271 @@
+spec_version: "1.1.0"
+title: "ENERIX Carbon — Calculation Model Catalog"
+artifact_id: "EC-CALCULATION-MODEL-CATALOG-001"
+status: "APPROVED_BASELINE"
+as_of: "2026-09-16"
+
+models:
+  MODEL-01:
+    id: "MODEL-01"
+    name: "SIMPLE_FACTOR"
+    description: "Standard direct linear calculation combining single activity value with single emission factor."
+    formula: "E = AD * EF"
+    inputs:
+      - name: "AD"
+        label: "Activity Data"
+        type: "number"
+        unit_type: "physical_quantity"
+      - name: "EF"
+        label: "Emission Factor"
+        type: "number"
+        unit_type: "mass_per_activity_unit"
+    outputs:
+      - name: "E"
+        label: "Gas Emission"
+        unit: "kg or tonnes"
+    parameters: []
+    applicability: "Grid electricity consumption, simple fuel volume, standard transport distance."
+    constraints:
+      - "AD and EF must use compatible unit bases."
+      - "Does not account for fuel heat content conversions directly; use MODEL-02 or MODEL-10 if NCV conversion needed."
+
+  MODEL-02:
+    id: "MODEL-02"
+    name: "FACTOR_WITH_CONVERSION"
+    description: "Linear calculation incorporating unit conversion or energy content scaling factor."
+    formula: "E = AD * EF * ConversionFactor"
+    inputs:
+      - name: "AD"
+        label: "Activity Data"
+        type: "number"
+      - name: "EF"
+        label: "Emission Factor"
+        type: "number"
+      - name: "ConversionFactor"
+        label: "Unit Conversion Factor"
+        type: "number"
+    outputs:
+      - name: "E"
+        label: "Gas Emission"
+        unit: "tCO2e"
+    parameters:
+      - "conversion_ratio"
+    applicability: "Fuel mass to energy conversion, volumetric fuel to heat conversion."
+    constraints:
+      - "Conversion factor source must be explicitly documented."
+
+  MODEL-03:
+    id: "MODEL-03"
+    name: "MULTI_GAS"
+    description: "Calculates individual gas species (CO2, CH4, N2O) and converts to CO2e using GWP dataset."
+    formula: "E_gas = AD * EF_gas; CO2e = Sum(E_gas * GWP_gas)"
+    inputs:
+      - name: "AD"
+        label: "Activity Data"
+        type: "number"
+      - name: "EF_CO2"
+        label: "CO2 Factor"
+        type: "number"
+      - name: "EF_CH4"
+        label: "CH4 Factor"
+        type: "number"
+      - name: "EF_N2O"
+        label: "N2O Factor"
+        type: "number"
+      - name: "GWP_Dataset"
+        label: "IPCC GWP Dataset"
+        type: "object"
+    outputs:
+      - name: "E_CO2"
+        label: "CO2 Mass"
+        unit: "tonnes"
+      - name: "E_CH4"
+        label: "CH4 Mass"
+        unit: "tonnes"
+      - name: "E_N2O"
+        label: "N2O Mass"
+        unit: "tonnes"
+      - name: "CO2e"
+        label: "Total CO2 equivalent"
+        unit: "tCO2e"
+    parameters:
+      - "gwp_dataset_version"
+    applicability: "Stationary combustion, mobile combustion, industrial processes emitting multiple gases."
+    constraints:
+      - "GWP values must come from an approved IPCC Assessment Report version (e.g. AR5, AR6)."
+
+  MODEL-04:
+    id: "MODEL-04"
+    name: "PARAMETERIZED"
+    description: "Calculates emissions based on activity data, process parameters, and functional efficiency curves."
+    formula: "E = AD * Parameter1 * Parameter2 * EF_basis"
+    inputs:
+      - name: "AD"
+        label: "Activity Data"
+        type: "number"
+      - name: "Parameters"
+        label: "Process Parameters Array"
+        type: "array"
+      - name: "EF_basis"
+        label: "Base Emission Factor"
+        type: "number"
+    outputs:
+      - name: "E"
+        label: "Calculated Emission"
+        unit: "tCO2e"
+    parameters:
+      - "efficiency_rate"
+      - "destruction_factor"
+    applicability: "Wastewater treatment, chemical reactions, abatement system destruction efficiency."
+    constraints:
+      - "All parameters must have verified evidence records."
+
+  MODEL-05:
+    id: "MODEL-05"
+    name: "COMPOSITE"
+    description: "Aggregates calculated outputs from multiple sub-models across sub-sources or production lines."
+    formula: "E_total = Sum(SubModel_i_Result)"
+    inputs:
+      - name: "SubModelResults"
+        label: "List of Sub-Model Calculation Outputs"
+        type: "array"
+    outputs:
+      - name: "E_total"
+        label: "Total Composite Emissions"
+        unit: "tCO2e"
+    parameters: []
+    applicability: "Facility-level total, complex industrial plant with multiple stacks or emission points."
+    constraints:
+      - "Sub-model outputs must be normalized to identical output units (tCO2e) before summation."
+
+  MODEL-06:
+    id: "MODEL-06"
+    name: "DYNAMIC"
+    formula: "E_t = f(Stock_t, Decay_k, Rate_r)"
+    description: "Time-series dynamic model for decaying stocks, landfill waste degradation, or forestry carbon stock changes."
+    inputs:
+      - name: "Stock_t"
+        label: "Accumulated Material Stock at time t"
+        type: "number"
+      - name: "Decay_k"
+        label: "Decay Constant"
+        type: "number"
+      - name: "Rate_r"
+        label: "Gas Generation Rate"
+        type: "number"
+    outputs:
+      - name: "E_t"
+        label: "Emissions at Year t"
+        unit: "tCO2e"
+    parameters:
+      - "half_life"
+      - "methane_recovery_efficiency"
+    applicability: "Solid waste landfills (First Order Decay model), land-use carbon stock dynamics."
+    constraints:
+      - "Requires multi-year historical activity data inputs."
+
+  MODEL-07:
+    id: "MODEL-07"
+    name: "PROJECT_REDUCTION"
+    description: "Calculates net emission reductions for carbon offset or energy efficiency projects."
+    formula: "ER = Baseline_E - Project_E - Leakage_E"
+    inputs:
+      - name: "Baseline_E"
+        label: "Baseline Scenario Emissions"
+        type: "number"
+      - name: "Project_E"
+        label: "Project Activity Emissions"
+        type: "number"
+      - name: "Leakage_E"
+        label: "Off-site Leakage Emissions"
+        type: "number"
+    outputs:
+      - name: "ER"
+        label: "Net Emission Reduction"
+        unit: "tCO2e"
+    parameters:
+      - "baseline_validity_period"
+    applicability: "Rooftop solar offset, energy efficiency projects, methane recovery projects."
+    constraints:
+      - "Baseline methodology must be formally approved under Article 6 or national carbon market rules."
+
+  MODEL-08:
+    id: "MODEL-08"
+    name: "MASS_BALANCE"
+    description: "Conservation of mass balance calculating carbon or chemical constituent entering vs leaving process."
+    formula: "E = Mass_In * Carbon_In - Mass_Out * Carbon_Out - Mass_Accumulated * Carbon_Accumulated"
+    inputs:
+      - name: "Mass_In"
+        label: "Input Material Mass"
+        type: "number"
+      - name: "Carbon_In"
+        label: "Carbon Mass Fraction In"
+        type: "number"
+      - name: "Mass_Out"
+        label: "Output Product Mass"
+        type: "number"
+      - name: "Carbon_Out"
+        label: "Carbon Mass Fraction Out"
+        type: "number"
+    outputs:
+      - name: "E"
+        label: "Emitted Process Carbon"
+        unit: "tonnes Carbon / tCO2e"
+    parameters:
+      - "oxidation_factor"
+    applicability: "Steel production, petroleum refining, chemical synthesis processes."
+    constraints:
+      - "Mass balance measurements must meet precision/sampling standards."
+
+  MODEL-09:
+    id: "MODEL-09"
+    name: "MEASUREMENT_BASED"
+    description: "Direct measurement method using Continuous Emission Monitoring Systems (CEMS)."
+    formula: "E = GasConcentration * ExhaustFlowRate * OperatingHours * Conversion"
+    inputs:
+      - name: "GasConcentration"
+        label: "Measured Gas Concentration (ppm or mg/m3)"
+        type: "number"
+      - name: "ExhaustFlowRate"
+        label: "Flue Gas Volumetric Flow Rate (m3/hour)"
+        type: "number"
+      - name: "OperatingHours"
+        label: "Monitored Hours"
+        type: "number"
+    outputs:
+      - name: "E"
+        label: "Direct Measured Emissions"
+        unit: "tCO2e"
+    parameters:
+      - "sensor_calibration_factor"
+    applicability: "Thermal power plants, cement kiln stacks with CEMS equipment."
+    constraints:
+      - "CEMS sensors must have valid calibration evidence certificates."
+
+  MODEL-10:
+    id: "MODEL-10"
+    name: "ENERGY_FLOW_CONVERSION"
+    description: "Detailed fuel energy combustion conversion incorporating Net Calorific Value (NCV) and Oxidation Factor."
+    formula: "E = FuelVolume * NCV * CarbonContent * OxidationFactor * (44/12)"
+    inputs:
+      - name: "FuelVolume"
+        label: "Physical Fuel Consumed (liters or m3 or kg)"
+        type: "number"
+      - name: "NCV"
+        label: "Net Calorific Value (TJ / physical unit)"
+        type: "number"
+      - name: "CarbonContent"
+        label: "Carbon Content (tC / TJ)"
+        type: "number"
+      - name: "OxidationFactor"
+        label: "Fuel Oxidation Fraction"
+        type: "number"
+    outputs:
+      - name: "E"
+        label: "CO2 Emissions"
+        unit: "tCO2"
+    parameters:
+      - "molecular_weight_ratio_44_12"
+    applicability: "Complex fossil fuel combustion in industrial boilers and power generation."
+    constraints:
+      - "NCV and Carbon Content must align with national energy balance standards or laboratory test reports."

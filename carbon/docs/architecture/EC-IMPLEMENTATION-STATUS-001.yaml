@@ -1,0 +1,79 @@
+spec_version: "1.1.0"
+title: "ENERIX Carbon — Machine-Readable Implementation Status"
+artifact_id: "EC-IMPLEMENTATION-STATUS-001"
+as_of: "2026-09-16"
+status: "RECONCILED_AND_AUDITED"
+
+overall_progress:
+  context_rehydration: "100%"
+  domain_model_specification: "100%"
+  calculation_model_catalog: "100%"
+  architecture_documentation: "100%"
+  skeleton_implementation: "100%"
+  calculation_engine_expansion: "40%"
+  temporal_regulatory_engine: "75%"
+  ui_pages: "85%"
+
+components:
+  engine:
+    calculation_engine:
+      file: "/carbon/engine/calculation-engine.js"
+      status: "PARTIAL"
+      supported_models: ["MODEL-01", "MODEL-02", "MODEL-03", "MODEL-07"]
+      pending_models: ["MODEL-04", "MODEL-05", "MODEL-06", "MODEL-08", "MODEL-09", "MODEL-10"]
+    regulatory_engine:
+      file: "/carbon/engine/regulatory-engine.js"
+      status: "PARTIAL"
+      features: ["Date threshold evaluation", "Status mapping"]
+      pending_features: ["Multi-rule date range overlap matching"]
+    validation_engine:
+      file: "/carbon/engine/validation-engine.js"
+      status: "PARTIAL"
+      features: ["Quantity and unit check"]
+      pending_features: ["Full domain schema constraint validation"]
+    provenance_engine:
+      file: "/carbon/engine/provenance-engine.js"
+      status: "PARTIAL"
+      features: ["Snapshot structure generation"]
+      pending_features: ["Cryptographic SHA-256 hash generation"]
+
+  data_registries:
+    activities: { status: "COMPLIANT", file: "/carbon/data/activities.json" }
+    calculation_models: { status: "COMPLIANT", file: "/carbon/docs/methodology/EC-CALCULATION-MODEL-CATALOG-001.yaml" }
+    emission_factors: { status: "COMPLIANT", file: "/carbon/data/emission-factors.json" }
+    emission_sources: { status: "COMPLIANT", file: "/carbon/data/emission-sources.json" }
+    gwp_datasets: { status: "COMPLIANT", file: "/carbon/data/gwp-datasets.json" }
+    methodologies: { status: "COMPLIANT", file: "/carbon/data/methodologies.json" }
+    sectors: { status: "COMPLIANT", file: "/carbon/data/sectors.json" }
+    facilities: { status: "COMPLIANT", file: "/carbon/demo-data/facilities.json" }
+    evidence: { status: "COMPLIANT", file: "/carbon/evidence/manifest.json" }
+
+  ui_pages:
+    overview: { status: "COMPLIANT", file: "/carbon/ui/pages/overview.js" }
+    regulatory_check: { status: "COMPLIANT", file: "/carbon/ui/pages/regulatory-check.js" }
+    facilities: { status: "COMPLIANT", file: "/carbon/ui/pages/facilities.js" }
+    inventory: { status: "COMPLIANT", file: "/carbon/ui/pages/inventory.js" }
+    activity_data: { status: "COMPLIANT", file: "/carbon/ui/pages/activity-data.js" }
+    emission_factors: { status: "COMPLIANT", file: "/carbon/ui/pages/emission-factors.js" }
+    methodologies: { status: "COMPLIANT", file: "/carbon/ui/pages/methodologies.js" }
+    calculations: { status: "COMPLIANT", file: "/carbon/ui/pages/calculations.js" }
+    evidence_trace: { status: "COMPLIANT", file: "/carbon/ui/pages/evidence-trace.js" }
+    reports: { status: "COMPLIANT", file: "/carbon/ui/pages/reports.js" }
+    knowledge: { status: "COMPLIANT", file: "/carbon/ui/pages/knowledge.js" }
+
+laws_compliance:
+  LAW-001: "COMPLIANT"
+  LAW-002: "COMPLIANT"
+  LAW-003: "COMPLIANT"
+  LAW-004: "PARTIAL"
+  LAW-005: "COMPLIANT"
+  LAW-006: "COMPLIANT"
+  LAW-007: "COMPLIANT"
+  LAW-008: "COMPLIANT"
+  LAW-009: "COMPLIANT"
+  LAW-010: "COMPLIANT"
+  LAW-011: "COMPLIANT"
+  LAW-012: "COMPLIANT"
+  LAW-013: "COMPLIANT"
+  LAW-014: "COMPLIANT"
+  LAW-015: "PARTIAL"

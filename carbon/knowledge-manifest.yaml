@@ -247,3 +247,16 @@ documents:
     amendment_relationships: []
     applicability: "vietnamese-reporting-guidance"
     notes: "Explanatory handbook for GHG reporting in Vietnam."
+
+  - document_id: "EC-UCM-001"
+    file: "carbon/docs/methodology/EC-UCM-001.md"
+    category: "methodology"
+    authority_class: "GOVERNING_SPECIFICATION"
+    title: "ENERIX Carbon — Universal Emission Calculation Model (UCM)"
+    version: "1.1.0"
+    issued_date: "2026-09-16"
+    effective_date: "2026-09-16"
+    status: "active"
+    amendment_relationships: []
+    applicability: "platform-wide"
+    notes: "Formal calculation contract specification for deterministic execution engines."

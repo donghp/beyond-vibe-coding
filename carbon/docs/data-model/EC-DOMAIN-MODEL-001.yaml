@@ -1,0 +1,142 @@
+spec_version: "1.1.0"
+title: "ENERIX Carbon — Formal Domain Model Specification"
+artifact_id: "EC-DOMAIN-MODEL-001"
+status: "APPROVED_BASELINE"
+as_of: "2026-09-16"
+
+entities:
+  RegulatoryDocument:
+    description: "Official legal instruments (Laws, Decrees, Prime Minister Decisions, Ministry Circulars)."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      code: { type: "string", required: true, example: "42/2026/QĐ-TTg" }
+      title: { type: "string", required: true }
+      document_type: { type: "enum", enum: ["LAW", "DECREE", "DECISION", "CIRCULAR", "TECHNICAL_STANDARD"] }
+      issuing_authority: { type: "string", required: true }
+      issued_date: { type: "date", required: true }
+      effective_from: { type: "date", required: true }
+      effective_to: { type: "date", required: false, nullable: true }
+      status: { type: "enum", enum: ["EFFECTIVE", "SUPERSEDED", "PENDING_EFFECTIVE_DATE", "DRAFT"] }
+      superseded_by: { type: "string", required: false, nullable: true }
+      file_ref: { type: "string", required: false }
+
+  RegulatoryRule:
+    description: "Granular legal applicability rule evaluated against facility attributes and temporal dates."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      document_id: { type: "string", required: true, foreign_key: "RegulatoryDocument.id" }
+      article_clause: { type: "string", required: true, example: "Article 2, Clause 1, Appendix II" }
+      rule_type: { type: "enum", enum: ["MANDATORY_INVENTORY_OBLIGATION", "REPORTING_DEADLINE", "TRANSITIONAL_RULE", "METHODOLOGY_BINDING"] }
+      sector_id: { type: "string", required: true }
+      sub_sector_id: { type: "string", required: false }
+      applicability_condition: { type: "object", required: true, description: "Thresholds, activity criteria, or list matching" }
+      effective_from: { type: "date", required: true }
+      effective_to: { type: "date", required: false, nullable: true }
+      reporting_frequency: { type: "enum", enum: ["BIENNIAL", "ANNUAL", "QUARTERLY", "MONTHLY"] }
+
+  Facility:
+    description: "Regulated industrial site, commercial facility, or project entity producing GHG emissions."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      code: { type: "string", required: true, example: "FAC-EVN-001" }
+      legal_name: { type: "string", required: true }
+      tax_id: { type: "string", required: false }
+      address: { type: "string", required: true }
+      province: { type: "string", required: true }
+      sector_id: { type: "string", required: true, description: "Official Decision 42/2026/QĐ-TTg sector" }
+      sub_sector_id: { type: "string", required: true }
+      business_activity: { type: "string", required: true }
+      capacity_value: { type: "number", required: false }
+      capacity_unit: { type: "string", required: false }
+      regulatory_status: { type: "enum", enum: ["MANDATORY", "NOT_MANDATORY", "TRANSITIONAL", "HISTORICAL_MANDATORY", "PENDING_EFFECTIVE_DATE", "UNKNOWN_REQUIRES_REVIEW"] }
+
+  ActivityData:
+    description: "Metered, calculated, or logged input quantity representing physical activity."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      facility_id: { type: "string", required: true, foreign_key: "Facility.id" }
+      activity_name: { type: "string", required: true }
+      source_category: { type: "string", required: true, example: "Stationary Combustion" }
+      scope: { type: "enum", enum: ["SCOPE_1", "SCOPE_2", "SCOPE_3"] }
+      value: { type: "number", required: true }
+      unit: { type: "string", required: true, example: "kWh", "liters", "tonnes" }
+      period_start: { type: "date", required: true }
+      period_end: { type: "date", required: true }
+      data_quality_tier: { type: "enum", enum: ["TIER_1_DEFAULT", "TIER_2_NATIONAL", "TIER_3_FACILITY_SPECIFIC"] }
+      evidence_ids: { type: "array", items: { type: "string" }, description: "Links to Evidence.id" }
+
+  EmissionFactor:
+    description: "Versioned physical emission factor converting activity unit to GHG emissions."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      factor_name: { type: "string", required: true }
+      activity_type: { type: "string", required: true }
+      gas: { type: "enum", enum: ["CO2", "CH4", "N2O", "HFCs", "PFCs", "SF6", "NF3", "MULTI_GAS"] }
+      value: { type: "number", required: true }
+      unit: { type: "string", required: true, example: "kg CO2 / kWh" }
+      source_authority: { type: "string", required: true, example: "MONRE / MOIT" }
+      source_document: { type: "string", required: true }
+      valid_from: { type: "date", required: true }
+      valid_to: { type: "date", required: false, nullable: true }
+      tier: { type: "enum", enum: ["TIER_1", "TIER_2", "TIER_3"] }
+
+  GwpDataset:
+    description: "Global Warming Potential values according to IPCC Assessment Reports."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      dataset_name: { type: "string", required: true, example: "IPCC AR5 100-year" }
+      authority: { type: "string", required: true }
+      effective_year: { type: "number", required: true }
+      factors: { type: "object", required: true, example: "{ CO2: 1, CH4: 28, N2O: 265, SF6: 23500 }" }
+
+  Methodology:
+    description: "Technical MRV methodology defining calculation rules, required activity data, and factors."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      code: { type: "string", required: true, example: "METH-MOIT-38-01" }
+      title: { type: "string", required: true }
+      governing_document_id: { type: "string", required: true, foreign_key: "RegulatoryDocument.id" }
+      applicable_sectors: { type: "array", items: { type: "string" } }
+      calculation_model_id: { type: "string", required: true, description: "Ref to MODEL-01 .. MODEL-10" }
+      supported_scopes: { type: "array", items: { type: "string" } }
+      required_activity_units: { type: "array", items: { type: "string" } }
+      default_ef_ids: { type: "array", items: { type: "string" } }
+
+  CalculationModel:
+    description: "Abstract calculation model contract definition."
+    fields:
+      id: { type: "string", required: true, primary_key: true, example: "MODEL-01" }
+      name: { type: "string", required: true, example: "SIMPLE_FACTOR" }
+      formula_expression: { type: "string", required: true, example: "E = AD * EF" }
+      required_inputs: { type: "array", items: { type: "string" } }
+      required_parameters: { type: "array", items: { type: "string" } }
+      output_schema: { type: "object", required: true }
+
+  Evidence:
+    description: "Verifiable physical or digital evidence artifact supporting activity data or parameters."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      facility_id: { type: "string", required: true, foreign_key: "Facility.id" }
+      title: { type: "string", required: true }
+      evidence_type: { type: "enum", enum: ["UTILITY_BILL", "FUEL_INVOICE", "METER_LOG", "CALIBRATION_CERTIFICATE", "LAB_TEST", "PRODUCTION_RECORD"] }
+      file_path: { type: "string", required: true }
+      issue_date: { type: "date", required: true }
+      verified_by: { type: "string", required: false }
+      hash_signature: { type: "string", required: true }
+
+  CalculationRun:
+    description: "Immutable record of an executed calculation run with complete provenance."
+    fields:
+      id: { type: "string", required: true, primary_key: true }
+      facility_id: { type: "string", required: true, foreign_key: "Facility.id" }
+      reporting_period: { type: "string", required: true }
+      methodology_id: { type: "string", required: true, foreign_key: "Methodology.id" }
+      model_id: { type: "string", required: true, foreign_key: "CalculationModel.id" }
+      activity_data_snapshot: { type: "object", required: true }
+      emission_factor_snapshot: { type: "object", required: true }
+      gwp_dataset_snapshot: { type: "object", required: true }
+      parameters_snapshot: { type: "object", required: true }
+      calculated_emissions: { type: "object", required: true, description: "{ CO2: x, CH4: y, N2O: z, total_CO2e: w }" }
+      executed_at: { type: "datetime", required: true }
+      engine_version: { type: "string", required: true }
+      audit_hash: { type: "string", required: true }
