@@ -1,0 +1,11 @@
+audit_id: "EC-FINAL-DEMO-ACCEPTANCE-001"
+task_id: "#0032"
+date: "2026-09-16"
+status: "ENERIX_CARBON_V1_DEMO_ACCEPTED"
+summary: "Final acceptance of ENERIX Carbon V1 Public Demo."
+test_count: 472
+total_passed: 472
+total_failed: 0
+deployment_verified: true
+public_url: "https://donghp.github.io/beyond-vibe-coding/carbon/"
+authority_boundary_check: "PASSED"
