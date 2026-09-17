@@ -56,17 +56,7 @@ export default defineConfig({
     host: '0.0.0.0',
   },
   vite: {
-    plugins: [tailwindcss()],
-    server: {
-      fs: {
-        allow: ['.', 'carbon'],
-      },
-    },
-    resolve: {
-      alias: {
-        '@': '/src',
-        '/carbon': '/carbon',
-      },
-    },
+    plugins: [tailwindcss()]
   },
 });
+

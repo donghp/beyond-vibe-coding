@@ -27,14 +27,6 @@ jobs:
       - name: Build Living Book
         run: npm run build
 
-      - name: Deploy Carbon Sub-Application
-        run: |
-          # The Astro build outputs to 'dist/'
-          # We must ensure Carbon is isolated inside 'dist/carbon/'
-          mkdir -p dist/carbon
-          cp -r carbon/* dist/carbon/
-          # REMOVED: cp -r carbon/* dist/ - This was the root cause of the hijacking
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -53,3 +45,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
