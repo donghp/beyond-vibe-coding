@@ -1,0 +1,39 @@
+{
+  "common": {
+    "title": "ENERIX Carbon — Regulatory Carbon & GHG Engineering Platform",
+    "loading": "Initializing ENERIX Carbon Workspace..."
+  },
+  "nav": {
+    "overview": "Overview",
+    "regulatory": "Regulatory Check",
+    "facilities": "Facilities / Inventory",
+    "activities": "Activity Data",
+    "documents": "Documents",
+    "calculations": "Calculation Studio",
+    "evidence": "Evidence & Trace",
+    "reports": "Reports",
+    "knowledge": "Knowledge Base",
+    "group_compliance": "Enterprise Compliance",
+    "group_data": "Data & Methodology",
+    "group_audit": "Audit & Knowledge",
+    "overview_label": "Executive Dashboard",
+    "regulatory_label": "Regulatory Workspace",
+    "facilities_label": "Regulated Facilities",
+    "inventory_label": "GHG Inventory (Scopes)",
+    "activities_label": "Activity Data Ledger",
+    "emission_factors_label": "Emission Factors Registry",
+    "methodologies_label": "Ministry MRV Circulars",
+    "calculations_label": "Calculation Studio",
+    "evidence_label": "Evidence & Audit Trace",
+    "reports_label": "Regulatory Reports",
+    "knowledge_label": "Regulatory Knowledge Base"
+  },
+  "status": {
+    "pass": "PASS",
+    "blocked": "BLOCKED",
+    "pending": "PENDING",
+    "warning": "WARNING",
+    "requires_review": "REQUIRES_REVIEW",
+    "unknown": "UNKNOWN"
+  }
+}

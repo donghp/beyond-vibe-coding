@@ -1,0 +1,60 @@
+audit_metadata:
+  artifact_id: EC-GITHUB-PAGES-ROOT-ISOLATION-001
+  task_id: "#0031-C2"
+  timestamp: "2026-09-16T14:07:00Z"
+  engineer: "GAIS-Senior-Deployment-Architect"
+  status: GITHUB_PAGES_DUAL_APPLICATIONS_ALIGNED
+
+root_cause:
+  description: "Carbon files flattened to root in deploy.yml and missing router path guards."
+  identified_files:
+    - "/.github/workflows/deploy.yml"
+    - "/carbon/app/app.js"
+    - "/carbon/app/router.js"
+
+architecture:
+  root_owner: "Beyond Vibe Coding — Living Book"
+  carbon_owner: "ENERIX Carbon"
+  base_path_strategy: "Subdirectory (/carbon/)"
+
+remediation:
+  workflow_fix: "Corrected deploy.yml to build Astro and isolate Carbon copy."
+  app_guard: "Added pathname.includes('/carbon/') check to initApp."
+  router_guard: "Added path guards to Router constructor and hash writer."
+
+verification:
+  test_suite: "/carbon/engine/test-github-pages-root-isolation.js"
+  test_count: 20
+  results:
+    TC-ROOT-001: PASS
+    TC-ROOT-002: PASS
+    TC-ROOT-003: PASS
+    TC-ROOT-004: PASS
+    TC-ROOT-005: PASS
+    TC-ROOT-006: PASS
+    TC-ROOT-007: PASS
+    TC-ROOT-008: PASS
+    TC-ROOT-009: PASS
+    TC-ROOT-010: PASS
+    TC-ROOT-011: PASS
+    TC-ROOT-012: PASS
+    TC-ROOT-013: PASS
+    TC-ROOT-014: PASS
+    TC-ROOT-015: PASS
+    TC-ROOT-016: PASS
+    TC-ROOT-017: PASS
+    TC-ROOT-018: PASS
+    TC-ROOT-019: PASS
+    TC-ROOT-020: PASS
+
+deployment_matrix:
+  root_url: "https://donghp.github.io/beyond-vibe-coding/"
+  carbon_url: "https://donghp.github.io/beyond-vibe-coding/carbon/"
+  isolation_type: "Physical (directory) + Logic (router guards)"
+
+governance:
+  rule_compliance:
+    - "Rule 2: Carbon contained inside /carbon/"
+    - "Rule 12: Carbon router exits outside /carbon/"
+    - "Rule 13: Root hash safety"
+    - "Rule 21: No Carbon root mirror"

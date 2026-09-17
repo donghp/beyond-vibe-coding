@@ -1,0 +1,39 @@
+{
+  "common": {
+    "title": "ENERIX Carbon — Nền tảng Kỹ thuật Carbon & GHG quy định",
+    "loading": "Đang khởi tạo không gian làm việc ENERIX Carbon..."
+  },
+  "nav": {
+    "overview": "Tổng quan",
+    "regulatory": "Kiểm tra quy định",
+    "facilities": "Cơ sở / Kiểm kê",
+    "activities": "Dữ liệu hoạt động",
+    "documents": "Tài liệu",
+    "calculations": "Tính toán",
+    "evidence": "Chứng cứ & Truy vết",
+    "reports": "Báo cáo",
+    "knowledge": "Cơ sở tri thức",
+    "group_compliance": "Tuân thủ Doanh nghiệp",
+    "group_data": "Dữ liệu & Phương pháp luận",
+    "group_audit": "Kiểm toán & Tri thức",
+    "overview_label": "Bảng điều khiển điều hành",
+    "regulatory_label": "Không gian làm việc quy định",
+    "facilities_label": "Các cơ sở được kiểm soát",
+    "inventory_label": "Kiểm kê GHG (Phạm vi)",
+    "activities_label": "Sổ cái dữ liệu hoạt động",
+    "emission_factors_label": "Sổ đăng ký hệ số phát thải",
+    "methodologies_label": "Thông tư MRV của Bộ",
+    "calculations_label": "Phòng tính toán",
+    "evidence_label": "Dấu vết chứng cứ & kiểm toán",
+    "reports_label": "Báo cáo quy định",
+    "knowledge_label": "Cơ sở tri thức quy định"
+  },
+  "status": {
+    "pass": "ĐẠT",
+    "blocked": "BỊ CHẶN",
+    "pending": "ĐANG CHỜ",
+    "warning": "CẢNH BÁO",
+    "requires_review": "CẦN XEM XÉT",
+    "unknown": "CHƯA XÁC ĐỊNH"
+  }
+}

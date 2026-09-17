@@ -132,7 +132,7 @@ export function renderOverviewPage(options = {}) {
     ` : ''}
 
     <!-- Executive KPI / Metric Cards (4 Pillars) -->
-    <div class="card-grid" style="grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px;margin-bottom:24px;">
+    <div class="card-grid" style="gap:16px;margin-bottom:24px;">
       
       <!-- Card 1: Gross GHG Emissions -->
       <div class="enerix-card" style="border-top:3px solid var(--color-digital-blue, #0284c7);">
@@ -234,7 +234,7 @@ export function renderOverviewPage(options = {}) {
         </span>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;">
+      <div class="card-grid" style="gap:12px;">
         ${decisionGates.map(gate => {
           let borderColor = '#22c55e';
           let bgPill = '#dcfce7';
@@ -277,7 +277,7 @@ export function renderOverviewPage(options = {}) {
     </div>
 
     <!-- Two-Column Operational Details -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(380px, 1fr));gap:24px;margin-bottom:24px;">
+    <div class="card-grid" style="gap:24px;margin-bottom:24px;">
 
       <!-- Left Column: Calculation Results & Gas Breakdown -->
       <div style="display:flex;flex-direction:column;gap:24px;">

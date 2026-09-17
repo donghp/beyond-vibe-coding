@@ -8,6 +8,13 @@ import { renderHeader } from '../ui/components/header.js';
 import { renderSidebar } from '../ui/components/sidebar.js';
 
 export async function initApp() {
+  // Guard: only initialize if we are in the carbon sub-path
+  const path = window.location.pathname;
+  if (!path.includes('/carbon/')) {
+    // Silent exit to avoid hijacking root application state
+    return;
+  }
+
   const root = document.getElementById('carbon-app-container');
   if (!root) return;
 
@@ -43,7 +50,9 @@ export async function initApp() {
 
   const updateUI = () => {
     const route = stateStore.getRoute();
-    sidebarRoot.innerHTML = renderSidebar(route);
+    const viewState = stateStore.getViewState();
+    
+    sidebarRoot.innerHTML = renderSidebar(route, viewState.isMobileMenuOpen);
     router.renderCurrentRoute();
 
     // Bind navigation click handlers
@@ -56,6 +65,28 @@ export async function initApp() {
         }
       });
     });
+
+    // Mobile Menu Handlers
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        stateStore.toggleMobileMenu();
+      });
+    }
+
+    const menuClose = document.getElementById('mobile-sidebar-close');
+    if (menuClose) {
+      menuClose.addEventListener('click', () => {
+        stateStore.closeMobileMenu();
+      });
+    }
+
+    const overlay = document.getElementById('sidebar-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        stateStore.closeMobileMenu();
+      });
+    }
   };
 
   stateStore.subscribe(updateUI);

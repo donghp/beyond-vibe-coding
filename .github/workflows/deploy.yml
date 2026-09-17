@@ -15,12 +15,25 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Build
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Living Book
+        run: npm run build
+
+      - name: Deploy Carbon Sub-Application
         run: |
+          # The Astro build outputs to 'dist/'
+          # We must ensure Carbon is isolated inside 'dist/carbon/'
           mkdir -p dist/carbon
           cp -r carbon/* dist/carbon/
-          # Copy to root as well for convenience
-          cp -r carbon/* dist/
+          # REMOVED: cp -r carbon/* dist/ - This was the root cause of the hijacking
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

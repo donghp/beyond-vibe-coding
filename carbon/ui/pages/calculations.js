@@ -83,7 +83,7 @@ export function renderCalculationsPage(options = {}) {
 
     <!-- Facility & Statutory Context Header Bar -->
     <div class="enerix-card" style="margin-bottom:20px;background:#f8fafc;border-left:4px solid var(--color-sky-600);">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:16px;align-items:center;">
+      <div class="card-grid" style="gap:16px;align-items:center;">
         <div>
           <label for="calc-facility-select" style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:#64748b;margin-bottom:4px;">
             Active Regulated Facility
@@ -163,7 +163,7 @@ export function renderCalculationsPage(options = {}) {
         All 6 statutory validation gates must pass before the deterministic calculation engine executes. UI acts as an inspector, not a calculation authority.
       </p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:12px;margin-bottom:20px;">
+      <div class="card-grid" style="gap:12px;margin-bottom:20px;">
         ${vm.plan.validation_gates.map(gate => `
           <div style="border:1px solid var(--color-border);border-radius:6px;padding:12px;background:#ffffff;">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
@@ -201,7 +201,7 @@ export function renderCalculationsPage(options = {}) {
         <span class="mono-text" style="font-size:12px;color:#64748b;">Snapshot ID: ${vm.calculation.snapshot_id}</span>
       </div>
 
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));margin-bottom:16px;">
+      <div class="card-grid" style="margin-bottom:16px;">
         <!-- Total Gross Emissions Hero -->
         <div class="enerix-card" style="border-top:4px solid var(--color-sky-600);background:#ffffff;">
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#64748b;margin-bottom:6px;">

@@ -97,9 +97,9 @@ export function renderRegulatoryCheckPage(options = {}) {
       </div>
 
       <!-- Facility & Period Selector Control Strip -->
-      <div style="display:flex;align-items:center;gap:12px;background:#ffffff;padding:8px 14px;border:1px solid var(--color-border);border-radius:8px;">
+      <div style="display:flex;align-items:center;gap:12px;background:#ffffff;padding:8px 14px;border:1px solid var(--color-border);border-radius:8px;flex-wrap:wrap;">
         <label for="reg-facility-select" style="font-size:12px;font-weight:600;color:var(--color-navy-700);">Active Facility:</label>
-        <select id="reg-facility-select" class="enerix-select" style="min-width:240px;">
+        <select id="reg-facility-select" class="enerix-select" style="min-width:200px;max-width:100%;">
           ${facilities.map(f => `
             <option value="${f.facility_id}" ${f.facility_id === activeFacilityId ? 'selected' : ''}>
               ${f.facility_name} (${f.facility_id})
@@ -152,7 +152,7 @@ export function renderRegulatoryCheckPage(options = {}) {
 
       <!-- Legal Semantics Distinction Box: Amendment Lineage vs Applicability List -->
       <div style="background:#f8fafc;border:1px solid var(--color-border);border-radius:6px;padding:12px 16px;margin-bottom:14px;font-size:12px;line-height:1.6;color:#334155;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="enerix-grid-2" style="gap:14px;">
           <div>
             <div style="font-weight:700;color:var(--color-navy-900);margin-bottom:4px;">A. Legal Amendment Lineage (Statutory Framework)</div>
             <div><strong>NĐ 06/2022/NĐ-CP</strong> → amended by <strong>NĐ 119/2025/NĐ-CP</strong> → amended by <strong>NĐ 83/2026/NĐ-CP</strong> (Issued: 23/03/2026, Effective: 23/03/2026).</div>
@@ -193,7 +193,7 @@ export function renderRegulatoryCheckPage(options = {}) {
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;">
+        <div class="enerix-grid-2" style="gap:16px;margin-top:14px;">
           <div style="background:#f8fafc;border:1px solid var(--color-border);border-radius:6px;padding:14px;">
             <div style="display:flex;justify-content:space-between;align-items:center;">
               <span style="font-weight:700;font-size:13px;color:var(--color-navy-900);">Segment 1: Pre-Transition</span>
@@ -222,7 +222,7 @@ export function renderRegulatoryCheckPage(options = {}) {
     </div>
 
     <!-- Section 3: Dual Grid — Sector Taxonomy Bridge & Bound MRV Methodology -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+    <div class="enerix-grid-2" style="gap:20px;margin-bottom:20px;">
       <!-- Sector Taxonomy Mapping Card (EC-SPM-001) -->
       <div class="enerix-card">
         <div class="enerix-card-title">

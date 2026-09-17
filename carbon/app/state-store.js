@@ -51,7 +51,8 @@ export class StateStore {
       expandedPanels: new Set(),
       activeFilters: {},
       sortOrder: 'asc',
-      activeModal: null
+      activeModal: null,
+      isMobileMenuOpen: false
     };
   }
 
@@ -80,9 +81,29 @@ export class StateStore {
   }
 
   setRoute(route) {
-    if (this.currentRoute === route) return;
+    if (this.currentRoute === route) {
+      // Still close menu if clicking same route on mobile
+      this.viewState.isMobileMenuOpen = false;
+      this.notify();
+      return;
+    }
     this.currentRoute = route;
+    // Auto-close mobile menu on navigation
+    this.viewState.isMobileMenuOpen = false;
     this.notify();
+  }
+
+  // Mobile Menu Controls
+  toggleMobileMenu() {
+    this.viewState.isMobileMenuOpen = !this.viewState.isMobileMenuOpen;
+    this.notify();
+  }
+
+  closeMobileMenu() {
+    if (this.viewState.isMobileMenuOpen) {
+      this.viewState.isMobileMenuOpen = false;
+      this.notify();
+    }
   }
 
   // Facility & Context Selection

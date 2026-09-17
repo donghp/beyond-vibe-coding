@@ -1,20 +1,27 @@
-# ENERIX Carbon Deployment
+# Deployment: Beyond Vibe Coding & ENERIX Carbon
 
-## Canonical Demo URL
-https://donghp.github.io/beyond-vibe-coding/carbon/
+This repository contains two separate applications deployed to the same GitHub Pages site.
 
-## Repository
-https://github.com/donghp/beyond-vibe-coding
+## Canonical URLs
+
+### 1. Beyond Vibe Coding — Living Book (Root)
+**URL:** https://donghp.github.io/beyond-vibe-coding/
+
+### 2. ENERIX Carbon — Governed Demo (/carbon/)
+**URL:** https://donghp.github.io/beyond-vibe-coding/carbon/
+
+## Repository Structure
+- **Root (/):** Beyond Vibe Coding — Living Book (Astro)
+- **Sub-directory (/carbon/):** ENERIX Carbon (Standalone ESM)
 
 ## Deployment Mechanism
 GitHub Pages via GitHub Actions workflow (`.github/workflows/deploy.yml`).
 
-## How to Verify
-1. Push changes to `main`.
-2. Check GitHub Actions status.
-3. Access the demo URL after deployment completes.
+### Build & Isolation Logic
+1. **Root Build:** `npm run build` generates the Living Book in `dist/`.
+2. **Sub-app Isolation:** The `/carbon/` directory is copied into `dist/carbon/` to preserve path isolation.
+3. **Guard Safety:** ENERIX Carbon includes path-based guards in its bootstrap and router to prevent interference with the root application.
 
 ## Local Preview
-1. Serve the `carbon` folder using a static web server:
-   `npx serve carbon`
-2. Access `http://localhost:3000` (or as configured).
+1. For Living Book: `npm run dev`
+2. For ENERIX Carbon: Serve the `carbon` folder (`npx serve carbon`) or access `/carbon/` via the root dev server.

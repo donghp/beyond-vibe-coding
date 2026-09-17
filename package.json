@@ -27,9 +27,11 @@
     "test:reportingblueprint": "node carbon/engine/test-reporting-blueprint.js",
     "test:reportui": "node carbon/engine/test-reports-ui.js",
     "test:rkb": "node carbon/engine/test-reports-knowledge-base.js",
+    "test:i18n": "node carbon/engine/test-i18n.js",
+    "test:isolation": "node carbon/engine/test-github-pages-root-isolation.js",
     "test:final": "node carbon/engine/test-final-acceptance.js",
     "test:pages": "node carbon/engine/test-github-pages-demo.js",
-    "test:all": "node carbon/engine/test-runner.js && node carbon/engine/test-regulatory.js && node carbon/engine/test-temporal.js && node carbon/engine/test-methodology.js && node carbon/engine/test-plan.js && node carbon/engine/test-activity.js && node carbon/engine/test-document.js && node carbon/engine/test-provenance.js && node carbon/engine/test-qa-qc.js && node carbon/engine/test-report-readiness.js && node carbon/engine/test-app-state.js && node carbon/engine/test-regulatory-workspace.js && node carbon/engine/test-calculation-studio.js && node carbon/engine/test-evidence-trace.js && node carbon/engine/test-carbon-overview.js && node carbon/engine/test-reporting-blueprint.js && node carbon/engine/test-reports-ui.js && node carbon/engine/test-reports-knowledge-base.js && node carbon/engine/test-github-pages-demo.js && node carbon/engine/test-final-acceptance.js"
+    "test:all": "node carbon/engine/test-runner.js && node carbon/engine/test-regulatory.js && node carbon/engine/test-temporal.js && node carbon/engine/test-methodology.js && node carbon/engine/test-plan.js && node carbon/engine/test-activity.js && node carbon/engine/test-document.js && node carbon/engine/test-provenance.js && node carbon/engine/test-qa-qc.js && node carbon/engine/test-report-readiness.js && node carbon/engine/test-app-state.js && node carbon/engine/test-regulatory-workspace.js && node carbon/engine/test-calculation-studio.js && node carbon/engine/test-evidence-trace.js && node carbon/engine/test-carbon-overview.js && node carbon/engine/test-reporting-blueprint.js && node carbon/engine/test-reports-ui.js && node carbon/engine/test-reports-knowledge-base.js && node carbon/engine/test-github-pages-demo.js && node carbon/engine/test-final-acceptance.js && node carbon/engine/test-i18n.js && node carbon/engine/test-github-pages-root-isolation.js"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",

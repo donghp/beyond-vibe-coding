@@ -375,3 +375,135 @@ body {
   font-family: var(--font-mono);
   font-size: 12px;
 }
+
+/* Responsive Hardening & Mobile UX */
+
+/* Breakpoints */
+@media (max-width: 1024px) {
+  .carbon-content-stage {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carbon-header .brand span:not(.brand-badge) {
+    font-size: 14px;
+  }
+
+  .carbon-header .brand-badge {
+    display: none;
+  }
+
+  .carbon-header .header-right-desktop {
+    display: none;
+  }
+
+  .carbon-main-body {
+    flex-direction: column;
+  }
+
+  .carbon-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Hidden by default */
+    bottom: 0;
+    width: 280px;
+    z-index: 100;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .carbon-sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11, 25, 44, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .carbon-content-stage {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .enerix-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .enerix-table {
+    min-width: 600px; /* Allow horizontal scroll within container */
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  /* Form responsive stacking */
+  .enerix-form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+
+  .sidebar-close-btn {
+    display: flex;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--color-navy-700);
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn, .sidebar-close-btn {
+    display: none;
+  }
+}
+
+.enerix-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .enerix-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

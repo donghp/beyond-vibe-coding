@@ -32,6 +32,11 @@ export class Router {
   constructor(contentContainer) {
     this.container = contentContainer;
 
+    // Guard: ignore hash changes if we are not in the Carbon sub-path
+    if (!window.location.pathname.includes('/carbon/')) {
+      return;
+    }
+
     window.addEventListener('hashchange', () => {
       const route = this.getRouteFromHash();
       stateStore.setRoute(route);
@@ -51,7 +56,11 @@ export class Router {
       if (typeof renderFn.attachEvents === 'function') {
         renderFn.attachEvents(this.container);
       }
-      window.location.hash = route;
+
+      // Only write hash if we are in the correct path context
+      if (window.location.pathname.includes('/carbon/')) {
+        window.location.hash = route;
+      }
     }
   }
 }
