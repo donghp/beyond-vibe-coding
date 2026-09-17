@@ -3,14 +3,11 @@
  */
 import { dataProvider } from '../../app/data-provider.js';
 import { ICONS } from '../components/icons.js';
-import { CarbonBrandBanner } from '../components/banner.js';
 
 export function renderKnowledgePage() {
   const docs = dataProvider.getKnowledgeItems();
 
   return `
-    ${CarbonBrandBanner.render({ variant: 'guide', priority: false })}
-
     <div class="page-title-bar">
       <h1 class="page-title">Regulatory Knowledge Base</h1>
       <p class="page-subtitle">Indexed Repository of Official Vietnamese GHG Laws, Decrees & Circulars</p>

@@ -867,8 +867,37 @@ body {
 }
 
 /* ==========================================================================
-   OFFICIAL CANONICAL BRAND BANNER (Task #Enerix_Carbon_00005)
+   OFFICIAL CANONICAL BRAND BANNER (Task #Enerix_Carbon_00005 & #00009)
    ========================================================================== */
+.carbon-global-banner-host {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  background-color: var(--carbon-navy-950, #0b1d3a);
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.carbon-global-banner-host .carbon-brand-banner-container {
+  margin-bottom: 0;
+}
+
+.carbon-global-banner-host .carbon-brand-banner-frame {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+  max-height: clamp(140px, 16vw, 240px);
+}
+
+.carbon-global-banner-host .carbon-brand-banner-img {
+  aspect-ratio: 1920 / 816;
+  max-height: clamp(140px, 16vw, 240px);
+  object-fit: cover;
+  object-position: center;
+}
+
 .carbon-brand-banner-container {
   width: 100%;
   margin-bottom: 24px;
@@ -936,6 +965,10 @@ body {
   .carbon-brand-banner-container.variant-hero .carbon-brand-banner-frame {
     max-height: 220px;
   }
+  .carbon-global-banner-host .carbon-brand-banner-frame,
+  .carbon-global-banner-host .carbon-brand-banner-img {
+    max-height: clamp(120px, 18vw, 200px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -953,11 +986,19 @@ body {
   .carbon-brand-banner-img {
     object-position: center 35%; /* Preserves central logo & brand lockup */
   }
+  .carbon-global-banner-host .carbon-brand-banner-frame,
+  .carbon-global-banner-host .carbon-brand-banner-img {
+    max-height: clamp(90px, 24vw, 150px);
+  }
 }
 
 @media (max-width: 480px) {
   .carbon-brand-banner-container.variant-hero .carbon-brand-banner-frame {
     max-height: 130px;
+  }
+  .carbon-global-banner-host .carbon-brand-banner-frame,
+  .carbon-global-banner-host .carbon-brand-banner-img {
+    max-height: 110px;
   }
 }
 

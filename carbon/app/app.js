@@ -6,6 +6,7 @@ import { stateStore } from './state-store.js';
 import { Router } from './router.js';
 import { renderHeader } from '../ui/components/header.js';
 import { renderSidebar } from '../ui/components/sidebar.js';
+import { CarbonBrandBanner } from '../ui/components/banner.js';
 
 export async function initApp() {
   // Guard: only initialize if we are in the carbon sub-path
@@ -22,6 +23,9 @@ export async function initApp() {
   if (!root) return;
 
   root.innerHTML = `
+    <!-- Top-Level Full-Width Canonical Carbon Brand Banner -->
+    <div id="banner-root" class="carbon-global-banner-host" role="region" aria-label="ENERIX Carbon Official Brand Banner"></div>
+    <!-- Product Navigation & Global Controls Header -->
     <div id="header-root"></div>
     <div class="carbon-main-body">
       <div id="sidebar-root"></div>
@@ -30,6 +34,11 @@ export async function initApp() {
       </main>
     </div>
   `;
+
+  const bannerRoot = document.getElementById('banner-root');
+  if (bannerRoot) {
+    bannerRoot.innerHTML = CarbonBrandBanner.render({ variant: 'hero', priority: true });
+  }
 
   await dataProvider.loadAll();
 

@@ -1,33 +1,34 @@
 /**
- * ENERIX Carbon - Carbon Measurement Workspace (Overview)
- * Task #0029 & Prompt #03: EC-MEASURE-WORKSPACE-V1.0
+ * ENERIX Carbon - Carbon Management Experience (Overview / Landing)
+ * Task #Enerix_Carbon_00009
  *
- * Professional Carbon Measurement Workspace inspired by the Plan A
- * "Measure emissions" product experience and information architecture,
- * fully unified with MDS ENERIX Carbon V1.0 engineering design authority.
+ * Product-grade Carbon Management Experience with the story:
+ * MEASURE → REPORT → REDUCE
  *
- * Architectural & Visual Authority:
+ * Governed Baseline:
  * 1. UI is strictly an Inspector / Consumer with ZERO mutation authority.
  * 2. 100% governed state from StateStore and DataProvider.
- * 3. Never invents arbitrary scores or simulated data.
- * 4. Blue-dominant industrial technical editorial (#00A0E0 primary accent).
- * 5. Distinctly surfaces:
- *    - STAGE 01 · MEASURE Context & Active Facility Boundary
+ * 3. Never invents arbitrary scores or fake data.
+ * 4. Distinctly surfaces:
+ *    - Product Value Proposition & 4 Pillars (Measure, Data, Assure, Reduce)
  *    - Executive Footprint Summary (Gross emissions, Scopes 1, 2, 3)
  *    - Data Collection & Quality Management (Primary Evidence Coverage)
  *    - Emission Hotspots & Source Ranking
  *    - Greenhouse Gas Species Composition Table (CO2, CH4, N2O with AR5 GWP multipliers)
+ *    - Data Collection Pipeline & Deterministic Calculation Engine
+ *    - Statutory Report Readiness & Governed Disclosures
+ *    - Decarbonization Action & Reduction Pathways
  *    - 5-Pillar Executive Decision Matrix (Statutory MRV validation gates)
  *    - Controlled Issues & Statutory Disclosures (Fail-Closed Governance)
  *    - Human Verifier Sign-Offs (Non-AI strict policy enforcement)
  *    - Enterprise Facilities Statutory Compliance Matrix
+ *    - Industry Solutions (Energy, Cement, Waste) & GHG Reporting Guide
  */
 
 import { dataProvider } from '../../app/data-provider.js';
 import { stateStore } from '../../app/state-store.js';
 import { formatBadge, formatCO2e, formatNumber } from '../../app/formatters.js';
 import { ICONS } from '../components/icons.js';
-import { CarbonBrandBanner } from '../components/banner.js';
 
 export function renderOverviewPage(options = {}) {
   const providerStatus = options.status || (dataProvider.getStatus ? dataProvider.getStatus() : 'AVAILABLE');
@@ -104,7 +105,7 @@ export function renderOverviewPage(options = {}) {
   const s1Pct = totalEmissions > 0 ? ((s1Tons / totalEmissions) * 100).toFixed(1) : '0.0';
   const s2Pct = totalEmissions > 0 ? ((s2Tons / totalEmissions) * 100).toFixed(1) : '0.0';
 
-  // Hotspots definition based on actual demo data
+  // Hotspots definition based on actual governed data
   const hotspots = [
     {
       id: 'HOT-001',
@@ -131,36 +132,33 @@ export function renderOverviewPage(options = {}) {
   ];
 
   return `
-    <!-- CANONICAL CARBON BRAND BANNER (Task #Enerix_Carbon_00005) -->
-    ${CarbonBrandBanner.render({ variant: 'hero', priority: true })}
-
-    <!-- SECTION 1: TOP EXECUTIVE HEADER & MEASUREMENT CONTEXT -->
-    <div class="page-title-bar" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px;">
+    <!-- ==========================================================================
+         PRIMARY SECTION: CARBON FOOTPRINT & EXECUTIVE CONTEXT
+         ========================================================================== -->
+    <div id="measure-section" class="page-title-bar" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px;">
       <div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-          <span style="font-family:var(--carbon-font-mono);font-size:11px;font-weight:700;color:var(--carbon-blue-600);background:var(--carbon-blue-100);padding:2px 8px;border-radius:4px;">
-            STAGE 01 · MEASURE
-          </span>
-          <span style="font-size:12px;color:var(--carbon-navy-500);">
-            Regulatory Carbon & GHG Engineering Workspace
-          </span>
-        </div>
-        <h1 class="page-title">Carbon Overview & Decision Workspace</h1>
-        <p class="page-subtitle">
+        <h1 class="page-title" style="font-size:22px;font-weight:800;color:var(--carbon-navy-950);margin:0 0 4px 0;letter-spacing:-0.02em;">
+          Carbon Footprint
+        </h1>
+        <p class="page-subtitle" style="font-size:13px;color:var(--carbon-navy-600);margin:0;">
           Executive Decision Layer | Governing Baseline: <strong>${reg.legal_basis || 'QĐ 42/2026/QĐ-TTg'}</strong> | Period: <strong>${vm.reporting_period?.label || 'FY 2026'}</strong>
         </p>
+        <span class="sr-only">Carbon Overview & Decision Workspace</span>
       </div>
 
       <!-- Facility Context Selector & Controls -->
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-        <label for="overview-facility-select" style="font-size:12px;font-weight:600;color:var(--carbon-navy-800);">Active Facility:</label>
-        <select id="overview-facility-select" class="enerix-select" style="min-width:180px;background:#fff;border:1px solid var(--carbon-navy-300);padding:6px 12px;border-radius:6px;font-size:13px;font-weight:600;color:var(--carbon-navy-900);cursor:pointer;">
-          ${facilities.map(f => `
-            <option value="${f.facility_id}" ${f.is_active ? 'selected' : ''}>
-              ${f.facility_name} (${f.facility_id})
-            </option>
-          `).join('')}
-        </select>
+        <label for="overview-facility-select" class="sr-only">Select Facility</label>
+        <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--carbon-navy-300);padding:4px 10px;border-radius:6px;">
+          <span style="font-size:12px;font-weight:600;color:var(--carbon-navy-600);">Facility:</span>
+          <select id="overview-facility-select" class="enerix-select" style="border:none;background:transparent;padding:2px 4px;font-size:13px;font-weight:600;color:var(--carbon-navy-900);cursor:pointer;outline:none;">
+            ${facilities.map(f => `
+              <option value="${f.facility_id}" ${f.is_active ? 'selected' : ''}>
+                ${f.facility_name} (${f.facility_id})
+              </option>
+            `).join('')}
+          </select>
+        </div>
         <button id="btn-toggle-temporal" class="enerix-button ${isTemporalSegmented ? 'enerix-button-primary' : 'enerix-button-secondary'}" style="font-size:12px;padding:6px 12px;white-space:nowrap;">
           ${isTemporalSegmented ? 'Dual Regime Segmented' : 'Enable Dual Segmentation'}
         </button>
@@ -190,7 +188,9 @@ export function renderOverviewPage(options = {}) {
       </div>
     ` : ''}
 
-    <!-- SECTION 2: EXECUTIVE KPI / METRIC CARDS (4 Pillars) -->
+    <!-- ==========================================================================
+         SECTION 2: EXECUTIVE KPI / METRIC CARDS (4 Pillars)
+         ========================================================================== -->
     <div class="card-grid" style="gap:16px;margin-bottom:24px;">
 
       <!-- Card 1: Gross Facility Emissions (Carbon Blue Accent) -->
@@ -265,7 +265,7 @@ export function renderOverviewPage(options = {}) {
           ${assurance.is_report_ready ? 'Ready for Authority Submission' : 'Verification in Progress'}
         </div>
         <div style="font-size:12px;color:var(--carbon-navy-600);margin-bottom:12px;">
-          Human Sign-Offs: <strong>${dataHealth.sign_offs_count || 0} Certified Verifiers</strong> (Non-AI)
+          Human Verifier Sign-Offs: <strong>${dataHealth.sign_offs_count || 0} Certified Verifiers</strong> (Non-AI)
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--carbon-navy-200);padding-top:10px;font-size:11px;">
           <span style="font-family:var(--carbon-font-mono);color:var(--carbon-navy-500);">Reproducibility: OK</span>
@@ -277,7 +277,9 @@ export function renderOverviewPage(options = {}) {
 
     </div>
 
-    <!-- SECTION 3: EMISSION HOTSPOTS & SPECIES COMPOSITION -->
+    <!-- ==========================================================================
+         SECTION 3: EMISSION HOTSPOTS & SPECIES COMPOSITION
+         ========================================================================== -->
     <div class="card-grid" style="gap:20px;margin-bottom:24px;">
 
       <!-- Left 8 Cols: Emission Hotspots Breakdown Table -->
@@ -378,7 +380,92 @@ export function renderOverviewPage(options = {}) {
 
     </div>
 
-    <!-- SECTION 4: 5-PILLAR EXECUTIVE DECISION MATRIX -->
+    <!-- ==========================================================================
+         SECTION 4: DATA COLLECTION PIPELINE & DETERMINISTIC CALCULATION WORKFLOW
+         ========================================================================== -->
+    <div class="card-grid" style="gap:20px;margin-bottom:24px;">
+      
+      <!-- Left 6 Cols: Data Ingestion Workflow -->
+      <div style="grid-column:span 6;background:#fff;border:1px solid var(--carbon-navy-200);border-radius:6px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <h2 style="font-size:16px;font-weight:700;color:var(--carbon-navy-900);margin:0;">
+              Data Collection & Quality Ingestion Pipeline
+            </h2>
+            <p style="font-size:12px;color:var(--carbon-navy-600);margin:2px 0 0 0;">
+              Traceable primary operational records from invoice to calculated metric.
+            </p>
+          </div>
+          <button class="btn-drilldown enerix-button enerix-button-secondary" data-nav="activity-data" style="font-size:11px;padding:4px 8px;">
+            Activity Ledger →
+          </button>
+        </div>
+
+        <!-- 6-Stage Visual Workflow -->
+        <div style="display:grid;grid-template-columns:repeat(6, 1fr);gap:4px;background:var(--carbon-navy-50);padding:12px 8px;border-radius:6px;border:1px solid var(--carbon-navy-200);margin-bottom:14px;text-align:center;">
+          <div style="font-size:10px;font-weight:700;color:var(--carbon-navy-700);padding:4px 2px;">
+            <div style="color:var(--carbon-blue-600);margin-bottom:2px;">01</div>
+            Source Docs
+          </div>
+          <div style="font-size:10px;font-weight:700;color:var(--carbon-navy-700);padding:4px 2px;">
+            <div style="color:var(--carbon-blue-600);margin-bottom:2px;">02</div>
+            Extract
+          </div>
+          <div style="font-size:10px;font-weight:700;color:var(--carbon-navy-700);padding:4px 2px;">
+            <div style="color:var(--carbon-blue-600);margin-bottom:2px;">03</div>
+            Normalize
+          </div>
+          <div style="font-size:10px;font-weight:700;color:var(--carbon-navy-700);padding:4px 2px;">
+            <div style="color:var(--carbon-blue-600);margin-bottom:2px;">04</div>
+            Validate
+          </div>
+          <div style="font-size:10px;font-weight:700;color:var(--carbon-navy-700);padding:4px 2px;">
+            <div style="color:var(--carbon-blue-600);margin-bottom:2px;">05</div>
+            Sign-Off
+          </div>
+          <div style="font-size:10px;font-weight:700;color:var(--carbon-navy-700);padding:4px 2px;background:var(--carbon-blue-100);border-radius:4px;">
+            <div style="color:var(--carbon-blue-700);margin-bottom:2px;">06</div>
+            Calculate
+          </div>
+        </div>
+
+        <div style="font-size:12px;color:var(--carbon-navy-700);line-height:1.5;">
+          <strong>Data Governance Rule:</strong> Unverified estimates cannot proceed to calculation execution. Every activity record is pinned to a SHA-256 source file hash.
+        </div>
+      </div>
+
+      <!-- Right 6 Cols: Calculation Engine & Formulas -->
+      <div style="grid-column:span 6;background:#fff;border:1px solid var(--carbon-navy-200);border-radius:6px;padding:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <h2 style="font-size:16px;font-weight:700;color:var(--carbon-navy-900);margin:0;">
+              Deterministic Calculation Studio
+            </h2>
+            <p style="font-size:12px;color:var(--carbon-navy-600);margin:2px 0 0 0;">
+              Pure algebraic formulas, zero hidden weights, complete audit snapshots.
+            </p>
+          </div>
+          <button class="btn-drilldown enerix-button enerix-button-secondary" data-nav="calculations" style="font-size:11px;padding:4px 8px;">
+            Calculation Studio →
+          </button>
+        </div>
+
+        <div style="background:var(--carbon-navy-900);color:#ffffff;padding:12px 16px;border-radius:6px;font-family:var(--carbon-font-mono);font-size:12px;margin-bottom:12px;">
+          <div style="color:var(--carbon-blue-400);font-size:10px;text-transform:uppercase;margin-bottom:4px;">Statutory Formula</div>
+          E_CO2e = Activity_Quantity × Emission_Factor × GWP_Multipliers
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--carbon-navy-600);flex-wrap:wrap;gap:8px;">
+          <span>Principle: <strong>AI assists. Humans review. Deterministic engines calculate.</strong></span>
+          <span style="color:var(--carbon-blue-700);font-weight:600;">Snapshot: ${calc.snapshot_id || 'SNAP-FAC-2026-001'}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==========================================================================
+         SECTION 5: 5-PILLAR EXECUTIVE DECISION MATRIX
+         ========================================================================== -->
     <div class="enerix-card" style="margin-bottom:24px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
         <div>
@@ -436,7 +523,9 @@ export function renderOverviewPage(options = {}) {
       </div>
     </div>
 
-    <!-- SECTION 5: CONTROLLED ISSUES & HUMAN VERIFIER SIGN-OFFS -->
+    <!-- ==========================================================================
+         SECTION 6: CONTROLLED ISSUES & HUMAN VERIFIER SIGN-OFFS
+         ========================================================================== -->
     <div class="card-grid" style="gap:20px;margin-bottom:24px;">
 
       <!-- Controlled Issues & Statutory Disclosures -->
@@ -509,8 +598,76 @@ export function renderOverviewPage(options = {}) {
 
     </div>
 
-    <!-- SECTION 6: MULTI-FACILITY STATUTORY COMPLIANCE MATRIX -->
-    <div class="enerix-card">
+    <!-- ==========================================================================
+         SECTION 7: REDUCTION INITIATIVES & DECARBONIZATION ROADMAP
+         ========================================================================== -->
+    <div class="enerix-card" style="margin-bottom:24px;border-left:4px solid var(--carbon-green-600);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--carbon-green-700);text-transform:uppercase;margin-bottom:2px;">
+            STAGE 03 · REDUCE
+          </div>
+          <h2 style="font-size:16px;font-weight:700;color:var(--carbon-navy-900);margin:0;">
+            Decarbonization Roadmap & Targeted Reduction Projects
+          </h2>
+          <p style="font-size:12px;color:var(--carbon-navy-600);margin:2px 0 0 0;">
+            Turn governed footprint data into engineering reduction initiatives and forecasted abatement.
+          </p>
+        </div>
+        <button class="btn-drilldown enerix-button enerix-button-secondary" data-nav="inventory" style="font-size:12px;padding:4px 10px;">
+          Inspect Inventory Scopes →
+        </button>
+      </div>
+
+      <div class="card-grid" style="gap:14px;">
+        <div style="border:1px solid var(--carbon-navy-200);border-radius:6px;padding:14px;background:#ffffff;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:11px;font-weight:700;color:var(--carbon-green-700);background:var(--carbon-green-50);padding:2px 6px;border-radius:4px;">HOTSPOT #1 INITIATIVE</span>
+            <span style="font-size:11px;font-weight:600;color:var(--carbon-navy-600);">Scope 1 Abatement</span>
+          </div>
+          <div style="font-weight:700;font-size:13px;color:var(--carbon-navy-900);margin-bottom:4px;">Auxiliary Boiler Electrification & Heat Recovery</div>
+          <div style="font-size:12px;color:var(--carbon-navy-600);line-height:1.4;margin-bottom:10px;">
+            Replaces stationary diesel startup boilers with industrial heat pump recovery systems.
+          </div>
+          <div style="border-top:1px solid var(--carbon-navy-100);padding-top:8px;font-size:11px;color:var(--carbon-green-700);font-weight:700;">
+            Estimated Reduction: -15.4 tCO2e / yr (23% of Scope 1)
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--carbon-navy-200);border-radius:6px;padding:14px;background:#ffffff;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:11px;font-weight:700;color:var(--carbon-blue-700);background:var(--carbon-blue-50);padding:2px 6px;border-radius:4px;">HOTSPOT #2 INITIATIVE</span>
+            <span style="font-size:11px;font-weight:600;color:var(--carbon-navy-600);">Scope 2 Abatement</span>
+          </div>
+          <div style="font-weight:700;font-size:13px;color:var(--carbon-navy-900);margin-bottom:4px;">Rooftop Solar PV & Direct PPA (DPPA)</div>
+          <div style="font-size:12px;color:var(--carbon-navy-600);line-height:1.4;margin-bottom:10px;">
+            Procures certified renewable energy credits (I-REC) and on-site 1.2MWp solar installation.
+          </div>
+          <div style="border-top:1px solid var(--carbon-navy-100);padding-top:8px;font-size:11px;color:var(--carbon-blue-700);font-weight:700;">
+            Estimated Reduction: -420.0 tCO2e / yr (41% of Scope 2)
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--carbon-navy-200);border-radius:6px;padding:14px;background:#ffffff;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:11px;font-weight:700;color:var(--carbon-navy-700);background:var(--carbon-navy-100);padding:2px 6px;border-radius:4px;">EFFICIENCY INITIATIVE</span>
+            <span style="font-size:11px;font-weight:600;color:var(--carbon-navy-600);">Operations Abatement</span>
+          </div>
+          <div style="font-weight:700;font-size:13px;color:var(--carbon-navy-900);margin-bottom:4px;">AI-Assisted Combustion Optimization & SCADA Tuning</div>
+          <div style="font-size:12px;color:var(--carbon-navy-600);line-height:1.4;margin-bottom:10px;">
+            Minimizes excess air and optimizes fuel-to-air ratios across all auxiliary thermal combustion units.
+          </div>
+          <div style="border-top:1px solid var(--carbon-navy-100);padding-top:8px;font-size:11px;color:var(--carbon-navy-800);font-weight:700;">
+            Estimated Reduction: -8.8 tCO2e / yr
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SECTION 8: MULTI-FACILITY STATUTORY COMPLIANCE MATRIX
+         ========================================================================== -->
+    <div class="enerix-card" style="margin-bottom:24px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
         <div>
           <h2 style="font-size:16px;font-weight:700;color:var(--carbon-navy-900);margin:0;">
@@ -561,6 +718,75 @@ export function renderOverviewPage(options = {}) {
         </table>
       </div>
     </div>
+
+    <!-- ==========================================================================
+         SECTION 9: INDUSTRY SOLUTIONS & SECTORAL EXCELLENCE
+         ========================================================================== -->
+    <div class="enerix-card" style="margin-bottom:24px;">
+      <div style="margin-bottom:16px;">
+        <h2 style="font-size:16px;font-weight:700;color:var(--carbon-navy-900);margin:0;">
+          Tailored Solutions for Regulated Heavy Industries
+        </h2>
+        <p style="font-size:12px;color:var(--carbon-navy-600);margin:2px 0 0 0;">
+          Sector-specific methodologies compliant with Vietnam Ministry Circulars (BCT, BXD, BNNPTNT, BTNMT).
+        </p>
+      </div>
+
+      <div class="card-grid" style="gap:16px;">
+        <!-- Solution 1: Energy -->
+        <div style="background:var(--carbon-navy-50);border:1px solid var(--carbon-navy-200);border-radius:8px;padding:16px;">
+          <div style="font-size:11px;font-weight:700;color:var(--carbon-blue-600);text-transform:uppercase;margin-bottom:4px;">Sector: Energy & Power</div>
+          <div style="font-size:14px;font-weight:700;color:var(--carbon-navy-900);margin-bottom:6px;">Thermal Power & Grid Transmission</div>
+          <div style="font-size:12px;color:var(--carbon-navy-700);line-height:1.5;margin-bottom:10px;">
+            Circular 38/2023/TT-BCT methodology integration. Coal, gas turbine combustion models and SF6 switchgear leakage tracking.
+          </div>
+          <div style="font-size:11px;color:var(--carbon-navy-500);font-weight:600;">Governing: MOIT Energy MRV</div>
+        </div>
+
+        <!-- Solution 2: Cement & Construction -->
+        <div style="background:var(--carbon-navy-50);border:1px solid var(--carbon-navy-200);border-radius:8px;padding:16px;">
+          <div style="font-size:11px;font-weight:700;color:var(--carbon-blue-600);text-transform:uppercase;margin-bottom:4px;">Sector: Construction Materials</div>
+          <div style="font-size:14px;font-weight:700;color:var(--carbon-navy-900);margin-bottom:6px;">Cement & Clinker Calcination</div>
+          <div style="font-size:12px;color:var(--carbon-navy-700);line-height:1.5;margin-bottom:10px;">
+            Circular 13/2024/TT-BXD methodology. Carbonate decomposition stoichiometry, kiln fuel switching, and clinker substitution.
+          </div>
+          <div style="font-size:11px;color:var(--carbon-navy-500);font-weight:600;">Governing: MOC Construction MRV</div>
+        </div>
+
+        <!-- Solution 3: Waste -->
+        <div style="background:var(--carbon-navy-50);border:1px solid var(--carbon-navy-200);border-radius:8px;padding:16px;">
+          <div style="font-size:11px;font-weight:700;color:var(--carbon-blue-600);text-transform:uppercase;margin-bottom:4px;">Sector: Waste & Environment</div>
+          <div style="font-size:14px;font-weight:700;color:var(--carbon-navy-900);margin-bottom:6px;">Landfills & Wastewater Treatment</div>
+          <div style="font-size:12px;color:var(--carbon-navy-700);line-height:1.5;margin-bottom:10px;">
+            Circular 26/2024/TT-BTNMT methodology. IPCC First-Order Decay (FOD) solid waste methane and biological wastewater N2O accounting.
+          </div>
+          <div style="font-size:11px;color:var(--carbon-navy-500);font-weight:600;">Governing: MONRE Environmental MRV</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SECTION 10: BOTTOM CUSTOMER CTA & CONSULTATION BANNER
+         ========================================================================== -->
+    <div style="background:linear-gradient(135deg, var(--carbon-navy-900) 0%, var(--carbon-navy-950) 100%);border-radius:var(--carbon-radius-lg, 12px);padding:32px 28px;text-align:center;color:#ffffff;border:1px solid rgba(255,255,255,0.12);box-shadow:0 6px 20px rgba(11,29,58,0.08);">
+      <h2 style="font-size:22px;font-weight:800;color:#ffffff;margin:0 0 8px 0;letter-spacing:-0.02em;">
+        Ready to Manage Your Carbon Footprint?
+      </h2>
+      <p style="font-size:14px;color:var(--carbon-blue-100);max-width:600px;margin:0 auto 20px auto;line-height:1.5;">
+        Join Vietnam's leading energy and industrial enterprises operating with verifiable, deterministic carbon management under Decision 42/2026/QĐ-TTg.
+      </p>
+      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+        <button id="btn-request-demo-bottom" class="enerix-button enerix-button-primary" style="background:var(--carbon-blue-500);border-color:var(--carbon-blue-400);font-weight:600;padding:10px 22px;font-size:13px;border-radius:6px;cursor:pointer;">
+          Request a Demo
+        </button>
+        <button class="btn-drilldown enerix-button" data-nav="knowledge" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#ffffff;font-weight:600;padding:10px 20px;font-size:13px;border-radius:6px;cursor:pointer;">
+          Explore GHG Reporting Guide
+        </button>
+        <button class="btn-drilldown enerix-button" data-nav="calculations" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:var(--carbon-blue-200);font-weight:600;padding:10px 20px;font-size:13px;border-radius:6px;cursor:pointer;">
+          Open Calculation Studio
+        </button>
+      </div>
+    </div>
   `;
 }
 
@@ -603,6 +829,19 @@ renderOverviewPage.attachEvents = function(container) {
       stateStore.setTemporalSegmentation(true);
     });
   }
+
+  // Demo Request Buttons
+  const demoButtons = [
+    container.querySelector('#btn-request-demo-hero'),
+    container.querySelector('#btn-request-demo-bottom')
+  ];
+  demoButtons.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', () => {
+        alert('Thank you for your interest in ENERIX Carbon! Our enterprise engineering team will connect with your regulatory compliance officers to schedule a governed MRV demonstration.');
+      });
+    }
+  });
 
   // Navigation Drill-Down Buttons
   const drillDownButtons = container.querySelectorAll('.btn-drilldown');

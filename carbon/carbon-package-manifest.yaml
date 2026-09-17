@@ -1,0 +1,50 @@
+package_id: ENERIX-CARBON
+name: "ENERIX Carbon — Regulatory Carbon & GHG Engineering Platform"
+version: "1.0.0"
+governing_authority: "MDS_ENERIX_CARBON_V1.0_EXPANDED + EDLS-001_V7.1"
+root: "/carbon"
+entrypoint: "index.html"
+asset_root: "assets"
+data_root: "data"
+demo_data_root: "demo-data"
+knowledge_root: "knowledge"
+evidence_root: "evidence"
+locales_root: "locales"
+
+structure:
+  app: "app"
+  engine: "engine"
+  ui: "ui"
+  styles: "ui/styles"
+  components: "ui/components"
+  pages: "ui/pages"
+
+runtime_dependencies:
+  - "/carbon/app/app.js"
+  - "/carbon/app/router.js"
+  - "/carbon/app/data-provider.js"
+  - "/carbon/app/state-store.js"
+  - "/carbon/app/i18n.js"
+  - "/carbon/app/path.js"
+  - "/carbon/ui/styles/main.css"
+  - "/carbon/ui/styles/tokens.css"
+  - "/carbon/assets/branding/banner_enerix_carbon.png"
+  - "/carbon/assets/branding/manifest.json"
+
+external_runtime_dependencies: []
+
+portability:
+  github_pages: true
+  standalone_subdirectory: true
+  future_domain: true
+  zero_root_coupling: true
+  copy_and_run_verified: true
+
+forbidden_external_runtime_paths:
+  - "/public"
+  - "/src"
+  - "/chapters"
+  - "/glossary"
+  - "/about"
+  - "/resources"
+  - "root-specific Living Book assets"
