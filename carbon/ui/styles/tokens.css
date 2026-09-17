@@ -1,0 +1,173 @@
+/**
+ * MDS ENERIX CARBON V1.0 — DESIGN TOKENS
+ * Canonical visual and spatial token foundation for ENERIX Carbon.
+ *
+ * Principles:
+ * 1. Carbon Blue (#0284c7) is primary accent.
+ * 2. Deep Navy (#0b192c / #1e293b) is structural.
+ * 3. Green (#16a34a) communicates positive / reduction / approved / compliant.
+ * 4. Amber (#d97706) communicates warning / review / transitional / straddling.
+ * 5. Red (#dc2626) communicates blocked / critical / mandatory / error.
+ * 6. Strictly NO gradients in normal product UI.
+ * 7. Desktop 12 columns | Tablet 8 columns | Mobile 4 columns.
+ * 8. Dense, readable typography (Inter / Be Vietnam Pro).
+ */
+
+:root {
+  /* ==========================================================================
+     1. COLOR FOUNDATION — BRAND & ACCENT
+     ========================================================================== */
+  --carbon-blue-50:  #f0f9ff;
+  --carbon-blue-100: #e0f2fe;
+  --carbon-blue-200: #bae6fd;
+  --carbon-blue-300: #7dd3fc;
+  --carbon-blue-400: #38bdf8;
+  --carbon-blue-500: #0ea5e9;
+  --carbon-blue-600: #0284c7; /* Primary Carbon Blue */
+  --carbon-blue-700: #0369a1; /* Primary Hover */
+  --carbon-blue-800: #075985;
+  --carbon-blue-900: #0c4a6e;
+
+  /* ==========================================================================
+     2. COLOR FOUNDATION — STRUCTURAL DEEP NAVY & SLATE
+     ========================================================================== */
+  --carbon-navy-950: #070f1e; /* Deep shell background */
+  --carbon-navy-900: #0b192c; /* Header & primary structural frame */
+  --carbon-navy-800: #1e293b; /* Primary text, dark accents */
+  --carbon-navy-700: #334155; /* Secondary text, table headers */
+  --carbon-navy-600: #475569; /* Muted labels, secondary icons */
+  --carbon-navy-500: #64748b; /* Subtitles, timestamps, metadata */
+  --carbon-navy-400: #94a3b8; /* Group headers, subtle icons */
+  --carbon-navy-300: #cbd5e1; /* Strong borders, control borders */
+  --carbon-navy-200: #e2e8f0; /* Default card & row borders */
+  --carbon-navy-100: #f1f5f9; /* Table header, chip, tag background */
+  --carbon-navy-50:  #f8fafc; /* Light canvas background */
+
+  /* ==========================================================================
+     3. COLOR FOUNDATION — SEMANTIC STATUS (Fail-Closed Governance)
+     ========================================================================== */
+  /* Positive / Compliant / Approved / Active / Reproducible */
+  --carbon-green-50:  #f0fdf4;
+  --carbon-green-100: #dcfce7;
+  --carbon-green-200: #bbf7d0;
+  --carbon-green-600: #16a34a;
+  --carbon-green-700: #15803d;
+  --carbon-green-800: #166534;
+
+  /* Warning / Review / Transitional / Straddling */
+  --carbon-amber-50:  #fffbeb;
+  --carbon-amber-100: #fef3c7;
+  --carbon-amber-200: #fde68a;
+  --carbon-amber-600: #d97706;
+  --carbon-amber-700: #b45309;
+  --carbon-amber-800: #92400e;
+
+  /* Critical / Blocked / Mandatory / Error */
+  --carbon-red-50:  #fef2f2;
+  --carbon-red-100: #fee2e2;
+  --carbon-red-200: #fecaca;
+  --carbon-red-600: #dc2626;
+  --carbon-red-700: #b91c1c;
+  --carbon-red-800: #991b1b;
+
+  /* ==========================================================================
+     4. SURFACES & BORDERS
+     ========================================================================== */
+  --carbon-bg-canvas: var(--carbon-navy-50);
+  --carbon-bg-card: #ffffff;
+  --carbon-bg-subtle: var(--carbon-navy-100);
+  --carbon-bg-hover: var(--carbon-blue-50);
+  --carbon-bg-active: var(--carbon-blue-100);
+
+  --carbon-border: var(--carbon-navy-200);
+  --carbon-border-strong: var(--carbon-navy-300);
+  --carbon-border-subtle: var(--carbon-navy-100);
+  --carbon-border-focus: var(--carbon-blue-600);
+
+  /* Legacy variable backward compatibility */
+  --color-navy-900: var(--carbon-navy-900);
+  --color-navy-800: var(--carbon-navy-800);
+  --color-navy-700: var(--carbon-navy-700);
+  --color-navy-600: var(--carbon-navy-600);
+  --color-sky-600:  var(--carbon-blue-600);
+  --color-sky-500:  var(--carbon-blue-500);
+  --color-sky-100:  var(--carbon-blue-100);
+  --color-sky-50:   var(--carbon-blue-50);
+  --color-green-600: var(--carbon-green-600);
+  --color-green-100: var(--carbon-green-100);
+  --color-amber-600: var(--carbon-amber-600);
+  --color-amber-100: var(--carbon-amber-100);
+  --color-red-600:   var(--carbon-red-600);
+  --color-red-100:   var(--carbon-red-100);
+  --color-bg-canvas: var(--carbon-bg-canvas);
+  --color-bg-card:   var(--carbon-bg-card);
+  --color-border:    var(--carbon-border);
+  --color-digital-blue: var(--carbon-blue-600);
+
+  /* ==========================================================================
+     5. TYPOGRAPHY
+     ========================================================================== */
+  --carbon-font-sans: 'Inter', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --carbon-font-mono: 'JetBrains Mono', 'Fira Code', 'DejaVu Sans Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+
+  --font-family: var(--carbon-font-sans);
+  --font-mono: var(--carbon-font-mono);
+
+  --carbon-text-xs:   11px;
+  --carbon-text-sm:   12px;
+  --carbon-text-base: 13px;
+  --carbon-text-body: 14px;
+  --carbon-text-md:   16px;
+  --carbon-text-lg:   18px;
+  --carbon-text-xl:   20px;
+  --carbon-text-2xl:  24px;
+  --carbon-text-3xl:  30px;
+
+  /* ==========================================================================
+     6. SPACING SCALE
+     ========================================================================== */
+  --carbon-space-1: 4px;
+  --carbon-space-2: 8px;
+  --carbon-space-3: 12px;
+  --carbon-space-4: 16px;
+  --carbon-space-5: 20px;
+  --carbon-space-6: 24px;
+  --carbon-space-8: 32px;
+  --carbon-space-10: 40px;
+  --carbon-space-12: 48px;
+
+  /* ==========================================================================
+     7. RADII & ELEVATIONS (Crisp engineering lines, no exaggerated curves)
+     ========================================================================== */
+  --carbon-radius-sm: 4px;
+  --carbon-radius-md: 6px;
+  --carbon-radius-lg: 8px;
+  --carbon-radius-pill: 9999px;
+
+  --carbon-shadow-none: none;
+  --carbon-shadow-sm: 0 1px 2px 0 rgba(11, 25, 44, 0.04);
+  --carbon-shadow-md: 0 4px 6px -1px rgba(11, 25, 44, 0.06), 0 2px 4px -2px rgba(11, 25, 44, 0.04);
+  --carbon-shadow-lg: 0 10px 15px -3px rgba(11, 25, 44, 0.08), 0 4px 6px -4px rgba(11, 25, 44, 0.04);
+
+  /* ==========================================================================
+     8. GRID SYSTEM
+     ========================================================================== */
+  --carbon-grid-columns: 12;
+  --carbon-grid-gap: 16px;
+  --carbon-max-width: 1440px;
+  --carbon-sidebar-width: 248px;
+  --carbon-header-height: 56px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --carbon-grid-columns: 8;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --carbon-grid-columns: 4;
+    --carbon-grid-gap: 12px;
+  }
+}

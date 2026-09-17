@@ -14,6 +14,7 @@
 import { dataProvider } from '../../app/data-provider.js';
 import { stateStore } from '../../app/state-store.js';
 import { formatBadge, formatCO2e } from '../../app/formatters.js';
+import { ICONS } from '../components/icons.js';
 
 export function renderEvidenceTracePage(options = {}) {
   const providerStatus = options.status || (dataProvider.getStatus ? dataProvider.getStatus() : 'AVAILABLE');
@@ -25,9 +26,9 @@ export function renderEvidenceTracePage(options = {}) {
         <p class="page-subtitle">Governed Provenance & Deterministic Audit Trail | G4 Assurance Core</p>
       </div>
       <div class="enerix-card" id="trace-loading-card" style="text-align:center;padding:48px;" role="status" aria-live="polite">
-        <div style="font-size:24px;margin-bottom:12px;">⏳</div>
-        <div style="font-size:16px;font-weight:600;color:var(--color-navy-900);">Loading Governed Provenance & Trace Graph...</div>
-        <p style="font-size:13px;color:#64748b;margin-top:6px;">Traversing bidirectional lineage graph, source document vault, and calculation snapshot records.</p>
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">${ICONS.spinner(32)}</div>
+        <div style="font-size:16px;font-weight:600;color:var(--carbon-navy-900);">Loading Governed Provenance & Trace Graph...</div>
+        <p style="font-size:13px;color:var(--carbon-navy-500);margin-top:6px;">Traversing bidirectional lineage graph, source document vault, and calculation snapshot records.</p>
       </div>
     `;
   }
@@ -39,9 +40,9 @@ export function renderEvidenceTracePage(options = {}) {
         <p class="page-subtitle">Governed Provenance & Deterministic Audit Trail | G4 Assurance Core</p>
       </div>
       <div class="enerix-card" id="trace-empty-card" style="text-align:center;padding:48px;" role="status">
-        <div style="font-size:24px;margin-bottom:12px;">📂</div>
-        <div style="font-size:16px;font-weight:600;color:var(--color-navy-900);">No Regulated Facilities Registered</div>
-        <p style="font-size:13px;color:#64748b;margin-top:6px;">No statutory facility records found in data provider registry.</p>
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">${ICONS.folderEmpty(32)}</div>
+        <div style="font-size:16px;font-weight:600;color:var(--carbon-navy-900);">No Regulated Facilities Registered</div>
+        <p style="font-size:13px;color:var(--carbon-navy-500);margin-top:6px;">No statutory facility records found in data provider registry.</p>
       </div>
     `;
   }
@@ -53,9 +54,14 @@ export function renderEvidenceTracePage(options = {}) {
         <h1 class="page-title">Evidence & Trace Workspace</h1>
         <p class="page-subtitle">Governed Provenance & Deterministic Audit Trail | G4 Assurance Core</p>
       </div>
-      <div class="enerix-card" id="trace-error-card" style="border-left:4px solid #ef4444;padding:24px;" role="alert">
-        <div style="font-size:16px;font-weight:600;color:#ef4444;margin-bottom:8px;">⚠️ Provenance Ledger Loading Error</div>
-        <p style="font-size:13px;color:#334155;">${errorMsg}</p>
+      <div class="enerix-card" id="trace-error-card" style="padding:24px;" role="alert">
+        <div class="enerix-alert enerix-alert-danger" style="margin-bottom:0;">
+          <div style="flex-shrink:0;">${ICONS.blocker(22)}</div>
+          <div>
+            <div style="font-weight:700;">Provenance Ledger Loading Error</div>
+            <div style="font-size:13px;margin-top:4px;">${errorMsg}</div>
+          </div>
+        </div>
       </div>
     `;
   }
@@ -203,8 +209,8 @@ export function renderEvidenceTracePage(options = {}) {
             </div>
 
             ${stg.rule_enforcement ? `
-              <div style="margin-top:10px;padding:8px 12px;background:#fef3c7;border-radius:4px;border:1px solid #fde68a;font-size:12px;color:#92400e;display:flex;align-items:center;gap:6px;">
-                <span>🛡️</span>
+              <div style="margin-top:10px;padding:8px 12px;background:var(--carbon-amber-50);border-radius:4px;border:1px solid var(--carbon-amber-200);font-size:12px;color:var(--carbon-amber-700);display:flex;align-items:center;gap:6px;">
+                <span style="display:inline-flex;color:var(--carbon-amber-600);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
                 <strong>Governance Authority Rule:</strong> ${stg.rule_enforcement}
               </div>
             ` : ''}

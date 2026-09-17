@@ -10,6 +10,7 @@
 import { dataProvider } from '../../app/data-provider.js';
 import { stateStore } from '../../app/state-store.js';
 import { formatBadge } from '../../app/formatters.js';
+import { ICONS } from '../components/icons.js';
 
 export function renderRegulatoryCheckPage(options = {}) {
   // Support state override or dataProvider lifecycle status
@@ -22,9 +23,9 @@ export function renderRegulatoryCheckPage(options = {}) {
         <p class="page-subtitle">Statutory Applicability, Temporal Boundaries & Jurisdictional Analysis</p>
       </div>
       <div class="enerix-card" style="text-align:center;padding:48px;" role="status" aria-live="polite">
-        <div style="font-size:24px;margin-bottom:12px;">⏳</div>
-        <div style="font-size:16px;font-weight:600;color:var(--color-navy-900);">Loading Governed Regulatory State...</div>
-        <p style="font-size:13px;color:#64748b;margin-top:6px;">Retrieving statutory registries, sector profiles, and temporal boundaries.</p>
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">${ICONS.spinner(32)}</div>
+        <div style="font-size:16px;font-weight:600;color:var(--carbon-navy-900);">Loading Governed Regulatory State...</div>
+        <p style="font-size:13px;color:var(--carbon-navy-500);margin-top:6px;">Retrieving statutory registries, sector profiles, and temporal boundaries.</p>
       </div>
     `;
   }
@@ -36,9 +37,9 @@ export function renderRegulatoryCheckPage(options = {}) {
         <p class="page-subtitle">Statutory Applicability, Temporal Boundaries & Jurisdictional Analysis</p>
       </div>
       <div class="enerix-card" style="text-align:center;padding:48px;" role="status">
-        <div style="font-size:24px;margin-bottom:12px;">📂</div>
-        <div style="font-size:16px;font-weight:600;color:var(--color-navy-900);">No Registered Facilities Available</div>
-        <p style="font-size:13px;color:#64748b;margin-top:6px;">No statutory facility records found in data provider registry.</p>
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">${ICONS.folderEmpty(32)}</div>
+        <div style="font-size:16px;font-weight:600;color:var(--carbon-navy-900);">No Registered Facilities Available</div>
+        <p style="font-size:13px;color:var(--carbon-navy-500);margin-top:6px;">No statutory facility records found in data provider registry.</p>
       </div>
     `;
   }
@@ -52,11 +53,11 @@ export function renderRegulatoryCheckPage(options = {}) {
       </div>
       <div class="enerix-card" style="padding:24px;" role="alert">
         <div class="enerix-alert enerix-alert-danger" style="margin-bottom:0;">
-          <div style="font-size:20px;">⛔</div>
+          <div style="flex-shrink:0;">${ICONS.blocker(22)}</div>
           <div>
             <div style="font-weight:700;">Regulatory Engine State Error (Fail-Closed)</div>
             <div style="font-size:13px;margin-top:4px;">${errorMsg}</div>
-            <div style="font-size:11px;color:#991b1b;margin-top:6px;">Source: RegulatoryEngine / StateStore Provenance</div>
+            <div style="font-size:11px;color:var(--carbon-red-800);margin-top:6px;">Source: RegulatoryEngine / StateStore Provenance</div>
           </div>
         </div>
       </div>
@@ -168,7 +169,7 @@ export function renderRegulatoryCheckPage(options = {}) {
 
       ${!isTemporalSegmented ? `
         <div class="enerix-alert enerix-alert-warning">
-          <div style="font-size:18px;">⚠️</div>
+          <div style="flex-shrink:0;">${ICONS.warning(22)}</div>
           <div style="flex:1;">
             <div style="font-weight:700;margin-bottom:4px;">Temporal Straddle Detected — Unsegmented Reporting Period</div>
             <div>The reporting period (${reportingPeriod.period_start} to ${reportingPeriod.period_end}) straddles the facility applicability list transition boundary on <strong>2026-09-25</strong> (QĐ 42/2026/QĐ-TTg). Aggregating activity data across this boundary into a single unsegmented period violates EC-TEMP-001 and prevents verified statutory MRV submission.</div>
@@ -181,7 +182,7 @@ export function renderRegulatoryCheckPage(options = {}) {
         </div>
       ` : `
         <div class="enerix-alert enerix-alert-success">
-          <div style="font-size:18px;">✓</div>
+          <div style="flex-shrink:0;">${ICONS.checkCircle(22)}</div>
           <div style="flex:1;">
             <div style="font-weight:700;margin-bottom:4px;">Temporal Segmentation Active (SEGMENTED_COMPLIANT)</div>
             <div>The reporting year is partitioned into two distinct chronological compliance segments across the 2026-09-25 applicability list boundary. Activity data and factor bindings are isolated per regime.</div>
@@ -309,7 +310,7 @@ export function renderRegulatoryCheckPage(options = {}) {
 
       ${hasConflicts ? `
         <div class="enerix-alert enerix-alert-danger">
-          <div style="font-size:18px;">⛔</div>
+          <div style="flex-shrink:0;">${ICONS.blocker(22)}</div>
           <div style="flex:1;">
             <div style="font-weight:700;margin-bottom:4px;">Jurisdictional Precedence Conflict (Fail-Closed)</div>
             <div>
@@ -318,16 +319,16 @@ export function renderRegulatoryCheckPage(options = {}) {
             </div>
             <div style="margin-top:8px;font-size:12px;">
               <strong>Competing Governed Rules:</strong> 
-              ${vm.conflicts.map(c => `<span class="mono-text" style="background:#fee2e2;padding:2px 6px;border-radius:4px;margin-right:6px;">${c}</span>`).join('')}
+              ${vm.conflicts.map(c => `<span class="mono-text" style="background:var(--carbon-red-100);padding:2px 6px;border-radius:4px;margin-right:6px;">${c}</span>`).join('')}
             </div>
-            <div style="margin-top:8px;font-size:12px;color:#7f1d1d;">
+            <div style="margin-top:8px;font-size:12px;color:var(--carbon-red-800);">
               <em>Governance Principle: ENERIX Carbon adheres to the Fail-Closed standard and does not silently guess or override ministerial precedence without formal statutory decree.</em>
             </div>
           </div>
         </div>
       ` : `
         <div class="enerix-alert enerix-alert-success" style="margin-bottom:0;">
-          <div style="font-size:18px;">✓</div>
+          <div style="flex-shrink:0;">${ICONS.checkCircle(22)}</div>
           <div style="flex:1;">
             <div style="font-weight:700;margin-bottom:2px;">Clear Jurisdictional Boundary Established</div>
             <div>No competing ministerial rules detected for ${vm.facility_name}. Primary competence lies with <strong>${vm.sector_id.includes('ENERGY') ? 'Ministry of Industry and Trade (MOIT)' : 'Ministry of Construction (MOC)'}</strong>.</div>

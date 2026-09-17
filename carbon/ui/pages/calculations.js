@@ -13,6 +13,7 @@
 import { dataProvider } from '../../app/data-provider.js';
 import { stateStore } from '../../app/state-store.js';
 import { formatBadge, formatCO2e } from '../../app/formatters.js';
+import { ICONS } from '../components/icons.js';
 
 export function renderCalculationsPage(options = {}) {
   const providerStatus = options.status || (dataProvider.getStatus ? dataProvider.getStatus() : 'AVAILABLE');
@@ -24,9 +25,9 @@ export function renderCalculationsPage(options = {}) {
         <p class="page-subtitle">Governed Deterministic Calculation Workspace | G2 Execution Core & G3 Plan Binding</p>
       </div>
       <div class="enerix-card" style="text-align:center;padding:48px;" role="status" aria-live="polite">
-        <div style="font-size:24px;margin-bottom:12px;">⏳</div>
-        <div style="font-size:16px;font-weight:600;color:var(--color-navy-900);">Loading Governed Calculation Studio...</div>
-        <p style="font-size:13px;color:#64748b;margin-top:6px;">Retrieving calculation plan, activity ledger, emission factors, and GWP datasets.</p>
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">${ICONS.spinner(32)}</div>
+        <div style="font-size:16px;font-weight:600;color:var(--carbon-navy-900);">Loading Governed Calculation Studio...</div>
+        <p style="font-size:13px;color:var(--carbon-navy-500);margin-top:6px;">Retrieving calculation plan, activity ledger, emission factors, and GWP datasets.</p>
       </div>
     `;
   }
@@ -38,9 +39,9 @@ export function renderCalculationsPage(options = {}) {
         <p class="page-subtitle">Governed Deterministic Calculation Workspace | G2 Execution Core & G3 Plan Binding</p>
       </div>
       <div class="enerix-card" style="text-align:center;padding:48px;" role="status">
-        <div style="font-size:24px;margin-bottom:12px;">📂</div>
-        <div style="font-size:16px;font-weight:600;color:var(--color-navy-900);">No Regulated Facilities Registered</div>
-        <p style="font-size:13px;color:#64748b;margin-top:6px;">No statutory facility records found in data provider registry.</p>
+        <div style="display:flex;justify-content:center;margin-bottom:12px;">${ICONS.folderEmpty(32)}</div>
+        <div style="font-size:16px;font-weight:600;color:var(--carbon-navy-900);">No Regulated Facilities Registered</div>
+        <p style="font-size:13px;color:var(--carbon-navy-500);margin-top:6px;">No statutory facility records found in data provider registry.</p>
       </div>
     `;
   }
@@ -54,11 +55,11 @@ export function renderCalculationsPage(options = {}) {
       </div>
       <div class="enerix-card" style="padding:24px;" role="alert">
         <div class="enerix-alert enerix-alert-danger" style="margin-bottom:0;">
-          <div style="font-size:20px;">⛔</div>
+          <div style="flex-shrink:0;">${ICONS.blocker(22)}</div>
           <div>
             <div style="font-weight:700;">Calculation Studio Engine Error (Fail-Closed)</div>
             <div style="font-size:13px;margin-top:4px;">${errorMsg}</div>
-            <div style="font-size:11px;color:#991b1b;margin-top:6px;">Source: CalculationEngine / StateStore Provenance</div>
+            <div style="font-size:11px;color:var(--carbon-red-800);margin-top:6px;">Source: CalculationEngine / StateStore Provenance</div>
           </div>
         </div>
       </div>
@@ -140,13 +141,13 @@ export function renderCalculationsPage(options = {}) {
     ${!vm.can_execute ? `
       <!-- Fail-Closed Execution Blocker Alert -->
       <div class="enerix-alert enerix-alert-danger" style="margin-bottom:20px;">
-        <div style="font-size:20px;">⚠️</div>
+        <div style="flex-shrink:0;">${ICONS.blocker(22)}</div>
         <div>
           <div style="font-weight:700;">Deterministic Execution Blocked (Fail-Closed Rule Enforced)</div>
           <ul style="margin:6px 0 0 16px;font-size:12px;line-height:1.6;">
             ${vm.blocking_reasons.map(reason => `<li>${reason}</li>`).join('')}
           </ul>
-          <div style="font-size:11px;margin-top:6px;color:#991b1b;">
+          <div style="font-size:11px;margin-top:6px;color:var(--carbon-red-800);">
             Resolve prerequisites by enabling temporal segmentation or selecting an authorized facility before triggering deterministic calculation.
           </div>
         </div>
@@ -157,38 +158,44 @@ export function renderCalculationsPage(options = {}) {
     <div class="enerix-card" style="margin-bottom:24px;">
       <div class="enerix-card-title">
         <span>Governed Validation Gates (G3 Execution Blueprint)</span>
-        <span class="mono-text" style="font-size:12px;font-weight:600;color:#64748b;">Plan ID: ${vm.plan.plan_id}</span>
+        <span class="mono-text" style="font-size:12px;font-weight:600;color:var(--carbon-navy-500);">Plan ID: ${vm.plan.plan_id}</span>
       </div>
-      <p style="font-size:12px;color:#64748b;margin-bottom:16px;">
+      <p style="font-size:12px;color:var(--carbon-navy-500);margin-bottom:16px;">
         All 6 statutory validation gates must pass before the deterministic calculation engine executes. UI acts as an inspector, not a calculation authority.
       </p>
 
       <div class="card-grid" style="gap:12px;margin-bottom:20px;">
         ${vm.plan.validation_gates.map(gate => `
-          <div style="border:1px solid var(--color-border);border-radius:6px;padding:12px;background:#ffffff;">
+          <div style="border:1px solid var(--carbon-navy-200);border-radius:6px;padding:12px;background:var(--carbon-surface-card);">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <span style="font-size:12px;font-weight:700;color:var(--color-navy-900);">${gate.name}</span>
+              <span style="font-size:12px;font-weight:700;color:var(--carbon-navy-900);">${gate.name}</span>
               <span class="status-badge ${gate.status === 'PASS' ? 'active' : (gate.status === 'REQUIRES_REVIEW' ? 'pending' : 'mandatory')}" style="font-size:10px;">
                 ${gate.status}
               </span>
             </div>
-            <div style="font-size:11px;color:#64748b;line-height:1.4;">
+            <div style="font-size:11px;color:var(--carbon-navy-500);line-height:1.4;">
               ${gate.details}
             </div>
           </div>
         `).join('')}
       </div>
 
-      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--color-border);flex-wrap:wrap;gap:12px;">
-        <div style="font-size:12px;color:#64748b;">
-          Methodology: <strong style="color:var(--color-navy-900);">${vm.methodology.name}</strong> (${vm.methodology.governing_circular})
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--carbon-navy-200);flex-wrap:wrap;gap:12px;">
+        <div style="font-size:12px;color:var(--carbon-navy-500);">
+          Methodology: <strong style="color:var(--carbon-navy-900);">${vm.methodology.name}</strong> (${vm.methodology.governing_circular})
         </div>
         <div style="display:flex;gap:10px;">
-          <button id="btn-recheck-gates" class="enerix-btn enerix-btn-outline">
-            <span>🔄</span> Re-evaluate Gates
+          <button id="btn-recheck-gates" class="enerix-button enerix-button-secondary">
+            <span style="display:inline-flex;align-items:center;gap:6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              Re-evaluate Gates
+            </span>
           </button>
-          <button id="btn-execute-calc" class="enerix-btn enerix-btn-primary" ${!vm.can_execute ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>
-            <span>⚡</span> Execute Governed Calculation Engine Run
+          <button id="btn-execute-calc" class="enerix-button enerix-button-primary" ${!vm.can_execute ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>
+            <span style="display:inline-flex;align-items:center;gap:6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Execute Governed Calculation Engine Run
+            </span>
           </button>
         </div>
       </div>
