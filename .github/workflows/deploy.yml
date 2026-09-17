@@ -18,14 +18,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
 
       - name: Install dependencies
-        run: npm install
+        run: bun ci
 
       - name: Build Living Book
-        run: npm run build
+        run: bun run build
+
+      - name: Run verification tests
+        run: bun run test:all
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -45,4 +52,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
 
