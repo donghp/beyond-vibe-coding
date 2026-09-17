@@ -16,7 +16,7 @@ export function renderPublicHeader() {
     <header class="public-header" style="background:#ffffff;color:var(--carbon-navy-900, #08213D);border-bottom:1px solid var(--carbon-border, #E2E8F0);position:sticky;top:0;z-index:100;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
       <div style="display:flex;align-items:center;gap:40px;">
         <div class="brand" style="display:flex;align-items:center;cursor:pointer;" onclick="window.location.hash='#overview'">
-          <img src="${logoUrl}" alt="ENERIXON CARBON" style="height:36px;width:auto;display:block;" />
+          <img src="${logoUrl}" alt="ENERIXON CARBON" class="canonical-header-logo" />
         </div>
         <nav style="display:flex;gap:28px;align-items:center;font-size:14px;font-weight:600;color:var(--carbon-navy-800, #1E293B);">
           <a href="#overview" style="color:${currentRoute === 'overview' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Product</a>

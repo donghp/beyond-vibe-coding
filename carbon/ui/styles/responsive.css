@@ -129,3 +129,28 @@
     display: none;
   }
 }
+
+.canonical-header-logo {
+  width: 136px;
+  max-width: 136px;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 1366px) {
+  .canonical-header-logo {
+    width: 128px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .canonical-header-logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .canonical-header-logo {
+    width: 110px;
+  }
+}
