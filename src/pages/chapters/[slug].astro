@@ -15,7 +15,7 @@ import AuthorBonus from '../../components/AuthorBonus.astro';
 import ChapterNavigation from '../../components/ChapterNavigation.astro';
 import Footer from '../../components/Footer.astro';
 import ChapterContent from '../../components/ChapterContent.astro';
-import { joinBase } from '../../utils/paths';
+import { joinBase, joinPage } from '../../utils/paths';
 
 // Generate static paths strictly for published chapter slugs
 export async function getStaticPaths() {
@@ -42,7 +42,7 @@ const prevChapter = currentIndex > 0 ? sortedChapters[currentIndex - 1] : undefi
 const nextChapter = currentIndex < sortedChapters.length - 1 ? sortedChapters[currentIndex + 1] : undefined;
 
 const prevCustomLink = currentIndex === 0 ? {
-  href: joinBase('opening/danh-tang'),
+  href: joinPage('opening/danh-tang'),
   label: "Lời đề từ",
   subtitle: "Dành Tặng"
 } : undefined;

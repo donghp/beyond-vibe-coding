@@ -34,3 +34,27 @@ export function joinBase(relativePath: string = ''): string {
   
   return cleanBase + cleanRelative;
 }
+
+/**
+ * Joins base path and ensures a canonical trailing slash for page routes.
+ * Use this for all internal navigation links.
+ */
+export function joinPage(relativePath: string = ''): string {
+  let joined = joinBase(relativePath);
+
+  // If it has a hash, handle the part before the hash
+  if (joined.includes('#')) {
+    const [path, hash] = joined.split('#');
+    if (!path.endsWith('/')) {
+      return `${path}/#${hash}`;
+    }
+    return joined;
+  }
+
+  // Ensure trailing slash for page routes
+  if (!joined.endsWith('/')) {
+    joined += '/';
+  }
+
+  return joined;
+}

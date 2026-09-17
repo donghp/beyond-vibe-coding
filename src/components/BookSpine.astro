@@ -1,6 +1,6 @@
 ---
 import { getCanonicalBookMap, getDerivedDisplayLabel } from '../data/bookMap';
-import { joinBase } from '../utils/paths';
+import { joinBase, joinPage } from '../utils/paths';
 
 interface Props {
   activeChapterId?: string;
@@ -32,14 +32,14 @@ const canonicalItems = await getCanonicalBookMap();
     <!-- Dedicated Book Opening Section -->
     <div class="flex flex-col gap-1 pb-2 mb-2 border-b border-navy-100">
       <a 
-        href={joinBase('opening/dedication')}
+        href={joinPage('opening/dedication')}
         class="group flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs text-navy-600 hover:text-tech-blue hover:bg-navy-100/60 transition-colors"
       >
         <span class="w-1.5 h-1.5 rounded-full bg-navy-300 group-hover:bg-tech-blue transition-colors"></span>
         <span class="font-medium text-[11px] tracking-tight">Trang đề tặng (Dedication)</span>
       </a>
       <a 
-        href={joinBase('opening/danh-tang')}
+        href={joinPage('opening/danh-tang')}
         class="group flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs text-navy-600 hover:text-tech-blue hover:bg-navy-100/60 transition-colors"
       >
         <span class="w-1.5 h-1.5 rounded-full bg-navy-300 group-hover:bg-tech-blue transition-colors"></span>
@@ -87,7 +87,7 @@ const canonicalItems = await getCanonicalBookMap();
 
       return (
         <a 
-          href={joinBase(`chapters/${slug}`)}
+          href={joinPage(`chapters/${slug}`)}
           class={`group flex items-start gap-3 px-3 py-2.5 rounded-lg text-xs transition-all duration-150 relative cursor-pointer ${
             isActive 
               ? 'bg-[#ebf4fd] text-tech-blue font-bold border-l-4 border-tech-blue' 

@@ -2,7 +2,7 @@
 // Prompt-ID: #000006
 // Prompt-Title: BVC GLOBAL NAVIGATION — ACTIVE TAB / ROUTE-AWARE NAVIGATION FIX
 
-import { joinBase } from '../utils/paths';
+import { joinBase, joinPage } from '../utils/paths';
 
 const pathname = Astro.url.pathname;
 const base = (import.meta.env.BASE_URL || '/');
@@ -37,16 +37,16 @@ if (cleanPath === 'about' || cleanPath.startsWith('about/')) {
 }
 
 const navItems = [
-  { id: 'chapters', label: 'Chapters', href: joinBase('') },
-  { id: 'glossary', label: 'Glossary', href: joinBase('glossary') },
-  { id: 'about', label: 'About', href: joinBase('about') },
-  { id: 'resources', label: 'Resources', href: joinBase('resources') }
+  { id: 'chapters', label: 'Chapters', href: joinPage('') },
+  { id: 'glossary', label: 'Glossary', href: joinPage('glossary') },
+  { id: 'about', label: 'About', href: joinPage('about') },
+  { id: 'resources', label: 'Resources', href: joinPage('resources') }
 ];
 ---
 
 <header class="sticky top-0 z-40 w-full h-[var(--header-height)] bg-[#fbfbfd]/95 backdrop-blur-md border-b border-navy-100 flex items-center justify-between px-6 transition-all duration-300 header-container">
   <!-- Brand Identity -->
-  <a href={joinBase('')} class="flex flex-col select-none group focus:outline-none">
+  <a href={joinPage('')} class="flex flex-col select-none group focus:outline-none">
     <div class="flex items-center gap-1.5 text-base sm:text-lg font-black tracking-tight uppercase leading-none font-sans">
       <span class="text-navy-950">BEYOND</span>
       <span class="text-tech-blue">VIBE</span>

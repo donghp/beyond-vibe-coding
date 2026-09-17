@@ -1,5 +1,5 @@
 ---
-import { joinBase } from '../utils/paths';
+import { joinBase, joinPage } from '../utils/paths';
 
 interface ChapterItem {
   id: string;
@@ -27,7 +27,7 @@ const { prevChapter, nextChapter, prevCustomLink } = Astro.props;
   <!-- Previous Chapter or Custom Link -->
   {prevChapter ? (
     <a 
-      href={joinBase(`chapters/${prevChapter.id}`)}
+      href={joinPage(`chapters/${prevChapter.id}`)}
       class="w-full sm:w-2/5 border border-navy-200/80 bg-white rounded-xl p-4 flex flex-col gap-1 hover:border-tech-blue hover:bg-navy-50/50 transition-all duration-150 focus:outline-none group min-w-0 shadow-2xs"
     >
       <span class="text-xs font-bold text-navy-900 group-hover:text-tech-blue transition-colors flex items-center gap-1.5">
@@ -43,7 +43,7 @@ const { prevChapter, nextChapter, prevCustomLink } = Astro.props;
     </a>
   ) : prevCustomLink ? (
     <a 
-      href={prevCustomLink.href}
+      href={joinPage(prevCustomLink.href)}
       class="w-full sm:w-2/5 border border-navy-200/80 bg-white rounded-xl p-4 flex flex-col gap-1 hover:border-tech-blue hover:bg-navy-50/50 transition-all duration-150 focus:outline-none group min-w-0 shadow-2xs"
     >
       <span class="text-xs font-bold text-navy-900 group-hover:text-tech-blue transition-colors flex items-center gap-1.5">
@@ -80,7 +80,7 @@ const { prevChapter, nextChapter, prevCustomLink } = Astro.props;
   <!-- Next Chapter -->
   {nextChapter ? (
     <a 
-      href={joinBase(`chapters/${nextChapter.id}`)}
+      href={joinPage(`chapters/${nextChapter.id}`)}
       class="w-full sm:w-2/5 border border-navy-200/80 bg-white rounded-xl p-4 flex flex-col gap-1 items-end hover:border-tech-blue hover:bg-navy-50/50 transition-all duration-150 focus:outline-none group text-right min-w-0 shadow-2xs"
     >
       <span class="text-xs font-bold text-navy-900 group-hover:text-tech-blue transition-colors flex items-center gap-1.5">
