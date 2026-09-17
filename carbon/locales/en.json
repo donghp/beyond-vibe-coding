@@ -1,9 +1,15 @@
 {
   "common": {
     "title": "ENERIX Carbon — Regulatory Carbon & GHG Engineering Platform",
-    "loading": "Initializing ENERIX Carbon Workspace..."
+    "loading": "Initializing ENERIX Carbon Workspace...",
+    "measure_workspace": "Carbon Measurement Workspace",
+    "report_workspace": "Regulatory Reporting Workspace",
+    "reduce_workspace": "Decarbonization & Reduction Workspace"
   },
   "nav": {
+    "measure": "Measure",
+    "report": "Report",
+    "reduce": "Reduce",
     "overview": "Overview",
     "regulatory": "Regulatory Check",
     "facilities": "Facilities / Inventory",
@@ -13,20 +19,30 @@
     "evidence": "Evidence & Trace",
     "reports": "Reports",
     "knowledge": "Knowledge Base",
+    "group_measure_core": "Measurement & Scope",
+    "group_data_collection": "Data Collection & Intelligence",
+    "group_engineering": "Engineering & Factors",
+    "group_assurance": "Assurance & Audit",
     "group_compliance": "Enterprise Compliance",
     "group_data": "Data & Methodology",
     "group_audit": "Audit & Knowledge",
-    "overview_label": "Executive Dashboard",
-    "regulatory_label": "Regulatory Workspace",
+    "overview_label": "Measurement Overview",
+    "regulatory_label": "Regulatory Applicability",
     "facilities_label": "Regulated Facilities",
-    "inventory_label": "GHG Inventory (Scopes)",
+    "inventory_label": "GHG Scope Map (1, 2, 3)",
     "activities_label": "Activity Data Ledger",
     "emission_factors_label": "Emission Factors Registry",
-    "methodologies_label": "Ministry MRV Circulars",
+    "methodologies_label": "MRV Methodologies",
     "calculations_label": "Calculation Studio",
-    "evidence_label": "Evidence & Audit Trace",
+    "evidence_label": "Evidence & Traceability",
     "reports_label": "Regulatory Reports",
-    "knowledge_label": "Regulatory Knowledge Base"
+    "knowledge_label": "GHG Reporting Guide",
+    "report_overview_label": "Report Overview",
+    "report_readiness_label": "Report Readiness",
+    "audit_package_label": "Audit Package",
+    "hotspots_label": "Emission Hotspots",
+    "targets_label": "Reduction Targets",
+    "scenarios_label": "Abatement Scenarios"
   },
   "status": {
     "pass": "PASS",

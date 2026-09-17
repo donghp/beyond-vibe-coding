@@ -157,6 +157,83 @@ body {
 }
 
 /* ==========================================================================
+   PRODUCT-LEVEL NAVIGATION (01 Measure | 02 Report | 03 Reduce)
+   ========================================================================== */
+.carbon-product-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-left: 16px;
+}
+
+.product-nav-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--carbon-radius-sm);
+  color: rgba(255, 255, 255, 0.72);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.product-nav-btn .nav-step {
+  font-family: var(--carbon-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--carbon-blue-300);
+  background: rgba(0, 160, 224, 0.16);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.product-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.product-nav-btn.active {
+  background: rgba(0, 160, 224, 0.18);
+  color: #ffffff;
+  border-color: rgba(0, 160, 224, 0.4);
+  font-weight: 600;
+}
+
+.product-nav-btn.active .nav-step {
+  background: var(--carbon-blue-500);
+  color: #ffffff;
+}
+
+.carbon-gov-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 4px 10px;
+  border-radius: var(--carbon-radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--carbon-blue-200);
+  white-space: nowrap;
+}
+
+.carbon-gov-pill .status-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--carbon-green-500);
+  box-shadow: 0 0 0 2px rgba(112, 192, 64, 0.25);
+}
+
+/* ==========================================================================
    SHELL — MAIN BODY & SIDEBAR
    ========================================================================== */
 .carbon-main-body {
@@ -651,10 +728,26 @@ body {
 
 @media (max-width: 768px) {
   .carbon-header .brand-title {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .carbon-header .brand-badge {
+    display: none;
+  }
+
+  .carbon-product-nav {
+    margin-left: 8px;
+    padding-left: 8px;
+    gap: 2px;
+  }
+
+  .product-nav-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .product-nav-btn .nav-step {
     display: none;
   }
 
@@ -772,3 +865,99 @@ body {
     display: none;
   }
 }
+
+/* ==========================================================================
+   OFFICIAL CANONICAL BRAND BANNER (Task #Enerix_Carbon_00005)
+   ========================================================================== */
+.carbon-brand-banner-container {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.carbon-brand-banner-frame {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--carbon-radius-lg, 12px);
+  border: 1px solid var(--carbon-border-strong, #cbd5e1);
+  background-color: var(--carbon-navy-950, #0b1d3a);
+  box-shadow: 0 4px 12px rgba(11, 29, 58, 0.08);
+}
+
+.carbon-brand-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Variant: Hero (Default for Executive Overview & Landing) */
+.carbon-brand-banner-container.variant-hero .carbon-brand-banner-frame {
+  max-height: 260px;
+}
+
+.carbon-brand-banner-container.variant-hero .carbon-brand-banner-img {
+  aspect-ratio: 1920 / 816;
+  max-height: 260px;
+}
+
+/* Variant: Guide / Knowledge */
+.carbon-brand-banner-container.variant-guide .carbon-brand-banner-frame {
+  max-height: 200px;
+}
+
+.carbon-brand-banner-container.variant-guide .carbon-brand-banner-img {
+  aspect-ratio: 1920 / 816;
+  max-height: 200px;
+}
+
+/* Variant: Compact (Operational Pages) */
+.carbon-brand-banner-container.variant-compact .carbon-brand-banner-frame {
+  max-height: 120px;
+}
+
+.carbon-brand-banner-container.variant-compact .carbon-brand-banner-img {
+  aspect-ratio: 1920 / 816;
+  max-height: 120px;
+}
+
+.carbon-brand-banner-caption {
+  font-size: 11px;
+  color: var(--carbon-navy-500, #64748b);
+  margin-top: 6px;
+  padding-left: 4px;
+  font-weight: 500;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .carbon-brand-banner-container.variant-hero .carbon-brand-banner-frame {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carbon-brand-banner-container {
+    margin-bottom: 16px;
+  }
+  .carbon-brand-banner-container.variant-hero .carbon-brand-banner-frame,
+  .carbon-brand-banner-container.variant-guide .carbon-brand-banner-frame {
+    max-height: 160px;
+    border-radius: var(--carbon-radius-md, 8px);
+  }
+  .carbon-brand-banner-container.variant-compact .carbon-brand-banner-frame {
+    max-height: 90px;
+  }
+  .carbon-brand-banner-img {
+    object-position: center 35%; /* Preserves central logo & brand lockup */
+  }
+}
+
+@media (max-width: 480px) {
+  .carbon-brand-banner-container.variant-hero .carbon-brand-banner-frame {
+    max-height: 130px;
+  }
+}
+

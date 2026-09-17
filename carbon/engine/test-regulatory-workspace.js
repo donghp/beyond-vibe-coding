@@ -100,7 +100,7 @@ console.log('Starting ENERIX Carbon Regulatory Workspace Verification Suite (#00
   runner.run('TC-REGUI-002', 'facility context displayed (identity, legal name, tax ID, province, sector)', () => {
     stateStore.setSelectedFacilityId('FAC-2026-001');
     const html = renderRegulatoryCheckPage();
-    if (!html.includes('Nhà máy Nhiệt điện Phả Lại 1 & 2')) {
+    if (!html.includes('Nhà máy Nhiệt điện PL 1 & 2')) {
       throw new Error('Missing active facility name');
     }
     if (!html.includes('0101234567')) {
@@ -410,14 +410,14 @@ console.log('Starting ENERIX Carbon Regulatory Workspace Verification Suite (#00
   runner.run('TC-REGUI-018', 'multi-facility context isolation between different facility selections', () => {
     stateStore.setSelectedFacilityId('FAC-2026-002');
     let vm = stateStore.getRegulatoryViewModel();
-    if (vm.facility_id !== 'FAC-2026-002' || !vm.facility_name.includes('Vicem Hà Tiên')) {
-      throw new Error(`Expected FAC-2026-002 Vicem Ha Tien, got ${vm.facility_id}`);
+    if (vm.facility_id !== 'FAC-2026-002' || !vm.facility_name.includes('VHT')) {
+      throw new Error(`Expected FAC-2026-002 VHT, got ${vm.facility_id}`);
     }
 
     stateStore.setSelectedFacilityId('FAC-2026-001');
     vm = stateStore.getRegulatoryViewModel();
-    if (vm.facility_id !== 'FAC-2026-001' || !vm.facility_name.includes('Phả Lại')) {
-      throw new Error(`Expected FAC-2026-001 Pha Lai, got ${vm.facility_id}`);
+    if (vm.facility_id !== 'FAC-2026-001' || !vm.facility_name.includes('PL')) {
+      throw new Error(`Expected FAC-2026-001 PL, got ${vm.facility_id}`);
     }
   });
 

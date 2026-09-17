@@ -87,7 +87,7 @@ async function executeTests() {
     if (!html.includes('overview-facility-select')) {
       throw new Error('Facility selector select element missing');
     }
-    if (!html.includes('Nhà máy Nhiệt điện Phả Lại 1') || !html.includes('FAC-2026-001')) {
+    if (!html.includes('Nhà máy Nhiệt điện PL 1') || !html.includes('FAC-2026-001')) {
       throw new Error('Active facility name and ID missing from rendered options');
     }
   });

@@ -28,6 +28,7 @@ export const STATUS_NORMALIZATION = Object.freeze({
 export class StateStore {
   constructor() {
     this.currentRoute = 'overview';
+    this.currentSection = 'measure'; // 'measure' | 'report' | 'reduce'
     this.selectedFacilityId = 'FAC-2026-001';
     this.selectedReportingYear = 2026;
     this.selectedReportingPeriod = {
@@ -75,12 +76,35 @@ export class StateStore {
     this.notify();
   }
 
-  // Navigation
+  // Navigation & Product Sections
+  getCurrentSection() {
+    return this.currentSection;
+  }
+
+  setSection(section) {
+    if (this.currentSection === section) return;
+    this.currentSection = section;
+    if (section === 'report') {
+      this.currentRoute = 'reports';
+    } else if (section === 'reduce') {
+      this.currentRoute = 'overview';
+    } else {
+      this.currentRoute = 'overview';
+    }
+    this.viewState.isMobileMenuOpen = false;
+    this.notify();
+  }
+
   getRoute() {
     return this.currentRoute;
   }
 
   setRoute(route) {
+    if (['reports'].includes(route)) {
+      this.currentSection = 'report';
+    } else if (this.currentSection === 'report' && ['overview', 'facilities', 'regulatory-check', 'inventory', 'activity-data', 'calculations', 'emission-factors', 'methodologies'].includes(route)) {
+      this.currentSection = 'measure';
+    }
     if (this.currentRoute === route) {
       // Still close menu if clicking same route on mobile
       this.viewState.isMobileMenuOpen = false;

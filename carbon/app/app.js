@@ -55,8 +55,29 @@ export async function initApp() {
     const route = stateStore.getRoute();
     const viewState = stateStore.getViewState();
     
+    headerRoot.innerHTML = renderHeader();
     sidebarRoot.innerHTML = renderSidebar(route, viewState.isMobileMenuOpen);
     router.renderCurrentRoute();
+
+    // Bind top product navigation (Measure / Report / Reduce)
+    headerRoot.querySelectorAll('.product-nav-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const section = btn.getAttribute('data-section');
+        if (section) {
+          stateStore.setSection(section);
+        }
+      });
+    });
+
+    // Update active facility in sidebar header if present
+    const activeFacEl = sidebarRoot.querySelector('#sidebar-active-facility');
+    if (activeFacEl) {
+      const activeFac = dataProvider.getFacility(stateStore.getSelectedFacilityId());
+      if (activeFac) {
+        activeFacEl.textContent = activeFac.facility_name;
+      }
+    }
 
     // Bind navigation click handlers
     sidebarRoot.querySelectorAll('.carbon-nav-item').forEach(el => {

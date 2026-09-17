@@ -79,7 +79,7 @@ The verification suite (`/carbon/engine/test-regulatory-workspace.js`) was execu
 | Test ID | Objective | Verified Result | Status |
 |---|---|---|---|
 | `TC-REGUI-001` | Workspace loads with primary statutory layout & headers | Renders page structure and Decision 42 legal citations | **PASSED** |
-| `TC-REGUI-002` | Facility context displayed (name, legal name, tax ID, province, sector) | Verified for `FAC-2026-001` (Phả Lại) | **PASSED** |
+| `TC-REGUI-002` | Facility context displayed (name, legal name, tax ID, province, sector) | Verified for `FAC-2026-001` (PL 1 & 2) | **PASSED** |
 | `TC-REGUI-003` | Applicability states displayed correctly | Renders discrete governed status badges (`APPLICABLE`/`MANDATORY`) | **PASSED** |
 | `TC-REGUI-004` | Mandatory status remains separate from applicability | `mandatory` boolean and `status` rendered in separate tags | **PASSED** |
 | `TC-REGUI-005` | Sector mapping state displayed | Verified `Sector_1_MOIT` mapping state `EXACT` | **PASSED** |
