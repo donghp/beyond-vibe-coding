@@ -5,12 +5,13 @@
 import { joinBase } from '../utils/paths';
 
 const pathname = Astro.url.pathname;
-const base = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
+const base = (import.meta.env.BASE_URL || '/');
+const cleanBase = base.endsWith('/') ? base : `${base}/`;
 
 // Normalize path by stripping base URL and leading/trailing slashes
-let normalized = pathname;
-if (base && normalized.startsWith(base)) {
-  normalized = normalized.slice(base.length);
+let normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+if (cleanBase && normalized.startsWith(cleanBase)) {
+  normalized = normalized.slice(cleanBase.length);
 }
 const cleanPath = normalized.replace(/^\/+|\/+$/g, '');
 
@@ -36,10 +37,10 @@ if (cleanPath === 'about' || cleanPath.startsWith('about/')) {
 }
 
 const navItems = [
-  { id: 'chapters', label: 'Chapters', href: joinBase('#chapters') },
+  { id: 'chapters', label: 'Chapters', href: joinBase('') },
   { id: 'glossary', label: 'Glossary', href: joinBase('glossary') },
   { id: 'about', label: 'About', href: joinBase('about') },
-  { id: 'resources', label: 'Resources', href: joinBase('#resources') }
+  { id: 'resources', label: 'Resources', href: joinBase('resources') }
 ];
 ---
 

@@ -8,18 +8,19 @@ The deployment workflow (`deploy.yml`) was manually copying all files from the `
 
 ## 3. Remediation Actions
 
-### 3.1. Deployment Workflow Alignment
-Modified `/.github/workflows/deploy.yml` to:
+### 3.1. Deployment Workflow & Page Isolation
+Modified `/.github/workflows/deploy.yml` and source structure:
 - Properly build the root Living Book using `npm run build` (Astro).
 - Isolate Carbon inside `dist/carbon/`.
 - Removed the command that flattened Carbon files into the root `dist/`.
+- DELETED `src/pages/carbon/index.astro` to ensure Astro does not attempt to build the `/carbon` path or bundle Carbon ESM modules into the root application assets.
 
-### 3.2. Carbon Application Guard
-Modified `/carbon/app/app.js` to include a path-based guard. The `initApp` function now exits early if `window.location.pathname` does not include `/carbon/`.
+### 3.2. Carbon Application Guard (Hardened)
+Modified `/carbon/app/app.js` to include a robust path-based guard. The `initApp` function now exits early if `window.location.pathname` does not include `/carbon/` or end with `/carbon`.
 
-### 3.3. Carbon Router Guard
+### 3.3. Carbon Router Guard (Hardened)
 Modified `/carbon/app/router.js` to:
-- Exit the constructor if the path is invalid.
+- Exit the constructor if the path context is invalid (checked against project base path).
 - Prevent writing to `window.location.hash` in `renderCurrentRoute` if the path context is incorrect.
 
 ## 4. Repository Structure Verification

@@ -7,7 +7,7 @@ export function renderHeader() {
   const currentLocale = I18nManager.currentLocale;
   return `
     <header class="carbon-header">
-      <div style="display:flex;align-items:center;">
+      <div class="header-left">
         <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 12h18M3 6h18M3 18h18"/>
@@ -21,7 +21,7 @@ export function renderHeader() {
           <span class="brand-badge">Regulatory GHG v7.0</span>
         </div>
       </div>
-      <div class="header-right-desktop" style="display:flex;align-items:center;gap:16px;">
+      <div class="header-right-desktop">
         <select onchange="window.setAppLocale(this.value)" style="background:rgba(255,255,255,0.1);color:white;border:none;padding:4px;border-radius:4px;">
             <option value="en" ${currentLocale === 'en' ? 'selected' : ''}>English</option>
             <option value="vi" ${currentLocale === 'vi' ? 'selected' : ''}>Tiếng Việt</option>

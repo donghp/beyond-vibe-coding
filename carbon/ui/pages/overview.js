@@ -93,9 +93,9 @@ export function renderOverviewPage(options = {}) {
       </div>
 
       <!-- Facility Context Selector & Controls -->
-      <div style="display:flex;gap:10px;align-items:center;">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
         <label for="overview-facility-select" style="font-size:12px;font-weight:600;color:var(--color-navy-800);">Active Facility:</label>
-        <select id="overview-facility-select" class="enerix-select" style="min-width:240px;background:#fff;border:1px solid #cbd5e1;padding:6px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--color-navy-900);">
+        <select id="overview-facility-select" class="enerix-select" style="min-width:140px;width:100%;max-width:320px;background:#fff;border:1px solid #cbd5e1;padding:6px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--color-navy-900);">
           ${facilities.map(f => `
             <option value="${f.facility_id}" ${f.is_active ? 'selected' : ''}>
               ${f.facility_name} (${f.facility_id})
@@ -289,7 +289,7 @@ export function renderOverviewPage(options = {}) {
             <span style="font-size:12px;color:#64748b;">${facility.facility_name}</span>
           </div>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
+          <div class="enerix-grid-2" style="gap:12px;margin:12px 0;">
             <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px;">
               <div style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;">Scope 1 (Direct Combustion)</div>
               <div style="font-size:20px;font-weight:700;color:var(--color-navy-900);margin-top:4px;">

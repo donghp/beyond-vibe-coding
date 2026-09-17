@@ -33,7 +33,10 @@ export class Router {
     this.container = contentContainer;
 
     // Guard: ignore hash changes if we are not in the Carbon sub-path
-    if (!window.location.pathname.includes('/carbon/')) {
+    const path = window.location.pathname;
+    const isCarbonPath = path.includes('/carbon/') || path.endsWith('/carbon');
+    
+    if (!isCarbonPath) {
       return;
     }
 
@@ -58,7 +61,10 @@ export class Router {
       }
 
       // Only write hash if we are in the correct path context
-      if (window.location.pathname.includes('/carbon/')) {
+      const path = window.location.pathname;
+      const isCarbonPath = path.includes('/carbon/') || path.endsWith('/carbon');
+      
+      if (isCarbonPath) {
         window.location.hash = route;
       }
     }

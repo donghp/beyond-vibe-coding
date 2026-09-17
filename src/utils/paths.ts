@@ -5,34 +5,32 @@
  */
 
 export function joinBase(relativePath: string = ''): string {
+  // Use import.meta.env.BASE_URL which Astro provides correctly based on config
   const baseUrl = import.meta.env.BASE_URL || '/';
-
-  // Ensure base starts and ends with '/'
+  
+  // Ensure baseUrl ends with a slash and starts with a slash
   let cleanBase = baseUrl.startsWith('/') ? baseUrl : '/' + baseUrl;
   if (!cleanBase.endsWith('/')) {
     cleanBase += '/';
   }
-
-  // Handle empty or root path
-  if (!relativePath || relativePath === '/') {
+  
+  // Handle empty or root requests
+  if (!relativePath || relativePath === '/' || relativePath === '') {
     return cleanBase;
   }
 
-  // Handle anchors like "#chapters"
+  // If it's already an absolute URL or data URI, return as is
+  if (relativePath.startsWith('http') || relativePath.startsWith('data:')) {
+    return relativePath;
+  }
+  
+  // Handle anchors
   if (relativePath.startsWith('#')) {
     return cleanBase + relativePath;
   }
-
-  // Remove leading slashes
-  let cleanRelative = relativePath.trim().replace(/^\/+/, '');
-
-  // Strip duplicate base name if passed in relativePath
-  const baseName = cleanBase.replace(/^\/+|\/+$/g, '');
-  if (baseName && cleanRelative.startsWith(baseName + '/')) {
-    cleanRelative = cleanRelative.slice(baseName.length + 1);
-  } else if (baseName && cleanRelative === baseName) {
-    return cleanBase;
-  }
-
+  
+  // Strip leading slash from relativePath to avoid double slashes when joining
+  const cleanRelative = relativePath.trim().replace(/^\/+/, '');
+  
   return cleanBase + cleanRelative;
 }

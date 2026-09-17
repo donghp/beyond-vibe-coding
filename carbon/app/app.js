@@ -9,8 +9,11 @@ import { renderSidebar } from '../ui/components/sidebar.js';
 
 export async function initApp() {
   // Guard: only initialize if we are in the carbon sub-path
+  // Using a more robust check that accounts for project base paths and trailing slashes
   const path = window.location.pathname;
-  if (!path.includes('/carbon/')) {
+  const isCarbonPath = path.includes('/carbon/') || path.endsWith('/carbon');
+  
+  if (!isCarbonPath) {
     // Silent exit to avoid hijacking root application state
     return;
   }

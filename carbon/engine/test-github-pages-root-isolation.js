@@ -76,14 +76,14 @@ async function runAll() {
     // We'll read the app.js content and check the guard logic
     const appJs = fs.readFileSync(path.resolve(__dirname, '../app/app.js'), 'utf8');
     
-    if (!appJs.includes("if (!path.includes('/carbon/'))")) {
+    if (!appJs.includes("if (!isCarbonPath)")) {
       throw new Error('Guard missing in app.js');
     }
   });
 
   await runner.run('TC-ROOT-004', 'Root path does not write Carbon hash', async () => {
     const routerJs = fs.readFileSync(path.resolve(__dirname, '../app/router.js'), 'utf8');
-    if (!routerJs.includes("if (!window.location.pathname.includes('/carbon/'))")) {
+    if (!routerJs.includes("if (!isCarbonPath)")) {
       throw new Error('Guard missing in router.js constructor');
     }
   });
