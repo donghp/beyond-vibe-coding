@@ -3,6 +3,15 @@
  */
 import { stateStore } from './state-store.js';
 import { renderOverviewPage } from '../ui/pages/overview.js';
+import { 
+  renderMeasureProductPage, 
+  renderReportProductPage, 
+  renderReduceProductPage, 
+  renderScienceProductPage, 
+  renderSolutionsProductPage, 
+  renderResourcesProductPage, 
+  renderCompanyProductPage 
+} from '../ui/pages/public-product-pages.js';
 import { renderRegulatoryCheckPage } from '../ui/pages/regulatory-check.js';
 import { renderFacilitiesPage } from '../ui/pages/facilities.js';
 import { renderInventoryPage } from '../ui/pages/inventory.js';
@@ -17,6 +26,13 @@ import { renderKnowledgePage } from '../ui/pages/knowledge.js';
 export class Router {
   static routes = {
     'overview': renderOverviewPage,
+    'measure': renderMeasureProductPage,
+    'report': renderReportProductPage,
+    'reduce': renderReduceProductPage,
+    'science': renderScienceProductPage,
+    'solutions': renderSolutionsProductPage,
+    'resources': renderResourcesProductPage,
+    'company': renderCompanyProductPage,
     'regulatory-check': renderRegulatoryCheckPage,
     'facilities': renderFacilitiesPage,
     'inventory': renderInventoryPage,

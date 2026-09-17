@@ -54,9 +54,10 @@ export async function initApp() {
   const updateUI = () => {
     const route = stateStore.getRoute();
     const viewState = stateStore.getViewState();
+    const publicRoutes = ['overview', 'measure', 'report', 'reduce', 'science', 'solutions', 'resources', 'company'];
     
     headerRoot.innerHTML = renderHeader();
-    if (route === 'overview') {
+    if (publicRoutes.includes(route)) {
       sidebarRoot.innerHTML = '';
       sidebarRoot.style.display = 'none';
       contentStage.style.maxWidth = '100%';

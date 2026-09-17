@@ -12,6 +12,8 @@ import { stateStore } from '../../app/state-store.js';
 import { formatBadge, formatCO2e } from '../../app/formatters.js';
 import { ICONS } from '../components/icons.js';
 import { renderCarbonBrandBanner } from '../components/banner.js';
+import { renderEnterpriseFooter } from '../components/enterprise-footer.js';
+import { CarbonPath } from '../../app/path.js';
 
 export function renderOverviewPage(options = {}) {
   const providerStatus = options.status || (dataProvider.getStatus ? dataProvider.getStatus() : 'AVAILABLE');
@@ -464,22 +466,56 @@ export function renderOverviewPage(options = {}) {
     <!-- ==========================================================================
          09. DARK PREMIUM CTA
          ========================================================================== -->
-    <section class="section" style="padding:96px 0;background:var(--carbon-black);color:#fff;">
-      <div class="container" style="max-width:1280px;margin:0 auto;padding:0 24px;text-align:center;">
-        <span class="overline" style="color:var(--carbon-blue-400);">A MORE SUSTAINABLE TOMORROW</span>
-        <h2 style="font-size:clamp(36px, 4vw, 48px);font-weight:800;color:#fff;margin:12px 0 16px 0;letter-spacing:-0.03em;">
-          Measure today.<br/>Reduce tomorrow.
-        </h2>
-        <p style="font-size:16px;color:rgba(255,255,255,0.7);max-width:640px;margin:0 auto 36px auto;line-height:1.6;">
-          Turn carbon intelligence into a cleaner, more resilient future for your enterprise under Decision 42/2026/QĐ-TTg.
-        </p>
-        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-          <button id="btn-request-demo-bottom" class="enerix-button enerix-button-primary" style="background:var(--carbon-action);border-color:var(--carbon-action);padding:14px 28px;font-size:15px;font-weight:700;">
-            Book a Demo →
-          </button>
-          <button class="btn-drilldown enerix-button" data-nav="calculations" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:14px 28px;font-size:15px;font-weight:600;cursor:pointer;">
-            Explore the Platform
-          </button>
+    <section class="carbon-premium-cta" style="width:100%;background-color:#081220;background-image:url('${CarbonPath.resolve('assets/branding/footer_earth_background.png')}');background-position:right center;background-size:cover;background-repeat:no-repeat;color:#fff;padding:96px 0;min-height:480px;display:flex;align-items:center;">
+      <div class="container" style="max-width:1280px;margin:0 auto;padding:0 24px;width:100%;">
+        <div class="enerix-cta-grid" style="align-items:center;">
+          <div style="text-align:left;max-width:540px;">
+            <span class="overline" style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#38bdf8;margin-bottom:16px;">A MORE SUSTAINABLE TOMORROW</span>
+            <h2 style="font-size:clamp(36px, 4vw, 52px);font-weight:800;color:#ffffff;margin:0 0 16px 0;letter-spacing:-0.03em;line-height:1.1;">
+              Measure today.<br/>
+              <span style="color:#34D399;">Reduce tomorrow.</span>
+            </h2>
+            <p style="font-size:16px;color:rgba(255,255,255,0.75);margin:0 0 32px 0;line-height:1.6;">
+              Turn carbon intelligence into a cleaner, more resilient future.
+            </p>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <button id="btn-request-demo-bottom" class="enerix-button enerix-button-primary" style="background:#0066ff;border:1px solid #0066ff;color:#fff;padding:14px 28px;font-size:15px;font-weight:700;border-radius:8px;">
+                Book a Demo →
+              </button>
+              <button class="btn-drilldown enerix-button" data-nav="calculations" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:14px 28px;font-size:15px;font-weight:600;border-radius:8px;cursor:pointer;">
+                Explore the Platform
+              </button>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:32px;justify-content:center;padding:40px 0;">
+            <div style="display:flex;align-items:center;gap:20px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(56,189,248,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <div style="font-size:15px;font-weight:700;color:#ffffff;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">LOWER EMISSIONS</div>
+                <div style="font-size:15px;color:rgba(255,255,255,0.7);">Healthier planet</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              </div>
+              <div>
+                <div style="font-size:15px;font-weight:700;color:#ffffff;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">STRONGER BUSINESSES</div>
+                <div style="font-size:15px;color:rgba(255,255,255,0.7);">Greater resilience</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div>
+                <div style="font-size:15px;font-weight:700;color:#ffffff;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;">BRIGHTER TOMORROW</div>
+                <div style="font-size:15px;color:rgba(255,255,255,0.7);">Net zero 2050</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -487,49 +523,7 @@ export function renderOverviewPage(options = {}) {
     <!-- ==========================================================================
          10. ENTERPRISE FOOTER
          ========================================================================== -->
-    <footer style="background:#fff;border-top:1px solid var(--carbon-border);padding:64px 0 32px 0;color:var(--carbon-navy-800);">
-      <div class="container" style="max-width:1280px;margin:0 auto;padding:0 24px;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--carbon-border);">
-          <div>
-            <div style="font-weight:800;font-size:18px;color:var(--carbon-navy-950);margin-bottom:8px;">ENERIXON CARBON</div>
-            <p style="font-size:13px;color:var(--carbon-navy-600);max-width:320px;margin:0;line-height:1.5;">
-              Regulatory carbon & greenhouse gas engineering platform for complex industrial enterprises.
-            </p>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(3, minmax(140px, 1fr));gap:32px;">
-            <div>
-              <div style="font-weight:700;font-size:13px;color:var(--carbon-navy-950);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.04em;">Platform</div>
-              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--carbon-navy-600);">
-                <li><a href="#carbon-footprint-section" class="btn-drilldown" data-nav="overview">Measure</a></li>
-                <li><a href="#reports" class="btn-drilldown" data-nav="reports">Report</a></li>
-                <li><a href="#inventory" class="btn-drilldown" data-nav="inventory">Reduce</a></li>
-                <li><a href="#calculations" class="btn-drilldown" data-nav="calculations">Calculation Studio</a></li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-weight:700;font-size:13px;color:var(--carbon-navy-950);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.04em;">Science</div>
-              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--carbon-navy-600);">
-                <li><a href="#methodologies" class="btn-drilldown" data-nav="methodologies">Methodologies</a></li>
-                <li><a href="#emission-factors" class="btn-drilldown" data-nav="emission-factors">Emission Factors</a></li>
-                <li><a href="#knowledge" class="btn-drilldown" data-nav="knowledge">GHG Guide</a></li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-weight:700;font-size:13px;color:var(--carbon-navy-950);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.04em;">Company</div>
-              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--carbon-navy-600);">
-                <li><a href="#regulatory-check" class="btn-drilldown" data-nav="regulatory-check">Decision 42</a></li>
-                <li><a href="#facilities" class="btn-drilldown" data-nav="facilities">Facilities</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--carbon-navy-500);">
-          <div>Copyright © 2026 ENERIXON CARBON. All rights reserved.</div>
-          <div>Carbon intelligence for a cleaner world.</div>
-        </div>
-      </div>
-    </footer>
+    ${renderEnterpriseFooter()}
   `;
 }
 

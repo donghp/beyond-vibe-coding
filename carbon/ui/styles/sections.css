@@ -36,3 +36,24 @@
   margin-bottom: 8px;
   display: block;
 }
+
+.enerix-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 968px) {
+  .enerix-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .enerix-footer-links-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
