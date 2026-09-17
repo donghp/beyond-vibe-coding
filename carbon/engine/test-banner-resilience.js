@@ -1,7 +1,7 @@
 /**
- * ENERIX Carbon - Banner Asset Integrity & Resilience Verification Suite (#0013)
+ * ENERIX Carbon - Banner Asset Integrity & Resilience Verification Suite (#0021)
  * Authority: MDS_ENERIX_CARBON_V1.0_EXPANDED + EDLS-001_V7.1
- * Task: #Enerix_Carbon_00013
+ * Task: #Enerix_Carbon_00021
  */
 
 import fs from 'node:fs';
@@ -31,27 +31,19 @@ function computeSha256(filePath) {
   return hashSum.digest('hex');
 }
 
-console.log('Starting ENERIX Carbon Banner Integrity & Resilience Verification (#0013)...');
+console.log('Starting ENERIX Carbon Banner Integrity & Resilience Verification (#0021)...');
 
-const EXPECTED_HASH = 'f919b31b4dc1b21e251c5ae7cb11dadd276b7f7b437715ee893cb1283e5cf5b3';
+const EXPECTED_HASH = '2f3bd8a34e2dd378617f02a774f2880b9ea558b54179d7c416df4a538ea26a23';
 
-// TC-BAN-001: Canonical asset exists
-const canonicalPath = path.resolve('carbon/assets/branding/canonical/banner_enerix_carbon.png');
-assert(fs.existsSync(canonicalPath), 'TC-BAN-001: Canonical banner asset exists at carbon/assets/branding/canonical/banner_enerix_carbon.png');
+// TC-BAN-001: Active canonical asset exists at root branding path
+const canonicalPath = path.resolve('carbon/assets/branding/banner_enerix_carbon.png');
+assert(fs.existsSync(canonicalPath), 'TC-BAN-001: Active banner asset exists at carbon/assets/branding/banner_enerix_carbon.png');
 
-// TC-BAN-002: Canonical asset SHA-256 matches uploaded source
+// TC-BAN-002: Canonical asset SHA-256 matches approved source
 const canonicalHash = computeSha256(canonicalPath);
-assert(canonicalHash === EXPECTED_HASH, `TC-BAN-002: Canonical asset SHA-256 matches approved source (${canonicalHash})`);
+assert(canonicalHash === EXPECTED_HASH, `TC-BAN-002: Active asset SHA-256 matches approved source (${canonicalHash})`);
 
-// TC-BAN-003: Historical legacy asset is preserved
-const legacyPath = path.resolve('carbon/assets/branding/banner_enerix_carbon.png');
-assert(fs.existsSync(legacyPath), 'TC-BAN-003: Legacy/root banner asset preserved at carbon/assets/branding/banner_enerix_carbon.png');
-
-// TC-BAN-004: Legacy asset hash matches approved source
-const legacyHash = computeSha256(legacyPath);
-assert(legacyHash === EXPECTED_HASH, `TC-BAN-004: Legacy asset SHA-256 matches approved source (${legacyHash})`);
-
-// TC-BAN-005: Branding manifest exists and is valid
+// TC-BAN-003: Branding manifest exists and is valid
 const manifestPath = path.resolve('carbon/assets/branding/manifest.json');
 assert(fs.existsSync(manifestPath), 'TC-BAN-005: Branding asset manifest exists at carbon/assets/branding/manifest.json');
 if (fs.existsSync(manifestPath)) {
@@ -63,7 +55,7 @@ if (fs.existsSync(manifestPath)) {
 
 // TC-BAN-009: CarbonBrandBanner resolves canonical path
 const bannerUrl = CarbonBrandBanner.getUrl();
-assert(bannerUrl.includes('assets/branding/canonical/banner_enerix_carbon.png'), `TC-BAN-009: CarbonBrandBanner resolves canonical path (${bannerUrl})`);
+assert(bannerUrl.includes('assets/branding/banner_enerix_carbon.png') && bannerUrl.includes('v=2f3bd8a3'), `TC-BAN-009: CarbonBrandBanner resolves canonical path with cache bust (${bannerUrl})`);
 
 // TC-BAN-010: CarbonBrandBanner.render() produces valid HTML with accessibility
 const html = CarbonBrandBanner.render({ variant: 'hero', priority: true });
