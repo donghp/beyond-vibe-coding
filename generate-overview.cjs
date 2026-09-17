@@ -1,4 +1,6 @@
-/**
+const fs = require('fs');
+
+const content = `/**
  * ENERIX Carbon - Customer-Facing Product Overview (Homepage)
  * Reconstructed Master Visual Convergence V1.0
  */
@@ -15,7 +17,7 @@ export function renderOverviewPage(options = {}) {
   const s2Tons = 41230;
   const s3Tons = 51660;
   
-  return `
+  return \`
     <style>
       .public-overview-page {
         font-family: 'Be Vietnam Pro', Inter, system-ui, -apple-system, sans-serif;
@@ -34,7 +36,7 @@ export function renderOverviewPage(options = {}) {
       }
       /* Hero */
       .hero-section {
-        background: url('${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center center / cover no-repeat;
+        background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center center / cover no-repeat;
         min-height: 560px;
         display: flex;
         align-items: center;
@@ -131,8 +133,7 @@ export function renderOverviewPage(options = {}) {
         height: 180px;
         background: #e2e8f0;
         width: 100%;
-        background-size: cover;
-        background-position: center;
+        object-fit: cover;
       }
       
       /* Science */
@@ -151,7 +152,7 @@ export function renderOverviewPage(options = {}) {
       
       /* Testimonial */
       .testimonial-section {
-        background: url('${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center center / cover no-repeat;
+        background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center center / cover no-repeat;
         padding: 96px 0;
         position: relative;
       }
@@ -184,10 +185,10 @@ export function renderOverviewPage(options = {}) {
         <div class="public-container" style="position:relative; z-index:10; display:flex; justify-content:space-between; align-items:center;">
           <div style="max-width:540px;">
             <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;color:var(--carbon-blue-600, #0066ff);text-transform:uppercase;margin-bottom:16px;">
-              MEASURE TODAY.<br/>REDUCE FOR TOMORROW.
+              MEASURE TODAY. REDUCE FOR TOMORROW.
             </div>
             <h1 style="font-size:clamp(40px, 5vw, 64px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:var(--carbon-navy-950, #08213D);margin-bottom:24px;">
-              Turn carbon data<br/>into <span style="color:#16a34a;">opportunities.</span>
+              Turn carbon data<br/>into <span style="color:#0ea5e9;">opportunities.</span>
             </h1>
             <p style="font-size:18px;line-height:1.6;color:var(--carbon-navy-700, #334155);margin-bottom:40px;max-width:480px;">
               Trusted carbon intelligence for a cleaner, more resilient future.
@@ -196,7 +197,7 @@ export function renderOverviewPage(options = {}) {
               <button class="enerix-button enerix-button-primary" style="background:#0066ff;color:#fff;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:700;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,102,255,0.25);">
                 Explore ENERIX Carbon &rarr;
               </button>
-              <button class="enerix-button" style="background:transparent;color:var(--carbon-blue-600, #0066ff);padding:14px 24px;font-size:15px;font-weight:700;border:1px solid #cbd5e1;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:8px;">
+              <button class="enerix-button" style="background:transparent;color:var(--carbon-blue-600, #0066ff);padding:14px 24px;font-size:15px;font-weight:700;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;">
                 Watch Video
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
               </button>
@@ -390,7 +391,7 @@ export function renderOverviewPage(options = {}) {
           <div class="platform-ui-mock" style="display:flex;flex-direction:column;height:560px;background:#f8fafc;">
             <div style="height:56px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;padding:0 24px;justify-content:space-between;">
               <div style="display:flex;align-items:center;gap:8px;">
-                <img src="${CarbonPath.resolve('assets/branding/logo_enerix_carbon.png')}" alt="Logo" style="height:24px;">
+                <img src="\${CarbonPath.resolve('assets/branding/logo_enerix_carbon.png')}" alt="Logo" style="height:24px;">
               </div>
               <div style="display:flex;gap:12px;">
                 <select style="padding:6px 12px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;"><option>Global Company</option></select>
@@ -495,7 +496,7 @@ export function renderOverviewPage(options = {}) {
           
           <div class="solutions-grid" style="display:grid;grid-template-columns:repeat(4, 1fr);gap:24px;">
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}');"></div>
+              <div class="solution-img" style="background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center center / cover;"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Corporate Carbon Management</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Measure, manage and report emissions across your entire organization.</p>
@@ -503,7 +504,7 @@ export function renderOverviewPage(options = {}) {
               </div>
             </div>
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}'); background-position: right center;"></div>
+              <div class="solution-img" style="background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') right center / cover;"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Supply Chain Carbon Intelligence</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Gain visibility and reduce emissions across your value chain.</p>
@@ -511,7 +512,7 @@ export function renderOverviewPage(options = {}) {
               </div>
             </div>
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}'); background-position: left center;"></div>
+              <div class="solution-img" style="background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') left center / cover;"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Product Carbon Footprint</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Understand and communicate the environmental impact of your products.</p>
@@ -519,7 +520,7 @@ export function renderOverviewPage(options = {}) {
               </div>
             </div>
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}'); background-position: center bottom;"></div>
+              <div class="solution-img" style="background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center bottom / cover;"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Decarbonization Strategy</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Turn data into actionable reduction plans and track real progress.</p>
@@ -630,7 +631,7 @@ export function renderOverviewPage(options = {}) {
       </section>
 
       <!-- 09. DARK PREMIUM CTA -->
-      <section style="background-color:#081220;background-image:url('${CarbonPath.resolve('assets/branding/footer_earth_background.png')}');background-position:right center;background-size:cover;background-repeat:no-repeat;padding:120px 0;min-height:480px;display:flex;align-items:center;">
+      <section style="background-color:#081220;background-image:url('\${CarbonPath.resolve('assets/branding/footer_earth_background.png')}');background-position:right center;background-size:cover;background-repeat:no-repeat;padding:120px 0;min-height:480px;display:flex;align-items:center;">
         <div class="public-container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:48px;">
           <div style="max-width:540px;">
             <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;color:#38bdf8;text-transform:uppercase;margin-bottom:16px;">
@@ -686,12 +687,15 @@ export function renderOverviewPage(options = {}) {
       </section>
 
       <!-- 10. ENTERPRISE FOOTER -->
-      ${renderEnterpriseFooter()}
+      \${renderEnterpriseFooter()}
     </div>
-  `;
+  \`;
 }
 
 // Ensure events can attach without throwing errors if elements don't exist
 renderOverviewPage.attachEvents = function(container) {
   if (!container) return;
 };
+`;
+
+fs.writeFileSync('carbon/ui/pages/overview.js', content);

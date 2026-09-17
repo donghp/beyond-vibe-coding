@@ -1,7 +1,7 @@
 /**
  * ENERIX Carbon - Canonical Public Header Component
  * Part of Global Page Layout System V1.0
- * White background, canonical logo, clean navigation, language selector, Book a Demo CTA.
+ * White background, canonical logo, clean navigation, language selector, Book a Demo &rarr; CTA.
  */
 import { I18nManager } from '../../app/i18n.js';
 import { CarbonPath } from '../../app/path.js';
@@ -19,7 +19,7 @@ export function renderPublicHeader() {
           <img src="${logoUrl}" alt="ENERIXON CARBON" class="canonical-header-logo" />
         </div>
         <nav style="display:flex;gap:28px;align-items:center;font-size:14px;font-weight:600;color:var(--carbon-navy-800, #1E293B);">
-          <a href="#overview" style="color:${currentRoute === 'overview' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Product</a>
+          <a href="#overview" style="color:${currentRoute === 'overview' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Platform</a>
           <a href="#solutions" style="color:${currentRoute === 'solutions' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Solutions</a>
           <a href="#science" style="color:${currentRoute === 'science' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Science</a>
           <a href="#resources" style="color:${currentRoute === 'resources' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Resources</a>
@@ -27,6 +27,10 @@ export function renderPublicHeader() {
         </nav>
       </div>
       <div style="display:flex;align-items:center;gap:20px;">
+        
+        <button style="background:transparent;border:none;cursor:pointer;color:var(--carbon-navy-600);display:flex;align-items:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
         <div class="locale-selector-container">
           <select id="app-locale-select" class="carbon-locale-select" onchange="window.setAppLocale(this.value)" style="border:1px solid var(--carbon-border, #E2E8F0);background:#fff;padding:6px 12px;border-radius:6px;font-size:13px;cursor:pointer;color:var(--carbon-navy-800);">
             <option value="en" ${currentLocale === 'en' ? 'selected' : ''}>English</option>

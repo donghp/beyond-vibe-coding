@@ -1,4 +1,6 @@
-/**
+import fs from 'fs';
+
+const content = `/**
  * ENERIX Carbon - Canonical Enterprise Footer Component
  * Part of Global Page Layout System V1.0
  * White background, canonical logo, clean navigation, copyright.
@@ -8,13 +10,13 @@ import { ICONS } from './icons.js';
 
 export function renderEnterpriseFooter() {
   const logoUrl = CarbonPath.resolve('assets/branding/logo_enerix_carbon.png');
-  return `
+  return \`
     <footer style="background:#fff;border-top:1px solid var(--carbon-border,#e2e8f0);padding:32px 0;color:var(--carbon-navy-800,#1e293b);">
       <div class="public-container" style="max-width:1280px;margin:0 auto;padding:0 32px;width:100%;">
         
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--carbon-border,#e2e8f0);">
           <div style="display:flex;align-items:center;">
-            <img src="${logoUrl}" alt="ENERIXON CARBON" style="height:32px;width:auto;" />
+            <img src="\${logoUrl}" alt="ENERIXON CARBON" style="height:32px;width:auto;" />
           </div>
           
           <nav style="display:flex;gap:32px;align-items:center;font-size:14px;font-weight:600;color:var(--carbon-navy-600, #475569);">
@@ -29,7 +31,7 @@ export function renderEnterpriseFooter() {
             <a href="#contact" style="color:inherit;text-decoration:none;">Contact</a>
             <a href="#careers" style="color:inherit;text-decoration:none;">Careers</a>
             <div style="display:flex;align-items:center;gap:4px;cursor:pointer;">
-              ${ICONS.globe(16)} English <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              \${ICONS.globe(16)} English <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
           </div>
         </div>
@@ -40,5 +42,8 @@ export function renderEnterpriseFooter() {
         </div>
       </div>
     </footer>
-  `;
+  \`;
 }
+`;
+
+fs.writeFileSync('carbon/ui/components/enterprise-footer.js', content);
