@@ -23,8 +23,6 @@ export async function initApp() {
   if (!root) return;
 
   root.innerHTML = `
-    <!-- Top-Level Full-Width Canonical Carbon Brand Banner -->
-    <div id="banner-root" class="carbon-global-banner-host" role="region" aria-label="ENERIX Carbon Official Brand Banner"></div>
     <!-- Product Navigation & Global Controls Header -->
     <div id="header-root"></div>
     <div class="carbon-main-body">
@@ -34,13 +32,6 @@ export async function initApp() {
       </main>
     </div>
   `;
-
-  const bannerRoot = document.getElementById('banner-root');
-  if (bannerRoot) {
-    bannerRoot.innerHTML = CarbonBrandBanner.render({ variant: 'hero', priority: true });
-  }
-
-  await dataProvider.loadAll();
 
   // Initialize route from hash
   const initialRoute = window.location.hash.substring(1);
@@ -65,7 +56,17 @@ export async function initApp() {
     const viewState = stateStore.getViewState();
     
     headerRoot.innerHTML = renderHeader();
-    sidebarRoot.innerHTML = renderSidebar(route, viewState.isMobileMenuOpen);
+    if (route === 'overview') {
+      sidebarRoot.innerHTML = '';
+      sidebarRoot.style.display = 'none';
+      contentStage.style.maxWidth = '100%';
+      contentStage.style.padding = '0';
+    } else {
+      sidebarRoot.style.display = 'flex';
+      sidebarRoot.innerHTML = renderSidebar(route, viewState.isMobileMenuOpen);
+      contentStage.style.maxWidth = 'var(--carbon-max-width)';
+      contentStage.style.padding = '28px 36px';
+    }
     router.renderCurrentRoute();
 
     // Bind top product navigation (Measure / Report / Reduce)
@@ -79,25 +80,18 @@ export async function initApp() {
       });
     });
 
-    // Update active facility in sidebar header if present
-    const activeFacEl = sidebarRoot.querySelector('#sidebar-active-facility');
-    if (activeFacEl) {
-      const activeFac = dataProvider.getFacility(stateStore.getSelectedFacilityId());
-      if (activeFac) {
-        activeFacEl.textContent = activeFac.facility_name;
-      }
-    }
-
     // Bind navigation click handlers
-    sidebarRoot.querySelectorAll('.carbon-nav-item').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetRoute = el.getAttribute('data-route');
-        if (targetRoute) {
-          stateStore.setRoute(targetRoute);
-        }
+    if (sidebarRoot && sidebarRoot.style.display !== 'none') {
+      sidebarRoot.querySelectorAll('.carbon-nav-item').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetRoute = el.getAttribute('data-route');
+          if (targetRoute) {
+            stateStore.setRoute(targetRoute);
+          }
+        });
       });
-    });
+    }
 
     // Mobile Menu Handlers
     const menuToggle = document.getElementById('mobile-menu-toggle');
@@ -124,6 +118,11 @@ export async function initApp() {
 
   stateStore.subscribe(updateUI);
   updateUI();
+
+  // Load authoritative data in background
+  dataProvider.loadAll().then(() => {
+    stateStore.recompute();
+  });
 }
 
 // Auto init if loaded in browser

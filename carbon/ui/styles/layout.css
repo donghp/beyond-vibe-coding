@@ -1,0 +1,65 @@
+/**
+ * ENERIX Carbon - Layout Stylesheet
+ * Layout frame, 12-column grid, content stage, sidebar layout.
+ */
+
+#carbon-app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--carbon-bg-canvas);
+}
+
+.carbon-main-body {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - var(--carbon-header-height));
+}
+
+.carbon-sidebar {
+  width: var(--carbon-sidebar-width);
+  background-color: #ffffff;
+  border-right: 1px solid var(--carbon-border);
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.carbon-content-stage {
+  flex: 1;
+  padding: 28px 36px;
+  overflow-y: auto;
+  max-width: var(--carbon-max-width);
+  min-width: 0;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.col-12 { grid-column: span 12; }
+.col-8  { grid-column: span 8; }
+.col-6  { grid-column: span 6; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
+
+.enerix-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}

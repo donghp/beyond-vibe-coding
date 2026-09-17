@@ -1,0 +1,190 @@
+/**
+ * ENERIX Carbon - Components Stylesheet
+ * Cards, buttons, tables, badges, status indicators, alerts, banner styles.
+ */
+
+.enerix-card {
+  background: var(--carbon-bg-card);
+  border: 1px solid var(--carbon-border);
+  border-radius: var(--carbon-radius-lg);
+  padding: 20px;
+  box-shadow: var(--carbon-shadow-sm);
+  transition: border-color 0.15s ease;
+  position: relative;
+}
+
+.enerix-card:hover {
+  border-color: var(--carbon-navy-300);
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--carbon-navy-900);
+  margin-bottom: 12px;
+}
+
+.enerix-table-wrapper {
+  background: #ffffff;
+  border: 1px solid var(--carbon-border);
+  border-radius: var(--carbon-radius-lg);
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.enerix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.enerix-table th {
+  background: var(--carbon-navy-100);
+  padding: 10px 14px;
+  font-weight: 600;
+  color: var(--carbon-navy-700);
+  border-bottom: 1px solid var(--carbon-border);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.enerix-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--carbon-navy-100);
+  color: var(--carbon-navy-800);
+  vertical-align: middle;
+}
+
+.enerix-table tr:hover td {
+  background-color: var(--carbon-blue-50);
+}
+
+.enerix-btn,
+.enerix-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--carbon-radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.12s ease;
+  text-decoration: none;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.enerix-btn-primary,
+.enerix-button-primary {
+  background-color: var(--carbon-blue-600);
+  color: #ffffff;
+  border-color: var(--carbon-blue-600);
+}
+
+.enerix-btn-primary:hover,
+.enerix-button-primary:hover {
+  background-color: var(--carbon-blue-700);
+}
+
+.enerix-btn-secondary,
+.enerix-button-secondary {
+  background-color: #ffffff;
+  border-color: var(--carbon-border-strong);
+  color: var(--carbon-navy-700);
+}
+
+.enerix-btn-secondary:hover,
+.enerix-button-secondary:hover {
+  background-color: var(--carbon-navy-50);
+  color: var(--carbon-navy-900);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--carbon-radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.status-badge.mandatory,
+.status-badge.blocked,
+.status-badge.error,
+.status-badge.blocking {
+  background-color: var(--carbon-red-50);
+  color: var(--carbon-red-700);
+  border: 1px solid var(--carbon-red-200);
+}
+
+.status-badge.active,
+.status-badge.compliant,
+.status-badge.ready,
+.status-badge.approved {
+  background-color: var(--carbon-green-50);
+  color: var(--carbon-green-700);
+  border: 1px solid var(--carbon-green-200);
+}
+
+.status-badge.pending,
+.status-badge.transitional,
+.status-badge.review,
+.status-badge.warning {
+  background-color: var(--carbon-amber-50);
+  color: var(--carbon-amber-700);
+  border: 1px solid var(--carbon-amber-200);
+}
+
+.carbon-global-banner-host {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  background-color: var(--carbon-navy-950, #0b1d3a);
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carbon-brand-banner-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carbon-brand-banner-frame {
+  width: 100%;
+  max-width: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.carbon-brand-banner-img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+}

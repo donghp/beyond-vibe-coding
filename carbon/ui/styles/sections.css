@@ -1,0 +1,38 @@
+/**
+ * ENERIX Carbon - Sections Stylesheet
+ * Hero banner, pathway, KPI strip, intelligence loop, pillars, CTA, footer.
+ */
+
+.hero-banner {
+  width: 100%;
+  background: var(--carbon-navy-950, #08213D);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.pathway__item {
+  transition: all 0.2s ease;
+}
+
+.pathway__item:hover {
+  background-color: var(--carbon-blue-50);
+}
+
+.loop__step {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.loop__step:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--carbon-shadow-md);
+}
+
+.overline {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}

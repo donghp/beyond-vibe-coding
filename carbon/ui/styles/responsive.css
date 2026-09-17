@@ -1,0 +1,131 @@
+/**
+ * ENERIX Carbon - Responsive Stylesheet
+ * Media queries for mobile, tablet, desktop, drawer sidebar, mobile menu toggle.
+ */
+
+@media (max-width: 1024px) {
+  .carbon-content-stage {
+    padding: 20px;
+  }
+
+  .grid-12 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .col-12 { grid-column: span 8; }
+  .col-8  { grid-column: span 8; }
+  .col-6  { grid-column: span 4; }
+  .col-4  { grid-column: span 4; }
+  .col-3  { grid-column: span 4; }
+}
+
+@media (max-width: 768px) {
+  .carbon-header .brand-title {
+    font-size: 13px;
+  }
+
+  .carbon-header .brand-badge {
+    display: none;
+  }
+
+  .carbon-product-nav {
+    margin-left: 8px;
+    padding-left: 8px;
+    gap: 2px;
+  }
+
+  .product-nav-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .product-nav-btn .nav-step {
+    display: none;
+  }
+
+  .carbon-header .header-right-desktop {
+    display: none;
+  }
+
+  .carbon-main-body {
+    flex-direction: column;
+  }
+
+  .carbon-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    bottom: 0;
+    width: 280px;
+    z-index: 100;
+    transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--carbon-shadow-lg);
+  }
+
+  .carbon-sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11, 25, 44, 0.55);
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .carbon-content-stage {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-12 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .col-12, .col-8, .col-6, .col-4, .col-3 {
+    grid-column: span 4;
+  }
+
+  .enerix-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 6px;
+    border-radius: var(--carbon-radius-sm);
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn,
+  .sidebar-close-btn {
+    display: none;
+  }
+}

@@ -1,0 +1,40 @@
+/**
+ * ENERIX Carbon - Base Stylesheet
+ * Resets, typography, root setup, and basic elements.
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body {
+  font-family: var(--carbon-font-sans);
+  background-color: var(--carbon-bg-canvas);
+  color: var(--carbon-navy-800);
+  line-height: 1.5;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--carbon-font-sans);
+  color: var(--carbon-navy-950);
+}
+
+a {
+  color: var(--carbon-blue-600);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

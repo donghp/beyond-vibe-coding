@@ -1,0 +1,43 @@
+/**
+ * ENERIX Carbon - Workspace Stylesheet
+ * Workspace controls, facility selector, filters, data views.
+ */
+
+.enerix-select,
+.form-control {
+  padding: 7px 12px;
+  border: 1px solid var(--carbon-border-strong);
+  border-radius: var(--carbon-radius-md);
+  background-color: #ffffff;
+  color: var(--carbon-navy-900);
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.enerix-select:focus,
+.form-control:focus {
+  border-color: var(--carbon-blue-600);
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+}
+
+.page-title-bar {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--carbon-navy-900);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: var(--carbon-navy-500);
+  margin-top: 4px;
+  line-height: 1.5;
+}

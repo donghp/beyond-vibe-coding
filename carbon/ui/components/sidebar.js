@@ -98,11 +98,7 @@ export function renderSidebar(currentRoute, isMobileMenuOpen = false) {
   let html = `
     <div class="sidebar-overlay ${overlayClass}" id="sidebar-overlay"></div>
     <nav class="carbon-sidebar ${openClass}" aria-label="ENERIX Carbon Navigation">
-      <div class="sidebar-top-meta">
-        <div class="meta-facility">
-          <span class="meta-label">ACTIVE FACILITY</span>
-          <span class="meta-name" id="sidebar-active-facility">PL 1 & 2</span>
-        </div>
+      <div class="sidebar-top-meta" style="justify-content:flex-end;">
         <button class="sidebar-close-btn" id="mobile-sidebar-close" aria-label="Close Navigation">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12"/>
