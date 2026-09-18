@@ -14,7 +14,7 @@ export function renderPublicHero(options = {}) {
   const secondaryCta = options.secondaryCtaText || 'Watch Video';
   const showTrustStrip = options.showTrustStrip !== false;
 
-  const bgUrl = '/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4';
+  const bgUrl = CarbonPath.resolve('assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png');
 
   return `
     <section class="carbon-public-hero" style="background-image: url('${bgUrl}');">

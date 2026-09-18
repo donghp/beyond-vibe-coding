@@ -14,8 +14,8 @@ import { I18nManager } from '../../app/i18n.js';
 export function renderPublicOverviewPage(options = {}) {
   const isVi = I18nManager.currentLocale === 'vi';
   const earthBgUrl = CarbonPath.resolve('assets/branding/footer_earth_background.png');
-  const logoUrl = CarbonPath.resolve('assets/branding/ENERIXON_CARBON_LOGO_CANONICAL.png');
-  const canonicalBannerUrl = '/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4';
+  const logoUrl = CarbonPath.resolve('assets/logo_enerixon_carbon.png');
+  const canonicalBannerUrl = CarbonPath.resolve('assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png');
 
   // Product Storytelling Assets:
   const platformDashboardPreviewUrl = CarbonPath.resolve('assets/01_platform_dashboard_preview.png');
@@ -482,111 +482,136 @@ export function renderPublicOverviewPage(options = {}) {
       <!-- ==========================================================================
            7. DARK PREMIUM CTA SECTION WITH EARTH BACKGROUND
            ========================================================================== -->
-      <section class="carbon-bottom-cta-section" data-earth-asset="${earthBgUrl}" style="width:100%;background-color:#071120;background-image:linear-gradient(rgba(7,17,32,0.85), rgba(7,17,32,0.9)), url('${earthBgUrl}');background-size:cover;background-repeat:no-repeat;background-position:center center;padding:120px 24px;color:#ffffff;font-family:var(--carbon-font-sans, sans-serif);box-sizing:border-box;border-top:1px solid #1E293B;">
+      <section class="carbon-bottom-cta-section" data-earth-asset="${earthBgUrl}" style="width:100%;background-color:#071120;background-image:linear-gradient(rgba(7,17,32,0.7), rgba(7,17,32,0.85)), url('${earthBgUrl}');background-size:cover;background-repeat:no-repeat;background-position:right center;padding:80px 24px;color:#ffffff;font-family:'Be Vietnam Pro', var(--carbon-font-sans, sans-serif);box-sizing:border-box;border-top:1px solid #1E293B;overflow:hidden;position:relative;">
         <style>
           .bottom-cta-grid {
             max-width: 1280px;
             width: 100%;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 80px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            gap: 64px;
+            position: relative;
+            z-index: 2;
+          }
+          .cta-left-content {
+            flex: 1;
+            max-width: 600px;
           }
           .cta-headline {
-            font-size: clamp(32px, 4vw, 56px);
+            font-size: clamp(32px, 4vw, 48px);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.025em;
+            color: #FFFFFF;
           }
           .cta-gradient-text {
-            background: linear-gradient(135deg, #10B981 0%, #0066FF 100%);
+            background: linear-gradient(135deg, #20B45B 0%, #078FF0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
           }
-          .outcome-card {
+          .cta-right-outcomes {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            border-left: 1px solid rgba(255,255,255,0.15);
+            padding-left: 40px;
+          }
+          .outcome-item {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            gap: 16px;
           }
-          .outcome-card:last-child {
-            border-bottom: none;
+          .outcome-icon-box {
+            color: #078FF0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
-          @media (max-width: 991px) {
+          @media (max-width: 1024px) {
             .bottom-cta-grid {
-              grid-template-columns: 1fr;
-              gap: 48px;
+              flex-direction: column;
               text-align: center;
+              gap: 48px;
             }
-            .outcome-card {
+            .cta-left-content {
+              max-width: 100%;
+            }
+            .cta-right-outcomes {
+              border-left: none;
+              padding-left: 0;
+              flex-direction: row;
+              flex-wrap: wrap;
               justify-content: center;
-              border-bottom: none;
+              gap: 32px;
+            }
+          }
+          @media (max-width: 640px) {
+            .cta-right-outcomes {
+              flex-direction: column;
+              align-items: flex-start;
+              text-align: left;
             }
           }
         </style>
         
         <div class="bottom-cta-grid">
           <!-- Left side -->
-          <div style="text-align:left;">
-            <div style="font-size:12px;font-weight:700;color:#0066FF;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:20px;">
+          <div class="cta-left-content">
+            <div style="font-size:11px;font-weight:700;color:#078FF0;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:16px;">
               A More Sustainable Tomorrow
             </div>
             <h2 class="cta-headline">
-              Measure today. <br/>
+              Measure today.<br/>
               <span class="cta-gradient-text">Reduce tomorrow.</span>
             </h2>
-            <p style="font-size:18px;color:#94A3B8;line-height:1.6;margin:0 0 40px 0;max-width:560px;font-weight:400;">
+            <p style="font-size:17px;color:#CBD5E1;line-height:1.6;margin:0 0 32px 0;max-width:520px;font-weight:400;">
               Turn carbon intelligence into a cleaner, more resilient future. Join the leaders building the net-zero economy.
             </p>
-
-            <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-              <button class="btn-book-demo-cta" style="background:#0066FF;color:#ffffff;padding:0 32px;height:52px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;border:none;box-shadow:0 10px 20px rgba(0,102,255,0.2);transition:all 0.2s ease;display:flex;align-items:center;gap:8px;">
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+              <button class="btn-book-demo-cta" style="background:#078FF0;color:#ffffff;padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;border:none;box-shadow:0 10px 20px rgba(7,143,240,0.2);transition:all 0.2s ease;display:flex;align-items:center;gap:8px;">
                 Book a Demo
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </button>
-              <button class="btn-explore-platform" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);padding:0 32px;height:52px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;transition:all 0.2s ease;">
+              <button class="btn-explore-platform" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;transition:all 0.2s ease;">
                 Explore the Platform
               </button>
             </div>
           </div>
 
-          <!-- Right side -->
-          <div style="display:flex;flex-direction:column;gap:12px;">
-            <div class="outcome-card">
-              <div style="color:#0066FF;flex-shrink:0;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <!-- Right side Outcomes -->
+          <div class="cta-right-outcomes">
+            <div class="outcome-item">
+              <div class="outcome-icon-box" style="color:#078FF0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
               <div>
-                <div style="font-weight:700;font-size:15px;color:#ffffff;letter-spacing:0.02em;">LOWER EMISSIONS</div>
-                <div style="font-size:14px;color:#94A3B8;">Healthier planet</div>
+                <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">LOWER EMISSIONS</div>
+                <div style="font-size:13px;color:#94A3B8;">Healthier planet</div>
               </div>
             </div>
-
-            <div class="outcome-card">
-              <div style="color:#10B981;flex-shrink:0;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="outcome-item">
+              <div class="outcome-icon-box" style="color:#20B45B;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
-                <div style="font-weight:700;font-size:15px;color:#ffffff;letter-spacing:0.02em;">STRONGER BUSINESSES</div>
-                <div style="font-size:14px;color:#94A3B8;">Greater resilience</div>
+                <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">STRONGER BUSINESSES</div>
+                <div style="font-size:13px;color:#94A3B8;">Greater resilience</div>
               </div>
             </div>
-
-            <div class="outcome-card">
-              <div style="color:#F59E0B;flex-shrink:0;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <div class="outcome-item">
+              <div class="outcome-icon-box" style="color:#F59E0B;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
               </div>
               <div>
-                <div style="font-weight:700;font-size:15px;color:#ffffff;letter-spacing:0.02em;">BRIGHTER TOMORROW</div>
-                <div style="font-size:14px;color:#94A3B8;">Net zero 2050</div>
+                <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">BRIGHTER TOMORROW</div>
+                <div style="font-size:13px;color:#94A3B8;">Net zero 2050</div>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 

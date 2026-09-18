@@ -20,7 +20,7 @@ export function renderHeader() {
   }
 
   const currentLocale = I18nManager.currentLocale;
-  const logoUrl = '/carbon/assets/logo_enerixon_carbon.png?v=2';
+  const logoUrl = CarbonPath.resolve('assets/logo_enerixon_carbon.png');
   const currentSection = stateStore.getCurrentSection ? stateStore.getCurrentSection() : 'measure';
   const parentUrl = CarbonPath.parentUrl();
 

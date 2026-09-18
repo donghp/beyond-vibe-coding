@@ -9,7 +9,7 @@ import { stateStore } from '../../app/state-store.js';
 
 export function renderPublicHeader() {
   const currentLocale = I18nManager.currentLocale;
-  const logoUrl = '/carbon/assets/logo_enerixon_carbon.png?v=2';
+  const logoUrl = CarbonPath.resolve('assets/logo_enerixon_carbon.png');
   const currentRoute = stateStore.getRoute ? stateStore.getRoute() : 'overview';
 
   return `
