@@ -34,14 +34,14 @@ export function renderPublicHeader() {
         .logo-img {
           width: auto;
           height: auto;
-          max-height: 56px;
+          max-height: 68px;
           display: block;
           object-fit: contain;
           transition: all 0.2s ease-in-out;
         }
         @media (max-width: 1919px) {
           .logo-img {
-            max-height: 48px;
+            max-height: 58px;
           }
         }
         @media (max-width: 1200px) {
@@ -57,7 +57,7 @@ export function renderPublicHeader() {
             height: 74px !important;
           }
           .logo-img {
-            max-height: 40px;
+            max-height: 48px;
           }
           .public-main-nav {
             gap: 14px !important;
@@ -69,7 +69,7 @@ export function renderPublicHeader() {
             height: 70px !important;
           }
           .logo-img {
-            max-height: 36px;
+            max-height: 43px;
           }
           .public-main-nav {
             display: none !important;

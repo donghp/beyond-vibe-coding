@@ -18,6 +18,7 @@ export function renderPublicOverviewPage(options = {}) {
   const earthBgUrl = CarbonPath.resolve('assets/branding/footer_earth_background.png');
   const logoUrl = CarbonPath.resolve('assets/logo_enerixon_carbon.png');
   const canonicalBannerUrl = CarbonPath.resolve('assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png');
+  const section001BgUrl = CarbonPath.resolve('assets/section_001_gb.png');
 
   // Product Storytelling Assets:
   const platformDashboardPreviewUrl = CarbonPath.resolve('assets/01_platform_dashboard_preview.png');
@@ -223,40 +224,39 @@ export function renderPublicOverviewPage(options = {}) {
       <!-- ==========================================================================
            3. CARBON SNAPSHOT SECTION
            ========================================================================== -->
-      <section class="carbon-snapshot-section" style="padding:72px 24px;background:#F8FAFC;border-bottom:1px solid #E2E8F0;font-family:var(--carbon-font-sans, sans-serif);">
-        <div class="carbon-snapshot-grid">
-          <div>
-            <h2 style="font-size:32px;font-weight:800;color:#0B1727;margin-bottom:16px;letter-spacing:-0.025em;">Know your carbon position in minutes.</h2>
-            <p style="font-size:16px;color:#475569;margin-bottom:24px;line-height:1.6;">Move from fragmented activity data to a clear, traceable view of your organization's carbon position.</p>
-            <span style="font-size:12px;font-weight:600;color:#64748B;background:#E2E8F0;padding:4px 8px;border-radius:4px;">Illustrative Demo Data</span>
-          </div>
-          <div class="carbon-snapshot-kpi-grid">
-            <div style="background:#ffffff;padding:20px;border-radius:8px;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(11,23,39,0.05);">
-              <div style="font-size:11px;font-weight:600;color:#64748B;margin-bottom:4px;">TOTAL EMISSIONS</div>
-              <div style="font-size:20px;font-weight:800;color:#0B1727;">125,430 <span style="font-size:12px;font-weight:600;">tCO₂e</span></div>
+      <section class="carbon-snapshot-section" style="padding:96px 24px;background-image:url('${section001BgUrl}');background-size:cover;background-position:center;border-bottom:1px solid #DCE5ED;font-family:var(--carbon-font-sans, sans-serif);position:relative;overflow:hidden;">
+        <div style="max-width:1280px;margin:0 auto;position:relative;z-index:2;">
+          <div class="carbon-snapshot-grid">
+            <div>
+              <span style="font-size:11px;font-weight:700;color:#0066FF;text-transform:uppercase;letter-spacing:0.15em;display:block;margin-bottom:8px;">RECOMMENDED</span>
+              <div style="font-size:12px;font-weight:800;color:#08213D;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">CARBON INSIGHTS. REAL IMPACT.</div>
+              <h2 style="font-size:clamp(32px, 3.8vw, 44px);font-weight:800;color:#08213D;margin-bottom:16px;letter-spacing:-0.03em;line-height:1.1;">Know your carbon position in minutes.</h2>
+              <p style="font-size:16.5px;color:#475569;line-height:1.65;">Move from fragmented activity data to a clear, traceable view of your organization's carbon position.</p>
             </div>
-            <div style="background:#ffffff;padding:20px;border-radius:8px;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(11,23,39,0.05);">
-              <div style="font-size:11px;font-weight:600;color:#64748B;margin-bottom:4px;">SCOPE 1</div>
-              <div style="font-size:18px;font-weight:700;color:#0B1727;">32,540 tCO₂e</div>
-            </div>
-            <div style="background:#ffffff;padding:20px;border-radius:8px;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(11,23,39,0.05);">
-              <div style="font-size:11px;font-weight:600;color:#64748B;margin-bottom:4px;">SCOPE 2</div>
-              <div style="font-size:18px;font-weight:700;color:#0B1727;">41,230 tCO₂e</div>
-            </div>
-            <div style="background:#ffffff;padding:20px;border-radius:8px;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(11,23,39,0.05);">
-              <div style="font-size:11px;font-weight:600;color:#64748B;margin-bottom:4px;">SCOPE 3</div>
-              <div style="font-size:18px;font-weight:700;color:#0B1727;">51,660 tCO₂e</div>
-            </div>
-            <div style="background:#ffffff;padding:20px;border-radius:8px;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(11,23,39,0.05);grid-column: span 2;">
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <div>
-                  <div style="font-size:11px;font-weight:600;color:#64748B;margin-bottom:4px;">DATA COMPLETENESS</div>
-                  <div style="font-size:20px;font-weight:800;color:#10B981;">98%</div>
-                </div>
-                <div>
-                  <div style="font-size:11px;font-weight:600;color:#64748B;margin-bottom:4px;">PRIMARY HOTSPOT</div>
-                  <div style="font-size:14px;font-weight:700;color:#0B1727;">Purchased Goods & Services</div>
-                </div>
+            <div class="carbon-snapshot-kpi-grid">
+              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">TOTAL EMISSIONS</div>
+                <div style="font-size:22px;font-weight:800;color:#08213D;">125,430 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
+              </div>
+              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 1</div>
+                <div style="font-size:20px;font-weight:700;color:#08213D;">32,540 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
+              </div>
+              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 2</div>
+                <div style="font-size:20px;font-weight:700;color:#08213D;">41,230 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
+              </div>
+              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 3</div>
+                <div style="font-size:20px;font-weight:700;color:#08213D;">51,660 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
+              </div>
+              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">DATA COMPLETENESS</div>
+                <div style="font-size:22px;font-weight:800;color:#20B45B;">98%</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">PRIMARY HOTSPOT</div>
+                <div style="font-size:14.5px;font-weight:700;color:#08213D;line-height:1.35;">Purchased Goods & Services</div>
               </div>
             </div>
           </div>
