@@ -34,11 +34,22 @@ export async function initApp() {
   `;
 
   // Initialize route from hash
-  const initialRoute = window.location.hash.substring(1);
-  if (initialRoute && Object.keys(Router.routes).includes(initialRoute)) {
-    stateStore.setRoute(initialRoute);
+  const initialHash = window.location.hash.substring(1);
+  const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company'];
+  if (initialHash && disabledHashes.includes(initialHash)) {
+    try {
+      history.replaceState(null, '', window.location.pathname);
+    } catch (e) {}
+    stateStore.setRoute('overview');
+  } else if (initialHash && Object.keys(Router.routes).includes(initialHash)) {
+    stateStore.setRoute(initialHash);
   } else {
     stateStore.setRoute('overview');
+    if (window.location.hash) {
+      try {
+        history.replaceState(null, '', window.location.pathname);
+      } catch (e) {}
+    }
   }
 
   stateStore.recompute();

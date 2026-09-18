@@ -28,7 +28,21 @@ export function renderPublicOverviewPage(options = {}) {
   return `
     <div class="public-overview-page" style="background:#ffffff;color:#0B1727;font-family:var(--carbon-font-sans, system-ui, -apple-system, sans-serif);line-height:1.5;width:100%;overflow-x:hidden;">
       <style>
-        /* Responsive utilities */
+        .carbon-snapshot-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 48px;
+          align-items: start;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .carbon-snapshot-kpi-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          width: 100%;
+          box-sizing: border-box;
+        }
         .trust-strip-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -76,6 +90,10 @@ export function renderPublicOverviewPage(options = {}) {
         }
 
         @media (max-width: 991px) {
+          .carbon-snapshot-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
           .trust-strip-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
@@ -108,6 +126,15 @@ export function renderPublicOverviewPage(options = {}) {
           }
           .science-panel-responsive {
             padding: 24px 16px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .carbon-snapshot-kpi-grid {
+            grid-template-columns: 1fr;
+          }
+          .carbon-snapshot-kpi-grid > div[style*="grid-column"] {
+            grid-column: span 1 !important;
           }
         }
       </style>
@@ -179,13 +206,13 @@ export function renderPublicOverviewPage(options = {}) {
            3. CARBON SNAPSHOT SECTION
            ========================================================================== -->
       <section class="carbon-snapshot-section" style="padding:72px 24px;background:#F8FAFC;border-bottom:1px solid #E2E8F0;font-family:var(--carbon-font-sans, sans-serif);">
-        <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+        <div class="carbon-snapshot-grid">
           <div>
             <h2 style="font-size:32px;font-weight:800;color:#0B1727;margin-bottom:16px;letter-spacing:-0.025em;">Know your carbon position in minutes.</h2>
             <p style="font-size:16px;color:#475569;margin-bottom:24px;line-height:1.6;">Move from fragmented activity data to a clear, traceable view of your organization's carbon position.</p>
             <span style="font-size:12px;font-weight:600;color:#64748B;background:#E2E8F0;padding:4px 8px;border-radius:4px;">Illustrative Demo Data</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="carbon-snapshot-kpi-grid">
             <div style="background:#ffffff;padding:20px;border-radius:8px;border:1px solid #E2E8F0;box-shadow:0 1px 2px rgba(11,23,39,0.05);">
               <div style="font-size:11px;font-weight:600;color:#64748B;margin-bottom:4px;">TOTAL EMISSIONS</div>
               <div style="font-size:20px;font-weight:800;color:#0B1727;">125,430 <span style="font-size:12px;font-weight:600;">tCO₂e</span></div>

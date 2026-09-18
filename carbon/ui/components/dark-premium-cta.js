@@ -10,7 +10,7 @@ export function renderDarkPremiumCTA() {
   const earthBgUrl = CarbonPath.resolve('assets/branding/footer_earth_background.png');
 
   return `
-    <section class="carbon-bottom-cta-section" data-earth-asset="${earthBgUrl}" style="width:100%;background-color:#071120;background-image:linear-gradient(rgba(7,17,32,0.7), rgba(7,17,32,0.85)), url('${earthBgUrl}');background-size:cover;background-repeat:no-repeat;background-position:right center;padding:80px 24px;color:#ffffff;font-family:'Be Vietnam Pro', var(--carbon-font-sans, sans-serif);box-sizing:border-box;border-top:1px solid #1E293B;overflow:hidden;position:relative;">
+    <section class="carbon-bottom-cta-section" data-earth-asset="${earthBgUrl}" style="width:100%;background-color:#071120;background-image:linear-gradient(90deg, rgba(7,17,32,0.92) 0%, rgba(7,17,32,0.6) 45%, rgba(7,17,32,0.1) 100%), url('${earthBgUrl}');background-size:cover;background-repeat:no-repeat;background-position:right center;padding:80px 24px;color:#ffffff;font-family:'Be Vietnam Pro', var(--carbon-font-sans, sans-serif);box-sizing:border-box;border-top:1px solid #1E293B;overflow:hidden;position:relative;">
       <style>
         .bottom-cta-grid {
           max-width: 1280px;

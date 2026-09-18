@@ -70,6 +70,10 @@ export class Router {
 
   getRouteFromHash() {
     const hash = window.location.hash.substring(1);
+    const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company'];
+    if (!hash || disabledHashes.includes(hash)) {
+      return 'overview';
+    }
     return Router.routes[hash] ? hash : 'overview';
   }
 
@@ -82,12 +86,22 @@ export class Router {
         renderFn.attachEvents(this.container);
       }
 
-      // Only write hash if we are in the correct path context
+      // Only write hash if we are in the correct path context and route is not overview
       const path = window.location.pathname;
       const isCarbonPath = path.includes('/carbon/') || path.endsWith('/carbon');
       
       if (isCarbonPath) {
-        window.location.hash = route;
+        if (route && route !== 'overview') {
+          window.location.hash = route;
+        } else {
+          if (window.location.hash) {
+            try {
+              history.replaceState(null, '', window.location.pathname);
+            } catch (e) {
+              // fallback if history API restricted
+            }
+          }
+        }
       }
     }
   }
