@@ -30,7 +30,7 @@ assert(fs.existsSync(heroBgPath), 'TC-HERO-001', `Clean text-free hero backgroun
 assert(fs.existsSync(clonedHeroBgPath), 'TC-HERO-002', `Cloned repo hero background exists at ${clonedHeroBgPath}`);
 
 // 2. Canonical banner remains intact
-const canonicalBannerPath = 'carbon/assets/branding/banner_enerix_carbon.png';
+const canonicalBannerPath = 'carbon/assets/branding/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png';
 assert(fs.existsSync(canonicalBannerPath), 'TC-HERO-003', `Canonical brand banner remains intact at ${canonicalBannerPath}`);
 
 // 3. Asset registered in branding manifest

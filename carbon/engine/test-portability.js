@@ -52,7 +52,7 @@ async function runPortabilityTests() {
   assert(fs.existsSync(readmePath), 'TC-PORT-004: /carbon/README.md exists and provides runbook');
 
   // TC-PORT-005: Official banner is strictly inside /carbon/assets/branding/
-  const canonicalBannerPath = path.resolve('carbon/assets/branding/canonical/banner_enerix_carbon.png');
+  const canonicalBannerPath = path.resolve('carbon/assets/branding/canonical/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png');
   assert(fs.existsSync(canonicalBannerPath), 'TC-PORT-005: Canonical banner exists inside /carbon/assets/branding/');
   const canonicalHash = computeSha256(canonicalBannerPath);
   assert(canonicalHash === EXPECTED_BANNER_HASH, `TC-PORT-006: Canonical banner SHA-256 is verified (${canonicalHash})`);
@@ -99,8 +99,8 @@ async function runPortabilityTests() {
   assert(!cssContent.includes('/public/') && !cssContent.includes('/src/'), 'TC-PORT-009: CSS contains zero external url dependencies');
 
   // TC-PORT-010: Base path resolution portability
-  const baseDev = CarbonPath.resolve('assets/branding/canonical/banner_enerix_carbon.png');
-  assert(baseDev.endsWith('/assets/branding/canonical/banner_enerix_carbon.png'), 'TC-PORT-010: CarbonPath resolves asset path cleanly');
+  const baseDev = CarbonPath.resolve('assets/branding/canonical/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png');
+  assert(baseDev.endsWith('/assets/branding/canonical/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png'), 'TC-PORT-010: CarbonPath resolves asset path cleanly');
 
   // Initialize data provider
   await dataProvider.loadAll();

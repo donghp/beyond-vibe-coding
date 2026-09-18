@@ -9,11 +9,11 @@ import { stateStore } from '../../app/state-store.js';
 
 export function renderPublicHeader() {
   const currentLocale = I18nManager.currentLocale;
-  const logoUrl = CarbonPath.resolve('assets/branding/ENERIXON_CARBON_LOGO_CANONICAL.png');
+  const logoUrl = '/carbon/assets/logo_enerixon_carbon.png?v=2';
   const currentRoute = stateStore.getRoute ? stateStore.getRoute() : 'overview';
 
   return `
-    <header class="public-header" style="background:#ffffff;color:#0B1727;border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:100;width:100%;height:70px;box-shadow:0 1px 2px rgba(11,23,39,0.02);box-sizing:border-box;">
+    <header class="public-header" style="background:#ffffff;color:#0B1727;border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:100;width:100%;height:78px;box-shadow:0 1px 2px rgba(11,23,39,0.02);box-sizing:border-box;transition:all 0.2s ease-in-out;">
       <style>
         .public-header-container {
           max-width: 1280px;
@@ -26,15 +26,49 @@ export function renderPublicHeader() {
           justify-content: space-between;
           box-sizing: border-box;
         }
-        .header-logo-img {
-          width: 120px;
+        .enerixon-header-logo {
+          display: flex;
+          align-items: center;
+        }
+        .logo-img {
+          width: auto;
           height: auto;
+          max-height: 56px;
           display: block;
           object-fit: contain;
+          transition: all 0.2s ease-in-out;
+        }
+        @media (max-width: 1919px) {
+          .logo-img {
+            max-height: 48px;
+          }
+        }
+        @media (max-width: 1200px) {
+          .public-header {
+            height: 76px !important;
+          }
+          .public-main-nav {
+            gap: 20px !important;
+          }
+        }
+        @media (max-width: 1024px) {
+          .public-header {
+            height: 74px !important;
+          }
+          .logo-img {
+            max-height: 40px;
+          }
+          .public-main-nav {
+            gap: 14px !important;
+            font-size: 13px !important;
+          }
         }
         @media (max-width: 768px) {
-          .header-logo-img {
-            width: 108px;
+          .public-header {
+            height: 70px !important;
+          }
+          .logo-img {
+            max-height: 36px;
           }
           .public-main-nav {
             display: none !important;
@@ -44,8 +78,11 @@ export function renderPublicHeader() {
           }
         }
         @media (max-width: 480px) {
-          .header-logo-img {
-            width: 98px;
+          .public-header {
+            height: 64px !important;
+          }
+          .logo-img {
+            max-height: 32px;
           }
           .header-search-btn, .locale-selector-container {
             display: none !important;
@@ -57,12 +94,12 @@ export function renderPublicHeader() {
         <!-- LEFT: Logo -->
         <div style="display:flex;align-items:center;">
           <div class="brand" style="display:flex;align-items:center;cursor:pointer;" onclick="window.location.hash='#overview'">
-            <img src="${logoUrl}" alt="ENERIXON CARBON" class="header-logo-img" />
+            <img src="${logoUrl}" alt="ENERIXON CARBON" class="logo-img" />
           </div>
         </div>
 
         <!-- CENTER: Navigation links -->
-        <nav class="public-main-nav" style="display:flex;gap:32px;align-items:center;font-size:14px;font-weight:600;height:100%;font-family:var(--carbon-font-sans, sans-serif);">
+        <nav class="public-main-nav" style="display:flex;gap:20px;align-items:center;font-size:14px;font-weight:600;height:100%;font-family:var(--carbon-font-sans, sans-serif);">
           <a href="#overview" style="color:${currentRoute === 'overview' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'overview' ? '3px solid #0066FF' : '3px solid transparent'};">Platform</a>
           <a href="#solutions" style="color:${currentRoute === 'solutions' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'solutions' ? '3px solid #0066FF' : '3px solid transparent'};">Solutions</a>
           <a href="#science" style="color:${currentRoute === 'science' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'science' ? '3px solid #0066FF' : '3px solid transparent'};">Science</a>

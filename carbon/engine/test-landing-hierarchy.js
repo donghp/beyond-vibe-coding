@@ -73,8 +73,8 @@ async function execute() {
 
   // Test 2: Official banner exists
   runner.run('TC-LANDING-002', 'Official brand banner renders canonical banner asset', () => {
-    if (!bannerHtml.includes('banner_enerix_carbon.png')) {
-      throw new Error('Banner HTML does not reference canonical banner_enerix_carbon.png');
+    if (!bannerHtml.includes('ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png')) {
+      throw new Error('Banner HTML does not reference canonical ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png');
     }
   });
 

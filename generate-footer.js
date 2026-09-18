@@ -9,7 +9,7 @@ import { CarbonPath } from '../../app/path.js';
 import { ICONS } from './icons.js';
 
 export function renderEnterpriseFooter() {
-  const logoUrl = CarbonPath.resolve('assets/branding/logo_enerix_carbon.png');
+  const logoUrl = '/carbon/assets/logo_enerixon_carbon.png?v=2';
   return \`
     <footer style="background:#fff;border-top:1px solid var(--carbon-border,#e2e8f0);padding:32px 0;color:var(--carbon-navy-800,#1e293b);">
       <div class="public-container" style="max-width:1280px;margin:0 auto;padding:0 32px;width:100%;">

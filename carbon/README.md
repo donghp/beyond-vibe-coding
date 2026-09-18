@@ -65,9 +65,9 @@ carbon/
 ├── assets/                         # Self-contained visual assets
 │   └── branding/
 │       ├── manifest.json           # Branding asset integrity registry
-│       ├── banner_enerix_carbon.png # Preserved asset
+│       ├── ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png # Preserved asset
 │       └── canonical/
-│           └── banner_enerix_carbon.png # Active canonical brand banner (SHA-256 verified)
+│           └── ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png # Active canonical brand banner (SHA-256 verified)
 ├── data/                           # Canonical regulatory data tables
 │   ├── activities.json             # Activity catalogue & scopes
 │   ├── calculation-models.json     # 10 deterministic formula specifications

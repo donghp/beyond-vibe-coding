@@ -270,7 +270,7 @@ async function generateBanner() {
   </svg>
   `;
 
-  const outputPath = path.resolve('carbon/assets/branding/banner_enerix_carbon.png');
+  const outputPath = path.resolve('carbon/assets/branding/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png');
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 
   await sharp(Buffer.from(svg))

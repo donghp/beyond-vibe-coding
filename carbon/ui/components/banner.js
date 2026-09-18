@@ -1,12 +1,12 @@
 /**
  * ENERIX Carbon - Official Branded Visual Identity Banner Component
- * Canonical UI entry point for banner_enerix_carbon.png
+ * Canonical UI entry point for ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png
  * Authority: MDS_ENERIX_CARBON_V1.0 + EDLS-001 V7.1
  * Task #Enerix_Carbon_00012 & #Enerix_Carbon_00013
  *
  * Governed Rules:
  * 1. Single source of visual identity for Carbon banner surfaces.
- * 2. References canonical asset at assets/branding/canonical/banner_enerix_carbon.png.
+ * 2. References canonical asset at assets/branding/canonical/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png.
  * 3. Resolves asset paths strictly through CarbonPath.resolve() (no hardcoded base URLs).
  * 4. Resilient fail-safe rendering: A missing visual asset MUST NEVER crash the router or application.
  * 5. Responsive contract: desktop panoramic, tablet focal center, mobile adaptive crop.
@@ -22,12 +22,12 @@ export const CarbonBrandBanner = {
    * Authority: MDS_ENERIX_CARBON_V1.0_EXPANDED + EDLS-001_V7.1
    * Task #Enerix_Carbon_00021
    */
-  CANONICAL_PATH: 'assets/branding/banner_enerix_carbon.png',
+  CANONICAL_PATH: 'assets/branding/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png',
 
   /**
    * Deterministic verified hash prefix for cache-safe resolution
    */
-  VERSION_HASH: '2f3bd8a3',
+  VERSION_HASH: '3',
 
   /**
    * Relative canonical asset path

@@ -36,7 +36,7 @@ export function renderOverviewPage(options = {}) {
       }
       /* Hero */
       .hero-section {
-        background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center center / cover no-repeat;
+        background: url('\${'/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4'}') center center / cover no-repeat;
         min-height: 560px;
         display: flex;
         align-items: center;
@@ -153,7 +153,7 @@ export function renderOverviewPage(options = {}) {
       
       /* Testimonial */
       .testimonial-section {
-        background: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}') center center / cover no-repeat;
+        background: url('\${'/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4'}') center center / cover no-repeat;
         padding: 96px 0;
         position: relative;
       }
@@ -161,7 +161,7 @@ export function renderOverviewPage(options = {}) {
         content: '';
         position: absolute;
         inset: 0;
-        background: rgba(8, 33, 61, 0.6);
+        background: rgba(8, 33, 61, 0.6), url('/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4') center center / cover no-repeat;
       }
       
       @media (max-width: 1024px) {
@@ -392,7 +392,7 @@ export function renderOverviewPage(options = {}) {
           <div class="platform-ui-mock" style="display:flex;flex-direction:column;height:560px;background:#f8fafc;">
             <div style="height:56px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;padding:0 24px;justify-content:space-between;">
               <div style="display:flex;align-items:center;gap:8px;">
-                <img src="\${CarbonPath.resolve('assets/branding/logo_enerix_carbon.png')}" alt="Logo" style="height:24px;">
+                <img src="/carbon/assets/logo_enerixon_carbon.png?v=2" alt="Logo" style="height:24px;">
               </div>
               <div style="display:flex;gap:12px;">
                 <select style="padding:6px 12px;border:1px solid #e2e8f0;border-radius:6px;font-size:13px;"><option>Global Company</option></select>
@@ -497,7 +497,7 @@ export function renderOverviewPage(options = {}) {
           
           <div class="solutions-grid" style="display:grid;grid-template-columns:repeat(4, 1fr);gap:24px;">
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}');"></div>
+              <div class="solution-img" style="background-image: url('/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4');"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Corporate Carbon Management</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Measure, manage and report emissions across your entire organization.</p>
@@ -505,7 +505,7 @@ export function renderOverviewPage(options = {}) {
               </div>
             </div>
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}'); background-position: right center;"></div>
+              <div class="solution-img" style="background-image: url('/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4'); background-position: right center;"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Supply Chain Carbon Intelligence</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Gain visibility and reduce emissions across your value chain.</p>
@@ -513,7 +513,7 @@ export function renderOverviewPage(options = {}) {
               </div>
             </div>
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}'); background-position: left center;"></div>
+              <div class="solution-img" style="background-image: url('/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4'); background-position: left center;"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Product Carbon Footprint</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Understand and communicate the environmental impact of your products.</p>
@@ -521,7 +521,7 @@ export function renderOverviewPage(options = {}) {
               </div>
             </div>
             <div class="solution-card">
-              <div class="solution-img" style="background-image: url('\${CarbonPath.resolve('assets/branding/banner_enerix_carbon.png')}'); background-position: center bottom;"></div>
+              <div class="solution-img" style="background-image: url('/carbon/assets/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png?v=4'); background-position: center bottom;"></div>
               <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
                 <h3 style="font-size:18px;font-weight:800;color:var(--carbon-navy-900);margin:0 0 12px 0;">Decarbonization Strategy</h3>
                 <p style="font-size:14px;color:var(--carbon-navy-600);line-height:1.5;margin:0 0 24px 0;flex:1;">Turn data into actionable reduction plans and track real progress.</p>
