@@ -140,11 +140,29 @@ export function renderPublicOverviewPage(options = {}) {
       </style>
 
       <!-- ==========================================================================
-           1. FULL-WIDTH CANONICAL HERO SECTION
+           1. FULL-WIDTH CANONICAL HERO SECTION WITH PLATFORM OVERLAY
            ========================================================================== -->
       <section class="carbon-public-overview-hero" 
-               style="width:100%;margin:0;padding:0;display:block;background:#08192D;border-bottom:1px solid #E2E8F0;overflow:hidden;position:relative;">
-        <img src="${canonicalBannerUrl}" alt="Carbon Intelligence" style="width:100%;height:auto;max-height:580px;object-fit:cover;display:block;border:none;" />
+               style="width:100%;margin:0;padding:0;display:block;background:#08192D;border-bottom:1px solid #E2E8F0;overflow:hidden;position:relative;height:540px;">
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;">
+          <img src="${canonicalBannerUrl}" alt="Carbon Intelligence" style="width:100%;height:100%;object-fit:cover;display:block;border:none;" />
+        </div>
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg, rgba(8, 25, 45, 0.85) 0%, rgba(8, 25, 45, 0.4) 55%, rgba(8, 25, 45, 0.1) 100%);z-index:2;"></div>
+        <div style="position:relative;z-index:3;max-width:1280px;height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;">
+          <div style="max-width:640px;color:#ffffff;">
+            <span style="font-size:11px;font-weight:700;color:#078FF0;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:20px;display:block;">THE ENERIXON CARBON PLATFORM</span>
+            <h1 style="font-size:clamp(36px, 5vw, 60px);font-weight:800;line-height:1.05;margin-bottom:24px;letter-spacing:-0.035em;color:#FFFFFF;">From data<br>to real-world impact.</h1>
+            <p style="font-size:19px;color:#CBD5E1;line-height:1.6;margin-bottom:40px;font-weight:400;">A unified platform to measure, report and reduce emissions across your organization and value chain. Turn carbon data into clear insights and actionable opportunities.</p>
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+              <button class="enerix-button enerix-button-primary btn-explore-platform" style="background:#078FF0;color:#ffffff;padding:0 32px;height:52px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;border:none;box-shadow:0 10px 20px rgba(7,143,240,0.25);display:inline-flex;align-items:center;gap:8px;transition:all 0.2s ease;">
+                Explore the Platform →
+              </button>
+              <button class="enerix-button enerix-button-secondary btn-book-demo-cta" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.3);padding:0 32px;height:52px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;transition:all 0.2s ease;">
+                Book a Demo
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- ==========================================================================

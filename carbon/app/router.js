@@ -5,6 +5,7 @@ import { stateStore } from './state-store.js';
 import { renderOverviewPage } from '../ui/pages/overview.js';
 import { renderEngineeringOverviewPage } from '../ui/pages/engineering-overview.js';
 import { 
+  renderPlatformProductPage,
   renderMeasureProductPage, 
   renderReportProductPage, 
   renderReduceProductPage, 
@@ -28,6 +29,7 @@ import { renderKnowledgePage } from '../ui/pages/knowledge.js';
 export class Router {
   static routes = {
     'overview': renderOverviewPage,
+    'platform': renderPlatformProductPage,
     'workspace': renderEngineeringOverviewPage,
     'engineering': renderEngineeringOverviewPage,
     'decision-workspace': renderEngineeringOverviewPage,

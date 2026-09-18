@@ -53,6 +53,7 @@ export async function initApp() {
   }
 
   stateStore.recompute();
+  window.stateStore = stateStore;
 
   const headerRoot = document.getElementById('header-root');
   const sidebarRoot = document.getElementById('sidebar-root');

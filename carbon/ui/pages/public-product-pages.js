@@ -7,6 +7,7 @@
 import { renderPageBanner } from '../components/page-banner.js';
 import { renderDarkPremiumCTA } from '../components/dark-premium-cta.js';
 import { renderEnterpriseFooter } from '../components/enterprise-footer.js';
+import { CarbonPath } from '../../app/path.js';
 
 import { stateStore } from '../../app/state-store.js';
 
@@ -370,3 +371,116 @@ export function renderIndustriesProductPage() {
   `;
 }
 renderIndustriesProductPage.attachEvents = attachDrilldownEvents;
+
+export function renderPlatformProductPage() {
+  const banner = renderPageBanner({
+    eyebrow: 'THE ENERIXON CARBON PLATFORM',
+    title: 'From data to real-world impact.',
+    description: 'A unified platform to measure, report and reduce emissions across your organization and value chain. Turn carbon data into clear insights and actionable opportunities.',
+    primaryCta: { label: 'Request a Demo →', url: '#contact' },
+    secondaryCta: { label: 'Explore the Platform', url: '#section-01' },
+    visualAsset: 'assets/branding/bg_banner01.png'
+  });
+
+  const sectionBgUrl = CarbonPath.resolve('assets/section_001_gb.png');
+
+  return `
+    <div class="product-page platform-page">
+      ${banner}
+
+      <section id="section-01" class="section" style="padding:100px 24px; position:relative; background:#ffffff; overflow:hidden; font-family:'Be Vietnam Pro', var(--carbon-font-sans, sans-serif);">
+        <div style="position:absolute; inset:0; background:url('${sectionBgUrl}') center/cover no-repeat; opacity:0.9; z-index:1;"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,246,255,0.85) 100%); z-index:2;"></div>
+
+        <div class="container" style="max-width:1280px; margin:0 auto; position:relative; z-index:3;">
+          <div style="display:grid; grid-template-columns: 1fr 1.1fr; gap:64px; align-items:center;" class="platform-section-grid">
+            
+            <!-- LEFT: Content -->
+            <div>
+              <div style="font-size:12px; font-weight:700; color:#0066FF; text-transform:uppercase; letter-spacing:0.15em; margin-bottom:8px;">RECOMMENDED</div>
+              <div style="font-size:11px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:16px;">CARBON INSIGHTS. REAL IMPACT.</div>
+              <h2 style="font-size:clamp(32px, 4vw, 48px); font-weight:800; color:#0B1727; line-height:1.1; margin-bottom:20px; letter-spacing:-0.03em;">
+                Know your carbon<br>position <span style="color:#0066FF;">in minutes.</span>
+              </h2>
+              <p style="font-size:17px; color:#475569; line-height:1.7; margin-bottom:32px;">
+                Move from fragmented activity data to a clear, traceable view of your organization's carbon position.
+              </p>
+              <div style="display:flex; gap:16px; align-items:center;">
+                <div style="font-size:12px; font-weight:600; color:#64748B; background:rgba(226,232,240,0.8); padding:8px 14px; border-radius:6px; display:inline-block;">
+                  Illustrative Demo Data
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Approved Platform Dashboard UI Visual -->
+            <div style="background:#ffffff; border-radius:16px; border:1px solid #E2E8F0; box-shadow:0 20px 40px rgba(11,23,39,0.08); padding:32px; box-sizing:border-box;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid #F1F5F9;">
+                <div>
+                  <div style="font-size:12px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:0.05em;">ENTERPRISE CARBON INVENTORY</div>
+                  <div style="font-size:18px; font-weight:800; color:#0B1727;">Global Consolidated Portfolio</div>
+                </div>
+                <div style="background:#EFF6FF; color:#0066FF; font-size:12px; font-weight:700; padding:6px 12px; border-radius:20px;">
+                  Active Audit Cycle
+                </div>
+              </div>
+
+              <!-- Top metrics card -->
+              <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:24px; margin-bottom:20px;">
+                <div style="font-size:13px; font-weight:600; color:#64748B; margin-bottom:6px;">TOTAL EMISSIONS</div>
+                <div style="font-size:36px; font-weight:800; color:#0B1727; font-family:var(--carbon-font-mono, monospace); letter-spacing:-0.02em;">
+                  125,430 <span style="font-size:16px; font-weight:600; color:#64748B;">tCO₂e</span>
+                </div>
+              </div>
+
+              <!-- 3 Scope grid -->
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:20px;">
+                <div style="background:#ffffff; border:1px solid #E2E8F0; border-radius:8px; padding:16px;">
+                  <div style="font-size:11px; font-weight:700; color:#64748B; margin-bottom:4px;">SCOPE 1</div>
+                  <div style="font-size:18px; font-weight:800; color:#0B1727; font-family:var(--carbon-font-mono, monospace);">32,540</div>
+                  <div style="font-size:10px; color:#64748B;">tCO₂e</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #E2E8F0; border-radius:8px; padding:16px;">
+                  <div style="font-size:11px; font-weight:700; color:#64748B; margin-bottom:4px;">SCOPE 2</div>
+                  <div style="font-size:18px; font-weight:800; color:#0B1727; font-family:var(--carbon-font-mono, monospace);">41,230</div>
+                  <div style="font-size:10px; color:#64748B;">tCO₂e</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid #E2E8F0; border-radius:8px; padding:16px;">
+                  <div style="font-size:11px; font-weight:700; color:#64748B; margin-bottom:4px;">SCOPE 3</div>
+                  <div style="font-size:18px; font-weight:800; color:#0B1727; font-family:var(--carbon-font-mono, monospace);">51,660</div>
+                  <div style="font-size:10px; color:#64748B;">tCO₂e</div>
+                </div>
+              </div>
+
+              <!-- Bottom info row -->
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+                <div style="background:#F0FDF4; border:1px solid #DCFCE7; border-radius:8px; padding:16px;">
+                  <div style="font-size:11px; font-weight:700; color:#166534; margin-bottom:4px;">DATA COMPLETENESS</div>
+                  <div style="font-size:22px; font-weight:800; color:#15803D; font-family:var(--carbon-font-mono, monospace);">98%</div>
+                </div>
+                <div style="background:#FFFBEB; border:1px solid #FEF3C7; border-radius:8px; padding:16px;">
+                  <div style="font-size:11px; font-weight:700; color:#B45309; margin-bottom:4px;">PRIMARY HOTSPOT</div>
+                  <div style="font-size:13px; font-weight:700; color:#92400E; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Purchased Goods & Services</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <style>
+        @media (max-width: 968px) {
+          .platform-section-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+        }
+      </style>
+
+      ${renderDarkPremiumCTA()}
+      ${renderEnterpriseFooter()}
+    </div>
+  `;
+}
+renderPlatformProductPage.attachEvents = attachDrilldownEvents;

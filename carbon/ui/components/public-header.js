@@ -11,6 +11,7 @@ export function renderPublicHeader() {
   const currentLocale = I18nManager.currentLocale;
   const logoUrl = CarbonPath.resolve('assets/logo_enerixon_carbon.png');
   const currentRoute = stateStore.getRoute ? stateStore.getRoute() : 'overview';
+  const isPlatformActive = currentRoute === 'overview' || currentRoute === 'platform';
 
   return `
     <header class="public-header" style="background:#ffffff;color:#0B1727;border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:100;width:100%;height:78px;box-shadow:0 1px 2px rgba(11,23,39,0.02);box-sizing:border-box;transition:all 0.2s ease-in-out;">
@@ -100,7 +101,7 @@ export function renderPublicHeader() {
 
         <!-- CENTER: Navigation links -->
         <nav class="public-main-nav" style="display:flex;gap:20px;align-items:center;font-size:14px;font-weight:600;height:100%;font-family:var(--carbon-font-sans, sans-serif);">
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Platform</a>
+          <a href="#" onclick="event.preventDefault(); window.stateStore && window.stateStore.setRoute('platform'); window.scrollTo({top:0, behavior:'smooth'});" style="color:${isPlatformActive ? '#0066FF' : '#334155'};font-weight:${isPlatformActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isPlatformActive ? '3px solid #0066FF' : '3px solid transparent'};">Platform</a>
           <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Solutions</a>
           <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Industries</a>
           <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Science</a>
