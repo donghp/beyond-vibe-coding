@@ -154,3 +154,90 @@
     width: 110px;
   }
 }
+
+/* ==========================================================================
+   PUBLIC HEADER, HERO & INTELLIGENCE LOOP RESPONSIVE OVERRIDES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .public-header {
+    padding: 0 20px !important;
+  }
+  .public-main-nav {
+    gap: 20px !important;
+    font-size: 13px !important;
+  }
+  .carbon-public-overview-hero {
+    height: 480px !important;
+    min-height: 460px !important;
+  }
+  .intelligence-loop-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .intelligence-loop-grid .loop-card:last-child {
+    grid-column: span 2 !important;
+  }
+  .intelligence-loop-connector {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .public-header {
+    padding: 0 16px !important;
+    height: 64px !important;
+  }
+  .public-main-nav {
+    display: none !important;
+  }
+  .carbon-public-overview-hero {
+    height: auto !important;
+    min-height: 420px !important;
+    padding: 36px 0 !important;
+    background-position: 25% center !important;
+  }
+  .hero-content-box {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .platform-preview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .capabilities-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .intelligence-loop-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .intelligence-loop-grid .loop-card:last-child {
+    grid-column: span 1 !important;
+  }
+  .carbon-intelligence-loop-section,
+  .carbon-platform-preview-section,
+  .carbon-core-capabilities-section {
+    padding: 32px 16px !important;
+  }
+  .capabilities-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .carbon-public-overview-hero {
+    min-height: 380px !important;
+    padding: 28px 0 !important;
+  }
+  .hero-content-box h1 {
+    font-size: 30px !important;
+  }
+  .hero-content-box p {
+    font-size: 14px !important;
+  }
+}
+

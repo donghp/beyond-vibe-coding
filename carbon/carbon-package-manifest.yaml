@@ -29,6 +29,7 @@ runtime_dependencies:
   - "/carbon/ui/styles/main.css"
   - "/carbon/ui/styles/tokens.css"
   - "/carbon/assets/branding/banner_enerix_carbon.png"
+  - "/carbon/assets/branding/bg_banner02.png"
   - "/carbon/assets/branding/manifest.json"
 
 external_runtime_dependencies: []

@@ -4,12 +4,12 @@
  */
 
 .enerix-card {
-  background: var(--carbon-bg-card);
-  border: 1px solid var(--carbon-border);
-  border-radius: var(--carbon-radius-lg);
-  padding: 20px;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: var(--card-radius, 8px);
+  padding: 24px;
   box-shadow: var(--carbon-shadow-sm);
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
   position: relative;
 }
 
@@ -18,9 +18,9 @@
 }
 
 .card-title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--carbon-navy-900);
+  color: var(--color-primary-navy, #08192D);
   margin-bottom: 12px;
 }
 
@@ -68,14 +68,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 7px 14px;
-  border-radius: var(--carbon-radius-md);
-  font-size: 13px;
+  gap: 8px;
+  height: var(--button-height, 40px);
+  padding: 0 16px;
+  border-radius: var(--card-radius, 8px);
+  font-family: var(--carbon-font-sans);
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all 0.12s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
   line-height: 1.4;
   white-space: nowrap;
@@ -83,27 +85,29 @@
 
 .enerix-btn-primary,
 .enerix-button-primary {
-  background-color: var(--carbon-blue-600);
+  background-color: var(--color-primary-blue, #0066FF);
   color: #ffffff;
-  border-color: var(--carbon-blue-600);
+  border-color: var(--color-primary-blue, #0066FF);
 }
 
 .enerix-btn-primary:hover,
 .enerix-button-primary:hover {
-  background-color: var(--carbon-blue-700);
+  background-color: var(--carbon-blue-600, #0052cc);
+  border-color: var(--carbon-blue-600, #0052cc);
 }
 
 .enerix-btn-secondary,
 .enerix-button-secondary {
   background-color: #ffffff;
-  border-color: var(--carbon-border-strong);
-  color: var(--carbon-navy-700);
+  border-color: var(--color-border, #E2E8F0);
+  color: var(--color-primary-navy, #08192D);
 }
 
 .enerix-btn-secondary:hover,
 .enerix-button-secondary:hover {
-  background-color: var(--carbon-navy-50);
-  color: var(--carbon-navy-900);
+  background-color: var(--color-surface-soft, #F8FAFC);
+  color: var(--color-primary-navy, #08192D);
+  border-color: var(--carbon-navy-300);
 }
 
 .status-badge {

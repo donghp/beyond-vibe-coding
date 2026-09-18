@@ -33,7 +33,7 @@ export function renderHeader() {
           </svg>
         </button>
         <div class="brand" style="cursor:pointer;display:flex;align-items:center;gap:12px;" onclick="window.location.hash='#overview'">
-          <img src="${logoUrl}" alt="ENERIXON CARBON" style="height:30px;width:auto;display:block;" />
+          <img src="${logoUrl}" alt="ENERIXON CARBON" style="height:42px;width:auto;display:block;" />
         </div>
 
         <!-- Top Product-Level Navigation (01 Measure | 02 Report | 03 Reduce) -->

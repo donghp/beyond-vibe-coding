@@ -7,6 +7,7 @@
 import { dataProvider } from '../app/data-provider.js';
 import { stateStore } from '../app/state-store.js';
 import { renderOverviewPage } from '../ui/pages/overview.js';
+import { renderEngineeringOverviewPage } from '../ui/pages/engineering-overview.js';
 import { renderHeader } from '../ui/components/header.js';
 import { renderCarbonBrandBanner } from '../ui/components/banner.js';
 
@@ -57,7 +58,10 @@ async function execute() {
   stateStore.recompute();
 
   const overviewHtml = renderOverviewPage();
+  const engOverviewHtml = renderEngineeringOverviewPage();
+  stateStore.setRoute('workspace');
   const headerHtml = renderHeader();
+  stateStore.setRoute('overview');
   const bannerHtml = renderCarbonBrandBanner();
 
   // Test 1: Top navigation exists once
@@ -81,28 +85,28 @@ async function execute() {
     }
   });
 
-  // Test 4: Carbon Footprint is first major content section
-  runner.run('TC-LANDING-004', 'Carbon Footprint is the first major content section in overview', () => {
-    if (!overviewHtml.includes('Carbon Footprint')) {
-      throw new Error('Overview page does not contain Carbon Footprint heading');
+  // Test 4: Carbon Footprint is first major content section in Engineering Workspace
+  runner.run('TC-LANDING-004', 'Carbon Footprint is the first major content section in engineering overview', () => {
+    if (!engOverviewHtml.includes('Carbon Footprint')) {
+      throw new Error('Engineering Overview page does not contain Carbon Footprint heading');
     }
-    const idxFootprint = overviewHtml.indexOf('Carbon Footprint');
-    const idxFirstCard = overviewHtml.indexOf('Gross Facility Emissions');
+    const idxFootprint = engOverviewHtml.indexOf('Carbon Footprint');
+    const idxFirstCard = engOverviewHtml.indexOf('Gross Facility Emissions');
     if (idxFootprint < 0 || idxFirstCard < 0 || idxFootprint > idxFirstCard) {
       throw new Error('Carbon Footprint heading must precede gross facility emissions card');
     }
   });
 
-  // Test 5: Facility context renders quietly
+  // Test 5: Facility context renders quietly in Engineering Workspace
   runner.run('TC-LANDING-005', 'Facility context renders with selector and current active facility', () => {
-    if (!overviewHtml.includes('overview-facility-select')) {
+    if (!engOverviewHtml.includes('overview-facility-select')) {
       throw new Error('Facility selector missing');
     }
   });
 
-  // Test 6: ACTIVE FACILITY label absent
-  runner.run('TC-LANDING-006', 'Visible "Active Facility:" label is absent from overview markup', () => {
-    if (overviewHtml.includes('>Active Facility:<')) {
+  // Test 6: ACTIVE FACILITY label absent in Engineering Workspace
+  runner.run('TC-LANDING-006', 'Visible "Active Facility:" label is absent from engineering overview markup', () => {
+    if (engOverviewHtml.includes('>Active Facility:<')) {
       throw new Error('Visible "Active Facility:" label found in overview markup');
     }
   });

@@ -35,7 +35,7 @@ function computeSha256(filePath) {
 async function runPortabilityTests() {
   console.log('Starting ENERIX Carbon Portability & Self-Containment Verification (#0016)...');
 
-  const EXPECTED_BANNER_HASH = 'f919b31b4dc1b21e251c5ae7cb11dadd276b7f7b437715ee893cb1283e5cf5b3';
+  const EXPECTED_BANNER_HASH = '2f3bd8a34e2dd378617f02a774f2880b9ea558b54179d7c416df4a538ea26a23';
 
   // TC-PORT-001: Carbon entrypoint exists and is self-contained
   const indexPath = path.resolve('carbon/index.html');

@@ -61,7 +61,7 @@ export function renderSidebar(currentRoute, isMobileMenuOpen = false) {
       {
         group: I18nManager.t('nav.group_measure_core'),
         items: [
-          { id: 'overview', label: I18nManager.t('nav.overview_label'), icon: 'overview' },
+          { id: 'workspace', label: 'Executive Workspace', icon: 'overview' },
           { id: 'facilities', label: I18nManager.t('nav.facilities_label'), icon: 'facilities' },
           { id: 'regulatory-check', label: I18nManager.t('nav.regulatory_label'), icon: 'regulatory-check' },
           { id: 'inventory', label: I18nManager.t('nav.inventory_label'), icon: 'inventory' }

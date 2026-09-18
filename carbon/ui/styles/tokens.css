@@ -18,6 +18,23 @@
 
 :root {
   /* ==========================================================================
+     UNIFIED DESIGN TOKENS (STEP 1 AUDIT & CANONICAL FOUNDATION)
+     ========================================================================== */
+  --color-primary-navy: #08192D;
+  --color-primary-blue: #0066FF;
+  --color-accent-green: #10B981;
+  --color-text-primary: #0B1727;
+  --color-text-secondary: #475569;
+  --color-surface: #ffffff;
+  --color-surface-soft: #F8FAFC;
+  --color-border: #E2E8F0;
+
+  --container-width: 1280px;
+  --section-padding: 56px 24px;
+  --card-radius: 8px;
+  --button-height: 40px;
+
+  /* ==========================================================================
      1. COLOR FOUNDATION — CARBON PRODUCT PRIMARY (BLUE DOMINANT)
      ========================================================================== */
   --carbon-blue-50:  #f0f9ff;
@@ -25,9 +42,9 @@
   --carbon-blue-200: #bae6fd;
   --carbon-blue-300: #70c0f0; /* soft info / process blocks */
   --carbon-blue-400: #38bdf8;
-  --carbon-blue-500: #00a0e0; /* PRIMARY CARBON BLUE */
-  --carbon-blue-600: #008fcc; /* action / interactive */
-  --carbon-blue-700: #0077b6; /* deep blue / charts / links */
+  --carbon-blue-500: #0066FF; /* PRIMARY CARBON BLUE */
+  --carbon-blue-600: #0052cc; /* action / interactive */
+  --carbon-blue-700: #0040a8; /* deep blue / charts / links */
   --carbon-blue-800: #075985;
   --carbon-blue-900: #0c4a6e;
 
@@ -109,9 +126,9 @@
   --color-digital-blue: var(--carbon-blue-500);
 
   /* ==========================================================================
-     5. TYPOGRAPHY (Inter & Be Vietnam Pro)
+     5. TYPOGRAPHY (Inter & Inter Tight / Modern Grotesk Foundation)
      ========================================================================== */
-  --carbon-font-sans: 'Inter', 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --carbon-font-sans: 'Inter', 'Inter Tight', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --carbon-font-mono: 'JetBrains Mono', 'Fira Code', 'DejaVu Sans Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
 
   --font-family: var(--carbon-font-sans);

@@ -3,6 +3,7 @@
  */
 import { stateStore } from './state-store.js';
 import { renderOverviewPage } from '../ui/pages/overview.js';
+import { renderEngineeringOverviewPage } from '../ui/pages/engineering-overview.js';
 import { 
   renderMeasureProductPage, 
   renderReportProductPage, 
@@ -26,6 +27,9 @@ import { renderKnowledgePage } from '../ui/pages/knowledge.js';
 export class Router {
   static routes = {
     'overview': renderOverviewPage,
+    'workspace': renderEngineeringOverviewPage,
+    'engineering': renderEngineeringOverviewPage,
+    'decision-workspace': renderEngineeringOverviewPage,
     'measure': renderMeasureProductPage,
     'report': renderReportProductPage,
     'reduce': renderReduceProductPage,

@@ -3,7 +3,7 @@
   "manifest_id": "ENERIX-CARBON-BRANDING-MANIFEST",
   "version": "1.1.0",
   "governing_authority": "MDS_ENERIX_CARBON_V1.0_EXPANDED + EDLS-001_V7.1",
-  "task": "#Enerix_Carbon_00021",
+  "task": "#Enerix_Carbon_00039",
   "assets": [
     {
       "asset_id": "CARBON_BANNER_PRIMARY",
@@ -20,7 +20,31 @@
       "size_bytes": 2087152,
       "mime_type": "image/png",
       "alt_text": "ENERIXON Carbon — Regulatory Carbon & GHG Engineering Platform",
-      "presentation_variants": ["hero", "guide", "compact"]
+      "presentation_variants": [
+        "hero",
+        "guide",
+        "compact"
+      ]
+    },
+    {
+      "asset_id": "CARBON_HERO_BG_TEXTFREE",
+      "canonical_path": "assets/branding/bg_banner02.png",
+      "required": true,
+      "immutable": true,
+      "role": "hero_background_textfree",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080,
+        "aspect_ratio": "16:9"
+      },
+      "sha256": "f72f7896637d62ae794773af03b16c99a1790dde69264a74a4d31323f0f25c75",
+      "size_bytes": 2396611,
+      "mime_type": "image/png",
+      "alt_text": "ENERIX Carbon Clean Text-Free Responsive Hero Background",
+      "presentation_variants": [
+        "public_hero",
+        "responsive_banner"
+      ]
     }
   ]
 }

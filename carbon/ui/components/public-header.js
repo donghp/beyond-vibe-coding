@@ -1,7 +1,7 @@
 /**
  * ENERIX Carbon - Canonical Public Header Component
  * Part of Global Page Layout System V1.0
- * White background, canonical logo, clean navigation, language selector, Book a Demo &rarr; CTA.
+ * White background, canonical logo, clean navigation, language selector, Book a Demo CTA.
  */
 import { I18nManager } from '../../app/i18n.js';
 import { CarbonPath } from '../../app/path.js';
@@ -9,37 +9,85 @@ import { stateStore } from '../../app/state-store.js';
 
 export function renderPublicHeader() {
   const currentLocale = I18nManager.currentLocale;
-  const logoUrl = CarbonPath.resolve('assets/branding/logo_enerix_carbon.png');
+  const logoUrl = CarbonPath.resolve('assets/branding/ENERIXON_CARBON_LOGO_CANONICAL.png');
   const currentRoute = stateStore.getRoute ? stateStore.getRoute() : 'overview';
 
   return `
-    <header class="public-header" style="background:#ffffff;color:var(--carbon-navy-900, #08213D);border-bottom:1px solid var(--carbon-border, #E2E8F0);position:sticky;top:0;z-index:100;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 3px rgba(0,0,0,0.02);">
-      <div style="display:flex;align-items:center;gap:40px;">
-        <div class="brand" style="display:flex;align-items:center;cursor:pointer;" onclick="window.location.hash='#overview'">
-          <img src="${logoUrl}" alt="ENERIXON CARBON" class="canonical-header-logo" />
-        </div>
-        <nav style="display:flex;gap:28px;align-items:center;font-size:14px;font-weight:600;color:var(--carbon-navy-800, #1E293B);">
-          <a href="#overview" style="color:${currentRoute === 'overview' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Platform</a>
-          <a href="#solutions" style="color:${currentRoute === 'solutions' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Solutions</a>
-          <a href="#science" style="color:${currentRoute === 'science' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Science</a>
-          <a href="#resources" style="color:${currentRoute === 'resources' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Resources</a>
-          <a href="#company" style="color:${currentRoute === 'company' ? 'var(--carbon-blue-600, #0066ff)' : 'var(--carbon-navy-800)'};text-decoration:none;transition:color 0.15s ease;">Company</a>
-        </nav>
-      </div>
-      <div style="display:flex;align-items:center;gap:20px;">
+    <header class="public-header" style="background:#ffffff;color:#0B1727;border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:100;width:100%;height:70px;box-shadow:0 1px 2px rgba(11,23,39,0.02);box-sizing:border-box;">
+      <style>
+        .public-header-container {
+          max-width: 1280px;
+          width: 100%;
+          height: 100%;
+          margin: 0 auto;
+          padding: 0 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          box-sizing: border-box;
+        }
+        .header-logo-img {
+          width: 120px;
+          height: auto;
+          display: block;
+          object-fit: contain;
+        }
+        @media (max-width: 768px) {
+          .header-logo-img {
+            width: 108px;
+          }
+          .public-main-nav {
+            display: none !important;
+          }
+          .public-header-container {
+            padding: 0 16px;
+          }
+        }
+        @media (max-width: 480px) {
+          .header-logo-img {
+            width: 98px;
+          }
+          .header-search-btn, .locale-selector-container {
+            display: none !important;
+          }
+        }
+      </style>
+      <div class="public-header-container">
         
-        <button style="background:transparent;border:none;cursor:pointer;color:var(--carbon-navy-600);display:flex;align-items:center;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </button>
-        <div class="locale-selector-container">
-          <select id="app-locale-select" class="carbon-locale-select" onchange="window.setAppLocale(this.value)" style="border:1px solid var(--carbon-border, #E2E8F0);background:#fff;padding:6px 12px;border-radius:6px;font-size:13px;cursor:pointer;color:var(--carbon-navy-800);">
-            <option value="en" ${currentLocale === 'en' ? 'selected' : ''}>English</option>
-            <option value="vi" ${currentLocale === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
-          </select>
+        <!-- LEFT: Logo -->
+        <div style="display:flex;align-items:center;">
+          <div class="brand" style="display:flex;align-items:center;cursor:pointer;" onclick="window.location.hash='#overview'">
+            <img src="${logoUrl}" alt="ENERIXON CARBON" class="header-logo-img" />
+          </div>
         </div>
-        <button id="public-book-demo-btn" class="enerix-button enerix-button-primary" style="background:var(--carbon-blue-600, #0066ff);color:#fff;padding:10px 20px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;border:none;box-shadow:0 4px 12px rgba(0,102,255,0.25);">
-          Book a Demo
-        </button>
+
+        <!-- CENTER: Navigation links -->
+        <nav class="public-main-nav" style="display:flex;gap:32px;align-items:center;font-size:14px;font-weight:600;height:100%;font-family:var(--carbon-font-sans, sans-serif);">
+          <a href="#overview" style="color:${currentRoute === 'overview' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'overview' ? '3px solid #0066FF' : '3px solid transparent'};">Platform</a>
+          <a href="#solutions" style="color:${currentRoute === 'solutions' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'solutions' ? '3px solid #0066FF' : '3px solid transparent'};">Solutions</a>
+          <a href="#science" style="color:${currentRoute === 'science' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'science' ? '3px solid #0066FF' : '3px solid transparent'};">Science</a>
+          <a href="#resources" style="color:${currentRoute === 'resources' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'resources' ? '3px solid #0066FF' : '3px solid transparent'};">Resources</a>
+          <a href="#company" style="color:${currentRoute === 'company' ? '#0066FF' : '#334155'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${currentRoute === 'company' ? '3px solid #0066FF' : '3px solid transparent'};">Company</a>
+        </nav>
+
+        <!-- RIGHT: Search, Language selector, Book a Demo -->
+        <div style="display:flex;align-items:center;gap:16px;">
+          <button class="header-search-btn" style="background:transparent;border:none;cursor:pointer;color:#64748B;display:flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;transition:color 0.15s ease;" title="Search" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          
+          <div class="locale-selector-container">
+            <select id="app-locale-select" class="carbon-locale-select" onchange="window.setAppLocale(this.value)" style="border:1px solid #CBD5E1;background:#ffffff;padding:6px 12px;border-radius:8px;font-size:13px;font-weight:600;height:38px;cursor:pointer;color:#334155;outline:none;box-sizing:border-box;">
+              <option value="en" ${currentLocale === 'en' ? 'selected' : ''}>English</option>
+              <option value="vi" ${currentLocale === 'vi' ? 'selected' : ''}>Tiếng Việt</option>
+            </select>
+          </div>
+
+          <button id="public-book-demo-btn" class="enerix-button enerix-button-primary btn-book-demo-cta" style="background:#0066FF;color:#ffffff;padding:0 20px;height:40px;border-radius:8px;font-weight:700;font-size:13.5px;cursor:pointer;border:none;box-shadow:0 2px 6px rgba(0,102,255,0.15);transition:all 0.15s ease;box-sizing:border-box;white-space:nowrap;">
+            Book a Demo
+          </button>
+        </div>
+
       </div>
     </header>
   `;

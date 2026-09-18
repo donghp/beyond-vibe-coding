@@ -6,7 +6,7 @@
 
 import { dataProvider } from '../app/data-provider.js';
 import { StateStore, stateStore } from '../app/state-store.js';
-import { renderOverviewPage } from '../ui/pages/overview.js';
+import { renderEngineeringOverviewPage as renderOverviewPage } from '../ui/pages/engineering-overview.js';
 
 class OverviewTestRunner {
   constructor() {

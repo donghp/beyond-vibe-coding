@@ -68,7 +68,7 @@ function carbonIntegration() {
 export default defineConfig({
   site: 'https://donghp.github.io',
   base: isProduction ? '/beyond-vibe-coding' : '/',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   build: {
     format: 'directory',
   },
