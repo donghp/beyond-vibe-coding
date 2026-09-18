@@ -148,7 +148,7 @@ export function renderEnterpriseFooter() {
           <a href="#contact" class="footer-utility-link">Contact</a>
           <a href="#careers" class="footer-utility-link">Careers</a>
           <div class="footer-lang-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             <span>English</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
@@ -159,10 +159,10 @@ export function renderEnterpriseFooter() {
       
       <div class="footer-bottom-row">
         <div class="footer-legal">
-          © 2026 ENERIXON CARBON. All rights reserved.
+          © 2026 ENERIXON. All rights reserved.
         </div>
         <div class="footer-tagline">
-          Carbon intelligence for a cleaner world.
+          Carbon intelligence for a cleaner world. Email : <a href="mailto:contact@enerixon.com" class="footer-utility-link" style="font-size:13px;color:#61738A;font-weight:400;text-decoration:none;">contact@enerixon.com</a>
         </div>
       </div>
     </footer>

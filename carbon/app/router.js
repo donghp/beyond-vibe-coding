@@ -11,7 +11,8 @@ import {
   renderScienceProductPage, 
   renderSolutionsProductPage, 
   renderResourcesProductPage, 
-  renderCompanyProductPage 
+  renderCompanyProductPage,
+  renderIndustriesProductPage
 } from '../ui/pages/public-product-pages.js';
 import { renderRegulatoryCheckPage } from '../ui/pages/regulatory-check.js';
 import { renderFacilitiesPage } from '../ui/pages/facilities.js';
@@ -35,6 +36,7 @@ export class Router {
     'reduce': renderReduceProductPage,
     'science': renderScienceProductPage,
     'solutions': renderSolutionsProductPage,
+    'industries': renderIndustriesProductPage,
     'resources': renderResourcesProductPage,
     'company': renderCompanyProductPage,
     'regulatory-check': renderRegulatoryCheckPage,

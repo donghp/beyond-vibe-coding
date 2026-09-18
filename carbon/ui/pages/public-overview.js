@@ -5,8 +5,10 @@
  */
 
 import { renderEnterpriseFooter } from '../components/enterprise-footer.js';
+import { renderDarkPremiumCTA } from '../components/dark-premium-cta.js';
 import { renderPlatformShowcase } from '../components/PlatformShowcase.js';
 import { renderPillarCard } from '../components/PillarCard.js';
+import { ICONS } from '../components/icons.js';
 import { CarbonPath } from '../../app/path.js';
 import { stateStore } from '../../app/state-store.js';
 import { I18nManager } from '../../app/i18n.js';
@@ -31,15 +33,6 @@ export function renderPublicOverviewPage(options = {}) {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 24px;
-          width: 100%;
-          box-sizing: border-box;
-        }
-        .intelligence-loop-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 16px;
-          position: relative;
-          z-index: 2;
           width: 100%;
           box-sizing: border-box;
         }
@@ -85,13 +78,6 @@ export function renderPublicOverviewPage(options = {}) {
         @media (max-width: 991px) {
           .trust-strip-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-          }
-          .loop-connector-line {
-            display: none !important;
-          }
-          .intelligence-loop-grid {
-            grid-template-columns: 1fr;
             gap: 16px;
           }
           .platform-overview-grid {
@@ -144,7 +130,7 @@ export function renderPublicOverviewPage(options = {}) {
             <!-- Box 1 -->
             <div style="display:flex;align-items:flex-start;gap:12px;">
               <div style="color:#0066FF;padding:8px;background:#EFF6FF;border-radius:6px;flex-shrink:0;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                ${ICONS.shield(20, 'currentColor')}
               </div>
               <div>
                 <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">GHG Protocol Aligned</div>
@@ -155,7 +141,7 @@ export function renderPublicOverviewPage(options = {}) {
             <!-- Box 2 -->
             <div style="display:flex;align-items:flex-start;gap:12px;">
               <div style="color:#0066FF;padding:8px;background:#EFF6FF;border-radius:6px;flex-shrink:0;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                ${ICONS.connectivity(20, 'currentColor')}
               </div>
               <div>
                 <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">End-to-end Platform</div>
@@ -166,7 +152,7 @@ export function renderPublicOverviewPage(options = {}) {
             <!-- Box 3 -->
             <div style="display:flex;align-items:flex-start;gap:12px;">
               <div style="color:#0066FF;padding:8px;background:#EFF6FF;border-radius:6px;flex-shrink:0;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                ${ICONS.shieldCheck(20, 'currentColor')}
               </div>
               <div>
                 <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">Audit-ready Results</div>
@@ -177,7 +163,7 @@ export function renderPublicOverviewPage(options = {}) {
             <!-- Box 4 -->
             <div style="display:flex;align-items:flex-start;gap:12px;">
               <div style="color:#0066FF;padding:8px;background:#EFF6FF;border-radius:6px;flex-shrink:0;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                ${ICONS.building(20, 'currentColor')}
               </div>
               <div>
                 <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">Enterprise Grade</div>
@@ -190,7 +176,7 @@ export function renderPublicOverviewPage(options = {}) {
       </section>
 
       <!-- ==========================================================================
-           4. CARBON SNAPSHOT SECTION (Refined)
+           3. CARBON SNAPSHOT SECTION
            ========================================================================== -->
       <section class="carbon-snapshot-section" style="padding:72px 24px;background:#F8FAFC;border-bottom:1px solid #E2E8F0;font-family:var(--carbon-font-sans, sans-serif);">
         <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
@@ -233,46 +219,7 @@ export function renderPublicOverviewPage(options = {}) {
       </section>
 
       <!-- ==========================================================================
-           5. CARBON INTELLIGENCE LOOP SECTION (Refined)
-           ========================================================================== -->
-      <section class="carbon-intelligence-loop-section" style="padding:80px 24px;background:#ffffff;border-bottom:1px solid #E2E8F0;font-family:var(--carbon-font-sans, sans-serif);">
-        <div style="max-width:1280px;margin:0 auto;">
-          <div style="text-align:center;margin-bottom:56px;">
-            <h2 style="font-size:32px;font-weight:800;color:#0B1727;margin-bottom:12px;letter-spacing:-0.025em;">The Carbon Intelligence Loop</h2>
-            <p style="font-size:16px;color:#475569;max-width:600px;margin:0 auto;line-height:1.6;">A complete, integrated journey from data to decarbonization. Turn complex emissions data into clear insights and real-world impact.</p>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(5, 1fr);gap:20px;">
-            <div style="text-align:center;">
-              <div style="width:48px;height:48px;border-radius:50%;background:#EFF6FF;color:#0066FF;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 16px;border:2px solid #DBEAFE;">01</div>
-              <div style="font-weight:700;color:#0B1727;margin-bottom:8px;">COLLECT</div>
-              <p style="font-size:13px;color:#475569;line-height:1.5;">Connect all your data across operations and supply chain.</p>
-            </div>
-            <div style="text-align:center;">
-              <div style="width:48px;height:48px;border-radius:50%;background:#EFF6FF;color:#0066FF;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 16px;border:2px solid #DBEAFE;">02</div>
-              <div style="font-weight:700;color:#0B1727;margin-bottom:8px;">CALCULATE</div>
-              <p style="font-size:13px;color:#475569;line-height:1.5;">Apply verified methodology for precise results.</p>
-            </div>
-            <div style="text-align:center;">
-              <div style="width:48px;height:48px;border-radius:50%;background:#EFF6FF;color:#0066FF;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 16px;border:2px solid #DBEAFE;">03</div>
-              <div style="font-weight:700;color:#0B1727;margin-bottom:8px;">UNDERSTAND</div>
-              <p style="font-size:13px;color:#475569;line-height:1.5;">Visualize intelligence and identify hotspots.</p>
-            </div>
-            <div style="text-align:center;">
-              <div style="width:48px;height:48px;border-radius:50%;background:#EFF6FF;color:#0066FF;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 16px;border:2px solid #DBEAFE;">04</div>
-              <div style="font-weight:700;color:#0B1727;margin-bottom:8px;">REPORT</div>
-              <p style="font-size:13px;color:#475569;line-height:1.5;">Generate compliance-ready reports.</p>
-            </div>
-            <div style="text-align:center;">
-              <div style="width:48px;height:48px;border-radius:50%;background:#EFF6FF;color:#0066FF;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 16px;border:2px solid #DBEAFE;">05</div>
-              <div style="font-weight:700;color:#0B1727;margin-bottom:8px;">REDUCE</div>
-              <p style="font-size:13px;color:#475569;line-height:1.5;">Execute abatement and track progress.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           4. PLATFORM OVERVIEW SECTION (Refined)
+           4. PLATFORM OVERVIEW SECTION
            ========================================================================== -->
       ${renderPlatformShowcase({
         eyebrow: 'PLATFORM OVERVIEW',
@@ -310,51 +257,6 @@ export function renderPublicOverviewPage(options = {}) {
               { title: 'REPORT', headline: 'From data to trusted reporting.', desc: 'Create comprehensive, compliant reports aligned with standards.', img: reportVisualUrl },
               { title: 'REDUCE', headline: 'Turn insights into real-world impact.', desc: 'Identify and track reduction opportunities with measurable value.', img: reduceVisualUrl }
             ].map(pillar => renderPillarCard(pillar)).join('')}
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           8. CARBON INTELLIGENCE IN ACTION SECTION (New)
-           ========================================================================== -->
-      <section style="padding:72px 24px;background:#F8FAFC;border-bottom:1px solid #E2E8F0;">
-        <div style="max-width:1280px;margin:0 auto;">
-          <div style="text-align:center;margin-bottom:44px;">
-            <h2 style="font-size:28px;font-weight:800;color:#0B1727;margin-bottom:8px;">Carbon Intelligence in Action</h2>
-            <p style="font-size:16px;color:#475569;">From data insights to actionable reduction outcomes.</p>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;">
-            <div style="background:#ffffff;padding:24px;border-radius:8px;border:1px solid #E2E8F0;">
-              <div style="font-size:12px;font-weight:600;color:#0066FF;margin-bottom:8px;">HOTSPOT</div>
-              <div style="font-weight:700;color:#0B1727;">Purchased Goods & Services</div>
-            </div>
-            <div style="background:#ffffff;padding:24px;border-radius:8px;border:1px solid #E2E8F0;">
-              <div style="font-size:12px;font-weight:600;color:#0066FF;margin-bottom:8px;">OPPORTUNITY</div>
-              <div style="font-weight:700;color:#0B1727;">Supplier engagement</div>
-            </div>
-            <div style="background:#ffffff;padding:24px;border-radius:8px;border:1px solid #E2E8F0;">
-              <div style="font-size:12px;font-weight:600;color:#0066FF;margin-bottom:8px;">SCENARIO</div>
-              <div style="font-weight:700;color:#0B1727;">Reduce supplier intensity</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           9. INDUSTRIES SECTION (New)
-           ========================================================================== -->
-      <section style="padding:72px 24px;background:#ffffff;border-bottom:1px solid #E2E8F0;">
-        <div style="max-width:1280px;margin:0 auto;">
-          <div style="text-align:center;margin-bottom:44px;">
-            <h2 style="font-size:28px;font-weight:800;color:#0B1727;margin-bottom:8px;">Industries</h2>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;">
-            <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">Energy</div>
-            <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">Transport</div>
-            <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">Construction</div>
-            <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">IPPU</div>
-            <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">AFOLU</div>
-            <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">Waste</div>
           </div>
         </div>
       </section>
@@ -460,160 +362,9 @@ export function renderPublicOverviewPage(options = {}) {
       </section>
 
       <!-- ==========================================================================
-           11. INDEX, JOURNAL, DATA STORIES (New)
+           7. DARK PREMIUM CTA SECTION
            ========================================================================== -->
-      <section style="padding:72px 24px;">
-        <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;">
-          <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">
-            <h3>Carbon Intelligence Index</h3>
-            <p>Assess your maturity.</p>
-          </div>
-          <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">
-            <h3>Carbon Intelligence Journal</h3>
-            <p>Knowledge and insights.</p>
-          </div>
-          <div style="padding:24px;border:1px solid #E2E8F0;border-radius:8px;">
-            <h3>Data Stories</h3>
-            <p>Educational insights.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           7. DARK PREMIUM CTA SECTION WITH EARTH BACKGROUND
-           ========================================================================== -->
-      <section class="carbon-bottom-cta-section" data-earth-asset="${earthBgUrl}" style="width:100%;background-color:#071120;background-image:linear-gradient(rgba(7,17,32,0.7), rgba(7,17,32,0.85)), url('${earthBgUrl}');background-size:cover;background-repeat:no-repeat;background-position:right center;padding:80px 24px;color:#ffffff;font-family:'Be Vietnam Pro', var(--carbon-font-sans, sans-serif);box-sizing:border-box;border-top:1px solid #1E293B;overflow:hidden;position:relative;">
-        <style>
-          .bottom-cta-grid {
-            max-width: 1280px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 64px;
-            position: relative;
-            z-index: 2;
-          }
-          .cta-left-content {
-            flex: 1;
-            max-width: 600px;
-          }
-          .cta-headline {
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            letter-spacing: -0.025em;
-            color: #FFFFFF;
-          }
-          .cta-gradient-text {
-            background: linear-gradient(135deg, #20B45B 0%, #078FF0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-          }
-          .cta-right-outcomes {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            border-left: 1px solid rgba(255,255,255,0.15);
-            padding-left: 40px;
-          }
-          .outcome-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-          }
-          .outcome-icon-box {
-            color: #078FF0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          @media (max-width: 1024px) {
-            .bottom-cta-grid {
-              flex-direction: column;
-              text-align: center;
-              gap: 48px;
-            }
-            .cta-left-content {
-              max-width: 100%;
-            }
-            .cta-right-outcomes {
-              border-left: none;
-              padding-left: 0;
-              flex-direction: row;
-              flex-wrap: wrap;
-              justify-content: center;
-              gap: 32px;
-            }
-          }
-          @media (max-width: 640px) {
-            .cta-right-outcomes {
-              flex-direction: column;
-              align-items: flex-start;
-              text-align: left;
-            }
-          }
-        </style>
-        
-        <div class="bottom-cta-grid">
-          <!-- Left side -->
-          <div class="cta-left-content">
-            <div style="font-size:11px;font-weight:700;color:#078FF0;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:16px;">
-              A More Sustainable Tomorrow
-            </div>
-            <h2 class="cta-headline">
-              Measure today.<br/>
-              <span class="cta-gradient-text">Reduce tomorrow.</span>
-            </h2>
-            <p style="font-size:17px;color:#CBD5E1;line-height:1.6;margin:0 0 32px 0;max-width:520px;font-weight:400;">
-              Turn carbon intelligence into a cleaner, more resilient future. Join the leaders building the net-zero economy.
-            </p>
-            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-              <button class="btn-book-demo-cta" style="background:#078FF0;color:#ffffff;padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;border:none;box-shadow:0 10px 20px rgba(7,143,240,0.2);transition:all 0.2s ease;display:flex;align-items:center;gap:8px;">
-                Book a Demo
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </button>
-              <button class="btn-explore-platform" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;transition:all 0.2s ease;">
-                Explore the Platform
-              </button>
-            </div>
-          </div>
-
-          <!-- Right side Outcomes -->
-          <div class="cta-right-outcomes">
-            <div class="outcome-item">
-              <div class="outcome-icon-box" style="color:#078FF0;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">LOWER EMISSIONS</div>
-                <div style="font-size:13px;color:#94A3B8;">Healthier planet</div>
-              </div>
-            </div>
-            <div class="outcome-item">
-              <div class="outcome-icon-box" style="color:#20B45B;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">STRONGER BUSINESSES</div>
-                <div style="font-size:13px;color:#94A3B8;">Greater resilience</div>
-              </div>
-            </div>
-            <div class="outcome-item">
-              <div class="outcome-icon-box" style="color:#F59E0B;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">BRIGHTER TOMORROW</div>
-                <div style="font-size:13px;color:#94A3B8;">Net zero 2050</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      ${renderDarkPremiumCTA()}
 
       <!-- ==========================================================================
            8. WHITE ENTERPRISE FOOTER

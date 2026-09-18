@@ -83,10 +83,10 @@ async function execute() {
     }
   });
 
-  // Test 5: Standard product content (The Carbon Intelligence Loop) is present
-  runner.run('TC-PUBLIC-005', 'Public product homepage has Carbon Intelligence Loop section', () => {
-    if (!publicOverviewHtml.includes('The Carbon Intelligence Loop') && !publicOverviewHtml.includes('carbon-intelligence-loop')) {
-      throw new Error('Public overview is missing Carbon Intelligence Loop');
+  // Test 5: Standard product content (Platform Overview / Carbon Snapshot) is present
+  runner.run('TC-PUBLIC-005', 'Public product homepage has Platform Overview and Carbon Snapshot sections', () => {
+    if (!publicOverviewHtml.includes('Platform Overview') && !publicOverviewHtml.includes('From insight to impact') && !publicOverviewHtml.includes('Know your carbon position')) {
+      throw new Error('Public overview is missing Homepage V1.0 core sections');
     }
   });
 
