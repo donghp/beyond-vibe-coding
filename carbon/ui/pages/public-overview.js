@@ -277,7 +277,7 @@ export function renderPublicOverviewPage(options = {}) {
           'AI-assisted analytics',
           'Enterprise governance'
         ],
-        ctaPrimary: '<button style="background:#0066FF;color:#ffffff;padding:0 24px;height:46px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none;">Explore the Platform →</button>',
+        ctaPrimary: '<button class="btn-explore-platform" style="background:#0066FF;color:#ffffff;padding:0 24px;height:46px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none;">Explore the Platform →</button>',
         ctaSecondary: '<button style="background:#ffffff;color:#334155;border:1px solid #CBD5E1;padding:0 24px;height:46px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;">Request a Demo</button>',
         imageUrl: platformDashboardPreviewUrl,
         imageAlt: 'Platform Dashboard Preview'
@@ -432,8 +432,9 @@ renderPublicOverviewPage.attachEvents = function(container) {
 
   const exploreButtons = document.querySelectorAll('.btn-explore-platform');
   exploreButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      stateStore.setRoute('workspace');
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Stay on homepage (#)
     });
   });
 };
