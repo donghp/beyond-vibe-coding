@@ -33,31 +33,19 @@ export function renderPublicHeader() {
         }
         .logo-img {
           width: auto;
-          height: auto;
-          max-height: 68px;
+          height: 42px;
+          max-height: 42px;
           display: block;
           object-fit: contain;
           transition: all 0.2s ease-in-out;
-        }
-        @media (max-width: 1919px) {
-          .logo-img {
-            max-height: 58px;
-          }
-        }
-        @media (max-width: 1200px) {
-          .public-header {
-            height: 76px !important;
-          }
-          .public-main-nav {
-            gap: 20px !important;
-          }
         }
         @media (max-width: 1024px) {
           .public-header {
             height: 74px !important;
           }
           .logo-img {
-            max-height: 48px;
+            height: 38px;
+            max-height: 38px;
           }
           .public-main-nav {
             gap: 14px !important;
@@ -69,7 +57,8 @@ export function renderPublicHeader() {
             height: 70px !important;
           }
           .logo-img {
-            max-height: 43px;
+            height: 35px;
+            max-height: 35px;
           }
           .public-main-nav {
             display: none !important;
@@ -83,7 +72,8 @@ export function renderPublicHeader() {
             height: 64px !important;
           }
           .logo-img {
-            max-height: 32px;
+            height: 30px;
+            max-height: 30px;
           }
           .header-search-btn, .locale-selector-container {
             display: none !important;

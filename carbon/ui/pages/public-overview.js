@@ -224,7 +224,7 @@ export function renderPublicOverviewPage(options = {}) {
       <!-- ==========================================================================
            3. CARBON SNAPSHOT SECTION
            ========================================================================== -->
-      <section class="carbon-snapshot-section" style="padding:96px 24px;background-image:url('${section001BgUrl}');background-size:cover;background-position:center;border-bottom:1px solid #DCE5ED;font-family:var(--carbon-font-sans, sans-serif);position:relative;overflow:hidden;">
+      <section class="carbon-snapshot-section" style="padding:96px 24px;background:#F7FAFC;border-bottom:1px solid #DCE5ED;font-family:var(--carbon-font-sans, sans-serif);position:relative;overflow:hidden;">
         <div style="max-width:1280px;margin:0 auto;position:relative;z-index:2;">
           <div class="carbon-snapshot-grid">
             <div>
@@ -234,27 +234,27 @@ export function renderPublicOverviewPage(options = {}) {
               <p style="font-size:16.5px;color:#475569;line-height:1.65;">Move from fragmented activity data to a clear, traceable view of your organization's carbon position.</p>
             </div>
             <div class="carbon-snapshot-kpi-grid">
-              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+              <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
                 <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">TOTAL EMISSIONS</div>
                 <div style="font-size:22px;font-weight:800;color:#08213D;">125,430 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
-              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+              <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
                 <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 1</div>
                 <div style="font-size:20px;font-weight:700;color:#08213D;">32,540 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
-              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+              <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
                 <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 2</div>
                 <div style="font-size:20px;font-weight:700;color:#08213D;">41,230 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
-              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+              <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
                 <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 3</div>
                 <div style="font-size:20px;font-weight:700;color:#08213D;">51,660 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
-              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+              <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
                 <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">DATA COMPLETENESS</div>
                 <div style="font-size:22px;font-weight:800;color:#20B45B;">98%</div>
               </div>
-              <div style="background:rgba(255,255,255,0.96);backdrop-filter:blur(6px);padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 4px 12px rgba(8,33,61,0.06);">
+              <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
                 <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">PRIMARY HOTSPOT</div>
                 <div style="font-size:14.5px;font-weight:700;color:#08213D;line-height:1.35;">Purchased Goods & Services</div>
               </div>
