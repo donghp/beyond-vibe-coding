@@ -5,6 +5,7 @@
  */
 import { CarbonPath } from '../../app/path.js';
 import { ICONS } from './icons.js';
+import { I18nManager } from '../../app/i18n.js';
 
 export function renderDarkPremiumCTA() {
   const earthBgUrl = CarbonPath.resolve('assets/branding/footer_earth_background.png');
@@ -90,22 +91,22 @@ export function renderDarkPremiumCTA() {
         <!-- Left side -->
         <div class="cta-left-content">
           <div style="font-size:11px;font-weight:700;color:#078FF0;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:16px;">
-            A More Sustainable Tomorrow
+            ${I18nManager.t('public.cta_eyebrow')}
           </div>
           <h2 class="cta-headline">
-            Measure today.<br/>
-            <span class="cta-gradient-text">Reduce tomorrow.</span>
+            ${I18nManager.t('public.cta_title_1')}<br/>
+            <span class="cta-gradient-text">${I18nManager.t('public.cta_title_2')}</span>
           </h2>
           <p style="font-size:17px;color:#CBD5E1;line-height:1.6;margin:0 0 32px 0;max-width:520px;font-weight:400;">
-            Turn carbon intelligence into a cleaner, more resilient future. Join the leaders building the net-zero economy.
+            ${I18nManager.t('public.cta_desc')}
           </p>
           <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
             <button class="btn-book-demo-cta" style="background:#078FF0;color:#ffffff;padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;border:none;box-shadow:0 10px 20px rgba(7,143,240,0.2);transition:all 0.2s ease;display:flex;align-items:center;gap:8px;">
-              Book a Demo
+              ${I18nManager.t('public.book_demo')}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </button>
             <button class="btn-explore-platform" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;transition:all 0.2s ease;">
-              Explore the Platform
+              ${I18nManager.t('public.explore_platform')}
             </button>
           </div>
         </div>

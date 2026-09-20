@@ -136,20 +136,20 @@ export function renderEnterpriseFooter() {
         
         <!-- Navigation -->
         <nav class="footer-nav">
-          <a href="#overview" class="footer-nav-link">Platform</a>
-          <a href="#solutions" class="footer-nav-link">Solutions</a>
-          <a href="#science" class="footer-nav-link">Science</a>
-          <a href="#resources" class="footer-nav-link">Resources</a>
-          <a href="#company" class="footer-nav-link">Company</a>
+          <a href="#overview" class="footer-nav-link">${I18nManager.t('public.nav_platform')}</a>
+          <a href="#solutions" class="footer-nav-link">${I18nManager.t('public.nav_solutions')}</a>
+          <a href="#science" class="footer-nav-link">${I18nManager.t('public.nav_science')}</a>
+          <a href="#resources" class="footer-nav-link">${I18nManager.t('public.nav_resources')}</a>
+          <a href="#company" class="footer-nav-link">${I18nManager.t('public.nav_company')}</a>
         </nav>
         
         <!-- Utility -->
         <div class="footer-utility">
           <a href="#contact" class="footer-utility-link">Contact</a>
           <a href="#careers" class="footer-utility-link">Careers</a>
-          <div class="footer-lang-btn">
+          <div class="footer-lang-btn" onclick="const nextL = window.getAppLocale && window.getAppLocale() === 'vi' ? 'en' : 'vi'; window.setAppLocale && window.setAppLocale(nextL);">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            <span>English</span>
+            <span>${isVi ? 'Tiếng Việt' : 'English'}</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
         </div>
@@ -159,10 +159,10 @@ export function renderEnterpriseFooter() {
       
       <div class="footer-bottom-row">
         <div class="footer-legal">
-          © 2026 ENERIXON. All rights reserved.
+          ${I18nManager.t('public.copyright')}
         </div>
         <div class="footer-tagline">
-          Carbon intelligence for a cleaner world. Email : <a href="mailto:contact@enerixon.com" class="footer-utility-link" style="font-size:13px;color:#61738A;font-weight:400;text-decoration:none;">contact@enerixon.com</a>
+          ${I18nManager.t('public.footer_desc')}
         </div>
       </div>
     </footer>

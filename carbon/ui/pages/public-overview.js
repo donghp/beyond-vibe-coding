@@ -151,15 +151,15 @@ export function renderPublicOverviewPage(options = {}) {
         <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg, rgba(8, 25, 45, 0.85) 0%, rgba(8, 25, 45, 0.4) 55%, rgba(8, 25, 45, 0.1) 100%);z-index:2;"></div>
         <div style="position:relative;z-index:3;max-width:1280px;height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;">
           <div style="max-width:640px;color:#ffffff;">
-            <span style="font-size:11px;font-weight:700;color:#078FF0;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:20px;display:block;">THE ENERIXON CARBON PLATFORM</span>
-            <h1 style="font-size:clamp(36px, 5vw, 60px);font-weight:800;line-height:1.05;margin-bottom:24px;letter-spacing:-0.035em;color:#FFFFFF;">From data<br>to real-world impact.</h1>
-            <p style="font-size:19px;color:#CBD5E1;line-height:1.6;margin-bottom:40px;font-weight:400;">A unified platform to measure, report and reduce emissions across your organization and value chain. Turn carbon data into clear insights and actionable opportunities.</p>
+            <span style="font-size:11px;font-weight:700;color:#078FF0;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:20px;display:block;">${I18nManager.t('public.hero_eyebrow')}</span>
+            <h1 style="font-size:clamp(36px, 5vw, 60px);font-weight:800;line-height:1.05;margin-bottom:24px;letter-spacing:-0.035em;color:#FFFFFF;">${I18nManager.t('public.hero_title')}</h1>
+            <p style="font-size:19px;color:#CBD5E1;line-height:1.6;margin-bottom:40px;font-weight:400;">${I18nManager.t('public.hero_desc')}</p>
             <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
               <button class="enerix-button enerix-button-primary btn-explore-platform" style="background:#078FF0;color:#ffffff;padding:0 32px;height:52px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;border:none;box-shadow:0 10px 20px rgba(7,143,240,0.25);display:inline-flex;align-items:center;gap:8px;transition:all 0.2s ease;">
-                Explore the Platform →
+                ${I18nManager.t('public.explore_platform')}
               </button>
               <button class="enerix-button enerix-button-secondary btn-book-demo-cta" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.3);padding:0 32px;height:52px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;transition:all 0.2s ease;">
-                Book a Demo
+                ${I18nManager.t('public.book_demo')}
               </button>
             </div>
           </div>
@@ -179,8 +179,8 @@ export function renderPublicOverviewPage(options = {}) {
                 ${ICONS.shield(20, 'currentColor')}
               </div>
               <div>
-                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">GHG Protocol Aligned</div>
-                <div style="font-size:12px;color:#64748B;">Global standards</div>
+                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">${I18nManager.t('public.trust_1_title')}</div>
+                <div style="font-size:12px;color:#64748B;">${I18nManager.t('public.trust_1_sub')}</div>
               </div>
             </div>
 
@@ -190,8 +190,8 @@ export function renderPublicOverviewPage(options = {}) {
                 ${ICONS.connectivity(20, 'currentColor')}
               </div>
               <div>
-                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">End-to-end Platform</div>
-                <div style="font-size:12px;color:#64748B;">From data to impact</div>
+                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">${I18nManager.t('public.trust_2_title')}</div>
+                <div style="font-size:12px;color:#64748B;">${I18nManager.t('public.trust_2_sub')}</div>
               </div>
             </div>
 
@@ -201,8 +201,8 @@ export function renderPublicOverviewPage(options = {}) {
                 ${ICONS.shieldCheck(20, 'currentColor')}
               </div>
               <div>
-                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">Audit-ready Results</div>
-                <div style="font-size:12px;color:#64748B;">Transparent & verifiable</div>
+                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">${I18nManager.t('public.trust_3_title')}</div>
+                <div style="font-size:12px;color:#64748B;">${I18nManager.t('public.trust_3_sub')}</div>
               </div>
             </div>
 
@@ -212,8 +212,8 @@ export function renderPublicOverviewPage(options = {}) {
                 ${ICONS.building(20, 'currentColor')}
               </div>
               <div>
-                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">Enterprise Grade</div>
-                <div style="font-size:12px;color:#64748B;">Secure. Scalable. Compliant.</div>
+                <div style="font-weight:700;font-size:14px;color:#0B1727;margin-bottom:2px;">${I18nManager.t('public.trust_4_title')}</div>
+                <div style="font-size:12px;color:#64748B;">${I18nManager.t('public.trust_4_sub')}</div>
               </div>
             </div>
 
@@ -228,35 +228,35 @@ export function renderPublicOverviewPage(options = {}) {
         <div style="max-width:1280px;margin:0 auto;position:relative;z-index:2;">
           <div class="carbon-snapshot-grid">
             <div>
-              <span style="font-size:11px;font-weight:700;color:#0066FF;text-transform:uppercase;letter-spacing:0.15em;display:block;margin-bottom:8px;">RECOMMENDED</span>
-              <div style="font-size:12px;font-weight:800;color:#08213D;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">CARBON INSIGHTS. REAL IMPACT.</div>
-              <h2 style="font-size:clamp(32px, 3.8vw, 44px);font-weight:800;color:#08213D;margin-bottom:16px;letter-spacing:-0.03em;line-height:1.1;">Know your carbon position in minutes.</h2>
-              <p style="font-size:16.5px;color:#475569;line-height:1.65;">Move from fragmented activity data to a clear, traceable view of your organization's carbon position.</p>
+              <span style="font-size:11px;font-weight:700;color:#0066FF;text-transform:uppercase;letter-spacing:0.15em;display:block;margin-bottom:8px;">${I18nManager.t('public.snapshot_recommended')}</span>
+              <div style="font-size:12px;font-weight:800;color:#08213D;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">${I18nManager.t('public.snapshot_eyebrow')}</div>
+              <h2 style="font-size:clamp(32px, 3.8vw, 44px);font-weight:800;color:#08213D;margin-bottom:16px;letter-spacing:-0.03em;line-height:1.1;">${I18nManager.t('public.snapshot_title')}</h2>
+              <p style="font-size:16.5px;color:#475569;line-height:1.65;">${I18nManager.t('public.snapshot_desc')}</p>
             </div>
             <div class="carbon-snapshot-kpi-grid">
               <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
-                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">TOTAL EMISSIONS</div>
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">${I18nManager.t('public.kpi_total')}</div>
                 <div style="font-size:22px;font-weight:800;color:#08213D;">125,430 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
               <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
-                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 1</div>
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">${I18nManager.t('public.kpi_scope1')}</div>
                 <div style="font-size:20px;font-weight:700;color:#08213D;">32,540 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
               <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
-                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 2</div>
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">${I18nManager.t('public.kpi_scope2')}</div>
                 <div style="font-size:20px;font-weight:700;color:#08213D;">41,230 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
               <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
-                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">SCOPE 3</div>
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">${I18nManager.t('public.kpi_scope3')}</div>
                 <div style="font-size:20px;font-weight:700;color:#08213D;">51,660 <span style="font-size:13px;font-weight:600;color:#61738A;">tCO₂e</span></div>
               </div>
               <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
-                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">DATA COMPLETENESS</div>
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">${I18nManager.t('public.kpi_completeness')}</div>
                 <div style="font-size:22px;font-weight:800;color:#20B45B;">98%</div>
               </div>
               <div style="background:#ffffff;padding:22px;border-radius:10px;border:1px solid #DCE5ED;box-shadow:0 1px 3px rgba(8,33,61,0.04);">
-                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">PRIMARY HOTSPOT</div>
-                <div style="font-size:14.5px;font-weight:700;color:#08213D;line-height:1.35;">Purchased Goods & Services</div>
+                <div style="font-size:11px;font-weight:700;color:#61738A;margin-bottom:6px;letter-spacing:0.06em;">${I18nManager.t('public.kpi_hotspot')}</div>
+                <div style="font-size:14.5px;font-weight:700;color:#08213D;line-height:1.35;">${I18nManager.t('public.hotspot_val')}</div>
               </div>
             </div>
           </div>
@@ -267,20 +267,20 @@ export function renderPublicOverviewPage(options = {}) {
            4. PLATFORM OVERVIEW SECTION
            ========================================================================== -->
       ${renderPlatformShowcase({
-        eyebrow: 'PLATFORM OVERVIEW',
-        heading: 'From insight to impact in one platform.',
-        body: 'A unified view of carbon performance, from organizational overview to site-level detail.',
+        eyebrow: I18nManager.t('public.overview_eyebrow'),
+        heading: I18nManager.t('public.overview_title'),
+        body: I18nManager.t('public.overview_body'),
         benefits: [
-          'Real-time emissions tracking',
-          'Multi-entity and multi-site architecture',
-          'Audit-ready reporting',
-          'AI-assisted analytics',
-          'Enterprise governance'
+          I18nManager.t('public.benefit_1'),
+          I18nManager.t('public.benefit_2'),
+          I18nManager.t('public.benefit_3'),
+          I18nManager.t('public.benefit_4'),
+          I18nManager.t('public.benefit_5')
         ],
-        ctaPrimary: '<button class="btn-explore-platform" style="background:#0066FF;color:#ffffff;padding:0 24px;height:46px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none;">Explore the Platform →</button>',
-        ctaSecondary: '<button style="background:#ffffff;color:#334155;border:1px solid #CBD5E1;padding:0 24px;height:46px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;">Request a Demo</button>',
+        ctaPrimary: `<button class="btn-explore-platform" style="background:#0066FF;color:#ffffff;padding:0 24px;height:46px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;border:none;">${I18nManager.t('public.explore_platform')}</button>`,
+        ctaSecondary: `<button style="background:#ffffff;color:#334155;border:1px solid #CBD5E1;padding:0 24px;height:46px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;">${I18nManager.t('public.request_demo')}</button>`,
         imageUrl: platformDashboardPreviewUrl,
-        imageAlt: 'Platform Dashboard Preview'
+        imageAlt: I18nManager.t('public.overview_alt')
       })}
 
       <!-- ==========================================================================
@@ -291,16 +291,16 @@ export function renderPublicOverviewPage(options = {}) {
           
           <!-- Header -->
           <div style="text-align:center;margin-bottom:64px;">
-            <h2 style="font-size:36px;font-weight:800;color:#0B1727;margin:0 0 16px 0;letter-spacing:-0.025em;">From measurement to measurable action.</h2>
-            <p style="font-size:16px;color:#475569;max-width:600px;margin:0 auto;line-height:1.6;">Measure what matters. Report with confidence. Turn carbon intelligence into action.</p>
+            <h2 style="font-size:36px;font-weight:800;color:#0B1727;margin:0 0 16px 0;letter-spacing:-0.025em;">${I18nManager.t('public.pillars_title')}</h2>
+            <p style="font-size:16px;color:#475569;max-width:600px;margin:0 auto;line-height:1.6;">${I18nManager.t('public.pillars_subtitle')}</p>
           </div>
 
           <!-- 3 Columns Grid -->
           <div class="three-pillars-grid">
             ${[
-              { title: 'MEASURE', headline: 'All your carbon data. In one place.', desc: 'Connect, standardize and validate data across your organization.', img: measureVisualUrl },
-              { title: 'REPORT', headline: 'From data to trusted reporting.', desc: 'Create comprehensive, compliant reports aligned with standards.', img: reportVisualUrl },
-              { title: 'REDUCE', headline: 'Turn insights into real-world impact.', desc: 'Identify and track reduction opportunities with measurable value.', img: reduceVisualUrl }
+              { title: I18nManager.t('public.measure_tag'), headline: I18nManager.t('public.measure_title'), desc: I18nManager.t('public.measure_desc'), img: measureVisualUrl },
+              { title: I18nManager.t('public.report_tag'), headline: I18nManager.t('public.report_title'), desc: I18nManager.t('public.report_desc'), img: reportVisualUrl },
+              { title: I18nManager.t('public.reduce_tag'), headline: I18nManager.t('public.reduce_title'), desc: I18nManager.t('public.reduce_desc'), img: reduceVisualUrl }
             ].map(pillar => renderPillarCard(pillar)).join('')}
           </div>
         </div>
@@ -317,16 +317,16 @@ export function renderPublicOverviewPage(options = {}) {
             <!-- Left Header -->
             <div>
               <span style="font-size:11px;font-weight:700;color:#0066FF;text-transform:uppercase;letter-spacing:0.12em;font-family:var(--carbon-font-mono, monospace);display:block;margin-bottom:12px;">
-                SCIENCE & TRUST
+                ${I18nManager.t('public.nav_science')} & TRUST
               </span>
               <h2 style="font-size:clamp(26px, 3.2vw, 36px);font-weight:800;color:#0B1727;margin:0 0 16px 0;line-height:1.2;letter-spacing:-0.02em;">
-                ${isVi ? 'Xây dựng trên nền tảng khoa học. Thiết kế để tạo dựng niềm tin.' : 'Built on science. Designed for trust.'}
+                ${I18nManager.t('public.science_eyebrow')}
               </h2>
               <p style="font-size:14.5px;color:#334155;margin-bottom:28px;line-height:1.6;">
-                ${isVi ? 'Phương pháp tính toán minh bạch, dữ liệu có thẩm quyền và khả năng truy xuất nguồn gốc từ đầu đến cuối đem lại sự tự tin trên từng con số.' : 'Transparent methodologies, authoritative data and end-to-end traceability give you confidence in every number.'}
+                ${I18nManager.t('public.science_title')}
               </p>
               <a href="#science" class="enerix-button enerix-button-primary" style="display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border-radius:8px;font-weight:700;font-size:13.5px;color:#ffffff;background:#0066FF;text-decoration:none;box-shadow:0 4px 12px rgba(0,102,255,0.2);transition:all 0.15s ease;">
-                Explore Our Methodology →
+                ${I18nManager.t('public.explore_platform')}
               </a>
             </div>
 

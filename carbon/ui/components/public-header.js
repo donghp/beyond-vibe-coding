@@ -91,17 +91,17 @@ export function renderPublicHeader() {
 
         <!-- CENTER: Navigation links -->
         <nav class="public-main-nav" style="display:flex;gap:20px;align-items:center;font-size:14px;font-weight:600;height:100%;font-family:var(--carbon-font-sans, sans-serif);">
-          <a href="#" onclick="event.preventDefault(); window.stateStore && window.stateStore.setRoute('platform'); window.scrollTo({top:0, behavior:'smooth'});" style="color:${isPlatformActive ? '#0066FF' : '#334155'};font-weight:${isPlatformActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isPlatformActive ? '3px solid #0066FF' : '3px solid transparent'};">Platform</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Solutions</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Industries</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Science</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Resources</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">Company</a>
+          <a href="#" onclick="event.preventDefault(); window.stateStore && window.stateStore.setRoute('platform'); window.scrollTo({top:0, behavior:'smooth'});" style="color:${isPlatformActive ? '#0066FF' : '#334155'};font-weight:${isPlatformActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isPlatformActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_platform')}</a>
+          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_solutions')}</a>
+          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_industries')}</a>
+          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_science')}</a>
+          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_resources')}</a>
+          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_company')}</a>
         </nav>
 
         <!-- RIGHT: Search, Language selector, Book a Demo -->
         <div style="display:flex;align-items:center;gap:16px;">
-          <button class="header-search-btn" style="background:transparent;border:none;cursor:pointer;color:#64748B;display:flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;transition:color 0.15s ease;" title="Search" aria-label="Search">
+          <button class="header-search-btn" style="background:transparent;border:none;cursor:pointer;color:#64748B;display:flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;transition:color 0.15s ease;" title="${I18nManager.t('public.search_title')}" aria-label="${I18nManager.t('public.search_title')}">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
           
@@ -113,7 +113,7 @@ export function renderPublicHeader() {
           </div>
 
           <button id="public-book-demo-btn" class="enerix-button enerix-button-primary btn-book-demo-cta" style="background:#0066FF;color:#ffffff;padding:0 20px;height:40px;border-radius:8px;font-weight:700;font-size:13.5px;cursor:pointer;border:none;box-shadow:0 2px 6px rgba(0,102,255,0.15);transition:all 0.15s ease;box-sizing:border-box;white-space:nowrap;">
-            Book a Demo
+            ${I18nManager.t('public.book_demo')}
           </button>
         </div>
 
