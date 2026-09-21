@@ -1,0 +1,115 @@
+# ENERIX Carbon Terminology Map
+# Standardizing bilingual technical terminology per EETS-001 and GHG Protocol guidelines
+
+metadata:
+  system: "ENERIX Carbon Terminology Registry"
+  version: "3.0.0"
+
+terms:
+  - term_en: "GHG Inventory"
+    term_vi: "Kiểm kê khí nhà kính"
+    namespace: "ENERIX.CARBON.REGULATORY"
+    domain: "Corporate Carbon Accounting"
+    context: "Systematic quantification of organizational greenhouse gas emissions and removals."
+    definition: "Quá trình thu thập dữ liệu, tính toán và báo cáo lượng phát thải và hấp thụ khí nhà kính của một tổ chức."
+    usage_rule: "Use 'Kiểm kê khí nhà kính' as primary Vietnamese term; 'GHG Inventory' as canonical technical term."
+    confused_with: ["Carbon Accounting", "Carbon Auditing"]
+    source: "Decree 06/2022/NĐ-CP & GHG Protocol"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Scope 1 Direct Emissions"
+    term_vi: "Phát thải trực tiếp (Phạm vi 1)"
+    namespace: "ENERIX.CARBON.SCIENCE"
+    domain: "Emissions Scope"
+    context: "Direct greenhouse gas emissions from sources that are owned or controlled by the organization."
+    definition: "Phát thải trực tiếp từ các nguồn thuộc quyền sở hữu hoặc quyền kiểm soát của doanh nghiệp (như đốt nhiên liệu tĩnh, di động, quá trình công nghiệp)."
+    usage_rule: "Always include scope number and Vietnamese descriptor on first mention."
+    confused_with: ["Scope 2", "Scope 3"]
+    source: "GHG Protocol Corporate Standard & TCVN ISO 14064-1"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Scope 2 Indirect Energy Emissions"
+    term_vi: "Phát thải gián tiếp từ năng lượng (Phạm vi 2)"
+    namespace: "ENERIX.CARBON.SCIENCE"
+    domain: "Emissions Scope"
+    context: "Indirect GHG emissions from consumption of purchased electricity, heat, or steam."
+    definition: "Phát thải gián tiếp từ việc tiêu thụ điện năng, nhiệt năng hoặc hơi nước mua ngoài."
+    usage_rule: "Must be calculated using grid emission factors where applicable."
+    confused_with: ["Scope 1", "Scope 3"]
+    source: "GHG Protocol & MONRE Circular 17"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Scope 3 Value Chain Emissions"
+    term_vi: "Phát thải chuỗi giá trị (Phạm vi 3)"
+    namespace: "ENERIX.CARBON.SCIENCE"
+    domain: "Emissions Scope"
+    context: "All other indirect emissions that occur in the upstream and downstream activities of the organization."
+    definition: "Tất cả các khoản phát thải gián tiếp khác phát sinh trong chuỗi giá trị ngược dòng và xuôi dòng của tổ chức."
+    usage_rule: "Mandatory for tier-2 mandated entities under TCVN ISO 14064-1:2025."
+    confused_with: ["Scope 1", "Scope 2"]
+    source: "TCVN ISO 14064-1:2025"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Activity Data"
+    term_vi: "Dữ liệu hoạt động"
+    namespace: "ENERIX.CARBON.CALCULATION"
+    domain: "Inventory Metrics"
+    context: "Quantitative measure of activity resulting in GHG emissions, expressed in standard units (e.g., kWh, liters, tons)."
+    definition: "Thông tin định lượng về hoạt động tạo ra phát thải (như lượng nhiên liệu tiêu thụ, số kWh điện, khối lượng nguyên vật liệu)."
+    usage_rule: "Must be paired with appropriate emission factors."
+    confused_with: ["Emission Factor"]
+    source: "GHG Protocol Handbook"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Emission Factor"
+    term_vi: "Hệ số phát thải"
+    namespace: "ENERIX.CARBON.CALCULATION"
+    domain: "Inventory Metrics"
+    context: "Factor relating activity data to GHG emissions per unit of activity."
+    definition: "Hệ số dùng để quy đổi dữ liệu hoạt động thành lượng phát thải khí nhà kính tương đương."
+    usage_rule: "Must cite authoritative source (MONRE, IPCC, grid factor)."
+    confused_with: ["Activity Data"]
+    source: "MONRE & IPCC AR6"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Global Warming Potential (GWP)"
+    term_vi: "Tiềm năng nóng lên toàn cầu (GWP)"
+    namespace: "ENERIX.CARBON.SCIENCE"
+    domain: "Climate Science"
+    context: "Measure of how much energy the emissions of 1 ton of a gas will absorb over a given period of time, relative to the emissions of 1 ton of carbon dioxide."
+    definition: "Hệ số phản ánh mức độ hấp thụ nhiệt của một loại khí nhà kính so với CO2 trong một khoảng thời gian xác định (thường là 100 năm theo IPCC AR6)."
+    usage_rule: "Always specify GWP time horizon (e.g., AR6 100-year)."
+    confused_with: ["CO2e"]
+    source: "IPCC AR6"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Carbon Dioxide Equivalent (CO2e)"
+    term_vi: "Carbon tương đương (CO2e)"
+    namespace: "ENERIX.CARBON.SCIENCE"
+    domain: "Climate Metrics"
+    context: "Universal unit of measurement to indicate the global warming potential of each of the greenhouse gases, expressed in terms of the gas CO2."
+    definition: "Đơn vị đo lường chung để biểu thị tác động nóng lên toàn cầu của các loại khí nhà kính quy đổi về tương đương CO2."
+    usage_rule: "Required reporting metric for all inventory totals."
+    confused_with: ["CO2"]
+    source: "GHG Protocol"
+    confidence: "HIGH"
+    review_status: "APPROVED"
+
+  - term_en: "Verification"
+    term_vi: "Thẩm định / Kiểm định"
+    namespace: "ENERIX.CARBON.ASSURANCE"
+    domain: "Auditing & Compliance"
+    context: "Independent systematic evaluation of a GHG inventory statement to ensure it is free of material discrepancies."
+    definition: "Quy trình đánh giá độc lập, có hệ thống đối với báo cáo kiểm kê khí nhà kính nhằm xác nhận tính chính xác và trung thực."
+    usage_rule: "Distinguish from 'Validation' (evaluation of project assumptions prior to execution). Use 'Thẩm định' per Vietnamese regulatory decrees."
+    confused_with: ["Validation"]
+    source: "TCVN ISO 14064-3:2025 & Decree 06/2022/NĐ-CP"
+    confidence: "HIGH"
+    review_status: "APPROVED"

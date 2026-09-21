@@ -1,0 +1,57 @@
+# ENERIX Carbon — Platform Page Visual Baseline
+page_id: "PLATFORM"
+route: "/carbon/platform/"
+language: "VI / EN"
+status: "USER_APPROVED"
+version: "PLATFORM-VISUAL-BASELINE-V1.0-APPROVED"
+reference_image: "assets/01_platform_dashboard_preview.png"
+visual_family: "Product-Led Technical Platform Showcase"
+hero_type: "Image-Led Banner with bg_banner01.png"
+
+section_sequence:
+  - id: 1
+    name: "Breadcrumb"
+    type: "PublicBreadcrumb"
+    path: "Trang chủ → Nền tảng"
+  - id: 2
+    name: "Banner / Hero"
+    type: "PageBanner"
+    eyebrow: "THE ENERIXON CARBON PLATFORM"
+    title: "From data to real-world impact."
+    asset: "assets/branding/bg_banner01.png"
+  - id: 3
+    name: "Platform Interface & Data Ingestion"
+    type: "SplitStorytellingGrid"
+    asset: "assets/section_001_gb.png"
+  - id: 4
+    name: "Consolidated Portfolio UI Showcase"
+    type: "LiveComponentMockup"
+    metrics: ["Scope 1: 32,540", "Scope 2: 41,230", "Scope 3: 51,660", "Completeness: 98%"]
+  - id: 5
+    name: "Section Footer"
+    type: "DarkPremiumCTA"
+    headline: "Sẵn sàng xây dựng năng lực quản trị carbon doanh nghiệp?"
+  - id: 6
+    name: "Global Footer"
+    type: "CanonicalEnterpriseFooter"
+    role: "CANONICAL_REFERENCE"
+
+cta_pattern:
+  primary: "Request a Demo →"
+  secondary: "Explore the Platform ↓"
+
+footer_reference: "CANONICAL_ROOT"
+header_reference: "CANONICAL_PUBLIC_HEADER"
+
+responsive_notes:
+  desktop: "2-column split (1fr 1.1fr) with live dashboard card; generous 100px padding"
+  tablet: "Grid switches to 1 column at <= 968px; dashboard mockup remains fully proportioned"
+  mobile: "Stacked view; full width buttons; touch-optimized typography"
+
+asset_references:
+  - "assets/branding/bg_banner01.png"
+  - "assets/section_001_gb.png"
+  - "assets/01_platform_dashboard_preview.png"
+
+provenance: "Sole Public Deep-Dive Page Approved by User Prior to Wave 5"
+review_date: "2026-09-20"

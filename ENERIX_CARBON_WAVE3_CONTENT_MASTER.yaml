@@ -1,0 +1,118 @@
+# ENERIX Carbon WAVE 3 Content Master
+# Comprehensive Content Architecture, SEO, and Bilingual Content Contracts across all 5 Public Page Families
+# Target Operation Year: 2027 Baseline
+
+metadata:
+  system: "ENERIX Carbon Content Master Engine"
+  version: "3.0.0"
+  last_updated: "2026-09-20"
+  languages: ["vi", "en"]
+  eets_compliance: "EETS-001 strict adherence"
+
+page_families:
+  - family_id: "SOLUTIONS"
+    routes: ["/carbon/solutions/"]
+    pages:
+      - page_id: "SOLUTIONS_MAIN"
+        route: "/carbon/solutions/"
+        page_type: "Commercial Solution Pillar"
+        audience: "Enterprise Sustainability Directors, CFOs, Compliance Officers, Technical Leads"
+        business_purpose: "Present enterprise carbon accounting, GHG inventory MRV, and verification readiness capabilities."
+        search_intent: "COMMERCIAL / REGULATORY"
+        primary_topic: "Enterprise Carbon Accounting & GHG Inventory Software"
+        primary_keyword: "phần mềm kiểm kê carbon doanh nghiệp"
+        headline_vi: "Giải pháp Kế toán Carbon & Kiểm kê GHG Doanh nghiệp"
+        headline_en: "Enterprise Carbon Accounting & GHG Inventory Solutions"
+        sections:
+          - section_id: "SOL_SEC_1"
+            purpose: "Hero & Value Proposition"
+            content_vi: "Hệ thống quản lý phát thải và kiểm kê khí nhà kính tự động, sẵn sàng cho kiểm toán và tuân thủ Nghị định 06/2022/NĐ-CP."
+            content_en: "Automated GHG inventory and emissions management system, audit-ready and compliant with Decree 06/2022/NĐ-CP."
+          - section_id: "SOL_SEC_2"
+            purpose: "Core Modules (Ingestion, Calculation, Verification)"
+            content_vi: "Quy trình kiểm kê khép kín: thu thập dữ liệu hoạt động, áp dụng hệ số phát thải chuẩn, tính toán CO2e và xuất báo cáo kiểm định."
+            content_en: "End-to-end inventory workflow: activity data ingestion, standardized emission factor mapping, CO2e calculation, and verification reporting."
+
+  - family_id: "INDUSTRIES"
+    routes: ["/carbon/industries/"]
+    pages:
+      - page_id: "INDUSTRIES_MAIN"
+        route: "/carbon/industries/"
+        page_type: "Sector Compliance Pillar"
+        audience: "Facility Managers, Industrial Compliance Leads, Sector Analysts"
+        business_purpose: "Provide sector-specific GHG inventory guidance and regulatory applicability for Decree 06 / Decision 42 sectors."
+        search_intent: "INDUSTRY-SPECIFIC / REGULATORY"
+        primary_topic: "Sector GHG Inventory & Compliance"
+        primary_keyword: "kiểm kê carbon ngành công nghiệp"
+        headline_vi: "Giải pháp Kiểm kê GHG theo Ngành & Lĩnh vực"
+        headline_en: "Sector-Specific GHG Inventory Solutions"
+        sections:
+          - section_id: "IND_SEC_1"
+            purpose: "Sector Scope Overview"
+            content_vi: "Hỗ trợ 6 nhóm ngành trọng điểm: Năng lượng, Giao thông vận tải, Xây dựng, Các quá trình công nghiệp, Nông nghiệp & Lôc nghiệp, Chất thải."
+            content_en: "Supporting 6 key sector groups: Energy, Transport, Construction, Industrial Processes, Agriculture & Forestry, and Waste."
+          - section_id: "IND_SEC_2"
+            purpose: "Facility Applicability & Thresholds"
+            content_vi: "Xác định nghĩa vụ kiểm kê cơ sở dựa trên ngưỡng phát thải Scope 1 hoặc mức tiêu thụ năng lượng theo Quyết định 42/2026/QĐ-TTg."
+            content_en: "Determine facility inventory obligations based on Scope 1 emissions thresholds or energy consumption under Decision 42/2026/QĐ-TTg."
+
+  - family_id: "SCIENCE"
+    routes: ["/carbon/science/"]
+    pages:
+      - page_id: "SCIENCE_MAIN"
+        route: "/carbon/science/"
+        page_type: "Methodology & Science Pillar"
+        audience: "Sustainability Auditors, GHG Verifiers, Technical Scientists, ESG Analysts"
+        business_purpose: "Detail calculation formulas, GHG Protocol standards, TCVN ISO 14064 compliance, and GWP conversion baselines."
+        search_intent: "TECHNICAL / REGULATORY"
+        primary_topic: "GHG Calculation Methodology & TCVN ISO 14064"
+        primary_keyword: "phương pháp tính toán kiểm kê khí nhà kính"
+        headline_vi: "Khoa học Phương pháp & Tiêu chuẩn Tính toán Phát thải"
+        headline_en: "Methodology Science & Emission Calculation Standards"
+        sections:
+          - section_id: "SCI_SEC_1"
+            purpose: "Standards & Frameworks"
+            content_vi: "Xây dựng trên nền tảng GHG Protocol Corporate Standard và tiêu chuẩn quốc gia TCVN ISO 14064-1:2025, 14064-2:2025, 14064-3:2025."
+            content_en: "Built on GHG Protocol Corporate Standard and national standards TCVN ISO 14064-1:2025, 14064-2:2025, and 14064-3:2025."
+          - section_id: "SCI_SEC_2"
+            purpose: "Scopes & Formulas"
+            content_vi: "Định nghĩa minh bạch Phạm vi 1 (Phát thải trực tiếp), Phạm vi 2 (Phát thải gián tiếp từ năng lượng), và Phạm vi 3 (Phát thải chuỗi giá trị)."
+            content_en: "Transparent definitions of Scope 1 (direct emissions), Scope 2 (indirect energy emissions), and Scope 3 (value chain emissions)."
+
+  - family_id: "RESOURCES"
+    routes: ["/carbon/resources/"]
+    pages:
+      - page_id: "RESOURCES_MAIN"
+        route: "/carbon/resources/"
+        page_type: "Regulatory & Knowledge Hub"
+        audience: "Compliance Managers, Legal Counsel, Researchers, Auditors"
+        business_purpose: "Index official Vietnamese government legal documents (vanban.chinhphu.vn), handbooks, and technical guides."
+        search_intent: "INFORMATIONAL / REGULATORY"
+        primary_topic: "Vietnam GHG Regulations & Technical Handbooks"
+        primary_keyword: "văn bản pháp luật kiểm kê khí nhà kính việt nam"
+        headline_vi: "Tài nguyên Pháp lý & Hướng dẫn Kỹ thuật Kiểm kê GHG"
+        headline_en: "Regulatory Resources & GHG Technical Handbooks"
+        sections:
+          - section_id: "RES_SEC_1"
+            purpose: "Official Regulatory Registry"
+            content_vi: "Tra cứu văn bản pháp luật chính thức: Luật BVMT 2020, Nghị định 06/2022/NĐ-CP, Nghị định 119/2025/NĐ-CP, Nghị định 83/2026/NĐ-CP và Quyết định 42/2026/QĐ-TTg."
+            content_en: "Official legal document registry: Environmental Protection Law 2020, Decree 06/2022/NĐ-CP, Decree 119/2025/NĐ-CP, Decree 83/2026/NĐ-CP, and Decision 42/2026/QĐ-TTg."
+
+  - family_id: "COMPANY"
+    routes: ["/carbon/company/"]
+    pages:
+      - page_id: "COMPANY_MAIN"
+        route: "/carbon/company/"
+        page_type: "Company & Trust Pillar"
+        audience: "Enterprise Buyers, Partners, Enterprise Security Teams"
+        business_purpose: "Communicate ENERIXON Carbon's engineering approach, evidence-first philosophy, and enterprise security."
+        search_intent: "ASSURANCE / TRUST"
+        primary_topic: "About ENERIXON Carbon & Enterprise Trust"
+        primary_keyword: "về enerixon carbon"
+        headline_vi: "Về ENERIXON Carbon & Triết lý Kỹ thuật Tin cậy"
+        headline_en: "About ENERIXON Carbon & Trust-First Engineering"
+        sections:
+          - section_id: "COM_SEC_1"
+            purpose: "Engineering Philosophy"
+            content_vi: "Xây dựng hệ thống phần mềm carbon dựa trên nguyên tắc minh bạch dữ liệu, tính toán tất định và tuân thủ pháp lý chặt chẽ."
+            content_en: "Building enterprise carbon software rooted in data transparency, deterministic calculation, and rigorous legal compliance."

@@ -1,0 +1,32 @@
+# ENERIX Carbon Content Provenance Map
+# Mapping factual and legal claims to authoritative sources
+# Target Operation Year: 2027 Baseline
+
+metadata:
+  system: "ENERIX Carbon Provenance Engine"
+  version: "3.0.0"
+
+provenance_mappings:
+  - claim_id: "CLAIM-DECREE-06-MANDATE"
+    statement_vi: "Cơ sở phát thải khí nhà kính thuộc danh mục quy định phải thực hiện kiểm kê GHG."
+    statement_en: "Mandatory GHG inventory requirement for designated industrial facilities."
+    source_document: "Nghị định 06/2022/NĐ-CP & Quyết định 42/2026/QĐ-TTg"
+    source_portal: "https://vanban.chinhphu.vn"
+    confidence: "HIGH"
+    verification_status: "VERIFIED"
+
+  - claim_id: "CLAIM-ISO-14064-1"
+    statement_vi: "Tiêu chuẩn quốc gia TCVN ISO 14064-1:2025 quy định yêu cầu kỹ thuật đối với tổ chức hạch toán phát thải."
+    statement_en: "National standard TCVN ISO 14064-1:2025 specifies organizational greenhouse gas accounting requirements."
+    source_document: "TCVN ISO 14064-1:2025"
+    source_portal: "Bộ Khoa học và Công nghệ"
+    confidence: "HIGH"
+    verification_status: "VERIFIED"
+
+  - claim_id: "CLAIM-GHG-PROTOCOL"
+    statement_vi: "Phân loại phát thải theo Phạm vi 1, 2 và 3 dựa trên tiêu chuẩn quốc tế GHG Protocol."
+    statement_en: "Emissions categorization across Scope 1, 2, and 3 based on GHG Protocol standards."
+    source_document: "GHG Protocol Corporate Standard"
+    source_portal: "WBCSD / WRI"
+    confidence: "HIGH"
+    verification_status: "VERIFIED"

@@ -317,7 +317,7 @@ export function renderPublicOverviewPage(options = {}) {
             <!-- Left Header -->
             <div>
               <span style="font-size:11px;font-weight:700;color:#0066FF;text-transform:uppercase;letter-spacing:0.12em;font-family:var(--carbon-font-mono, monospace);display:block;margin-bottom:12px;">
-                ${I18nManager.t('public.nav_science')} & TRUST
+                ${I18nManager.t('public.science_trust_tag')}
               </span>
               <h2 style="font-size:clamp(26px, 3.2vw, 36px);font-weight:800;color:#0B1727;margin:0 0 16px 0;line-height:1.2;letter-spacing:-0.02em;">
                 ${I18nManager.t('public.science_eyebrow')}
@@ -339,8 +339,8 @@ export function renderPublicOverviewPage(options = {}) {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
                 </div>
                 <div>
-                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">Calculation Methodology</div>
-                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">GHG Protocol aligned, transparent and deterministic.</div>
+                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">${I18nManager.t('public.science_tile_1_title')}</div>
+                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">${I18nManager.t('public.science_tile_1_desc')}</div>
                 </div>
               </div>
 
@@ -350,8 +350,8 @@ export function renderPublicOverviewPage(options = {}) {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
                 </div>
                 <div>
-                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">Emission Factors</div>
-                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">Authoritative sources and version controlled.</div>
+                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">${I18nManager.t('public.science_tile_2_title')}</div>
+                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">${I18nManager.t('public.science_tile_2_desc')}</div>
                 </div>
               </div>
 
@@ -361,8 +361,8 @@ export function renderPublicOverviewPage(options = {}) {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
                 </div>
                 <div>
-                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">Data Lineage</div>
-                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">Full traceability from source to reported value.</div>
+                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">${I18nManager.t('public.science_tile_3_title')}</div>
+                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">${I18nManager.t('public.science_tile_3_desc')}</div>
                 </div>
               </div>
 
@@ -372,8 +372,8 @@ export function renderPublicOverviewPage(options = {}) {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"></path><path d="M3.05 11a9 9 0 1 1 .1 1.04"></path><polyline points="1 10 1 5 6 5"></polyline></svg>
                 </div>
                 <div>
-                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">Versioning</div>
-                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">Track changes across all calculations and reports.</div>
+                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">${I18nManager.t('public.science_tile_4_title')}</div>
+                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">${I18nManager.t('public.science_tile_4_desc')}</div>
                 </div>
               </div>
 
@@ -383,8 +383,8 @@ export function renderPublicOverviewPage(options = {}) {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
                 </div>
                 <div>
-                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">Evidence Management</div>
-                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">Store and link supporting documents.</div>
+                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">${I18nManager.t('public.science_tile_5_title')}</div>
+                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">${I18nManager.t('public.science_tile_5_desc')}</div>
                 </div>
               </div>
 
@@ -394,8 +394,8 @@ export function renderPublicOverviewPage(options = {}) {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                 </div>
                 <div>
-                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">Audit Trail</div>
-                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">Complete history for internal and external audits.</div>
+                  <div style="font-weight:800;font-size:14.5px;color:#0B1727;margin-bottom:4px;letter-spacing:-0.01em;">${I18nManager.t('public.science_tile_6_title')}</div>
+                  <div style="font-size:12.5px;color:#475569;line-height:1.5;">${I18nManager.t('public.science_tile_6_desc')}</div>
                 </div>
               </div>
 
@@ -426,7 +426,10 @@ renderPublicOverviewPage.attachEvents = function(container) {
   const demoButtons = document.querySelectorAll('.btn-book-demo-cta, #public-book-demo-btn');
   demoButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      alert('Thank you for your interest in ENERIXON Carbon! Our enterprise team will connect with your compliance officers to schedule a platform demonstration.');
+      const isVi = I18nManager.currentLocale === 'vi';
+      alert(isVi 
+        ? 'Cảm ơn quý khách đã quan tâm đến ENERIXON Carbon! Đội ngũ chuyên gia doanh nghiệp của chúng tôi sẽ liên hệ với cán bộ phụ trách tuân thủ của quý khách để sắp xếp buổi trình diễn nền tảng.'
+        : 'Thank you for your interest in ENERIXON Carbon! Our enterprise team will connect with your compliance officers to schedule a platform demonstration.');
     });
   });
 

@@ -33,24 +33,43 @@ export async function initApp() {
     </div>
   `;
 
-  // Initialize route from hash
-  const initialHash = window.location.hash.substring(1);
-  const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company'];
-  if (initialHash && disabledHashes.includes(initialHash)) {
-    try {
-      history.replaceState(null, '', window.location.pathname);
-    } catch (e) {}
-    stateStore.setRoute('overview');
-  } else if (initialHash && Object.keys(Router.routes).includes(initialHash)) {
-    stateStore.setRoute(initialHash);
-  } else {
-    stateStore.setRoute('overview');
-    if (window.location.hash) {
+  // Determine initial route from canonical pathname first, then fallback to hash
+  function resolveRouteFromLocation() {
+    const p = window.location.pathname;
+    if (p.includes('/carbon/platform') || p.endsWith('/platform') || p.endsWith('/platform/')) {
+      return 'platform';
+    } else if (p.includes('/carbon/solutions') || p.endsWith('/solutions') || p.endsWith('/solutions/')) {
+      return 'solutions';
+    } else if (p.includes('/carbon/industries') || p.endsWith('/industries') || p.endsWith('/industries/')) {
+      return 'industries';
+    } else if (p.includes('/carbon/science') || p.endsWith('/science') || p.endsWith('/science/')) {
+      return 'science';
+    } else if (p.includes('/carbon/resources') || p.endsWith('/resources') || p.endsWith('/resources/')) {
+      return 'resources';
+    } else if (p.includes('/carbon/company') || p.endsWith('/company') || p.endsWith('/company/')) {
+      return 'company';
+    }
+
+    const initialHash = window.location.hash.substring(1);
+    const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company'];
+    if (initialHash && disabledHashes.includes(initialHash)) {
       try {
         history.replaceState(null, '', window.location.pathname);
       } catch (e) {}
+      return 'overview';
+    } else if (initialHash && Object.keys(Router.routes).includes(initialHash)) {
+      return initialHash;
     }
+    return 'overview';
   }
+
+  const initialRoute = resolveRouteFromLocation();
+  stateStore.setRoute(initialRoute);
+
+  window.addEventListener('popstate', () => {
+    const currentRoute = resolveRouteFromLocation();
+    stateStore.setRoute(currentRoute);
+  });
 
   stateStore.recompute();
   window.stateStore = stateStore;
@@ -66,7 +85,7 @@ export async function initApp() {
   const updateUI = () => {
     const route = stateStore.getRoute();
     const viewState = stateStore.getViewState();
-    const publicRoutes = ['overview', 'measure', 'report', 'reduce', 'science', 'solutions', 'resources', 'company'];
+    const publicRoutes = ['overview', 'platform', 'solutions', 'industries', 'science', 'resources', 'company', 'measure', 'report', 'reduce'];
     
     headerRoot.innerHTML = renderHeader();
     if (publicRoutes.includes(route)) {

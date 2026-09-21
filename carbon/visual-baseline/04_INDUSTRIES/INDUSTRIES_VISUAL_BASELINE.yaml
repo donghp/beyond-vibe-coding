@@ -1,0 +1,54 @@
+# ENERIX Carbon — Industries Visual Baseline
+page_id: "INDUSTRIES"
+page_family: "INDUSTRIES"
+route: "/carbon/industries/"
+language: "VI / EN"
+reference_type: "WORKING_DRAFT_REFERENCE"
+status: "REFERENCE"
+user_acceptance: "PENDING_USER_APPROVAL"
+version: "INDUSTRIES-VISUAL-BASELINE-V0.1"
+reference_image: "assets/branding/bg_banner01.png"
+visual_family: "Industry Sector Verticals"
+hero_type: "Image-Led Banner with Industrial Context"
+
+section_sequence:
+  - id: 1
+    name: "Breadcrumb"
+    type: "PublicBreadcrumb"
+    path: "Trang chủ → Ngành"
+  - id: 2
+    name: "Banner / Hero"
+    type: "PageBanner"
+    eyebrow: "INDUSTRIES"
+    title: "Industry solutions for real-world impact."
+    subtitle: "Purpose-built carbon intelligence for energy, manufacturing, infrastructure, transport, technology and other high-impact sectors."
+  - id: 3
+    name: "Sector Solutions Grid"
+    type: "MultiSectorCards"
+    sectors: ["Energy", "Manufacturing", "Infrastructure", "Transport", "Technology", "Agriculture"]
+  - id: 4
+    name: "Section Footer"
+    type: "DarkPremiumCTA"
+    headline: "Sẵn sàng tối ưu phát thải cho ngành của bạn?"
+  - id: 5
+    name: "Global Footer"
+    type: "CanonicalEnterpriseFooter"
+    role: "CANONICAL_REFERENCE"
+
+cta_pattern:
+  primary: "Book a Demo →"
+  secondary: "Explore Sector Solutions ↓"
+
+footer_reference: "CANONICAL_ROOT"
+header_reference: "CANONICAL_PUBLIC_HEADER"
+
+responsive_notes:
+  desktop: "3-column sector cards (1fr 1fr 1fr); generous padding"
+  tablet: "2-column grid at <= 1024px"
+  mobile: "Single-column stacked view; touch buttons"
+
+asset_references:
+  - "assets/branding/bg_banner01.png"
+
+provenance: "Wave 4 Baseline — Pending Wave 6 Visual Redesign"
+review_date: "2026-09-20"

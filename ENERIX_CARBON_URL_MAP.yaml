@@ -1,0 +1,33 @@
+# ENERIX Carbon URL Map & Canonical Definitions
+# Version: 3.0.0
+
+urls:
+  - route: "/carbon/"
+    canonical: "https://donghp.github.io/beyond-vibe-coding/carbon/"
+    title_vi: "ENERIXON Carbon | Nền tảng Kế toán Carbon Doanh nghiệp & Kiểm kê GHG"
+    title_en: "ENERIXON Carbon | Enterprise Carbon Accounting & GHG Inventory Platform"
+
+  - route: "/carbon/solutions/"
+    canonical: "https://donghp.github.io/beyond-vibe-coding/carbon/solutions/"
+    title_vi: "Giải pháp | ENERIXON Carbon"
+    title_en: "Solutions | ENERIXON Carbon"
+
+  - route: "/carbon/industries/"
+    canonical: "https://donghp.github.io/beyond-vibe-coding/carbon/industries/"
+    title_vi: "Ngành nghề | ENERIXON Carbon"
+    title_en: "Industries | ENERIXON Carbon"
+
+  - route: "/carbon/science/"
+    canonical: "https://donghp.github.io/beyond-vibe-coding/carbon/science/"
+    title_vi: "Khoa học & Phương pháp | ENERIXON Carbon"
+    title_en: "Science & Methodology | ENERIXON Carbon"
+
+  - route: "/carbon/resources/"
+    canonical: "https://donghp.github.io/beyond-vibe-coding/carbon/resources/"
+    title_vi: "Tài nguyên & Pháp lý | ENERIXON Carbon"
+    title_en: "Resources & Regulatory | ENERIXON Carbon"
+
+  - route: "/carbon/company/"
+    canonical: "https://donghp.github.io/beyond-vibe-coding/carbon/company/"
+    title_vi: "Về chúng tôi | ENERIXON Carbon"
+    title_en: "Company | ENERIXON Carbon"

@@ -5,6 +5,7 @@
  */
 import { CarbonPath } from '../../app/path.js';
 import { I18nManager } from '../../app/i18n.js';
+import { PUBLIC_ROUTES } from '../../app/routes.js';
 
 export function renderEnterpriseFooter() {
   const logoUrl = CarbonPath.resolve('assets/logo_enerixon_carbon.png');
@@ -130,23 +131,24 @@ export function renderEnterpriseFooter() {
       
       <div class="footer-main-row">
         <!-- Logo -->
-        <a href="#hero" class="footer-logo-link">
+        <a href="${PUBLIC_ROUTES.home}" class="footer-logo-link" onclick="if (window.stateStore) { window.stateStore.setRoute('overview'); history.pushState(null, '', '${PUBLIC_ROUTES.home}'); window.scrollTo({top:0, behavior:'smooth'}); }">
           <img src="${logoUrl}" alt="ENERIXON CARBON" class="footer-logo-img" />
         </a>
         
         <!-- Navigation -->
         <nav class="footer-nav">
-          <a href="#overview" class="footer-nav-link">${I18nManager.t('public.nav_platform')}</a>
-          <a href="#solutions" class="footer-nav-link">${I18nManager.t('public.nav_solutions')}</a>
-          <a href="#science" class="footer-nav-link">${I18nManager.t('public.nav_science')}</a>
-          <a href="#resources" class="footer-nav-link">${I18nManager.t('public.nav_resources')}</a>
-          <a href="#company" class="footer-nav-link">${I18nManager.t('public.nav_company')}</a>
+          <a href="${PUBLIC_ROUTES.platform}" class="footer-nav-link" onclick="if (window.stateStore) { window.stateStore.setRoute('platform'); history.pushState(null, '', '${PUBLIC_ROUTES.platform}'); window.scrollTo({top:0, behavior:'smooth'}); }">${I18nManager.t('public.nav_platform')}</a>
+          <a href="${PUBLIC_ROUTES.solutions}" class="footer-nav-link" onclick="if (window.stateStore) { window.stateStore.setRoute('solutions'); history.pushState(null, '', '${PUBLIC_ROUTES.solutions}'); window.scrollTo({top:0, behavior:'smooth'}); }">${I18nManager.t('public.nav_solutions')}</a>
+          <a href="${PUBLIC_ROUTES.industries}" class="footer-nav-link" onclick="if (window.stateStore) { window.stateStore.setRoute('industries'); history.pushState(null, '', '${PUBLIC_ROUTES.industries}'); window.scrollTo({top:0, behavior:'smooth'}); }">${I18nManager.t('public.nav_industries')}</a>
+          <a href="${PUBLIC_ROUTES.science}" class="footer-nav-link" onclick="if (window.stateStore) { window.stateStore.setRoute('science'); history.pushState(null, '', '${PUBLIC_ROUTES.science}'); window.scrollTo({top:0, behavior:'smooth'}); }">${I18nManager.t('public.nav_science')}</a>
+          <a href="${PUBLIC_ROUTES.resources}" class="footer-nav-link" onclick="if (window.stateStore) { window.stateStore.setRoute('resources'); history.pushState(null, '', '${PUBLIC_ROUTES.resources}'); window.scrollTo({top:0, behavior:'smooth'}); }">${I18nManager.t('public.nav_resources')}</a>
+          <a href="${PUBLIC_ROUTES.company}" class="footer-nav-link" onclick="if (window.stateStore) { window.stateStore.setRoute('company'); history.pushState(null, '', '${PUBLIC_ROUTES.company}'); window.scrollTo({top:0, behavior:'smooth'}); }">${I18nManager.t('public.nav_company')}</a>
         </nav>
         
         <!-- Utility -->
         <div class="footer-utility">
-          <a href="#contact" class="footer-utility-link">Contact</a>
-          <a href="#careers" class="footer-utility-link">Careers</a>
+          <a href="${PUBLIC_ROUTES.company}#contact" class="footer-utility-link" onclick="if (window.stateStore) { window.stateStore.setRoute('company'); history.pushState(null, '', '${PUBLIC_ROUTES.company}'); }">${I18nManager.t('public.footer_contact')}</a>
+          <a href="${PUBLIC_ROUTES.company}#careers" class="footer-utility-link" onclick="if (window.stateStore) { window.stateStore.setRoute('company'); history.pushState(null, '', '${PUBLIC_ROUTES.company}'); }">${I18nManager.t('public.footer_careers')}</a>
           <div class="footer-lang-btn" onclick="const nextL = window.getAppLocale && window.getAppLocale() === 'vi' ? 'en' : 'vi'; window.setAppLocale && window.setAppLocale(nextL);">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             <span>${isVi ? 'Tiếng Việt' : 'English'}</span>
@@ -168,4 +170,7 @@ export function renderEnterpriseFooter() {
     </footer>
   `;
 }
+
+export const PublicGlobalFooter = renderEnterpriseFooter;
+
 

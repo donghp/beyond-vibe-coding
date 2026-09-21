@@ -1,0 +1,72 @@
+# ENERIX Carbon Temporal Rule Regression Tests
+# Test Suite: WAVE-3A-TEMPORAL-REGRESSION
+# Target Operation Year: 2027 Baseline
+
+test_cases:
+  - test_id: "TC-TEMP-A"
+    scenario: "Date before effective date of Decision 42/2026/QĐ-TTg"
+    as_of_date: "2026-09-24"
+    rule_under_test: "DECISION-42-2026-QD-TTg"
+    expected_status: "FUTURE_EFFECTIVE"
+    expected_applicability: false
+    description: "Decision 42 must not be active prior to 2026-09-25."
+
+  - test_id: "TC-TEMP-B"
+    scenario: "Date exactly on effective date of Decision 42/2026/QĐ-TTg"
+    as_of_date: "2026-09-25"
+    rule_under_test: "DECISION-42-2026-QD-TTg"
+    expected_status: "ACTIVE"
+    expected_applicability: true
+    description: "Decision 42 becomes active on 2026-09-25."
+
+  - test_id: "TC-TEMP-C"
+    scenario: "Date after effective date of Decision 42/2026/QĐ-TTg"
+    as_of_date: "2026-10-01"
+    rule_under_test: "DECISION-42-2026-QD-TTg"
+    expected_status: "ACTIVE"
+    expected_applicability: true
+    description: "Decision 42 remains active post-effective date."
+
+  - test_id: "TC-TEMP-D"
+    scenario: "Reporting Year 2027 baseline resolution"
+    reporting_year: 2027
+    as_of_date: "2027-01-15"
+    expected_active_rules:
+      - "RULE-GHG-INVENTORY-MANDATE-2027"
+      - "RULE-EMISSION-FACTOR-GRID-2027"
+      - "RULE-SCOPE-3-CATEGORY-MANDATE-2027"
+    expected_applicability: true
+
+  - test_id: "TC-TEMP-E"
+    scenario: "Superseded rule query"
+    rule_id: "DECREE-06-2022-ND-CP"
+    as_of_date: "2026-09-20"
+    status_check: "AMENDED_AND_SUPPLEMENTED"
+    expected_behavior: "Relies on active amending provisions of Decree 83/2026/NĐ-CP while preserving base decree."
+
+  - test_id: "TC-TEMP-F"
+    scenario: "Future-effective rule isolation test"
+    rule_id: "FUTURE-REG-2028"
+    as_of_date: "2027-06-01"
+    expected_applicability: false
+    description: "Future rules must not affect 2027 production calculations."
+
+  - test_id: "TC-TEMP-G"
+    scenario: "Historical calculation immutability test"
+    calculation_id: "CALC-2026-Q3-001"
+    original_rule_version: "2.0.0"
+    simulated_later_date: "2027-01-01"
+    expected_result: "REPRODUCES_ORIGINAL_RESULT"
+    description: "New rules in 2027 must not mutate 2026 closed calculation records."
+
+  - test_id: "TC-TEMP-H"
+    scenario: "Unresolved applicability conflict"
+    conflict_condition: "Multiple overlapping sector rules with ambiguous jurisdiction"
+    expected_handling: "REVIEW_REQUIRED"
+    description: "System halts autonomous resolution and flags for human compliance review."
+
+  - test_id: "TC-TEMP-I"
+    scenario: "Unresolved semantic conflict"
+    conflict_condition: "Contradictory emission factor definitions between MONRE circular and international standard"
+    expected_handling: "REVIEW_REQUIRED"
+    description: "Governing hierarchy asserts Tier 1/2 legal supremacy; flags semantic conflict for review."

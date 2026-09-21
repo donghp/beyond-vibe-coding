@@ -1,0 +1,109 @@
+# ENERIXON Carbon — Solutions Visual Baseline
+page_id: "SOLUTIONS"
+page_family: "SOLUTIONS"
+route: "/carbon/solutions/"
+language: "VI"
+reference_type: "VISUAL_LAYOUT_REFERENCE"
+status: "USER_FAVORED_REFERENCE"
+user_acceptance: "PENDING_USER_APPROVAL"
+version: "SOLUTIONS-VISUAL-BASELINE-V0.1"
+reference_image: "02.page_solotion_vn.png"
+visual_family: "Enterprise Editorial Solution Architecture"
+hero_type: "High-Contrast Deep Slate Hero with Interactive Pipeline Visualization"
+
+key_characteristics:
+  - "White global header (#FFFFFF) with canonical ENERIXON Carbon logo"
+  - "Horizontal navigation with active blue underline indicator on 'Giải pháp'"
+  - "Breadcrumb: Trang chủ → Giải pháp"
+  - "Large image-led hero/banner with high-contrast typography"
+  - "Interactive controlled execution pipeline (Fragmented Sources → Engine → Decisions)"
+  - "Realistic business-problem section (8 enterprise activity data sources)"
+  - "Four Core Enterprise Solutions (Measurement, Calculation, Verification, Abatement)"
+  - "End-to-End Enterprise Operating Workflow (8 sequential stages)"
+  - "Cross-Enterprise User Journey (Plant Engineer → ESG → CFO → Verifier)"
+  - "Audit-ready statutory and corporate deliverables"
+  - "Governance & Operational Control boundaries (ISO 14064-1)"
+  - "Vietnamese industrial context & real manufacturing scenario"
+  - "Enterprise platform vs web calculator architectural comparison"
+  - "Dark premium section footer (#08192D)"
+  - "Canonical global footer (#FFFFFF) exactly matching homepage"
+
+section_sequence:
+  - id: 1
+    name: "Breadcrumb"
+    type: "PublicBreadcrumb"
+    path: "Trang chủ → Giải pháp"
+  - id: 2
+    name: "Hero / Banner"
+    type: "SolutionsHero"
+    eyebrow: "GIẢI PHÁP DOANH NGHIỆP"
+    title: "Từ Dữ liệu Vận hành Đến Hồ sơ Khí nhà Kính Sẵn sàng Kiểm toán"
+    subtitle: "Giải pháp phần mềm chuyên sâu cho doanh nghiệp tuân thủ Nghị định 06/2022/NĐ-CP, Quyết định 42/2026/QĐ-TTg, GHG Protocol và các tiêu chuẩn kiểm toán quốc tế."
+  - id: 3
+    name: "Controlled Execution Pipeline"
+    type: "PipelineArchitectureBox"
+  - id: 4
+    name: "Problem Statement: Real Enterprise Fragmentation"
+    type: "GridOfEightSources"
+  - id: 5
+    name: "Four Core Enterprise Solutions"
+    type: "FourDistinctCards"
+  - id: 6
+    name: "Enterprise Operating Workflow"
+    type: "EightStagePipeline"
+  - id: 7
+    name: "Cross-Enterprise User Journey"
+    type: "FourRoleCards"
+  - id: 8
+    name: "Audit-Ready Deliverables"
+    type: "DeliverablesDossierGrid"
+  - id: 9
+    name: "Governance, Roles & Control Boundaries"
+    type: "GovernanceMatrix"
+  - id: 10
+    name: "Assurance Backbone & Digital Traceability"
+    type: "AssuranceProtocolCards"
+  - id: 11
+    name: "Regulatory & International Frameworks"
+    type: "RegulatoryComplianceBento"
+  - id: 12
+    name: "Decarbonization & Abatement Pathways"
+    type: "MaccScenarioVisualizer"
+  - id: 13
+    name: "Vietnamese Industrial Context"
+    type: "IndustrySectorCards"
+  - id: 14
+    name: "Illustrative Enterprise Manufacturing Scenario"
+    type: "ConcretePlantWalkthrough"
+  - id: 15
+    name: "Platform vs. Web Calculator Comparison"
+    type: "ArchitecturalComparisonTable"
+  - id: 16
+    name: "Section Footer / Final CTA"
+    type: "DarkPremiumCTA"
+    headline: "Sẵn sàng biến dữ liệu carbon thành hành động?"
+    primary_cta: "Đặt lịch Demo →"
+    secondary_cta: "Khám phá Nền tảng →"
+  - id: 17
+    name: "Global Footer"
+    type: "CanonicalEnterpriseFooter"
+    role: "CANONICAL_REFERENCE"
+
+cta_pattern:
+  primary: "Khám phá Nền tảng →"
+  secondary: "Đặt lịch Demo Doanh nghiệp ↗"
+
+footer_reference: "CANONICAL_ROOT"
+header_reference: "CANONICAL_PUBLIC_HEADER"
+
+responsive_notes:
+  desktop: "1240px container; multi-column bento grids; 88px vertical rhythm"
+  tablet: "Grid transitions to 2-column or single-column with preserved hierarchy"
+  mobile: "Full single-column stacking; horizontal scroll for comparison table if needed; touch-friendly CTA buttons"
+
+asset_references:
+  - "02.page_solotion_vn.png"
+  - "assets/branding/bg_banner01.png"
+
+provenance: "Attached Visual Reference #00073 / #00074 (02.page_solotion_vn.png)"
+review_date: "2026-09-20"

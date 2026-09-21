@@ -1,0 +1,63 @@
+# ENERIX Carbon Source Authority Matrix
+# Version: 3.1.0
+# Governing Authority Hierarchy for Regulatory, Technical, and Engineering Artifacts
+
+metadata:
+  system: "ENERIX Carbon Governance & Authority Resolver"
+  last_updated: "2026-09-20"
+  governing_rule: "Never flatten authority classes; lower authority tiers cannot override higher authoritative sources."
+
+authority_tiers:
+  tier_1:
+    name: "LEGAL / REGULATORY SOURCE"
+    description: "Statutory laws, government decrees, prime minister decisions, and official circulars published via vanban.chinhphu.vn."
+    authoritative_sources:
+      - "Luật Bảo vệ môi trường 2020 (72/2020/QH14)"
+      - "Nghị định 06/2022/NĐ-CP"
+      - "Nghị định 119/2025/NĐ-CP"
+      - "Nghị định 83/2026/NĐ-CP"
+      - "Quyết định 42/2026/QĐ-TTg"
+      - "Thông tư 38/2023/TT-BCT"
+      - "Thông tư 13/2024/TT-BXD"
+      - "Thông tư 19/2024/TT-BNNPTNT"
+      - "Thông tư 17/2022/TT-BTNMT"
+    source_portal: "https://vanban.chinhphu.vn"
+
+  tier_2:
+    name: "TECHNICAL STANDARD / MINISTRY METHODOLOGY"
+    description: "National standards (TCVN) and international technical methodologies with independent provenance."
+    authoritative_sources:
+      - "TCVN ISO 14064-1:2025"
+      - "TCVN ISO 14064-2:2025"
+      - "TCVN ISO 14064-3:2025"
+      - "GHG Protocol Corporate Standard & Scope 3 Guidance"
+      - "MONRE National GHG Reporting Handbook"
+
+  tier_3:
+    name: "NUMERICAL DATASET"
+    description: "Emission factors, GWP values, grid emission factors, and fuel heating values."
+    authoritative_sources:
+      - "MONRE National Emission Factor Database"
+      - "IPCC AR6 GWP Datasets"
+
+  tier_4:
+    name: "ENERIX ENGINEERING INTERPRETATION"
+    description: "System calculation logic, rule engine design, and software architecture representations."
+    authoritative_sources:
+      - "ENERIX Carbon Base Logic and Governing Framework"
+
+  tier_5:
+    name: "AI SUGGESTION"
+    description: "AI-generated summaries, translations, draft rules, or change detections. Requires human review and approval."
+    authoritative_sources:
+      - "ENERIX AI Compliance Copilot & Assistant Outputs"
+
+temporal_states:
+  - state: "LATEST_PUBLISHED"
+    definition: "The most recent document indexed on vanban.chinhphu.vn or standards body repository by ingestion timestamp."
+  - state: "LATEST_ISSUED"
+    definition: "The most recent document by official issue date (ngay ban hanh)."
+  - state: "LATEST_EFFECTIVE"
+    definition: "The most recent document that has reached its official effective date (ngay co hieu luc)."
+  - state: "LATEST_APPLICABLE"
+    definition: "The governing rule resolved for a specific facility, sector, reporting period, and as_of_date."

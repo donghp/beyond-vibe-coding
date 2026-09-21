@@ -3,6 +3,7 @@
  * Follows Banner__Full_Page_Preview.png and Master Layout 02.
  */
 import { CarbonPath } from '../../app/path.js';
+import { PUBLIC_ROUTES } from '../../app/routes.js';
 
 export function renderPageBanner(config = {}) {
   const {
@@ -16,6 +17,8 @@ export function renderPageBanner(config = {}) {
   } = config;
 
   const resolvedVisual = visualAsset ? CarbonPath.resolve(visualAsset) : null;
+  const defaultPrimaryUrl = PUBLIC_ROUTES.platform;
+  const defaultSecondaryUrl = PUBLIC_ROUTES.home;
 
   return `
     <section class="page-banner" style="width:100%; height:540px; background:#08192D; color:#ffffff; overflow:hidden; position:relative; border-bottom:1px solid #1E293B; font-family:'Be Vietnam Pro', var(--carbon-font-sans, sans-serif);">
@@ -149,13 +152,13 @@ export function renderPageBanner(config = {}) {
           
           <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;${config.centerOnMobile ? 'justify-content:center;' : ''}">
             ${primaryCta ? `
-              <a href="${primaryCta.url || '#'}" class="banner-btn-primary">
+              <a href="${primaryCta.url && primaryCta.url !== '#' ? primaryCta.url : defaultPrimaryUrl}" class="banner-btn-primary">
                 ${primaryCta.label}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             ` : ''}
             ${secondaryCta ? `
-              <a href="${secondaryCta.url || '#'}" class="banner-btn-secondary">
+              <a href="${secondaryCta.url && secondaryCta.url !== '#' ? secondaryCta.url : defaultSecondaryUrl}" class="banner-btn-secondary">
                 ${secondaryCta.label}
               </a>
             ` : ''}

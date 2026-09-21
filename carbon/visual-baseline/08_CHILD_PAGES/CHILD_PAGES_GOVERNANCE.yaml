@@ -1,0 +1,23 @@
+# ENERIX Carbon — Child Pages Visual & Architectural Governance
+governance_reference: "EXOS-VBL-08"
+status: "APPROVED"
+last_reviewed: "2026-09-20"
+
+governance_rules:
+  - rule: "MANDATORY_PAGE_SHELL"
+    requirement: "All future child pages must strictly consume renderPublicPageShell() or equivalent canonical composition (Logo → Header → Breadcrumb → Banner → Content → Section Footer → Global Footer)."
+  
+  - rule: "CANONICAL_BREADCRUMB"
+    requirement: "Every child page must render an active breadcrumb tracing back to Home and its parent public section (e.g., Trang chủ → Giải pháp → Đo lường)."
+
+  - rule: "CANONICAL_FOOTER_INHERITANCE"
+    requirement: "No child page may implement a custom, truncated, or alternative footer. All child pages must inherit the canonical PublicGlobalFooter."
+
+  - rule: "HERO_BANNER_STANDARD"
+    requirement: "Child pages must include a high-contrast Navy banner (#08192D) with clear eyebrow, title, and descriptive subtitle."
+
+  - rule: "SECTION_FOOTER_STANDARD"
+    requirement: "A dedicated dark high-contrast conversion CTA must precede the white global footer on all child pages."
+
+  - rule: "ROUTING_CONTRACT"
+    requirement: "Child pages must use canonical nested pathname routing (e.g., /carbon/solutions/measurement/) instead of hash fragments."

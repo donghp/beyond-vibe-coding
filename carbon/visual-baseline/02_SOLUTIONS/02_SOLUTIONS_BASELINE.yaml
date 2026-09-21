@@ -1,0 +1,50 @@
+# ENERIX Carbon — Solutions Page Visual Baseline
+page_id: SOLUTIONS
+page_number: "02"
+page_name: Solutions
+page_name_vi: "Giải pháp"
+reference_file: "02.page_solotion_vn.png"
+language: vi
+visual_role: PAGE_VISUAL_BASELINE
+status: USER_APPROVED_REFERENCE
+immutable: true
+source: USER_UPLOADED
+created_at: "2026-09-20"
+checksum_sha256: "ac6c660722e20de40d80b6b363dca1476cc828cd4cd68bf0bb3c07a993241a3a"
+
+layout_characteristics:
+  resolution: "5760x14077 (8K Master)"
+  page_shell: "Logo → Header → Breadcrumb → Banner/Hero → Main Content → Section Footer → Global Footer"
+  header: "Canonical Public Header (White #FFFFFF, active item: Giải pháp)"
+  hero:
+    eyebrow: "GIẢI PHÁP DOANH NGHIỆP"
+    h1: "Biến dữ liệu phát thải thành quyết định có cơ sở."
+    description: "ENERIXON Carbon giúp doanh nghiệp thu thập, chuẩn hóa và quản lý dữ liệu phát thải — từ nguồn dữ liệu ban đầu đến kiểm kê, báo cáo và các cơ hội giảm phát thải."
+  trust_strip:
+    - "DỮ LIỆU CÓ NGUỒN GỐC: Theo dõi từ dữ liệu đầu vào đến kết quả"
+    - "PHƯƠNG PHÁP CÓ CĂN CỨ: Methodology và Emission Factor được quản lý theo nguồn và phiên bản"
+    - "BÁO CÁO CÓ CẤU TRÚC: Tổ chức dữ liệu và bằng chứng phục vụ quy trình báo cáo"
+  problem:
+    eyebrow: "VẤN ĐỀ DOANH NGHIỆP ĐANG GẶP PHẢI"
+    h2: "Dữ liệu không thiếu. Vấn đề là dữ liệu nằm rải rác."
+  fragile_workflow: "KHI DỮ LIỆU KHÔNG ĐƯỢC KIỂM SOÁT: Thu thập phân tán → Tổng hợp thủ công → Khó đối soát → Khó truy xuất nguồn → Chậm ra quyết định"
+  four_solutions:
+    - "01 — QUẢN LÝ CARBON CẤP DOANH NGHIỆP"
+    - "02 — TRÍ TUỆ CARBON CHUỖI CUNG ỨNG"
+    - "03 — DẤU CHÂN CARBON CỦA SẢN PHẨM"
+    - "04 — CHIẾN LƯỢC GIẢM PHÁT THẢI"
+  common_workflow_steps: 9
+  enterprise_journey_stages: 5
+  outputs: "GIÁ TRỊ ĐẦU RA: Không chỉ là một con số phát thải"
+  team_collaboration: "PHỐI HỢP LIÊN PHÒNG BAN: Một nguồn dữ liệu thống nhất cho nhiều vai trò"
+  assurance: "TRỤC XƯƠNG SỐNG CỦA NIỀM TIN: Một con số chỉ có giá trị khi biết nó đến từ đâu (Có nguồn - Có phương pháp - Có bằng chứng)"
+  reporting: "BÁO CÁO: Báo cáo là kết quả của một quy trình có kiểm soát"
+  reduction: "TỪ BÁO CÁO ĐẾN HÀNH ĐỘNG: Kiểm kê không phải là đích đến"
+  industry_context: "BỐI CẢNH NGÀNH: Mỗi ngành có một cấu trúc phát thải khác nhau"
+  illustrative_example: "VÍ DỤ MINH HỌA: Một nhà máy sản xuất có dữ liệu từ nhiều nguồn"
+  section_footer:
+    h2: "Sẵn sàng biến dữ liệu carbon thành hành động?"
+    copy: "Bắt đầu từ dữ liệu. Hiểu kết quả. Xác định ưu tiên. Hành động có cơ sở."
+    cta_primary: "Đặt lịch Demo →"
+    cta_secondary: "Khám phá Nền tảng →"
+  global_footer: "Canonical Public Global Footer (identical to Homepage)"

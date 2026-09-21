@@ -1,0 +1,70 @@
+# ENERIX Carbon Regulatory Impact Model
+# Classification of regulatory changes and their system propagation boundaries
+# Target Operation Year: 2027 Baseline
+
+metadata:
+  system: "ENERIX Carbon Compliance & Impact Engine"
+  model_version: "3.0.0"
+  last_updated: "2026-09-20"
+
+impact_classifications:
+  - classification_id: "NONE"
+    name_vi: "Không có tác động hệ thống"
+    description: "Preamble, administrative appointments, or non-binding notices requiring no code or data changes."
+    requires_code_change: false
+    requires_rule_update: false
+
+  - classification_id: "CONTENT_ONLY"
+    name_vi: "Chỉ cập nhật nội dung văn bản"
+    description: "Publishing new legal texts or explanatory guides in the Public Regulatory and Knowledge Base without modifying calculation algorithms."
+    requires_code_change: false
+    requires_rule_update: false
+
+  - classification_id: "REGULATORY_CONTENT"
+    name_vi: "Cập nhật nội dung quy định"
+    description: "Updates to statutory definitions, sector descriptions, or compliance obligations."
+    requires_code_change: false
+    requires_rule_update: true
+
+  - classification_id: "WORKFLOW"
+    name_vi: "Thay đổi quy trình nghiệp vụ"
+    description: "Changes to approval workflows, verification deadlines, or submission sign-off steps."
+    requires_code_change: true
+    requires_rule_update: true
+
+  - classification_id: "DATA_MODEL"
+    name_vi: "Thay đổi mô hình dữ liệu"
+    description: "Addition of new data fields required for inventory reporting (e.g., new Scope 3 categories or facility attributes)."
+    requires_code_change: true
+    requires_rule_update: true
+
+  - classification_id: "RULE_ENGINE"
+    name_vi: "Cập nhật bộ quy tắc"
+    description: "Modifications to applicability conditions, exemption criteria, or threshold logic."
+    requires_code_change: true
+    requires_rule_update: true
+
+  - classification_id: "CALCULATION"
+    name_vi: "Thay đổi phương pháp tính toán"
+    description: "Changes to GHG calculation formulas, mass balance equations, or GWP conversion factors."
+    requires_code_change: true
+    requires_rule_update: true
+    immutability_enforcement: "Strictly version-locked; never applied retroactively to closed reporting periods."
+
+  - classification_id: "REPORTING"
+    name_vi: "Cập nhật biểu mẫu báo cáo"
+    description: "Changes to statutory report templates (e.g., MONRE Decree 06 reporting forms)."
+    requires_code_change: true
+    requires_rule_update: true
+
+  - classification_id: "MASTER_DATA"
+    name_vi: "Cập nhật dữ liệu danh mục gốc"
+    description: "Updates to emission factors, grid emission factors, or fuel heating values."
+    requires_code_change: false
+    requires_rule_update: true
+
+  - classification_id: "PARAMETER_CHANGE"
+    name_vi: "Thay đổi thông số tham số"
+    description: "Adjusting numeric constants or threshold values within existing rule parameters."
+    requires_code_change: false
+    requires_rule_update: true

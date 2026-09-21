@@ -1,0 +1,31 @@
+# ENERIX Carbon Navigation Contract
+# Global Navigation, CTAs, and Footer Linking Rules
+
+metadata:
+  system: "ENERIX Carbon UI Architecture"
+  version: "3.0.0"
+
+global_navigation:
+  - label_vi: "Tổng quan"
+    label_en: "Overview"
+    destination: "/carbon/#overview"
+  - label_vi: "Giải pháp"
+    label_en: "Solutions"
+    destination: "/carbon/#solutions" # or /carbon/solutions/
+  - label_vi: "Ngành nghề"
+    label_en: "Industries"
+    destination: "/carbon/#industries"
+  - label_vi: "Khoa học"
+    label_en: "Science"
+    destination: "/carbon/#science"
+  - label_vi: "Tài nguyên"
+    label_en: "Resources"
+    destination: "/carbon/#resources"
+  - label_vi: "Doanh nghiệp"
+    label_en: "Company"
+    destination: "/carbon/#company"
+
+rules:
+  - "No global navigation item may use href='#' or javascript:void(0)."
+  - "Valid fragment anchors such as /carbon/#overview are preserved."
+  - "All CTAs resolve to active workspace demo views or contact workflows."

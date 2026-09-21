@@ -113,6 +113,27 @@
     "cta_title_2": "Reduce tomorrow.",
     "cta_desc": "Turn carbon intelligence into a cleaner, more resilient future. Join the leaders building the net-zero economy.",
     "footer_desc": "Enterprise carbon accounting, regulatory reporting, and decarbonization intelligence platform.",
-    "copyright": "Copyright © 2026 ENERIXON Carbon. All rights reserved."
+    "copyright": "Copyright © 2026 ENERIXON Carbon. All rights reserved.",
+    "science_trust_tag": "SCIENCE & TRUST",
+    "science_tile_1_title": "Calculation Methodology",
+    "science_tile_1_desc": "GHG Protocol aligned, transparent and deterministic.",
+    "science_tile_2_title": "Emission Factors",
+    "science_tile_2_desc": "Authoritative sources and version controlled.",
+    "science_tile_3_title": "Data Lineage",
+    "science_tile_3_desc": "Full traceability from source to reported value.",
+    "science_tile_4_title": "Versioning",
+    "science_tile_4_desc": "Track changes across all calculations and reports.",
+    "science_tile_5_title": "Evidence Management",
+    "science_tile_5_desc": "Store and link supporting documents.",
+    "science_tile_6_title": "Audit Trail",
+    "science_tile_6_desc": "Complete history for internal and external audits.",
+    "footer_contact": "Contact",
+    "footer_careers": "Careers",
+    "cta_outcome_1_title": "LOWER EMISSIONS",
+    "cta_outcome_1_desc": "Healthier planet",
+    "cta_outcome_2_title": "STRONGER BUSINESSES",
+    "cta_outcome_2_desc": "Greater resilience",
+    "cta_outcome_3_title": "BRIGHTER TOMORROW",
+    "cta_outcome_3_desc": "Net zero 2050"
   }
 }

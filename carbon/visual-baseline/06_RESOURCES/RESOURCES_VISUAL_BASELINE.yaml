@@ -1,0 +1,54 @@
+# ENERIX Carbon — Resources Visual Baseline
+page_id: "RESOURCES"
+page_family: "RESOURCES"
+route: "/carbon/resources/"
+language: "VI / EN"
+reference_type: "WORKING_DRAFT_REFERENCE"
+status: "REFERENCE"
+user_acceptance: "PENDING_USER_APPROVAL"
+version: "RESOURCES-VISUAL-BASELINE-V0.1"
+reference_image: "assets/branding/bg_banner01.png"
+visual_family: "Knowledge Base & Publication Dossiers"
+hero_type: "Image-Led Banner with Knowledge Repository Theme"
+
+section_sequence:
+  - id: 1
+    name: "Breadcrumb"
+    type: "PublicBreadcrumb"
+    path: "Trang chủ → Tài nguyên"
+  - id: 2
+    name: "Banner / Hero"
+    type: "PageBanner"
+    eyebrow: "RESOURCES"
+    title: "Insights for a more sustainable tomorrow."
+    subtitle: "Guides, whitepapers, regulatory updates and industry benchmarks to support your decarbonization journey."
+  - id: 3
+    name: "Knowledge Base & Dossiers"
+    type: "ResourcesGrid"
+    categories: ["Guides", "Circulars", "Templates", "Webinars"]
+  - id: 4
+    name: "Section Footer"
+    type: "DarkPremiumCTA"
+    headline: "Khám phá toàn bộ tài nguyên chuyên sâu của chúng tôi?"
+  - id: 5
+    name: "Global Footer"
+    type: "CanonicalEnterpriseFooter"
+    role: "CANONICAL_REFERENCE"
+
+cta_pattern:
+  primary: "Open Knowledge Base →"
+  secondary: "Download Compliance Guides ↓"
+
+footer_reference: "CANONICAL_ROOT"
+header_reference: "CANONICAL_PUBLIC_HEADER"
+
+responsive_notes:
+  desktop: "Resource cards grid with download triggers and tags"
+  tablet: "2-column grid"
+  mobile: "Single-column stacked list"
+
+asset_references:
+  - "assets/branding/bg_banner01.png"
+
+provenance: "Wave 4 Baseline — Pending Future Resources Visual Enhancement"
+review_date: "2026-09-20"

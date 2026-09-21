@@ -1,0 +1,54 @@
+# ENERIX Carbon — Company Visual Baseline
+page_id: "COMPANY"
+page_family: "COMPANY"
+route: "/carbon/company/"
+language: "VI / EN"
+reference_type: "WORKING_DRAFT_REFERENCE"
+status: "REFERENCE"
+user_acceptance: "PENDING_USER_APPROVAL"
+version: "COMPANY-VISUAL-BASELINE-V0.1"
+reference_image: "assets/branding/bg_banner02.png"
+visual_family: "Corporate Profile & Regulatory Mission"
+hero_type: "Image-Led Banner with Corporate Governance Theme"
+
+section_sequence:
+  - id: 1
+    name: "Breadcrumb"
+    type: "PublicBreadcrumb"
+    path: "Trang chủ → Công ty"
+  - id: 2
+    name: "Banner / Hero"
+    type: "PageBanner"
+    eyebrow: "COMPANY"
+    title: "Let’s build a cleaner tomorrow."
+    subtitle: "Meet the people, technology and purpose behind ENERIXON CARBON."
+  - id: 3
+    name: "Corporate Mission & Regulatory Alignment"
+    type: "CompanyProfileGrid"
+    focus: "Decision 42/2026/QĐ-TTg compliance and enterprise ESG governance"
+  - id: 4
+    name: "Section Footer"
+    type: "DarkPremiumCTA"
+    headline: "Cùng ENERIXON Carbon kiến tạo tương lai phát thải thấp?"
+  - id: 5
+    name: "Global Footer"
+    type: "CanonicalEnterpriseFooter"
+    role: "CANONICAL_REFERENCE"
+
+cta_pattern:
+  primary: "Contact Our Team →"
+  secondary: "View Regulatory Status ↓"
+
+footer_reference: "CANONICAL_ROOT"
+header_reference: "CANONICAL_PUBLIC_HEADER"
+
+responsive_notes:
+  desktop: "Balanced editorial corporate presentation with contact anchor"
+  tablet: "Single/two column responsive cards"
+  mobile: "Vertical stack with accessible contact triggers"
+
+asset_references:
+  - "assets/branding/bg_banner02.png"
+
+provenance: "Wave 4 Baseline — Pending Future Corporate Visual Enhancement"
+review_date: "2026-09-20"

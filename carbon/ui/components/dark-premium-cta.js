@@ -6,6 +6,7 @@
 import { CarbonPath } from '../../app/path.js';
 import { ICONS } from './icons.js';
 import { I18nManager } from '../../app/i18n.js';
+import { PUBLIC_ROUTES } from '../../app/routes.js';
 
 export function renderDarkPremiumCTA() {
   const earthBgUrl = CarbonPath.resolve('assets/branding/footer_earth_background.png');
@@ -105,7 +106,7 @@ export function renderDarkPremiumCTA() {
               ${I18nManager.t('public.book_demo')}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </button>
-            <button class="btn-explore-platform" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;transition:all 0.2s ease;">
+            <button class="btn-explore-platform" onclick="if (window.stateStore) { window.stateStore.setRoute('platform'); history.pushState(null, '', '${PUBLIC_ROUTES.platform}'); window.scrollTo({top:0, behavior:'smooth'}); }" style="background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);padding:0 24px;height:48px;border-radius:6px;font-weight:700;font-size:14.5px;cursor:pointer;transition:all 0.2s ease;">
               ${I18nManager.t('public.explore_platform')}
             </button>
           </div>
@@ -118,8 +119,8 @@ export function renderDarkPremiumCTA() {
               ${ICONS.trendingDown(22, '#078FF0')}
             </div>
             <div>
-              <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">LOWER EMISSIONS</div>
-              <div style="font-size:13px;color:#94A3B8;">Healthier planet</div>
+              <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">${I18nManager.t('public.cta_outcome_1_title')}</div>
+              <div style="font-size:13px;color:#94A3B8;">${I18nManager.t('public.cta_outcome_1_desc')}</div>
             </div>
           </div>
           <div class="outcome-item">
@@ -127,8 +128,8 @@ export function renderDarkPremiumCTA() {
               ${ICONS.shield(22, '#20B45B')}
             </div>
             <div>
-              <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">STRONGER BUSINESSES</div>
-              <div style="font-size:13px;color:#94A3B8;">Greater resilience</div>
+              <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">${I18nManager.t('public.cta_outcome_2_title')}</div>
+              <div style="font-size:13px;color:#94A3B8;">${I18nManager.t('public.cta_outcome_2_desc')}</div>
             </div>
           </div>
           <div class="outcome-item">
@@ -136,8 +137,8 @@ export function renderDarkPremiumCTA() {
               ${ICONS.clock(22, '#F59E0B')}
             </div>
             <div>
-              <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">BRIGHTER TOMORROW</div>
-              <div style="font-size:13px;color:#94A3B8;">Net zero 2050</div>
+              <div style="font-weight:700;font-size:14px;color:#ffffff;letter-spacing:0.02em;text-transform:uppercase;">${I18nManager.t('public.cta_outcome_3_title')}</div>
+              <div style="font-size:13px;color:#94A3B8;">${I18nManager.t('public.cta_outcome_3_desc')}</div>
             </div>
           </div>
         </div>

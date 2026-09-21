@@ -1,0 +1,25 @@
+# ENERIX Carbon Internal Link Graph
+# Pillar-cluster mapping, contextual links, and breadcrumb graph
+
+metadata:
+  system: "ENERIX Carbon Link Graph Engine"
+  version: "3.0.0"
+
+link_graph:
+  pillars:
+    - route: "/carbon/"
+      connects_to: ["/carbon/solutions/", "/carbon/industries/", "/carbon/science/", "/carbon/resources/", "/carbon/company/"]
+    - route: "/carbon/solutions/"
+      connects_to: ["/carbon/", "/carbon/industries/", "/carbon/science/", "/carbon/resources/"]
+    - route: "/carbon/industries/"
+      connects_to: ["/carbon/solutions/", "/carbon/science/", "/carbon/resources/"]
+    - route: "/carbon/science/"
+      connects_to: ["/carbon/solutions/", "/carbon/resources/", "/carbon/industries/"]
+    - route: "/carbon/resources/"
+      connects_to: ["/carbon/science/", "/carbon/solutions/", "/carbon/industries/"]
+    - route: "/carbon/company/"
+      connects_to: ["/carbon/", "/carbon/resources/"]
+
+orphan_page_check: "PASSED — Zero orphan pages detected in primary IA."
+placeholder_links_check: "PASSED — All href='#' and javascript:void(0) navigation targets purged or resolved."
+base_path_safety: "PASSED — Compatible with GitHub Pages deployment base path (/beyond-vibe-coding/carbon/)."

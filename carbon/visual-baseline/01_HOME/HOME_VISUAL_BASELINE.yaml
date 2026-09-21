@@ -1,0 +1,60 @@
+# ENERIX Carbon — Homepage Visual Baseline
+page_id: "HOME"
+route: "/carbon/"
+language: "VI (primary) / EN (catalog)"
+status: "USER_APPROVED"
+freeze_state: "FROZEN"
+version: "HOME-VISUAL-BASELINE-V1.0-FROZEN"
+reference_image: "visual_baseline_enerix_carbon.png"
+visual_family: "Enterprise Public Homepage"
+hero_type: "Full-bleed Earth Atmosphere Banner with Enterprise Typography"
+
+section_sequence:
+  - id: 1
+    name: "Header"
+    type: "PublicHeader"
+  - id: 2
+    name: "Hero / Value Proposition"
+    type: "EarthAtmosphereHero"
+    asset: "assets/branding/footer_earth_background.png"
+  - id: 3
+    name: "Controlled Execution Pipeline"
+    type: "ArchitecturePipeline"
+  - id: 4
+    name: "Core Platform Capabilities"
+    type: "ThreePillarShowcase"
+    pillars: ["Measure", "Report", "Reduce"]
+  - id: 5
+    name: "Regulatory Mandate Compliance"
+    type: "RegulatoryComplianceGrid"
+  - id: 6
+    name: "Enterprise Assurance Backbone"
+    type: "AssuranceIntegrityCards"
+  - id: 7
+    name: "Section Footer"
+    type: "DarkPremiumCTA"
+    headline: "Sẵn sàng biến dữ liệu carbon thành năng lực cạnh tranh bền vững?"
+  - id: 8
+    name: "Global Footer"
+    type: "CanonicalEnterpriseFooter"
+    role: "CANONICAL_REFERENCE_FOR_ALL_PAGES"
+
+cta_pattern:
+  primary: "Khám phá Nền tảng →"
+  secondary: "Đặt lịch Demo ↗"
+
+footer_reference: "CANONICAL_ROOT"
+header_reference: "CANONICAL_PUBLIC_HEADER"
+
+responsive_notes:
+  desktop: "Max container 1280px; 3-column pillar cards; horizontal footer layout"
+  tablet: "Pillars stack into 2-column or fluid grid; header navigation remains accessible"
+  mobile: "Full single-column stacking; font scales via clamp; footer stacks vertically with centered alignment"
+
+asset_references:
+  - "assets/branding/footer_earth_background.png"
+  - "assets/branding/ENERIXON_CARBON_HERO_SOURCE_OF_TRUTH.png"
+  - "assets/branding/logo_enerix_carbon.png"
+
+provenance: "Accepted under WAVE 2 / Demarcated Frozen in #00070"
+review_date: "2026-09-20"

@@ -7,6 +7,9 @@
 import { renderPageBanner } from '../components/page-banner.js';
 import { renderDarkPremiumCTA } from '../components/dark-premium-cta.js';
 import { renderEnterpriseFooter } from '../components/enterprise-footer.js';
+import { renderBreadcrumb } from '../components/public-page-shell.js';
+import { PUBLIC_ROUTES } from '../../app/routes.js';
+import { I18nManager } from '../../app/i18n.js';
 import { CarbonPath } from '../../app/path.js';
 
 import { stateStore } from '../../app/state-store.js';
@@ -184,16 +187,19 @@ export function renderReduceProductPage() {
 renderReduceProductPage.attachEvents = attachDrilldownEvents;
 
 export function renderScienceProductPage() {
+  const isVi = I18nManager.currentLocale === 'vi';
+  const breadcrumb = renderBreadcrumb([{ label: isVi ? 'Khoa học' : 'Science' }]);
   const banner = renderPageBanner({
     eyebrow: 'SCIENCE',
     title: 'Built on science. Designed for a cleaner tomorrow.',
     description: 'Transparent methodologies, authoritative data and end-to-end traceability give you confidence in every number.',
-    primaryCta: { label: 'Explore Our Methodology', url: '#methodologies' },
+    primaryCta: { label: 'Explore Our Methodology', url: `${PUBLIC_ROUTES.science}#methodologies` },
     visualAsset: 'assets/branding/bg_banner01.png'
   });
 
   return `
     <div class="product-page science-page">
+      ${breadcrumb}
       ${banner}
 
       <section class="section" style="padding:80px 24px;background:#F8FAFC;">
@@ -224,58 +230,22 @@ export function renderScienceProductPage() {
 }
 renderScienceProductPage.attachEvents = attachDrilldownEvents;
 
-export function renderSolutionsProductPage() {
-  const banner = renderPageBanner({
-    eyebrow: 'SOLUTIONS',
-    title: 'Solutions for a lower-carbon future.',
-    description: 'Connected carbon intelligence for organizations navigating measurement, reporting, reduction and climate action.',
-    primaryCta: { label: 'View Industry Case Studies', url: '#resources' },
-    visualAsset: 'assets/branding/bg_banner02.png'
-  });
-
-  return `
-    <div class="product-page solutions-page">
-      ${banner}
-
-      <section class="section" style="padding:80px 24px;background:#F8FAFC;">
-        <div class="container" style="max-width:1280px;margin:0 auto;">
-          <div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:24px;" class="cta-grid-responsive">
-            <div class="enerix-card" style="padding:32px;background:#ffffff;border-radius:12px;border:1px solid #E2E8F0;box-shadow:0 4px 6px rgba(11,23,39,0.02);display:flex;flex-direction:column;justify-content:space-between;">
-              <div>
-                <div style="font-weight:800;font-size:18px;color:#0B1727;margin-bottom:12px;letter-spacing:-0.01em;">Multi-Facility Management</div>
-                <p style="font-size:14px;color:#475569;line-height:1.6;margin-bottom:24px;">Manage corporate hierarchies, branch plants, and subsidiary carbon accounting under one roof.</p>
-              </div>
-              <button class="enerix-button enerix-button-primary btn-drilldown" data-nav="facilities" style="width:100%;background:#0066FF;color:#ffffff;padding:12px 16px;border-radius:6px;font-weight:700;font-size:13px;border:none;cursor:pointer;">View Facilities →</button>
-            </div>
-            <div class="enerix-card" style="padding:32px;background:#ffffff;border-radius:12px;border:1px solid #E2E8F0;box-shadow:0 4px 6px rgba(11,23,39,0.02);display:flex;flex-direction:column;justify-content:space-between;">
-              <div>
-                <div style="font-weight:800;font-size:18px;color:#0B1727;margin-bottom:12px;letter-spacing:-0.01em;">Regulatory Compliance Framework</div>
-                <p style="font-size:14px;color:#475569;line-height:1.6;margin-bottom:24px;">Automated applicability checking and threshold monitoring for regulated industrial entities.</p>
-              </div>
-              <button class="enerix-button enerix-button-secondary btn-drilldown" data-nav="regulatory-check" style="width:100%;background:#F1F5F9;color:#0B1727;border:1px solid #CBD5E1;padding:12px 16px;border-radius:6px;font-weight:700;font-size:13px;cursor:pointer;">Check Applicability →</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      ${renderDarkPremiumCTA()}
-      ${renderEnterpriseFooter()}
-    </div>
-  `;
-}
-renderSolutionsProductPage.attachEvents = attachDrilldownEvents;
+export { renderSolutionsProductPage } from './solutions-page.js';
 
 export function renderResourcesProductPage() {
+  const isVi = I18nManager.currentLocale === 'vi';
+  const breadcrumb = renderBreadcrumb([{ label: isVi ? 'Tài nguyên' : 'Resources' }]);
   const banner = renderPageBanner({
     eyebrow: 'RESOURCES',
     title: 'Insights for a more sustainable tomorrow.',
     description: 'Guides, knowledge, data stories and practical resources for understanding carbon, compliance and decarbonization.',
-    primaryCta: { label: 'Browse Resource Library', url: '#knowledge' },
+    primaryCta: { label: 'Browse Resource Library', url: `${PUBLIC_ROUTES.resources}#knowledge` },
     visualAsset: 'assets/branding/bg_banner01.png'
   });
 
   return `
     <div class="product-page resources-page">
+      ${breadcrumb}
       ${banner}
 
       <section class="section" style="padding:80px 24px;background:#F8FAFC;">
@@ -300,16 +270,19 @@ export function renderResourcesProductPage() {
 renderResourcesProductPage.attachEvents = attachDrilldownEvents;
 
 export function renderCompanyProductPage() {
+  const isVi = I18nManager.currentLocale === 'vi';
+  const breadcrumb = renderBreadcrumb([{ label: isVi ? 'Công ty' : 'Company' }]);
   const banner = renderPageBanner({
     eyebrow: 'COMPANY',
     title: 'Let’s build a cleaner tomorrow.',
     description: 'Meet the people, technology and purpose behind ENERIXON CARBON.',
-    primaryCta: { label: 'Contact Our Team', url: '#contact' },
+    primaryCta: { label: 'Contact Our Team', url: `${PUBLIC_ROUTES.company}#contact` },
     visualAsset: 'assets/branding/bg_banner02.png'
   });
 
   return `
     <div class="product-page company-page">
+      ${breadcrumb}
       ${banner}
 
       <section class="section" style="padding:80px 24px;background:#F8FAFC;">
@@ -334,16 +307,19 @@ export function renderCompanyProductPage() {
 renderCompanyProductPage.attachEvents = attachDrilldownEvents;
 
 export function renderIndustriesProductPage() {
+  const isVi = I18nManager.currentLocale === 'vi';
+  const breadcrumb = renderBreadcrumb([{ label: isVi ? 'Ngành' : 'Industries' }]);
   const banner = renderPageBanner({
     eyebrow: 'INDUSTRIES',
     title: 'Industry solutions for real-world impact.',
     description: 'Purpose-built carbon intelligence for energy, manufacturing, infrastructure, transport, technology and other high-impact sectors.',
-    primaryCta: { label: 'Book a Demo', url: '#contact' },
+    primaryCta: { label: 'Book a Demo', url: `${PUBLIC_ROUTES.company}#contact` },
     visualAsset: 'assets/branding/bg_banner01.png'
   });
 
   return `
     <div class="product-page industries-page">
+      ${breadcrumb}
       ${banner}
       
       <section class="section" style="padding:80px 24px;background:#ffffff;">
@@ -373,12 +349,14 @@ export function renderIndustriesProductPage() {
 renderIndustriesProductPage.attachEvents = attachDrilldownEvents;
 
 export function renderPlatformProductPage() {
+  const isVi = I18nManager.currentLocale === 'vi';
+  const breadcrumb = renderBreadcrumb([{ label: isVi ? 'Nền tảng' : 'Platform' }]);
   const banner = renderPageBanner({
     eyebrow: 'THE ENERIXON CARBON PLATFORM',
     title: 'From data to real-world impact.',
     description: 'A unified platform to measure, report and reduce emissions across your organization and value chain. Turn carbon data into clear insights and actionable opportunities.',
-    primaryCta: { label: 'Request a Demo →', url: '#contact' },
-    secondaryCta: { label: 'Explore the Platform', url: '#section-01' },
+    primaryCta: { label: 'Request a Demo →', url: `${PUBLIC_ROUTES.company}#contact` },
+    secondaryCta: { label: 'Explore the Platform', url: `${PUBLIC_ROUTES.platform}#section-01` },
     visualAsset: 'assets/branding/bg_banner01.png'
   });
 
@@ -386,6 +364,7 @@ export function renderPlatformProductPage() {
 
   return `
     <div class="product-page platform-page">
+      ${breadcrumb}
       ${banner}
 
       <section id="section-01" class="section" style="padding:100px 24px; position:relative; background:#ffffff; overflow:hidden; font-family:'Be Vietnam Pro', var(--carbon-font-sans, sans-serif);">

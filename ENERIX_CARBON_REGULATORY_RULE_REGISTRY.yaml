@@ -1,0 +1,71 @@
+# ENERIX Carbon Regulatory Rule Registry
+# Executable business rules derived from official government sources (vanban.chinhphu.vn)
+# Target Operation Year: 2027 Baseline
+
+metadata:
+  system: "ENERIX Carbon Rule Engine & Applicability Resolver"
+  registry_version: "3.0.0"
+  last_updated: "2026-09-20"
+  immutability_guarantee: "Historical calculations are bound to the rule version active at calculation creation timestamp and can never be silently mutated by newer rule versions."
+
+rules:
+  - rule_id: "RULE-GHG-INVENTORY-MANDATE-2027"
+    rule_code: "DECREE_06_DECISION_42_MANDATE"
+    title_vi: "Quy định danh mục cơ sở phát thải GHG phải kiểm kê năm 2027"
+    source_document_ids: ["DECREE-06-2022-ND-CP", "DECREE-119-2025-ND-CP", "DECISION-42-2026-QD-TTg"]
+    version: "2.1.0"
+    effective_from: "2026-09-25" # Effective date of Decision 42/2026/QĐ-TTg
+    effective_to: null # Active for 2027 reporting cycle
+    applicability:
+      jurisdiction: "VN"
+      sectors: ["ENERGY", "MANUFACTURING", "TRANSPORT", "CONSTRUCTION", "AGRICULTURE", "WASTE"]
+      threshold_scope1_tco2e: 3000 # Annual emissions threshold (or energy consumption equivalent)
+      facility_types: ["INDUSTRIAL_PLANT", "POWER_GENERATOR", "COMMERCIAL_COMPLEX_LARGE"]
+    logic_expression: "annual_scope_1_emissions >= 3000 or energy_consumption_toe >= 1000"
+    compliance_action: "MANDATORY_INVENTORY_AND_VERIFICATION"
+    status: "ACTIVE"
+
+  - rule_id: "RULE-EMISSION-FACTOR-GRID-2027"
+    rule_code: "MONRE_GRID_EF_2027"
+    title_vi: "Hệ số phát thải lưới điện quốc gia (Grid Emission Factor) áp dụng cho năm 2027"
+    source_document_ids: ["CIRCULAR-17-2022-TT-BTNMT", "VN-GHG-HANDBOOK-2026"]
+    version: "3.0.0"
+    effective_from: "2026-01-01"
+    effective_to: null
+    applicability:
+      jurisdiction: "VN"
+      sectors: ["ALL"]
+      activity_types: ["GRID_ELECTRICITY_CONSUMPTION"]
+    parameters:
+      combined_margin_tco2e_per_mwh: 0.7234 # Official MONRE 2026/2027 baseline factor
+    status: "ACTIVE"
+
+  - rule_id: "RULE-SCOPE-3-CATEGORY-MANDATE-2027"
+    rule_code: "TCVN_14064_SCOPE_3"
+    title_vi: "Yêu cầu báo cáo Phạm vi 3 (Scope 3) theo TCVN ISO 14064-1:2025"
+    source_document_ids: ["TCVN-ISO-14064-1-2025", "GHG-PROTOCOL-CORP-2024"]
+    version: "1.0.0"
+    effective_from: "2025-03-01"
+    effective_to: null
+    applicability:
+      jurisdiction: "VN"
+      sectors: ["LISTED_ENTERPRISES", "LARGE_MANUFACTURING", "EXPORT_ORIENTED"]
+      reporting_tier: "TIER_2_AND_ABOVE"
+    mandatory_categories: ["CAT_1_PURCHASED_GOODS", "CAT_4_UPSTREAM_TRANSPORTATION", "CAT_6_BUSINESS_TRAVEL", "CAT_7_EMPLOYEE_COMMUTING"]
+    status: "ACTIVE"
+
+  - rule_id: "RULE-MRV-VERIFICATION-DEADLINE-2027"
+    rule_code: "DECREE_06_MRV_DEADLINE"
+    title_vi: "Thời hạn nộp báo cáo kiểm kê khí nhà kính và kết quả thẩm định năm 2027"
+    source_document_ids: ["DECREE-06-2022-ND-CP", "DECREE-83-2026-ND-CP"]
+    version: "2.0.0"
+    effective_from: "2026-05-01"
+    effective_to: null
+    applicability:
+      jurisdiction: "VN"
+      sectors: ["ALL_MANDATED_FACILITIES"]
+      reporting_year: 2027
+    parameters:
+      inventory_submission_deadline: "2028-03-31" # For previous year reporting per Decree 06/Decree 83
+      third_party_verification_required: true
+    status: "ACTIVE"

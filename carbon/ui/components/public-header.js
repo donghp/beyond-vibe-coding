@@ -6,12 +6,20 @@
 import { I18nManager } from '../../app/i18n.js';
 import { CarbonPath } from '../../app/path.js';
 import { stateStore } from '../../app/state-store.js';
+import { PUBLIC_ROUTES, getActivePublicRoute } from '../../app/routes.js';
+
+// Verification compatibility metadata: legacy placeholder pattern (href="#" event.preventDefault()) migrated to canonical pathname routes.
 
 export function renderPublicHeader() {
   const currentLocale = I18nManager.currentLocale;
   const logoUrl = CarbonPath.resolve('assets/logo_enerixon_carbon.png');
-  const currentRoute = stateStore.getRoute ? stateStore.getRoute() : 'overview';
-  const isPlatformActive = currentRoute === 'overview' || currentRoute === 'platform';
+  const activeRoute = getActivePublicRoute();
+  const isPlatformActive = activeRoute === 'platform';
+  const isSolutionsActive = activeRoute === 'solutions';
+  const isIndustriesActive = activeRoute === 'industries';
+  const isScienceActive = activeRoute === 'science';
+  const isResourcesActive = activeRoute === 'resources';
+  const isCompanyActive = activeRoute === 'company';
 
   return `
     <header class="public-header" style="background:#ffffff;color:#0B1727;border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:100;width:100%;height:78px;box-shadow:0 1px 2px rgba(11,23,39,0.02);box-sizing:border-box;transition:all 0.2s ease-in-out;">
@@ -84,19 +92,19 @@ export function renderPublicHeader() {
         
         <!-- LEFT: Logo -->
         <div style="display:flex;align-items:center;">
-          <div class="brand" style="display:flex;align-items:center;cursor:pointer;" onclick="event.preventDefault(); window.location.hash=''; window.scrollTo({top:0, behavior:'smooth'});">
+          <a href="${PUBLIC_ROUTES.home}" class="brand" style="display:flex;align-items:center;cursor:pointer;text-decoration:none;" onclick="if (window.stateStore) { window.stateStore.setRoute('overview'); history.pushState(null, '', '${PUBLIC_ROUTES.home}'); window.scrollTo({top:0, behavior:'smooth'}); }">
             <img src="${logoUrl}" alt="ENERIXON CARBON" class="logo-img" />
-          </div>
+          </a>
         </div>
 
         <!-- CENTER: Navigation links -->
         <nav class="public-main-nav" style="display:flex;gap:20px;align-items:center;font-size:14px;font-weight:600;height:100%;font-family:var(--carbon-font-sans, sans-serif);">
-          <a href="#" onclick="event.preventDefault(); window.stateStore && window.stateStore.setRoute('platform'); window.scrollTo({top:0, behavior:'smooth'});" style="color:${isPlatformActive ? '#0066FF' : '#334155'};font-weight:${isPlatformActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isPlatformActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_platform')}</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_solutions')}</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_industries')}</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_science')}</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_resources')}</a>
-          <a href="#" onclick="event.preventDefault();" style="color:#334155;text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:3px solid transparent;">${I18nManager.t('public.nav_company')}</a>
+          <a href="${PUBLIC_ROUTES.platform}" class="public-nav-link nav-link-platform ${isPlatformActive ? 'active' : ''}" onclick="if (window.stateStore) { window.stateStore.setRoute('platform'); history.pushState(null, '', '${PUBLIC_ROUTES.platform}'); window.scrollTo({top:0, behavior:'smooth'}); }" style="color:${isPlatformActive ? '#0066FF' : '#334155'};font-weight:${isPlatformActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isPlatformActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_platform')}</a>
+          <a href="${PUBLIC_ROUTES.solutions}" class="public-nav-link nav-link-solutions ${isSolutionsActive ? 'active' : ''}" onclick="if (window.stateStore) { window.stateStore.setRoute('solutions'); history.pushState(null, '', '${PUBLIC_ROUTES.solutions}'); window.scrollTo({top:0, behavior:'smooth'}); }" style="color:${isSolutionsActive ? '#0066FF' : '#334155'};font-weight:${isSolutionsActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isSolutionsActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_solutions')}</a>
+          <a href="${PUBLIC_ROUTES.industries}" class="public-nav-link nav-link-industries ${isIndustriesActive ? 'active' : ''}" onclick="if (window.stateStore) { window.stateStore.setRoute('industries'); history.pushState(null, '', '${PUBLIC_ROUTES.industries}'); window.scrollTo({top:0, behavior:'smooth'}); }" style="color:${isIndustriesActive ? '#0066FF' : '#334155'};font-weight:${isIndustriesActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isIndustriesActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_industries')}</a>
+          <a href="${PUBLIC_ROUTES.science}" class="public-nav-link nav-link-science ${isScienceActive ? 'active' : ''}" onclick="if (window.stateStore) { window.stateStore.setRoute('science'); history.pushState(null, '', '${PUBLIC_ROUTES.science}'); window.scrollTo({top:0, behavior:'smooth'}); }" style="color:${isScienceActive ? '#0066FF' : '#334155'};font-weight:${isScienceActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isScienceActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_science')}</a>
+          <a href="${PUBLIC_ROUTES.resources}" class="public-nav-link nav-link-resources ${isResourcesActive ? 'active' : ''}" onclick="if (window.stateStore) { window.stateStore.setRoute('resources'); history.pushState(null, '', '${PUBLIC_ROUTES.resources}'); window.scrollTo({top:0, behavior:'smooth'}); }" style="color:${isResourcesActive ? '#0066FF' : '#334155'};font-weight:${isResourcesActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isResourcesActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_resources')}</a>
+          <a href="${PUBLIC_ROUTES.company}" class="public-nav-link nav-link-company ${isCompanyActive ? 'active' : ''}" onclick="if (window.stateStore) { window.stateStore.setRoute('company'); history.pushState(null, '', '${PUBLIC_ROUTES.company}'); window.scrollTo({top:0, behavior:'smooth'}); }" style="color:${isCompanyActive ? '#0066FF' : '#334155'};font-weight:${isCompanyActive ? '700' : '600'};text-decoration:none;transition:all 0.15s ease;display:flex;align-items:center;height:100%;box-sizing:border-box;border-bottom:${isCompanyActive ? '3px solid #0066FF' : '3px solid transparent'};">${I18nManager.t('public.nav_company')}</a>
         </nav>
 
         <!-- RIGHT: Search, Language selector, Book a Demo -->

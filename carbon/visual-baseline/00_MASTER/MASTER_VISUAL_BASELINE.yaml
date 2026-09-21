@@ -1,0 +1,126 @@
+# ENERIX Carbon — Master Visual Baseline
+schema_version: "1.0.0"
+governance_reference: "EXOS-VBL-00"
+title: "Global Shared Visual Grammar & Structure"
+status: "APPROVED"
+last_reviewed: "2026-09-20"
+
+# 1. Non-Negotiable Page Shell
+page_shell:
+  sequence:
+    - step: 1
+      element: "LOGO"
+      description: "Canonical ENERIX Carbon logo anchor"
+    - step: 2
+      element: "HEADER"
+      component: "renderPublicHeader"
+      file: "/carbon/ui/components/public-header.js"
+    - step: 3
+      element: "BREADCRUMB"
+      component: "renderBreadcrumb"
+      file: "/carbon/ui/components/public-page-shell.js"
+      usage: "Mandatory on all child pages (Trang chủ → Page Name)"
+    - step: 4
+      element: "BANNER_HERO"
+      component: "renderPageBanner"
+      file: "/carbon/ui/components/page-banner.js"
+      theme: "Navy Deep Slate (#08192D)"
+    - step: 5
+      element: "MAIN_CONTENT"
+      description: "Page-specific editorial reading zone (#FFFFFF / #F8FAFC)"
+    - step: 6
+      element: "SECTION_FOOTER"
+      component: "renderDarkPremiumCTA"
+      file: "/carbon/ui/components/dark-premium-cta.js"
+      theme: "Dark Premium (#08192D / #0B1727)"
+    - step: 7
+      element: "GLOBAL_FOOTER"
+      component: "PublicGlobalFooter (renderEnterpriseFooter)"
+      file: "/carbon/ui/components/enterprise-footer.js"
+      theme: "Clean White (#FFFFFF)"
+
+# 2. Typography Tokens
+typography:
+  primary_font: "Be Vietnam Pro, var(--carbon-font-sans, sans-serif)"
+  code_font: "var(--carbon-font-mono, monospace)"
+  hierarchy:
+    display_hero:
+      font_size: "clamp(32px, 4.5vw, 54px)"
+      line_height: "1.12"
+      font_weight: "800"
+      letter_spacing: "-0.03em"
+    section_h2:
+      font_size: "clamp(26px, 3.2vw, 36px)"
+      line_height: "1.22"
+      font_weight: "800"
+      letter_spacing: "-0.025em"
+    subsection_h3:
+      font_size: "18px to 22px"
+      line_height: "1.3"
+      font_weight: "700"
+    eyebrow_tag:
+      font_family: "var(--carbon-font-mono, monospace)"
+      font_size: "11px"
+      font_weight: "700"
+      text_transform: "uppercase"
+      letter_spacing: "0.12em to 0.15em"
+    body_regular:
+      font_size: "15px to 16px"
+      line_height: "1.65"
+      font_weight: "400"
+      color: "#475569"
+
+# 3. Color Semantics
+color_semantics:
+  brand_primary: "#0066FF"
+  brand_primary_hover: "#0052CC"
+  brand_cyan: "#38BDF8"
+  navy_hero_bg: "#08192D"
+  navy_card_bg: "#0D233E"
+  neutral_dark_text: "#0B1727"
+  neutral_body_text: "#475569"
+  neutral_muted_text: "#64748B"
+  surface_white: "#FFFFFF"
+  surface_offwhite: "#F8FAFC"
+  border_light: "#E2E8F0"
+  border_subtle: "#DCE5ED"
+  border_dark: "#1E293B"
+
+# 4. Spacing & Containers
+layout_system:
+  container_max_width: "1280px"
+  reading_max_width: "820px"
+  container_padding_desktop: "0 24px"
+  section_vertical_padding: "88px to 100px"
+  card_border_radius: "12px to 16px"
+  button_border_radius: "6px"
+
+# 5. Interactive Components
+components:
+  primary_button:
+    background: "#0066FF"
+    color: "#FFFFFF"
+    padding: "13px 26px"
+    border_radius: "6px"
+    font_weight: "700"
+    font_size: "14px to 15px"
+    hover_background: "#0052CC"
+  secondary_button:
+    background: "rgba(255, 255, 255, 0.08)"
+    color: "#FFFFFF"
+    border: "1px solid rgba(255, 255, 255, 0.22)"
+    padding: "13px 24px"
+    border_radius: "6px"
+    font_weight: "600"
+  breadcrumb:
+    background: "#F8FAFC"
+    border_bottom: "1px solid #E2E8F0"
+    padding: "12px 24px"
+    separator: "Chevron SVG (#94A3B8)"
+    active_color: "#0F172A"
+
+# 6. Responsive Breakpoints & Adaptations
+responsive_contract:
+  desktop: ">= 1024px: full 2-3 column grids, horizontal navigation"
+  tablet: "768px - 1023px: 2 column stacks, condensed padding"
+  mobile: "< 768px: single-column vertical flow, 44px touch targets, mobile navigation drawer"

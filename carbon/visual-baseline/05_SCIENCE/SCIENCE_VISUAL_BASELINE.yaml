@@ -1,0 +1,54 @@
+# ENERIX Carbon — Science Visual Baseline
+page_id: "SCIENCE"
+page_family: "SCIENCE"
+route: "/carbon/science/"
+language: "VI / EN"
+reference_type: "WORKING_DRAFT_REFERENCE"
+status: "REFERENCE"
+user_acceptance: "PENDING_USER_APPROVAL"
+version: "SCIENCE-VISUAL-BASELINE-V0.1"
+reference_image: "assets/branding/bg_banner02.png"
+visual_family: "Scientific Methodologies & Emission Factor Authority"
+hero_type: "Image-Led Banner with Scientific Rigor Theme"
+
+section_sequence:
+  - id: 1
+    name: "Breadcrumb"
+    type: "PublicBreadcrumb"
+    path: "Trang chủ → Khoa học"
+  - id: 2
+    name: "Banner / Hero"
+    type: "PageBanner"
+    eyebrow: "SCIENCE"
+    title: "Ground truth for carbon accounting."
+    subtitle: "Transparent methodologies, verified emission factors and auditable calculations rooted in international standards."
+  - id: 3
+    name: "Scientific Frameworks & Methodologies"
+    type: "ScienceFrameworkGrid"
+    standards: ["IPCC 2006/2019", "GHG Protocol", "ISO 14064-1", "Vietnam Technical Standards"]
+  - id: 4
+    name: "Section Footer"
+    type: "DarkPremiumCTA"
+    headline: "Xây dựng hệ thống báo cáo dựa trên cơ sở khoa học chính xác?"
+  - id: 5
+    name: "Global Footer"
+    type: "CanonicalEnterpriseFooter"
+    role: "CANONICAL_REFERENCE"
+
+cta_pattern:
+  primary: "Explore Methodologies →"
+  secondary: "View Standards Documentation ↓"
+
+footer_reference: "CANONICAL_ROOT"
+header_reference: "CANONICAL_PUBLIC_HEADER"
+
+responsive_notes:
+  desktop: "Structured scientific reading column with formula callouts and reference badges"
+  tablet: "Adjusted margins, single/two column cards"
+  mobile: "Stacked view with full-width formula containers"
+
+asset_references:
+  - "assets/branding/bg_banner02.png"
+
+provenance: "Wave 4 Baseline — Pending Future Scientific Visual Enhancement"
+review_date: "2026-09-20"

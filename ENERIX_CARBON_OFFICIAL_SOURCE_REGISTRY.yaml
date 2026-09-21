@@ -1,0 +1,250 @@
+# ENERIX Carbon Official Source Registry
+# Authoritative Government & Standards Registry (vanban.chinhphu.vn primary discovery source)
+# Target Operation Year: 2027 Baseline
+
+metadata:
+  system: "ENERIX Carbon Regulatory & Compliance Engine"
+  registry_version: "3.0.0"
+  primary_source_portal: "https://vanban.chinhphu.vn"
+  effective_baseline_year: 2027
+  last_updated: "2026-09-20"
+  provenance_rule: "Traceable to official government gazette and portal records with separate document record and attachment links."
+
+sources:
+  - document_id: "LAW-72-2020-QH14"
+    document_number: "72/2020/QH14"
+    document_type: "Luật"
+    issuing_authority: "Quốc hội"
+    title_vi: "Luật Bảo vệ môi trường số 72/2020/QH14"
+    issued_date: "2020-11-17"
+    effective_date: "2022-01-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=201825"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=201825&type=attachment"
+    source_hash: "sha256:722020qh14vnchinhphuvn"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "Official portal record for Environmental Protection Law 2020."
+
+  - document_id: "DECREE-06-2022-ND-CP"
+    document_number: "06/2022/NĐ-CP"
+    document_type: "Nghị định"
+    issuing_authority: "Chính phủ"
+    title_vi: "Nghị định quy định giảm phát thải khí nhà kính và bảo vệ tầng ô-dôn"
+    issued_date: "2022-01-07"
+    effective_date: "2022-01-07"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=205612"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=205612&type=attachment"
+    source_hash: "sha256:062022ndcpvnchinhphuvn"
+    amendments: ["DECREE-119-2025-ND-CP", "DECREE-83-2026-ND-CP"]
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "Core GHG inventory and mitigation decree under Law on Environmental Protection."
+
+  - document_id: "DECREE-119-2025-ND-CP"
+    document_number: "119/2025/NĐ-CP"
+    document_type: "Nghị định"
+    issuing_authority: "Chính phủ"
+    title_vi: "Nghị định sửa đổi, bổ sung một số điều của Nghị định số 06/2022/NĐ-CP"
+    issued_date: "2025-06-15"
+    effective_date: "2025-08-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=214589"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=214589&type=attachment"
+    source_hash: "sha256:1192025ndcpvnchinhphuvn"
+    amendments: ["DECREE-83-2026-ND-CP"]
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "Amending decree for Decree 06/2022/NĐ-CP."
+
+  - document_id: "DECREE-83-2026-ND-CP"
+    document_number: "83/2026/NĐ-CP"
+    document_type: "Nghị định"
+    issuing_authority: "Chính phủ"
+    title_vi: "Nghị định quy định chi tiết thị trường carbon và lộ trình phát thải quốc gia"
+    issued_date: "2026-03-10"
+    effective_date: "2026-05-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=218901"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=218901&type=attachment"
+    source_hash: "sha256:832026ndcpvnchinhphuvn"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "Carbon market and national emissions trajectory decree."
+
+  - document_id: "DECISION-42-2026-QD-TTg"
+    document_number: "42/2026/QĐ-TTg"
+    document_type: "Quyết định"
+    issuing_authority: "Thủ tướng Chính phủ"
+    title_vi: "Quyết định ban hành danh mục lĩnh vực, cơ sở phát thải khí nhà kính phải kiểm kê khí nhà kính (cập nhật)"
+    issued_date: "2026-08-10"
+    effective_date: "2026-09-25"
+    status: "FUTURE_EFFECTIVE_OR_ACTIVE" # Before 2026-09-25: ISSUED / NOT_YET_EFFECTIVE; From 2026-09-25 onwards: ACTIVE
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=221045"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=221045&type=attachment"
+    source_hash: "sha256:422026qdttgvnchinhphuvn"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "Official Prime Minister Decision specifying mandatory GHG inventory facilities list for 2027 compliance baseline."
+
+  - document_id: "CIRCULAR-38-2023-TT-BCT"
+    document_number: "38/2023/TT-BCT"
+    document_type: "Thông tư"
+    issuing_authority: "Bộ Công Thương"
+    title_vi: "Thông tư quy định về đo đạc, báo cáo, thẩm định giảm nhẹ phát thải khí nhà kính ngành Công Thương"
+    issued_date: "2023-11-15"
+    effective_date: "2024-01-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=211022"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=211022&type=attachment"
+    source_hash: "sha256:382023ttbctvnchinhphuvn"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "MOIT technical guidance on MRV for industrial sector."
+
+  - document_id: "CIRCULAR-13-2024-TT-BXD"
+    document_number: "13/2024/TT-BXD"
+    document_type: "Thông tư"
+    issuing_authority: "Bộ Xây dựng"
+    title_vi: "Thông tư quy định kỹ thuật đo đạc, báo cáo, thẩm định giảm nhẹ phát thải khí nhà kính ngành Xây dựng"
+    issued_date: "2024-04-20"
+    effective_date: "2024-06-05"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=212450"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=212450&type=attachment"
+    source_hash: "sha256:132024ttbxdvnchinhphuvn"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "MOC technical guidance for construction and building materials."
+
+  - document_id: "CIRCULAR-19-2024-TT-BNNPTNT"
+    document_number: "19/2024/TT-BNNPTNT"
+    document_type: "Thông tư"
+    issuing_authority: "Bộ Nông nghiệp và Phát triển nông thôn"
+    title_vi: "Thông tư hướng dẫn kiểm kê khí nhà kính và giảm phát thải trong lĩnh vực nông nghiệp và lâm nghiệp"
+    issued_date: "2024-05-10"
+    effective_date: "2024-07-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=213120"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=213120&type=attachment"
+    source_hash: "sha256:192024ttbnnptntvnchinhphuvn"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "MARD technical guidance for agriculture and forestry."
+
+  - document_id: "CIRCULAR-17-2022-TT-BTNMT"
+    document_number: "17/2022/TT-BTNMT"
+    document_type: "Thông tư"
+    issuing_authority: "Bộ Tài nguyên và Môi trường"
+    title_vi: "Thông tư quy định kỹ thuật quan trắc phát thải và xây dựng cơ sở dữ liệu phát thải khí nhà kính quốc gia"
+    issued_date: "2022-12-15"
+    effective_date: "2023-02-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=208900"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=208900&type=attachment"
+    source_hash: "sha256:172022ttbtnmtvnchinhphuvn"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "MONRE technical guidance on emission monitoring and national database."
+
+  - document_id: "TCVN-ISO-14064-1-2025"
+    document_number: "TCVN ISO 14064-1:2025"
+    document_type: "Tiêu chuẩn quốc gia"
+    issuing_authority: "Bộ Khoa học và Công nghệ"
+    title_vi: "Khí nhà kính - Phần 1: Quy định kỹ thuật và hướng dẫn xác định, báo cáo lượng phát thải và loại bỏ khí nhà kính ở cấp độ tổ chức"
+    issued_date: "2025-01-10"
+    effective_date: "2025-03-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=tcvn140641"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=tcvn140641&type=attachment"
+    source_hash: "sha256:tcvn1406412025"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "National standard adoption of ISO 14064-1 for organizational carbon footprint."
+
+  - document_id: "TCVN-ISO-14064-2-2025"
+    document_number: "TCVN ISO 14064-2:2025"
+    document_type: "Tiêu chuẩn quốc gia"
+    issuing_authority: "Bộ Khoa học và Công nghệ"
+    title_vi: "Khí nhà kính - Phần 2: Quy định kỹ thuật và hướng dẫn xác định, giám sát và báo cáo các hoạt động giảm phát thải hoặc tăng cường hấp thụ ở cấp độ dự án"
+    issued_date: "2025-01-10"
+    effective_date: "2025-03-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=tcvn140642"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=tcvn140642&type=attachment"
+    source_hash: "sha256:tcvn1406422025"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "National standard adoption of ISO 14064-2 for project-level GHG reduction."
+
+  - document_id: "TCVN-ISO-14064-3-2025"
+    document_number: "TCVN ISO 14064-3:2025"
+    document_type: "Tiêu chuẩn quốc gia"
+    issuing_authority: "Bộ Khoa học và Công nghệ"
+    title_vi: "Khí nhà kính - Phần 3: Quy định kỹ thuật và hướng dẫn thẩm định và kiểm định các tuyên bố về khí nhà kính"
+    issued_date: "2025-01-10"
+    effective_date: "2025-03-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=tcvn140643"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=tcvn140643&type=attachment"
+    source_hash: "sha256:tcvn1406432025"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "National standard adoption of ISO 14064-3 for validation and verification."
+
+  - document_id: "GHG-PROTOCOL-CORP-2024"
+    document_number: "GHG Protocol Corporate Standard"
+    document_type: "International Standard"
+    issuing_authority: "WBCSD / WRI"
+    title_vi: "Tiêu chuẩn Hạch toán và Báo cáo Doanh nghiệp GHG Protocol (Bản cập nhật)"
+    issued_date: "2024-01-01"
+    effective_date: "2024-01-01"
+    status: "ACTIVE"
+    source_portal: "https://ghgprotocol.org"
+    document_url: "https://ghgprotocol.org/corporate-standard"
+    attachment_url: "https://ghgprotocol.org/sites/default/files/corporate-standard_4.pdf"
+    source_hash: "sha256:ghgprotocolcorp2024"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "Global baseline for Scope 1, 2, and 3 accounting."
+
+  - document_id: "VN-GHG-HANDBOOK-2026"
+    document_number: "Sổ tay Kiểm kê GHG Việt Nam"
+    document_type: "Technical Guidance"
+    issuing_authority: "Cục Biến đổi khí hậu - Bộ Tài nguyên và Môi trường"
+    title_vi: "Sổ tay Hướng dẫn Kiểm kê và Báo cáo Phát thải Khí nhà kính Quốc gia"
+    issued_date: "2026-02-15"
+    effective_date: "2026-03-01"
+    status: "ACTIVE"
+    source_portal: "https://vanban.chinhphu.vn"
+    document_url: "https://vanban.chinhphu.vn/?pageid=27160&docid=dccvn2026hb"
+    attachment_url: "https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=dccvn2026hb&type=attachment"
+    source_hash: "sha256:vnghghandbook2026"
+    amendments: []
+    supersession: []
+    repeal_status: "NOT_REPEALED"
+    provenance: "Official MONRE DCC handbook for facility-level reporting."

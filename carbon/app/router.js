@@ -2,6 +2,7 @@
  * ENERIX Carbon - Single Page Application Router
  */
 import { stateStore } from './state-store.js';
+import { PUBLIC_ROUTES } from './routes.js';
 import { renderOverviewPage } from '../ui/pages/overview.js';
 import { renderEngineeringOverviewPage } from '../ui/pages/engineering-overview.js';
 import { 
@@ -72,7 +73,7 @@ export class Router {
 
   getRouteFromHash() {
     const hash = window.location.hash.substring(1);
-    const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company'];
+    const disabledHashes = [];
     if (!hash || disabledHashes.includes(hash)) {
       return 'overview';
     }
@@ -88,12 +89,36 @@ export class Router {
         renderFn.attachEvents(this.container);
       }
 
-      // Only write hash if we are in the correct path context and route is not overview
+      // Canonical public routes vs internal hash routes
       const path = window.location.pathname;
       const isCarbonPath = path.includes('/carbon/') || path.endsWith('/carbon');
       
+      const publicCanonicalRoutes = {
+        'overview': PUBLIC_ROUTES.home,
+        'platform': PUBLIC_ROUTES.platform,
+        'solutions': PUBLIC_ROUTES.solutions,
+        'industries': PUBLIC_ROUTES.industries,
+        'science': PUBLIC_ROUTES.science,
+        'resources': PUBLIC_ROUTES.resources,
+        'company': PUBLIC_ROUTES.company
+      };
+
       if (isCarbonPath) {
-        if (route && route !== 'overview') {
+        if (publicCanonicalRoutes[route]) {
+          const canonicalTarget = publicCanonicalRoutes[route];
+          // If pathname doesn't match canonical target, pushState
+          if (!window.location.pathname.includes(canonicalTarget) && !canonicalTarget.includes(window.location.pathname)) {
+            try {
+              history.pushState(null, '', canonicalTarget);
+            } catch (e) {}
+          }
+          // Remove any legacy page-name hash from public routes (unless an in-page section anchor)
+          if (window.location.hash && !window.location.hash.startsWith('#section') && !window.location.hash.startsWith('#regulatory-check')) {
+            try {
+              history.replaceState(null, '', window.location.pathname);
+            } catch (e) {}
+          }
+        } else if (route && route !== 'overview') {
           window.location.hash = route;
         } else {
           if (window.location.hash) {

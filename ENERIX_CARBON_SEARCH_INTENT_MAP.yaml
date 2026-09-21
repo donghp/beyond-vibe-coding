@@ -1,0 +1,43 @@
+# ENERIX Carbon Search Intent Map
+# Mapping primary search intent classes to public pages and entity clusters
+
+metadata:
+  system: "ENERIX Carbon SEO Engine"
+  version: "3.0.0"
+
+intent_mappings:
+  - page_route: "/carbon/"
+    primary_intent: "COMMERCIAL / INFORMATIONAL"
+    target_keywords_vi: ["phần mềm kiểm kê carbon", "phần mềm ESG doanh nghiệp", "quản lý phát thải khí nhà kính"]
+    target_keywords_en: ["enterprise carbon accounting software", "ghg inventory platform"]
+    core_topics: ["Platform overview", "Regulatory compliance", "Impact analytics"]
+
+  - page_route: "/carbon/solutions/"
+    primary_intent: "COMMERCIAL / REGULATORY"
+    target_keywords_vi: ["giải pháp kiểm kê khí nhà kính", "hệ thống báo cáo phát thải", "MRV doanh nghiệp"]
+    target_keywords_en: ["ghg inventory solutions", "corporate carbon management"]
+    core_topics: ["Data ingestion", "Calculation engine", "Audit-ready reporting"]
+
+  - page_route: "/carbon/industries/"
+    primary_intent: "INDUSTRY-SPECIFIC / REGULATORY"
+    target_keywords_vi: ["kiểm kê carbon ngành công nghiệp", "phát thải nhà máy sản xuất", "quy định định mức phát thải"]
+    target_keywords_en: ["industrial decarbonization", "sector GHG compliance"]
+    core_topics: ["Energy", "Manufacturing", "Construction", "Agriculture"]
+
+  - page_route: "/carbon/science/"
+    primary_intent: "TECHNICAL / REGULATORY"
+    target_keywords_vi: ["phương pháp tính toán phát thải", "GHG protocol việt nam", "hệ số phát thải lưới điện"]
+    target_keywords_en: ["emission calculation methodology", "TCVN ISO 14064-1"]
+    core_topics: ["Scope 1-3 formulas", "Grid emission factors", "GWP AR6"]
+
+  - page_route: "/carbon/resources/"
+    primary_intent: "INFORMATIONAL / REGULATORY"
+    target_keywords_vi: ["văn bản pháp luật khí nhà kính", "nghị định 06/2022", "quyết định 42/2026"]
+    target_keywords_en: ["vietnam ghg regulations", "decision 42/2026"]
+    core_topics: ["Official sources", "Decrees", "Circulars", "Handbooks"]
+
+  - page_route: "/carbon/company/"
+    primary_intent: "ASSURANCE / TRUST"
+    target_keywords_vi: ["về enerixon carbon", "bảo mật doanh nghiệp", "tuân thủ kiểm toán"]
+    target_keywords_en: ["about enerixon", "enterprise security and trust"]
+    core_topics: ["Trust", "Security", "About"]
