@@ -431,7 +431,7 @@ Nếu security bị phá vỡ, khách hàng không quan tâm:
 
 Trách nhiệm cuối cùng vẫn thuộc về người xây dựng và vận hành hệ thống.
 
-Tôi không muốn AI thay thế Engineering judgment.
+Tôi không muốn AI thay thế Engineering judgment.(Phán đoán kỹ thuật)
 
 Tôi muốn AI khuếch đại Engineering judgment.
 
@@ -458,6 +458,8 @@ Vì vậy, Verification không phải chỉ là:
 Mà là:
 
 > “Does it correctly satisfy the authorized requirement?”
+
+(“Nó có đáp ứng đúng yêu cầu đã được phê duyệt không?”)
 
 ### TÔI BẮT ĐẦU HỌC CÁCH “NÓI CHUYỆN VỚI AI”
 
