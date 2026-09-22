@@ -35,23 +35,8 @@ export async function initApp() {
 
   // Determine initial route from canonical pathname first, then fallback to hash
   function resolveRouteFromLocation() {
-    const p = window.location.pathname;
-    if (p.includes('/carbon/platform') || p.endsWith('/platform') || p.endsWith('/platform/')) {
-      return 'platform';
-    } else if (p.includes('/carbon/solutions') || p.endsWith('/solutions') || p.endsWith('/solutions/')) {
-      return 'solutions';
-    } else if (p.includes('/carbon/industries') || p.endsWith('/industries') || p.endsWith('/industries/')) {
-      return 'industries';
-    } else if (p.includes('/carbon/science') || p.endsWith('/science') || p.endsWith('/science/')) {
-      return 'science';
-    } else if (p.includes('/carbon/resources') || p.endsWith('/resources') || p.endsWith('/resources/')) {
-      return 'resources';
-    } else if (p.includes('/carbon/company') || p.endsWith('/company') || p.endsWith('/company/')) {
-      return 'company';
-    }
-
     const initialHash = window.location.hash.substring(1);
-    const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company'];
+    const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company', 'measure', 'report', 'reduce', 'platform'];
     if (initialHash && disabledHashes.includes(initialHash)) {
       try {
         history.replaceState(null, '', window.location.pathname);

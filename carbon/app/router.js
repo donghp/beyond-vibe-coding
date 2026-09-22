@@ -5,17 +5,6 @@ import { stateStore } from './state-store.js';
 import { PUBLIC_ROUTES } from './routes.js';
 import { renderOverviewPage } from '../ui/pages/overview.js';
 import { renderEngineeringOverviewPage } from '../ui/pages/engineering-overview.js';
-import { 
-  renderPlatformProductPage,
-  renderMeasureProductPage, 
-  renderReportProductPage, 
-  renderReduceProductPage, 
-  renderScienceProductPage, 
-  renderSolutionsProductPage, 
-  renderResourcesProductPage, 
-  renderCompanyProductPage,
-  renderIndustriesProductPage
-} from '../ui/pages/public-product-pages.js';
 import { renderRegulatoryCheckPage } from '../ui/pages/regulatory-check.js';
 import { renderFacilitiesPage } from '../ui/pages/facilities.js';
 import { renderInventoryPage } from '../ui/pages/inventory.js';
@@ -30,18 +19,18 @@ import { renderKnowledgePage } from '../ui/pages/knowledge.js';
 export class Router {
   static routes = {
     'overview': renderOverviewPage,
-    'platform': renderPlatformProductPage,
+    'platform': renderOverviewPage,
+    'solutions': renderOverviewPage,
+    'industries': renderOverviewPage,
+    'science': renderOverviewPage,
+    'resources': renderOverviewPage,
+    'company': renderOverviewPage,
+    'measure': renderOverviewPage,
+    'report': renderOverviewPage,
+    'reduce': renderOverviewPage,
     'workspace': renderEngineeringOverviewPage,
     'engineering': renderEngineeringOverviewPage,
     'decision-workspace': renderEngineeringOverviewPage,
-    'measure': renderMeasureProductPage,
-    'report': renderReportProductPage,
-    'reduce': renderReduceProductPage,
-    'science': renderScienceProductPage,
-    'solutions': renderSolutionsProductPage,
-    'industries': renderIndustriesProductPage,
-    'resources': renderResourcesProductPage,
-    'company': renderCompanyProductPage,
     'regulatory-check': renderRegulatoryCheckPage,
     'facilities': renderFacilitiesPage,
     'inventory': renderInventoryPage,
@@ -73,7 +62,7 @@ export class Router {
 
   getRouteFromHash() {
     const hash = window.location.hash.substring(1);
-    const disabledHashes = [];
+    const disabledHashes = ['solutions', 'industries', 'science', 'resources', 'company', 'measure', 'report', 'reduce'];
     if (!hash || disabledHashes.includes(hash)) {
       return 'overview';
     }

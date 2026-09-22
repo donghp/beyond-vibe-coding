@@ -404,7 +404,7 @@ Writing Code
 
 sang:
 
-Creating Conditions Under Which AI Can Produce Correct Code.
+Creating Conditions Under Which AI Can Produce Correct Code.(Tôi không chỉ yêu cầu AI viết code. Tôi tạo ra những điều kiện để AI có thể viết đúng code)
 
 Và đó là một kỹ năng hoàn toàn mới.
 
