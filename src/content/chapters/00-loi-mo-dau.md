@@ -551,3 +551,7 @@ Spend intelligently.
 Verify relentlessly.
 
 And finish what you started.
+
+![Vibe Coding History](../../images/vibe_coding_history.jpg)
+
+
