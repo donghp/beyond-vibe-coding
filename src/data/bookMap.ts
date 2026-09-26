@@ -210,8 +210,8 @@ export const CANONICAL_BOOK_MAP: Omit<CanonicalBookItem, 'hasManuscript'>[] = [
     title: 'CHƯƠNG 19 — TỪ LOCAL PROJECT ĐẾN REAL PRODUCT',
     shortTitle: 'Từ local project đến real product',
     slug: '19-tu-local-project-den-real',
-    publicationStatus: 'unpublished',
-    contentStatus: 'draft',
+    publicationStatus: 'published',
+    contentStatus: 'final',
   },
   {
     id: '20-toi-dua-enerixfin-ra-khoi',
