@@ -1,2 +1,238 @@
-# beyond-vibe-coding
-AI is an executor. The project owns its knowledge, state, authority, and continuity. Prompting gets you a prototype; engineering gets you to production. Explore open specifications and practical patterns for task decomposition, context engineering, and verification-driven software delivery.
+# Beyond Vibe Coding
+
+### Open Engineering Patterns for AI-Assisted Software Development
+
+> **AI is an executor. The project owns its knowledge, state, authority, and continuity.**
+>
+> **Prompting gets you a prototype. Engineering gets you to production.**
+
+This repository explores a project-centric approach to building and maintaining real software with AI coding agents. It is the public engineering companion to **_BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI_** by **Dong Hong**.
+
+The goal is not to make prompts longer or to depend on one particular AI tool. The goal is to make engineering work more controlled, traceable, verifiable, and capable of continuing when models, providers, conversations, or execution environments change.
+
+[**Read BEYOND VIBE CODING on Google Play Books →**](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+
+---
+
+## The problem: generating code is not the same as finishing software
+
+AI coding tools can turn ideas into working prototypes remarkably quickly. As a project grows, however, speed alone does not solve the harder engineering problems:
+
+- **Unbounded tasks:** broad requests produce changes that are difficult to scope, review, and verify.
+- **Context degradation:** relevant requirements, decisions, constraints, and project facts become fragmented across files and conversations.
+- **State loss:** a new session, model, provider, or executor may not know what has actually changed or what remains incomplete.
+- **Architectural drift:** locally plausible changes can violate system-wide decisions, interfaces, or constraints.
+- **Unverified completion:** an AI response saying “done” is not evidence that the requirement has been met.
+- **Unclear authority:** an executor may propose or perform changes beyond its intended scope.
+- **Broken continuity:** work becomes dependent on one model, one provider, or one conversation instead of the project itself.
+
+A prototype can run and still be far from a reliable product. This repository focuses on the engineering practices needed to manage that gap.
+
+## The project-centric approach
+
+The central principle is simple:
+
+> **The AI performs a task. The project retains the truth.**
+
+The project—not the conversation or the currently selected model—should remain the durable source of its requirements, accepted decisions, current state, authority rules, and evidence.
+
+This leads to five connected engineering concerns:
+
+| Concern | Engineering question | Intended outcome |
+|---|---|---|
+| **Task** | What exactly is the executor allowed and expected to do? | Bounded, reviewable work with explicit completion criteria |
+| **Context** | What information is relevant, current, authoritative, permitted, and sufficient? | A task-specific working context rather than an indiscriminate dump of project data |
+| **State** | What is true about the project now? | A durable, interpretable record of progress and unresolved work |
+| **Authority** | Which actions and decisions are permitted, and who approves them? | Clear boundaries between proposing, executing, verifying, and authorizing |
+| **Evidence** | How do we know the result is correct? | Verifiable support for completion, handoff, and release decisions |
+
+These concerns work together. They are not a promise that every task requires a large process. The amount of control should be proportionate to the task's scope, risk, and impact.
+
+## Core engineering principles
+
+### 1. Decompose work before execution
+
+Turn a broad engineering goal into bounded tasks with a clear objective, scope, inputs, constraints, dependencies, acceptance criteria, and verification requirements. Smaller tasks are not automatically better; tasks should be small enough to control while still preserving meaningful engineering context.
+
+### 2. Compile the right context
+
+Context Engineering is more than adding more files to a prompt. Select the information needed for the current task and consider its relevance, freshness, authority, scope, dependencies, conflicts, and access permissions.
+
+The book develops the **Context Compiler** as a way to prepare a task-specific execution context. Its purpose is to select and organize project truth—not invent it.
+
+### 3. Keep project state outside the executor
+
+A project should be able to explain what has been completed, what has changed, what is blocked, which decisions are in force, and what must happen next without depending on an AI conversation's memory.
+
+### 4. Make handoffs explicit
+
+When an AI executor, model, provider, run, or environment changes, the next executor should receive a controlled handoff: task status, relevant context, current state, decisions, changes, evidence, and unresolved items.
+
+### 5. Verify before declaring completion
+
+Generated output is not proof of correctness. Define completion criteria before execution and collect appropriate evidence—such as tests, review results, checks, or explicit human approval—before accepting consequential changes.
+
+### 6. Keep authority and responsibility clear
+
+AI may analyze, propose, and execute within an assigned scope. The project must define which actions require review or human authorization, especially where security, data, architecture, production systems, or customer outcomes are involved.
+
+## A reference workflow
+
+The following diagram illustrates the intended engineering lifecycle. It is a conceptual workflow, not a claim that this repository already ships an executable orchestration engine.
+
+```mermaid
+flowchart TD
+    A[Engineering goal] --> B[Decompose into bounded task]
+    B --> C[Define scope, constraints and acceptance criteria]
+    C --> D[Resolve authority and executor eligibility]
+    D --> E[Read current project state]
+    E --> F[Compile task-specific context]
+    F --> G[Execute with an AI executor]
+    G --> H[Collect change records and evidence]
+    H --> I{Verification passed?}
+    I -- No --> J[Record failure, revise or escalate]
+    J --> B
+    I -- Yes --> K{Approval required?}
+    K -- Yes --> L[Human review and authorization]
+    K -- No --> M[Accept verified result]
+    L --> M
+    M --> N[Update project state and checkpoint]
+    N --> O[Prepare next task or handoff]
+```
+
+## Patterns and concepts explored
+
+The companion project is organized around the following areas. Specifications and implementation examples will be published and versioned incrementally; see [Repository status](#repository-status) before treating an artifact as stable.
+
+| Area | What it addresses |
+|---|---|
+| **Task Decomposition** | Bounded tasks, explicit execution scope, dependencies, and acceptance criteria |
+| **Task / Execution Contracts** | Structured agreements about objectives, permitted actions, expected outputs, and completion conditions |
+| **Context Engineering** | Context selection, retrieval, provenance, minimization, freshness, and conflict handling |
+| **Context Compiler** | Preparing a task-specific execution context from recognized project sources |
+| **Project Knowledge and State** | Durable project information, current state, decisions, and source-of-truth rules |
+| **Continuity and Handoff** | Checkpoints, change records, executor transitions, and recovery |
+| **Workspace and Context Locks** | Controlling concurrent changes and preserving the context used for consequential work |
+| **Verification and Evidence** | Acceptance criteria, test evidence, review, and release gates |
+| **Authority and Governance** | Human responsibility, executor eligibility, permissions, and approval boundaries |
+
+## Who this is for
+
+- **CTOs and technology leaders** shaping how AI-assisted engineering is governed across teams.
+- **Software and solution architects** protecting architecture integrity as AI-generated changes accumulate.
+- **AI engineers** integrating models and coding agents into controlled software workflows.
+- **Engineering managers and team leads** establishing repeatable task, review, handoff, and verification practices.
+- **Senior software developers** working with AI coding tools on codebases that must remain maintainable.
+- **Technical product managers** coordinating requirements, engineering work, acceptance, and delivery.
+
+This is not intended to be a beginner's prompt collection or a guide to one specific coding assistant. It is aimed primarily at people who already build or lead software and need a more reliable way to work with AI.
+
+## EnerixFin: an engineering case study
+
+The book uses **EnerixFin** as a real-world engineering laboratory for exploring the ideas in this project. Its domain includes Solar and Battery Energy Storage System (BESS) engineering and investment workflows.
+
+The case study follows a connected workflow from customer and site information through engineering analysis, Solar/BESS design, energy analysis, CAPEX and bill of quantities, financial modeling, and investment proposals. It illustrates why a real engineering product requires consistent data, dependencies, verification, and continuity—not just generated screens or isolated code changes.
+
+Any public examples derived from EnerixFin must be sanitized and published only where the relevant rights and permissions allow. This repository does not disclose customer data, credentials, confidential commercial information, or proprietary implementation details. The case study should not be read as a claim that every described workflow is a deployed production system.
+
+## How to use this repository
+
+1. **Start with the problem and principles** in this README.
+2. **Inspect the specifications and examples** as they are added; check their version and status before adopting them.
+3. **Adapt the patterns to your project.** They are intended to support engineering judgment, not replace architecture review, security practices, testing, or human accountability.
+4. **Discuss gaps and trade-offs.** Open a focused issue or discussion with a reproducible example and enough context for others to understand the problem.
+
+### Illustrative task contract
+
+The following is a small conceptual example to show the kind of information a bounded task should make explicit. It is **illustrative YAML, not a published or validated schema**.
+
+```yaml
+task:
+  id: TASK-EXAMPLE-001
+  objective: "Add an account export endpoint"
+  scope:
+    allowed_paths:
+      - "src/api/export/**"
+      - "tests/api/export/**"
+    excluded_paths:
+      - "infra/**"
+      - "auth/**"
+  constraints:
+    - "Do not change the public authentication contract."
+  acceptance_criteria:
+    - id: AC-01
+      statement: "An authorized user can export only their own account data."
+      verification: "integration test and authorization review"
+  completion:
+    evidence_required: true
+    human_approval_required: true
+```
+
+A production specification needs a defined schema, validation rules, versioning, and documented semantics. Those should be established before this example is presented as a stable contract.
+
+## Repository roadmap
+
+The planned engineering assets are:
+
+- Versioned JSON Schemas for task contracts, project state, context manifests, change records, handoffs, and verification evidence.
+- Pattern notes for deterministic subtasks, context compilation, context minimization, checkpoints, workspace locking, executor handoff, and verification gates.
+- A small, model-agnostic reference implementation with tests and reproducible examples.
+- Sanitized EnerixFin case-study workflows and architecture explanations.
+- Contribution guidance, change history, and release notes as the project matures.
+
+Roadmap items are intentions, not claims that the corresponding files or implementations are already available. Please check the repository contents and release tags for what is actually published.
+
+## Repository status
+
+**Initial public foundation — specifications and reference implementation are being developed.**
+
+At this stage, the repository presents the method, terminology, intended architecture, and illustrative examples. Unless an artifact is explicitly marked as released and validated, do not treat it as a stable standard, production-ready library, or guaranteed implementation.
+
+There is currently no stable API or compatibility guarantee. Changes to draft specifications may be made as the method is reviewed and tested.
+
+## Model and tool neutrality
+
+The approach is intended to be **model- and provider-agnostic**. It focuses on the project's task, context, state, authority, and evidence rather than depending on one model vendor or coding assistant.
+
+Examples may refer to particular tools where useful, but no provider is endorsed by this repository. Tool-specific behavior must be verified against the relevant tool's current documentation.
+
+## Contributing and discussion
+
+Practical feedback is welcome—especially reproducible examples, schema reviews, implementation experiments, threat models, failure cases, and suggestions that improve clarity or interoperability.
+
+When opening an issue, please include:
+
+- The engineering problem and intended outcome.
+- The relevant task or workflow context.
+- A minimal reproducible example, where possible.
+- Expected behavior versus observed behavior.
+- Security, compatibility, or operational implications.
+
+Please do not publish secrets, credentials, personal data, customer information, or proprietary code in issues or pull requests.
+
+- [Open an issue](https://github.com/donghp/beyond-vibe-coding/issues)
+- [Start a discussion](https://github.com/donghp/beyond-vibe-coding/discussions)
+
+## Companion book
+
+**_BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI_** by **Dong Hong** develops the ideas behind this repository across 21 chapters, from Vibe Coding and task decomposition to context engineering, project continuity, verification, governance, and the EnerixFin case study.
+
+The repository is intended to provide an open, practical companion. The book develops the broader reasoning, engineering method, trade-offs, and complete discussion behind the concepts.
+
+[**Get the book on Google Play Books →**](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+
+## License and reuse
+
+**No repository-wide license has been declared yet.** Until a license is added, the contents remain protected by their applicable copyright; do not assume that public visibility grants permission to reuse, redistribute, or commercially exploit the material.
+
+Code, specifications, diagrams, and prose may require different licensing terms. A license will be added only after those rights and boundaries have been reviewed. Third-party materials, if any, remain subject to their own licenses.
+
+## Author
+
+**Dong Hong** began programming in 1999 and has worked in software development and outsourcing environments. This project reflects an ongoing effort to understand how software engineering practices should evolve when AI systems can participate directly in analysis, implementation, testing, and delivery.
+
+The method is presented as an evolving body of practical work—not as the only way to build software. Its principles should be tested against real project constraints and revised when evidence shows a better approach.
+
+---
+
+**Beyond Vibe Coding** — from generating code to engineering software that can be understood, verified, and continued.
