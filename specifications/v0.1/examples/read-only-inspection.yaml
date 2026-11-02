@@ -1,0 +1,164 @@
+# Illustrative BVC Task Contract v0.1.0 — read-only inspection.
+# This example uses synthetic identifiers and paths.
+contract_version: "0.1.0"
+contract_id: "BVC-CONTRACT-READ-001"
+revision: 1
+status: APPROVED
+created_at: "2026-11-02T09:00:00+07:00"
+task:
+  id: "APP-TASK-READ-001"
+  title: "Inspect account export authorization flow"
+  objective: "Identify whether the account export endpoint enforces the documented ownership boundary without changing project files."
+  requested_by: "engineering-lead"
+project:
+  project_id: "sample-account-service"
+  repository:
+    url: "https://github.com/example/account-service"
+    default_branch: "main"
+  baseline:
+    source_commit: "7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "docs/architecture/account-export.md"
+    recovery_point:
+      kind: git_commit
+      reference: "7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f"
+      verified: true
+intent:
+  objective: "Inspect the account export authorization flow against the approved account ownership requirement."
+  rationale: "A read-only review is needed before implementation planning."
+  expected_outcome: "A concise findings report with source references and unresolved questions."
+  business_or_user_value: "Reduce the risk of cross-account data exposure before any code change is proposed."
+risk:
+  level: R0
+  policy_ref: "project://governance/risk-policy/v1"
+  rationale: "The task is read-only and does not access production data or modify project artifacts."
+  impact_factors: []
+  reversibility: EASY
+scope:
+  mode: READ_ONLY
+  allowed_changes:
+    create: []
+    modify: []
+    delete: []
+  forbidden_paths:
+    - ".env"
+    - ".env.local"
+  forbidden_path_prefixes:
+    - "secrets/"
+    - "production-data/"
+  protected_resource_refs:
+    - "project://governance/protected-resources"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+constraints:
+  - "Do not create, modify, rename, or delete any repository file."
+  - "Do not access production data, secrets, or live customer accounts."
+  - "Report findings as observations; do not implement suggested fixes."
+required_context:
+  - reference: "docs/requirements/account-export.md"
+    purpose: "Identify the approved ownership and export requirements."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7c9e3f2"
+  - reference: "docs/architecture/account-export.md"
+    purpose: "Understand the approved service and authorization boundaries."
+    authority: APPROVED
+    required: true
+    version_or_commit: "main@7c9e3f2"
+dependencies: []
+expected_outputs:
+  - id: "OUT-REPORT-001"
+    kind: REPORT
+    description: "Read-only inspection report listing observations, evidence references, limitations, and follow-up tasks."
+    required: true
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "Every finding cites the relevant requirement or source location and distinguishes verified facts from assumptions."
+    verification_method: "Review the report against the referenced requirements and source files."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-002"
+    statement: "No repository file is created, modified, or deleted."
+    verification_method: "Compare the working tree before and after inspection."
+    required_evidence_level: 1
+    required: true
+verification:
+  required: true
+  minimum_evidence_level: 1
+  checks:
+    - id: "VC-001"
+      kind: STATIC_ANALYSIS
+      description: "Inspect the relevant route, service, and authorization code without modifying files."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001"]
+    - id: "VC-002"
+      kind: OTHER
+      description: "Confirm the repository working tree remains unchanged."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-002"]
+  known_verification_limits:
+    - "No production or live customer behavior is accessed or verified."
+change_budget:
+  max_changed_files: 0
+  max_created_files: 0
+  max_modified_files: 0
+  max_deleted_files: 0
+  max_total_diff_lines: 0
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+authority:
+  policy_ref: "project://governance/engineering-authority/v1"
+  requested_by: "engineering-lead"
+  authorized_by: "human-owner"
+  authorization_reference: "approval://sample/READ-001"
+  executor:
+    class: AI
+    identifier: "any-eligible-read-only-reviewer"
+    capability_requirements:
+      - "Read repository files"
+      - "Produce source-referenced findings"
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+  human_approval:
+    required: false
+    status: NOT_REQUIRED
+    rationale: "The task is read-only and is limited to approved repository documentation and source files."
+stopping_conditions:
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - unexpected_file_change
+  - security_or_data_exposure
+  - other
+retry_policy:
+  max_repair_attempts: 0
+  additional_attempts_require_approval: true
+  retry_rationale: "A read-only review should report uncertainty instead of attempting remediation."
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+  out_of_scope_findings_must_be_recorded: true
+continuity:
+  checkpoint_required: false
+  handoff_on_interruption: true
+  recovery_instructions_ref: "docs/operations/read-only-review-recovery.md"

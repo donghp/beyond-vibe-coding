@@ -1,0 +1,140 @@
+# BVC Task Contract starter template — Draft v0.1.0.
+# Replace every TODO value, bind references to the adopting project's canonical policies,
+# obtain required approval, and validate before execution. This template is not a valid
+# execution-ready contract until all placeholders are completed.
+contract_version: "0.1.0"
+contract_id: "TODO-CONTRACT-ID"
+revision: 1
+status: DRAFT
+task:
+  id: "TODO-TASK-ID"
+  title: "TODO: specific task title"
+  objective: "TODO: describe the bounded result required."
+  requested_by: "TODO: requester role or identity"
+project:
+  project_id: "TODO-PROJECT-ID"
+  repository:
+    url: "https://example.com/owner/repository"
+    default_branch: "main"
+  baseline:
+    source_commit: "0000000000000000000000000000000000000000"
+    working_tree_status: CLEAN
+    architecture_baseline_refs: []
+    recovery_point:
+      kind: git_commit
+      reference: "TODO: verified commit/checkpoint/snapshot reference"
+      verified: false
+intent:
+  objective: "TODO: restate the engineering outcome."
+  rationale: "TODO: why this task is needed."
+  expected_outcome: "TODO: observable expected outcome."
+risk:
+  level: R2
+  policy_ref: "TODO: canonical project risk policy reference"
+  rationale: "TODO: explain impact, uncertainty, blast radius, and reversibility."
+  impact_factors: []
+  reversibility: LIMITED
+scope:
+  mode: WRITE
+  allowed_changes:
+    create: []
+    modify: []
+    delete: []
+  forbidden_paths: []
+  forbidden_path_prefixes: []
+  protected_resource_refs: []
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+constraints:
+  - "TODO: state what must not change."
+required_context:
+  - reference: "TODO: canonical requirement or source"
+    purpose: "TODO: why this context is required"
+    authority: CANONICAL
+    required: true
+dependencies: []
+expected_outputs:
+  - id: "OUT-001"
+    kind: CODE
+    description: "TODO: expected output"
+    path: "TODO: exact/repo-relative/path.ext"
+    required: true
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "TODO: testable acceptance condition"
+    verification_method: "TODO: how it will be checked"
+    required_evidence_level: 2
+    required: true
+verification:
+  required: true
+  minimum_evidence_level: 2
+  checks:
+    - id: "VC-001"
+      kind: UNIT_TEST
+      description: "TODO: required verification check"
+      command: "TODO: project-specific command"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-001"]
+change_budget:
+  max_changed_files: 1
+  max_created_files: 0
+  max_modified_files: 1
+  max_deleted_files: 0
+  max_total_diff_lines: 200
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+authority:
+  policy_ref: "TODO: canonical authority policy reference"
+  requested_by: "TODO: requester"
+  authorized_by: "TODO: authorizing role"
+  authorization_reference: "TODO: approval or authorization record"
+  executor:
+    class: AI
+    identifier: "TODO: eligible executor identity or eligibility class"
+    capability_requirements: []
+  permitted_actions:
+    - read
+    - inspect
+    - modify
+    - run_tests
+  human_approval:
+    required: true
+    status: PENDING
+    approver_role: "TODO: required approver role"
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+retry_policy:
+  max_repair_attempts: 0
+  additional_attempts_require_approval: true
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+  out_of_scope_findings_must_be_recorded: true
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "TODO: project recovery instructions reference"

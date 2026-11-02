@@ -1,0 +1,200 @@
+# Illustrative BVC Task Contract v0.1.0 — bounded single-component change.
+# This example uses synthetic identifiers and paths; it is not an EFIN source-code path.
+contract_version: "0.1.0"
+contract_id: "BVC-CONTRACT-UI-014"
+revision: 1
+status: APPROVED
+created_at: "2026-11-02T09:15:00+07:00"
+task:
+  id: "APP-TASK-UI-014"
+  title: "Correct status badge presentation"
+  objective: "Correct the display of the status badge for the supported account states and add focused component tests."
+  requested_by: "frontend-team-lead"
+project:
+  project_id: "sample-account-service"
+  repository:
+    url: "https://github.com/example/account-service"
+    default_branch: "main"
+  baseline:
+    source_commit: "7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "docs/architecture/frontend-components.md"
+    recovery_point:
+      kind: git_commit
+      reference: "7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f"
+      verified: true
+intent:
+  objective: "Make the status badge render the documented state labels and visual variants without changing shared authorization or application configuration."
+  rationale: "The current component does not render one documented state consistently."
+  expected_outcome: "A corrected component and focused automated tests."
+  business_or_user_value: "Improve user-visible status clarity while keeping the change isolated."
+risk:
+  level: R2
+  policy_ref: "project://governance/risk-policy/v1"
+  rationale: "The change is limited to one presentation component and its direct tests; it does not affect authentication, persistence, financial calculations, or production configuration."
+  impact_factors: []
+  reversibility: EASY
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "src/components/StatusBadge.test.tsx"
+    modify:
+      - "src/components/StatusBadge.tsx"
+    delete: []
+  forbidden_paths:
+    - "package.json"
+    - "package-lock.json"
+    - "src/middleware/auth.ts"
+    - "database/schema.prisma"
+  forbidden_path_prefixes:
+    - "infra/"
+    - "database/migrations/"
+    - "secrets/"
+  protected_resource_refs:
+    - "project://governance/protected-resources"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+constraints:
+  - "Do not modify authentication, authorization, database, dependency, lockfile, build, or deployment configuration."
+  - "Do not refactor unrelated components or shared state management."
+  - "Do not expand the file scope without a new approved contract revision."
+required_context:
+  - reference: "docs/requirements/status-badge.md"
+    purpose: "Read the expected states and display behavior."
+    authority: CANONICAL
+    required: true
+  - reference: "docs/standards/frontend-components.md"
+    purpose: "Follow the approved component and accessibility conventions."
+    authority: APPROVED
+    required: true
+  - reference: "src/components/StatusBadge.tsx"
+    purpose: "Inspect the current component implementation."
+    authority: CANONICAL
+    required: true
+dependencies: []
+expected_outputs:
+  - id: "OUT-CODE-001"
+    kind: CODE
+    description: "StatusBadge component updated only for the documented states."
+    path: "src/components/StatusBadge.tsx"
+    required: true
+  - id: "OUT-TEST-001"
+    kind: TEST
+    description: "Focused tests covering each documented state and fallback behavior."
+    path: "src/components/StatusBadge.test.tsx"
+    required: true
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "Every documented status maps to the expected text and visual variant."
+    verification_method: "Run the focused component test suite and inspect the status mapping."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-002"
+    statement: "Unknown or missing status values use the documented safe fallback and do not crash rendering."
+    verification_method: "Run unit tests for unknown and missing values."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-003"
+    statement: "Only the two authorized paths are changed."
+    verification_method: "Compare the Git changed-file inventory with the approved CREATE and MODIFY lists."
+    required_evidence_level: 1
+    required: true
+verification:
+  required: true
+  minimum_evidence_level: 2
+  checks:
+    - id: "VC-001"
+      kind: UNIT_TEST
+      description: "Run the focused StatusBadge component tests."
+      command: "npm test -- --run src/components/StatusBadge.test.tsx"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002"]
+    - id: "VC-002"
+      kind: STATIC_ANALYSIS
+      description: "Run the project's configured type check or lint check for the changed component."
+      command: "npm run typecheck"
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001"]
+    - id: "VC-003"
+      kind: OTHER
+      description: "Compare actual created, modified, and deleted paths with the contract."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-003"]
+  known_verification_limits:
+    - "No production deployment or live-user behavior is part of this task."
+change_budget:
+  max_changed_files: 2
+  max_created_files: 1
+  max_modified_files: 1
+  max_deleted_files: 0
+  max_total_diff_lines: 250
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+authority:
+  policy_ref: "project://governance/engineering-authority/v1"
+  requested_by: "frontend-team-lead"
+  authorized_by: "engineering-manager"
+  authorization_reference: "approval://sample/UI-014"
+  executor:
+    class: AI
+    identifier: "eligible-ui-coding-executor"
+    capability_requirements:
+      - "Read TypeScript and React component source"
+      - "Modify only explicitly authorized paths"
+      - "Run the focused test command"
+  permitted_actions:
+    - read
+    - inspect
+    - create
+    - modify
+    - run_tests
+    - run_analysis
+  human_approval:
+    required: false
+    status: NOT_REQUIRED
+    rationale: "The task is a bounded, reversible presentation change under the project policy."
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - working_tree_changed_unexpectedly
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded repair attempt may be made within the same run if a required check fails and all changes remain within scope."
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+  out_of_scope_findings_must_be_recorded: true
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "docs/operations/task-checkpoint-and-handoff.md"

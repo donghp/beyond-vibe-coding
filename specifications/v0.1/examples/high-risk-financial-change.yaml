@@ -1,0 +1,228 @@
+# Illustrative BVC Task Contract v0.1.0 — high-risk financial-domain change.
+# Synthetic example only. It contains no EFIN source paths, data, formulas, or credentials.
+contract_version: "0.1.0"
+contract_id: "BVC-CONTRACT-FIN-022"
+revision: 1
+status: APPROVED
+created_at: "2026-11-02T09:30:00+07:00"
+task:
+  id: "APP-TASK-FIN-022"
+  title: "Correct IRR edge-case handling"
+  objective: "Correct the documented IRR edge-case behavior while preserving the approved financial calculation model and adding regression evidence."
+  requested_by: "finance-domain-lead"
+project:
+  project_id: "sample-energy-finance"
+  repository:
+    url: "https://github.com/example/energy-finance"
+    default_branch: "main"
+  baseline:
+    source_commit: "8a1d2f3b4c5d6e7f8091a2b3c4d5e6f708192a3b"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "architecture/financial-model-baseline.md"
+      - "governance/financial-calculation-policy.md"
+    recovery_point:
+      kind: git_commit
+      reference: "8a1d2f3b4c5d6e7f8091a2b3c4d5e6f708192a3b"
+      verified: true
+intent:
+  objective: "Implement only the approved IRR edge-case correction described by the financial-domain requirement and preserve all previously accepted calculation behavior."
+  rationale: "A specific edge case was confirmed by the finance-domain reviewer and has an approved expected-result fixture."
+  expected_outcome: "A narrowly scoped calculator change, regression tests, and a reviewable evidence package."
+  business_or_user_value: "Prevent a materially incorrect investment metric from being displayed for the documented input case."
+risk:
+  level: R4
+  policy_ref: "project://governance/risk-policy/v1"
+  rationale: "The change affects a financial calculation used in investment analysis. The project risk policy requires domain-owner approval and regression evidence."
+  impact_factors:
+    - financial_calculation
+    - external_customer_impact
+  reversibility: DIFFICULT
+  risk_owner: "finance-domain-owner"
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "tests/finance/test_irr_calculator_regression.py"
+    modify:
+      - "src/finance/irr_calculator.py"
+    delete: []
+  forbidden_paths:
+    - "src/auth/authorization.py"
+    - "database/schema.sql"
+    - "package.json"
+    - "requirements.lock"
+  forbidden_path_prefixes:
+    - "database/migrations/"
+    - "infra/production/"
+    - "secrets/"
+  protected_resource_refs:
+    - "project://governance/protected-resources"
+    - "project://architecture/financial-baseline"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+constraints:
+  - "Do not change the approved financial model or business assumptions."
+  - "Do not modify CAPEX, cash-flow, NPV, tax, or other financial formulas."
+  - "Do not change database schema, authentication, dependencies, lockfiles, deployment, or architecture baseline."
+  - "Use only the approved synthetic regression fixture; do not access live customer or investment data."
+  - "If the correction requires a third file or a broader formula change, stop and request a new approved contract revision."
+required_context:
+  - reference: "requirements/finance/irr-edge-case.md"
+    purpose: "The approved requirement and expected behavior."
+    authority: CANONICAL
+    required: true
+  - reference: "governance/financial-calculation-policy.md"
+    purpose: "The approved financial review and verification rules."
+    authority: CANONICAL
+    required: true
+  - reference: "tests/fixtures/finance/irr-approved-regression.json"
+    purpose: "Synthetic input/output fixture approved by the finance-domain owner."
+    authority: APPROVED
+    required: true
+    version_or_commit: "8a1d2f3"
+dependencies:
+  - reference: "FIN-REVIEW-022"
+    relationship: MUST_COMPLETE_FIRST
+    reason: "The finance-domain review and expected output were approved before implementation."
+expected_outputs:
+  - id: "OUT-FIN-CODE-001"
+    kind: CODE
+    description: "Narrow correction to the approved IRR edge-case behavior."
+    path: "src/finance/irr_calculator.py"
+    required: true
+  - id: "OUT-FIN-TEST-001"
+    kind: TEST
+    description: "Regression test using the approved synthetic fixture."
+    path: "tests/finance/test_irr_calculator_regression.py"
+    required: true
+  - id: "OUT-FIN-EVIDENCE-001"
+    kind: REPORT
+    description: "Evidence summary linking the requirement, fixture, test result, and limitations."
+    required: true
+acceptance_criteria:
+  - id: "AC-FIN-001"
+    statement: "The approved edge-case fixture produces the exact expected result within the tolerance specified by the financial-domain requirement."
+    verification_method: "Run the approved regression test and compare the observed output with the signed-off expected result."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-FIN-002"
+    statement: "Existing approved IRR regression cases remain unchanged and pass."
+    verification_method: "Run the existing IRR regression suite and record the results."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-FIN-003"
+    statement: "No financial formula, database, authentication, dependency, or architecture resource outside the explicit scope is changed."
+    verification_method: "Inspect the actual file diff and perform the Scope Integrity check."
+    required_evidence_level: 1
+    required: true
+verification:
+  required: true
+  minimum_evidence_level: 2
+  checks:
+    - id: "VC-FIN-001"
+      kind: DOMAIN_CHECK
+      description: "Compare the corrected result with the approved synthetic expected-value fixture."
+      command: "pytest tests/finance/test_irr_calculator_regression.py -q"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-FIN-001"]
+    - id: "VC-FIN-002"
+      kind: UNIT_TEST
+      description: "Run the existing IRR regression suite."
+      command: "pytest tests/finance -q"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-FIN-002"]
+    - id: "VC-FIN-003"
+      kind: MANUAL_REVIEW
+      description: "Finance-domain owner reviews the formula impact and evidence package."
+      evidence_level: 3
+      required: true
+      acceptance_criteria_refs: ["AC-FIN-001", "AC-FIN-002"]
+    - id: "VC-FIN-004"
+      kind: OTHER
+      description: "Verify actual file operations and change budget against this contract."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-FIN-003"]
+  known_verification_limits:
+    - "No live portfolio, customer, production, or investment data is accessed."
+    - "The example does not establish the validity of any real-world financial model."
+change_budget:
+  max_changed_files: 2
+  max_created_files: 1
+  max_modified_files: 1
+  max_deleted_files: 0
+  max_total_diff_lines: 220
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: true
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+authority:
+  policy_ref: "project://governance/engineering-authority/v1"
+  requested_by: "finance-domain-lead"
+  authorized_by: "human-owner"
+  authorization_reference: "approval://example/FIN-022/contract-revision-1"
+  executor:
+    class: AI
+    identifier: "eligible-financial-domain-coding-executor"
+    capability_requirements:
+      - "Read the approved financial requirement and fixture"
+      - "Modify only the explicitly authorized calculator file"
+      - "Create and run the regression test"
+      - "Report limitations and evidence without asserting unverified production behavior"
+  permitted_actions:
+    - read
+    - inspect
+    - create
+    - modify
+    - run_tests
+    - run_analysis
+    - change_financial_formula
+  human_approval:
+    required: true
+    status: APPROVED
+    approver_role: "Human Owner and Finance Domain Owner"
+    approval_reference: "approval://example/FIN-022/financial-domain-signoff"
+    rationale: "Financial calculation changes require explicit domain-owner and project-owner approval."
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded correction attempt is permitted; further changes require a new review and authorization."
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "governance/recovery/financial-change-recovery.md"

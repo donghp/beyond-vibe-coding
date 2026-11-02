@@ -1,0 +1,962 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/specifications/v0.1/task-contract.schema.json",
+  "title": "Beyond Vibe Coding Task Contract",
+  "description": "Draft v0.1.0 machine-readable form of the BVC Execution Contract. Structural validation does not itself enforce filesystem permissions or authorize execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "contract_id",
+    "revision",
+    "status",
+    "task",
+    "project",
+    "intent",
+    "risk",
+    "scope",
+    "constraints",
+    "required_context",
+    "dependencies",
+    "expected_outputs",
+    "acceptance_criteria",
+    "verification",
+    "change_budget",
+    "authority",
+    "stopping_conditions",
+    "retry_policy",
+    "reporting",
+    "continuity"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "0.1.0"
+    },
+    "contract_id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "PROPOSED",
+        "APPROVED",
+        "REJECTED",
+        "SUPERSEDED"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "objective"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 180
+        },
+        "objective": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "parent_task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requested_by": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project_id",
+        "repository",
+        "baseline"
+      ],
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "repository": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "default_branch"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "default_branch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
+          }
+        },
+        "baseline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_commit",
+            "working_tree_status",
+            "architecture_baseline_refs",
+            "recovery_point"
+          ],
+          "properties": {
+            "source_commit": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{7,64}$"
+            },
+            "working_tree_status": {
+              "type": "string",
+              "enum": [
+                "CLEAN",
+                "DIRTY"
+              ]
+            },
+            "pre_existing_changes_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "architecture_baseline_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "recovery_point": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "reference",
+                "verified"
+              ],
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "git_commit",
+                    "checkpoint",
+                    "snapshot",
+                    "backup"
+                  ]
+                },
+                "reference": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "verified": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "objective",
+        "expected_outcome"
+      ],
+      "properties": {
+        "objective": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "expected_outcome": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 2000
+        },
+        "business_or_user_value": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "policy_ref",
+        "rationale",
+        "impact_factors",
+        "reversibility"
+      ],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5"
+          ]
+        },
+        "policy_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 2000
+        },
+        "impact_factors": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "security",
+              "identity_or_access",
+              "personal_data",
+              "financial_calculation",
+              "database_migration",
+              "production_system",
+              "external_customer_impact",
+              "irreversible_change",
+              "architecture_baseline",
+              "dependency_supply_chain",
+              "other"
+            ]
+          }
+        },
+        "reversibility": {
+          "type": "string",
+          "enum": [
+            "EASY",
+            "LIMITED",
+            "DIFFICULT",
+            "IRREVERSIBLE"
+          ]
+        },
+        "risk_owner": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "allowed_changes",
+        "forbidden_paths",
+        "forbidden_path_prefixes",
+        "scope_expansion_allowed",
+        "scope_expansion_policy"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "READ_ONLY",
+            "WRITE"
+          ]
+        },
+        "allowed_changes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "create",
+            "modify",
+            "delete"
+          ],
+          "properties": {
+            "create": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/exactPath"
+              }
+            },
+            "modify": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/exactPath"
+              }
+            },
+            "delete": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/exactPath"
+              }
+            }
+          }
+        },
+        "forbidden_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/exactPath"
+          }
+        },
+        "forbidden_path_prefixes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "pattern": "^(?!/)(?![A-Za-z]:/)(?!.*(?:^|/)\\.\\.(?:/|$)).+/$"
+          }
+        },
+        "protected_resource_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scope_expansion_allowed": {
+          "const": false
+        },
+        "scope_expansion_policy": {
+          "const": "STOP_AND_REQUEST_APPROVAL"
+        },
+        "discovery_outside_scope_allowed": {
+          "type": "boolean",
+          "default": true
+        },
+        "stop_if_out_of_scope_change_detected": {
+          "const": true
+        }
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 1000
+      }
+    },
+    "required_context": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reference",
+          "purpose",
+          "authority",
+          "required"
+        ],
+        "properties": {
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          },
+          "authority": {
+            "type": "string",
+            "enum": [
+              "CANONICAL",
+              "APPROVED",
+              "REFERENCE",
+              "UNTRUSTED"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "version_or_commit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "freshness_requirement": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reference",
+          "relationship"
+        ],
+        "properties": {
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "relationship": {
+            "type": "string",
+            "enum": [
+              "MUST_COMPLETE_FIRST",
+              "MUST_NOT_BE_ACTIVE",
+              "INFORMATIONAL"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        }
+      }
+    },
+    "expected_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "CODE",
+              "TEST",
+              "DOCUMENTATION",
+              "CONFIGURATION",
+              "REPORT",
+              "OTHER"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1000
+          },
+          "path": {
+            "$ref": "#/$defs/exactPath"
+          },
+          "required": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      }
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "statement",
+          "verification_method",
+          "required_evidence_level"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 2000
+          },
+          "verification_method": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          },
+          "required_evidence_level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "required": {
+            "type": "boolean",
+            "default": true
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "minimum_evidence_level",
+        "checks"
+      ],
+      "properties": {
+        "required": {
+          "const": true
+        },
+        "minimum_evidence_level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "kind",
+              "description",
+              "evidence_level",
+              "required",
+              "acceptance_criteria_refs"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 64
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "STATIC_ANALYSIS",
+                  "UNIT_TEST",
+                  "INTEGRATION_TEST",
+                  "BUILD",
+                  "SECURITY_REVIEW",
+                  "DATABASE_CHECK",
+                  "DOMAIN_CHECK",
+                  "MANUAL_REVIEW",
+                  "SYSTEM_CHECK",
+                  "REAL_WORLD_CHECK",
+                  "OTHER"
+                ]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 5,
+                "maxLength": 1000
+              },
+              "command": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "evidence_level": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "acceptance_criteria_refs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "known_verification_limits": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "change_budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_changed_files",
+        "max_created_files",
+        "max_modified_files",
+        "max_deleted_files",
+        "max_total_diff_lines",
+        "max_binary_files",
+        "allow_dependency_changes",
+        "allow_lockfile_changes",
+        "allow_database_schema_changes",
+        "allow_financial_formula_changes",
+        "allow_authentication_changes",
+        "allow_architecture_changes"
+      ],
+      "properties": {
+        "max_changed_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_created_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_modified_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_deleted_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_total_diff_lines": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_binary_files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "allow_dependency_changes": {
+          "type": "boolean"
+        },
+        "allow_lockfile_changes": {
+          "type": "boolean"
+        },
+        "allow_database_schema_changes": {
+          "type": "boolean"
+        },
+        "allow_financial_formula_changes": {
+          "type": "boolean"
+        },
+        "allow_authentication_changes": {
+          "type": "boolean"
+        },
+        "allow_architecture_changes": {
+          "type": "boolean"
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_ref",
+        "requested_by",
+        "authorized_by",
+        "authorization_reference",
+        "executor",
+        "permitted_actions",
+        "human_approval"
+      ],
+      "properties": {
+        "policy_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "requested_by": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "authorized_by": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "authorization_reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "executor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "class",
+            "identifier",
+            "capability_requirements"
+          ],
+          "properties": {
+            "class": {
+              "type": "string",
+              "enum": [
+                "AI",
+                "HUMAN",
+                "HYBRID"
+              ]
+            },
+            "identifier": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "provider": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "model": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "capability_requirements": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "permitted_actions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "read",
+              "inspect",
+              "run_analysis",
+              "create",
+              "modify",
+              "delete",
+              "run_tests",
+              "run_build",
+              "change_dependencies",
+              "change_lockfiles",
+              "change_database_schema",
+              "change_financial_formula",
+              "change_authentication",
+              "change_architecture",
+              "deploy",
+              "release"
+            ]
+          }
+        },
+        "human_approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "required",
+            "status"
+          ],
+          "properties": {
+            "required": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "NOT_REQUIRED",
+                "PENDING",
+                "APPROVED",
+                "REJECTED"
+              ]
+            },
+            "approver_role": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "approval_reference": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "rationale": {
+              "type": "string",
+              "maxLength": 1000
+            }
+          }
+        }
+      }
+    },
+    "stopping_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "scope_expansion_required",
+          "protected_resource_detected",
+          "change_budget_exceeded",
+          "baseline_or_recovery_point_unverified",
+          "required_context_missing_or_conflicting",
+          "authorization_missing_or_revoked",
+          "verification_failed_or_insufficient",
+          "unexpected_file_change",
+          "risk_escalation",
+          "security_or_data_exposure",
+          "working_tree_changed_unexpectedly",
+          "other"
+        ]
+      }
+    },
+    "retry_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_repair_attempts",
+        "additional_attempts_require_approval"
+      ],
+      "properties": {
+        "max_repair_attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "additional_attempts_require_approval": {
+          "const": true
+        },
+        "retry_rationale": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      }
+    },
+    "reporting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_items",
+        "out_of_scope_findings_must_be_recorded"
+      ],
+      "properties": {
+        "required_items": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "task_and_run_identifiers",
+              "actual_file_inventory",
+              "created_modified_deleted_breakdown",
+              "scope_integrity_result",
+              "change_budget_result",
+              "verification_results",
+              "evidence_references",
+              "unresolved_findings",
+              "limitations",
+              "next_action",
+              "checkpoint_reference",
+              "handoff_reference"
+            ]
+          }
+        },
+        "out_of_scope_findings_must_be_recorded": {
+          "const": true
+        }
+      }
+    },
+    "continuity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checkpoint_required",
+        "handoff_on_interruption",
+        "recovery_instructions_ref"
+      ],
+      "properties": {
+        "checkpoint_required": {
+          "type": "boolean"
+        },
+        "handoff_on_interruption": {
+          "const": true
+        },
+        "recovery_instructions_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      }
+    }
+  },
+  "$defs": {
+    "exactPath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "pattern": "^(?!/)(?![A-Za-z]:/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[\\\\*?\\[\\]{}]).+$"
+    },
+    "exactPathList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/exactPath"
+      }
+    }
+  }
+}

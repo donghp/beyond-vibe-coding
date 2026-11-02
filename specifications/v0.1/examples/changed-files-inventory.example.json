@@ -1,0 +1,16 @@
+[
+  {
+    "path": "src/components/StatusBadge.tsx",
+    "operation": "MODIFY",
+    "diff_lines": 34,
+    "is_binary": false,
+    "categories": []
+  },
+  {
+    "path": "src/components/StatusBadge.test.tsx",
+    "operation": "CREATE",
+    "diff_lines": 48,
+    "is_binary": false,
+    "categories": []
+  }
+]
