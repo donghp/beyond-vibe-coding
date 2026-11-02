@@ -1,36 +1,23 @@
-# Task Contract Validator
+# Validation Scripts
 
-`validate_task_contracts.py` performs three distinct checks:
-
-1. JSON Schema Draft 2020-12 validation of YAML contract documents.
-2. Cross-field semantic checks such as READ_ONLY/WRITE consistency, exact scope, separate CREATE/MODIFY/DELETE permissions, approval requirements, linked acceptance criteria, and report completeness.
-3. Optional post-run comparison of a single contract with a VCS-derived changed-file inventory.
-
-## Validate all example contracts
+## Task Contract validator
 
 ```bash
-python -m pip install -r requirements-dev.txt
 python scripts/validate_task_contracts.py
 ```
 
-## Validate one contract against an observed diff
+Validates Task Contract v0.1.0 YAML examples against the JSON Schema and additional semantic rules. It can also compare one contract with a supplied VCS-derived changed-files inventory using `--changed-files-json`.
+
+## Core Specification validator
 
 ```bash
-python scripts/validate_task_contracts.py \
-  specifications/v0.1/examples/scoped-component-change.yaml \
-  --changed-files-json specifications/v0.1/examples/changed-files-inventory.example.json
+python scripts/validate_core_specifications.py
 ```
 
-Each changed-file item must include:
+Validates the four companion Core Specification schemas and examples, then checks the linked five-record example bundle against the existing Task Contract example. It checks cross-record IDs, project and baseline references, required context inclusion, state fact provenance, change path scope and totals, Change Budget, verification-plan linkage, required check coverage, and acceptance/evidence consistency.
 
-- `path`: repository-relative path.
-- `operation`: `CREATE`, `MODIFY`, or `DELETE`.
-- `diff_lines`: additions plus deletions, excluding diff headers.
-- `is_binary`: whether the file is binary.
-- `categories` (optional): categories assigned by a trusted project-specific classifier, from `dependency`, `lockfile`, `database_schema`, `financial_formula`, `authentication`, and `architecture`.
+Use `--skip-cross-validation` only when validating the four companion schemas/examples individually.
 
-Sensitive categories must not be inferred from filenames alone. The adopting project is responsible for its protected-resource registry or classifier.
+## Limits
 
-## Enforcement boundary
-
-This script is a validator, not a sandbox. It can detect violations from an inventory that has already been collected, but cannot stop a process from writing a file before the diff is inspected. Use OS permissions, container/worktree isolation, protected branches, or equivalent runtime controls for preventive enforcement.
+These scripts validate supplied files and records. They do not execute AI tasks, fetch external context, collect Git diffs, authenticate human approvals, enforce filesystem permissions, or provide a runtime sandbox. Those capabilities require trusted runtime components and project-specific policy integrations.

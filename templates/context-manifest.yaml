@@ -1,0 +1,65 @@
+# BVC v0.1.0 starter template. Replace all sample source references and bind to the approved Task Contract and project context.
+manifest_version: 0.1.0
+manifest_id: BVC-CONTEXT-UI-014
+revision: 1
+status: DRAFT
+project_id: sample-account-service
+task_ref:
+  contract_id: BVC-CONTRACT-UI-014
+  contract_version: 0.1.0
+  revision: 1
+  task_id: APP-TASK-UI-014
+baseline:
+  repository_url: https://github.com/example/account-service
+  source_commit: 7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f
+assembled_at: '2026-11-03T09:00:00+07:00'
+selection_policy:
+  conflict_strategy: STOP_ON_MATERIAL_CONFLICT
+  freshness_strategy: REQUIRE_CURRENT
+  max_source_count: 20
+  selection_rationale: Include only the minimum approved requirements, standards,
+    and source files needed for the bounded component task.
+sources:
+- source_id: CTX-001
+  reference: docs/requirements/status-badge.md
+  source_type: requirement
+  purpose: Define the accepted statuses and their user-visible meaning.
+  authority: CANONICAL
+  required: true
+  selection_status: INCLUDED
+  trust_level: TRUSTED
+  source_revision: main@7c9e3f2
+  freshness:
+    status: CURRENT
+    observed_at: '2026-11-03T08:50:00+07:00'
+    max_age_seconds: 86400
+- source_id: CTX-002
+  reference: docs/standards/frontend-components.md
+  source_type: approved_document
+  purpose: Provide approved component and accessibility conventions.
+  authority: APPROVED
+  required: true
+  selection_status: INCLUDED
+  trust_level: TRUSTED
+  source_revision: main@7c9e3f2
+  freshness:
+    status: CURRENT
+    observed_at: '2026-11-03T08:51:00+07:00'
+    max_age_seconds: 604800
+- source_id: CTX-003
+  reference: src/components/StatusBadge.tsx
+  source_type: repository_file
+  purpose: Inspect the implementation that is explicitly in the MODIFY scope.
+  authority: CANONICAL
+  required: true
+  selection_status: INCLUDED
+  trust_level: TRUSTED
+  source_revision: 7c9e3f2
+  freshness:
+    status: CURRENT
+    observed_at: '2026-11-03T08:52:00+07:00'
+    max_age_seconds: 3600
+conflicts: []
+limitations:
+- This illustrative manifest records declared sources; a runtime must still verify
+  access, content digests, and actual retrieval.

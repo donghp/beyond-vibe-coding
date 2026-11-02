@@ -1,0 +1,80 @@
+# Synthetic BVC Phase 2 example. Not evidence of a real project execution.
+evidence_version: 0.1.0
+evidence_id: BVC-EVIDENCE-UI-014
+record_status: FINAL
+project_id: sample-account-service
+task_ref:
+  task_id: APP-TASK-UI-014
+contract_ref:
+  contract_id: BVC-CONTRACT-UI-014
+  contract_version: 0.1.0
+  revision: 1
+change_record_ref:
+  record_id: BVC-CHANGE-UI-014
+  scope_integrity: PASS
+  change_budget_result: PASS
+verification_run:
+  run_id: BVC-VERIFY-UI-014-001
+  source_commit: 9a8b7c6d5e4f32100123456789abcdef01234567
+  executor_id: ci-validation-runner
+  started_at: '2026-11-03T09:20:00+07:00'
+  completed_at: '2026-11-03T09:22:00+07:00'
+  environment:
+    runtime: Node.js 22 (illustrative project environment)
+    operating_system: Ubuntu 24.04 (illustrative)
+    tool_versions:
+    - TypeScript 5.x (illustrative)
+    - Test runner version recorded by project CI (illustrative)
+checks:
+- check_id: VC-001
+  check_kind: UNIT_TEST
+  acceptance_criteria_refs:
+  - AC-001
+  - AC-002
+  status: PASS
+  evidence_level: 2
+  summary: Focused component tests passed for documented states and safe fallback
+    behavior.
+  started_at: '2026-11-03T09:20:00+07:00'
+  completed_at: '2026-11-03T09:21:00+07:00'
+  command: npm test -- --run src/components/StatusBadge.test.tsx
+  artifacts:
+  - artifact_id: ART-001
+    kind: TEST_LOG
+    reference: reports/status-badge-unit-tests.txt
+    description: Illustrative test log reference.
+- check_id: VC-002
+  check_kind: STATIC_ANALYSIS
+  acceptance_criteria_refs:
+  - AC-001
+  status: PASS
+  evidence_level: 1
+  summary: Project type-check completed without reported errors.
+  started_at: '2026-11-03T09:21:00+07:00'
+  completed_at: '2026-11-03T09:21:30+07:00'
+  command: npm run typecheck
+  artifacts:
+  - artifact_id: ART-002
+    kind: CI_RUN
+    reference: ci://example/runs/verify-ui-014
+    description: Illustrative CI run reference.
+- check_id: VC-003
+  check_kind: MANUAL_REVIEW
+  acceptance_criteria_refs:
+  - AC-003
+  status: PASS
+  evidence_level: 1
+  summary: Illustrative diff review confirms only the two authorized paths changed.
+  artifacts:
+  - artifact_id: ART-003
+    kind: REPORT
+    reference: reports/change-inventory-ui-014.json
+    description: Illustrative change inventory reference.
+overall_result: PASS
+acceptance_decision:
+  decision: PENDING
+  rationale: Verification is illustrated as passed, but a Human Owner has not yet
+    recorded an acceptance decision.
+limitations:
+- All result statements and artifact references in this file are synthetic teaching
+  examples; they are not evidence of a real execution.

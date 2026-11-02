@@ -4,46 +4,45 @@
 **Current milestone:** Phase 2 — Core Specifications  
 **Maturity:** Draft / Experimental; not a published industry standard
 
-This directory contains machine-readable specifications and their explanatory documents. Each specification is versioned independently from the book and from any future reference implementation.
+Phase 2 defines five technology-neutral records that form a traceable engineering control cycle. Their field names and semantics do not depend on Python, TypeScript, Tailwind CSS, PostgreSQL, a particular AI model, or a specific executor.
 
-## Available specifications
+## The five Core Specifications
 
-| Version | Specification | Status | Purpose |
-|---|---|---|---|
-| [v0.1 — Task Contract](./v0.1/task-contract.md) | `task-contract.schema.json` | Draft v0.1.0 | Defines the technical agreement between a task and its executor: objective, authorized scope, actions, context, outputs, acceptance, verification, authority, stopping conditions, and reporting. |
+| Order | Specification | Record answers | Status |
+|---:|---|---|---|
+| 1 | [Task Contract](./v0.1/task-contract.md) | What is the task, what may the executor do, and where must it stop? | Draft / Experimental v0.1.0 |
+| 2 | [Context Manifest](./v0.1/context-manifest.md) | Which sources were selected, with what authority, provenance, and freshness? | Draft / Experimental v0.1.0 |
+| 3 | [Project State](./v0.1/project-state.md) | What is the durable, current state of the project? | Draft / Experimental v0.1.0 |
+| 4 | [Change Record](./v0.1/change-record.md) | What actually changed in the repository for a task execution? | Draft / Experimental v0.1.0 |
+| 5 | [Verification Evidence](./v0.1/verification-evidence.md) | Which checks ran, what evidence resulted, and has a human accepted the work? | Draft / Experimental v0.1.0 |
 
-## Specification maturity
+## Relationship
 
-BVC uses the following lifecycle labels:
+`Task Contract → Context Manifest → Project State → Change Record → Verification Evidence`
 
-- **Draft:** under design; fields, semantics, and examples may change.
-- **Experimental:** implemented or exercised in examples, but not yet considered stable.
-- **Stable:** has documented semantics, compatibility expectations, valid and invalid examples, and automated validation appropriate to its scope.
-- **Deprecated:** retained for migration or reference but no longer recommended for new use.
-- **Retired:** no longer maintained as an active specification.
+This is a conceptual traceability path, not a mandatory temporal sequence for every storage operation. Project State exists across tasks; Context Manifest is assembled for a task; Change Record is produced from observed changes; Verification Evidence is linked to the contract and change record. A complete workflow must preserve IDs, revisions, repository baselines, and evidence references across these records.
 
-A valid JSON or YAML document is not, by itself, proof that a workflow is safe or that an executor is authorized. Schema validation checks structure. Semantic validation checks additional cross-field rules. The v0.1 companion validator can inspect a VCS-derived post-run diff inventory, but it does not sandbox an executor, collect the diff, or enforce permissions during execution. Runtime enforcement must still compare the approved contract with actual actions and changes.
+## Validation
 
-## Normative wording
+From the repository root:
 
-Within a specification, **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** indicate requirement strength:
+```bash
+python -m pip install -r requirements-dev.txt
+python scripts/validate_task_contracts.py
+python scripts/validate_core_specifications.py
+python -m unittest discover -s tests -v
+```
 
-- **MUST / MUST NOT:** mandatory for conformance to that draft specification.
-- **SHOULD / SHOULD NOT:** recommended; deviations need an explicit reason.
-- **MAY:** optional.
+The validators perform JSON Schema validation, selected cross-field semantic checks, and cross-record checks on the synthetic example bundle. These checks do not implement a runtime sandbox, collect real Git diffs, authenticate approvers, verify remote source access, or prove production correctness.
 
-These words define requirements within this repository's draft specifications. They do not imply external certification or standards-body approval.
+## Maturity and normative language
 
-## Versioning and compatibility
+All five specifications are **Draft / Experimental v0.1.0**. `MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, and `MAY` define requirements within these drafts; they do not imply external certification. Stable status requires broader valid/invalid examples, boundary and adversarial tests, compatibility rules, independent implementation experience, and review.
 
-A versioned directory is an immutable release boundary in intent. Published versions should not be silently changed after downstream users depend on them. Breaking changes should be published under a new version path with migration notes. Draft versions may receive corrections before being treated as a stable release, but each material change must be recorded in Git history and the relevant changelog.
+## Technology neutrality
 
-## Source alignment
-
-The specifications translate concepts from _BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI_ by Dong Hong into reviewable technical artifacts. They also incorporate implementation lessons from the Enerix Fin (EFIN) project where these can be generalized safely.
-
-Project-specific paths, registries, risk mappings, and governance identities from EFIN are examples, not global BVC defaults. Each adopting project must bind a contract to its own canonical policies and repository state.
+The specifications define portable data contracts. The current reference validators are implemented in Python because the repository's present tooling is Python-based. Future TypeScript, Tailwind CSS, or PostgreSQL components may implement interfaces, user experience, and persistence without changing the normative data model. PostgreSQL tables must preserve record identity, revision, provenance, and relationships; Tailwind CSS is a presentation layer, not a source of authority; TypeScript types should be generated from or checked against the normative schemas rather than becoming a competing definition.
 
 ## License
 
-The repository has not declared a repository-wide license. Do not assume that public visibility grants reuse or redistribution rights. Code, specifications, examples, diagrams, and book prose may require separate licensing decisions.
+No repository-wide license is declared in this milestone. Do not assume that public visibility grants reuse or redistribution rights; resolve licensing separately before advertising broad reuse.

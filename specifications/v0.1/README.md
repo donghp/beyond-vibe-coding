@@ -1,44 +1,51 @@
-# BVC Task Contract — v0.1.0
+# BVC Core Specifications — v0.1.0
 
 **Status:** Draft / Experimental  
 **Schema dialect:** JSON Schema Draft 2020-12  
-**Specification:** [task-contract.md](./task-contract.md)  
-**Machine-readable schema:** [task-contract.schema.json](./task-contract.schema.json)  
-**Examples:** [`examples/`](./examples/)
+**Phase:** 2 — Core Specifications
 
-## Purpose
+## The five specifications
 
-The Task Contract is the structured, reviewable representation of the book's **Execution Contract**. It defines what the executor is expected to achieve, what it is permitted to do, what it must produce, how the result is verified, and where it must stop.
+| Specification | Human-readable guide | JSON Schema |
+|---|---|---|
+| Task Contract | [task-contract.md](./task-contract.md) | [task-contract.schema.json](./task-contract.schema.json) |
+| Context Manifest | [context-manifest.md](./context-manifest.md) | [context-manifest.schema.json](./context-manifest.schema.json) |
+| Project State | [project-state.md](./project-state.md) | [project-state.schema.json](./project-state.schema.json) |
+| Change Record | [change-record.md](./change-record.md) | [change-record.schema.json](./change-record.schema.json) |
+| Verification Evidence | [verification-evidence.md](./verification-evidence.md) | [verification-evidence.schema.json](./verification-evidence.schema.json) |
 
-## Contents
+## Examples and templates
 
-- `task-contract.schema.json` — structural schema.
-- `task-contract.md` — normative field definitions, operating rules, and limitations.
-- `examples/read-only-inspection.yaml` — a no-write inspection contract.
-- `examples/scoped-component-change.yaml` — an exact-file, bounded write contract.
-- `examples/high-risk-financial-change.yaml` — a risk-shaped contract with explicit human approval.
-- `examples/changed-files-inventory.example.json` — a sample VCS-derived post-run file inventory for diff validation.
+- [Task Contract examples](./examples/README.md)
+- [Context Manifest example](./core-examples/context-manifest.example.yaml)
+- [Project State example](./core-examples/project-state.example.yaml)
+- [Change Record example](./core-examples/change-record.example.yaml)
+- [Verification Evidence example](./core-examples/verification-evidence.example.yaml)
+- [Core example bundle notes](./core-examples/README.md)
+- [Task Contract template](../../templates/task-contract.yaml)
+- [Context Manifest template](../../templates/context-manifest.yaml)
+- [Project State template](../../templates/project-state.yaml)
+- [Change Record template](../../templates/change-record.yaml)
+- [Verification Evidence template](../../templates/verification-evidence.yaml)
 
-## Validate locally
+## Validation commands
 
-From the repository root:
+From repository root:
 
 ```bash
-python -m pip install -r requirements-dev.txt
 python scripts/validate_task_contracts.py
+python scripts/validate_core_specifications.py
 python -m unittest discover -s tests -v
 ```
 
-The validator checks schema validity and additional semantic rules such as exact path scope, operation permissions, read-only/write consistency, change-budget consistency, protected-path conflicts, and risk-based approval. It can also compare one contract with a VCS-derived file-diff inventory and enforce file-count, diff-line, binary-file, and supplied sensitive-category budgets. It does not collect the diff, sandbox an AI process, classify project-specific sensitive files, or enforce filesystem permissions while code is executing.
+The second validator checks the four added schemas/examples plus the cross-artifact example bundle against the existing Task Contract. The full test command includes the original Task Contract tests and the additional cross-specification tests.
 
-Example post-run diff check:
+## Important limitations
 
-```bash
-python scripts/validate_task_contracts.py \
-  specifications/v0.1/examples/scoped-component-change.yaml \
-  --changed-files-json specifications/v0.1/examples/changed-files-inventory.example.json
-```
-
-## Execution readiness
-
-A structurally valid contract is not necessarily approved for execution. Before a write task starts, the adopting system must verify the contract status, human-approval status when required, current baseline, recovery point, executor eligibility, and actual runtime permissions.
+- These are draft, technology-neutral data specifications, not a runtime platform.
+- The Change Record validator checks a supplied inventory; no trusted Git collector is included yet.
+- No filesystem sandbox or preventive runtime permission enforcement is included.
+- A `READY` Context Manifest does not prove source access or correctness.
+- A verified-looking Project State fact still requires its cited source to be reviewed.
+- A Verification Evidence `PASS` does not automatically mean Task Accepted or Release Approved.
+- Example data and evidence references are synthetic and are not reports of a real project execution.

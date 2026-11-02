@@ -1,0 +1,55 @@
+# Synthetic BVC Phase 2 example. Not evidence of a real project execution.
+record_version: 0.1.0
+record_id: BVC-CHANGE-UI-014
+record_status: FINAL
+project_id: sample-account-service
+task_ref:
+  task_id: APP-TASK-UI-014
+contract_ref:
+  contract_id: BVC-CONTRACT-UI-014
+  contract_version: 0.1.0
+  revision: 1
+execution_ref:
+  run_id: BVC-RUN-UI-014-001
+  executor_id: eligible-ui-coding-executor
+  started_at: '2026-11-03T09:10:00+07:00'
+  ended_at: '2026-11-03T09:16:00+07:00'
+baseline:
+  source_commit: 7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f
+  target_commit: 9a8b7c6d5e4f32100123456789abcdef01234567
+  working_tree_status: CLEAN
+collector:
+  method: GIT_DIFF
+  name: git-diff-collector
+  version: 0.1.0
+  collected_at: '2026-11-03T09:17:00+07:00'
+  trust_level: TRUSTED
+  source_reference: git://example/account-service/compare/7c9e3f2...9a8b7c6
+changes:
+- path: src/components/StatusBadge.tsx
+  operation: MODIFY
+  additions: 24
+  deletions: 8
+  is_binary: false
+  categories: []
+- path: src/components/StatusBadge.test.tsx
+  operation: CREATE
+  additions: 35
+  deletions: 0
+  is_binary: false
+  categories: []
+totals:
+  changed_files: 2
+  created_files: 1
+  modified_files: 1
+  deleted_files: 0
+  additions: 59
+  deletions: 8
+  diff_lines: 67
+  binary_files: 0
+scope_integrity: PASS
+change_budget_result: PASS
+findings: []
+limitations:
+- Synthetic example only. The target commit and diff statistics are illustrative,
+  not a real project execution.

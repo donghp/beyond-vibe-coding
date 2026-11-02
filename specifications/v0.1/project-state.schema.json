@@ -1,0 +1,537 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/specifications/v0.1/project-state.schema.json",
+  "title": "BVC Project State",
+  "description": "Draft v0.1.0 durable project snapshot. It separates verified facts, assumptions, decisions, active work, risks, blockers, and recovery information from transient AI conversation history. It is a record format, not a database or runtime.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "state_version",
+    "state_id",
+    "revision",
+    "project_id",
+    "state_as_of",
+    "lifecycle_state",
+    "repository",
+    "baseline",
+    "current_milestone",
+    "current_objectives",
+    "facts",
+    "decisions",
+    "active_tasks",
+    "blocked_items",
+    "open_risks",
+    "open_issues",
+    "next_actions",
+    "recovery",
+    "updated_by"
+  ],
+  "properties": {
+    "state_version": {
+      "const": "0.1.0"
+    },
+    "state_id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "state_as_of": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lifecycle_state": {
+      "enum": [
+        "PLANNING",
+        "ACTIVE",
+        "BLOCKED",
+        "MAINTENANCE",
+        "ARCHIVED"
+      ]
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "default_branch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "url",
+        "default_branch"
+      ]
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_commit": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{7,64}$"
+        },
+        "working_tree_status": {
+          "enum": [
+            "CLEAN",
+            "DIRTY",
+            "UNKNOWN"
+          ]
+        },
+        "pre_existing_changes_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "source_commit",
+        "working_tree_status"
+      ]
+    },
+    "current_milestone": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "milestone_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "status": {
+          "enum": [
+            "PLANNED",
+            "IN_PROGRESS",
+            "BLOCKED",
+            "COMPLETED"
+          ]
+        },
+        "target_date": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "milestone_id",
+        "title",
+        "status"
+      ]
+    },
+    "current_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5,
+        "maxLength": 1000
+      },
+      "minItems": 1,
+      "maxItems": 30
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fact_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 2000
+          },
+          "classification": {
+            "enum": [
+              "VERIFIED_FACT",
+              "ASSUMPTION",
+              "OPEN_QUESTION",
+              "DEPRECATED_FACT"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 30
+          },
+          "verified_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "fact_id",
+          "statement",
+          "classification",
+          "source_refs"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "decision_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 2000
+          },
+          "status": {
+            "enum": [
+              "PROPOSED",
+              "ACCEPTED",
+              "REJECTED",
+              "SUPERSEDED"
+            ]
+          },
+          "decided_by": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "decided_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "authority_reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "decision_id",
+          "statement",
+          "status",
+          "source_refs"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 300
+    },
+    "active_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "contract_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "contract_revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "status": {
+            "enum": [
+              "PROPOSED",
+              "APPROVED",
+              "IN_PROGRESS",
+              "BLOCKED",
+              "READY_FOR_ACCEPTANCE"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "next_action": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "task_id",
+          "contract_id",
+          "contract_revision",
+          "status"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "blocked_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1500
+          },
+          "status": {
+            "enum": [
+              "OPEN",
+              "IN_PROGRESS",
+              "BLOCKED",
+              "CLOSED"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "issue_id",
+          "description",
+          "status"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "open_risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "risk_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1500
+          },
+          "severity": {
+            "enum": [
+              "LOW",
+              "MEDIUM",
+              "HIGH",
+              "CRITICAL"
+            ]
+          },
+          "status": {
+            "enum": [
+              "OPEN",
+              "MITIGATING",
+              "ACCEPTED",
+              "CLOSED"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "mitigation_ref": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "risk_id",
+          "description",
+          "severity",
+          "status"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 300
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1500
+          },
+          "status": {
+            "enum": [
+              "OPEN",
+              "IN_PROGRESS",
+              "BLOCKED",
+              "CLOSED"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "issue_id",
+          "description",
+          "status"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 500
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "description",
+          "priority"
+        ],
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1000
+          },
+          "priority": {
+            "enum": [
+              "LOW",
+              "NORMAL",
+              "HIGH",
+              "URGENT"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "related_task_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          }
+        }
+      },
+      "minItems": 0,
+      "maxItems": 100
+    },
+    "recovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recovery_point_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "source_commit": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{7,64}$"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "last_verified_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "recovery_point_ref",
+        "source_commit",
+        "verified"
+      ]
+    },
+    "updated_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    }
+  }
+}

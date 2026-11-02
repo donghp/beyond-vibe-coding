@@ -1,0 +1,420 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/specifications/v0.1/verification-evidence.schema.json",
+  "title": "BVC Verification Evidence",
+  "description": "Draft v0.1.0 record of actual verification outcomes and evidence references mapped to Task Contract acceptance criteria. A PASS result records only the checks performed; it is not a release decision or proof of correctness outside the stated scope.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_version",
+    "evidence_id",
+    "record_status",
+    "project_id",
+    "task_ref",
+    "contract_ref",
+    "change_record_ref",
+    "verification_run",
+    "checks",
+    "overall_result",
+    "acceptance_decision",
+    "limitations"
+  ],
+  "properties": {
+    "evidence_version": {
+      "const": "0.1.0"
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "record_status": {
+      "enum": [
+        "DRAFT",
+        "FINAL"
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "task_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        }
+      },
+      "required": [
+        "task_id"
+      ]
+    },
+    "contract_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "contract_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "revision"
+      ]
+    },
+    "change_record_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "scope_integrity": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_EVALUATED"
+          ]
+        },
+        "change_budget_result": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_EVALUATED"
+          ]
+        }
+      },
+      "required": [
+        "record_id",
+        "scope_integrity",
+        "change_budget_result"
+      ]
+    },
+    "verification_run": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "source_commit": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{7,64}$"
+        },
+        "executor_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "runtime": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "operating_system": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "tool_versions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "minItems": 0,
+              "maxItems": 50
+            }
+          },
+          "required": [
+            "runtime",
+            "operating_system"
+          ]
+        }
+      },
+      "required": [
+        "run_id",
+        "source_commit",
+        "executor_id",
+        "started_at",
+        "environment"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "check_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "check_kind": {
+            "enum": [
+              "STATIC_ANALYSIS",
+              "UNIT_TEST",
+              "INTEGRATION_TEST",
+              "SYSTEM_TEST",
+              "SECURITY_TEST",
+              "DOMAIN_CHECK",
+              "MANUAL_REVIEW",
+              "OTHER"
+            ]
+          },
+          "acceptance_criteria_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "INCONCLUSIVE",
+              "BLOCKED",
+              "NOT_RUN"
+            ]
+          },
+          "evidence_level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 2000
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "command": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "artifact_id": {
+                  "type": "string",
+                  "minLength": 3,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                },
+                "kind": {
+                  "enum": [
+                    "TEST_LOG",
+                    "CI_RUN",
+                    "REPORT",
+                    "SCREENSHOT",
+                    "METRIC",
+                    "REVIEW",
+                    "OTHER"
+                  ]
+                },
+                "reference": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[a-f0-9]{64}$"
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "captured_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "artifact_id",
+                "kind",
+                "reference",
+                "description"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 100
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "check_id",
+          "check_kind",
+          "acceptance_criteria_refs",
+          "status",
+          "evidence_level",
+          "summary",
+          "artifacts"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 500
+    },
+    "overall_result": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "INCONCLUSIVE",
+        "NOT_RUN"
+      ]
+    },
+    "acceptance_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "enum": [
+            "PENDING",
+            "ACCEPTED",
+            "REJECTED",
+            "CONDITIONALLY_ACCEPTED"
+          ]
+        },
+        "decided_by": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "decided_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "approval_reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "rationale": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1000
+          },
+          "minItems": 0,
+          "maxItems": 50
+        }
+      },
+      "required": [
+        "decision"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 1000
+      },
+      "minItems": 0,
+      "maxItems": 100
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "acceptance_decision": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "ACCEPTED",
+                  "REJECTED",
+                  "CONDITIONALLY_ACCEPTED"
+                ]
+              }
+            },
+            "required": [
+              "decision"
+            ]
+          }
+        },
+        "required": [
+          "acceptance_decision"
+        ]
+      },
+      "then": {
+        "properties": {
+          "acceptance_decision": {
+            "required": [
+              "decided_by",
+              "decided_at",
+              "approval_reference"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
