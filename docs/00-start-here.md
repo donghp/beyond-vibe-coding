@@ -88,35 +88,60 @@ If the next executor needs the old conversation to reconstruct all of this, proj
 - A place to publish clearly versioned specifications, patterns, examples, and eventually reference code.
 - A place to discuss task control, context, project state, authority, evidence, and continuity across AI-assisted engineering work.
 - An evolving engineering resource whose claims should be reviewed against examples and tests as artifacts are added.
+- A repository that currently includes five framework foundation documents and its first machine-readable Core Specification: Task Contract v0.1.0 (Draft / Experimental), with a JSON Schema, examples, a template, a validator, and automated tests.
 
 ### This repository is not (yet)
 
 - A completed PAECS product or orchestration engine.
 - A coding agent, foundation model, or provider-specific AI tool.
 - A production-ready library with a stable API or compatibility guarantee.
+- A runtime filesystem sandbox that prevents an executor from writing outside its authorized scope.
 - A replacement for Git, source control, architecture review, secure development practices, testing, or human accountability.
 - A claim that a particular workflow guarantees correct software.
 
-The current milestone defines the framework's vocabulary and conceptual architecture. Specifications, runnable examples, tests, and reference implementation will be published in later increments. A planned item must not be treated as an implemented capability.
+The Task Contract validator performs structural and semantic checks and can inspect a supplied post-run diff inventory. It does not enforce filesystem permissions during execution or prevent unauthorized writes by itself. The current GitHub Actions workflow runs the published Task Contract example validation and automated tests; it is a validation workflow, not a complete engineering orchestration runtime.
 
 ---
 
-## 3. Read the five foundation documents
+## 3. Read the framework documents and first specification
+
+### Framework foundation — v0.1
 
 1. [Framework Overview](./framework-overview.md) — the problem, purpose, design principles, and capability areas.
 2. [Architecture](./architecture.md) — the conceptual components, records, workflow, and boundaries.
 3. [Glossary](./glossary.md) — the terms used consistently across the book companion.
 4. [Book Chapter Map](./book-chapter-map.md) — how the repository's concepts relate to the published 21-chapter book.
 
-This file is the orientation and quick-start entry point.
+This file is the orientation and quick-start entry point. The [Documentation Index](./README.md) lists the full reading order and current artifacts.
+
+### First Core Specification — Phase 2
+
+- [Task Contract guide](./task-contract.md) — scope, control principles, validator usage, and known limitations.
+- [Task Contract Specification v0.1.0](../specifications/v0.1/task-contract.md) — the draft normative definition.
+- [Task Contract JSON Schema](../specifications/v0.1/task-contract.schema.json) — JSON Schema Draft 2020-12.
+- [Task Contract examples](../specifications/v0.1/examples/) — three YAML examples and a changed-files inventory example.
+- [Task Contract template](../templates/task-contract.yaml) — a reusable starting point for project-specific contracts.
+- [Validator](../scripts/validate_task_contracts.py) and [automated tests](../tests/test_task_contracts.py).
+
+The Task Contract is Draft / Experimental. It is the first published machine-readable Core Specification in this repository, not a stable standard.
 
 ---
 
 ## 4. Current maturity and how to evaluate it
 
-**Repository foundation: Draft v0.1 — Framework Definition & Architecture.**
+**Repository maturity: Framework Definition & Architecture v0.1, plus Task Contract v0.1.0 (Draft / Experimental).**
 
-At this stage, the repository documents the method and intended architecture. It does not yet publish validated JSON Schemas, a runnable reference implementation, or a stable conformance suite. Those items should be treated as future work until the actual files, tests, and release notes are present.
+The repository currently contains:
+
+- Five Phase 1 framework documents covering orientation, framework definition, conceptual architecture, glossary, and book-to-repository mapping.
+- Task Contract v0.1.0 and its JSON Schema Draft 2020-12.
+- Three YAML Task Contract examples and a changed-files inventory example.
+- A reusable Task Contract template.
+- A Python validator for schema and semantic checks, including post-run validation against a supplied changed-files inventory.
+- 17 automated unit tests.
+- A GitHub Actions workflow that runs the example validator and unit tests on relevant pushes and pull requests.
+
+These assets are an initial, testable specification increment. They do not yet form a complete schema set, stable conformance suite, full reference implementation, or PAECS runtime. In particular, the validator is not a live filesystem permission-enforcement mechanism.
 
 When evaluating or adopting an artifact, check:
 
@@ -126,7 +151,7 @@ When evaluating or adopting an artifact, check:
 4. Whether tests cover valid, invalid, and boundary cases.
 5. Its known limitations and compatibility notes.
 
-Do not infer implementation maturity from a diagram, roadmap entry, or explanatory document alone.
+Do not infer implementation maturity from a diagram, roadmap entry, or explanatory document alone. A passing CI run confirms the checks that were executed for that revision; it does not prove universal correctness or production readiness.
 
 ---
 
