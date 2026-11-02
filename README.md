@@ -124,7 +124,7 @@ flowchart TD
 
 ## Patterns and concepts explored
 
-The companion project is organized around the following areas. Specifications and implementation examples will be published and versioned incrementally; see [Repository status](#repository-status) before treating an artifact as stable.
+The companion project is organized around the following areas. Specifications and implementation examples are published incrementally; see [Repository status](#repository-status) before treating an artifact as stable. The first machine-readable Core Specification is the Task Contract v0.1.0, currently Draft / Experimental.
 
 | Area | What it addresses |
 |---|---|
@@ -149,13 +149,14 @@ The companion project is organized around the following areas. Specifications an
 
 This is not intended to be a beginner's prompt collection or a guide to one specific coding assistant. It is aimed primarily at people who already build or lead software and need a more reliable way to work with AI.
 
-## EnerixFin: an engineering case study
+## Enerix Fin (EFIN): an engineering case study
 
-The book uses **EnerixFin** as a real-world engineering laboratory for exploring the ideas in this project. Its domain includes Solar and Battery Energy Storage System (BESS) engineering and investment workflows.
+The book uses **EnerixFin** (the Enerix Fin project, **EFIN**) as a real-world engineering laboratory for exploring the ideas in this project. Its domain includes Solar and Battery Energy Storage System (BESS) engineering and investment workflows.
 
 The case study follows a connected workflow from customer and site information through engineering analysis, Solar/BESS design, energy analysis, CAPEX and bill of quantities, financial modeling, and investment proposals. It illustrates why a real engineering product requires consistent data, dependencies, verification, and continuity—not just generated screens or isolated code changes.
 
-Any public examples derived from EnerixFin must be sanitized and published only where the relevant rights and permissions allow. This repository does not disclose customer data, credentials, confidential commercial information, or proprietary implementation details. The case study should not be read as a claim that every described workflow is a deployed production system.
+Any public examples derived from Enerix Fin (EFIN) must be sanitized and published only where the relevant rights and permissions allow. This repository does not disclose customer data, credentials, confidential commercial information, or proprietary implementation details. The case study should not be read as a claim that every described workflow is a deployed production system.
+
 ## Documentation
 
 Explore the framework foundation and its current technical specifications:
@@ -167,19 +168,20 @@ Explore the framework foundation and its current technical specifications:
 - [Book Chapter Map](docs/book-chapter-map.md)
 - [Task Contract Guide](docs/task-contract.md)
 
-**First Core Specification:** [Task Contract v0.1.0](specifications/v0.1/task-contract.md), including its JSON Schema, examples, validator, and automated tests.
+**First Core Specification:** [Task Contract v0.1.0](specifications/v0.1/task-contract.md), including its [JSON Schema](specifications/v0.1/task-contract.schema.json), [examples](specifications/v0.1/examples/), [validator](scripts/validate_task_contracts.py), and [automated tests](tests/test_task_contracts.py).
 
 The Task Contract is Draft / Experimental, not a stable standard or runtime sandbox.
+
 ## How to use this repository
 
 1. **Start with the problem and principles** in this README.
-2. **Inspect the specifications and examples** as they are added; check their version and status before adopting them.
+2. **Inspect the published specification and examples** and check their version and status before adopting them.
 3. **Adapt the patterns to your project.** They are intended to support engineering judgment, not replace architecture review, security practices, testing, or human accountability.
 4. **Discuss gaps and trade-offs.** Open a focused issue or discussion with a reproducible example and enough context for others to understand the problem.
 
 ### Illustrative task contract
 
-The following is a small conceptual example to show the kind of information a bounded task should make explicit. It is **illustrative YAML, not a published or validated schema**.
+The following is a small conceptual example to show the kind of information a bounded task should make explicit. It is **illustrative YAML and is not conformant with the published Task Contract v0.1.0 schema**. Use the [Task Contract Specification](specifications/v0.1/task-contract.md) and [JSON Schema](specifications/v0.1/task-contract.schema.json) for the machine-validatable draft contract.
 
 ```yaml
 task:
@@ -203,27 +205,30 @@ task:
     human_approval_required: true
 ```
 
-A production specification needs a defined schema, validation rules, versioning, and documented semantics. Those should be established before this example is presented as a stable contract.
+The repository separately publishes Task Contract v0.1.0 with a JSON Schema Draft 2020-12, examples, a reusable template, a Python validator, and automated tests. The simplified YAML above remains conceptual and is not schema-conformant. The validator performs structural and semantic checks and can inspect a supplied post-run diff inventory; it is not a runtime sandbox and does not prevent unauthorized writes during execution.
 
 ## Repository roadmap
 
-The planned engineering assets are:
+The repository is being developed incrementally. Current and planned assets are:
 
-- Versioned JSON Schemas for task contracts, project state, context manifests, change records, handoffs, and verification evidence.
-- Pattern notes for deterministic subtasks, context compilation, context minimization, checkpoints, workspace locking, executor handoff, and verification gates.
-- A small, model-agnostic reference implementation with tests and reproducible examples.
-- Sanitized EnerixFin case-study workflows and architecture explanations.
-- Contribution guidance, change history, and release notes as the project matures.
+- **Published — Draft / Experimental:** Task Contract v0.1.0, its JSON Schema, examples, reusable template, Python validator, and automated tests.
+- **Next planned Core Specifications:** Context Manifest, Project State, Change Record, and Verification Evidence. Their schemas and compatibility rules are not yet published.
+- **Planned practical patterns:** task decomposition, context compilation, context minimization, checkpoints, workspace locking, executor handoff, and verification gates.
+- **Planned reference implementation:** a small, model-agnostic implementation beyond the current validation utility, with reproducible workflows and tests.
+- **Planned case-study material:** sanitized Enerix Fin (EFIN) workflows and architecture explanations, subject to rights, confidentiality, and factual review.
+- **Planned project governance assets:** contribution guidance, change history, release notes, and other community resources as the project matures.
 
-Roadmap items are intentions, not claims that the corresponding files or implementations are already available. Please check the repository contents and release tags for what is actually published.
+Roadmap items are intentions, not claims that the corresponding files or implementations are already available. Please check the repository contents and artifact status before relying on them.
 
 ## Repository status
 
-**Initial public foundation — specifications and reference implementation are being developed.**
+**Public framework foundation + first Core Specification: Task Contract v0.1.0 (Draft / Experimental).**
 
-At this stage, the repository presents the method, terminology, intended architecture, and illustrative examples. Unless an artifact is explicitly marked as released and validated, do not treat it as a stable standard, production-ready library, or guaranteed implementation.
+The repository contains the five Phase 1 framework documents, the Task Contract specification and JSON Schema Draft 2020-12, three YAML examples, a changed-files inventory example, a reusable template, a Python validator, and 17 automated unit tests. A GitHub Actions workflow validates the Task Contract examples and runs the unit tests on relevant pushes and pull requests.
 
-There is currently no stable API or compatibility guarantee. Changes to draft specifications may be made as the method is reviewed and tested.
+These assets do not constitute a complete PAECS runtime or a production-ready reference implementation. The validator performs structural and semantic checks and can inspect a supplied post-run diff inventory. It does not sandbox an executor, enforce filesystem permissions during execution, or by itself prevent unauthorized writes. The workflow's passing checks demonstrate that the published examples and tests pass in that CI run; they do not prove that every possible Task Contract or project implementation is correct.
+
+There is currently no stable API or compatibility guarantee. Task Contract v0.1.0 is Draft / Experimental; changes may be made as the method is reviewed and tested. Other planned specifications must not be treated as published contracts until their files, validation rules, examples, and tests are available.
 
 ## Model and tool neutrality
 
