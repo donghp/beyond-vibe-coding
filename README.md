@@ -156,7 +156,20 @@ The book uses **EnerixFin** as a real-world engineering laboratory for exploring
 The case study follows a connected workflow from customer and site information through engineering analysis, Solar/BESS design, energy analysis, CAPEX and bill of quantities, financial modeling, and investment proposals. It illustrates why a real engineering product requires consistent data, dependencies, verification, and continuity—not just generated screens or isolated code changes.
 
 Any public examples derived from EnerixFin must be sanitized and published only where the relevant rights and permissions allow. This repository does not disclose customer data, credentials, confidential commercial information, or proprietary implementation details. The case study should not be read as a claim that every described workflow is a deployed production system.
+## Documentation
 
+Explore the framework foundation and its current technical specifications:
+
+- [Documentation Index](docs/README.md) — reading order and document status.
+- [Framework Overview](docs/framework-overview.md)
+- [Conceptual Architecture](docs/architecture.md)
+- [Engineering Glossary](docs/glossary.md)
+- [Book Chapter Map](docs/book-chapter-map.md)
+- [Task Contract Guide](docs/task-contract.md)
+
+**First Core Specification:** [Task Contract v0.1.0](specifications/v0.1/task-contract.md), including its JSON Schema, examples, validator, and automated tests.
+
+The Task Contract is Draft / Experimental, not a stable standard or runtime sandbox.
 ## How to use this repository
 
 1. **Start with the problem and principles** in this README.
