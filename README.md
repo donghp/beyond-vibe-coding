@@ -80,25 +80,47 @@ AI may analyze, propose, and execute within an assigned scope. The project must 
 
 The following diagram illustrates the intended engineering lifecycle. It is a conceptual workflow, not a claim that this repository already ships an executable orchestration engine.
 
+The node labels are deliberately concise and manually line-broken so that the full text remains visible in GitHub's Mermaid renderer. Detailed meanings are listed beneath the diagram.
+
 ```mermaid
 flowchart TD
-    A[Engineering goal] --> B[Decompose into bounded task]
-    B --> C[Define scope, constraints and acceptance criteria]
-    C --> D[Resolve authority and executor eligibility]
-    D --> E[Read current project state]
-    E --> F[Compile task-specific context]
-    F --> G[Execute with an AI executor]
-    G --> H[Collect change records and evidence]
-    H --> I{Verification passed?}
-    I -- No --> J[Record failure, revise or escalate]
+    A["Engineering<br/>Goal"] --> B["Decompose into<br/>Bounded Tasks"]
+    B --> C["Define Scope,<br/>Constraints & Criteria"]
+    C --> D["Resolve Authority<br/>& Executor"]
+    D --> E["Read Current<br/>Project State"]
+    E --> F["Compile Task<br/>Context"]
+    F --> G["Execute with<br/>AI Executor"]
+    G --> H["Collect Changes<br/>& Evidence"]
+    H --> I{"Verification<br/>Passed?"}
+    I -- "No" --> J["Record Failure<br/>& Revise"]
     J --> B
-    I -- Yes --> K{Approval required?}
-    K -- Yes --> L[Human review and authorization]
-    K -- No --> M[Accept verified result]
+    I -- "Yes" --> K{"Human Approval<br/>Required?"}
+    K -- "Yes" --> L["Human Review<br/>& Authorization"]
+    K -- "No" --> M["Accept Verified<br/>Result"]
     L --> M
-    M --> N[Update project state and checkpoint]
-    N --> O[Prepare next task or handoff]
+    M --> N["Update Project<br/>State & Checkpoint"]
+    N --> O["Prepare Next Task<br/>or Handoff"]
 ```
+
+### Workflow step reference
+
+| Step | Meaning |
+|---|---|
+| Engineering Goal | Establish the intended engineering outcome. |
+| Decompose into Bounded Tasks | Break the goal into manageable, reviewable units of work. |
+| Define Scope, Constraints & Criteria | Specify allowed work, constraints, dependencies, acceptance criteria, and verification requirements. |
+| Resolve Authority & Executor | Determine who or what may perform the task and which actions require approval. |
+| Read Current Project State | Load the authoritative current state before changing the project. |
+| Compile Task Context | Select relevant, current, permitted, and sufficient information for this execution. |
+| Execute with AI Executor | Perform the assigned task within its defined scope. |
+| Collect Changes & Evidence | Record what changed and collect evidence needed to evaluate the result. |
+| Verification Passed? | Check the result against acceptance criteria and required evidence. |
+| Record Failure & Revise | Record the failure, correct the task or implementation, and retry or escalate. |
+| Human Approval Required? | Determine whether policy or risk requires human authorization. |
+| Human Review & Authorization | Review the evidence and authorize the consequential action when required. |
+| Accept Verified Result | Accept the result only after the required checks and approvals. |
+| Update Project State & Checkpoint | Record the new state and create a recoverable checkpoint. |
+| Prepare Next Task or Handoff | Prepare the next bounded task or transfer work to another executor. |
 
 ## Patterns and concepts explored
 
@@ -198,7 +220,7 @@ Examples may refer to particular tools where useful, but no provider is endorsed
 
 ## Contributing and discussion
 
-Practical feedback is welcome—especially reproducible examples, schema reviews, implementation experiments, threat models, failure cases, and suggestions that improve clarity or interoperability.
+Practical feedback is welcome—especially reproducible examples, schema reviews, implementation experiments, threat models, failure cases, and suggestions that improve clarity and interoperability.
 
 When opening an issue, please include:
 
