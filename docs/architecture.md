@@ -3,358 +3,411 @@
 **Document status:** Draft — synchronized with BVC Core Specifications v0.1.0  
 **Document role:** Conceptual architecture  
 **Phase:** Phase 1 foundation, updated for Phase 2 Core Specifications  
-**Related:** [Framework Overview](./framework-overview.md) · [Engineering Glossary](./glossary.md) · [Book Chapter Map](./book-chapter-map.md) · [Core Specification Index](../specifications/v0.1/README.md)
+**Book companion:** *BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI* — Dong Hong  
+**Related:** [Framework Overview](./framework-overview.md) · [Start Here](./00-start-here.md) · [Engineering Glossary](./glossary.md) · [Book Chapter Map](./book-chapter-map.md) · [Core Specification Index](../specifications/v0.1/README.md)
 
 ---
 
 ## 1. Architecture objective
 
-The architecture described here organizes the engineering concerns in *BEYOND VIBE CODING* into a project-centric lifecycle. Its objective is to allow AI executors and developers to perform bounded work while the project retains recognized knowledge, current state, authority rules, material change history, verification evidence, and continuity information.
+The Beyond Vibe Coding (BVC) architecture organizes AI-assisted software engineering around the project rather than around an individual AI conversation, model, or coding session.
 
-The central distinction is:
+Its objective is to let people and AI executors perform bounded engineering work while the project retains its recognized knowledge, current state, authority rules, material change history, verification evidence, and continuity information.
 
-> **AI is an executor. The project owns its knowledge, state, authority, and continuity.**
+The architecture separates five concerns:
 
-This document describes logical responsibilities, information relationships, and intended control boundaries. It is a **conceptual architecture**, not a deployed implementation diagram. The repository currently provides framework documentation, five Draft / Experimental Core Specifications, JSON Schemas, examples, templates, Python validation utilities, automated tests, and GitHub Actions integration. It does not yet ship the complete engines, runtime enforcement, or orchestration runtime represented conceptually below.
+1. **Define the work:** establish the task, its objective, authorized scope, constraints, and completion conditions.
+2. **Prepare the information:** select the relevant and permitted project context and identify the project baseline.
+3. **Execute bounded work:** let an eligible human or AI executor perform the task within the authority granted to it.
+4. **Record and verify changes:** distinguish intended changes from observed changes, and evaluate results against acceptance criteria.
+5. **Preserve continuity:** update project records so that work can be understood, reviewed, continued, or recovered without depending on one conversation.
 
-## 2. Architectural invariants
+This document describes a **conceptual architecture**. It does not describe a fully deployed implementation. The repository currently publishes five Draft / Experimental Core Specifications and their initial validation tooling; it does not yet provide the complete engines, runtime services, or security enforcement represented by the conceptual model.
 
-The design is guided by these invariants:
+## 2. Architectural principles and invariants
+
+The following principles constrain the design.
 
 1. **Project-owned truth:** the project—not an AI conversation—owns canonical Project Knowledge and Project State.
-2. **Task before executor:** a task is defined before an executor is selected and authorized.
-3. **Controlled context:** context is selected from recognized project sources and checked for relevance, authority, validity, freshness, scope, dependencies, and conflict.
-4. **Capability is not authority:** an executor operates within a defined scope; its ability to perform an action does not grant permission to perform it.
-5. **Traceable change:** material changes are recorded and evaluated against the applicable task contract and acceptance criteria.
-6. **Evidence before acceptance:** a completion claim does not become verified state without sufficient evidence and required approval.
-7. **Synchronized handoff:** a handoff requires synchronized changes, state, evidence, checkpoint information, and next action.
-8. **Fail closed:** if critical state, authority, or required context cannot be established, the workflow blocks rather than guesses.
-9. **Controlled canonical writes:** unless coordinated concurrency is explicitly designed and enforced, only one authorized writer changes the canonical workspace at a time (Workspace Lock principle).
-10. **Storage is not authority:** Git and other repositories can store project artifacts and history, but repository storage alone does not establish engineering authority, correctness, or verification.
-11. **Technology neutrality:** the meaning of the engineering records must not depend on one programming language, database, AI model, provider, IDE, or agent framework.
-12. **Proportionate control:** controls should reflect the scope, risk, impact, and reversibility of the work.
+2. **Task before executor:** define the work and its boundaries before selecting or authorizing an executor.
+3. **Context with provenance:** context must be relevant, permitted, and evaluated for authority, trust, validity, freshness, dependencies, and conflict.
+4. **Capability is not authority:** an executor's technical ability to perform an action does not grant permission to perform it.
+5. **Explicit operations:** CREATE, MODIFY, and DELETE are distinct permissions and must not be inferred from one another.
+6. **Fail closed:** when critical scope, authority, state, or evidence cannot be established, block or request a decision rather than guess.
+7. **Observed changes:** record actual repository changes using trustworthy source-control evidence where possible; do not rely only on an executor's self-report.
+8. **Evidence before acceptance:** a completion claim is not a verified result, and a passing check is not automatically human acceptance or release approval.
+9. **Controlled canonical writes:** unless coordinated concurrency has been explicitly designed and validated, only one authorized writer should modify the canonical workspace at a time.
+10. **Explicit continuity:** a handoff requires synchronized changes, state, evidence, checkpoint/recovery information, and next action.
+11. **Proportionate control:** apply controls appropriate to task scope, uncertainty, impact, and risk; do not impose heavyweight governance on every low-risk experiment.
+12. **Technology neutrality:** the normative meaning of project records must not depend on a particular AI provider, programming language, IDE, or database.
+13. **Honest implementation status:** conceptual components and planned capabilities must not be presented as shipped software.
 
 ## 3. System context
 
-A project has durable sources and records. A task-specific working context is compiled from those sources before execution. The executor receives an authorized task and the context required for that task, performs bounded work, and returns proposed changes and evidence to the project-controlled workflow.
+The project contains durable sources and records. A task-specific working context is assembled from recognized sources before execution. The executor receives the task requirements, permitted context, relevant project state, and applicable constraints. Proposed changes are then observed, recorded, verified, and either accepted or sent back for correction.
 
 ```mermaid
 flowchart TB
     subgraph PROJECT["PROJECT-OWNED SOURCES AND RECORDS"]
-        INTENT["Intent and Requirements"]
-        KNOW["Project Knowledge"]
+        INTENT["Product Intent and Requirements"]
+        KNOW["Project Knowledge and Standards"]
         GOV["Governance and Authority"]
         STATE["Current Project State"]
-        STD["Method and Standards"]
+        BASE["Repository and Architecture Baseline"]
     end
 
-    subgraph CONTROL["CONTROL AND PREPARATION"]
-        TASK["Task Definition / Task Contract"]
-        RESOLVE["Resolve Scope and Authority"]
-        CONTEXT["Context Preparation"]
+    subgraph PREP["TASK AND CONTEXT PREPARATION"]
+        TASK["Task Contract"]
+        CTX["Context Manifest"]
+        RESOLVE["Resolve Scope, Authority, and Dependencies"]
     end
 
-    subgraph EXEC["EXECUTION"]
-        ELIGIBLE["Eligible Executor"]
-        RUN["Engineering Run"]
-        LOCK["Controlled Workspace"]
+    subgraph EXEC["BOUNDED EXECUTION"]
+        ELIGIBLE["Eligible Human or AI Executor"]
+        RUN["Engineering Work / Run"]
+        WORKSPACE["Controlled Workspace"]
     end
 
     subgraph ASSURANCE["CHANGE AND ASSURANCE"]
-        CHANGE["Change Record"]
+        CHANGE["Observed Change Record"]
         EVIDENCE["Verification Evidence"]
-        VERIFY["Verification Decision"]
-        APPROVE["Required Human Approval"]
+        REVIEW["Human Acceptance When Required"]
     end
 
     subgraph CONTINUITY["PROJECT CONTINUITY"]
         UPDATE["Update Project State"]
-        CHECKPOINT["Checkpoint"]
-        HANDOFF["Handoff / Recovery"]
+        CHECKPOINT["Checkpoint / Recovery Reference"]
+        NEXT["Next Task or Handoff"]
     end
 
     INTENT --> TASK
-    KNOW --> CONTEXT
     GOV --> RESOLVE
+    BASE --> RESOLVE
+    KNOW --> CTX
     STATE --> RESOLVE
-    STD --> CONTEXT
     TASK --> RESOLVE
-    RESOLVE --> CONTEXT
-    CONTEXT --> ELIGIBLE
+    CTX --> RESOLVE
+    RESOLVE --> ELIGIBLE
     ELIGIBLE --> RUN
-    RUN --> LOCK
-    LOCK --> CHANGE
+    RUN --> WORKSPACE
+    WORKSPACE --> CHANGE
     CHANGE --> EVIDENCE
-    EVIDENCE --> VERIFY
-    VERIFY -->|"Pass"| APPROVE
-    VERIFY -->|"Fail / Insufficient"| TASK
-    APPROVE --> UPDATE
+    EVIDENCE --> REVIEW
+    REVIEW --> UPDATE
     UPDATE --> CHECKPOINT
-    CHECKPOINT --> HANDOFF
-    HANDOFF --> TASK
+    CHECKPOINT --> NEXT
+    NEXT --> TASK
 ```
 
-The diagram shows logical responsibilities and information flow. It does not prescribe a mandatory deployment topology, database, programming language, agent framework, provider integration, or runtime architecture.
+The diagram shows logical responsibilities and information flow. It does not prescribe a deployment topology, database, programming language, AI runtime, provider integration, or mandatory sequence for every record update.
 
-## 4. Control and context preparation
+## 4. The five Core Specifications in the architecture
 
-The book describes the **Context Compiler** as a way to transform task requirements and recognized project truth into a sufficient information package for a particular execution. The sequence below represents that conceptual preparation process.
+Phase 2 formalizes five connected, technology-neutral record types. All five are **Draft / Experimental v0.1.0** and use JSON Schema Draft 2020-12.
+
+| Specification | Architectural responsibility | Question it answers |
+|---|---|---|
+| [Task Contract](../specifications/v0.1/task-contract.md) | Defines the task objective, authorized scope, constraints, expected outputs, acceptance criteria, verification requirements, change budget, authority, and stopping conditions. | What is the executor expected and authorized to do? |
+| [Context Manifest](../specifications/v0.1/context-manifest.md) | Records which sources were selected for a task, why they were selected, and their authority, trust, provenance, freshness, inclusion/exclusion, and conflict status. | Which information was selected, and why is it suitable for this task? |
+| [Project State](../specifications/v0.1/project-state.md) | Records a versioned snapshot of project baseline, facts, assumptions, decisions, active work, blockers, risks, next actions, and recovery reference. | What is the durable, recognized state of the project? |
+| [Change Record](../specifications/v0.1/change-record.md) | Records observed repository changes, operation types, baseline, file inventory, diff totals, scope-integrity outcome, and change-budget outcome. | What actually changed? |
+| [Verification Evidence](../specifications/v0.1/verification-evidence.md) | Records checks performed, results, acceptance-criteria references, evidence artifacts, environment, limitations, and a separate acceptance decision. | What was checked, what evidence resulted, and has the work been accepted? |
+
+The five records are related, but they are not interchangeable:
+
+- The Task Contract is the task-level authorization and requirement baseline. It does not authenticate a person or enforce operating-system permissions by itself.
+- The Context Manifest records context assembly. It does not fetch source material, prove access, or make an untrusted source authoritative.
+- Project State is a durable project snapshot. It is not a transcript, a detailed event log, or a substitute for individual task records.
+- The Change Record describes observed changes. It does not prove functional correctness or production readiness.
+- Verification Evidence records test and review results. It does not automatically authorize acceptance or release.
+
+### 4.1 Conceptual relationship
 
 ```mermaid
 flowchart TD
-    A["Task Intent"] --> B["Classify Task"]
-    B --> C["Resolve Authority"]
-    C --> D["Read Current State"]
-    D --> E["Retrieve Required Knowledge"]
-    E --> F["Expand Dependencies"]
-    F --> G["Filter and Rank"]
-    G --> H["Detect Conflicts"]
-    H --> I["Compile Context"]
+    TASK["Task Contract\nAuthorized task and acceptance criteria"]
+    CTX["Context Manifest\nSelected task context"]
+    STATE["Project State\nProject baseline and current facts"]
+    EXEC["Bounded Engineering Execution"]
+    CHANGE["Change Record\nObserved changes"]
+    VERIFY["Verification Evidence\nChecks, outcomes, and artifacts"]
+    HUMAN["Human Acceptance\nWhen required by policy"]
+
+    TASK --> CTX
+    STATE --> CTX
+    TASK --> EXEC
+    CTX --> EXEC
+    STATE --> EXEC
+    EXEC --> CHANGE
+    TASK --> CHANGE
+    CHANGE --> VERIFY
+    TASK --> VERIFY
+    VERIFY --> HUMAN
+    CHANGE --> STATE
+    HUMAN --> STATE
+```
+
+This is a traceability model, not an assertion that the current repository automatically orchestrates the complete lifecycle. The records should reference the relevant task, project, baseline, revision, and related records so that their relationship can be inspected.
+
+## 5. Task and authority preparation
+
+### 5.1 Task definition
+
+A task states the intended outcome and the conditions under which the work may be considered complete. At a minimum, the task should make its objective, inputs, scope, constraints, dependencies, expected outputs, acceptance criteria, verification requirements, and stopping conditions understandable.
+
+Large goals should be decomposed into bounded tasks. A task should be small enough to review and verify, but it must retain enough context to avoid technically correct work that solves the wrong problem.
+
+### 5.2 Scope and operation permissions
+
+The Task Contract distinguishes:
+
+- **CREATE:** permission to create a specifically authorized path or resource;
+- **MODIFY:** permission to change an existing authorized path or resource;
+- **DELETE:** permission to remove an authorized path or resource.
+
+A permission for one operation does not imply permission for another. Forbidden paths, protected resources, file-count limits, diff limits, dependency changes, and other change budgets should be declared according to the project's policy.
+
+Wildcard scope should be proportionate to the task and justified. Broad patterns are not a substitute for understanding which resources the task actually needs.
+
+### 5.3 Authority resolution
+
+Before execution, the workflow must determine whether the task is permitted, which role or executor may perform it, what policy applies, and whether human approval is required. Discovery and proposal can be useful without creating permission to execute.
+
+A record field such as `APPROVED` is data. It is not, by itself, proof that the named person authenticated or had the authority to approve. A future runtime may need identity verification, approval records, signatures, and policy integration.
+
+### 5.4 Fail-closed behavior
+
+If required authority is missing, a required source is unavailable, a material conflict is unresolved, or an executor proposes work outside its scope, the safe outcome is to block or ask for a decision. The executor must not silently expand its authority because doing so appears useful or necessary to complete the task.
+
+## 6. Context preparation and the Context Compiler concept
+
+The book describes a **Context Compiler** as a method for transforming task requirements and recognized project truth into a task-specific working context. It is a conceptual engineering capability, not another AI model and not an independent owner of project truth.
+
+```mermaid
+flowchart TD
+    A["Task Intent and Contract"] --> B["Identify Required Context"]
+    B --> C["Resolve Source Authority"]
+    C --> D["Read Current Project State"]
+    D --> E["Retrieve Recognized Sources"]
+    E --> F["Check Freshness and Dependencies"]
+    F --> G["Identify Conflicts and Exclusions"]
+    G --> H["Prepare Minimum Sufficient Context"]
+    H --> I["Record Context Manifest"]
     I --> J["Provide Authorized Context to Executor"]
 ```
 
-### 4.1 Task definition
+### 6.1 Recognized sources
 
-The task describes the intended outcome and the conditions for completion. The method includes task boundaries, decomposition, atomic engineering tasks, stopping conditions, and acceptance criteria. A task should also identify relevant inputs, constraints, dependencies, expected outputs, verification requirements, and actions requiring approval.
+Potential sources include requirements, approved architecture documents, coding standards, accepted decisions, source files, tests, issue or pull-request references, and other project records. The project must define which sources are authoritative for which questions.
 
-The **Task Contract** is the current machine-readable representation of this task-level agreement. It states what the executor is expected and authorized to do and where it must stop. It is not merely a prompt, a project-wide policy, or proof that an executor actually complied.
+### 6.2 Relevance is not authority
 
-### 4.2 Authority resolution
+A retrieved item may be relevant but stale, superseded, conflicting, untrusted, or outside the task's permitted scope. Similarity or recency alone does not establish truth. Provenance and authority should remain visible where they affect a decision.
 
-Before execution, determine whether the proposed action is permitted, who or what may perform it, which method and constraints apply, and whether human approval is required. The book distinguishes discovery, proposal, and execution: the ability to discover or propose a change does not automatically authorize its execution.
+### 6.3 Minimum sufficient context
 
-Authority must come from the project's approved governance and the task's valid authorization. An executor must not grant itself additional permissions by editing its own instructions, interpreting a user comment as approval, or changing the contract without an authorized process.
+The objective is not to send every project file or the entire conversation history to the executor. It is to prepare enough relevant and permitted information to perform and verify the task. Unnecessary secrets, credentials, customer data, and private information should not be copied into context records.
 
-### 4.3 Current state and knowledge retrieval
+### 6.4 Context Manifest boundary
 
-Context preparation reads the recognized current state and retrieves required knowledge. Relevance alone is insufficient. Retrieved information may be stale, superseded, conflicting, incomplete, or lack authority. The source identity and provenance should be preserved where needed to judge whether an item is suitable for the task.
+The Context Manifest records what was selected and how it was classified. It does not itself retrieve source contents, prove that an executor read them, authenticate their origin, or guarantee correctness. Those responsibilities belong to source systems and trusted runtime components.
 
-### 4.4 Minimum sufficient context
+## 7. Project State and continuity
 
-The objective is not to send the entire project to the executor. It is to compile the authorized working set sufficient for the task and its verification. If a critical conflict, missing source, stale required input, or missing authority prevents reliable context from being established, the workflow should block or request clarification rather than silently choose an assumption.
+Project State is the durable, recognized snapshot of the project. It should distinguish verified facts from assumptions and open questions, and preserve accepted decisions, active tasks, blockers, risks, next actions, and a recovery reference.
 
-### 4.5 Context Manifest
+Project State is not AI memory or a full conversation transcript. It should not copy every task or change record into one document. Instead, it references related records and provides a concise current view.
 
-The **Context Manifest** records which information sources were selected for a task, why they were selected, what authority and trust classifications they carry, how freshness was assessed, and what conflicts or limitations remain.
+### 7.1 State versus other artifacts
 
-A Context Manifest records context assembly. It does not itself fetch sources, prove that a source was read, authorize access, or guarantee that source content is correct. A `READY` manifest is not an execution authorization; the Task Contract and project policy remain authoritative for permission to execute.
-
-## 5. The five Core Specifications
-
-Phase 2 formalizes five connected, technology-neutral records. Each specification is Draft / Experimental v0.1.0 and uses JSON Schema Draft 2020-12.
-
-| Core Specification | Architectural responsibility | Key boundary |
+| Artifact | Question | Distinction |
 |---|---|---|
-| [Task Contract](../specifications/v0.1/task-contract.md) | Defines task identity, objective, authorized scope, constraints, outputs, acceptance criteria, verification requirements, change budget, authority, and stopping conditions. | Declares the task-level agreement; it does not enforce filesystem permissions by itself. |
-| [Context Manifest](../specifications/v0.1/context-manifest.md) | Records selected context sources, authority, provenance, trust, freshness, inclusion/exclusion, conflicts, and limitations. | Records context assembly; it does not fetch or authenticate sources. |
-| [Project State](../specifications/v0.1/project-state.md) | Records a durable, versioned snapshot of project facts, assumptions, decisions, active work, blockers, risks, next actions, and recovery references. | Represents a project snapshot; it is not an event log, database, or AI memory. |
-| [Change Record](../specifications/v0.1/change-record.md) | Records observed repository changes, CREATE/MODIFY/DELETE operations, baseline, inventory, scope-integrity result, and change-budget result. | Requires trustworthy inventory input; the current repository does not yet include a trusted Git diff collector. |
-| [Verification Evidence](../specifications/v0.1/verification-evidence.md) | Records checks actually performed, outcomes, acceptance-criteria links, evidence references, environment, and limitations. | Verification PASS is separate from human acceptance and release approval. |
+| Project Knowledge | What does the project know and recognize? | Standards, architecture, requirements, policies, terminology, decisions, and trusted sources. |
+| Project State | Where does the project stand now? | A versioned snapshot of facts, decisions, work, blockers, and next actions. |
+| Change Record | What repository change was observed? | A record of actual operations against a declared baseline. |
+| Run Record | What happened during a particular engineering run? | A future operational record; not a chat transcript. |
+| Run Delta | What material differences occurred during a run? | A future summary of before/after changes. |
+| Event Log | Which material events occurred and in what order? | A future event history; not the same as a snapshot. |
+| Checkpoint | From which saved point can work continue or recover? | A recovery reference; it is not necessarily the latest state. |
+| Handoff | What must the next person or executor know to continue? | A synchronized transfer of task, state, changes, evidence, blockers, and next action. |
 
-The [Core Specification Index](../specifications/v0.1/README.md) provides the schemas, guides, examples, templates, validation commands, and limitations.
+The current Phase 2 Project State and Change Record specifications provide initial data structures for two of these concerns. Run Record, Run Delta, Event Log, dedicated Checkpoint, and Handoff specifications or services remain future work unless separately published.
 
-### 5.1 How the records relate
+### 7.2 Recovery principle
 
-The five records form a traceable relationship from authorized task to context, project baseline, observed change, and verification result.
+When a session, model, provider, quota, or machine changes, the project should be able to re-establish the recognized task, state, changes, evidence, authority, and next action from project-owned records.
+
+If the state cannot be established or records conflict, the workflow should block and resolve the discrepancy rather than infer what probably happened.
+
+The current repository does not implement automatic recovery or a complete continuity runtime.
+
+## 8. Execution and workspace control
+
+### 8.1 AI Executor
+
+An AI Executor is a tool or system selected to perform an authorized task. Selection should consider task requirements, capability, context needs, risk, state compatibility, verification requirements, availability, quota, and cost.
+
+The strongest model is not necessarily the best executor for every task. An executor must remain replaceable without changing the project's task meaning, authorization, or acceptance criteria.
+
+### 8.2 Engineering Run
+
+An Engineering Run is a bounded period during which an AI executor or a human performs authorized engineering work. The run is temporary; the project persists beyond it. A future Run Record may capture the task and contract revision, executor, baseline, material actions, changes, evidence, outcome, limitations, and next action.
+
+The current repository does not implement a Run service or a persistent execution ledger.
+
+### 8.3 Canonical workspace and write control
+
+The BVC principle **ONE ACTIVE WRITER** applies to canonical workspace changes unless coordinated concurrency has been explicitly designed, secured, and tested.
+
+Multiple people or tools may inspect, discuss, review, or prepare proposals in parallel. That does not mean they may all write to the same canonical working tree or merge changes without coordination.
+
+A future system could permit isolated workspaces or branches to execute concurrently while preserving a controlled integration boundary. Such concurrency must address conflicts, shared resources, authority, evidence, and integration order. It is not part of the current Phase 2 implementation.
+
+### 8.4 Provider and method neutrality
+
+Provider-specific behavior should be separated from task meaning and project policy. An adapter may translate a BVC task into the inputs or tools expected by a particular executor, but it must not silently widen scope, remove required checks, or replace the project's authority rules.
+
+A Semantic Contract aims to preserve task meaning across executors. It does not claim that different providers have identical capabilities, tools, security properties, or execution behavior.
+
+## 9. Change records and Scope Integrity
+
+A Change Record describes observed repository changes for a task execution. It should be linked to the Task Contract, task, source baseline, and relevant execution reference. Each changed path should be represented with an explicit operation and appropriate change statistics.
+
+### 9.1 Observed rather than self-reported
+
+Where possible, the inventory should come from a trusted source-control collector comparing the declared baseline with the actual working result. A worker-authored summary is useful context, but it is not an authoritative replacement for an observed diff.
+
+### 9.2 Scope Integrity
+
+Scope Integrity asks whether observed changes stayed within the authorized operations, paths, forbidden-path rules, sensitive-resource policy, and Change Budget.
+
+A post-execution validator can identify a supplied inventory that exceeds the contract. It cannot prevent an unauthorized write that has already happened. Preventive enforcement requires a trusted execution boundary, such as appropriate filesystem permissions, isolation, or a controlled tool interface.
+
+### 9.3 Change Record limits
+
+The current Change Record validator evaluates supplied data and selected relationships. It does not yet include a trusted Git diff collector, filesystem monitor, sandbox, or preventive permission enforcement. Its output must not be represented as proof of real-world collection unless the collection source is independently established.
+
+## 10. Evidence and verification
+
+The architecture distinguishes an AI Claim from Engineering Evidence, and an implemented change from a verified result.
 
 ```mermaid
 flowchart TD
-    TC["Task Contract<br/>Authorized task and scope"]
-    CM["Context Manifest<br/>Selected sources and provenance"]
-    PS["Project State<br/>Project snapshot and baseline"]
-    CR["Change Record<br/>Observed changes"]
-    VE["Verification Evidence<br/>Checks and evidence"]
-    HA["Human Acceptance<br/>When required by policy"]
-
-    TC --> CM
-    TC --> PS
-    CM --> CR
-    PS --> CR
-    TC --> CR
-    TC --> VE
-    CR --> VE
-    VE --> HA
-```
-
-This is a conceptual traceability relationship, not a mandatory storage sequence or a complete runtime workflow. Records must preserve their identities, revisions, source baselines, and references to one another.
-
-A valid record does not automatically prove that a real-world action was authorized or correctly performed. Trusted runtime enforcement, source authentication, and evidence collection require additional implementation.
-
-## 6. Execution and workspace control
-
-### 6.1 AI Executor
-
-An **AI Executor** is selected for a specific task based on task requirements, capability, context needs, risk, state compatibility, verification needs, availability, quota, and practical cost. The task-first position is that the best executor is not necessarily the strongest model; it is an eligible executor suitable for the task.
-
-An executor performs assigned work. It does not own the project's canonical knowledge, authority, or release decision. Model or provider changes must not silently change the task's meaning or permissions.
-
-### 6.2 Engineering Run
-
-An **Engineering Run** is a controlled period during which an AI executor or a developer performs authorized work on the project. A run is temporary; the project persists beyond it. A future Run Record may summarize material engineering activity, but it should not reproduce every token or chat message.
-
-The current five Core Specifications provide task, context, state, change, and evidence records. They do not yet define a complete Engineering Run lifecycle schema or execution ledger.
-
-### 6.3 Workspace control
-
-The book uses the rule **ONE ACTIVE WRITER** for canonical workspace changes unless the system has been explicitly designed for coordinated concurrency. Multiple AI systems or developers may discover, review, or propose in parallel, but the canonical write path must remain controlled so that the project does not acquire competing versions of the truth.
-
-Git branches and worktrees can support isolated workspaces, but a separate directory or branch is not, by itself, an operating-system security sandbox. Runtime permissions, credentials, process isolation, and filesystem restrictions require separate controls.
-
-### 6.4 Provider and method adapters
-
-Provider-specific behavior belongs behind adapters. The method, project state, authority rules, and acceptance evidence should not silently change just because a model or provider changes. A **Semantic Contract** is intended to preserve task meaning across different executors; it does not mean all providers have identical capabilities or behavior.
-
-The current Phase 2 specifications are technology-neutral data contracts. Python is used for the repository's initial validators. Future TypeScript application logic, Tailwind CSS presentation, or PostgreSQL persistence should implement the same contract meanings rather than redefine them.
-
-## 7. Change records and project state
-
-The method distinguishes material engineering events from transient conversation content. Examples of material events include task creation, a decision, a file or knowledge change, a state transition, test results, evidence creation, a blocker, checkpoint, handoff, and task completion.
-
-The architecture keeps the following concepts distinct:
-
-| Artifact | Question it answers | Current BVC representation and boundary |
-|---|---|---|
-| Project Knowledge | What does the project know? | Recognized requirements, architecture, standards, rules, terminology, decisions, and authoritative sources. It is not one of the five Phase 2 records as a single aggregate. |
-| Project State | Where does the project stand now? | A versioned project snapshot formalized by the [Project State Specification](../specifications/v0.1/project-state.md). |
-| Change Record | What material change occurred and why? | A task/run-linked record formalized by the [Change Record Specification](../specifications/v0.1/change-record.md). |
-| Run Record | What happened during this Engineering Run? | A conceptual artifact; a dedicated normative schema and runtime ledger are future work. |
-| Run Delta | What changed during this run? | A conceptual summary of material differences between before and after; a dedicated schema is future work. |
-| Snapshot | What did the project state look like at a point in time? | Project State is snapshot-oriented; a generic snapshot store and lifecycle are not yet implemented. |
-| Event Log | Which material events occurred? | A complementary event-history concept; no complete event-log service is included. |
-| Checkpoint | From which saved point can work continue or recover? | Project State can reference a recovery point; the repository does not verify or create the checkpoint automatically. |
-
-### 7.1 Project State
-
-A **Project State** is a durable, versioned snapshot of what is currently known about a project: lifecycle, baseline, current milestone, objectives, verified facts, assumptions, accepted decisions, active tasks, blockers, risks, issues, next actions, and recovery point.
-
-Project State is not AI memory and must not be treated as a transcript. It helps a new session, a different executor, or a human maintainer understand the project without relying on one model's conversation history.
-
-A verified fact should cite a source. An assumption must not be silently promoted to a verified fact without evidence and an update to the record. Project State is not a credential store, secret manager, audit log, database schema, or deployment system.
-
-### 7.2 Change Record
-
-A **Change Record** describes repository changes observed for a task execution. It links the file inventory to the Task Contract, task, run, executor, and source baseline. It distinguishes CREATE, MODIFY, and DELETE operations and records diff statistics, sensitive categories supplied by a trusted project classifier, scope-integrity outcome, and change-budget outcome.
-
-A Change Record should be produced or confirmed by a trusted version-control collector from the actual repository diff. The current BVC validator can inspect a supplied inventory and compare it with a contract; it does not independently collect the Git diff or prove that the supplied inventory is authentic.
-
-## 8. Evidence and verification
-
-The method distinguishes an **AI Claim** from **Engineering Evidence** and an implemented change from a verified state. Verification should be planned in relation to acceptance criteria, task risk, impact, uncertainty, evidence strength, and reversibility.
-
-```mermaid
-flowchart TD
-    A["Change Implemented"] --> B["Collect Evidence"]
-    B --> C["Check Acceptance Criteria"]
+    A["Change Implemented"] --> B["Collect Actual Evidence"]
+    B --> C["Map Checks to Acceptance Criteria"]
     C --> D{"Evidence Sufficient?"}
-    D -->|"No"| E["Block / Revise / Clarify"]
+    D -->|"No"| E["Block, Revise, or Clarify"]
     E --> B
     D -->|"Yes"| F{"Human Approval Required?"}
-    F -->|"Yes"| G["Human Review and Decision"]
-    F -->|"No"| H["Accept Verified Result"]
-    G -->|"Approved"| H
+    F -->|"Yes"| G["Authorized Human Review"]
+    F -->|"No"| H["Record Technical Verification Result"]
+    G -->|"Approved"| I["Record Acceptance Decision"]
     G -->|"Rejected"| E
+    H --> I
 ```
 
-The [Verification Evidence Specification](../specifications/v0.1/verification-evidence.md) formalizes checks actually performed, their outcomes, the acceptance criteria they address, evidence artifacts, environment, and limitations.
+### 10.1 Evidence content
 
-The specification distinguishes:
+Evidence should identify what was checked, how it was checked, which acceptance criteria it addresses, when and where it was checked, the result, the artifact reference, and any remaining limitations.
 
-- `PASS`, `FAIL`, `INCONCLUSIVE`, `BLOCKED`, and `NOT_RUN` check outcomes;
-- overall verification result; and
-- a separate human acceptance decision such as `PENDING`, `ACCEPTED`, `REJECTED`, or `CONDITIONALLY_ACCEPTED`.
+Examples may include test reports, CI run references, static-analysis results, review records, screenshots, metrics, or environment observations. Evidence should point to real artifacts and avoid embedding secrets or unnecessary private data.
 
-A verification result of `PASS` does not automatically mean `ACCEPTED` or `RELEASE_APPROVED`.
+### 10.2 Results and decisions are different
 
-Evidence should identify what was checked, how it was checked, which requirement or acceptance criterion was used, when and where it was checked, the result, and remaining limitations. Evidence may become stale if code, configuration, dependencies, environment, or requirements change. A material change may invalidate earlier evidence and require re-verification.
+The Verification Evidence specification distinguishes individual check outcomes and the overall verification result from the separate acceptance decision.
 
-Verification does not mean running every possible test for every task. It means collecting evidence appropriate to the requirement and risk. An executor must not claim to have verified a production system, external service, physical device, or customer environment that it could not access.
+- `PASS` means the defined checks met their stated conditions based on the recorded evidence.
+- `FAIL`, `INCONCLUSIVE`, `BLOCKED`, or `NOT_RUN` must remain visible and must not be silently converted into success.
+- `ACCEPTED` is a separate decision recorded by an authorized person or role.
+- Acceptance does not automatically imply release approval unless project policy explicitly grants that authority.
 
-## 9. Continuity, handoff, and recovery
+### 10.3 Evidence can become stale
 
-A handoff is more than telling another executor to “continue.” The book states:
+A material change to code, configuration, dependencies, environment, or requirements may invalidate earlier evidence. Verification must be evaluated against the relevant revision and environment.
 
-> **No handoff without state synchronization.**
-
-Before handoff, synchronize:
-
-1. material changes and the applicable Change Record or Run Delta;
-2. current Project State;
-3. evidence and verification status;
-4. latest checkpoint and recovery information; and
-5. active task, remaining work, blockers, and next action.
-
-A continuity artifact may identify the current state, latest run, latest checkpoint, latest handoff, knowledge version, governance version, method version, evidence summary, active work, and recovery status. The project should be able to validate, compare, back up, restore, and audit this information.
-
-The Project State and Change Record specifications provide initial data foundations for parts of this continuity model. They do not yet implement a durable event log, checkpoint manager, handoff service, or recovery engine.
-
-A conceptual recovery sequence is:
-
-```mermaid
-flowchart LR
-    A["Run Stops"] --> B["Record Observed Changes"]
-    B --> C["Synchronize Project State"]
-    C --> D["Verify Checkpoint"]
-    D --> E["Prepare Handoff"]
-    E --> F["Resolve Eligible Executor"]
-    F --> G["Validate Context and Authority"]
-    G --> H["Resume Authorized Work"]
-```
-
-If State cannot be established or required records conflict, the safe outcome is to block and resolve the conflict—not to infer the likely state.
-
-## 10. Repository, storage, and technology boundaries
-
-The engineering system's authority must remain distinct from the repository that stores source files and history. GitHub, local Git, GitLab, Gitea, or a private server may serve as repository adapters. A repository is important, but it does not by itself determine whether a task was authorized, a requirement was verified, or a release was approved.
-
-The Core Specifications define portable data contracts rather than a required technology stack:
-
-| Technology | Current or intended role | Boundary |
-|---|---|---|
-| Python | Current validation scripts and development utilities. | An implementation choice for tooling, not a requirement of the data specifications. |
-| TypeScript | Possible future application logic, typed interfaces, and integrations. | Must preserve the published contract semantics. |
-| Tailwind CSS | Possible future user-interface styling for the BVC Starter Workbench. | Presentation layer; it does not define governance or record semantics. |
-| PostgreSQL | Possible future persistent storage for project records when required. | Storage implementation; it does not replace the normative schemas or authority policy. |
-| Git | Source control, history, branches, and diff references. | Git history is useful evidence but is not, by itself, proof of authorization or acceptance. |
-
-This distinction must remain visible in implementation design:
-
-- source-control history is useful evidence about code changes;
-- Project State records the recognized engineering position;
-- governance defines authority and approval rules;
-- Change Records describe observed changes;
-- Verification Evidence records checks and their results; and
-- continuity artifacts help a later run reconstruct what to do next.
+Verification does not mean running every possible test for every task. It means collecting evidence proportionate to the requirement and risk. An executor must not claim to have verified a production system, external service, physical device, or customer environment it could not access.
 
 ## 11. Release and product boundary
 
-The later chapters extend the method beyond task execution. Build, deploy, and release are different states. A deployable artifact is not automatically authorized for release. Release requires relevant state, compatibility, rollback, evidence, and approval according to the project's governance.
+Build, deploy, accept, and release are different decisions or states. A deployable artifact is not automatically authorized for release. Release should follow the project's rules for authority, compatibility, rollback, verification evidence, operational readiness, and approval.
 
-The project is also not complete merely because code exists or a local prototype runs. The book distinguishes code progress from product progress and asks whether the result solves the customer's problem. Enerix Fin (EFIN), also referred to by its product name EnerixFin, is used as an engineering laboratory to explore this transition in Solar and BESS engineering and investment workflows.
+A project is also not complete merely because code exists or a local prototype runs. Product progress must be evaluated against requirements and customer outcomes. The book uses Enerix Fin (EFIN), also referred to as EnerixFin, as an engineering case-study context for Solar and BESS engineering and investment workflows.
 
-EFIN-specific paths, policies, governance identifiers, commercial assumptions, and implementation arrangements are not automatically universal BVC requirements. Public case-study material must be sanitized and reviewed for rights, confidentiality, and factual accuracy.
+EFIN-specific identifiers, repository paths, policies, governance rules, and operating procedures are case-specific. They must not be treated as universal BVC requirements without separate justification and validation.
 
-## 12. Failure modes and design responses
+## 12. Failure modes and architectural responses
 
-| Failure mode | Architectural response described by the method | Current repository support and limitation |
+| Failure mode | Architectural response |
+|---|---|
+| Task is too broad | Decompose it; define objective, scope, constraints, stopping conditions, and acceptance criteria. |
+| Context is incomplete, stale, or conflicting | Identify recognized sources; evaluate authority, freshness, dependencies, trust, and conflicts. |
+| AI memory conflicts with project records | Use canonical project records; AI memory does not override them. |
+| Executor is capable but unauthorized | Resolve authority before execution; block actions outside the granted scope. |
+| Executor proposes an out-of-scope change | Stop the affected work and request authorized scope revision; do not silently expand the task. |
+| Multiple writers create competing changes | Preserve a controlled canonical write path unless coordinated concurrency is explicitly designed. |
+| AI reports completion without evidence | Keep the result unverified; collect evidence against acceptance criteria. |
+| A check passes but approval is missing | Record technical verification separately; do not infer human acceptance or release authority. |
+| A run ends or quota is exhausted | Synchronize task, changes, state, evidence, recovery reference, and next action before handoff. |
+| State or handoff is inconsistent | Fail closed and resolve the conflict before continuing. |
+| Local build is mistaken for product readiness | Evaluate deployment, production environment, security, operations, and customer outcome. |
+| Release is treated as a side effect of deployment | Apply the project's separate release authority, evidence, compatibility, and rollback controls. |
+
+## 13. Repository implementation status
+
+The repository currently publishes:
+
+- Phase 1 framework documentation, including this conceptual architecture;
+- five Phase 2 Core Specifications, all Draft / Experimental v0.1.0;
+- five JSON Schemas using JSON Schema Draft 2020-12;
+- three Task Contract examples and four companion Core Specification examples;
+- a changed-files inventory example;
+- five reusable YAML templates;
+- Python validation utilities;
+- automated unit tests; and
+- a GitHub Actions workflow intended to validate the specifications and run the tests.
+
+The repository does **not** yet provide:
+
+- a complete PAECS runtime;
+- a production-ready AI orchestration or multi-agent runtime;
+- a sandbox that prevents unauthorized filesystem writes during execution;
+- a trusted Git diff collector integrated with every AI run;
+- an authenticated human-approval service;
+- a complete Project State database or event-sourcing service;
+- automatic checkpoint, handoff, and recovery orchestration; or
+- a complete BVC Starter Workbench Web Application.
+
+A successful schema validation or CI run proves only that the configured checks passed for the tested revision. It does not prove that a real executor obeyed permissions or that a production system is safe and correct.
+
+## 14. Technology neutrality and implementation direction
+
+The Core Specifications define technology-neutral data contracts. The current repository uses Python for validation and development utilities. Future implementations may introduce other technologies without changing the normative meaning of the records.
+
+| Technology | Potential role | Current status |
 |---|---|---|
-| Task is too broad | Decompose it; define scope, constraints, stopping conditions, and acceptance criteria. | Task Contract guide, schema, examples, template, and validator. |
-| Context is incomplete or stale | Retrieve from recognized sources; evaluate authority, freshness, dependencies, and conflicts. | Context Manifest schema, guide, example, template, and selected semantic validation. No source-fetching or permission broker is included. |
-| AI memory conflicts with project record | Use the canonical project record; AI memory does not override it. | Project State schema and guide. No runtime state service is included. |
-| Executor is capable but unauthorized | Resolve authority before execution; block unauthorized actions. | Task Contract declares authority and scope. Preventive runtime enforcement is not included. |
-| Multiple executors write competing changes | Use a controlled canonical write path and Workspace Lock unless coordinated concurrency is designed. | Conceptual principle only; no multi-executor scheduler or workspace lock service is included. |
-| AI says “done” without evidence | Keep the task unverified; collect evidence against acceptance criteria. | Verification Evidence schema, guide, example, template, and validation. No trusted evidence-capture service is included. |
-| Run ends or quota is exhausted | Synchronize state, record changes, create a checkpoint, and prepare a handoff. | Project State and Change Record provide initial records; automated recovery is future work. |
-| State or handoff is inconsistent | Fail closed; resolve the conflict before continuing. | Draft record rules and selected cross-record validation; no recovery runtime is included. |
-| Local build is mistaken for product readiness | Evaluate deployment, production environment, operations, security, and customer outcome. | Conceptual guidance; production-readiness implementation is future work. |
-| Release is treated as a side effect of deployment | Apply release authority, state, evidence, compatibility, and rollback controls. | Task Contract and Verification Evidence provide initial foundations; a project-level release policy is future work. |
+| Python | Validators and development utilities. | In use. |
+| TypeScript | Future application logic, typed interfaces, and integrations. | Planned direction; not yet a required Phase 2 dependency. |
+| Tailwind CSS | Future user-interface styling for the Starter Workbench. | Planned direction. |
+| PostgreSQL | Persistent storage for project records when an implementation requires it. | Planned direction; not required by the current specifications. |
 
-## 13. Implementation boundaries and open design questions
+No database, programming language, agent framework, or provider is mandated by the conceptual architecture. Implementation choices must preserve the published data contracts and their validation semantics.
 
-The conceptual architecture does not prescribe a database, event store, schema format, CLI, agent runtime, message protocol, deployment topology, or security product. Those are implementation decisions for later, separately reviewed specifications.
+## 15. Phase boundaries and future design questions
 
-Before declaring a component stable, the project should define:
+The current roadmap remains:
 
-- its input and output contracts;
+| Phase | Objective | Status |
+|---|---|---|
+| Phase 1 | Framework Foundation and Conceptual Architecture. | Published foundation documents. |
+| Phase 2 | Five Core Specifications and initial validation foundation. | Draft / Experimental v0.1.0; undergoing integration and review. |
+| Phase 3 | Practical BVC Starter Workbench for learning and applying the basic method. | Planned. |
+| Future evolution | Advanced runtime enforcement, orchestration, and broader integrations. | Deferred research and future work. |
+
+Advanced Router–Worker orchestration, multi-agent Harness integration, speculative execution, and complex recovery automation are not prerequisites for Phase 2 or the planned beginner-focused Phase 3.
+
+Before any conceptual component is promoted to a stable implementation, the project should define:
+
+- input and output contracts;
 - authoritative sources and precedence rules;
 - validation and failure behavior;
 - security and permission boundaries;
@@ -363,38 +416,7 @@ Before declaring a component stable, the project should define:
 - recovery and migration behavior; and
 - known limitations and non-goals.
 
-### 13.1 Current implementation maturity
-
-The repository currently includes:
-
-- five Phase 1 framework documents;
-- five Phase 2 Core Specifications, all Draft / Experimental v0.1.0;
-- five JSON Schemas using Draft 2020-12;
-- Task Contract examples and companion Core Specification examples;
-- reusable YAML templates;
-- Python validation utilities;
-- automated tests; and
-- a GitHub Actions workflow configured to validate the specifications and run the test suite.
-
-The repository does **not** yet include:
-
-- a complete PAECS runtime or AI orchestration engine;
-- a filesystem sandbox or preventive runtime permission enforcement;
-- a trusted Git diff collector integrated with actual AI execution;
-- an authenticated human-approval service;
-- a durable event-log, checkpoint, handoff, or recovery service;
-- a production-ready Web Application or BVC Starter Workbench; or
-- an independently certified BVC standard.
-
-The current validators inspect supplied files and records. They do not execute AI tasks, fetch external context, authenticate approvals, enforce filesystem permissions, or independently prove that supplied evidence is true.
-
-### 13.2 Phase boundary
-
-Phase 1 establishes the conceptual framework and architecture. Phase 2 formalizes five initial data contracts and their validation foundation. Phase 3 is planned as a practical, beginner-friendly BVC Starter Workbench.
-
-Advanced Router–Worker orchestration, multi-agent Harness integration, and production runtime enforcement are not prerequisites for completing the current Phase 2 foundation or the planned beginner-focused Phase 3. Such capabilities may be researched in a later version only when practical requirements justify their complexity.
-
-Until then, diagrams and terminology describe the intended method, not shipped functionality.
+Until those conditions are met, the diagrams and terms in this document describe the intended engineering method, not shipped functionality.
 
 ---
 
