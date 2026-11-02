@@ -3,7 +3,7 @@
 **Document status:** Draft — synchronized with BVC Core Specifications v0.1.0  
 **Document role:** Framework definition  
 **Phase:** Phase 1 foundation, updated for Phase 2 Core Specifications  
-**Book companion:** _BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI_ — Dong Hong  
+**Book companion:** *BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI* — Dong Hong  
 **Related:** [Start Here](./00-start-here.md) · [Conceptual Architecture](./architecture.md) · [Engineering Glossary](./glossary.md) · [Book Chapter Map](./book-chapter-map.md) · [Core Specification Index](../specifications/v0.1/README.md)
 
 ---
@@ -49,6 +49,7 @@ BVC should help them start with a few practical questions:
 - What exactly am I asking AI to do?
 - Which files or parts of the project may it change?
 - What must it not change?
+- What information should it read before acting?
 - How will I check the result?
 - What should I do if AI wants to go beyond the task?
 
@@ -111,7 +112,7 @@ Provide the executor with the information required for the task—not an indiscr
 
 The book describes a **Context Compiler** as a mechanism that transforms task requirements and recognized project truth into a task-specific working context. It is not another AI model or an agent that owns project truth.
 
-The **Context Manifest** records which sources were selected, why they were selected, their authority and trust classifications, freshness, exclusions, and unresolved conflicts. It records context assembly; it does not fetch sources or prove that a source is correct or accessible.
+The **Context Manifest** records which sources were selected, why they were selected, their authority and trust classifications, freshness, exclusions, and unresolved conflicts. It records context assembly; it does not fetch sources, prove access, or guarantee that source content is correct.
 
 **Key book concepts:** Context Engineering, retrieval, retrieval tiers, Project Knowledge, Project State, Context Compiler, minimum sufficient context.
 
@@ -125,7 +126,7 @@ A valid data record does not itself authenticate the person who approved it or e
 
 **Key book concepts:** Authority, Controlled Autonomy, Method Lock, Semantic Contract, executor eligibility, human decision and approval.
 
-**Current repository foundation:** Task Contract authority and approval fields, selected cross-record validation, and verification acceptance fields. A project-level Authority Policy and authenticated approval service remain future work.
+**Current repository foundation:** Task Contract authority and approval fields, selected cross-record validation, and Verification Evidence acceptance fields. A project-level Authority Policy and authenticated approval service remain future work.
 
 ### 5.4 Executor and Engineering Run coordination
 
@@ -336,16 +337,16 @@ A passing JSON Schema validation or a successful CI run is necessary evidence fo
 
 The normative meaning of BVC records should remain independent of the implementation stack.
 
-The repository currently uses Python for validation and development utilities. The project may later add:
+The repository currently uses Python for validation and development utilities. The project may later add other technologies without changing the normative meaning of the records.
 
-| Technology | Potential role | Governing principle |
+| Technology | Potential role | Current status |
 |---|---|---|
-| Python | Validators and development utilities. | Tooling must implement the published specifications. |
-| TypeScript | Web application logic, typed forms, and integrations. | Types and runtime checks must preserve the normative data model. |
-| Tailwind CSS | User-interface styling for the planned Starter Workbench. | Presentation must not become a second source of governance rules. |
-| PostgreSQL | Persistent storage for project records when required. | Database structures must remain compatible with the technology-neutral record definitions. |
+| Python | Validators and development utilities. | In use. |
+| TypeScript | Future application logic, typed interfaces, and integrations. | Planned direction; not yet a required Phase 2 dependency. |
+| Tailwind CSS | Future user-interface styling for the Starter Workbench. | Planned direction. |
+| PostgreSQL | Persistent storage for project records when an implementation requires it. | Planned direction; not required by the current specifications. |
 
-These are implementation directions, not dependencies required to use the current specifications. A future language, framework, or database must not change the meaning of the Core Specifications.
+No database, programming language, agent framework, or provider is mandated by the conceptual architecture. Implementation choices must preserve the published data contracts and their validation semantics.
 
 ## 12. Roadmap and phase boundaries
 
@@ -376,7 +377,7 @@ The Workbench is a planned deliverable, not an existing application. Its first v
 
 ### 12.2 Advanced capabilities are deferred
 
-Advanced Router–Worker orchestration, multi-agent Harness integration, speculative execution, and complex recovery automation are not prerequisites for completing Phase 2 or the planned beginner-focused Phase 3.
+Advanced Router–Worker orchestration, multi-agent Harness integration, speculative execution, and complex recovery automation are not prerequisites for Phase 2 or the planned beginner-focused Phase 3.
 
 They may be evaluated in a later version only when real use cases, security requirements, and validation evidence justify their complexity. The current roadmap prioritizes a clear and useful foundation over technology-driven expansion.
 
