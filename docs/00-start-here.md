@@ -280,3 +280,4 @@ These are potential future implementation areas. They must not be represented as
 **Start with a small task. Define its boundaries. Verify what AI changes. Keep the project under human control.**
 
 That is the first step beyond Vibe Coding.
+
