@@ -1,0 +1,76 @@
+# BVC v0.1.0 starter template. Replace sample facts, decisions, tasks, baseline, and recovery references with verified project records.
+state_version: 0.1.0
+state_id: BVC-STATE-SAMPLE-001
+revision: 1
+project_id: sample-account-service
+state_as_of: '2026-11-03T09:05:00+07:00'
+lifecycle_state: ACTIVE
+repository:
+  url: https://github.com/example/account-service
+  default_branch: main
+baseline:
+  source_commit: 7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f
+  working_tree_status: CLEAN
+current_milestone:
+  milestone_id: MILESTONE-UI-01
+  title: Improve account status presentation
+  status: IN_PROGRESS
+current_objectives:
+- Keep the account status presentation aligned with approved requirements.
+- Preserve existing authentication, authorization, and persistence boundaries.
+facts:
+- fact_id: FACT-001
+  statement: The status badge component is the canonical UI component for rendering
+    account status labels.
+  classification: VERIFIED_FACT
+  source_refs:
+  - src/components/StatusBadge.tsx
+  verified_at: '2026-11-03T08:52:00+07:00'
+  owner: frontend-team-lead
+- fact_id: FACT-002
+  statement: The approved status requirements are maintained in the project requirements
+    document.
+  classification: VERIFIED_FACT
+  source_refs:
+  - docs/requirements/status-badge.md
+  verified_at: '2026-11-03T08:50:00+07:00'
+  owner: product-owner
+- fact_id: FACT-003
+  statement: A future accessibility review may identify additional requirements.
+  classification: OPEN_QUESTION
+  source_refs: []
+  owner: frontend-team-lead
+decisions:
+- decision_id: DEC-001
+  statement: Keep this task limited to the status badge component and its focused
+    tests.
+  status: ACCEPTED
+  decided_by: engineering-manager
+  decided_at: '2026-11-03T08:40:00+07:00'
+  authority_reference: approval://sample/UI-014
+  source_refs:
+  - BVC-CONTRACT-UI-014
+active_tasks:
+- task_id: APP-TASK-UI-014
+  contract_id: BVC-CONTRACT-UI-014
+  contract_revision: 1
+  status: READY_FOR_ACCEPTANCE
+  owner: frontend-team-lead
+  next_action: Review verification evidence and decide acceptance.
+blocked_items: []
+open_risks: []
+open_issues: []
+next_actions:
+- action_id: NEXT-001
+  description: Review the task verification evidence before accepting the task.
+  priority: NORMAL
+  owner: engineering-manager
+  related_task_id: APP-TASK-UI-014
+recovery:
+  recovery_point_ref: git://example/account-service/7c9e3f2
+  source_commit: 7c9e3f2a8b1d4e6f7a9b0c1d2e3f4a5b6c7d8e9f
+  verified: true
+  last_verified_at: '2026-11-03T08:45:00+07:00'
+  notes: Synthetic example recovery reference; verify with the adopting repository
+    before use.
+updated_by: project-state-maintainer

@@ -1,4 +1,5 @@
-name: Validate BVC Task Contracts
+
+name: Validate BVC Core Specifications
 
 on:
   push:
@@ -6,15 +7,20 @@ on:
     paths:
       - "specifications/v0.1/**"
       - "scripts/validate_task_contracts.py"
+      - "scripts/validate_core_specifications.py"
       - "tests/test_task_contracts.py"
+      - "tests/test_core_specifications.py"
       - "requirements-dev.txt"
       - ".github/workflows/validate-task-contracts.yml"
+
   pull_request:
     branches: [main]
     paths:
       - "specifications/v0.1/**"
       - "scripts/validate_task_contracts.py"
+      - "scripts/validate_core_specifications.py"
       - "tests/test_task_contracts.py"
+      - "tests/test_core_specifications.py"
       - "requirements-dev.txt"
       - ".github/workflows/validate-task-contracts.yml"
 
@@ -23,8 +29,9 @@ permissions:
 
 jobs:
   validate:
-    name: Schema, semantics, and tests
+    name: Validate schemas, semantics, and tests
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -42,5 +49,8 @@ jobs:
       - name: Validate Task Contract examples
         run: python scripts/validate_task_contracts.py
 
-      - name: Run Task Contract tests
+      - name: Validate all Core Specifications
+        run: python scripts/validate_core_specifications.py
+
+      - name: Run all automated tests
         run: python -m unittest discover -s tests -v

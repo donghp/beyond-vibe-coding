@@ -1,13 +1,20 @@
-# Task Contract Examples
+# BVC v0.1.0 Examples
 
-These examples are illustrative and use synthetic project identifiers and paths. They are designed to exercise the v0.1 schema and semantic validator; they are not production contracts and do not describe actual EFIN source paths or customer data.
+All examples are synthetic teaching data. They contain no EFIN source paths, customer data, credentials, or claim of a real execution.
 
-| Example | Mode / risk | Demonstrates |
-|---|---|---|
-| [read-only-inspection.yaml](./read-only-inspection.yaml) | READ_ONLY / R0 | Inspection without project writes; all change budgets are zero. |
-| [scoped-component-change.yaml](./scoped-component-change.yaml) | WRITE / project-defined R2 | Exact MODIFY and CREATE paths, separate operations, recovery point, acceptance criteria, and bounded change budget. |
-| [high-risk-financial-change.yaml](./high-risk-financial-change.yaml) | WRITE / project-defined R4 | Synthetic financial-domain change with explicit approval, domain tests, and stronger evidence. |
+## Task Contract examples
 
-A sample post-run diff inventory is available as [changed-files-inventory.example.json](./changed-files-inventory.example.json); use it with the scoped component contract and `--changed-files-json`.
+- `read-only-inspection.yaml` — a no-write inspection task.
+- `scoped-component-change.yaml` — exact CREATE/MODIFY paths and a bounded change budget.
+- `high-risk-financial-change.yaml` — a synthetic financial-domain task with explicit human approval requirements.
+- `changed-files-inventory.example.json` — illustrative VCS-derived file inventory for the Task Contract diff validator.
 
-Risk labels are interpreted by each example's `risk.policy_ref`. The examples do not establish a universal meaning for R0–R5.
+## Companion Core Specification examples
+
+Companion examples are stored separately in [`core-examples/`](../core-examples/): Context Manifest, Project State, Change Record, and Verification Evidence. The four files form one deliberately linked bundle. They are kept outside this Task Contract examples directory so the existing Task Contract validator does not try to interpret them as Task Contracts. Run:
+
+```bash
+python scripts/validate_core_specifications.py
+```
+
+Do not copy synthetic IDs, commits, approvals, evidence references, or repository paths into a real project without replacing and verifying them.

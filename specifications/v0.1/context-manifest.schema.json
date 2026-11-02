@@ -1,0 +1,322 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/specifications/v0.1/context-manifest.schema.json",
+  "title": "BVC Context Manifest",
+  "description": "Draft v0.1.0 structured record of the project information selected for a task. It records provenance, authority, trust, freshness, exclusions, and conflicts; it does not prove that a source was actually read or that the executor enforced access controls.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "manifest_id",
+    "revision",
+    "status",
+    "project_id",
+    "task_ref",
+    "baseline",
+    "assembled_at",
+    "selection_policy",
+    "sources",
+    "conflicts",
+    "limitations"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": "0.1.0"
+    },
+    "manifest_id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "READY",
+        "BLOCKED",
+        "SUPERSEDED"
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "task_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "contract_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "revision",
+        "task_id"
+      ]
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repository_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_commit": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{7,64}$"
+        }
+      },
+      "required": [
+        "repository_url",
+        "source_commit"
+      ]
+    },
+    "assembled_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "selection_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "conflict_strategy": {
+          "enum": [
+            "STOP_ON_MATERIAL_CONFLICT",
+            "RECORD_AND_CONTINUE"
+          ]
+        },
+        "freshness_strategy": {
+          "enum": [
+            "REQUIRE_CURRENT",
+            "ALLOW_WITH_LIMITATION"
+          ]
+        },
+        "max_source_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "selection_rationale": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "conflict_strategy",
+        "freshness_strategy"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "source_type": {
+            "enum": [
+              "repository_file",
+              "approved_document",
+              "requirement",
+              "decision_record",
+              "issue",
+              "pull_request",
+              "external_reference",
+              "dataset_snapshot",
+              "api_response"
+            ]
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1000
+          },
+          "authority": {
+            "enum": [
+              "CANONICAL",
+              "APPROVED",
+              "REFERENCE",
+              "UNTRUSTED"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "selection_status": {
+            "enum": [
+              "INCLUDED",
+              "EXCLUDED"
+            ]
+          },
+          "trust_level": {
+            "enum": [
+              "TRUSTED",
+              "UNTRUSTED",
+              "UNVERIFIED"
+            ]
+          },
+          "source_revision": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "content_digest": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "freshness": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "enum": [
+                  "CURRENT",
+                  "STALE",
+                  "UNKNOWN",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "observed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "max_age_seconds": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "expires_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "assessment_note": {
+                "type": "string",
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "status",
+              "observed_at"
+            ]
+          }
+        },
+        "required": [
+          "source_id",
+          "reference",
+          "source_type",
+          "purpose",
+          "authority",
+          "required",
+          "selection_status",
+          "trust_level",
+          "freshness"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 500
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "conflict_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "minItems": 2,
+            "maxItems": 20
+          },
+          "severity": {
+            "enum": [
+              "LOW",
+              "MATERIAL",
+              "CRITICAL"
+            ]
+          },
+          "resolution_status": {
+            "enum": [
+              "UNRESOLVED",
+              "RESOLVED",
+              "ACCEPTED_WITH_LIMITATION"
+            ]
+          },
+          "resolution_basis": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "resolved_by": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "resolved_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "conflict_id",
+          "source_ids",
+          "severity",
+          "resolution_status"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 200
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 1000
+      },
+      "minItems": 0,
+      "maxItems": 100
+    }
+  }
+}

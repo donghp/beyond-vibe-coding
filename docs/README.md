@@ -6,30 +6,38 @@ This directory contains the conceptual foundation and reader guides for the **Be
 
 These five documents establish the initial framework definition and conceptual architecture. They describe the method and intended boundaries; they do not claim that every conceptual component has been implemented.
 
-1. [Start Here — 5-Minute Introduction](./00-start-here.md) — project purpose, intended readers, maturity, and a suggested reading path.
-2. [Framework Overview](./framework-overview.md) — BVC philosophy, the engineering problem, and the seven capability areas.
-3. [Conceptual Architecture](./architecture.md) — system context, Context Compiler, execution, evidence, verification, and continuity.
-4. [Engineering Glossary](./glossary.md) — shared terminology and distinctions used throughout the book companion.
-5. [Book Chapter Map](./book-chapter-map.md) — mapping to the English edition's Introduction, 21 chapters, Conclusion, and end matter.
-
-**Suggested reading order:** Start Here → Framework Overview → Conceptual Architecture. Use the Glossary and Book Chapter Map as references.
+1. [Start Here — 5-Minute Introduction](./00-start-here.md)
+2. [Framework Overview](./framework-overview.md)
+3. [Conceptual Architecture](./architecture.md)
+4. [Engineering Glossary](./glossary.md)
+5. [Book Chapter Map](./book-chapter-map.md)
 
 ## Core Specifications — Phase 2
 
-The first machine-readable core specification is the Task Contract:
+The repository now defines five technology-neutral Core Specifications, all Draft / Experimental v0.1.0:
 
-- [Task Contract guide](./task-contract.md) — scope, control principles, validation commands, and limitations.
-- [Task Contract Specification v0.1.0](../specifications/v0.1/task-contract.md) — specification semantics and lifecycle.
-- [JSON Schema — Draft 2020-12](../specifications/v0.1/task-contract.schema.json) — machine-readable structural contract.
-- [Examples](../specifications/v0.1/examples/) — read-only inspection, scoped component change, and synthetic high-risk financial change.
-- [Task Contract template](../templates/task-contract.yaml) — a starting point for project-specific contracts.
-- [Validator](../scripts/validate_task_contracts.py) — structural, semantic, and post-run diff-inventory checks.
-- [Automated tests](../tests/test_task_contracts.py) — 17 tests for schema, scope, approval, and change-budget behavior.
+1. [Task Contract](../specifications/v0.1/task-contract.md) — defines the task, authorized scope, constraints, acceptance, and stopping conditions.
+2. [Context Manifest](../specifications/v0.1/context-manifest.md) — records source provenance, authority, trust, freshness, and conflicts.
+3. [Project State](../specifications/v0.1/project-state.md) — records durable facts, assumptions, decisions, tasks, risks, and recovery references.
+4. [Change Record](../specifications/v0.1/change-record.md) — records observed CREATE, MODIFY, DELETE changes and scope/budget outcomes.
+5. [Verification Evidence](../specifications/v0.1/verification-evidence.md) — records checks, evidence artifacts, and the separate human acceptance decision.
 
-**Maturity:** Task Contract v0.1.0 is Draft / Experimental. Its validator is not a runtime filesystem sandbox and does not, by itself, prevent unauthorized writes.
+The [v0.1 Specification Index](../specifications/v0.1/README.md) includes the JSON Schemas, examples, templates, commands, and limitations.
+
+## Validation
+
+From the repository root, run:
+
+```bash
+python scripts/validate_task_contracts.py
+python scripts/validate_core_specifications.py
+python -m unittest discover -s tests -v
+```
+
+The Python tooling is the current validator implementation. The five data contracts themselves are technology-neutral and are not tied to Python, TypeScript, Tailwind CSS, PostgreSQL, or a specific AI executor.
 
 ## Relationship to the book and EFIN
 
 BVC generalizes the engineering method and principles discussed in **_BEYOND VIBE CODING_**. **Enerix Fin (EFIN)**, also referred to by its product name **EnerixFin**, is a real-world case study and validation environment. EFIN-specific repository paths, registries, governance IDs, and operational arrangements are not automatically universal BVC requirements.
 
-For the main project overview, return to the [repository README](../README.md).
+Return to the [repository README](../README.md) for the project overview.

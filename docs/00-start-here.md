@@ -1,179 +1,283 @@
-# Start Here
+
+# Start Here — Your First Steps into Beyond Vibe Coding
 
 > **AI is an executor. The project owns its knowledge, state, authority, and continuity.**
 >
 > **Prompting gets you a prototype. Engineering gets you to production.**
 
-Welcome to **Beyond Vibe Coding**, a project-centric approach to building and maintaining software with AI coding tools and agents.
+Welcome to **Beyond Vibe Coding (BVC)**, a project-centric approach to building and maintaining software with AI.
 
-This repository is the public engineering companion to **_BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI_** by **Dong Hong**. It is intended for software developers, technical leads, software architects, AI engineers, engineering managers, technology leaders, and technical product managers.
+This repository is the practical engineering companion to:
 
-The central question is not simply how to make an AI write more code. It is:
+**BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI**  
+Author: Dong Hong
 
-> **How can a software project remain understandable, controlled, verifiable, and continuable while AI executors, models, providers, conversations, and environments change?**
+You do not need to be an AI engineer to understand the central idea:
 
----
-
-## 1. The five-minute orientation
-
-### Minute 1 — Understand the problem
-
-AI can produce a working prototype quickly. A growing software project still has to manage requirements, architecture, context, state, dependencies, verification, authority, deployment, and customer outcomes.
-
-A conversation may contain useful history, but conversation history is not the same as the project's current state. An AI saying “done” is not evidence that a requirement has been met. A provider change should not force a project to reconstruct its engineering history from scratch.
-
-### Minute 2 — Learn the project-centric principle
-
-The project should retain the durable information required to continue engineering work:
-
-- **Project Knowledge:** what the project knows and which sources are authoritative.
-- **Project State:** where the project stands now, including active work, blockers, and accepted changes.
-- **Authority:** which actions and decisions are permitted, and which require approval.
-- **Evidence:** what supports a claim that work has been checked or completed.
-- **Continuity artifacts:** records such as changes, run records, checkpoints, handoffs, and recovery instructions.
-
-The AI consumes authorized task context and performs an assigned task. It does not become the project's canonical source of truth merely because it generated an answer or remembers a conversation.
-
-### Minute 3 — Follow the engineering lifecycle
-
-The conceptual lifecycle is:
-
-1. Define the engineering goal.
-2. Decompose the goal into bounded tasks.
-3. Define scope, constraints, dependencies, and acceptance criteria.
-4. Resolve authority and select an eligible executor.
-5. Read the current project state and retrieve relevant knowledge.
-6. Compile the task-specific context.
-7. Execute within the authorized scope.
-8. Record material changes and collect evidence.
-9. Verify the result and obtain required approval.
-10. Update project state, create a checkpoint, and prepare the next task or handoff.
-
-See [Architecture](./architecture.md) for the full conceptual model.
-
-### Minute 4 — Try the continuity thought experiment
-
-Imagine that an AI coding session stops halfway through a task because its quota is exhausted. A different model or provider must continue the work.
-
-Ask whether the project artifacts can explain:
-
-- the active task and its authorized scope;
-- the current project state;
-- the changes already made;
-- the evidence already collected;
-- the acceptance criteria that remain unmet;
-- the latest checkpoint and recovery point;
-- the next safe action.
-
-If the next executor needs the old conversation to reconstruct all of this, project continuity is incomplete. This thought experiment is a starting point for evaluating the ideas in this repository; it is not a benchmark result or a claim that the repository already automates the handoff.
-
-### Minute 5 — Choose your reading path
-
-| Your role | Start with | Then explore |
-|---|---|---|
-| CTO / Technology Leader | [Framework Overview](./framework-overview.md) | [Architecture](./architecture.md), governance and adoption implications |
-| Software / Solution Architect | [Architecture](./architecture.md) | Project Knowledge, State, Context Compiler, Authority, and Evidence |
-| AI Engineer | [Architecture](./architecture.md) | Context resolution, executor adapters, Engineering Runs, and verification |
-| Engineering Manager / Tech Lead | [Framework Overview](./framework-overview.md) | Task contracts, handoffs, checkpoints, and review practices |
-| Senior Developer | [Start with the problem](#1-the-five-minute-orientation) | Task Decomposition, Context Engineering, and the chapter map |
-| Technical Product Manager | [Framework Overview](./framework-overview.md) | Product intent, scope, acceptance criteria, and customer outcomes |
+**AI should help people build software without taking control away from the people who own, understand, and are responsible for the project.**
 
 ---
 
-## 2. What this repository is — and is not
+## 1. Understand the problem
 
-### This repository is
+AI coding tools can generate code quickly. But generating code is not the same as building reliable software.
 
-- A public companion explaining the engineering ideas in the book.
-- A place to publish clearly versioned specifications, patterns, examples, and eventually reference code.
-- A place to discuss task control, context, project state, authority, evidence, and continuity across AI-assisted engineering work.
-- An evolving engineering resource whose claims should be reviewed against examples and tests as artifacts are added.
-- A repository that currently includes five framework foundation documents and its first machine-readable Core Specification: Task Contract v0.1.0 (Draft / Experimental), with a JSON Schema, examples, a template, a validator, and automated tests.
+As a project grows, important questions appear:
 
-### This repository is not (yet)
+- Does the AI understand the real requirements?
+- Does it know which project information is authoritative?
+- Is it allowed to modify the files it wants to change?
+- Could its changes affect security, data, or architecture?
+- How do we know the result actually works?
+- Can another AI or developer continue the project if the current session stops?
 
-- A completed PAECS product or orchestration engine.
-- A coding agent, foundation model, or provider-specific AI tool.
-- A production-ready library with a stable API or compatibility guarantee.
-- A runtime filesystem sandbox that prevents an executor from writing outside its authorized scope.
-- A replacement for Git, source control, architecture review, secure development practices, testing, or human accountability.
-- A claim that a particular workflow guarantees correct software.
+BVC addresses these problems through project-centric engineering practices.
 
-The Task Contract validator performs structural and semantic checks and can inspect a supplied post-run diff inventory. It does not enforce filesystem permissions during execution or prevent unauthorized writes by itself. The current GitHub Actions workflow runs the published Task Contract example validation and automated tests; it is a validation workflow, not a complete engineering orchestration runtime.
+The project—not the AI conversation—must remain the durable source of truth.
+
+## 2. Learn five fundamental engineering concerns
+
+BVC organizes its initial Core Specifications around five connected concerns.
+
+### 2.1 Task — What is the AI asked and allowed to do?
+
+The **Task Contract** defines:
+
+- The task objective.
+- Authorized scope.
+- Separate CREATE, MODIFY, and DELETE permissions.
+- Constraints and stopping conditions.
+- Expected outputs.
+- Acceptance criteria.
+- Verification requirements.
+- Human approval requirements.
+
+Start here:
+
+[Task Contract Specification](../specifications/v0.1/task-contract.md)
+
+### 2.2 Context — What information should the AI use?
+
+The **Context Manifest** records the information selected for a task.
+
+It helps distinguish:
+
+- Authoritative sources.
+- Untrusted information.
+- Current and outdated information.
+- Included and excluded sources.
+- Conflicting information.
+- Provenance and references.
+
+Start here:
+
+[Context Manifest Specification](../specifications/v0.1/context-manifest.md)
+
+### 2.3 State — What is the actual condition of the project?
+
+The **Project State** records durable project information, such as:
+
+- Verified facts.
+- Assumptions.
+- Accepted decisions.
+- Active tasks.
+- Blockers.
+- Open risks.
+- Next actions.
+- Recovery references.
+
+Project State is different from AI conversation history.
+
+Start here:
+
+[Project State Specification](../specifications/v0.1/project-state.md)
+
+### 2.4 Change — What did the AI actually change?
+
+The **Change Record** records observed repository changes.
+
+It distinguishes:
+
+- CREATE.
+- MODIFY.
+- DELETE.
+
+It also records the baseline, changed-file inventory, scope integrity, and change-budget results.
+
+A Worker description of what it changed is not an authoritative replacement for an observed source-control diff.
+
+Start here:
+
+[Change Record Specification](../specifications/v0.1/change-record.md)
+
+### 2.5 Evidence — How do we know the result has been checked?
+
+The **Verification Evidence** record connects actual checks and results to the task's acceptance criteria.
+
+It helps distinguish:
+
+- Checks that were planned.
+- Checks that actually ran.
+- PASS and FAIL results.
+- Evidence references.
+- Known limitations.
+- Human acceptance decisions.
+
+A verification result of PASS does not automatically mean that a human has accepted the work or approved a production release.
+
+Start here:
+
+[Verification Evidence Specification](../specifications/v0.1/verification-evidence.md)
 
 ---
 
-## 3. Read the framework documents and first specification
+## 3. Follow a simple engineering lifecycle
 
-### Framework foundation — v0.1
+The five specifications work together in a traceable engineering process:
 
-1. [Framework Overview](./framework-overview.md) — the problem, purpose, design principles, and capability areas.
-2. [Architecture](./architecture.md) — the conceptual components, records, workflow, and boundaries.
-3. [Glossary](./glossary.md) — the terms used consistently across the book companion.
-4. [Book Chapter Map](./book-chapter-map.md) — how the repository's concepts relate to the published 21-chapter book.
+1. Define the task and authorized scope.
+2. Select relevant and permitted project context.
+3. Record the project baseline and current state.
+4. Let the AI execute only within the authorized scope.
+5. Record the actual changes.
+6. Verify the changes against acceptance criteria.
+7. Collect evidence and obtain required human approval.
+8. Update project records and prepare the next task or handoff.
 
-This file is the orientation and quick-start entry point. The [Documentation Index](./README.md) lists the full reading order and current artifacts.
-
-### First Core Specification — Phase 2
-
-- [Task Contract guide](./task-contract.md) — scope, control principles, validator usage, and known limitations.
-- [Task Contract Specification v0.1.0](../specifications/v0.1/task-contract.md) — the draft normative definition.
-- [Task Contract JSON Schema](../specifications/v0.1/task-contract.schema.json) — JSON Schema Draft 2020-12.
-- [Task Contract examples](../specifications/v0.1/examples/) — three YAML examples and a changed-files inventory example.
-- [Task Contract template](../templates/task-contract.yaml) — a reusable starting point for project-specific contracts.
-- [Validator](../scripts/validate_task_contracts.py) and [automated tests](../tests/test_task_contracts.py).
-
-The Task Contract is Draft / Experimental. It is the first published machine-readable Core Specification in this repository, not a stable standard.
+This is a conceptual lifecycle supported by draft data specifications and validation tools. The repository does not yet automate every step.
 
 ---
 
-## 4. Current maturity and how to evaluate it
+## 4. Choose your learning path
 
-**Repository maturity: Framework Definition & Architecture v0.1, plus Task Contract v0.1.0 (Draft / Experimental).**
+### Beginner / Vibe Coder
 
-The repository currently contains:
+You can start without deep knowledge of programming or AI architecture.
 
-- Five Phase 1 framework documents covering orientation, framework definition, conceptual architecture, glossary, and book-to-repository mapping.
-- Task Contract v0.1.0 and its JSON Schema Draft 2020-12.
-- Three YAML Task Contract examples and a changed-files inventory example.
-- A reusable Task Contract template.
-- A Python validator for schema and semantic checks, including post-run validation against a supplied changed-files inventory.
-- 17 automated unit tests.
-- A GitHub Actions workflow that runs the example validator and unit tests on relevant pushes and pull requests.
+Suggested path:
 
-These assets are an initial, testable specification increment. They do not yet form a complete schema set, stable conformance suite, full reference implementation, or PAECS runtime. In particular, the validator is not a live filesystem permission-enforcement mechanism.
+1. Read the [Framework Overview](./framework-overview.md).
+2. Understand the [Task Contract guide](./task-contract.md).
+3. Open the [Read-only inspection example](../specifications/v0.1/examples/read-only-inspection.yaml).
+4. Explore the [Task Contract template](../templates/task-contract.yaml).
+5. Learn how to validate an example.
 
-When evaluating or adopting an artifact, check:
+Your first goal is simple: learn how to give AI a bounded task and check what it has done.
 
-1. Its declared status: Draft, Experimental, Stable, Deprecated, or Retired.
-2. Its version and change history.
-3. Whether examples validate against the published specification.
-4. Whether tests cover valid, invalid, and boundary cases.
-5. Its known limitations and compatibility notes.
+### Developer / Team Lead
 
-Do not infer implementation maturity from a diagram, roadmap entry, or explanatory document alone. A passing CI run confirms the checks that were executed for that revision; it does not prove universal correctness or production readiness.
+Suggested path:
 
----
+1. Read the [Conceptual Architecture](./architecture.md).
+2. Review all five Core Specifications.
+3. Inspect the JSON Schemas and YAML examples.
+4. Run the Python validators and automated tests.
+5. Examine the GitHub Actions workflow.
 
-## 5. Companion book
+Your goal is to introduce repeatable task, scope, change, and verification practices into software development.
 
-The repository provides an open, practical companion to the broader reasoning, engineering method, trade-offs, and examples developed in the book.
+### CTO / Architect / AI Engineer
 
-**_BEYOND VIBE CODING: A Practical Guide to Building Real-World Software with AI_** — Dong Hong.
+Suggested path:
 
-[**Read the book on Google Play Books →**](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+1. Review the [Framework Overview](./framework-overview.md).
+2. Study the [Conceptual Architecture](./architecture.md).
+3. Review all five Core Specifications and their relationships.
+4. Examine the trust boundaries and known limitations.
+5. Evaluate how the draft contracts could fit your organization's governance and engineering processes.
 
----
-
-## 6. How to participate
-
-Useful contributions include reproducible engineering examples, specification reviews, failure cases, architecture trade-offs, validation tests, and documentation improvements.
-
-- [Open an issue](https://github.com/donghp/beyond-vibe-coding/issues)
-- [View the repository](https://github.com/donghp/beyond-vibe-coding)
-
-Please do not publish secrets, credentials, customer data, confidential commercial information, or proprietary code in public issues or pull requests.
+Your goal is to evaluate the method, define suitable policies, and determine what additional implementation and enforcement capabilities are required.
 
 ---
 
-**Project principle:** the executor may change; the project must retain enough authorized knowledge, state, evidence, and recovery information to continue responsibly.
+## 5. Try the validation tools
+
+The current reference validation tools use Python.
+
+From the repository root:
+
+```bash
+python -m pip install -r requirements-dev.txt
+
+python scripts/validate_task_contracts.py
+
+python scripts/validate_core_specifications.py
+
+python -m unittest discover -s tests -v
+```
+
+The validators check the published examples, selected semantic rules, and cross-record relationships.
+
+The GitHub Actions workflow runs the same validation process for relevant changes.
+
+A passing validation means the tested structures and rules passed. It does not prove that a real AI executor has obeyed the contract or that a production system is correct.
+
+---
+
+## 6. What BVC currently provides
+
+Phase 1 — Framework Foundation:
+
+- Framework Overview.
+- Conceptual Architecture.
+- Engineering Glossary.
+- Start Here.
+- Book Chapter Map.
+
+Phase 2 — Core Specifications:
+
+- Task Contract.
+- Context Manifest.
+- Project State.
+- Change Record.
+- Verification Evidence.
+
+The five specifications are Draft / Experimental v0.1.0. They have JSON Schemas, examples, templates, validators, and automated tests.
+
+## 7. What BVC does not yet provide
+
+The current repository is not a complete AI Engineering Runtime.
+
+It does not yet provide:
+
+- A runtime sandbox that prevents unauthorized file writes.
+- Automatic authentication of human approvals.
+- A trusted Git diff collector connected to every AI execution.
+- A complete project continuity engine.
+- A production-ready AI coding agent.
+- A complete Web Application.
+
+These are potential future implementation areas. They must not be represented as existing capabilities.
+
+---
+
+## 8. Our engineering principles
+
+**Security First:** Security and access boundaries must be considered from the beginning.
+
+**Human Authority:** People retain responsibility for authorization, consequential decisions, and release.
+
+**AI as Executor:** AI performs assigned work; it does not own the project or grant itself authority.
+
+**Scope Integrity:** An executor must not silently expand its assigned scope.
+
+**Evidence before Acceptance:** A claim of completion must be supported by appropriate evidence.
+
+**Technology Neutrality:** The engineering method should not depend on one AI provider or programming language.
+
+**Proportionate Control:** Apply controls appropriate to the task's risk and impact.
+
+---
+
+## 9. Continue learning
+
+- [Documentation Index](./README.md)
+- [Core Specifications Index](../specifications/v0.1/README.md)
+- [Repository README](../README.md)
+- [GitHub Repository](https://github.com/donghp/beyond-vibe-coding)
+- [BEYOND VIBE CODING on Google Play Books](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+
+**Start with a small task. Define its boundaries. Verify what AI changes. Keep the project under human control.**
+
+That is the first step beyond Vibe Coding.
+
