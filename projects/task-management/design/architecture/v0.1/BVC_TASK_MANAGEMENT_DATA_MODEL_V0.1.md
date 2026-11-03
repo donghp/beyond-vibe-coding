@@ -3,7 +3,7 @@
 **Document ID:** BVC-TM-DATA-001\
 **Phase:** 3.2\
 **Version:** 0.1.0\
-**Status:** Draft for Owner Review\
+**Status:** Product Owner Accepted — Phase 3.2 Data Model Design Baseline; implementation verification deferred to Phase 3.3\
 **Date:** 2026-11-04
 
 ## 1. Purpose
@@ -215,7 +215,7 @@ No business-data migration is required if the same Supabase project and schema a
 
 | ID | Decision | Recommended default | Status |
 |---|---|---|---|
-| DATA-001 | Is browser `localStorage` acceptable for Beginner persistence? | Yes for a small teaching workspace; no external database, Localhost or Local-First architecture | Proposed |
+| DATA-001 | Is browser `localStorage` acceptable for Beginner persistence? | Yes for a small teaching workspace; no external database, Localhost or Local-First architecture | ACCEPTED FOR DESIGN — ODEC-003 in Phase 3.2 Acceptance; runtime verification deferred to Phase 3.3 |
 | DATA-002 | Should starter-kit definitions be static application assets? | Yes, versioned in source code | Proposed |
 | DATA-003 | Import semantics for existing Supabase workspace | Preview + merge by default; replacement only with confirmation | Proposed |
 | DATA-004 | Timezone source | Browser IANA timezone on first use, user-editable | Proposed |
