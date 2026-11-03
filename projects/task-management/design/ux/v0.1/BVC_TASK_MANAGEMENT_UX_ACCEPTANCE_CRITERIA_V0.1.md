@@ -4,13 +4,15 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** BVC-TM-PD-001, Product Definition v0.1.0
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 
 ---
 
 ## 1. Purpose
 
-Define testable design acceptance criteria for Phase 3.1. These criteria establish what the UX design package must specify and what the later implemented MVP must demonstrate. They do not replace the Product Definition's AC-001 through AC-030; they add traceable UX-level detail.
+Define testable design acceptance criteria for Phase 3.1. These criteria establish what the UX design package must specify and what the later implemented MVP must demonstrate. They add testable UX-level detail to current Product Definition v0.2.0 FR-001–FR-025 and AC-001–AC-036. The original v0.1.0 numbering is not used as the current traceability authority.
 
 ## 2. Acceptance result terminology
 
@@ -21,6 +23,8 @@ Define testable design acceptance criteria for Phase 3.1. These criteria establi
 
 A mockup alone can satisfy a design-documentation criterion, but it cannot prove that an implemented UI works on a real device.
 
+Canonical open decisions and source aliases are maintained in the [Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). A proposed default is not approved unless that register records an explicit Product Owner decision.
+
 ## 3. UX acceptance criteria
 
 ### A. First-use and navigation
@@ -28,7 +32,7 @@ A mockup alone can satisfy a design-documentation criterion, but it cannot prove
 | ID | Criterion | Evidence |
 |---|---|---|
 | UX-001 | The first-use flow offers a blank workspace or a previewable starter kit. | Journey and wireframe review |
-| UX-002 | The app explains local-device storage and lack of automatic sync before the user begins important data entry. | Onboarding copy and usability test |
+| UX-002 | Before important data entry, the app explains the selected learning level's actual persistence and access behavior: Beginner browser-profile storage/no automatic sync; Intermediate/Advanced signed-in personal Supabase workspace. | Level-specific onboarding copy and usability test |
 | UX-003 | My Day is the landing destination after initial setup. | Navigation specification / implementation test |
 | UX-004 | Compact navigation contains My Day, My Tasks, Projects, and More. | Phone wireframe and responsive test |
 | UX-005 | Templates and Settings & Backup are reachable from More on compact screens. | Navigation test |
@@ -36,7 +40,7 @@ A mockup alone can satisfy a design-documentation criterion, but it cannot prove
 
 ### B. My Day
 
-The My Day layout must preserve the order established by Product Definition v0.1.0, Section 8.2:
+The My Day layout must preserve the order established by current Product Definition v0.2.0, Section 7.2:
 
 **Overdue → Due Today → Today's Focus → Upcoming → Add task.**
 
@@ -75,8 +79,8 @@ The My Day layout must preserve the order established by Product Definition v0.1
 
 | ID | Criterion | Evidence |
 |---|---|---|
-| UX-025 | Settings & Backup clearly states that data is stored in the current browser/device. | UI review |
-| UX-026 | The app does not imply automatic synchronization between devices. | Copy review and user test |
+| UX-025 | Settings & Backup clearly explains where data is stored for the selected learning level. | Level-specific UI review |
+| UX-026 | Beginner is not presented as automatically syncing across devices; Intermediate/Advanced accurately explain the signed-in Supabase personal workspace without implying team sharing or backup. | Copy review and user test |
 | UX-027 | Restore validates a backup before changing the current workspace. | Restore test |
 | UX-028 | Restore replacing the current workspace requires explicit confirmation. | Restore interaction test |
 | UX-029 | Invalid restore leaves the existing workspace unchanged. | Recovery test |
@@ -120,19 +124,25 @@ Phase 3.1 design documents are accepted when:
 - [ ] Interactions define save, validation, status, delete, starter-kit application, export, and restore behavior.
 - [ ] Accessibility and usability expectations are testable.
 - [ ] Every open decision is either resolved by the Product Owner or explicitly deferred from implementation.
-- [ ] No document silently changes the frozen Product Definition or the five BVC Core Specifications.
+- [ ] Documents remain within current Product Definition v0.2.0; Product Definition v0.1.0 is retained only as historical authoring context.
+- [ ] FR/AC traceability is rebuilt against v0.2.0 and no old numeric mapping is reused where meanings changed.
+- [ ] The five Phase 2 Core Specifications and their schemas remain unchanged.
 
 ## 5. Traceability to Product Definition ACs
 
-| UX criteria | Parent Product Definition criteria |
-|---|---|
-| UX-001–UX-006 | AC-001, AC-010, AC-026, AC-029 |
-| UX-007–UX-013 | AC-006, AC-012 |
-| UX-014–UX-019 | AC-002–AC-004, AC-009 |
-| UX-020–UX-024 | AC-005, AC-010 |
-| UX-025–UX-029 | AC-011–AC-016 |
-| UX-030–UX-036 | AC-017–AC-021 |
-| UX-037–UX-044 | AC-022–AC-025, AC-030 |
+| UX criteria | Current Product Definition v0.2.0 mapping | Notes |
+|---|---|---|
+| UX-001 | FR-001, FR-015; AC-001, AC-010 | First-use workspace/Starter Kit choice; application must protect existing data |
+| UX-002 | FR-017, FR-019, FR-024; AC-011, AC-016, AC-025, AC-026 | Level-specific persistence/access disclosure; authenticated workspace isolation applies to Intermediate/Advanced |
+| UX-003–UX-006 | FR-001, FR-025; AC-001, AC-017–AC-021 | Navigation destinations and responsive exposure; UX navigation criteria add detail beyond product ACs |
+| UX-007–UX-013 | FR-010; AC-006 | My Day order, placement, uniqueness and empty states |
+| UX-014–UX-019 | FR-002–FR-006, FR-025; AC-002–AC-004 | Task capture, task actions, status/priority/due-date behavior and feedback |
+| UX-020–UX-024 | FR-007–FR-008, FR-015–FR-016; AC-005, AC-010 | Projects, unassigned tasks, Starter Kit application and data protection |
+| UX-025–UX-029 | FR-017–FR-018, FR-024; AC-011–AC-016 | Beginner browser persistence, export/restore and honest level-specific disclosure |
+| UX-030–UX-036 | FR-025; AC-017–AC-021 | Responsive/reflow requirements; UX tests add specific viewport conditions |
+| UX-037–UX-044 | FR-025; AC-022–AC-024 | Accessibility/usability details are additive UX criteria; product ACs do not claim WCAG certification |
+
+Product Definition v0.2.0 FR-019–FR-023 and AC-027–AC-036 additionally cover Supabase/RLS, migration, Advanced engineering/deployment, synthetic data, tests, Preview/Production and CI/release evidence. The UX package does not verify those engineering controls.
 
 ## 6. Verification approach for later implementation
 
@@ -149,4 +159,4 @@ Do not mark a criterion PASS merely because a design mockup exists. Preserve tes
 
 ## 7. Release gate relationship
 
-These are Phase 3.1 UX criteria. The Product Definition AC-001–AC-030 remain the overarching MVP release baseline. A UX design acceptance does not mean that the application is implemented or release-ready.
+These are Phase 3.1 UX criteria. Current Product Definition v0.2.0 AC-001–AC-036 remain the overarching product acceptance baseline. The UX criteria are additional design/usability criteria and do not replace product or security acceptance. A UX design acceptance does not mean that the application is implemented or release-ready.
