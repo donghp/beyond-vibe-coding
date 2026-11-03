@@ -28,9 +28,7 @@ The architecture supports one BVC Task Management product across three progressi
 - [Product Definition v0.2.0 — Product Owner Approved](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
 - [Product Change Record 001](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_CHANGE_RECORD_001.md)
 
-**Baseline authority:** Product Definition v0.2.0 was approved by the Product Owner on 2026-11-04. It becomes the operational repository baseline after its controlled merge into `main`.
-
-Until that merge, v0.1.0 remains the active baseline on `main`.
+**Baseline authority:** Product Definition v0.2.0 was approved by the Product Owner on 2026-11-04 and is the current operational Product Baseline on `main` through merged PR #5 (commit `ff59827d07eef982e0a23a11279e47c7817c457c`). Product Definition v0.1.0 is retained as the historical baseline and is not the current product authority.
 
 ## 3. Approved learning direction
 
@@ -49,17 +47,16 @@ The exact browser persistence implementation, Supabase project configuration, au
 
 ### 3.1 Phase 3.1 UX version boundary
 
-The Phase 3.1 UX package was prepared against Product Definition v0.1.0.
-
-Some Phase 3.1 UX descriptions may therefore contain historical assumptions about local-only persistence or the earlier single-level product model.
+The Phase 3.1 UX package was originally authored against Product Definition v0.1.0. It remains versioned as the historical v0.1.0 design package; its current compatibility with Product Definition v0.2.0 is being reconciled. Some UX descriptions therefore contain historical local-only assumptions or earlier single-level product references.
 
 For Phase 3.2:
 
 - Preserve the existing Phase 3.1 visual design, screens, navigation, responsive behavior and interaction guidance.
 - Do not modify or redesign Phase 3.1 UX files as part of this architecture consistency update.
-- Interpret storage, identity and synchronization behavior according to Product Definition v0.2.0.
-- Record any genuine conflict between a UX behavior and the revised product direction for explicit Product Owner resolution.
-- Do not silently change the UX package to make it appear formally accepted.
+- Interpret storage, identity and synchronization behavior by learning level according to Product Definition v0.2.0: Beginner browser storage; Intermediate/Advanced authenticated Supabase workspace.
+- Record genuine behavior conflicts and undecided interactions in the canonical Decision Register for explicit Product Owner resolution.
+- Rebuild FR/AC traceability against v0.2.0; do not reuse v0.1.0 requirement numbers where their meanings changed.
+- Do not silently change the UX package's historical version or make it appear formally accepted.
 
 The Phase 3.1 UX Review & Acceptance record remains a separate governance item.
 
@@ -77,7 +74,7 @@ Preserving the UX files does not mean that the formal UX acceptance gate has pas
 
 ## 5. Status and governance
 
-- Product Definition v0.2.0 was approved by the Product Owner on 2026-11-04; controlled publication into `main` is pending merge of PR #5.
+- Product Definition v0.2.0 was approved by the Product Owner on 2026-11-04 and published on `main` through merged PR #5.
 - Product Change Record 001 records the approved product change.
 - Supabase Free is the reference database environment for Intermediate/Advanced book exercises.
 - The practical hosting guide focuses on compatible free-tier hosting.
@@ -97,9 +94,10 @@ Preserving the UX files does not mean that the formal UX acceptance gate has pas
 3. Review Data Model and Security/RLS design.
 4. Review Development, Testing and Deployment design.
 5. Complete Architecture Review & Acceptance.
-6. Verify the actual GAIS-exported scaffold during Phase 3.3 preparation.
-7. Prepare and approve Phase 3.3 implementation Task Contracts.
-8. Implement and verify each bounded change with evidence.
+6. Complete the UX compatibility and traceability review; keep UX Acceptance OPEN until Owner decisions and required design evidence are recorded.
+7. Resolve or explicitly defer all decisions required by the first Beginner implementation scope.
+8. Verify the actual GAIS-exported scaffold and approve a bounded Phase 3.3 Task Contract before implementation.
+9. Implement and verify each bounded change with evidence.
 
 ## 7. External technical references
 
