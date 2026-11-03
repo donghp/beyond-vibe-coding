@@ -4,7 +4,9 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** BVC-TM-PD-001, Product Definition v0.1.0
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 
 ---
 
@@ -13,6 +15,15 @@
 Make BVC Task Management usable by people with different devices, input methods, vision, motor abilities, reading preferences, and levels of technical experience.
 
 This document defines design and test expectations. It is not a claim of WCAG conformance or accessibility certification. Conformance must be assessed against the implemented application.
+
+## Storage and data transparency by learning level
+
+Accessibility includes making data location and account behavior understandable to non-technical users:
+
+- **Beginner:** explain that data is stored in the current browser profile, does not automatically sync to other devices, and may be lost if browser data is cleared; make JSON export/restore discoverable.
+- **Intermediate/Advanced:** explain that the user signs in and accesses their own Supabase-backed workspace; explain that RLS protects user records and that this is not team sharing.
+- Use text labels and accessible status feedback. Do not rely on color, icons, or a generic "saved" message to communicate cloud backup or synchronization.
+- Keep this disclosure available from Settings & Backup and ensure assistive technologies can read it in logical order.
 
 ## 2. Working accessibility target
 
