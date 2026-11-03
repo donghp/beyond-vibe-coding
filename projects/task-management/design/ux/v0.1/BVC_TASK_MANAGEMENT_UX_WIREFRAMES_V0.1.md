@@ -4,9 +4,13 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** BVC-TM-PD-001, Product Definition v0.1.0  
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (authored 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN  
 **Related documents:**
-- [Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+- [Current Product Definition v0.2.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+- [Historical Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+- [Canonical Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md)
 - [User Journey & Navigation](BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md)
 - [Responsive UI Specification](BVC_TASK_MANAGEMENT_RESPONSIVE_UI_SPECIFICATION_V0.1.md)
 - [UI Design System](BVC_TASK_MANAGEMENT_UI_DESIGN_SYSTEM_V0.1.md)
@@ -22,7 +26,7 @@
 
 This document defines the structural wireframes and screen-level information hierarchy for BVC Task Management.
 
-It translates the frozen Product Definition v0.1.0 into practical screen layouts for:
+It was originally authored against Product Definition v0.1.0. Product Definition v0.2.0 is now the governing product baseline; this compatibility revision preserves the original screen hierarchy and visual direction while aligning learning-level behavior and requirement traceability.
 
 - Phone — compact layout.
 - Tablet — portrait and landscape layouts.
@@ -43,7 +47,7 @@ These are structural wireframes. They explain:
 
 They do not represent pixel-perfect production UI or a claim that the application has already been implemented.
 
-The frozen Product Definition remains authoritative whenever a conflict appears.
+Current Product Definition v0.2.0 remains authoritative. The original v0.1.0 reference is preserved as the historical design-authoring baseline.
 
 ## 2. Product and design baseline
 
@@ -67,7 +71,7 @@ It is intended for both technical and non-technical users.
 5. **Progressive disclosure.** Keep essential information visible and reveal optional fields only when needed.
 6. **Calm and focused.** Avoid excessive colors, unnecessary charts, and crowded dashboards.
 7. **Human-readable language.** Use familiar terms such as My Day, My Tasks, Projects, and Templates.
-8. **Local-first and transparent.** Make data-storage limitations clear to the user.
+8. **Storage-transparent by learning level.** Explain Beginner browser storage and the authenticated Supabase workspace used by Intermediate/Advanced.
 9. **Accessible by design.** Support touch, keyboard, visible focus, readable text, and non-drag alternatives.
 10. **Honest about capability.** Do not display controls or status indicators that imply unimplemented capabilities.
 
@@ -75,18 +79,18 @@ It is intended for both technical and non-technical users.
 
 The following constraints apply to all wireframes:
 
-- One responsive browser-based application.
-- Local-first, single-user MVP.
-- No registration, login, team account, invitation, or multi-user collaboration.
-- No automatic synchronization between devices.
-- No cloud database or cloud backup in the frozen v0.1 product baseline.
+- One responsive browser-based product progresses through three learning levels; this does not create three unrelated applications.
+- **Beginner:** no external database, sign-in, VS Code or Localhost is required. A small versioned JSON workspace may use browser `localStorage`; it does not automatically sync across devices and must provide JSON export/restore.
+- **Intermediate:** Supabase PostgreSQL and Supabase Auth provide the user's personal workspace; RLS must restrict access to records owned by that user.
+- **Advanced:** the same Supabase data model is managed through GitHub, VS Code/Localhost, versioned migrations, CI/testing and compatible hosting.
+- No team account, invitation, shared task workspace or role-based team collaboration is included.
 - No CRM, POS, inventory, accounting, HR, ERP, or specialist business operations functions.
 - No Gantt chart, resource planning, complex task dependencies, or enterprise portfolio management.
 - No in-app AI chatbot, AI Agent, autonomous task assignment, or external AI API integration.
 - A task can exist without a project.
-- Business Tasks are separate from BVC Engineering Tasks and the five frozen BVC Core Specifications.
+- Business Tasks are separate from BVC Engineering Tasks and the five Phase 2 Core Specifications.
 
-**Important:** A future Hosted Practice Edition or alternative cloud deployment must be specified as a separately reviewed deployment profile. These wireframes do not silently replace the Local-First Product Definition.
+**Important:** storage, identity, backup and synchronization behavior must be disclosed by learning level. A role Starter Kit does not create a user identity or permission role. The wireframes do not claim that the application, database or deployment has been implemented.
 
 ### 2.4 ENERIXON-inspired visual direction
 
@@ -301,7 +305,7 @@ My Day should remain a working screen, not an analytics dashboard.
 
 ### 4.2 Mandatory section order
 
-The order is fixed by Product Definition v0.1.0, Section 8.2:
+The order is fixed by current Product Definition v0.2.0, Section 7.2:
 
 1. **Overdue**
 2. **Due Today**
@@ -1367,11 +1371,11 @@ Purpose:
 │                                    │
 │ YOUR DATA                          │
 │                                    │
-│ Your workspace is stored in this  │
-│ browser on this device.           │
+│ Beginner: stored in this browser  │
+│ profile; no automatic device sync.│
 │                                    │
-│ It does not automatically sync to │
-│ your other devices.               │
+│ Intermediate/Advanced: saved to   │
+│ your signed-in personal workspace.│
 │                                    │
 │ [Export backup]                   │
 │                                    │
@@ -1402,8 +1406,8 @@ Purpose:
 │                                                                            │
 │ YOUR DATA                                                                  │
 │                                                                            │
-│ Your workspace is stored in this browser on this device.                   │
-│ It does not automatically synchronize with your other devices.            │
+│ Beginner: stored in this browser profile; no automatic device sync.        │
+│ Intermediate/Advanced: saved to your signed-in personal workspace.          │
 │                                                                            │
 │ [Export backup]                         [Restore from backup]               │
 │                                                                            │
@@ -1853,7 +1857,7 @@ The proposed ENERIXON-inspired direction should be adapted for BVC's everyday pr
 
 Do not use the wireframes as justification to introduce a new product feature or silently change a Product Definition requirement.
 
-The PNG and SVG files are visual reference assets. If they differ from this document or the frozen Product Definition in task placement or content order, the Product Definition and approved UX documents take precedence. Visual assets should be updated during the visual-design review when required.
+The PNG and SVG files are visual reference assets. If they differ from this document or current Product Definition v0.2.0 in task placement or content order, Product Definition v0.2.0 and approved UX documents take precedence. Visual assets should be updated during the visual-design review when required.
 
 ---
 
@@ -1861,10 +1865,12 @@ The PNG and SVG files are visual reference assets. If they differ from this docu
 
 These wireframes do not define or authorize:
 
-- Multi-user workspaces.
-- Team collaboration or authenticated user roles.
-- Cloud synchronization.
-- Cloud database or hosted storage in the frozen Local-First MVP.
+- Multi-user team workspaces, team collaboration, invitations or team roles.
+- A new identity/permission model beyond the personal Supabase Auth account in Intermediate/Advanced.
+- Shared tasks or cross-user data access.
+- Provider-specific hosting commitments or paid infrastructure selections.
+
+Beginner remains browser-profile based and does not automatically synchronize across devices. Intermediate/Advanced use the Supabase personal workspace specified by Product Definition v0.2.0.
 - CRM, POS, inventory, payroll, accounting, HR, or ERP features.
 - Gantt charts, project dependencies, resource planning, or portfolio management.
 - AI chatbot or AI Agent inside the application.
@@ -1874,13 +1880,13 @@ These wireframes do not define or authorize:
 - Final backend architecture or database schema.
 - Final production deployment.
 
-Any alternative hosted practice deployment must be documented and reviewed separately from the frozen Product Definition.
+Provider-specific deployment details remain subject to the provider-neutral Phase 3.2 architecture and Phase 3.3 verification gates.
 
 ---
 
 ## 18. Open decisions and implementation boundaries
 
-The following decisions remain subject to Product Owner review and must not be treated as approved merely because a wireframe shows an example.
+The following decisions remain subject to Product Owner review and must not be treated as approved merely because a wireframe shows an example. Canonical status and aliases are maintained in the [Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md).
 
 | ID | Decision | Current proposal | Status |
 |---|---|---|---|
@@ -1891,7 +1897,7 @@ The following decisions remain subject to Product Owner review and must not be t
 | DEC-UX-005 | First-use disclosure | Before first meaningful data entry | OPEN |
 | DEC-UX-006 | Initial visual theme | Calm light theme; dark theme deferred | OPEN |
 | DEC-UX-007 | Proposed primary palette | Review ENERIXON-inspired tokens and contrast in rendered UI | OPEN |
-| DEC-UX-008 | Browser support matrix | Confirm in Phase 3.2 test plan | OPEN |
+| DEC-UX-008 | Browser support matrix | Confirm against target users and Phase 3.3 test evidence | OPEN |
 
 The sample task names and section counts in these wireframes are illustrative, not fixed product data.
 
@@ -1901,36 +1907,27 @@ Final date/time behavior, persistence rules, storage, backup format, browser sup
 
 ## 19. Traceability to Product Definition
 
-The wireframes support the following product requirements:
+The wireframes support the current Product Definition v0.2.0 requirements below. FR numbering is intentionally rebuilt against v0.2.0; the former v0.1.0 mappings are not authoritative.
 
-| Product Definition | Wireframe coverage |
+| Product Definition v0.2.0 | Wireframe coverage |
 |---|---|
-| FR-001 | My Day is the initial landing screen |
-| FR-002 | Blank workspace and Starter Kit selection |
-| FR-003 | Quick Add Task |
-| FR-004 | Task Detail, edit, delete, confirmation |
-| FR-005 | Task status selector and Kanban |
-| FR-006 | Priority selector |
-| FR-007 | Optional due date |
-| FR-008 | Project assignment |
-| FR-009 | No project / unassigned task |
-| FR-010 | Notes and checklist |
-| FR-011 | Overdue and Due Today |
-| FR-012 | Today's Focus |
-| FR-013 | My Tasks list |
-| FR-014 | Kanban on suitable screens |
-| FR-015 | Non-drag status change |
-| FR-016 | Search |
-| FR-017 | Filters |
-| FR-018 | Project creation, viewing, editing, removal |
-| FR-019 | Starter Kit preview and application |
-| FR-020 | Starter Kit merge safety |
-| FR-021 | Export backup |
-| FR-022 | Validated restore and confirmation |
-| FR-024 | Success, error, empty, and confirmation states |
-| FR-025 | Local-data disclosure |
+| FR-001 | First-use choice: blank workspace or previewable Starter Kit |
+| FR-002 | Quick Add Task with title only |
+| FR-003 | Task detail, view/edit/complete/delete and feedback |
+| FR-004–FR-006 | Status, priority and due-date controls |
+| FR-007–FR-008 | Project grouping and valid unassigned tasks |
+| FR-009 | Notes and checklist |
+| FR-010 | My Day placement and no duplicate task rows |
+| FR-011–FR-013 | List/Kanban and non-drag status alternatives |
+| FR-014 | Search and filters |
+| FR-015–FR-016 | Starter Kit preview/application and protection of existing data |
+| FR-017–FR-018 | Beginner browser workspace and versioned JSON export/import disclosures |
+| FR-024 | Level-specific storage/access disclosure |
+| FR-025 | Loading, success, validation, empty and error states |
 
-The corresponding Product Definition acceptance criteria remain the authoritative MVP release baseline.
+FR-019–FR-023 concern Supabase identity/data security, migration and Advanced engineering/deployment workflow. They are not screen behaviors proven by these structural wireframes; they require separate implementation and security evidence.
+
+The corresponding Product Definition v0.2.0 AC-001–AC-036 remain the authoritative product acceptance baseline. These wireframes do not prove those criteria pass.
 
 ---
 
@@ -2008,8 +2005,9 @@ Before Phase 3.1 can be accepted, review the following:
 
 ### Baseline integrity
 
-- [ ] Product Definition v0.1.0 remains authoritative and unchanged.
-- [ ] The wireframes do not silently add cloud or multi-user capabilities.
+- [ ] Product Definition v0.2.0 is treated as current product authority; v0.1.0 is preserved as historical design context.
+- [ ] Beginner, Intermediate and Advanced storage/identity disclosures are distinct and accurate.
+- [ ] The wireframes do not silently add team collaboration or cross-user data access.
 - [ ] The five frozen BVC Core Specifications remain unchanged.
 - [ ] Open Product Owner decisions remain explicitly OPEN.
 - [ ] No claim is made that the application has already been implemented or device-tested.
