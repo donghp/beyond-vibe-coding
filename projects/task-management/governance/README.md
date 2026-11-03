@@ -5,6 +5,7 @@ This folder contains project-level decision and governance records for Phase 3.
 ## Canonical records
 
 - [Phase 3 Product / UX Decision Register](PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md) — canonical decision IDs, source aliases, proposals, statuses and implementation dependencies.
+- [Governance Reconciliation Execution Record](GOVERNANCE_RECONCILIATION_EXECUTION_RECORD_2026-11-04.md) — branch-only reconciliation scope, changed documents, verification results and remaining gates.
 
 ## Authority and boundaries
 
