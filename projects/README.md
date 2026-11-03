@@ -26,9 +26,15 @@ A level describes the intended learning entry point. It does not claim that ever
 
 | Project | Level | What you build | Status |
 |---|---|---|---|
-| [01 — BVC Task Management](task-management/README.md) | Beginner-friendly | A simple daily work manager that can be adapted to personal and professional roles. | Product baseline frozen; UX design in review; application not started |
+| [01 — BVC Task Management](task-management/README.md) | Beginner → Advanced | One daily work manager taught progressively through GAIS/browser storage, Supabase, and production engineering. | Product Definition v0.2.0 current; Phase 3.2 design accepted; UX acceptance OPEN; Phase 3.3 readiness underway; GAIS app implementation not yet evidenced |
 
 Additional projects will be added when their learning outcomes, product scope, and practical value are defined. Do not create empty project folders merely to reserve names.
+
+
+
+## Project governance
+
+BVC Task Management's current Product Definition is v0.2.0. The original v0.1.0 Product Definition remains historical. Phase 3.1 UX Acceptance is OPEN; Phase 3.2 architecture design is accepted; Phase 3.3 implementation and verification are active. See the [project README](task-management/README.md) and its canonical [Phase 3 Product / UX Decision Register](task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md) for the current decision and acceptance state.
 
 ## Standard project structure
 
