@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+<defs>
+  <style>
+    .bg{fill:#f5f7fb}.panel{fill:#fff;stroke:#d9e1ec;stroke-width:2}.ink{fill:#182435;font-family:Inter,Arial,sans-serif}.muted{fill:#66758a;font-family:Inter,Arial,sans-serif}.small{font-size:16px}.tiny{font-size:13px}.body{font-size:18px}.section{font-size:17px;font-weight:700;letter-spacing:.6px}.title{font-size:28px;font-weight:700}.head{font-size:23px;font-weight:700}.brand{font-size:18px;font-weight:700}.line{stroke:#e4eaf2;stroke-width:2}.blue{fill:#2563eb}.blueSoft{fill:#eff6ff}.chip{fill:#f1f5f9;stroke:#e2e8f0;stroke-width:1}.card{fill:#fff;stroke:#e1e7ef;stroke-width:1.5}.overdue{fill:#fff7ed;stroke:#fed7aa;stroke-width:1.5}.done{fill:#f0fdf4;stroke:#bbf7d0;stroke-width:1.5}.navsel{fill:#eff6ff}.white{fill:#fff}.check{fill:#fff;stroke:#94a3b8;stroke-width:2}.btn{fill:#2563eb}.btnText{fill:#fff;font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:700}
+  </style>
+</defs>
+<rect class="bg" width="1800" height="1050"/>
+<text x="50" y="55" class="ink" font-size="32" font-weight="700">BVC TASK MANAGEMENT — MY DAY</text>
+<text x="50" y="88" class="muted" font-size="18">Same everyday workflow, adapted to available screen space · Conceptual wireframe v0.1</text>
+
+<!-- PHONE -->
+<text x="70" y="145" class="ink head">PHONE · 390 CSS px</text>
+<rect x="55" y="165" width="390" height="820" rx="42" fill="#17212b"/>
+<rect x="68" y="178" width="364" height="794" rx="31" fill="#fff"/>
+<rect x="185" y="185" width="130" height="15" rx="8" fill="#17212b"/>
+<text x="90" y="229" class="ink brand">BVC Task Management</text>
+<text x="402" y="229" text-anchor="end" class="muted body">•••</text>
+<line x1="82" y1="247" x2="418" y2="247" class="line"/>
+<text x="90" y="292" class="ink title">My Day</text>
+<text x="90" y="321" class="muted small">Tuesday, 3 November</text>
+<text x="90" y="365" class="ink section">OVERDUE · 1</text>
+<rect x="82" y="380" width="336" height="76" rx="12" class="overdue"/>
+<circle cx="106" cy="418" r="10" class="check"/>
+<text x="126" y="412" class="ink body" font-weight="600">Prepare supplier payment</text>
+<text x="126" y="438" class="muted tiny">Yesterday · High</text>
+<text x="90" y="484" class="ink section">DUE TODAY</text>
+<rect x="82" y="496" width="336" height="54" rx="10" class="card"/>
+<circle cx="106" cy="523" r="9" class="check"/>
+<text x="126" y="518" class="ink small" font-weight="600">Prepare weekly sales report</text>
+<text x="126" y="539" class="muted tiny">Sales · High · Focus</text>
+<rect x="82" y="557" width="336" height="54" rx="10" class="card"/>
+<circle cx="106" cy="584" r="9" class="check"/>
+<text x="126" y="579" class="ink small" font-weight="600">Call supplier about delivery</text>
+<text x="126" y="600" class="muted tiny">Operations · Normal</text>
+<rect x="82" y="618" width="336" height="54" rx="10" class="card"/>
+<circle cx="106" cy="645" r="9" class="check"/>
+<text x="126" y="640" class="ink small" font-weight="600">Review campaign draft</text>
+<text x="126" y="661" class="muted tiny">Marketing · Normal</text>
+<text x="90" y="704" class="ink section">TODAY'S FOCUS</text>
+<rect x="82" y="716" width="336" height="44" rx="10" class="card"/>
+<text x="98" y="743" class="ink tiny" font-weight="600">Review important proposal · Friday</text>
+<text x="90" y="770" class="ink section">UPCOMING</text>
+<text x="90" y="792" class="muted tiny">Prepare Friday meeting · Thursday</text>
+<rect x="160" y="806" width="180" height="38" rx="19" class="btn"/>
+<text x="250" y="830" text-anchor="middle" class="btnText">+ Add task</text>
+<line x1="82" y1="852" x2="418" y2="852" class="line"/>
+<text x="105" y="886" class="blue" font-size="15" font-weight="700">My Day</text>
+<text x="190" y="886" class="muted tiny">My Tasks</text>
+<text x="290" y="886" class="muted tiny">Projects</text>
+<text x="382" y="886" class="muted tiny">More</text>
+<text x="250" y="930" text-anchor="middle" class="muted tiny">Single column · Bottom navigation · Touch first</text>
+
+<!-- TABLET -->
+<text x="505" y="145" class="ink head">TABLET · 820 CSS px</text>
+<rect x="485" y="165" width="590" height="820" rx="28" class="panel"/>
+<text x="520" y="211" class="ink brand">BVC Task Management</text>
+<rect x="918" y="184" width="125" height="42" rx="21" class="btn"/>
+<text x="980" y="211" text-anchor="middle" class="btnText">+ Add task</text>
+<line x1="500" y1="239" x2="1060" y2="239" class="line"/>
+<rect x="500" y="240" width="84" height="730" fill="#f8fafc"/>
+<rect x="507" y="265" width="70" height="52" rx="9" class="navsel"/>
+<text x="542" y="286" text-anchor="middle" class="blue tiny" font-weight="700">My</text><text x="542" y="303" text-anchor="middle" class="blue tiny" font-weight="700">Day</text>
+<text x="542" y="353" text-anchor="middle" class="muted tiny">My Tasks</text>
+<text x="542" y="404" text-anchor="middle" class="muted tiny">Projects</text>
+<text x="542" y="455" text-anchor="middle" class="muted tiny">More</text>
+<text x="610" y="292" class="ink title">My Day</text>
+<text x="610" y="320" class="muted small">Tuesday, 3 November</text>
+<text x="610" y="370" class="ink section">OVERDUE · 1</text>
+<rect x="606" y="383" width="440" height="70" rx="12" class="overdue"/>
+<circle cx="631" cy="418" r="10" class="check"/>
+<text x="655" y="413" class="ink body" font-weight="600">Prepare supplier payment</text>
+<text x="655" y="438" class="muted tiny">Yesterday · High</text>
+<text x="610" y="493" class="ink section">DUE TODAY</text>
+<rect x="606" y="506" width="440" height="62" rx="12" class="card"/>
+<circle cx="631" cy="537" r="10" class="check"/>
+<text x="655" y="532" class="ink small" font-weight="600">Prepare weekly sales report · Focus</text>
+<text x="655" y="554" class="muted tiny">Sales · High</text>
+<rect x="606" y="578" width="440" height="62" rx="12" class="card"/>
+<circle cx="631" cy="609" r="10" class="check"/>
+<text x="655" y="604" class="ink small" font-weight="600">Call supplier about delivery</text>
+<text x="655" y="626" class="muted tiny">Operations · Normal</text>
+<rect x="606" y="650" width="440" height="62" rx="12" class="card"/>
+<circle cx="631" cy="681" r="10" class="check"/>
+<text x="655" y="676" class="ink small" font-weight="600">Review campaign draft</text>
+<text x="655" y="698" class="muted tiny">Marketing · Normal</text>
+<text x="610" y="752" class="ink section">TODAY'S FOCUS</text>
+<text x="610" y="785" class="muted small">Review important proposal · Friday</text>
+<text x="610" y="842" class="ink section">UPCOMING</text>
+<text x="610" y="876" class="muted small">Prepare Friday meeting · Thursday</text>
+<text x="780" y="930" text-anchor="middle" class="muted tiny">Navigation rail · Wider content · No forced detail pane in portrait</text>
+
+<!-- DESKTOP -->
+<text x="1135" y="145" class="ink head">LAPTOP / PC · 1440 CSS px</text>
+<rect x="1115" y="165" width="630" height="820" rx="18" class="panel"/>
+<text x="1145" y="211" class="ink brand">BVC Task Management</text>
+<text x="1705" y="211" text-anchor="end" class="muted small">Search      + Add task</text>
+<line x1="1128" y1="239" x2="1732" y2="239" class="line"/>
+<rect x="1128" y="240" width="162" height="730" fill="#f8fafc"/>
+<text x="1148" y="286" class="muted tiny" font-weight="700">MY WORK</text>
+<rect x="1138" y="302" width="122" height="42" rx="8" class="navsel"/>
+<text x="1151" y="328" class="blue small" font-weight="700">My Day</text>
+<text x="1151" y="375" class="muted small">My Tasks</text>
+<text x="1151" y="422" class="muted small">Projects</text>
+<line x1="1140" y1="447" x2="1258" y2="447" class="line"/>
+<text x="1148" y="480" class="muted tiny" font-weight="700">MORE</text>
+<text x="1151" y="514" class="muted small">Templates</text>
+<text x="1148" y="558" class="muted tiny">Settings &amp; Backup</text>
+<text x="1314" y="292" class="ink title">My Day</text>
+<text x="1314" y="320" class="muted small">Tuesday, 3 November</text>
+<text x="1314" y="366" class="ink section">OVERDUE · 1</text>
+<rect x="1310" y="380" width="250" height="64" rx="10" class="overdue"/>
+<text x="1326" y="406" class="ink small" font-weight="600">Prepare supplier</text>
+<text x="1326" y="428" class="muted tiny">payment · Yesterday</text>
+<text x="1314" y="481" class="ink section">DUE TODAY</text>
+<rect x="1310" y="495" width="250" height="58" rx="10" class="card"/>
+<text x="1326" y="519" class="ink small" font-weight="600">Prepare weekly sales</text>
+<text x="1326" y="540" class="muted tiny">report · High · Focus</text>
+<rect x="1310" y="560" width="250" height="58" rx="10" class="card"/>
+<text x="1326" y="584" class="ink small" font-weight="600">Call supplier</text>
+<text x="1326" y="605" class="muted tiny">Operations · Normal</text>
+<rect x="1310" y="625" width="250" height="58" rx="10" class="card"/>
+<text x="1326" y="649" class="ink small" font-weight="600">Review campaign</text>
+<text x="1326" y="670" class="muted tiny">Marketing · Normal</text>
+<text x="1314" y="716" class="ink section">TODAY'S FOCUS</text>
+<text x="1314" y="747" class="muted tiny">Review important proposal · Friday</text>
+<text x="1314" y="786" class="ink section">UPCOMING</text>
+<text x="1314" y="817" class="muted small">Prepare Friday meeting</text>
+<rect x="1580" y="260" width="145" height="680" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="1596" y="292" class="ink section">QUICK VIEW</text>
+<line x1="1594" y1="310" x2="1710" y2="310" class="line"/>
+<text x="1596" y="349" class="ink small" font-weight="600">Due today · Focus</text>
+<text x="1596" y="382" class="muted tiny">Title, due date,</text>
+<text x="1596" y="402" class="muted tiny">priority, project</text>
+<text x="1596" y="438" class="muted tiny">[Open details]</text>
+<text x="1596" y="510" class="muted tiny">Hide this pane</text>
+<text x="1430" y="930" text-anchor="middle" class="muted tiny">Persistent sidebar · Focused main column · Optional task preview when space allows</text>
+
+<rect x="50" y="1005" width="1700" height="2" fill="#d9e1ec"/>
+<text x="50" y="1032" class="muted tiny">Conceptual structural wireframe · Not an implemented application · Product Definition v0.1.0 remains the scope authority</text>
+</svg>
