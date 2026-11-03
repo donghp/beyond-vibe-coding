@@ -6,13 +6,15 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** [BVC Task Management Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md) — BVC-TM-PD-001
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 
 ---
 
 ## 1. Purpose
 
-This folder contains the UX design baseline for BVC Task Management. It translates the frozen Product Definition v0.1.0 into user journeys, navigation rules, responsive wireframes, visual design guidance, interaction behavior, accessibility expectations, and UX acceptance criteria.
+This folder contains the Phase 3.1 UX design package originally authored against Product Definition v0.1.0. Product Definition v0.2.0 is now the current product authority. This compatibility revision aligns product references and level-specific storage/access behavior without silently changing the historical design origin or closing formal UX acceptance.
 
 These documents explain **how the agreed product should feel and behave**. They do not authorize new product features, change the MVP boundary, select the final application technology, or replace the Product Definition.
 
@@ -46,26 +48,37 @@ The PNG is a visual review aid. The SVG is the editable source for this conceptu
 
 ## 4. Relationship to the Product Definition
 
-The [Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md) remains authoritative for product scope. This UX package must stay within these boundaries:
+The [Product Definition v0.2.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md) is the current product authority. Product Definition v0.1.0 remains the historical baseline against which this UX package was originally authored.
 
-- One responsive browser-based application.
-- Local-first, single-user MVP.
-- No login, accounts, shared workspace, cloud database, or automatic cross-device synchronization.
-- Primary navigation: My Day, My Tasks, Projects, More on compact screens; Templates and Settings & Backup may be exposed directly on wider screens.
+This UX package must stay within these boundaries:
+
+- One responsive product progressing through Beginner, Intermediate and Advanced learning levels.
+- **Beginner:** no external database or sign-in; a small versioned workspace may use browser `localStorage`; no automatic cross-device sync; JSON export/restore provides manual portability.
+- **Intermediate/Advanced:** Supabase PostgreSQL and Supabase Auth provide each user's personal workspace; RLS protects user-owned records.
+- No team accounts, invitations, shared task workspaces or role-based team collaboration.
+- Primary navigation remains My Day, My Tasks, Projects, More on compact screens; Templates and Settings & Backup may be exposed directly on wider screens.
 - Role Starter Kits are editable starting configurations, not user roles, permissions, or separate application editions.
-- Business Tasks are distinct from BVC Engineering Tasks and the five frozen Core Specifications.
+- Business Tasks are distinct from BVC Engineering Tasks and the five Phase 2 Core Specifications.
 - No CRM, POS, inventory, accounting, ERP, or specialist business operations functionality.
 - No AI chatbot or AI API integration inside the MVP application.
 
-When a UX decision appears to conflict with the Product Definition, stop and resolve the conflict through a reviewed Product Definition change. Do not silently reinterpret the parent baseline.
+When a UX behavior conflicts with Product Definition v0.2.0, record the conflict in the canonical Product/UX Decision Register and obtain a Product Owner decision. Do not silently change product scope.
 
-## 5. Important local-data disclosure
+## 5. Important data-storage disclosure by learning level
 
-Responsive layout across phones, tablets, laptops, and PCs does not mean that data synchronizes between devices. The same application can display on every supported device, but each browser/device has its own local workspace in v0.1. Users move data between devices through explicit backup and restore.
+Responsive layout and data persistence are separate concerns. Storage/access disclosure must match the selected learning level:
 
-This must be explained before the user begins adding important work and remain accessible from More → Settings & Backup.
+- **Beginner:** data is stored in the current browser profile using `localStorage`; it does not automatically sync to other devices and may be lost when browser data is cleared. JSON export/restore is the explicit portability mechanism.
+- **Intermediate:** data is saved to the user's Supabase PostgreSQL workspace through Supabase Auth; RLS restricts access to that user's records.
+- **Advanced:** the same authenticated personal workspace is managed through source control, migrations, CI and controlled deployment. This does not introduce team sharing.
 
-## 6. Review order
+The disclosure must be presented before important data entry and remain accessible from More → Settings & Backup.
+
+## 6. Canonical decisions
+
+Open product, interaction, visual and architecture choices are consolidated in the [Phase 3 Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). Existing document-specific IDs remain as aliases for traceability. No proposed default becomes approved by appearing in a design document.
+
+## 7. Review order
 
 Review in this order:
 
@@ -78,12 +91,13 @@ Review in this order:
 7. UX Acceptance Criteria — confirm that the design can be tested objectively.
 8. UX Design Review & Acceptance Record — record decisions, evidence, unresolved issues, and the final human review outcome.
 
-## 7. Phase 3.1 exit gate
+## 8. Phase 3.1 exit gate
 
 Phase 3.1 can be accepted when:
 
 - All seven detailed UX design documents have been reviewed.
-- Product Definition v0.1.0 remains unchanged or any required product change has been separately approved.
+- Product Definition v0.2.0 is treated as current authority; v0.1.0 remains historical authoring context.
+- Current FR/AC traceability is correct for v0.2.0; the Phase 2 Core Specifications remain unchanged.
 - Phone, tablet, and desktop wireframes describe the same product and information architecture.
 - Main user journeys and important error/empty states are covered.
 - Responsive and accessibility expectations are testable.
