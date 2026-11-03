@@ -4,8 +4,8 @@
 **Program:** BEYOND VIBE CODING — Build & Learn  
 **Learning level:** Beginner to Advanced  
 **Product:** BVC Task Management — A Simple Daily Work Manager  
-**Governance status:** Product Definition v0.1.0 remains the last formally frozen baseline. Product Definition v0.2.0 and the Phase 3.2 Architecture Package are proposals under review in PR #5.  
-**Implementation status:** Not started
+**Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
+**Implementation status:** Phase 3.3 readiness preparation underway; GAIS application implementation has not yet been evidenced
 
 > **Build something useful. Use it every day. Learn by doing.**
 
@@ -40,28 +40,26 @@ The product also serves as a progressive hands-on learning project. Readers star
 
 ## 3. Product baseline and change control
 
-The repository currently recognizes:
+The current product authority is **Product Definition v0.2.0**, approved by the Product Owner on 2026-11-04 and published on `main` through merged PR #5 (merge commit `ff59827d07eef982e0a23a11279e47c7817c457c`).
 
-- **Product Definition v0.1.0:** the last formally frozen product baseline.
-- **Product Definition v0.2.0:** a proposed revision introducing the progressive three-level learning and product delivery model.
-- **Product Change Record 001:** records the Owner-approved direction for the proposed change and is submitted for formal repository review.
+- **Product Definition v0.2.0:** current Product Baseline; defines the Beginner, Intermediate and Advanced learning model.
+- **Product Definition v0.1.0:** historical frozen baseline; retained for traceability and not deleted.
+- **Product Change Record 001:** records the approved transition from v0.1.0 to v0.2.0.
 
 Documents:
 
-- [Product Definition v0.1.0 — Frozen Baseline](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
-- [Product Definition v0.2.0 — Draft for Product Owner Review](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
-- [Product Change Record 001](product/BVC_TASK_MANAGEMENT_PRODUCT_CHANGE_RECORD_001.md)
+- [Product Definition v0.2.0 — Current Product Baseline](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+- [Product Definition v0.1.0 — Historical Baseline](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+- [Product Change Record 001 — Approved and Published](product/BVC_TASK_MANAGEMENT_PRODUCT_CHANGE_RECORD_001.md)
 
-**Authority rule:** Product Definition v0.1.0 remains the formal repository baseline until v0.2.0 receives explicit Product Owner approval and is accepted through the controlled repository process. Publishing v0.2.0 on a review branch does not automatically replace the frozen baseline.
-
-Implementation must not silently introduce proposed product changes before the required approval gates are complete.
+**Authority rule:** v0.2.0 governs current product scope on `main`. v0.1.0 remains immutable historical evidence of the original product direction. Any future product change requires a new reviewed revision and change record.
 
 ## 4. Project documentation
 
 ### Product
 
-- [Product Definition v0.1.0 — Frozen Baseline](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
-- [Product Definition v0.2.0 — Draft](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+- [Product Definition v0.2.0 — Current Product Baseline](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+- [Product Definition v0.1.0 — Historical Baseline](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
 - [Product Change Record 001](product/BVC_TASK_MANAGEMENT_PRODUCT_CHANGE_RECORD_001.md)
 
 ### Phase 3.1 — UX & Product Design
@@ -249,34 +247,31 @@ The step-by-step lessons will live under the repository-level `/practical-labs/`
 
 **Product governance**
 
-- Product Definition v0.1.0 remains the last formally frozen repository baseline.
-- Product Definition v0.2.0 is a draft proposed revision.
-- Product Change Record 001 records the approved direction in the working conversation and is submitted for formal repository review.
-- Product Definition v0.2.0 does not replace v0.1.0 until the required Product Owner approval and repository acceptance are complete.
+- Product Definition v0.2.0 is the current Product Owner-approved baseline on `main`; PR #5 is merged.
+- Product Definition v0.1.0 is retained as historical baseline and is not deleted.
+- Product Change Record 001 records the approved transition and publication.
+- The five Phase 2 Core Specifications remain Draft / Experimental v0.1.0 and are unchanged.
 
 **Design and architecture**
 
-- Phase 3.1 UX artifacts are preserved as the design reference.
-- The Phase 3.1 UX Review & Acceptance record remains a separate open governance item.
-- The Phase 3.2 Architecture Package is prepared for Product Owner review in PR #5.
-- The Phase 3.2 documents describe design intent; runtime and implementation evidence must be produced in the appropriate later phase.
+- Phase 3.1 UX artifacts remain the historical design package originally authored against v0.1.0.
+- The UX package is undergoing compatibility reconciliation against v0.2.0; its formal UX Acceptance remains OPEN.
+- Phase 3.2 Architecture Design Baseline is Product Owner Accepted; PR #5 is merged.
+- Data Model and Security design acceptance does not mean implementation, RLS tests, secret scanning or runtime verification have passed.
 
-**Implementation**
+**Phase 3.3 implementation status**
 
-- Application implementation has not started.
-- No Supabase cloud resource or application database is claimed as provisioned.
-- No hosting project or live deployment is claimed as completed.
+- Phase 3.3 readiness and learning-curriculum preparation are underway.
+- The GAIS application has not yet been created/run with evidence in this repository.
+- No provisioned Supabase learning project, application database, hosting project or live deployment is claimed.
 - No runtime security, integration, end-to-end or production deployment test is claimed as passed.
 
-**Next gate**
+**Next gates**
 
-1. Review Product Change Record 001 and Product Definition v0.2.0.
-2. Review the Phase 3.2 Architecture Package and its acceptance criteria.
-3. Resolve the required Product Owner decisions.
-4. Formally approve the product and architecture baselines through the controlled repository process.
-5. Only after the approval gates pass, prepare Phase 3.3 implementation Task Contracts.
+1. Complete R1–R4 Governance Reconciliation and Product Owner decisions.
+2. Approve the first bounded Phase 3.3 implementation Task Contract.
+3. Create a blank GAIS app and inspect the actual generated scaffold.
+4. Build and verify the Beginner app incrementally with evidence.
+5. Keep Intermediate and Advanced work behind their own task, security and acceptance gates.
 
 ---
-
-**BEYOND VIBE CODING — Build & Learn**  
-*Build something useful. Use it every day. Learn by doing.*
