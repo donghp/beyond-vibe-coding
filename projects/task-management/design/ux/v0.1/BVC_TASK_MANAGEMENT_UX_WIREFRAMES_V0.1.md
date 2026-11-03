@@ -10,7 +10,7 @@
 **Related documents:**
 - [Current Product Definition v0.2.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
 - [Historical Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
-- [Canonical Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md)
+- [Canonical Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md)
 - [User Journey & Navigation](BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md)
 - [Responsive UI Specification](BVC_TASK_MANAGEMENT_RESPONSIVE_UI_SPECIFICATION_V0.1.md)
 - [UI Design System](BVC_TASK_MANAGEMENT_UI_DESIGN_SYSTEM_V0.1.md)
@@ -1886,7 +1886,7 @@ Provider-specific deployment details remain subject to the provider-neutral Phas
 
 ## 18. Open decisions and implementation boundaries
 
-The following decisions remain subject to Product Owner review and must not be treated as approved merely because a wireframe shows an example. Canonical status and aliases are maintained in the [Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md).
+The following decisions remain subject to Product Owner review and must not be treated as approved merely because a wireframe shows an example. Canonical status and aliases are maintained in the [Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md).
 
 | ID | Decision | Current proposal | Status |
 |---|---|---|---|
