@@ -1,5 +1,7 @@
 # BVC Phase 3.0 — Baseline Review and README Update
 
+> **Historical snapshot — 2026-11-03.** This review records the repository and Product Definition v0.1.0 state at the time it was written. It is retained as historical evidence and is not the current product authority or roadmap. Product Definition v0.2.0 became the current Product Baseline on `main` through merged PR #5 on 2026-11-03 (merge commit `ff59827d07eef982e0a23a11279e47c7817c457c`). Current Phase 3 governance is recorded in the root README, `projects/task-management/README.md`, and the canonical Product/UX Decision Register. Do not use the historical proposed Local-First direction below as the current three-level product definition.
+
 **Review date:** 2026-11-03  
 **Repository:** https://github.com/donghp/beyond-vibe-coding  
 **Reviewed ref:** `main` at `142755f2fdfade6face7a22a32c2e4c781894226`  
