@@ -77,7 +77,7 @@ The following must exist under `projects/task-management/design/ux/v0.1/`:
 | DEC-UX-007 | Is the proposed blue primary palette acceptable? | Review candidate tokens and contrast in rendered UI | OPEN |
 | DEC-UX-008 | What is the minimum browser support matrix? | Confirm in Phase 3.2 test plan based on real target users | OPEN |
 
-These are not approved product changes until the Product Owner records a decision. The consolidated register, including INT-OPEN, DS-OPEN, DATA and Auth aliases, is maintained in the [Phase 3 Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md).
+These are not approved product changes until the Product Owner records a decision. The consolidated register, including INT-OPEN, DS-OPEN, DATA and Auth aliases, is maintained in the [Phase 3 Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md).
 
 ## 6. Phase 3.1 acceptance checklist
 
