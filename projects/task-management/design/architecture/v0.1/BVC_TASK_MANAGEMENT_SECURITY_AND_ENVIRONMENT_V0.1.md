@@ -4,7 +4,8 @@
 **Document ID:** BVC-TM-SEC-001  
 **Phase:** 3.2  
 **Version:** 0.1.1  
-**Status:** Draft for Owner Review  
+**Status:** Product Owner Accepted — Phase 3.2 Security Design Baseline; implementation verification deferred to Phase 3.3  
+**Parent baseline:** BVC-TM-PD-001 Product Definition v0.2.0  
 **Date:** 2026-11-04
 
 ## 1. Purpose
