@@ -2,7 +2,7 @@
 
 **Document ID:** BVC-TM-PCR-001\
 **Version:** 0.1.0\
-**Status:** Owner-approved direction in ChatGPT; formal repository revision pending\
+**Status:** Owner-approved direction in ChatGPT; submitted for formal repository review\
 **Date:** 2026-11-04\
 **Affected baseline:** BVC-TM-PD-001 Product Definition v0.1.0
 
@@ -116,10 +116,10 @@ Unchanged product behavior remains governed by Product Definition v0.1.0 unless 
 
 - **Owner decision in conversation:** Approved the three-level direction and Phase 3.2 progression; no UI redesign.
 - **Vercel Hobby final selection:** Recommended, awaiting explicit confirmation.
-- **Formal Product Definition v0.2.0:** Not yet published.
-- **GitHub repository update:** Not yet performed or verified.
+- **Formal Product Definition v0.2.0:** Published as a draft on branch phase3/3-2-architecture-product-update and submitted for review in PR #5; formal approval and merge are pending.
+- **GitHub repository update:** Published on branch phase3/3-2-architecture-product-update and submitted for review in PR #5; not yet merged into main.
 - **Implementation authorization:** Not granted by this change record alone.
 
 ## 10. Required next action
 
-Prepare and review the full Product Definition v0.2.0 using this record, then approve the Phase 3.2 Architecture Package. Only after those gates pass should Phase 3.3 issue an implementation Task Contract.
+Review and formally approve Product Definition v0.2.0 and the Phase 3.2 Architecture Package. Only after those gates pass should Phase 3.3 issue an implementation Task Contract.
