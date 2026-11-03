@@ -50,10 +50,20 @@ A starter kit is an editable starting point. It is not a user account, access ro
 
 | Destination | User question | Main contents |
 |---|---|---|
-| **My Day** | What should I focus on today? | Overdue, today's focus, due today, upcoming, Add task |
+| **My Day** | What should I focus on today? | Overdue, Due Today, Today's Focus, Upcoming, Add task |
 | **My Tasks** | Where can I find all my work? | Search, filters, sorting, list, optional Kanban |
 | **Projects** | How is my work grouped? | Project/work-area list, project details, associated tasks |
 | **More** | Where are the supporting tools? | Templates, Settings & Backup, Help / Version |
+
+The My Day section order must remain consistent with the frozen Product Definition v0.1.0, Section 8.2:
+
+1. Overdue
+2. Due Today
+3. Today's Focus
+4. Upcoming
+5. Add task
+
+A task must appear only once in My Day. When a task belongs to more than one conceptual group, the display rules in Section 6.2 determine which section owns the visible task row.
 
 On expanded screens, Templates and Settings & Backup may be shown directly in the sidebar. They must not become duplicate destinations; the same destination and state should be used whichever entry point is selected.
 
@@ -107,15 +117,28 @@ Help a first-time user reach a useful workspace and create the first task withou
 
 Help the user identify the next useful action with minimal scanning.
 
-### 6.2 Default content order
+### 6.2 Default content order and task placement
+
+The default My Day section order is:
 
 1. **Overdue** — active tasks whose due date is before the user's current local calendar date.
 2. **Due Today** — active tasks due on the current local calendar date.
-3. **Today's Focus** — tasks deliberately marked for attention today that are not already displayed in Overdue or Due Today.
-4. **Upcoming** — a small preview of future active tasks due soon.
+3. **Today's Focus** — active tasks deliberately marked for attention today that are not already displayed in Overdue or Due Today.
+4. **Upcoming** — a small preview of future active tasks due soon, excluding tasks already displayed in an earlier My Day section.
 5. **Add task** — a clear, reachable primary action.
 
-A task must not appear twice in My Day. If a task is both overdue and marked as Focus, show it once in Overdue with a visible Focus marker. If it is due today and marked as Focus, show it once in Due Today with a Focus marker. The separate Today's Focus section contains marked tasks not already shown in the first two sections. Completed tasks are excluded from active sections unless the user opens a completed/history view.
+This order follows the frozen Product Definition v0.1.0, Section 8.2. UX documents must not silently change this product-level ordering.
+
+A task must not appear more than once in My Day. Apply these placement rules:
+
+- If a task is overdue and marked as Focus, show it once in **Overdue** with a visible Focus marker.
+- If a task is due today and marked as Focus, show it once in **Due Today** with a visible Focus marker.
+- If a task is marked as Focus but is neither overdue nor due today, show it in **Today's Focus**. This includes a focused task with a future due date or no due date.
+- Do not show a task in **Upcoming** if it is already displayed in Overdue, Due Today, or Today's Focus.
+- A focused future-due task therefore appears in Today's Focus, not a second time in Upcoming.
+- Completed tasks are excluded from active My Day sections unless the user opens a completed/history view.
+
+The Today's Focus section is for tasks the user deliberately wants to keep visible today. It is not a new task status, priority, or project.
 
 ### 6.3 Date behavior
 
