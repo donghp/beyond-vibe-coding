@@ -1,10 +1,3 @@
-## File 3 — BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md
-
-**Đường dẫn:** `projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md`
-
-Đây là file làm rõ quy tắc hành vi, đặc biệt phần Today's Focus. Không thay đổi các quyết định đang chờ Product Owner như thời điểm reset Focus, quy tắc xóa Project hay reapply Starter Kit.
-
-```markdown
 # BVC Task Management — Interaction Specification v0.1.0
 
 **Document ID:** BVC-TM-UX-005  
