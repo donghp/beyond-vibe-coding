@@ -76,7 +76,7 @@ The disclosure must be presented before important data entry and remain accessib
 
 ## 6. Canonical decisions
 
-Open product, interaction, visual and architecture choices are consolidated in the [Phase 3 Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). Existing document-specific IDs remain as aliases for traceability. No proposed default becomes approved by appearing in a design document.
+Open product, interaction, visual and architecture choices are consolidated in the [Phase 3 Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). Existing document-specific IDs remain as aliases for traceability. No proposed default becomes approved by appearing in a design document.
 
 ## 7. Review order
 
