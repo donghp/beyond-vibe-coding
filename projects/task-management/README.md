@@ -76,6 +76,11 @@ Documents:
 
 The Phase 3.1 UX package is preserved as the existing design reference. Its formal review and acceptance record remains a separate governance item. Phase 3.2 does not authorize a visual redesign or silently modify the Phase 3.1 UX files.
 
+### Governance & decisions
+
+- [Governance records index](governance/README.md)
+- [Phase 3 Product / UX Decision Register](governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md)
+
 ### Phase 3.2 — Application Architecture & Technical Design
 
 - [Phase 3.2 Architecture Package — index](design/architecture/v0.1/README.md)
