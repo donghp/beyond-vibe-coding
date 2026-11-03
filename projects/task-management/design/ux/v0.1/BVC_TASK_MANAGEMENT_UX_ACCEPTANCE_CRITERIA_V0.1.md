@@ -133,7 +133,7 @@ Phase 3.1 design documents are accepted when:
 | UX criteria | Current Product Definition v0.2.0 mapping | Notes |
 |---|---|---|
 | UX-001 | FR-001, FR-015; AC-001, AC-010 | First-use workspace/Starter Kit choice; application must protect existing data |
-| UX-002 | FR-017, FR-019, FR-024; AC-011, AC-016, AC-025, AC-026 | Level-specific persistence/access disclosure; authenticated workspace isolation applies to Intermediate/Advanced |
+| UX-002 | FR-017, FR-019, FR-024; AC-011, AC-016 (Beginner persistence/disclosure) | Level-specific user-facing disclosure. AC-025/AC-026 are separate Intermediate/Advanced ownership and RLS security acceptance requirements; they are not UX-copy criteria. |
 | UX-003–UX-006 | FR-001, FR-025; AC-001, AC-017–AC-021 | Navigation destinations and responsive exposure; UX navigation criteria add detail beyond product ACs |
 | UX-007–UX-013 | FR-010; AC-006 | My Day order, placement, uniqueness and empty states |
 | UX-014–UX-019 | FR-002–FR-006, FR-025; AC-002–AC-004 | Task capture, task actions, status/priority/due-date behavior and feedback |
