@@ -4,7 +4,9 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** `BVC-TM-PD-001`, Product Definition v0.1.0
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 
 ---
 
@@ -55,7 +57,7 @@ A starter kit is an editable starting point. It is not a user account, access ro
 | **Projects** | How is my work grouped? | Project/work-area list, project details, associated tasks |
 | **More** | Where are the supporting tools? | Templates, Settings & Backup, Help / Version |
 
-The My Day section order must remain consistent with the frozen Product Definition v0.1.0, Section 8.2:
+The My Day section order must remain consistent with the current Product Definition v0.2.0, Section 7.2:
 
 1. Overdue
 2. Due Today
@@ -93,7 +95,7 @@ Help a first-time user reach a useful workspace and create the first task withou
 ### 5.2 Journey
 
 1. User opens the application.
-2. The app explains in plain language that the workspace is stored in this browser on this device and does not automatically sync to other devices.
+2. The app explains the persistence behavior of the selected learning level in plain language: Beginner uses the current browser profile and does not automatically sync; Intermediate/Advanced use the signed-in Supabase personal workspace, protected by RLS.
 3. User chooses either **Start with a blank workspace** or **Browse starter kits**.
 4. If browsing starter kits, the user can preview a kit before applying it.
 5. The app explains what sample groups, checklist templates, and optional example tasks will be added.
@@ -127,7 +129,7 @@ The default My Day section order is:
 4. **Upcoming** — a small preview of future active tasks due soon, excluding tasks already displayed in an earlier My Day section.
 5. **Add task** — a clear, reachable primary action.
 
-This order follows the frozen Product Definition v0.1.0, Section 8.2. UX documents must not silently change this product-level ordering.
+This order follows the current Product Definition v0.2.0, Section 7.2. UX documents must not silently change this product-level ordering.
 
 A task must not appear more than once in My Day. Apply these placement rules:
 
@@ -256,13 +258,15 @@ Do not show empty sections as large decorative cards. Empty states should be bri
 
 ## 13. Cross-device experience and honest expectations
 
-- The same responsive web application adapts to phones, tablets, laptops, and desktop browsers.
-- In v0.1, each browser/device has its own local workspace.
-- Data does not automatically appear on another device.
-- Explicit export/import is the supported manual transfer path.
-- No login, cloud sync, shared workspace, or team collaboration is implied by a role starter kit.
+The same responsive web application adapts to phones, tablets, laptops, and desktop browsers. Persistence behavior depends on the selected learning level:
 
-This limitation must be communicated before the user adds important data and remain available from Settings & Backup.
+- **Beginner:** the versioned workspace is stored in the current browser profile using `localStorage`. It does not automatically sync to another browser/device. Browser data may be cleared; JSON export/restore is the explicit portability path.
+- **Intermediate:** the user signs in with Supabase Auth and works with their own Supabase PostgreSQL workspace. The same account can access its cloud-backed records from supported devices; RLS must prevent access to another user's records.
+- **Advanced:** the same authenticated Supabase workspace is managed through a controlled GitHub/VS Code/migration/deployment workflow.
+
+No level implies team workspaces, invitations, shared tasks, or role-based collaboration. Role Starter Kits are editable starting configurations, not identity or permission roles.
+
+The application must disclose the selected level's actual storage and access behavior before important data entry and keep the explanation available in Settings & Backup.
 
 ## 14. Out of scope for these journeys
 
@@ -270,7 +274,7 @@ These user journeys do not introduce:
 
 - Multiple people editing one workspace.
 - Team assignments with authenticated accounts or permissions.
-- Cloud synchronization or cloud backup.
+- Team cloud workspaces, invitations, or shared task collaboration.
 - CRM, POS, inventory, accounting, HR, restaurant booking, or ERP workflows.
 - AI chatbot or autonomous task management inside the application.
 - Changes to the five BVC Core Specifications.
@@ -296,7 +300,9 @@ These are proposals for review, not approved product changes. They must be resol
 - [Interaction Specification](BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md)
 - [Accessibility & Usability](BVC_TASK_MANAGEMENT_ACCESSIBILITY_USABILITY_V0.1.md)
 - [UX Acceptance Criteria](BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md)
-- [Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+- [Current Product Definition v0.2.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+- [Historical Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+- [Canonical Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md)
 
 ---
 
