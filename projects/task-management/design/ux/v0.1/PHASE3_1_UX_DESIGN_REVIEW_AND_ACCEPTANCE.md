@@ -5,14 +5,16 @@
 **Phase:** 3.1 — UX & Product Design  
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
-**Parent baseline:** BVC-TM-PD-001, Product Definition v0.1.0  
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 **Prepared:** 2026-11-03
 
 ---
 
 ## 1. Purpose
 
-Use this record to review and accept the Phase 3.1 design package before beginning Phase 3.2. It is stored with the Task Management project because it governs this project only. It is a review checklist and decision record, not a claim that the design has already been accepted or tested on real devices.
+Use this record to complete the still-open Phase 3.1 UX review and acceptance gate. The UX package was originally authored against Product Definition v0.1.0; Product Definition v0.2.0 is now the current product authority, and this record evaluates compatibility without claiming that the design was originally created for v0.2.0. Phase 3.2 Architecture Design Baseline has already been accepted; formal UX acceptance remains OPEN and must be resolved for the dependent Phase 3.3 implementation/release scope. This is a review checklist, not a claim that the UX has been tested on real devices.
 
 ## 2. What Phase 3.1 is supposed to deliver
 
@@ -51,14 +53,16 @@ The following must exist under `projects/task-management/design/ux/v0.1/`:
 | Gate | Review question | Evidence | Decision |
 |---|---|---|---|
 | G1 — User journey | Can a non-technical person understand first use, add a task, complete it, find it, and back up data? | Journey review / usability notes | OPEN |
-| G2 — Navigation | Does navigation match Product Definition §8 on compact, medium, and expanded layouts? | Navigation map and wireframes | OPEN |
+| G2 — Navigation | Does navigation match current Product Definition v0.2.0 §7.1 on compact, medium, and expanded layouts? | Navigation map and wireframes | OPEN |
 | G3 — Screen layouts | Are My Day, My Tasks, Projects, Task Detail, Templates, and Settings & Backup sufficiently described? | Wireframes | OPEN |
 | G4 — Responsive behavior | Does one application adapt without merely shrinking desktop UI? | Responsive specification and viewport matrix | OPEN |
 | G5 — Visual system | Are visual tokens consistent, readable, restrained, and accessible? | Design system and contrast review | OPEN |
 | G6 — Interactions | Are save, validation, completion, deletion, project removal, kit application, export, and restore predictable? | Interaction specification | OPEN |
 | G7 — Accessibility | Are touch, keyboard, focus, labels, screen readers, text zoom, and reduced motion covered? | Accessibility document | OPEN |
 | G8 — Testability | Can each UX criterion be verified with concrete evidence? | UX acceptance criteria | OPEN |
-| G9 — Baseline integrity | Does the design remain within Product Definition v0.1.0 and leave five Core Specifications unchanged? | PR diff review | OPEN |
+| G9 — Baseline integrity | Is Product Definition v0.2.0 the current product authority while v0.1.0 remains historical authoring context, and are the five Core Specifications unchanged? | Baseline and PR diff review | OPEN |
+| G10 — Level-specific data transparency | Do Beginner, Intermediate and Advanced wireframes disclose their actual storage, identity, backup and synchronization behavior? | UX copy review against v0.2.0 FR-017–FR-024 / AC-011–AC-026 | OPEN |
+| G11 — Requirement traceability | Have UX criteria and wireframe FR/AC references been remapped to the current v0.2.0 identifiers without reusing changed v0.1 meanings? | Traceability matrix review | OPEN |
 
 ## 5. Decisions requiring Product Owner review
 
@@ -73,7 +77,7 @@ The following must exist under `projects/task-management/design/ux/v0.1/`:
 | DEC-UX-007 | Is the proposed blue primary palette acceptable? | Review candidate tokens and contrast in rendered UI | OPEN |
 | DEC-UX-008 | What is the minimum browser support matrix? | Confirm in Phase 3.2 test plan based on real target users | OPEN |
 
-These are not approved product changes until the Product Owner records a decision.
+These are not approved product changes until the Product Owner records a decision. The consolidated register, including INT-OPEN, DS-OPEN, DATA and Auth aliases, is maintained in the [Phase 3 Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md).
 
 ## 6. Phase 3.1 acceptance checklist
 
@@ -87,7 +91,9 @@ These are not approved product changes until the Product Owner records a decisio
 - [ ] Important interactions have success, error, empty, and confirmation behaviors.
 - [ ] Accessibility expectations are testable; no unsupported conformance claim is made.
 - [ ] Open decisions are resolved or explicitly deferred from implementation.
-- [ ] Product Definition v0.1.0 is unchanged unless a separately approved revision is made.
+- [ ] Product Definition v0.2.0 is the current authority; v0.1.0 is retained as historical authoring context.
+- [ ] Current FR/AC traceability maps to v0.2.0 identifiers and no superseded numbering is used as current authority.
+- [ ] Beginner/Intermediate/Advanced storage and identity disclosures are distinct and accurate.
 - [ ] Five Phase 2 Core Specifications and their schemas are unchanged.
 - [ ] Human review decision is recorded.
 
@@ -105,22 +111,17 @@ It does not mean:
 
 Those require the implementation and evidence produced in later phases.
 
-## 8. Next phase after acceptance — Phase 3.2
+## 8. Handoff to Phase 3.3 — Implementation & Verification
 
-Once Phase 3.1 is accepted, Phase 3.2 defines:
+Phase 3.2 Application Architecture & Technical Design has been accepted as a design baseline. The next work is Phase 3.3, not another Phase 3.2 review. The UX acceptance record remains an independent OPEN gate; implementation must not treat an unresolved UX decision as approved merely because a wireframe shows an example.
 
-1. Application architecture and technology selection.
-2. Frontend application structure and routing.
-3. Local data storage choice and workspace model.
-4. Task, Project, Checklist, Starter Kit, and Settings data models.
-5. Date/time and timezone behavior.
-6. Backup/restore file format, validation, versioning, and recovery behavior.
-7. Local data privacy and browser storage limitations.
-8. Responsive component architecture and design-token implementation approach.
-9. Test architecture, browser/device matrix, and CI boundaries.
-10. Future cloud adapter boundary without implementing Cloud Mode.
+Before a dependent implementation task begins:
 
-Only after Phase 3.2 is reviewed should Phase 3.3 issue the first bounded implementation Task Contract.
+1. Resolve or explicitly defer the relevant Product/UX Decision Register items.
+2. Confirm the task uses the current v0.2.0 product requirements and remapped UX traceability.
+3. Inspect the actual blank GAIS application's generated scaffold; do not assume a framework or build system.
+4. Approve a bounded Phase 3.3 Task Contract with exact scope, acceptance and verification evidence.
+5. Keep runtime, persistence, responsive, accessibility and security claims open until tested and evidenced.
 
 ---
 
