@@ -283,4 +283,4 @@ Use non-blocking status messages for routine success. Use dialogs only when the 
 | INT-OPEN-04 | Restore conflict | Validate first, then explicitly replace current workspace after confirmation |
 | INT-OPEN-05 | Delete task | Confirmation dialog; no silent deletion |
 
-These decisions are tracked in the canonical [Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). Review or explicitly defer each applicable item before the dependent implementation task begins.
+These decisions are tracked in the canonical [Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). Review or explicitly defer each applicable item before the dependent implementation task begins.
