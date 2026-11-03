@@ -42,7 +42,7 @@ This package translates the Owner-approved three-level learning direction into a
 - Vercel Hobby is the proposed default hosting for personal/non-commercial practice; final selection remains subject to Owner confirmation.
 - Supabase is the selected database platform for Intermediate/Advanced; the exact plan is subject to current provider limits and Owner confirmation.
 - The actual GAIS-exported scaffold must be inspected before freezing the frontend build tool or assuming direct Vercel compatibility.
-- This package has not been committed to GitHub. No cloud resource, Supabase project/database or Vercel project has been created.
+- This package is published on the GitHub Phase 3.2 review branch and is under PR #5 review. It has not yet been merged into main or formally accepted. No cloud resource, Supabase project/database or Vercel project has been created.
 
 ## 6. Review sequence
 
