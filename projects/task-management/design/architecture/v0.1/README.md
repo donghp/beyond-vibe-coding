@@ -62,7 +62,11 @@ The Phase 3.1 UX Review & Acceptance record remains a separate governance item.
 
 Preserving the UX files does not mean that the formal UX acceptance gate has passed.
 
-## 4. Package contents
+## 4. Canonical governance decisions
+
+Open Product, UX, interaction and implementation-design decisions are consolidated in the [Phase 3 Product / UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). This register preserves source aliases; proposed defaults remain OPEN until the Product Owner explicitly decides otherwise.
+
+## 5. Package contents
 
 | File | Purpose |
 |---|---|
@@ -72,7 +76,7 @@ Preserving the UX files does not mean that the formal UX acceptance gate has pas
 | `BVC_TASK_MANAGEMENT_DEVELOPMENT_TESTING_DEPLOYMENT_V0.1.md` | GAIS/GitHub/VS Code workflow, CI, free-tier hosting and operational verification |
 | `PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md` | Review gates and Phase 3.2 exit criteria |
 
-## 5. Status and governance
+## 6. Status and governance
 
 - Product Definition v0.2.0 was approved by the Product Owner on 2026-11-04 and published on `main` through merged PR #5.
 - Product Change Record 001 records the approved product change.
@@ -87,7 +91,7 @@ Preserving the UX files does not mean that the formal UX acceptance gate has pas
 - No runtime security, integration or deployment verification is claimed as completed.
 - Private hosting accounts, paid subscriptions, billing arrangements and personal infrastructure choices are outside this package's scope.
 
-## 6. Review sequence and handoff
+## 7. Review sequence and handoff
 
 1. Review Product Change Record 001 and Product Definition v0.2.0.
 2. Review Application Architecture.
@@ -99,7 +103,7 @@ Preserving the UX files does not mean that the formal UX acceptance gate has pas
 8. Verify the actual GAIS-exported scaffold and approve a bounded Phase 3.3 Task Contract before implementation.
 9. Implement and verify each bounded change with evidence.
 
-## 7. External technical references
+## 8. External technical references
 
 ### Google AI Studio
 
