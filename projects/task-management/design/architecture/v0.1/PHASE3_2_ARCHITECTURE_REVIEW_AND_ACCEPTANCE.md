@@ -49,7 +49,7 @@ Phase 3.2 does not:
 
 | Gate | Acceptance question | Evidence required | Status |
 |---|---|---|---|
-| G1 — Product change control | Has the Local-First v0.1 conflict been resolved through a controlled revision? | Product Owner approval of BVC-TM-PCR-001 and Product Definition v0.2.0 | PASS — Owner approval recorded 2026-11-04; merge pending |
+| G1 — Product change control | Has the Local-First v0.1 conflict been resolved through the approved revision? | Product Owner approval of BVC-TM-PCR-001 and Product Definition v0.2.0; PR #5 merge evidence | PASS — Owner approval recorded 2026-11-04; PR #5 merged to `main` at `ff59827d07eef982e0a23a11279e47c7817c457c` |
 | G2 — Phase boundary | Is the Phase 3.1 UX package preserved without redesign in Phase 3.2? | Owner direction and repository diff showing no Phase 3.1 UX file modifications | PASS — Scope boundary only |
 | G3 — Three-level architecture | Are Beginner, Intermediate and Advanced flows distinct and coherent? | Application Architecture document and diagrams | PASS — Design accepted |
 | G4 — Persistence model | Is the same logical domain model supported by browser and Supabase adapters? | Data Model document | PASS — Design accepted |
@@ -199,7 +199,7 @@ The exact hosting service selected by an individual reader is not a Phase 3.2 ex
 **Architecture acceptance:** Approved by the Product Owner on 2026-11-04.  
 **Database learning reference:** Supabase Free.  
 **Hosting approach:** Provider-neutral free-tier hosting.  
-**Repository publication status:** PR #5 remains subject to controlled merge into `main`.
+**Repository publication status:** PR #5 merged into `main`; merge commit `ff59827d07eef982e0a23a11279e47c7817c457c`.
 
 ### Accepted baseline
 
@@ -230,7 +230,7 @@ These deferred items do not invalidate the Phase 3.2 design acceptance.
 
 They must be resolved in the relevant Phase 3.3 Task Contracts before implementation or release activities that depend on them.
 
-**Next action:** Publish the accepted Phase 3.2 baseline through the controlled PR #5 merge, then prepare and approve the first Phase 3.3 implementation Task Contract.
+**Next action:** Complete the Phase 3.1 UX compatibility/acceptance gate to the extent required by the first implementation scope, resolve or explicitly defer its dependent decisions, then prepare and obtain approval for the first bounded Phase 3.3 implementation Task Contract.
 
 ---
 
