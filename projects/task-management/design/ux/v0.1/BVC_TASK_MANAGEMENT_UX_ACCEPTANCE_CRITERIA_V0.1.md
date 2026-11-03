@@ -36,13 +36,17 @@ A mockup alone can satisfy a design-documentation criterion, but it cannot prove
 
 ### B. My Day
 
+The My Day layout must preserve the order established by Product Definition v0.1.0, Section 8.2:
+
+**Overdue → Due Today → Today's Focus → Upcoming → Add task.**
+
 | ID | Criterion | Evidence |
 |---|---|---|
 | UX-007 | My Day identifies the current date/day clearly. | Screen review |
-| UX-008 | Overdue tasks appear before other active work when present. | Date-rule test |
-| UX-009 | User-selected Focus tasks are visible on My Day. | Interaction and date-rule test |
-| UX-010 | A task that is both overdue and Focus appears once, with a Focus marker. | Date-rule test |
-| UX-011 | Due Today and Upcoming tasks are visually distinct. | Screen review and date test |
+| UX-008 | Overdue tasks appear first, before Due Today, Today's Focus, and Upcoming, when present. | Date-rule test and phone/tablet/desktop wireframe review |
+| UX-009 | Due Today appears after Overdue and before Today's Focus. User-selected Focus tasks due today remain in Due Today and carry a visible Focus marker. | Screen review and date-rule test |
+| UX-010 | A task that is both overdue and Focus appears once in Overdue with a Focus marker. A task that is due today and Focus appears once in Due Today with a Focus marker. | Date-rule test |
+| UX-011 | Today's Focus appears after Due Today and before Upcoming. A focused task that is neither overdue nor due today appears once in Today's Focus, including when it has a future due date. Upcoming does not repeat a task already displayed in an earlier section. | Screen review and date-rule test |
 | UX-012 | Empty sections are not shown as large empty cards. | Empty-state test |
 | UX-013 | Add task is easy to find without obscuring content or navigation. | Phone/tablet/desktop test |
 
@@ -108,7 +112,8 @@ Phase 3.1 design documents are accepted when:
 
 - [ ] User journeys cover first use, quick capture, daily follow-through, search/edit, projects, starter kits, and backup/restore.
 - [ ] Navigation is consistent with the Product Definition.
-- [ ] My Day is specified for compact, medium, and expanded layouts.
+- [ ] My Day is specified for compact, medium, and expanded layouts using the same section order: Overdue, Due Today, Today's Focus, Upcoming.
+- [ ] My Day wireframes show consistent task placement and do not duplicate a task across sections. A Focus task due today stays in Due Today with a Focus marker; a future-due Focus task stays in Today's Focus and is not repeated in Upcoming.
 - [ ] My Tasks, Projects, Templates, Task Detail, and Settings & Backup have structural wireframes.
 - [ ] Responsive rules define phone, tablet, laptop, and desktop behavior.
 - [ ] Visual tokens and component guidance are internally consistent.
