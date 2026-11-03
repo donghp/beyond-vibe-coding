@@ -20,7 +20,7 @@ BVC does not aim to make prompts longer, build more autonomous agents, or depend
 
 New to AI-assisted software development? You do not need to be an AI engineer to begin.
 
-BVC provides a practical foundation for people who want to use AI coding tools without losing control of the software they build.
+BVC provides a practical foundation for people who want to use AI coding tools without losing control of the software they build. Through **Build & Learn**, readers can also start with a practical project that solves an everyday work problem.
 
 **Recommended starting points:**
 
@@ -28,6 +28,7 @@ BVC provides a practical foundation for people who want to use AI coding tools w
 2. [Framework Overview](docs/framework-overview.md)
 3. [Task Contract Guide](docs/task-contract.md)
 4. [Core Specifications Index](specifications/v0.1/README.md)
+5. [Build & Learn — BVC Task Management Product Definition](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
 
 You can also explore the [Documentation Index](docs/README.md) for the complete reading path.
 
@@ -35,14 +36,15 @@ You can also explore the [Documentation Index](docs/README.md) for the complete 
 
 | Audience | What you will learn |
 |---|---|
-| **Beginner / Vibe Coder** | How to give AI bounded tasks, define permitted changes, and check the results. |
-| **Independent Builder** | How to organize project knowledge, state, changes, and evidence when building personal software. |
+| **Beginner / Vibe Coder** | How to start with a simple practical project, explain what you need, guide AI step by step, and check the result. |
+| **Individual / Independent Builder** | How to build and use small personal tools, organize project knowledge, and keep control of AI-assisted changes. |
+| **Business User / Owner** | How to use a role-based starter kit as a starting point for everyday work, then adapt the tool to your own needs. |
 | **Developer** | How to apply structured task contracts, validation, testing, and source-control practices. |
 | **Team Lead / Engineering Manager** | How to coordinate AI-assisted work, review changes, and maintain consistent engineering practices. |
 | **CTO / Software Architect** | How to reason about authority, security, architecture integrity, risk, and project governance. |
 | **AI Engineer** | How to integrate AI executors into a technology-neutral, project-controlled engineering method. |
 
-BVC is intended to make engineering discipline progressively accessible. Beginners can start with simple examples; experienced practitioners can examine the specifications, schemas, validators, and tests.
+BVC is intended to make practical building and engineering discipline progressively accessible. Beginners can start with simple projects; experienced practitioners can examine the specifications, schemas, validators, tests, and engineering boundaries.
 
 ---
 
@@ -212,7 +214,7 @@ Phase 2 turns the central BVC engineering concepts into structured, machine-read
 
 The five specifications form an initial traceable engineering control cycle.
 
-All five are currently **Draft / Experimental v0.1.0** and use JSON Schema Draft 2020-12.
+All five are currently **Draft / Experimental v0.1.0** and use JSON Schema Draft 2020-12. Phase 2 integration was completed and merged through [Pull Request #2](https://github.com/donghp/beyond-vibe-coding/pull/2). Completion of the integration does not promote the specifications to Stable.
 
 ## The Five Core Specifications
 
@@ -420,9 +422,9 @@ This checks the four companion schemas and examples, together with selected rela
 python -m unittest discover -s tests -v
 ```
 
-The repository currently defines 17 Task Contract test cases and 25 companion Core Specification test cases.
+The repository contains 17 Task Contract test cases and 27 companion Core Specification test cases, for a total of **44 automated test cases**.
 
-The expected complete test suite therefore contains **42 automated test cases**. Check the GitHub Actions result for the exact revision to confirm whether all tests passed.
+The most recently reported local full-suite run completed with **44/44 tests PASS**. This is the latest reported local result, not a claim that this README update has already been tested. Check GitHub Actions for the result associated with the exact commit or pull request under review.
 
 ---
 
@@ -466,6 +468,7 @@ Transparency about implementation maturity is a core BVC principle.
 - Automated unit tests.
 - GitHub Actions validation workflow.
 - A documented relationship between the book and the technical companion repository.
+- The Build & Learn direction and the BVC Task Management Product Definition v0.1.0.
 
 ### Not Yet Provided
 
@@ -475,7 +478,8 @@ Transparency about implementation maturity is a core BVC principle.
 - A trusted Git diff collector connected to every AI execution.
 - A service that authenticates human approvals.
 - Automatic enforcement of all project-specific risk policies.
-- A complete Web Application or BVC Starter Workbench.
+- A completed BVC Task Management application.
+- Cloud synchronization or multi-user collaboration for BVC Task Management.
 - A stable API or guaranteed backward compatibility.
 
 The current Task Contract Validator performs structural and semantic checks and can inspect a supplied post-run changed-files inventory.
@@ -486,47 +490,79 @@ These limitations are intentional to state clearly. A data specification and its
 
 ---
 
-## Phase 3 — Practical Engineering Platform
+## Phase 3 — Build & Learn: Practical Projects and Hands-on Guides
 
-After the five Core Specifications are reviewed and consolidated, the planned next phase is a practical tool for learning and applying BVC.
+**Build & Learn** is a practical learning space for readers who want to use AI to create useful products for real everyday needs. It welcomes beginners and experienced practitioners through simple projects and progressively deeper hands-on guides.
 
-The working concept is the **BVC Starter Workbench**.
+The guiding idea is:
 
-Its goal is to make the framework easier to understand and use without requiring every reader to become a software architect or AI engineer.
+> **Build something useful. Use it every day. Learn by doing.**
 
-### Planned capabilities
+The goal is not to build software merely to practice coding. The goal is to start with a real need, build a useful tool with AI, use it in everyday work, and learn how to guide, control, and verify the development process.
 
-- Guided BVC learning paths.
-- Beginner-friendly explanations.
-- Task Contract Builder.
-- Reusable engineering templates.
-- Schema and semantic validation interface.
-- Practical examples.
-- Downloadable project artifacts.
-- Local-first operation.
+### First project — BVC Task Management
 
-The initial objective is a simple application that can run on a user's laptop and support practical exercises.
+**[BVC Task Management — A Simple Daily Work Manager](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)** is the first Build & Learn project.
 
-The Starter Workbench is a planned Phase 3 deliverable. It is not included in the current repository yet.
+It is intended to be a simple personal work-management application that people can adapt to different everyday roles and responsibilities, including:
 
-### Technology direction
+- Individual and personal work.
+- Sales team leads.
+- Marketing managers.
+- Executives and business owners.
+- Shop owners.
+- Restaurant owners.
+- Project managers.
 
-The specifications are technology-neutral.
+The initial product direction is one core application with role-based starter kits—not separate applications for every profession. Starter kits provide relevant example categories, projects, tasks, and checklists that users can change to suit their own work.
 
-The current validation utilities use Python because it is the repository's initial implementation technology.
+The initial product experience is organized around a small set of understandable areas:
 
-Future development may introduce:
+- **My Day:** focus on what needs attention today, overdue work, and upcoming tasks.
+- **My Tasks:** view, create, update, search, and filter work items.
+- **Projects:** group related tasks by project or area of responsibility.
+- **Templates:** choose a starter kit and adapt it to personal work.
+- **Settings & Backup:** manage preferences and export or restore local data.
 
-| Technology | Intended role |
-|---|---|
-| Python | Current validators and development utilities. |
-| TypeScript | Future application logic and typed integrations. |
-| Tailwind CSS | Future user interface and presentation layer. |
-| PostgreSQL | Future persistent storage for project records when required. |
+The exact MVP scope and acceptance criteria are defined in the Product Definition. Features must not be added merely because they are technically possible; they should solve a clear user need without making everyday use unnecessarily complicated.
 
-These technologies should implement the published data contracts rather than create competing definitions of them.
+### User experience direction
 
-The choice of an implementation language or database must not change the meaning of the Core Specifications.
+The application is intended to provide a simple, natural, responsive experience across:
+
+- iPhone and Android phones.
+- Tablets in portrait and landscape orientations.
+- Laptops and desktop PCs.
+
+The design direction is mobile-first and responsive. The interface should make the next useful action easy to discover, keep common tasks simple, reveal advanced details only when needed, and support touch, keyboard, and accessible interaction.
+
+Responsive display across devices does **not** mean automatic data synchronization between them.
+
+### Local-first MVP and its limits
+
+The first version is planned as a browser-based, local-first, single-user application. User data is stored locally on the current device and browser. The MVP does not automatically synchronize data between a phone, tablet, laptop, or PC. Moving data between devices requires an explicit backup and restore process.
+
+Cloud synchronization, accounts, multi-user access, team collaboration, and real-time updates are future scope. They will be considered only when real user needs justify the additional security, privacy, authorization, and operational requirements.
+
+The specific application architecture and technology choices will be evaluated in the next design stage. The Product Definition describes the user-facing product and its scope; it does not by itself settle the implementation architecture.
+
+### Build & Learn and the five Core Specifications
+
+Build & Learn also provides a way to learn how AI-assisted development can be controlled and verified.
+
+The five Phase 2 Core Specifications remain the engineering control foundation:
+
+1. **Task Contract** — define the engineering task, its authorized scope, and acceptance criteria.
+2. **Context Manifest** — record the sources selected for the engineering task.
+3. **Project State** — record the durable state of the project.
+4. **Change Record** — record observed repository changes.
+5. **Verification Evidence** — record checks performed and the evidence produced.
+
+These specifications govern AI-assisted engineering work. They are not the same as the everyday Business Tasks that a person creates and manages inside BVC Task Management. The two concepts must remain separate. An application task may reference an engineering task where useful, but the application must not silently redefine or modify the frozen Core Specifications.
+
+Build & Learn will progressively publish practical projects, role-based starter kits, examples, and hands-on guides. Product implementation and learning materials will be published only when their stated behavior and instructions have been reviewed and verified.
+
+**Current Phase 3 status:** Product Definition v0.1.0 establishes the proposed MVP baseline. Application implementation has not started.
 
 ---
 
@@ -584,23 +620,25 @@ The project is developed incrementally. Each phase should produce reviewable, do
 | Phase | Objective | Status |
 |---|---|---|
 | **Phase 1** | Framework Foundation and Conceptual Architecture | Published |
-| **Phase 2** | Five Core Specifications and validation foundation | Draft / Experimental v0.1.0; undergoing integration and review |
-| **Phase 3** | Practical BVC Starter Workbench | Planned |
-| **Future Evolution** | Advanced runtime, stronger enforcement, and broader integrations | Research / Future |
+| **Phase 2** | Five Core Specifications and validation foundation | Integration completed and merged via PR #2; specifications remain Draft / Experimental v0.1.0 |
+| **Phase 3** | Build & Learn — Practical Projects and Hands-on Guides; first project: BVC Task Management | Product Definition v0.1.0 establishes the proposed MVP baseline; implementation not started |
+| **Future Evolution** | Cloud synchronization, team collaboration, advanced runtime enforcement, and broader integrations | Future scope; subject to real use cases, security requirements, and evidence |
 
-Advanced multi-agent orchestration, Router–Worker systems, and complex Harness implementations are not prerequisites for completing the current Phase 2 or the planned beginner-friendly Phase 3 foundation.
+Advanced multi-agent orchestration, Router–Worker systems, and complex Harness implementations are not prerequisites for the beginner-friendly Build & Learn projects.
 
 They may be evaluated in future versions when real use cases and validation evidence justify them.
 
-The priority is a simple, secure, and useful engineering foundation—not unnecessary complexity.
+The priority is a simple, secure, and useful learning experience—not unnecessary complexity.
 
 ---
 
 ## Repository Status and Maturity
 
-**Current development focus: Five Core Specifications v0.1.0 — Draft / Experimental.**
+**Current development focus: Phase 3 — Build & Learn.**
 
-The repository provides a testable initial foundation for project-centric AI-assisted engineering.
+Phase 2 provides five machine-readable Core Specifications, all **Draft / Experimental v0.1.0**, together with JSON Schemas, examples, templates, Python validators, automated tests, and a GitHub Actions workflow.
+
+The repository provides a testable initial foundation for project-centric AI-assisted engineering. Build & Learn is the practical project and learning direction. Its first Product Definition establishes the proposed MVP baseline; the Task Management application has not yet been implemented.
 
 However:
 
@@ -632,6 +670,7 @@ Useful contributions include:
 - Architecture trade-offs.
 - Documentation improvements.
 - Suggestions that improve clarity and interoperability.
+- Feedback on practical projects, starter kits, and hands-on guides.
 
 When opening an issue, please include:
 
@@ -657,7 +696,7 @@ The book develops the ideas behind this repository across 21 chapters, from Vibe
 
 The book provides the broader reasoning, engineering method, trade-offs, and deeper discussion.
 
-This GitHub repository provides a free practical engineering companion with specifications, templates, examples, and validation tools.
+This GitHub repository provides a free practical engineering companion with specifications, templates, examples, validation tools, practical projects, and hands-on guides.
 
 **Read the book and explore the companion resources:**
 
@@ -694,3 +733,4 @@ Its principles should be tested against real project constraints, reviewed by pr
 > **Security First. Human in Control. AI as Executor. Evidence before Acceptance.**
 
 **Beyond Vibe Coding** — from generating code to engineering software that can be understood, secured, verified, and continued.
+
