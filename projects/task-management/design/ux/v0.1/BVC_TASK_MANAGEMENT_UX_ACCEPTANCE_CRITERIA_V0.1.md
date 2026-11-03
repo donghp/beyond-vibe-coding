@@ -23,7 +23,7 @@ Define testable design acceptance criteria for Phase 3.1. These criteria establi
 
 A mockup alone can satisfy a design-documentation criterion, but it cannot prove that an implemented UI works on a real device.
 
-Canonical open decisions and source aliases are maintained in the [Product/UX Decision Register](../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). A proposed default is not approved unless that register records an explicit Product Owner decision.
+Canonical open decisions and source aliases are maintained in the [Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). A proposed default is not approved unless that register records an explicit Product Owner decision.
 
 ## 3. UX acceptance criteria
 
