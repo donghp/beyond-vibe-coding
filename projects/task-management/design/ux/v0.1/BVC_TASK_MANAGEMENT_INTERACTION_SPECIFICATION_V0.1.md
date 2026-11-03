@@ -1,3 +1,10 @@
+## File 3 — BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md
+
+**Đường dẫn:** `projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md`
+
+Đây là file làm rõ quy tắc hành vi, đặc biệt phần Today's Focus. Không thay đổi các quyết định đang chờ Product Owner như thời điểm reset Focus, quy tắc xóa Project hay reapply Starter Kit.
+
+```markdown
 # BVC Task Management — Interaction Specification v0.1.0
 
 **Document ID:** BVC-TM-UX-005  
@@ -100,13 +107,53 @@ The user can change status through a menu/button. Kanban drag-and-drop may be su
 - The date picker must work with keyboard and touch.
 - Date labels should be human-readable; exact storage semantics belong to Application Architecture.
 
-## 8. Today's Focus
+## 8. Today's Focus and My Day placement
+
+### 8.1 Focus behavior
 
 - The user can mark/unmark a task as a focus item for the current day.
 - The control must have a visible label or accessible name.
 - Focus is a user-selected marker; it is not a new task status or priority.
-- A task must appear only once in My Day. If it is both overdue and focused, show it in Overdue with a Focus marker.
-- The detailed persistence/reset behavior for the focus marker (e.g., day boundary) must be agreed before implementation; proposed behavior is a date-scoped focus flag for the current local date.
+- Marking a task as Focus must not change its due date, priority, project, or task status.
+- A completed task is not shown in the active My Day sections even if it retains a Focus marker in its data.
+
+### 8.2 My Day section order
+
+The My Day sections must appear in the order established by Product Definition v0.1.0, Section 8.2:
+
+1. Overdue
+2. Due Today
+3. Today's Focus
+4. Upcoming
+5. Add task
+
+UX documents and implementations must preserve this order.
+
+### 8.3 One visible placement per task
+
+A task must appear only once in My Day, even when it matches more than one conceptual group. Apply the following placement rules in order:
+
+1. **Overdue:** An active task with a due date before the user's current local calendar date appears in Overdue. If it is also marked Focus, show a visible Focus marker on the same task row.
+2. **Due Today:** An active task due on the user's current local calendar date appears in Due Today. If it is also marked Focus, show a visible Focus marker on the same task row.
+3. **Today's Focus:** An active task marked Focus that is neither Overdue nor Due Today appears in Today's Focus. This includes focused tasks with a future due date or no due date.
+4. **Upcoming:** An active future-due task appears in Upcoming only if it has not already been displayed in Overdue, Due Today, or Today's Focus.
+
+Therefore:
+
+- A task that is overdue and Focus appears once in Overdue.
+- A task that is due today and Focus appears once in Due Today.
+- A future-due task marked Focus appears once in Today's Focus, not again in Upcoming.
+- A task without a due date marked Focus appears once in Today's Focus.
+- A task that is neither Focus nor overdue nor due today may appear in Upcoming when it meets the agreed Upcoming horizon.
+
+Do not duplicate a task row across sections to communicate more than one attribute. Use visible metadata or markers on the single task row instead.
+
+### 8.4 Focus lifetime and date behavior
+
+- The detailed persistence/reset behavior for the Focus marker (for example, whether it is scoped to one local calendar day) must be agreed before implementation.
+- The current proposal is a date-scoped Focus flag for the current local date.
+- The exact reset rule remains an open Product Owner decision in Section 18.
+- Date grouping must use the agreed local-calendar behavior. Exact storage semantics and timezone handling belong to Application Architecture.
 
 ## 9. Search and filters
 
