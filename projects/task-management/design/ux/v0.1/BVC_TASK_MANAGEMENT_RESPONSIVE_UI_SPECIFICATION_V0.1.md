@@ -4,7 +4,9 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** BVC-TM-PD-001, Product Definition v0.1.0
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 
 ---
 
@@ -21,7 +23,7 @@ Specify how one BVC Task Management web application adapts to iPhone, Android ph
 5. Kanban is optional on compact screens; list view is the default.
 6. Orientation changes and split-screen resizing must not discard unsaved task input.
 7. The local-data disclosure must remain accessible on every device.
-8. Responsive display does not imply data synchronization. Each browser/device has its own local workspace in v0.1.
+8. Responsive display does not define persistence. Follow Product Definition v0.2.0 by level: Beginner uses browser `localStorage`; Intermediate/Advanced use the authenticated Supabase personal workspace. Beginner does not automatically sync across devices; authenticated cloud records are not team-shared.
 
 ## 3. Responsive ranges
 
@@ -172,16 +174,12 @@ Also test at intermediate widths and with:
 
 ## 12. Non-goals and limitations
 
-Responsive behavior does not imply:
+Responsive behavior alone does not imply persistence or synchronization; these are defined by the learning level:
 
-- Automatic cross-device synchronization.
-- Cloud storage or cloud backup.
-- Shared workspaces or multi-user editing.
-- Native mobile applications.
-- Guaranteed PWA installation or offline behavior.
-
-These remain outside MVP scope unless separately reviewed and approved.
+- **Beginner:** browser-profile storage; no automatic cross-device synchronization; explicit JSON export/restore.
+- **Intermediate/Advanced:** signed-in Supabase personal workspace; RLS protects user-owned records; no team/shared workspace is included.
+- Native mobile applications, guaranteed PWA installation, and guaranteed offline behavior remain outside the current product scope unless separately reviewed and approved.
 
 ## 13. Acceptance linkage
 
-This specification supports Product Definition AC-017 through AC-025 and AC-029. Detailed testable criteria are in `BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md`.
+This specification supports current Product Definition v0.2.0 AC-017–AC-024 (responsive/accessibility and release usability boundaries), plus UX-specific viewport and reflow criteria. It also supports FR-025 where UI states must remain clear across layouts. Detailed UX criteria are in `BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md`; see its v0.2.0 traceability table. No mapping to AC-025 is implied because v0.2.0 AC-025 concerns authenticated data ownership.
