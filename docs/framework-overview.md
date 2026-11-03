@@ -308,7 +308,7 @@ The current implementation does not yet provide:
 - an authenticated human-approval service;
 - automatic execution of all project-specific risk policies;
 - complete PAECS continuity, handoff, and recovery services; or
-- a complete BVC Starter Workbench Web Application.
+- a complete BVC Engineering Runtime/Platform application or runtime enforcement service.
 
 The validators check supplied records and selected relationships. They do not execute AI tasks, fetch external context, authenticate approvals, enforce filesystem permissions, or prove that submitted evidence is truthful.
 
@@ -343,7 +343,7 @@ The repository currently uses Python for validation and development utilities. T
 |---|---|---|
 | Python | Validators and development utilities. | In use. |
 | TypeScript | Future application logic, typed interfaces, and integrations. | Planned direction; not yet a required Phase 2 dependency. |
-| Tailwind CSS | Future user-interface styling for the Starter Workbench. | Planned direction. |
+| Tailwind CSS | Potential future user-interface styling for a separately approved BVC Engineering Runtime/Platform application. | Not a Phase 3 dependency; future evaluation only. |
 | PostgreSQL | Persistent storage for project records when an implementation requires it. | Planned direction; not required by the current specifications. |
 
 No database, programming language, agent framework, or provider is mandated by the conceptual architecture. Implementation choices must preserve the published data contracts and their validation semantics.
@@ -355,31 +355,30 @@ The BVC repository is developed incrementally. Each phase should produce reviewa
 | Phase | Objective | Status |
 |---|---|---|
 | Phase 1 | Framework Foundation and Conceptual Architecture | Published foundation documents. |
-| Phase 2 | Five Core Specifications and validation foundation | Draft / Experimental v0.1.0; undergoing integration and review. |
-| Phase 3 | Practical BVC Starter Workbench | Planned. |
-| Future evolution | Advanced runtime enforcement, orchestration, and broader integrations | Research / future work; not part of current Phase 2. |
+| Phase 2 | Five Core Specifications and validation foundation | Integration completed and merged via PR #2; specifications remain Draft / Experimental v0.1.0. |
+| Phase 3 | Build & Learn — Practical Projects and Hands-on Guides; first project: BVC Task Management | 3.0 Product Baseline complete (v0.2.0 current); 3.1 UX acceptance OPEN; 3.2 architecture design accepted; 3.3 implementation/verification and learning publication active. |
+| Proposed Phase 4 | BVC Engineering Runtime & Platform | Future proposal only; not approved for implementation and not a Phase 3 deliverable. |
+| Future evolution | Advanced multi-agent orchestration, runtime enforcement, and broader integrations | Research/future work, dependent on use cases, security review and explicit approval. |
 
-### 12.1 Phase 3 direction
+### 12.1 Current Phase 3 — Build & Learn
 
-The planned **BVC Starter Workbench** is intended to make the method easier to learn and apply. The initial public version should remain intentionally simple and practical.
+The current Phase 3 priority is **Build & Learn: Practical Projects and Hands-on Guides**, beginning with BVC Task Management — A Simple Daily Work Manager.
 
-Potential capabilities include:
+The product progresses through three learning levels:
 
-- guided learning paths for beginners, developers, team leads, and technology leaders;
-- beginner-friendly explanations of the five Core Specifications;
-- a Task Contract Builder;
-- reusable engineering templates;
-- schema and semantic validation interfaces;
-- practical examples and downloadable project artifacts; and
-- local-first operation on a developer's laptop.
+- **Beginner — Build & Use:** Google AI Studio Build mode and browser `localStorage`; no external database, sign-in, VS Code or Localhost required.
+- **Intermediate — Build & Connect:** Supabase PostgreSQL, Auth, SQL, data ownership and Row Level Security.
+- **Advanced — Production Engineering:** GitHub, VS Code/Localhost, migrations, CI/testing and compatible hosting.
 
-The Workbench is a planned deliverable, not an existing application. Its first version should teach and validate core records; it should not pretend to be a complete AI executor, runtime sandbox, or production orchestration platform.
+The repository's Task Management project folder owns the product definition, UX, architecture, security and project documentation. The separate `/practical-labs/` area provides step-by-step learning activities. Phase 3.1 UX Acceptance remains OPEN; Phase 3.2 Architecture Design Baseline is accepted; Phase 3.3 implementation and verification must be evidenced by bounded tasks and actual tests.
+
+A separate **BVC Engineering Runtime & Platform** is a proposed Phase 4 direction, after Phase 3 closure and explicit product/architecture approval. It is not the current Phase 3 deliverable. Its possible capabilities (Task Contract execution, Context/Project State, Change and Verification controls, Human Approval and Continuity) remain conceptual until separately scoped and approved.
 
 ### 12.2 Advanced capabilities are deferred
 
-Advanced Router–Worker orchestration, multi-agent Harness integration, speculative execution, and complex recovery automation are not prerequisites for Phase 2 or the planned beginner-focused Phase 3.
+Advanced Router–Worker orchestration, multi-agent Harness integration, speculative execution and complex recovery automation are not prerequisites for the current Build & Learn Phase 3.
 
-They may be evaluated in a later version only when real use cases, security requirements, and validation evidence justify their complexity. The current roadmap prioritizes a clear and useful foundation over technology-driven expansion.
+They may be evaluated as part of a future BVC Engineering Runtime/Platform direction (proposed Phase 4) only after Phase 3 has closed, real use cases are documented, and the Product Owner has approved the product and architecture baseline.
 
 ## 13. Source alignment
 
