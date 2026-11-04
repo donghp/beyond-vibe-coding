@@ -111,6 +111,22 @@ The Product Owner should review:
 
 Do not merge PR #6 merely because GitHub reports it as mergeable. The Product Owner must explicitly approve the branch contents and authorize the merge.
 
+## 7. Final reconciliation update — 2026-11-04
+
+The final review identified and corrected several cross-document inconsistencies before presenting PR #6 for a single controlled merge:
+
+- Root `README.md` now identifies Product Definition v0.2.0 as the current Build & Learn product baseline and v0.1.0 as historical; it links to the project guide and canonical governance records.
+- The Task Management project README now distinguishes PR #6 governance/compatibility updates from a UX redesign, lists the execution record, and limits prerequisite Product Owner decisions to those required by the first implementation scope.
+- The Data Model explicitly maps DATA-001–DATA-005 to canonical DR-014–DR-018 statuses. The Security & Environment document points to DR-019 for the still-open Supabase Auth method/recovery decision.
+- The Phase 3.2 Acceptance record clarifies that its original UX boundary applied to the Phase 3.2 review and PR #5; PR #6's later edits are governance, data-transparency and traceability corrections, not a redesign. ODEC-007 now records the actual PR #5 publication on `main`.
+- The canonical Decision Register contains DR-001–DR-019 and an ODEC-001–ODEC-008 crosswalk. Proposed defaults remain proposals; DR-014 is accepted for design only, DR-013 still requires rendered contrast evidence, and unresolved decisions remain OPEN or deferred as recorded.
+- The PR #6 title and description now describe the full governance-reconciliation scope, 23 changed files, validation boundary, branch-only changes, and the outstanding acceptance gates.
+- Three additional project/governance links introduced during final review were checked against the working branch and all targets exist.
+
+At the latest PR metadata check, PR #6 targeted `main` from `docs/readme-v0.2-and-phase3.3-status`, remained OPEN and unmerged, and GitHub reported it as mergeable. The PR still contains 23 changed files and no deletions. The `main` baseline remains `ff59827d07eef982e0a23a11279e47c7817c457c`; no write or merge action was performed on `main`.
+
+The 74-link check recorded in Section 4 applies to the initial review of the 19 Task Management Markdown documents; the additional final-review links are recorded separately above. No application/runtime, GAIS, browser persistence, Supabase, RLS, deployment, or real-device verification is claimed.
+
 ---
 
 **BVC Governance Reconciliation — Branch review package only.**
