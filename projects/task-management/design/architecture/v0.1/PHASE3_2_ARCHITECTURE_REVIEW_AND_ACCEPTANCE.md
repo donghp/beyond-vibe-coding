@@ -50,7 +50,7 @@ Phase 3.2 does not:
 | Gate | Acceptance question | Evidence required | Status |
 |---|---|---|---|
 | G1 — Product change control | Has the Local-First v0.1 conflict been resolved through the approved revision? | Product Owner approval of BVC-TM-PCR-001 and Product Definition v0.2.0; PR #5 merge evidence | PASS — Owner approval recorded 2026-11-04; PR #5 merged to `main` at `ff59827d07eef982e0a23a11279e47c7817c457c` |
-| G2 — Phase boundary | Is the Phase 3.1 UX package preserved without redesign in Phase 3.2? | Owner direction and repository diff showing no Phase 3.1 UX file modifications | PASS — Scope boundary only |
+| G2 — Phase boundary | Is the Phase 3.1 UX package preserved without redesign in Phase 3.2? | Owner direction and PR #5 diff showing no Phase 3.1 UX redesign or scope change | PASS — Phase 3.2 preserved the existing UX design direction |
 | G3 — Three-level architecture | Are Beginner, Intermediate and Advanced flows distinct and coherent? | Application Architecture document and diagrams | PASS — Design accepted |
 | G4 — Persistence model | Is the same logical domain model supported by browser and Supabase adapters? | Data Model document | PASS — Design accepted |
 | G5 — Database/RLS design | Are tables, ownership, constraints, grants and RLS policies specified? | Data Model and Security documents | PASS — Design specified; runtime tests deferred |
@@ -64,9 +64,9 @@ Phase 3.2 does not:
 
 ### 3.1 Acceptance boundary
 
-The PASS state of G2 means only that the Phase 3.1 UX package is preserved as the design boundary for Phase 3.2.
+The PASS state of G2 means only that Phase 3.2 preserved the Phase 3.1 UX design direction as its design boundary; it does not mean the separate Phase 3.1 UX Review & Acceptance record was closed.
 
-It does not mean that the separate Phase 3.1 UX Review & Acceptance record has been formally closed.
+The subsequent PR #6 governance reconciliation updates UX document authority metadata, learning-level storage/access disclosures, and FR/AC traceability against Product Definition v0.2.0. These are governance and compatibility corrections, not a visual, navigation, or interaction redesign. Formal Phase 3.1 UX Acceptance remains OPEN.
 
 The PASS state of G5, G6 and G7 refers to design completeness and specified controls. It does not claim that RLS, secret scanning, backup/restore or migration tests have already been executed.
 
@@ -208,7 +208,7 @@ The exact hosting service selected by an individual reader is not a Phase 3.2 ex
 - Supabase Free is accepted as the reference database environment for the book's practical exercises.
 - Hosting is provider-neutral. The practical guide focuses on compatible free-tier hosting.
 - Vercel is an optional illustrative example only; it is not a mandatory provider or architectural standard.
-- Phase 3.1 UX files remain unchanged. Their separate UX Review & Acceptance record is independent.
+- The Phase 3.1 UX design direction is preserved. PR #6 makes governance/compatibility and traceability updates only; it does not redesign the UX. The separate UX Review & Acceptance record remains independent and OPEN.
 - The five Phase 2 Core Specifications remain unchanged in the PR #5 diff.
 - Application Architecture, Data Model, Security and Development/Deployment designs are accepted as the Phase 3.2 design baseline.
 - Private hosting accounts, subscriptions, billing arrangements and infrastructure choices are outside the project documentation scope.
