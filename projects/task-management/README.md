@@ -74,12 +74,13 @@ Documents:
 - [UX Acceptance Criteria](design/ux/v0.1/BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md)
 - [Phase 3.1 UX Review & Acceptance Record](design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md)
 
-The Phase 3.1 UX package is preserved as the existing design reference. Its formal review and acceptance record remains a separate governance item. Phase 3.2 does not authorize a visual redesign or silently modify the Phase 3.1 UX files.
+The Phase 3.1 UX package remains the original v0.1.0 design reference, authored against Product Definition v0.1.0. The governance reconciliation in PR #6 updates authority metadata, learning-level data disclosures, and FR/AC traceability against current Product Definition v0.2.0; it does not redesign the visual, navigation, or interaction direction. Formal Phase 3.1 UX review and acceptance remain a separate OPEN gate.
 
 ### Governance & decisions
 
 - [Governance records index](governance/README.md)
 - [Phase 3 Product / UX Decision Register](governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md)
+- [Governance Reconciliation Execution Record](governance/GOVERNANCE_RECONCILIATION_EXECUTION_RECORD_2026-11-04.md)
 
 ### Phase 3.2 — Application Architecture & Technical Design
 
@@ -260,7 +261,7 @@ The step-by-step lessons will live under the repository-level `/practical-labs/`
 **Design and architecture**
 
 - Phase 3.1 UX artifacts remain the historical design package originally authored against v0.1.0.
-- The UX package is undergoing compatibility reconciliation against v0.2.0; its formal UX Acceptance remains OPEN.
+- PR #6 contains the v0.2.0 compatibility reconciliation for authority metadata, level-specific data disclosures, and FR/AC traceability; formal UX Acceptance remains OPEN until its independent review gate is completed.
 - Phase 3.2 Architecture Design Baseline is Product Owner Accepted; PR #5 is merged.
 - Data Model and Security design acceptance does not mean implementation, RLS tests, secret scanning or runtime verification have passed.
 
@@ -273,10 +274,11 @@ The step-by-step lessons will live under the repository-level `/practical-labs/`
 
 **Next gates**
 
-1. Complete R1–R4 Governance Reconciliation and Product Owner decisions.
-2. Approve the first bounded Phase 3.3 implementation Task Contract.
-3. Create a blank GAIS app and inspect the actual generated scaffold.
-4. Build and verify the Beginner app incrementally with evidence.
-5. Keep Intermediate and Advanced work behind their own task, security and acceptance gates.
+1. Review the completed PR #6 governance-reconciliation package and authorize its single controlled merge into `main`.
+2. Review DR-001–DR-019 and resolve or explicitly defer only the decisions required by the first implementation scope; keep unrelated later-level decisions OPEN.
+3. Complete the Phase 3.1 UX acceptance items that are prerequisites for the initial Beginner implementation scope.
+4. Approve the first bounded Phase 3.3 implementation Task Contract.
+5. Create a blank GAIS app, inspect the actual generated scaffold, then build and verify the Beginner app incrementally with evidence.
+6. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
 
 ---
