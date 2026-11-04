@@ -211,15 +211,17 @@ No business-data migration is required if the same Supabase project and schema a
 - Calculate My Day sections using the user's selected timezone.
 - Test boundary conditions at local midnight, month-end, year-end and daylight-saving transitions in applicable zones.
 
-## 10. Open decisions for Owner / implementation review
+## 10. Open decisions and canonical governance status
 
-| ID | Decision | Recommended default | Status |
+The [Phase 3 Product / UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md) is the canonical source for current decision IDs, statuses, source aliases, and implementation dependencies. The DATA identifiers below remain as source aliases for traceability. Proposed defaults are not Product Owner approvals.
+
+| Source ID | Decision | Recommended default (not approved unless explicitly recorded) | Current status |
 |---|---|---|---|
-| DATA-001 | Is browser `localStorage` acceptable for Beginner persistence? | Yes for a small teaching workspace; no external database, Localhost or Local-First architecture | ACCEPTED FOR DESIGN — ODEC-003 in Phase 3.2 Acceptance; runtime verification deferred to Phase 3.3 |
-| DATA-002 | Should starter-kit definitions be static application assets? | Yes, versioned in source code | Proposed |
-| DATA-003 | Import semantics for existing Supabase workspace | Preview + merge by default; replacement only with confirmation | Proposed |
-| DATA-004 | Timezone source | Browser IANA timezone on first use, user-editable | Proposed |
-| DATA-005 | Is an Advanced local Supabase stack required? | No; Supabase CLI/migrations are taught, local DB stack optional | Proposed |
+| DATA-001 | Is browser `localStorage` acceptable for Beginner persistence? | Yes for a small teaching workspace; no external database, Localhost or Local-First architecture | ACCEPTED FOR DESIGN — ODEC-003; runtime verification required in Phase 3.3 |
+| DATA-002 | Should starter-kit definitions be static application assets? | Yes, versioned in source code | OPEN — proposal only; see DR-015 |
+| DATA-003 | Import semantics for existing Supabase workspace | Preview + merge by default; replacement only with confirmation | OPEN — proposal only; see DR-016 |
+| DATA-004 | Timezone source | Browser IANA timezone on first use, user-editable | OPEN — proposal only; see DR-017 |
+| DATA-005 | Is an Advanced local Supabase stack required? | No; Supabase CLI/migrations are taught, local DB stack optional | OPEN — proposal only; see DR-018 |
 
 ## 11. References
 
