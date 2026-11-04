@@ -468,7 +468,7 @@ Transparency about implementation maturity is a core BVC principle.
 - Automated unit tests.
 - GitHub Actions validation workflow.
 - A documented relationship between the book and the technical companion repository.
-- The Build & Learn direction and the BVC Task Management Product Definition v0.1.0.
+- The Build & Learn direction and the current BVC Task Management Product Definition v0.2.0; v0.1.0 is retained as the historical product baseline.
 
 ### Not Yet Provided
 
@@ -503,6 +503,8 @@ The goal is not to build software merely to practice coding. The goal is to star
 ### First project — BVC Task Management
 
 **[BVC Task Management — A Simple Daily Work Manager](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)** is the first Build & Learn project. Product Definition v0.2.0 was approved by the Product Owner on 2026-11-04 and published through the controlled merge of PR #5. It is the current product baseline on `main`; v0.1.0 remains available as a historical record of the original product direction.
+
+For current project status, acceptance gates, and unresolved implementation decisions, see the [Task Management project guide](projects/task-management/README.md), the [Phase 3 Product / UX Decision Register](projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md), and the [Governance Reconciliation Execution Record](projects/task-management/governance/GOVERNANCE_RECONCILIATION_EXECUTION_RECORD_2026-11-04.md).
 
 The product remains one practical personal work-management application. It is designed for people managing everyday responsibilities in contexts such as:
 
