@@ -34,7 +34,8 @@ This document defines design requirements. It does not claim that RLS, secret sc
 - Intermediate and Advanced use Supabase Auth.
 - Each authenticated account owns its own personal workspace.
 - This does not introduce team workspaces, invitations, shared tasks or role-based collaboration.
-- Email/password or magic-link authentication may be selected for implementation; choose one method and document its recovery flow before Phase 3.3.
+- Email/password or magic-link authentication may be selected for implementation; the method and recovery flow remain OPEN under canonical decision DR-019 in the [Phase 3 Product / UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md).
+- Do not select or implement an Auth method until the Product Owner records the DR-019 decision before the first Intermediate Auth task.
 - Do not create a custom password table or store passwords in application data.
 
 ## 4. RLS requirements
