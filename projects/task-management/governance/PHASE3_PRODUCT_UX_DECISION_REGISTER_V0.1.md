@@ -29,6 +29,8 @@ The UX documents remain versioned as the original v0.1.0 design package. They we
 | **DEFERRED** | The Product Owner explicitly moved the decision outside the current task/level. It must not be implemented in that scope. |
 | **BLOCKED** | The dependent implementation task must not proceed until the decision is resolved or formally deferred. |
 | **VERIFICATION REQUIRED** | The design is accepted, but runtime/test evidence is not yet available. |
+| **RESOLVED** | The controlling record contains a completed decision for the applicable scope; retain its source record as evidence. |
+| **OPTIONAL** | The capability is not a current phase blocker and is introduced only when a later task explicitly needs it. |
 
 ## 3. Canonical decision register
 
@@ -65,6 +67,21 @@ The UX documents remain versioned as the original v0.1.0 design package. They we
 | DR-017 | Timezone source and editing | DATA-004 | Detect browser IANA timezone on first use and allow user correction | OPEN | Resolve before date-boundary and Supabase timezone implementation |
 | DR-018 | Advanced local Supabase stack | DATA-005 | Supabase CLI and migrations are taught; a local database stack remains optional | OPEN | Resolve before writing Advanced local-environment instructions |
 | DR-019 | Supabase Auth method and recovery flow | Security & Environment Design §3 | Choose one supported method (email/password or magic link) and document its recovery flow | OPEN | Must be resolved before the first Intermediate Auth implementation task |
+### 3.4 Phase 3.2 architecture decision crosswalk (ODEC)
+
+The following ODEC identifiers remain authoritative aliases in the Phase 3.2 Architecture Review & Acceptance record. This crosswalk makes their current state visible beside the canonical DR register; it does not turn technical deferrals into new Product Owner approvals.
+
+| Source ID | Architecture decision | Current status | Canonical relationship / next control |
+|---|---|---|---|
+| ODEC-001 | Hosting provider for an individual deployment | RESOLVED — provider-neutral; book may use a compatible free-tier example | No mandatory vendor; reader selects a compatible provider |
+| ODEC-002 | Database reference for learning | RESOLVED — Supabase Free is the reference database environment for the book's practical exercises | Product learning direction; confirm live terms/quotas before publishing instructions |
+| ODEC-003 | Beginner browser store | ACCEPTED FOR DESIGN — runtime validation remains required | Canonical DR-014 |
+| ODEC-004 | Frontend build tool | DEFERRED — inspect the actual GAIS-generated scaffold before selecting build configuration | No framework/build tool is frozen before scaffold inspection |
+| ODEC-005 | Authentication method | DEFERRED until the Product Owner decides the method and recovery flow | Canonical DR-019; resolve before first Intermediate Auth implementation task |
+| ODEC-006 | Local Supabase stack | OPTIONAL — Advanced local database stack is not a Phase 3.2 blocker | Supabase CLI/migrations remain part of the Advanced learning workflow |
+| ODEC-007 | Product Definition baseline transition | RESOLVED — v0.2.0 is current on main through merged PR #5 (ff59827d07eef982e0a23a11279e47c7817c457c) | v0.1.0 remains historical |
+| ODEC-008 | Exact hosting service used in practical screenshots | DEFERRED — choose a compatible free-tier example when preparing the practical lesson | Provider-neutral; not a Product Owner product/architecture mandate |
+
 
 ## 4. Product-level rules already established by v0.2.0
 
