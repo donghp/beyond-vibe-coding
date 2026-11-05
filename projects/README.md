@@ -34,7 +34,7 @@ Additional projects will be added when their learning outcomes, product scope, a
 
 ## Project governance
 
-BVC Task Management's current Product Definition is v0.2.0. The original v0.1.0 Product Definition remains historical. Phase 3.1 UX Acceptance is OPEN; Phase 3.2 architecture design is accepted; Phase 3.3 implementation and verification are active. See the [project README](task-management/README.md) and its canonical [Phase 3 Product / UX Decision Register](task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md) for the current decision and acceptance state.
+BVC Task Management's current Product Definition is v0.2.0. The original v0.1.0 Product Definition remains historical. Phase 3.1 UX Acceptance is OPEN; Phase 3.2 architecture design is accepted; Phase 3.3 readiness and curriculum preparation are underway, while application implementation is not yet evidenced. See the [project README](task-management/README.md) and its canonical [Phase 3 Product / UX Decision Register](task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md) for the current decision and acceptance state.
 
 ## Standard project structure
 
