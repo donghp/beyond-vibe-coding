@@ -1,0 +1,619 @@
+
+schema_version: "0.1.0"
+pack_id: "BVC-TM-BEGINNER-CONTEXT-PACK-001"
+status: "DRAFT_FOR_HUMAN_OWNER_REVIEW"
+prepared_date: "2026-11-05"
+
+purpose: >-
+  Provide a bounded, machine-readable source map and execution context for
+  BVC Task Management's Beginner Implementation Readiness task. This pack
+  identifies the controlling sources, authority, reading order, relevant
+  decisions, exclusions, and the next-task handoff. It is a context/navigation
+  artifact; it does not override the approved Task Contract or any canonical
+  product, architecture, UX, or governance source.
+
+project:
+  id: "BVC-TASK-MANAGEMENT"
+  name: "BVC Task Management — A Simple Daily Work Manager"
+  program: "BEYOND VIBE CODING — Build & Learn"
+  repository: "https://github.com/donghp/beyond-vibe-coding"
+  default_branch: "main"
+  task_id: "BVC-TM-P3.3-001"
+  task_title: "BEGINNER IMPLEMENTATION READINESS — STEP-BY-STEP LEARNING BLUEPRINT"
+  contract_id: "BVC-TM-TC-001"
+  contract_revision: 3
+  contract_status: "APPROVED"
+  risk_level: "R1"
+  execution_run_id: "BVC-TM-P3.3-001-E01"
+
+baseline:
+  contract_recovery_point:
+    kind: "git_commit"
+    reference: "main@5641482236b2b7dc2f515a5125aa6e4c554139ef"
+    verified_in_contract: true
+  repository_snapshot_reviewed:
+    branch: "main"
+    commit: "524a180e756ad5128dc62668f8d5450023407cda"
+    reviewed_date: "2026-11-05"
+    purpose: >-
+      Later main snapshot used to inspect required source paths and current
+      source status for this readiness package. This does not replace the
+      Contract's recorded recovery point.
+  product_baseline:
+    path: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    version: "0.2.0"
+    status: "PRODUCT_OWNER_APPROVED_CURRENT_BASELINE"
+  architecture_baseline:
+    path: "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    status: "PRODUCT_OWNER_ACCEPTED_DESIGN_BASELINE"
+    limitation: >-
+      Design acceptance is not evidence of implementation, runtime behavior,
+      security testing, database provisioning, or deployment.
+  ux_acceptance_gate:
+    path: "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    status: "OPEN"
+  source_freshness: >-
+    The 14 required context paths were checked against the reviewed main
+    snapshot recorded above. Recheck the current main branch, source paths,
+    decisions, and recovery point before any later task executes. This pack
+    is not a live synchronization mechanism.
+
+authority_and_precedence:
+  order:
+    - "Approved Task Contract defines the exact authorized task scope and operations."
+    - "Product Definition v0.2.0 is the current product authority."
+    - "Phase 3.2 Architecture Review & Acceptance is the accepted design baseline only."
+    - "Phase 3 Product / UX Decision Register is authoritative for DR decision status and dependencies."
+    - "Phase 3.1 UX Review & Acceptance remains OPEN and is an independent gate."
+    - "This Context Pack is a bounded navigation/context aid and cannot override any source above."
+  rules:
+    - "A proposed default is not an approved Product Owner decision."
+    - "A design acceptance is not implementation or runtime verification."
+    - "Contract approval authorizes the defined task; it does not automatically accept the deliverables."
+    - "Any required scope expansion must stop and return for a new or revised Task Contract."
+
+task_contract:
+  contract_id: "BVC-TM-TC-001"
+  revision: 3
+  status: "APPROVED"
+  task_id: "BVC-TM-P3.3-001"
+  objective: >-
+    Prepare a beginner-first, step-by-step learning blueprint and a bounded
+    Context Pack for building BVC Task Management from zero programming
+    knowledge, without implementing application code.
+  risk:
+    level: "R1"
+    policy_path: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    policy_id: "BVC-TM-RISK-001"
+    policy_version: "0.1.0"
+    policy_status: "PRODUCT_OWNER_APPROVED_AND_PUBLISHED_ON_MAIN"
+  authorized_operations:
+    create:
+      - "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+      - "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    modify: []
+    delete: []
+  change_budget:
+    max_changed_files: 2
+    max_created_files: 2
+    max_modified_files: 0
+    max_deleted_files: 0
+    max_total_diff_lines: 1600
+    max_binary_files: 0
+  scope_expansion:
+    allowed: false
+    policy: "STOP_AND_REQUEST_APPROVAL"
+  execution_constraints:
+    - "Create exactly the two authorized files and do not modify or delete existing files."
+    - "Do not create, modify, or delete application source code, generated app files, starter-kit assets, or runtime configuration."
+    - "Do not create or run a GAIS application, inspect a live GAIS scaffold, provision Supabase, create a database, configure Auth/RLS, configure hosting, or deploy."
+    - "Do not change Product, UX, Architecture, Governance, Decision Register, Core Specifications, schema, validator, tests, or workflows."
+    - "Do not convert any proposed default in DR-001 through DR-019 into an approved decision."
+    - "Keep DR-005 OPEN and identify it as a prerequisite for the dependent first-use storage disclosure implementation."
+    - "Keep DR-014 at ACCEPTED FOR DESIGN only; runtime persistence still requires verification."
+    - "Keep the first slice limited to open the app, create a task with title only, save, reload/reopen the same browser profile, and verify the task remains."
+    - "Do not include Projects, My Day date logic, Starter Kit application, delete interactions, Backup/Restore, Supabase, Auth, RLS, GitHub workflows, VS Code, Localhost, or hosting implementation in the first slice."
+    - "Use zero-programming-knowledge learner instructions with numbered steps and one action per step."
+    - "Do not invent GAIS interface labels, scaffold files, framework, package manager, commands, or build outputs."
+    - "Keep engineering Task Contract controls separate from the learner-facing Beginner lesson."
+    - "Use synthetic sample data; do not use real personal, customer, or confidential information."
+
+outputs:
+  - id: "OUT-001"
+    operation: "CREATE"
+    kind: "DOCUMENTATION"
+    path: "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+    required: true
+    description: >-
+      Beginner Implementation Readiness blueprint defining the absolute-beginner
+      journey, first vertical slice, learning levels, prerequisites, decision
+      gates, step-writing standard, recovery guidance, acceptance mapping, and
+      handoff to GAIS Scaffold Inspection.
+  - id: "OUT-002"
+    operation: "CREATE"
+    kind: "CONFIGURATION"
+    path: "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    required: true
+    description: >-
+      Machine-readable source map defining exact canonical source paths,
+      authority, purpose, reading order, baselines, relevant decisions,
+      exclusions, verification, and next-task handoff.
+
+required_sources:
+  - source_id: "TASK-CONTRACT-SPEC"
+    order: 1
+    path: "specifications/v0.1/task-contract.md"
+    authority: "CANONICAL"
+    source_status: "DRAFT_EXPERIMENTAL_V0.1.0"
+    required: true
+    purpose: "Authoritative structure, lifecycle, scope, risk, approval, verification, and stop-condition requirements for Task Contracts."
+  - source_id: "TASK-CONTRACT-SCHEMA"
+    order: 2
+    path: "specifications/v0.1/task-contract.schema.json"
+    authority: "CANONICAL"
+    source_status: "DRAFT_2020_12_SCHEMA"
+    required: true
+    purpose: "Machine-readable Task Contract structure and enumerated values."
+  - source_id: "TASK-CONTRACT-TEMPLATE"
+    order: 3
+    path: "templates/task-contract.yaml"
+    authority: "REFERENCE"
+    source_status: "REPOSITORY_STARTER_TEMPLATE"
+    required: true
+    purpose: "Repository starter structure for Task Contracts; it does not override the approved Contract."
+  - source_id: "TASK-MANAGEMENT-RISK-POLICY"
+    order: 4
+    path: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    authority: "APPROVED"
+    source_status: "BVC-TM-RISK-001_V0.1.0_PRODUCT_OWNER_APPROVED_AND_PUBLISHED"
+    required: true
+    purpose: "Project-specific R0-R5 mapping and minimum R1 controls for the bounded documentation/configuration task."
+  - source_id: "TASK-MANAGEMENT-README"
+    order: 5
+    path: "projects/task-management/README.md"
+    authority: "CANONICAL"
+    source_status: "CURRENT_PROJECT_INDEX_ON_MAIN"
+    required: true
+    purpose: "Current project status, learning levels, documentation map, and beginner Step-by-Step writing rule."
+  - source_id: "PRODUCT-DEFINITION-V0.2.0"
+    order: 6
+    path: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    authority: "CANONICAL"
+    source_status: "PRODUCT_OWNER_APPROVED_CURRENT_PRODUCT_BASELINE"
+    required: true
+    version: "0.2.0"
+    purpose: "Current product scope, Beginner/Intermediate/Advanced boundaries, FR-002, FR-003, FR-017, AC-002, and AC-011."
+  - source_id: "PRODUCT-UX-DECISION-REGISTER"
+    order: 7
+    path: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    authority: "CANONICAL"
+    source_status: "CANONICAL_DECISION_STATUS_REGISTER"
+    required: true
+    purpose: "Exact current status and implementation dependencies for DR-001 through DR-019 and ODEC-001 through ODEC-008."
+  - source_id: "PHASE3-1-UX-ACCEPTANCE-RECORD"
+    order: 8
+    path: "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    authority: "APPROVED"
+    source_status: "FORMAL_UX_ACCEPTANCE_OPEN"
+    required: true
+    purpose: "UX package review gate, open acceptance status, and handoff boundaries."
+  - source_id: "UX-ACCEPTANCE-CRITERIA"
+    order: 9
+    path: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md"
+    authority: "APPROVED"
+    source_status: "UX_CRITERIA_REFERENCE_FORMAL_ACCEPTANCE_OPEN"
+    required: true
+    purpose: "First-use disclosure, title-only task capture, persistence, responsive, and accessibility expectations."
+  - source_id: "USER-JOURNEY-NAVIGATION"
+    order: 10
+    path: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md"
+    authority: "APPROVED"
+    source_status: "UX_JOURNEY_REFERENCE_FORMAL_ACCEPTANCE_OPEN"
+    required: true
+    purpose: "Proposed first-use and quick task-capture journeys; keep unresolved decisions clearly identified."
+  - source_id: "PHASE3-2-ARCHITECTURE-ACCEPTANCE"
+    order: 11
+    path: "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    authority: "CANONICAL"
+    source_status: "PRODUCT_OWNER_ACCEPTED_DESIGN_BASELINE"
+    required: true
+    purpose: "Accepted Phase 3.2 design baseline and Phase 3.3 implementation/verification boundary."
+  - source_id: "DATA-MODEL-PERSISTENCE"
+    order: 12
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+    authority: "APPROVED"
+    source_status: "PHASE3_2_ACCEPTED_DESIGN_INPUT; OPEN_DECISIONS_CROSSWALKED"
+    required: true
+    purpose: "Task title requirement, Beginner browser workspace, localStorage design, persistence limitations, and DATA-002 through DATA-005 decisions."
+  - source_id: "SECURITY-ENVIRONMENT-DESIGN"
+    order: 13
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_SECURITY_AND_ENVIRONMENT_V0.1.md"
+    authority: "APPROVED"
+    source_status: "PHASE3_2_ACCEPTED_DESIGN_INPUT"
+    required: true
+    purpose: "Security boundaries and learning-level technology boundaries; no premature database, Auth, RLS, or secrets work in Beginner."
+  - source_id: "DEVELOPMENT-TESTING-DEPLOYMENT-DESIGN"
+    order: 14
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DEVELOPMENT_TESTING_DEPLOYMENT_V0.1.md"
+    authority: "APPROVED"
+    source_status: "PHASE3_2_ACCEPTED_DESIGN_INPUT"
+    required: true
+    purpose: "Three-level development lifecycle and requirement to inspect the actual GAIS scaffold before selecting tools, framework, or commands."
+
+scope:
+  mode: "WRITE"
+  allowed_operations:
+    create:
+      - "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+      - "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    modify: []
+    delete: []
+  change_budget:
+    max_changed_files: 2
+    max_created_files: 2
+    max_modified_files: 0
+    max_deleted_files: 0
+    max_total_diff_lines: 1600
+    max_binary_files: 0
+    allow_dependency_changes: false
+    allow_lockfile_changes: false
+    allow_database_schema_changes: false
+    allow_financial_formula_changes: false
+    allow_authentication_changes: false
+    allow_architecture_changes: false
+  scope_expansion_allowed: false
+  scope_expansion_policy: "STOP_AND_REQUEST_APPROVAL"
+  protected_resources:
+    - "Product Definition v0.2.0"
+    - "Phase 3.1 UX Review & Acceptance record"
+    - "Phase 3.2 Architecture Review & Acceptance record"
+    - "Phase 3 Product / UX Decision Register"
+    - "BVC Task Management Risk Policy"
+    - "Five Phase 2 Core Specifications and their schemas, examples, validators, tests, and workflow"
+  forbidden_paths:
+    - "projects/task-management/README.md"
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    - "specifications/v0.1/task-contract.md"
+    - "specifications/v0.1/task-contract.schema.json"
+    - "scripts/validate_task_contracts.py"
+  forbidden_path_prefixes:
+    - "application/"
+    - "starter-kits/"
+    - "examples/"
+    - "specifications/"
+    - "scripts/"
+    - "tests/"
+    - ".github/"
+    - "projects/task-management/product/"
+    - "projects/task-management/design/"
+    - "projects/task-management/governance/"
+  explicit_exclusions:
+    - "Application source code or generated application files"
+    - "GAIS application creation, execution, or scaffold inspection"
+    - "Supabase or external database provisioning"
+    - "Authentication or Row Level Security configuration"
+    - "Hosting or deployment"
+    - "VS Code, GitHub workflow, or Localhost implementation"
+    - "Projects and My Day date logic"
+    - "Starter Kit application or reapplication"
+    - "Task edit, completion, or deletion interactions"
+    - "Backup, restore, import, or export implementation"
+    - "Product, UX, architecture, governance, specification, validator, test, or workflow changes"
+
+reading_sequence:
+  - order: 1
+    source_id: "TASK-CONTRACT-SPEC"
+    path: "specifications/v0.1/task-contract.md"
+    authority: "CANONICAL"
+    required: true
+    purpose: "Understand contract lifecycle, exact path permissions, scope expansion, evidence, change budget, and stop conditions."
+  - order: 2
+    source_id: "TASK-CONTRACT-SCHEMA"
+    path: "specifications/v0.1/task-contract.schema.json"
+    authority: "CANONICAL"
+    required: true
+    purpose: "Validate the machine-readable Task Contract structure and enumerated values."
+  - order: 3
+    source_id: "TASK-CONTRACT-TEMPLATE"
+    path: "templates/task-contract.yaml"
+    authority: "REFERENCE"
+    required: true
+    purpose: "Understand the repository Task Contract starter structure; it does not override the approved Contract."
+  - order: 4
+    source_id: "TASK-MANAGEMENT-RISK-POLICY"
+    path: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    authority: "APPROVED"
+    required: true
+    purpose: "Apply the project-specific R1 controls for this bounded documentation/configuration task."
+  - order: 5
+    source_id: "TASK-MANAGEMENT-README"
+    path: "projects/task-management/README.md"
+    authority: "CANONICAL"
+    required: true
+    purpose: "Understand current project status, learning levels, source map, and the beginner Step-by-Step writing rule."
+  - order: 6
+    source_id: "PRODUCT-DEFINITION-V0.2.0"
+    path: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    authority: "CANONICAL"
+    required: true
+    purpose: "Use the current product scope, Beginner/Intermediate/Advanced boundaries, FR-002, FR-003, FR-017, AC-002, and AC-011."
+  - order: 7
+    source_id: "PRODUCT-UX-DECISION-REGISTER"
+    path: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    authority: "CANONICAL"
+    required: true
+    purpose: "Verify current status and implementation dependencies for DR-001 through DR-019 and ODEC-001 through ODEC-008."
+  - order: 8
+    source_id: "PHASE3-1-UX-ACCEPTANCE-RECORD"
+    path: "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    authority: "APPROVED"
+    required: true
+    purpose: "Preserve formal Phase 3.1 UX Acceptance as OPEN and respect its handoff boundary."
+  - order: 9
+    source_id: "UX-ACCEPTANCE-CRITERIA"
+    path: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md"
+    authority: "APPROVED"
+    required: true
+    purpose: "Trace first-use, title-only capture, disclosure, persistence, responsive, and accessibility expectations."
+  - order: 10
+    source_id: "USER-JOURNEY-NAVIGATION"
+    path: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md"
+    authority: "APPROVED"
+    required: true
+    purpose: "Use proposed first-use and quick task-capture journeys while keeping OPEN decisions visible."
+  - order: 11
+    source_id: "PHASE3-2-ARCHITECTURE-ACCEPTANCE"
+    path: "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    authority: "CANONICAL"
+    required: true
+    purpose: "Respect the accepted Phase 3.2 design baseline and the Phase 3.3 implementation/verification boundary."
+  - order: 12
+    source_id: "DATA-MODEL-PERSISTENCE"
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+    authority: "APPROVED"
+    required: true
+    purpose: "Understand Task title requirements, Beginner browser workspace, localStorage design, persistence limitations, and data decision crosswalk."
+  - order: 13
+    source_id: "SECURITY-ENVIRONMENT-DESIGN"
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_SECURITY_AND_ENVIRONMENT_V0.1.md"
+    authority: "APPROVED"
+    required: true
+    purpose: "Keep Beginner separate from sign-in, external database, secrets, Auth, RLS, and advanced environment configuration."
+  - order: 14
+    source_id: "DEVELOPMENT-TESTING-DEPLOYMENT-DESIGN"
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DEVELOPMENT_TESTING_DEPLOYMENT_V0.1.md"
+    authority: "APPROVED"
+    required: true
+    purpose: "Inspect the actual GAIS scaffold before assuming a framework, build tool, package manager, runtime, or command."
+
+decision_constraints:
+  - id: "DR-001"
+    decision: "Upcoming horizon in My Day"
+    status: "OPEN"
+    dependency: "Resolve before implementing Upcoming date filtering; My Day is outside the first slice."
+  - id: "DR-002"
+    decision: "Today's Focus lifetime/reset"
+    status: "OPEN"
+    dependency: "Resolve before implementing Focus persistence/reset; exclude from the first slice."
+  - id: "DR-003"
+    decision: "Project removal behavior"
+    status: "OPEN"
+    dependency: "Resolve before implementing project removal; Projects are outside the first slice."
+  - id: "DR-004"
+    decision: "Reapplying a Starter Kit"
+    status: "OPEN"
+    dependency: "Resolve before repeat-application/merge behavior; Starter Kits are outside the first slice."
+  - id: "DR-005"
+    decision: "Timing and exact copy of first-use storage disclosure"
+    status: "OPEN"
+    dependency: "Resolve before implementing the dependent Beginner onboarding disclosure; do not freeze copy or placement here."
+  - id: "DR-006"
+    decision: "Restore conflict and replacement semantics"
+    status: "OPEN"
+    dependency: "Resolve before implementing Beginner restore or workspace replacement; restore is outside the first slice."
+  - id: "DR-007"
+    decision: "Task deletion interaction"
+    status: "OPEN"
+    dependency: "Resolve before implementing task deletion; deletion is outside the first slice."
+  - id: "DR-008"
+    decision: "Initial visual theme"
+    status: "OPEN"
+    dependency: "Do not treat the proposed theme as approved; resolve before freezing visual theme tokens."
+  - id: "DR-009"
+    decision: "Primary color/hue"
+    status: "OPEN"
+    dependency: "Do not treat the proposed hue as approved; resolve before freezing color tokens."
+  - id: "DR-010"
+    decision: "Minimum browser support matrix"
+    status: "OPEN"
+    dependency: "Resolve before final browser/device acceptance."
+  - id: "DR-011"
+    decision: "Font packaging"
+    status: "OPEN"
+    dependency: "Resolve before bundling or freezing a packaged font asset."
+  - id: "DR-012"
+    decision: "Icon family"
+    status: "OPEN"
+    dependency: "Resolve before final icon-family implementation/freeze."
+  - id: "DR-013"
+    decision: "Final contrast audit"
+    status: "VERIFICATION_REQUIRED"
+    dependency: "Requires rendered UI and measured foreground/background/state contrast evidence; not part of this documentation task."
+  - id: "DR-014"
+    decision: "Beginner browser persistence"
+    status: "ACCEPTED_FOR_DESIGN_RUNTIME_VERIFICATION_REQUIRED"
+    dependency: "Use versioned browser localStorage as the design direction; verify runtime behavior in a later implementation task."
+  - id: "DR-015"
+    decision: "Starter Kit definition packaging"
+    status: "OPEN"
+    dependency: "Do not choose the Starter Kit definition source or format before this decision is resolved."
+  - id: "DR-016"
+    decision: "Beginner-to-Supabase import semantics"
+    status: "OPEN"
+    dependency: "Resolve before Intermediate migration/import implementation."
+  - id: "DR-017"
+    decision: "Timezone source and editing"
+    status: "OPEN"
+    dependency: "Resolve before date-boundary or Supabase timezone implementation."
+  - id: "DR-018"
+    decision: "Advanced local Supabase stack"
+    status: "OPEN"
+    dependency: "Not a Beginner prerequisite; resolve before writing Advanced local-environment instructions."
+  - id: "DR-019"
+    decision: "Supabase Auth method and recovery flow"
+    status: "OPEN"
+    dependency: "Resolve before the first dependent Intermediate Auth implementation task."
+
+architecture_decision_crosswalk:
+  - id: "ODEC-001"
+    decision: "Hosting provider for an individual deployment"
+    status: "RESOLVED_PROVIDER_NEUTRAL"
+    dependency: "No mandatory vendor; select a compatible example when preparing the practical lesson."
+  - id: "ODEC-002"
+    decision: "Database reference for learning"
+    status: "RESOLVED_SUPABASE_FREE_REFERENCE_ENVIRONMENT"
+    dependency: "Supabase Free is the reference database learning environment; check current terms/quotas when preparing live instructions."
+  - id: "ODEC-003"
+    decision: "Beginner browser store"
+    status: "ACCEPTED_FOR_DESIGN_RUNTIME_VALIDATION_REQUIRED"
+    dependency: "Crosswalk to DR-014; runtime persistence must still be tested."
+  - id: "ODEC-004"
+    decision: "Frontend build tool"
+    status: "DEFERRED_GAIS_SCAFFOLD_INSPECTION"
+    dependency: "Inspect the actual GAIS scaffold before selecting framework/build configuration."
+  - id: "ODEC-005"
+    decision: "Authentication method"
+    status: "DEFERRED_PENDING_PRODUCT_OWNER_DECISION"
+    dependency: "Crosswalk to DR-019; resolve before Intermediate Auth implementation."
+  - id: "ODEC-006"
+    decision: "Local Supabase stack"
+    status: "OPTIONAL_FOR_PHASE_3_2; ADVANCED_CURRICULUM_SCOPE_OPEN_UNDER_DR_018"
+    dependency: "Do not make a local database stack a Beginner prerequisite."
+  - id: "ODEC-007"
+    decision: "Product Definition baseline transition"
+    status: "RESOLVED_PRODUCT_DEFINITION_V0_2_0_CURRENT_ON_MAIN"
+    dependency: "Use v0.2.0 as current product authority; retain v0.1.0 as historical evidence."
+  - id: "ODEC-008"
+    decision: "Exact hosting service used in practical screenshots"
+    status: "DEFERRED_UNTIL_PRACTICAL_LESSON_PREPARATION"
+    dependency: "Keep hosting provider-neutral; a practical example is not a project-wide mandate."
+
+decisions_and_requirements:
+  first_vertical_slice:
+    description: >-
+      Open the application; create one task with a non-empty title only; save;
+      reload or normally reopen in the same supported browser profile; verify
+      that the saved task remains visible.
+    requirements:
+      - "FR-002"
+      - "FR-003 (view and truthful feedback only for this slice; edit/complete/delete excluded)"
+      - "FR-017"
+    acceptance_criteria:
+      - "AC-002"
+      - "AC-011"
+    explicit_non_goals:
+      - "Projects and project assignment"
+      - "My Day, Upcoming, and Today's Focus date logic"
+      - "Starter Kit selection/application"
+      - "Task edit, completion, deletion, and bulk actions"
+      - "Backup, restore, import, and export"
+      - "Supabase, PostgreSQL, Auth, and RLS"
+      - "GitHub workflow, VS Code, Localhost, hosting, and deployment"
+  beginner_environment:
+    primary: "Google AI Studio Build mode and application preview"
+    persistence: "Small versioned JSON workspace in browser localStorage"
+    external_database_required: false
+    application_authentication_required: false
+    vscode_required: false
+    localhost_required: false
+    github_required_for_beginner: false
+    automatic_cross_device_sync: false
+    storage_limitation: "Browser-profile storage; may be lost when browser data is cleared; no automatic sync."
+  intermediate_environment:
+    primary: "Google AI Studio with Supabase"
+    database: "Supabase PostgreSQL"
+    authentication: "Supabase Auth; selected method/recovery remains OPEN under DR-019"
+    authorization: "Row Level Security"
+  advanced_environment:
+    primary: "Google AI Studio, GitHub, VS Code/Localhost, Supabase, and suitable Web App Hosting"
+    local_supabase_stack: "Scope remains OPEN under DR-018; do not state as mandatory."
+    hosting: "Provider-neutral; ODEC-008 is deferred until practical lesson preparation."
+  instructional_step_fields:
+    - "one_action"
+    - "plain_language_reason"
+    - "exact_click_or_type_guidance_only_when_verified"
+    - "expected_result"
+    - "verification_method"
+    - "recovery_guidance"
+
+known_limits:
+  - "The current GAIS interface and actual generated application scaffold were not inspected in Task #001."
+  - "Exact GAIS labels, menus, generated files, framework, runtime, package manager, and build commands must be verified in the separate GAIS Scaffold Inspection task."
+  - "Task #001 does not create or run a GAIS application."
+  - "Task #001 does not implement the first vertical slice."
+  - "Task #001 does not perform a browser localStorage runtime test."
+  - "Formal Phase 3.1 UX Acceptance remains OPEN."
+  - "DR-005 remains OPEN; final first-use disclosure copy, timing, and placement are not approved by this pack."
+  - "DR-014 is accepted for design only; runtime persistence remains to be verified."
+  - "No Supabase project, database, Auth, RLS, hosting, or deployment is provisioned or verified by Task #001."
+
+next_task_handoff:
+  proposed_task_title: "GAIS Scaffold Inspection"
+  purpose: >-
+    Inspect the actual GAIS interface and blank application's generated scaffold
+    so future Beginner instructions can use verified screen labels, files,
+    framework/runtime details, package manager, preview behavior, and commands.
+  authority: "Requires a separate Task Contract with its own exact scope, baseline, recovery point, risk, acceptance criteria, verification, and Human Owner approval."
+  expected_inspection_outputs_must_be_defined_in_future_contract: true
+  not_authorized_by_current_contract:
+    - "Creating or running a GAIS application"
+    - "Inspecting a live GAIS application or generated scaffold"
+    - "Implementing the first vertical slice"
+    - "Changing repository application files"
+    - "Provisioning external services or deploying"
+
+verification_plan:
+  checks:
+    - id: "VC-001"
+      kind: "STATIC_ANALYSIS"
+      check: "Validate BVC-TM-TC-001 against the repository JSON Schema and semantic validator."
+      command: "python scripts/validate_task_contracts.py <contract-yaml-path>"
+      evidence_level: 1
+      acceptance_criteria_refs: ["AC-007"]
+    - id: "VC-002"
+      kind: "MANUAL_REVIEW"
+      check: "Review the readiness document against AC-001, AC-002, AC-003, AC-004, AC-005, and AC-008."
+      evidence_level: 1
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-003", "AC-004", "AC-005", "AC-008"]
+    - id: "VC-003"
+      kind: "STATIC_ANALYSIS"
+      check: "Parse this Context Pack as YAML and resolve all 14 required source paths against the reviewed main tree."
+      evidence_level: 1
+      acceptance_criteria_refs: ["AC-006"]
+    - id: "VC-004"
+      kind: "MANUAL_REVIEW"
+      check: "Compare the actual Git diff with exact allowed CREATE paths, zero MODIFY/DELETE, and the authorized budget."
+      evidence_level: 1
+      acceptance_criteria_refs: ["AC-007"]
+    - id: "VC-005"
+      kind: "SYSTEM_CHECK"
+      check: "Use a VCS-derived changed-files JSON inventory with the repository validator to prove exact scope and change-budget compliance."
+      command: "python scripts/validate_task_contracts.py <contract-yaml-path> --changed-files-json <vcs-diff-inventory.json>"
+      evidence_level: 2
+      acceptance_criteria_refs: ["AC-007"]
+  limits:
+    - "VC-005 is a post-execution inventory guard; it cannot undo an unauthorized write and does not replace runtime write isolation."
+    - "No GAIS application runtime test is performed in Task #001."
+    - "No browser localStorage persistence test is performed in Task #001."
+    - "No Supabase, Auth, RLS, security, hosting, or deployment test is performed in Task #001."
+
+human_owner_review:
+  required: true
+  status: "PENDING"
+  acceptance_rule: >-
+    The two outputs remain drafts until the Human Owner reviews and explicitly
+    accepts them. Approval of the Task Contract authorizes this bounded task;
+    it does not automatically accept the resulting artifacts.
