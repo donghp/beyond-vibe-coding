@@ -1,0 +1,345 @@
+contract_version: "0.1.0"
+contract_id: "BVC-TM-TC-001"
+revision: 1
+status: DRAFT
+created_at: "2026-11-05T09:30:00+07:00"
+
+task:
+  id: "BVC-TM-P3.3-001"
+  title: "BEGINNER IMPLEMENTATION READINESS — STEP-BY-STEP LEARNING BLUEPRINT"
+  objective: "Prepare a beginner-first, step-by-step learning blueprint and a bounded Context Pack for building BVC Task Management from zero programming knowledge, without implementing application code."
+
+project:
+  project_id: "BVC-TASK-MANAGEMENT"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "d4c392a845055e9d1c494a730aac0486a44db73e"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+      - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+      - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    recovery_point:
+      kind: git_commit
+      reference: "main@d4c392a845055e9d1c494a730aac0486a44db73e"
+      verified: true
+
+intent:
+  objective: "Define the smallest safe preparation task that turns the approved BVC Task Management product and design baseline into a practical learning journey that an absolute beginner can follow, one step at a time."
+  rationale: "The product is defined and its Phase 3.2 architecture design is accepted, but the GAIS application has not yet been created or run with evidence. Before implementation, the team must define the Beginner journey, its first verifiable outcome, the required context, and the decisions that must remain open or be resolved."
+  expected_outcome: "Two reviewed artifacts: a Beginner Implementation Readiness document and a machine-readable Beginner Context Pack. The artifacts describe a learner journey from zero programming knowledge and prepare the next bounded task, GAIS Scaffold Inspection."
+  business_or_user_value: "A reader who has never programmed can follow explicit actions, understand what each action does, see the expected result, and verify progress without needing to understand engineering governance terminology."
+
+risk:
+  level: R1
+  policy_ref: "PENDING — BVC Task Management has no published, Product Owner-approved project risk policy mapping R0-R5. R1 is a provisional proposal for bounded documentation/readiness work only; this reference must be resolved before this contract can be approved or executed."
+  rationale: "The proposed work creates only two documentation/configuration artifacts on a separate branch. It does not modify application code, dependencies, database schema, authentication, financial logic, architecture baselines, or production systems. The R1 label is provisional because the repository has no approved project-specific R0-R5 mapping."
+  impact_factors: []
+  reversibility: EASY
+  risk_owner: "Product Owner / Human Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+      - "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    modify: []
+    delete: []
+  forbidden_paths:
+    - "projects/task-management/README.md"
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    - "specifications/v0.1/task-contract.md"
+    - "specifications/v0.1/task-contract.schema.json"
+    - "scripts/validate_task_contracts.py"
+  forbidden_path_prefixes:
+    - "application/"
+    - "starter-kits/"
+    - "examples/"
+    - "specifications/"
+    - "scripts/"
+    - "tests/"
+    - ".github/"
+    - "projects/task-management/product/"
+    - "projects/task-management/design/"
+    - "projects/task-management/governance/"
+  protected_resource_refs:
+    - "Product Definition v0.2.0 — current Product Owner-approved product baseline"
+    - "Phase 3.2 Architecture Review & Acceptance — accepted design baseline"
+    - "Phase 3.1 UX Review & Acceptance — formal acceptance remains OPEN"
+    - "Phase 3 Product / UX Decision Register — DR-001 through DR-019"
+    - "Five Phase 2 Core Specifications and their schemas, examples, validators, tests, and workflow"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Do not create, modify, or delete application source code, generated application files, starter-kit assets, or runtime configuration."
+  - "Do not create a GAIS application, run GAIS, provision Supabase, create a database, configure Auth/RLS, configure hosting, deploy, or claim runtime verification."
+  - "Create exactly the two files listed in scope.allowed_changes.create; do not modify existing product, UX, architecture, governance, specification, validator, test, or workflow files."
+  - "Treat Product Definition v0.2.0 as the current product authority and v0.1.0 as historical evidence; do not rewrite the historical baseline."
+  - "Treat Phase 3.2 Architecture as accepted design only; do not infer implementation or runtime acceptance."
+  - "Formal Phase 3.1 UX Acceptance remains OPEN. Do not claim PASS or close it in this task."
+  - "Do not convert any proposed default in DR-001 through DR-019 into an approved decision. Record the relevant decision IDs and their dependency gates."
+  - "DR-014 is ACCEPTED FOR DESIGN only; browser localStorage persistence still requires runtime verification in a later task."
+  - "DR-005 remains OPEN and must be identified as a prerequisite for final first-use disclosure timing and copy before the dependent onboarding implementation."
+  - "The first product slice is limited to open the app, create a task using a title only, save it, reload the same browser profile, and verify that the task remains."
+  - "Do not include Projects, My Day date logic, Starter Kit application, delete interactions, Backup/Restore, Supabase, Authentication, RLS, GitHub workflows, VS Code, Localhost, or hosting implementation in the first vertical slice."
+  - "Write all reader-facing instructions for someone with zero programming knowledge. Use Step 1, Step 2, Step 3 numbering; each step must have one action, a plain-language reason, exact click/type guidance when verified, expected result, verification, and recovery guidance."
+  - "Do not invent current Google AI Studio interface labels, menus, scaffold files, framework, package manager, commands, or build outputs. Mark them for direct inspection in the later GAIS Scaffold Inspection task."
+  - "Keep internal BVC Task Contract controls separate from the learner-facing beginner steps. The reader must not need to understand Task Contracts before starting the book exercise."
+  - "Do not use real personal, customer, or confidential data in sample instructions; use synthetic examples."
+  - "Do not choose an AI model or claim quota availability as verified unless an observed exact model label and current availability evidence are recorded in the task-specific plan."
+
+required_context:
+  - reference: "specifications/v0.1/task-contract.md"
+    purpose: "Authoritative structure, lifecycle, scope, risk, approval, verification, and stop-condition requirements for this contract."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "0.1.0 — Draft / Experimental"
+  - reference: "specifications/v0.1/task-contract.schema.json"
+    purpose: "Machine-readable contract structure and enumerated values."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "Draft 2020-12 schema on main@d4c392a845055e9d1c494a730aac0486a44db73e"
+  - reference: "templates/task-contract.yaml"
+    purpose: "Repository starter template and required Task Contract fields."
+    authority: REFERENCE
+    required: true
+  - reference: "projects/task-management/README.md"
+    purpose: "Current project status, learning levels, project documentation, and Step-by-Step reader-material rule."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    purpose: "Current product scope, functional requirements FR-001–FR-025, and acceptance criteria AC-001–AC-036."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "v0.2.0"
+  - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    purpose: "Canonical status and dependency of DR-001–DR-019 and ODEC-001–ODEC-008."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    purpose: "UX package review gate, still-open acceptance state, and handoff requirements."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md"
+    purpose: "Draft UX criteria for first use, task capture, data disclosure, responsiveness, and accessibility."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md"
+    purpose: "Beginner first-use and navigation journey; proposals must be distinguished from approved decisions."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    purpose: "Product Owner-accepted Phase 3.2 design baseline and Phase 3.3 handoff boundary."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "Accepted 2026-11-04"
+  - reference: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+    purpose: "Browser workspace, Task/Project concepts, date-only fields, and data model constraints."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_SECURITY_AND_ENVIRONMENT_V0.1.md"
+    purpose: "Security boundaries and level-specific technology boundaries; no secrets or premature Auth/DB work."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DEVELOPMENT_TESTING_DEPLOYMENT_V0.1.md"
+    purpose: "Three-level development lifecycle and requirement to inspect the actual generated GAIS scaffold before tool/build assumptions."
+    authority: APPROVED
+    required: true
+
+dependencies:
+  - reference: "Product Definition v0.2.0 — merged on main through PR #5"
+    relationship: INFORMATIONAL
+    reason: "Current product authority and Beginner/Intermediate/Advanced boundary."
+  - reference: "Phase 3.2 Architecture Review & Acceptance — Product Owner accepted"
+    relationship: INFORMATIONAL
+    reason: "Accepted design baseline for implementation planning."
+  - reference: "Phase 3.1 UX Review & Acceptance — OPEN"
+    relationship: INFORMATIONAL
+    reason: "Task #001 may prepare a beginner readiness blueprint but must not claim formal UX acceptance."
+  - reference: "DR-005 — first-use storage disclosure timing and copy"
+    relationship: INFORMATIONAL
+    reason: "Remain OPEN in the readiness output; resolve before implementing the dependent first-use disclosure."
+  - reference: "DR-014 — Beginner browser persistence"
+    relationship: INFORMATIONAL
+    reason: "Accepted for design only; runtime persistence must be verified in the later implementation task."
+  - reference: "BVC Task Management project-specific Risk Policy"
+    relationship: MUST_COMPLETE_FIRST
+    reason: "A project-approved R0-R5 risk mapping does not yet exist. The Human Owner must approve or publish the policy reference before this contract can move to APPROVED."
+
+expected_outputs:
+  - id: "OUT-001"
+    kind: DOCUMENTATION
+    description: "Beginner Implementation Readiness blueprint. It must define the absolute-beginner journey, first vertical slice, step-by-step lesson format, scope by learning level, decision gates, prerequisites, expected outcomes, common errors, and handoff to GAIS scaffold inspection."
+    path: "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+    required: true
+  - id: "OUT-002"
+    kind: CONFIGURATION
+    description: "Machine-readable Beginner Context Pack listing the exact canonical sources, authority, reading purpose/order, relevant requirements/decisions, exclusions, and freshness/baseline information for a bounded Beginner task."
+    path: "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    required: true
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "The readiness document assumes zero programming knowledge and explains the learning goal before introducing any technical term."
+    verification_method: "Manual beginner-readability review against the document structure and every numbered step."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-002"
+    statement: "The learner journey is written as sequential Step 1, Step 2, Step 3 instructions; every step has one action, a plain-language reason, exact click/type guidance only where verified, an expected result, a verification method, and recovery guidance."
+    verification_method: "Step-by-step completeness checklist; unverified GAIS UI details must be explicitly deferred rather than invented."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-003"
+    statement: "The first product slice is limited to opening the app, creating a task with title only, saving it, reloading the same browser profile, and confirming persistence."
+    verification_method: "Trace the described slice to FR-002, FR-003, FR-017 and AC-002, AC-011; verify that out-of-slice features are not included as implementation steps."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-004"
+    statement: "The readiness document separates Beginner, Intermediate, and Advanced scope and does not introduce Supabase, Auth, RLS, VS Code, Localhost, GitHub, or hosting as Beginner prerequisites."
+    verification_method: "Cross-check scope tables and reader prerequisites against Product Definition v0.2.0 Sections 6, 9 and 10."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-005"
+    statement: "All relevant unresolved decisions are identified with their current status and implementation dependency; no proposal is represented as approved."
+    verification_method: "Cross-check against the canonical Decision Register, especially DR-005, DR-007, DR-014 and the out-of-scope later-level decisions."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-006"
+    statement: "The Context Pack is valid YAML, uses exact repository paths, identifies source authority and purpose, and includes a bounded reading sequence and explicit exclusions."
+    verification_method: "Parse YAML; inspect each referenced path against the main tree; compare authority labels and purpose with the source documents."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-007"
+    statement: "Exactly two new output files are created; no existing file is modified or deleted and no application, schema, dependency, database, authentication, architecture, CI, or deployment resource is changed."
+    verification_method: "Validate the VCS-derived diff inventory against exact CREATE scope and change budget."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-008"
+    statement: "The readiness document ends with a clear handoff to the next bounded task: create a blank GAIS app and inspect its actual scaffold without assuming framework or commands."
+    verification_method: "Manual review of the final handoff section and its stop conditions."
+    required_evidence_level: 1
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 1
+  checks:
+    - id: "VC-001"
+      kind: STATIC_ANALYSIS
+      description: "Validate the Task Contract YAML against the repository JSON Schema and semantic validator."
+      command: "python scripts/validate_task_contracts.py <contract-yaml-path>"
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-007"]
+    - id: "VC-002"
+      kind: MANUAL_REVIEW
+      description: "Review the readiness document against the eight acceptance criteria and the Beginner step-writing rule."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-003", "AC-004", "AC-005", "AC-008"]
+    - id: "VC-003"
+      kind: STATIC_ANALYSIS
+      description: "Parse the Context Pack as YAML and resolve each exact source path against the repository tree."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-006"]
+    - id: "VC-004"
+      kind: MANUAL_REVIEW
+      description: "Compare the actual Git diff inventory with exact allowed CREATE paths, zero MODIFIES, zero DELETES, and the change budget."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-007"]
+  known_verification_limits:
+    - "No GAIS application has been created or run in this task."
+    - "The current GAIS user interface and generated scaffold are not inspected here; exact menu/button instructions and build commands must be verified in the later Scaffold Inspection task."
+    - "No browser localStorage runtime test is performed by this documentation/readiness task."
+    - "Formal Phase 3.1 UX Acceptance remains OPEN."
+    - "The project-specific risk mapping is not yet approved; this blocks promotion of this contract from DRAFT to APPROVED."
+
+change_budget:
+  max_changed_files: 2
+  max_created_files: 2
+  max_modified_files: 0
+  max_deleted_files: 0
+  max_total_diff_lines: 1600
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: "specifications/v0.1/task-contract.md — Draft / Experimental v0.1.0; project-specific risk/authority policy still requires Owner approval."
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: "Owner request to begin Phase 3.3 Kickoff Task Contract on 2026-11-05; this authorizes preparation/review of the DRAFT contract, not execution of its two deliverables."
+  executor:
+    class: HYBRID
+    identifier: "AI drafting executor under Human Owner review and acceptance"
+    capability_requirements:
+      - "Read the canonical BVC project documentation on the specified baseline."
+      - "Create only the exact two authorized deliverable paths after contract approval."
+      - "Validate Markdown/YAML structure and repository-relative links."
+      - "Report exact file inventory, diff, verification evidence, limitations, and next action."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - create
+    - run_tests
+  human_approval:
+    required: true
+    status: PENDING
+    approver_role: "Human Owner / Product Owner"
+    rationale: "The contract is a DRAFT. The project-specific risk mapping must be approved, then the Owner must explicitly approve this contract before the two deliverables are created."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - other
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded correction pass may fix formatting, broken internal links, or a schema/YAML issue without changing scope. Any new requirement, path, risk category, or scope expansion requires a revised contract and approval."
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "specifications/v0.1/task-contract.md#4.13-reporting-and-continuity; resume from the verified main commit recorded under project.baseline."
