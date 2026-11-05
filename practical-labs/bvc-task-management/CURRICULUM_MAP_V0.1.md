@@ -18,7 +18,7 @@ The curriculum has four phases. Each phase has a clear learning outcome and a bo
 
 | Lesson | Title | What the reader will do | Completion checkpoint |
 |---|---|---|---|
-| A1 | Meet Google AI Studio | Understand what GAIS is, what Build mode is for, and what Preview means. | The reader can identify the relevant GAIS areas using the current verified interface. |
+| A1 | Meet Google AI Studio | Understand what GAIS is, what Build mode is for, and what Preview means. | A1-01 actual Apps landing screen observed; continue with A1-02 and scaffold Preview checkpoints. |
 | A2 | Create Your First Blank Web App | Create one isolated blank web app, observe the interface, and inspect the generated scaffold. | The blank app and its observed scaffold are recorded. No Task Management feature is implemented in this lesson. |
 | A3 | Talk to AI Like a Teammate | Learn to describe a simple request clearly, give useful context, and ask for one bounded change. | The reader can write and refine a small, understandable request. |
 
