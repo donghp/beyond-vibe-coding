@@ -4,7 +4,7 @@
 **Program:** BEYOND VIBE CODING — Build & Learn  
 **Learning level:** Beginner to Advanced  
 **Product:** BVC Task Management — A Simple Daily Work Manager  
-**Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
+**Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. PR #6 Governance Reconciliation was Squash and Merged on 2026-11-05 (commit `5d230516a1eddede51c457c85d5fc6bef23506f8`). Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
 **Implementation status:** Phase 3.3 readiness preparation underway; GAIS application implementation has not yet been evidenced
 
 > **Build something useful. Use it every day. Learn by doing.**
@@ -74,7 +74,7 @@ Documents:
 - [UX Acceptance Criteria](design/ux/v0.1/BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md)
 - [Phase 3.1 UX Review & Acceptance Record](design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md)
 
-The Phase 3.1 UX package remains the original v0.1.0 design reference, authored against Product Definition v0.1.0. The governance reconciliation in PR #6 updates authority metadata, learning-level data disclosures, and FR/AC traceability against current Product Definition v0.2.0; it does not redesign the visual, navigation, or interaction direction. Formal Phase 3.1 UX review and acceptance remain a separate OPEN gate.
+The Phase 3.1 UX package remains the original v0.1.0 design reference, authored against Product Definition v0.1.0. The governance reconciliation in PR #6 (merged on 2026-11-05) updates authority metadata, learning-level data disclosures, and FR/AC traceability against current Product Definition v0.2.0; it does not redesign the visual, navigation, or interaction direction. Formal Phase 3.1 UX review and acceptance remain a separate OPEN gate.
 
 ### Governance & decisions
 
@@ -91,7 +91,7 @@ The Phase 3.1 UX package remains the original v0.1.0 design reference, authored 
 - [Development, Testing & Deployment](design/architecture/v0.1/BVC_TASK_MANAGEMENT_DEVELOPMENT_TESTING_DEPLOYMENT_V0.1.md)
 - [Phase 3.2 Architecture Review & Acceptance](design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md)
 
-The Phase 3.2 documents describe the proposed technical design. They do not prove that application code, database resources, hosting infrastructure, or runtime tests have been completed.
+The Phase 3.2 documents describe the Product Owner-accepted technical design baseline. They do not prove that application code, database resources, hosting infrastructure, or runtime tests have been completed.
 
 ### Application, starter kits, and examples
 
@@ -249,6 +249,14 @@ The project follows this progression:
 
 The step-by-step lessons will live under the repository-level `/practical-labs/` directory and link back to this project. They will not duplicate the application source code.
 
+### 9.1 Learning-material rule — start from zero
+
+The reader-facing guide must assume that a Beginner has never programmed before. Do not make the book start with Task Contracts, repositories, databases, frameworks, or other engineering vocabulary. Those controls govern how the project team builds the product; the learner should encounter them only when the lesson naturally teaches them.
+
+Every practical lesson must be written as a numbered sequence: **Step 1, Step 2, Step 3…** Each step should contain one clear action, explain why it is needed in plain language, show exactly what to click or type, identify what the reader should see afterward, and provide a simple way to check whether it worked. Introduce technical terms only when needed and explain each term the first time it appears. Never assume the reader knows where a menu, button, file, or setting is located.
+
+A lesson must stop at a meaningful checkpoint before adding the next layer of complexity. Include common mistakes and recovery instructions. The goal is that a reader can follow the steps independently and understand what they have built—not merely copy a long Prompt and hope for the best.
+
 ## 10. Current status and next gate
 
 **Product governance**
@@ -261,7 +269,7 @@ The step-by-step lessons will live under the repository-level `/practical-labs/`
 **Design and architecture**
 
 - Phase 3.1 UX artifacts remain the historical design package originally authored against v0.1.0.
-- PR #6 contains the v0.2.0 compatibility reconciliation for authority metadata, level-specific data disclosures, and FR/AC traceability; formal UX Acceptance remains OPEN until its independent review gate is completed.
+- PR #6 was merged into `main` on 2026-11-05, publishing the v0.2.0 compatibility reconciliation for authority metadata, level-specific data disclosures, and FR/AC traceability. This did not close formal UX Acceptance, which remains OPEN until its independent review gate is completed.
 - Phase 3.2 Architecture Design Baseline is Product Owner Accepted; PR #5 is merged.
 - Data Model and Security design acceptance does not mean implementation, RLS tests, secret scanning or runtime verification have passed.
 
@@ -274,11 +282,11 @@ The step-by-step lessons will live under the repository-level `/practical-labs/`
 
 **Next gates**
 
-1. Review the completed PR #6 governance-reconciliation package and authorize its single controlled merge into `main`.
-2. Review DR-001–DR-019 and resolve or explicitly defer only the decisions required by the first implementation scope; keep unrelated later-level decisions OPEN.
-3. Complete the Phase 3.1 UX acceptance items that are prerequisites for the initial Beginner implementation scope.
-4. Approve the first bounded Phase 3.3 implementation Task Contract.
-5. Create a blank GAIS app, inspect the actual generated scaffold, then build and verify the Beginner app incrementally with evidence.
-6. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
+1. Enable and verify Branch Protection for `main`: require Pull Requests, keep force-push and branch deletion disabled, and require conversation resolution. Do not require a status check until a relevant application CI workflow exists and its exact check name has been observed.
+2. Confirm the first Beginner reader journey and the UX acceptance items needed for that scope; review only the Decision Register items on which those first steps depend.
+3. Prepare the first Phase 3.3 Task Contract and its Context Pack, but write the learner-facing work as numbered beginner steps (Step 1, Step 2, Step 3…), with one action, expected result, and verification at each checkpoint.
+4. After the Task Contract is approved, create a blank GAIS app and inspect its actual generated scaffold before selecting build commands or assuming a framework.
+5. Build and verify the first small vertical slice: open the app, create a task, save it, reload the same browser profile, and confirm the task remains available.
+6. Expand to Projects, My Day, Starter Kits, and Backup/Restore only after the relevant behavior and decisions are ready. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
 
 ---
