@@ -282,11 +282,12 @@ A lesson must stop at a meaningful checkpoint before adding the next layer of co
 
 **Next gates**
 
-1. Enable and verify Branch Protection for `main`: require Pull Requests, keep force-push and branch deletion disabled, and require conversation resolution. Do not require a status check until a relevant application CI workflow exists and its exact check name has been observed.
-2. Confirm the first Beginner reader journey and the UX acceptance items needed for that scope; review only the Decision Register items on which those first steps depend.
-3. Prepare the first Phase 3.3 Task Contract and its Context Pack, but write the learner-facing work as numbered beginner steps (Step 1, Step 2, Step 3…), with one action, expected result, and verification at each checkpoint.
-4. After the Task Contract is approved, create a blank GAIS app and inspect its actual generated scaffold before selecting build commands or assuming a framework.
-5. Build and verify the first small vertical slice: open the app, create a task, save it, reload the same browser profile, and confirm the task remains available.
-6. Expand to Projects, My Day, Starter Kits, and Backup/Restore only after the relevant behavior and decisions are ready. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
+1. Confirm the first Beginner reader journey and the UX acceptance items needed for that scope; review only the Decision Register items on which those first steps depend.
+2. Prepare the first Phase 3.3 Task Contract and its Context Pack, but write the learner-facing work as numbered beginner steps (Step 1, Step 2, Step 3…), with one action, expected result, and verification at each checkpoint.
+3. After the Task Contract is approved, create a blank GAIS app and inspect its actual generated scaffold before selecting build commands or assuming a framework.
+4. Build and verify the first small vertical slice: open the app, create a task, save it, reload the same browser profile, and confirm the task remains available.
+5. Expand to Projects, My Day, Starter Kits, and Backup/Restore only after the relevant behavior and decisions are ready. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
+
+Branch Protection for `main` is a separate repository-administration task and is currently deferred; it does not block this documentation and readiness follow-up.
 
 ---
