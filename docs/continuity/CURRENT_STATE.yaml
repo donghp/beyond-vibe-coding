@@ -1,0 +1,38 @@
+schema_version: "3.0.0"
+state_id: "BVC-CONTINUITY-PORTFOLIO"
+repository:
+  full_name: "donghp/beyond-vibe-coding"
+  url: "https://github.com/donghp/beyond-vibe-coding"
+  default_branch: "main"
+portfolio:
+  name: "BEYOND VIBE CODING — Build & Learn"
+  state_semantics: "Portfolio index and continuity navigation; not a replacement for project-specific BVC Project State records."
+  last_semantic_review: null
+  review_status: "REQUIRES_LIVE_RECONCILIATION"
+  projects:
+    - project_id: "BVC-TASK-MANAGEMENT"
+      display_name: "BVC Task Management"
+      canonical_index: "projects/task-management/README.md"
+      status_at_historical_snapshot: "ACTIVE"
+      historical_baseline: "Product Definition v0.2.0; Phase 3.2 design accepted; Phase 3.1 UX acceptance open."
+      historical_active_task: "BVC-TM-P3.3-001"
+      historical_contract: "BVC-TM-TC-001 Revision 3; APPROVED on its task branch at the 2026-11-05 snapshot."
+      note: "Historical anchor only. Reconcile current main, PR #8 or successor, contracts and project records before using."
+machine_snapshot:
+  updater_version: "3.0.0"
+  last_observed_main_sha: "5641482236b2b7dc2f515a5125aa6e4c554139ef"
+  last_observed_main_url: "https://github.com/donghp/beyond-vibe-coding/commit/5641482236b2b7dc2f515a5125aa6e4c554139ef"
+  last_observed_at_utc: null
+  event_name: "INITIAL_HISTORICAL_SNAPSHOT"
+  previous_main_sha: null
+  commit_count_since_previous_snapshot: 0
+  changed_path_count: 0
+  changed_paths: []
+  changed_paths_truncated: false
+  semantic_review_required: true
+  semantic_review_status: "REQUIRES_LIVE_RECONCILIATION"
+  review_note: "The machine updater may replace only this machine_snapshot mapping. Portfolio and project status are human/AI-curated and must never be inferred from Git metadata."
+notes:
+  - "This file is a continuity aid. Live GitHub main and canonical project records take precedence."
+  - "The updater does not mark tasks complete, accept decisions, approve baselines, or change project lifecycle."
+  - "The old snapshot SHA and historical Task Management details must be reconciled before execution."
