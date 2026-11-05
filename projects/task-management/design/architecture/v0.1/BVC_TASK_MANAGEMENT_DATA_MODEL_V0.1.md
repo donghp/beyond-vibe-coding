@@ -69,7 +69,7 @@ erDiagram
 | `updated_at` | TIMESTAMPTZ | Required |
 | `archived_at` | TIMESTAMPTZ | Optional |
 
-When a project is removed, tasks are preserved and `project_id` becomes null. Do not cascade-delete tasks.
+**Proposed behavior — DR-003 remains OPEN:** if the Product Owner selects the non-destructive removal option, preserve tasks and set `project_id` to null. Do not implement this proposal as an approved product rule until DR-003 is resolved.
 
 ### 4.3 Task Checklist Item
 
@@ -89,7 +89,7 @@ When a project is removed, tasks are preserved and `project_id` becomes null. Do
 | Field | Type | Rule |
 |---|---|---|
 | `user_id` | UUID | Primary key and reference to `auth.users(id)` |
-| `timezone` | TEXT | IANA timezone; default from browser, user may change |
+| `timezone` | TEXT | IANA timezone identifier; source/default and user-editing behavior remain OPEN under DATA-004 / DR-017 |
 | `selected_starter_kit` | TEXT | Optional |
 | `preferences` | JSONB | Small validated UI preferences only |
 | `created_at` | TIMESTAMPTZ | Required |
@@ -108,7 +108,7 @@ Do not use `preferences` as an unstructured substitute for core entities or secu
 | `applied_at` | TIMESTAMPTZ | Required |
 | Unique constraint | `(user_id, kit_key, kit_version)` | Prevent duplicate application record |
 
-Starter-kit definitions are bundled, versioned application assets. The database stores application history and resulting user-editable records, not the canonical static kit definitions.
+One proposed option is to bundle starter-kit definitions as versioned application assets. The exact packaging/source remains OPEN under DATA-002 / DR-015. The `applied_starter_kits` table records application history; it does not by itself decide where canonical kit definitions are stored.
 
 ## 5. PostgreSQL schema proposal
 
