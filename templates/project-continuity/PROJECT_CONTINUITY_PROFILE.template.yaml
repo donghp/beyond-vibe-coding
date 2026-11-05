@@ -1,0 +1,48 @@
+profile_schema_version: 0.1.0
+profile_id: REPLACE-PROJECT-CONTINUITY-PROFILE
+profile_revision: 1
+profile_status: DRAFT
+project:
+  project_id: REPLACE-PROJECT-ID
+  display_name: REPLACE-PROJECT-NAME
+  repository: REPLACE-REPOSITORY-URL
+  default_branch: main
+  project_index: REPLACE-PROJECT-INDEX-PATH
+  domain: REPLACE-DOMAIN
+continuity_architecture:
+  global_framework: docs/continuity/
+  project_continuity_root: REPLACE-PROJECT-CONTINUITY-PATH
+  model: GLOBAL_CORE_PLUS_PROJECT_SPECIFIC_EXTENSIONS
+  ai_independence: Project canonical records own durable truth; AI reconstructs context.
+domain_model:
+  required_domain_registers: []
+  optional_domain_registers: []
+  do_not_force_on_other_domains: []
+canonical_authority:
+  precedence:
+  - current approved Human Owner decisions
+  - approved project governance/policy
+  - approved baseline
+  - approved active Task Contract
+  - accepted execution and verification evidence
+  - reconciled state/handoff
+  - open PRs as proposals
+  - chat history as historical leads only
+  project_specific_authority_sources: []
+state_management:
+  current_state: REPLACE-STATE-PATH
+  state_schema: REPLACE-SCHEMA-OR-NONE
+  update_mode: EVENT_DRIVEN
+  semantic_state_owner: AI-prepared; authorized human review/approval as required
+recovery:
+  entry_point: REPLACE-ENTRYPOINT-PATH
+  must_reconcile_live_default_branch: true
+  must_inspect_open_prs: true
+  must_read_active_contract_or_authorization: true
+  cold_start_test_status: NOT_RUN
+  cross_model_test_status: NOT_RUN
+external_systems: []
+template_extraction:
+  source_reference_project: BVC-TASK-MANAGEMENT
+  status: STARTER_ONLY
+  note: Adapt to the new domain; do not copy domain-specific registers blindly.

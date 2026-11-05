@@ -1,0 +1,116 @@
+profile_schema_version: 0.1.0
+profile_id: BVC-TM-CONTINUITY-PROFILE
+profile_revision: 2
+profile_status: PILOT
+project:
+  project_id: BVC-TASK-MANAGEMENT
+  display_name: BVC Task Management
+  repository: https://github.com/donghp/beyond-vibe-coding
+  default_branch: main
+  project_index: projects/task-management/README.md
+  domain: SOFTWARE_PRODUCT_AND_BEGINNER_AI_VIBE_CODING
+  product_baseline:
+    document: projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md
+    version: 0.2.0
+    status: PRODUCT_OWNER_APPROVED_CURRENT_BASELINE
+continuity_architecture:
+  global_framework: docs/continuity/
+  project_continuity_root: projects/task-management/continuity/
+  model: GLOBAL_CORE_PLUS_PROJECT_SPECIFIC_EXTENSIONS
+  ai_independence: The repository and canonical project records own durable project truth; no AI session
+    or model memory is authoritative.
+  project_state_specification:
+    path: specifications/v0.1/project-state.md
+    schema: specifications/v0.1/project-state.schema.json
+    version: 0.1.0
+    maturity: DRAFT_EXPERIMENTAL
+    adoption: Pilot use only; validate against the schema and record project-specific extensions separately.
+domain_model:
+  project_characteristics:
+  - single evolving Task Management product
+  - Beginner / Intermediate / Advanced learning levels
+  - Google AI Studio Build-mode practice
+  - BVC engineering task contracts and verification evidence
+  - reader-facing Practical Labs kept separate from project execution records
+  required_domain_registers:
+  - PROMPT_REGISTER
+  - TASK_EXECUTION_REGISTER
+  - EXTERNAL_SYSTEM_REGISTER
+  optional_domain_registers:
+  - FEATURE_REGISTER
+  - RELEASE_REGISTER
+  - DATA_MIGRATION_REGISTER
+  do_not_force_on_other_domains:
+  - BVCTM prompt numbering
+  - GAIS app inventory
+  - Beginner browser-storage lesson sequence
+canonical_authority:
+  precedence:
+  - current approved Human Owner decision on main
+  - approved project governance and policy on main
+  - current approved product baseline and accepted design records
+  - current approved Task Contract plus required context
+  - accepted execution/change/verification evidence
+  - project state and handoff as reconciled snapshots
+  - open PRs and branches as proposals
+  - chat history and AI memory as historical leads only
+  formal_ux_acceptance: OPEN
+  risk_policy_ref: projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
+  risk_policy_note: 'The main-branch policy file records Product Owner approval but retains publication-pending
+    header metadata; Task Contract #003 explicitly records this inconsistency. Reconcile before treating
+    publication as complete.'
+state_management:
+  current_state: projects/task-management/continuity/PROJECT_STATE.json
+  update_mode: EVENT_DRIVEN_SEMANTIC_AND_MACHINE_FACTS_SEPARATED
+  machine_facts_owner: BVC Global Continuity updater; only its declared machine snapshot scope
+  semantic_state_owner: AI-prepared, Human Owner reviewed/approved where required
+  event_log: projects/task-management/continuity/HANDOFF_LOG.md
+  source_manifest: projects/task-management/continuity/SOURCE_MANIFEST.csv
+recovery:
+  entry_point: projects/task-management/continuity/00_BVC_CHATGPT_CONTINUITY.md
+  must_reconcile_live_main: true
+  must_inspect_open_prs: true
+  must_read_active_contract: true
+  must_check_local_worktree_when_local_work_is_involved: true
+  cold_start_test_status: NOT_RUN
+  cross_model_test_status: NOT_RUN
+  no_history_copy_required: true
+external_systems:
+- system_id: GAIS
+  system_name: Google AI Studio
+  owner: Human Owner
+  role: Build-mode app creation, preview, and generated scaffold inspection
+  access_mode: Human-operated; AI reviews only screenshots/files supplied by Owner
+  current_status: APPS_LANDING_SCREEN_OBSERVED; APP_SCAFFOLD_NOT_VERIFIED
+  canonical_url: https://aistudio.google.com/apps
+  secrets_policy: Never record API keys, tokens, credentials, or account-private details.
+- system_id: GITHUB
+  system_name: GitHub
+  owner: Human Owner / repository governance
+  role: Canonical source repository, PR review, commit history and continuity storage
+  access_mode: Connector/read operations and user-controlled local Git workflow; Human Owner performs
+    final Merge
+  current_status: MAIN_SHA_VERIFIED; PR_15_MERGED; NO_OPEN_PRS_RETURNED_AT_LAST_CHECK
+- system_id: LOCAL_WORKSPACE
+  system_name: Windows local repository
+  owner: Human Owner
+  role: Screenshot capture, file extraction, local Git checks and synchronization
+  access_mode: Human-operated; local tree cannot be inspected remotely
+  current_status: OWNER_REPORTED_PATH; WORKTREE_STATUS_UNKNOWN
+  canonical_path: C:\beyond-vibe-coding\projects\task-management
+screenshot_policy:
+  canonical_root: practical-labs/assets/screenshots/
+  phase_folders:
+  - phase-a
+  - phase-b
+  - phase-c
+  - phase-d
+  capture_policy: Checkpoint-based; authentic Human Owner screenshots only; never substitute generated
+    mockups for evidence.
+  privacy: Redact credentials, API keys, tokens, account-private information, and personal/customer data.
+template_extraction:
+  reference_project: BVC-TASK-MANAGEMENT
+  template_target: templates/project-continuity/
+  status: NOT_READY_FOR_V1_EXTRACTION
+  rule: Extract reusable patterns only after BVCTM operating, cold-start recovery, and cross-model validation
+    evidence exist.

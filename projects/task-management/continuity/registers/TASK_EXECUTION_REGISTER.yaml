@@ -1,0 +1,48 @@
+register_version: 0.1.0
+project_id: BVC-TASK-MANAGEMENT
+register_status: PILOT
+status_semantics:
+  APPROVED: Contract approved; execution may begin within scope.
+  IN_PROGRESS: Execution has observable evidence of having started.
+  READY_FOR_ACCEPTANCE: Required outputs and verification evidence are ready for Owner review.
+  COMPLETED_ACCEPTED: Human Owner acceptance is explicitly recorded in a canonical source.
+  NOT_VERIFIED: Current evidence is insufficient to establish the state.
+tasks:
+- task_id: BVC-TM-P3.3-001
+  contract_id: BVC-TM-TC-001
+  revision: 3
+  title: Beginner Implementation Readiness and Context Pack
+  status: COMPLETED_ACCEPTED
+  evidence_refs:
+  - https://github.com/donghp/beyond-vibe-coding/pull/10
+  - https://github.com/donghp/beyond-vibe-coding/pull/12
+  outputs:
+  - projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md
+  - projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml
+  notes: 'Task #001 deliverables are on main; PR #12 reconciled and published Human Owner acceptance metadata.'
+- task_id: BVC-TM-P3.3-002
+  contract_id: BVC-TM-TC-002
+  revision: 1
+  title: Human Owner Acceptance Metadata Reconciliation
+  status: COMPLETED_ACCEPTED
+  evidence_refs:
+  - https://github.com/donghp/beyond-vibe-coding/pull/11
+  - https://github.com/donghp/beyond-vibe-coding/pull/12
+  outputs:
+  - 'Metadata reconciliation in the Task #001 deliverables'
+  notes: 'Task #002 contract and execution publication merged; do not reuse this Contract for other work.'
+- task_id: BVC-TM-P3.3-003
+  contract_id: BVC-TM-TC-003
+  revision: 1
+  title: GAIS Blank WEB App Scaffold Inspection and Inventory
+  status: APPROVED
+  execution_status: NOT_STARTED_OR_NOT_EVIDENCED
+  risk_level: R2
+  approved_outputs:
+  - projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md
+  - projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml
+  external_outputs:
+  - One isolated non-production blank WEB app; read-only ZIP export outside repository if export is available
+  next_action: Run one exact scaffold-only prompt and gather actual GAIS Preview / code-tree evidence.
+  scope: No product features, localStorage, Auth, database, external API, GitHub app sync, hosting, or
+    deployment.

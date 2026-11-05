@@ -1,0 +1,76 @@
+register_version: 0.1.0
+project_id: BVC-TASK-MANAGEMENT
+register_status: PILOT
+systems:
+- system_id: GAIS
+  name: Google AI Studio
+  url: https://aistudio.google.com/apps
+  owner: Human Owner
+  purpose: Create and inspect one blank WEB app under BVC-TM-TC-003.
+  access_mode: Human-operated; AI analyzes screenshots and exported files supplied by Owner.
+  observed_status: Apps landing screen shown in screenshot supplied during chat.
+  app_created: NOT_VERIFIED
+  app_type: NOT_VERIFIED
+  app_name: NOT_VERIFIED
+  preview_status: NOT_VERIFIED
+  code_tree_status: NOT_VERIFIED
+  export_status: NOT_VERIFIED
+  last_evidence_ref: A1-01 supplied screenshot; image sync to repository not verified.
+  prohibited_data:
+  - API key values
+  - tokens
+  - passwords
+  - account recovery information
+  - private account details
+  - personal/customer/confidential data
+- system_id: GITHUB
+  name: GitHub
+  url: https://github.com/donghp/beyond-vibe-coding
+  owner: Human Owner / BVC governance
+  purpose: Canonical repository, source history, PR review and continuity storage.
+  default_branch: main
+  observed_main_sha: 53ed2649bd5ee687ae76be686db5838f4b9b0173
+  observed_at: '2026-11-05T21:54:16+07:00'
+  open_prs_at_last_check: []
+  recently_merged_prs:
+  - number: 15
+    url: https://github.com/donghp/beyond-vibe-coding/pull/15
+    status: MERGED
+    merge_commit: 53ed2649bd5ee687ae76be686db5838f4b9b0173
+    canonical: YES — changes are now on main
+  merge_authority: Human Owner
+  auto_merge: Not assumed; follow current repository settings and the Global Continuity protocol.
+- system_id: LOCAL-WORKSPACE
+  name: Windows local repository
+  owner: Human Owner
+  canonical_path: C:\beyond-vibe-coding
+  project_path: C:\beyond-vibe-coding\projects\task-management
+  project_continuity_path: C:\beyond-vibe-coding\projects\task-management\continuity
+  template_path: C:\beyond-vibe-coding\templates\project-continuity
+  purpose: Local extraction, screenshot capture, validation and Git synchronization.
+  access_mode: Human-operated; remote assistant cannot inspect local filesystem.
+  working_tree_status: UNKNOWN
+  current_branch: UNKNOWN
+  last_local_commit: UNKNOWN
+  required_local_checks:
+  - git branch --show-current
+  - git status --short --branch
+  - git rev-parse HEAD
+  - compare local main with origin/main before starting a new branch
+- system_id: SCREENSHOT-STORE
+  name: Practical Labs Screenshot Store
+  owner: Human Owner
+  canonical_root: practical-labs/assets/screenshots/
+  local_root: C:\beyond-vibe-coding\practical-labs\assets\screenshots
+  phase_folders:
+  - phase-a
+  - phase-b
+  - phase-c
+  - phase-d
+  status: Directory layout proposed; actual image binaries must be checked individually.
+- system_id: TEMPLATE-STORE
+  name: BVC Project Continuity Template Folder
+  owner: Human Owner / BVC architecture governance
+  local_path: C:\beyond-vibe-coding\templates\project-continuity
+  status: OWNER_REPORTED_CREATED_LOCALLY; repository publication not verified
+  purpose: Hold generic reusable continuity starter templates, not BVCTM-specific state.

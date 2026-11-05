@@ -1,0 +1,15 @@
+evidence_index_version: 0.1.0
+project_id: REPLACE-PROJECT-ID
+evidence_status: DRAFT
+classification_legend:
+  REPOSITORY_VERIFIED: Checked against a canonical source
+  OWNER_SUPPLIED: Provided by owner; repository sync may be pending
+  PROPOSAL_ONLY: Open PR/branch; not canonical
+  NOT_VERIFIED: Insufficient evidence
+evidence:
+- evidence_id: EV-001
+  subject: Replace with evidence subject
+  classification: NOT_VERIFIED
+  source: REPLACE-SOURCE-REFERENCE
+  claim: Replace with narrowly scoped claim
+  limitations: Describe exactly what this evidence does not prove.
