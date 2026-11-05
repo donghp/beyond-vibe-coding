@@ -3,7 +3,7 @@
 
 - **Document ID:** BVC-TM-BIR-001
 - **Version:** 0.1.0
-- **Status:** Draft — submitted for Human Owner review; not yet accepted
+- **Status:** ACCEPTED — Human Owner approval recorded 2026-11-05
 - **Task ID:** `BVC-TM-P3.3-001`
 - **Task Contract:** `BVC-TM-TC-001`, Revision 3 (`APPROVED`)
 - **Execution Run:** `BVC-TM-P3.3-001-E01`
@@ -335,10 +335,15 @@ The GAIS Scaffold Inspection task must have its own Task ID, approved Task Contr
 
 ## 14. Completion statement and limitations
 
-This document defines a beginner-first readiness blueprint for one small product outcome. It is not evidence that a GAIS application has been created or run, that a generated scaffold has been inspected, that browser persistence works, or that the formal Phase 3.1 UX acceptance gate is closed.
+The Human Owner reviewed and explicitly accepted both Task #001 deliverables on 2026-11-05.
 
-The two Task #001 outputs remain drafts until the Human Owner reviews and explicitly accepts them. After acceptance, the next action is to prepare and approve the separate GAIS Scaffold Inspection Task Contract. Do not begin that later task under the authority of `BVC-TM-TC-001`, Revision 3.
+This acceptance applies only to the Beginner Implementation Readiness document and the Beginner Context Pack. It does not constitute acceptance of a future GAIS application implementation, runtime persistence behavior, database, security configuration, or deployment.
 
+This document does not provide evidence that a GAIS application has been created or run, that a generated scaffold has been inspected, or that browser persistence works.
+
+Formal Phase 3.1 UX Acceptance remains OPEN.
+
+The next action is to prepare a separate GAIS Scaffold Inspection Task Contract. That task requires its own scope, authorization, acceptance criteria, verification plan, and Human Owner approval. It must not be executed under the authority of BVC-TM-TC-001 Revision 3.
 ---
 
 **BVC Task Management — Beginner Implementation Readiness v0.1.0**
