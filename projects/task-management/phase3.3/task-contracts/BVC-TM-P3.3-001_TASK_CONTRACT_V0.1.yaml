@@ -35,7 +35,7 @@ intent:
 
 risk:
   level: R1
-  policy_ref: "PROPOSED — projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md (policy branch: governance/task-management-risk-policy-v0.1). R1 is proposed for this documentation/readiness scope. The policy is not effective until Product Owner approval and controlled merge to main; this dependency blocks execution."
+  policy_ref: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md — BVC-TM-RISK-001 v0.1.0; Product Owner approved 2026-11-05; publication pending PR #7 from governance/task-management-risk-policy-v0.1. R1 applies to this exact documentation/readiness scope. The policy is not the published main-branch authority until PR #7 is merged; this dependency blocks execution."
   rationale: "The proposed work creates only two documentation/configuration artifacts on a separate branch. It does not modify application code, dependencies, database schema, authentication, financial logic, architecture baselines, or production systems. The R1 label is provisional because the repository has no approved project-specific R0-R5 mapping."
   impact_factors: []
   reversibility: EASY
@@ -174,7 +174,7 @@ dependencies:
     reason: "Accepted for design only; runtime persistence must be verified in the later implementation task."
   - reference: "BVC Task Management project-specific Risk Policy"
     relationship: MUST_COMPLETE_FIRST
-    reason: "BVC-TM-RISK-001 is proposed on branch governance/task-management-risk-policy-v0.1. The Product Owner must approve the policy and merge it to main before this contract can move from PROPOSED to APPROVED or be executed."
+    reason: "BVC-TM-RISK-001 v0.1.0 was approved by the Product Owner on 2026-11-05 and is awaiting publication through PR #7. Merge the approved policy into main before moving this contract from PROPOSED to execution-authorized status."
 
 expected_outputs:
   - id: "OUT-001"
