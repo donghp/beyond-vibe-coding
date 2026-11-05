@@ -55,7 +55,8 @@ jobs:
         run: python -m unittest discover -s tests -p "test_continuity_updater.py" -v
 
       - name: Validate continuity state YAML
-        run: python -c "import yaml; yaml.safe_load(open('docs/continuity/CURRENT_STATE.yaml', encoding='utf-8')); print('PASS: CURRENT_STATE.yaml parsed')"
+        run: |
+          python -c "import yaml; yaml.safe_load(open('docs/continuity/CURRENT_STATE.yaml', encoding='utf-8')); print('PASS: CURRENT_STATE.yaml parsed')"
 
   refresh:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
