@@ -1,0 +1,480 @@
+contract_version: "0.1.0"
+contract_id: "BVC-TM-TC-003"
+revision: 1
+status: APPROVED
+created_at: "2026-11-05T17:48:00+07:00"
+
+task:
+  id: "BVC-TM-P3.3-003"
+  title: "GAIS BLANK WEB APP SCAFFOLD INSPECTION AND INVENTORY"
+  objective: >-
+    Create one isolated, non-production blank web application in Google AI
+    Studio Build mode, inspect the actual generated scaffold and preview, and
+    record only observed framework, runtime, dependencies, scripts, build
+    configuration, routing, environment-variable names, export behavior, and
+    limitations. Do not implement BVC Task Management features or connect the
+    app to an existing GitHub repository.
+  requested_by: "Human Owner / Product Owner"
+  parent_task_id: "BVC-TM-P3.3-001"
+
+project:
+  project_id: "BVC-TASK-MANAGEMENT"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "bdbd226ed8bd1402999d3e16f5961072a4f882b1"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+      - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DEVELOPMENT_TESTING_DEPLOYMENT_V0.1.md"
+      - "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_SECURITY_AND_ENVIRONMENT_V0.1.md"
+      - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    recovery_point:
+      kind: git_commit
+      reference: "main@bdbd226ed8bd1402999d3e16f5961072a4f882b1"
+      verified: true
+
+intent:
+  objective: >-
+    Replace assumptions about the Google AI Studio generated application
+    scaffold with a small evidence-backed inventory from one isolated blank
+    web app. The inspection will establish the actual toolchain and export
+    characteristics needed to write accurate Beginner instructions and plan
+    a separately authorized first vertical-slice implementation.
+  rationale: >-
+    The accepted Phase 3.2 architecture baseline and the current project
+    README explicitly defer framework, runtime, dependencies, build settings,
+    and deployment compatibility until the actual GAIS-exported scaffold is
+    inspected. Task #001 established the Beginner readiness blueprint; Task
+    #002 synchronized the Human Owner acceptance metadata. Neither task
+    created or inspected a GAIS app.
+  expected_outcome: >-
+    One isolated blank GAIS web app is created and inspected. The repository
+    receives an evidence-backed Markdown report and YAML scaffold inventory.
+    Unknown or unobservable fields are explicitly marked UNKNOWN or
+    NOT_VERIFIED rather than inferred. No BVC product feature is implemented.
+  business_or_user_value: >-
+    Provide verified technical facts for future Beginner lessons and a safe,
+    repeatable handoff from GAIS Build mode to later source review, without
+    prematurely selecting a framework, build command, hosting provider, or
+    implementation approach.
+
+risk:
+  level: R2
+  policy_ref: >-
+    BVC-TM-RISK-001 v0.1.0 — project-specific risk policy. The policy file on
+    main records Product Owner approval but its header still says publication
+    pending; this metadata inconsistency remains a governance finding and is
+    not silently treated as resolved by this Contract.
+  rationale: >-
+    The task creates one isolated external app scaffold and performs a bounded
+    preview/build inspection, then creates two documentation artifacts. It
+    generates a multi-file app scaffold but does not modify an existing app,
+    add product behavior, handle real user data, configure identity or access,
+    provision a database, integrate external services, connect a repository,
+    or deploy. The app is non-production and the action is reversible by
+    abandoning the isolated test app. R2 controls are appropriate for this
+    bounded scaffold-generation activity; any implementation or protected
+    integration discovered to be necessary requires a new Contract.
+  impact_factors:
+    - other
+  reversibility: EASY
+  risk_owner: "Product Owner / Human Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md"
+      - "projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml"
+    modify: []
+    delete: []
+  forbidden_paths:
+    - "projects/task-management/README.md"
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    - "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml"
+    - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-002_TASK_CONTRACT_V0.1.yaml"
+    - "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+    - "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    - "specifications/v0.1/task-contract.schema.json"
+    - "scripts/validate_task_contracts.py"
+  forbidden_path_prefixes:
+    - "application/"
+    - "starter-kits/"
+    - "examples/"
+    - "specifications/"
+    - "scripts/"
+    - "tests/"
+    - ".github/"
+    - "projects/task-management/product/"
+    - "projects/task-management/design/"
+    - "projects/task-management/governance/"
+  protected_resource_refs:
+    - "Product Definition v0.2.0 — current Product Owner-approved product baseline"
+    - "Phase 3.2 Architecture Design Baseline — accepted design only"
+    - "Phase 3.1 UX Acceptance — remains OPEN"
+    - "Phase 3 Product / UX Decision Register — DR-001 through DR-019 remain authoritative"
+    - "BVC-TM-TC-001 Revision 3 — completed Task #001 scope"
+    - "BVC-TM-TC-002 Revision 1 — approved metadata reconciliation scope"
+    - "Five Phase 2 Core Specifications and their schemas, examples, validators, tests, and workflows"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Create exactly one new, isolated, non-production WEB application in the Human Owner's Google AI Studio Build workspace. Do not select the Android app type."
+  - "Use the project label BVC-TM-P3.3-003-SCAFFOLD-INSPECTION if the UI permits a project name. Record the actual displayed name if the label field differs."
+  - "Use one minimal scaffold-only prompt: Create a minimal blank web application for scaffold inspection. Display only the text 'BVC Task Management Scaffold Inspection'. Do not implement task management features, task forms, data persistence, authentication, database access, APIs, external integrations, or deployment."
+  - "Do not add or implement the BVC first vertical slice in this task. The first vertical slice is a separate future implementation task."
+  - "Inspect the actual UI controls and generated files. Record exact labels only when directly observed; if the UI differs from documentation, report the observed UI."
+  - "Do not assume React, Node.js, Vite, npm, pnpm, yarn, a lockfile, build scripts, output directories, or routing behavior. Verify each from the actual project files or mark it UNKNOWN / NOT_VERIFIED."
+  - "Inspect the generated code tree and, where export is available, download one ZIP copy for read-only inspection outside the repository, for example under %TEMP%\\BVC-TM-P3.3-003\\. Do not extract the ZIP into the BVC repository."
+  - "Do not connect, import, link, or sync the GAIS app with donghp/beyond-vibe-coding or any other GitHub repository during this task."
+  - "Do not push code from GAIS to GitHub. Do not create a GitHub repository for the GAIS app."
+  - "Do not provision Supabase, PostgreSQL, Firebase, or another database. Do not configure Auth, RLS, API integrations, Cloud Run, hosting, or deployment."
+  - "Do not create, reveal, copy, or record secret values, API-key values, tokens, credentials, or private account data. Environment-variable NAMES may be recorded; their values must never be included in screenshots, logs, report, or inventory."
+  - "Use only a harmless placeholder page and synthetic text. Do not enter personal, customer, confidential, financial, or production data."
+  - "Record build/preview results exactly as observed. A visible preview is not evidence of a production build, application correctness, persistence, security, or deployment readiness."
+  - "Record every unknown as UNKNOWN or NOT_VERIFIED; do not infer a result from framework conventions or general Google documentation."
+  - "Create only the two authorized report/inventory files in the BVC repository. Keep the exported app ZIP and any extracted files outside the repository."
+  - "Do not modify or delete existing BVC repository files, product baselines, UX decisions, architecture records, specifications, scripts, tests, workflows, or application source."
+  - "Do not change or resolve DR-001 through DR-019 or ODEC-001 through ODEC-008. DR-005 remains OPEN; Phase 3.1 UX Acceptance remains OPEN."
+  - "Only the Human Owner operates the authenticated GAIS account and local file system. AI may analyze screenshots and files explicitly supplied by the Human Owner and prepare the report; AI has no direct GAIS account, GitHub write, commit, push, or merge authority."
+  - "If the GAIS interface requires a paid service, external integration, secret, database, sign-in configuration, repository connection, deployment, or broader permission beyond this scope, stop and request a new Contract."
+
+required_context:
+  - reference: "specifications/v0.1/task-contract.md"
+    purpose: "Canonical task lifecycle, exact scope, risk, authorization, verification, and reporting requirements."
+    authority: CANONICAL
+    required: true
+  - reference: "specifications/v0.1/task-contract.schema.json"
+    purpose: "Machine-readable schema for validating this Contract."
+    authority: CANONICAL
+    required: true
+  - reference: "templates/task-contract.yaml"
+    purpose: "Repository Task Contract template and field conventions."
+    authority: REFERENCE
+    required: true
+  - reference: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    purpose: "R0-R5 definitions and minimum controls; retain the known publication-metadata inconsistency."
+    authority: APPROVED
+    required: true
+    version_or_commit: "BVC-TM-RISK-001 v0.1.0; Product Owner approval is recorded in the file; publication-pending text remains in the main header."
+  - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    purpose: "Current Beginner environment and three-level learning boundaries."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "Product Owner-approved v0.2.0 current baseline."
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Task #001 authorized Beginner readiness scope and acceptance boundaries."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "BVC-TM-TC-001 Revision 3; PR #10 merged."
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-002_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Approved metadata reconciliation contract and task sequencing evidence."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "BVC-TM-TC-002 Revision 1; PR #11 merged."
+  - reference: "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+    purpose: "Beginner learning path and first vertical slice boundary; no implementation is claimed."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    purpose: "Bounded source map, decision constraints, and learning-level boundaries."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    purpose: "Accepted architecture design baseline and explicit Phase 3.3 runtime-verification handoff."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DEVELOPMENT_TESTING_DEPLOYMENT_V0.1.md"
+    purpose: "Generated scaffold compatibility requirements; inspect actual framework, package manager, build, output, runtime, routing, and environment variables."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_SECURITY_AND_ENVIRONMENT_V0.1.md"
+    purpose: "Keep the scaffold inspection free of secrets, external identity, database, RLS, and production operations."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    purpose: "Preserve current DR statuses, particularly DR-005 OPEN and DR-014 design acceptance with runtime verification required."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    purpose: "Formal Phase 3.1 UX Acceptance remains OPEN and is independent of scaffold inspection."
+    authority: APPROVED
+    required: true
+  - reference: "https://ai.google.dev/gemini-api/docs/aistudio-build-mode"
+    purpose: "Official Google AI Studio Build documentation; current platform guidance is contextual only and never replaces inspection of the actual generated scaffold."
+    authority: REFERENCE
+    required: true
+
+dependencies:
+  - reference: "BVC Task #001 — PR #10 merged; Beginner Readiness and Context Pack published and accepted."
+    relationship: MUST_COMPLETE_FIRST
+    reason: "The scaffold inspection uses the accepted Beginner path and first-slice boundary."
+  - reference: "BVC Task #002 — Contract PR #11 and execution PR #12 merged."
+    relationship: MUST_COMPLETE_FIRST
+    reason: "Acceptance metadata reconciliation is complete on main."
+  - reference: "Product Definition v0.2.0 and Phase 3.2 Architecture Design Baseline."
+    relationship: MUST_COMPLETE_FIRST
+    reason: "These are the current product and accepted design authorities."
+  - reference: "Phase 3.1 UX Acceptance remains OPEN."
+    relationship: INFORMATIONAL
+    reason: "Scaffold inspection does not close UX acceptance or approve open UX decisions."
+  - reference: "DR-005 first-use storage disclosure timing/copy remains OPEN."
+    relationship: INFORMATIONAL
+    reason: "No onboarding disclosure or persistence behavior is implemented in this task."
+
+expected_outputs:
+  - id: "OUT-001"
+    kind: "REPORT"
+    description: >-
+      Evidence-backed Markdown report recording the GAIS Build/Preview journey,
+      actual app type, UI controls observed, preview result, export outcome,
+      framework/runtime/dependency findings, unresolved facts, security
+      boundaries, evidence references, and handoff to the first implementation
+      task.
+    path: "projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md"
+    required: true
+  - id: "OUT-002"
+    kind: "CONFIGURATION"
+    description: >-
+      Machine-readable YAML inventory of the actual generated scaffold files,
+      manifest and lockfile observations, scripts, runtime, routing, output
+      directory, environment-variable NAMES only, and explicit UNKNOWN or
+      NOT_VERIFIED fields.
+    path: "projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml"
+    required: true
+  - id: "OUT-003"
+    kind: "OTHER"
+    description: >-
+      One isolated, non-production blank Google AI Studio Build-mode WEB app
+      and one read-only ZIP export stored outside the BVC repository when the
+      platform makes export available. These are external/local evidence
+      artifacts, not files authorized for commit to the BVC repository.
+    required: true
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: >-
+      Exactly one new isolated blank WEB app is created in Google AI Studio
+      Build mode using the authorized scaffold-only prompt; no Android app or
+      unrelated app is created as part of this task.
+    verification_method: "Human Owner screenshot and observed GAIS project/app name and type."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-002"
+    statement: >-
+      The app contains only a minimal placeholder page for scaffold inspection;
+      it does not implement task management, task capture, persistence, user
+      accounts, database integration, API features, external services, or
+      deployment.
+    verification_method: "Review the exact prompt, visible preview, and generated code tree."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-003"
+    statement: >-
+      The scaffold inventory records every observed file path and classifies
+      files using evidence from the Code view or exported ZIP. No file or
+      framework detail is inferred from convention.
+    verification_method: "Compare inventory entries against screenshots and the read-only ZIP listing."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-004"
+    statement: >-
+      Frontend framework/version, server runtime, package manager, lockfile,
+      scripts, build command, output directory, routing/rewrite configuration,
+      and environment-variable NAMES are recorded from actual files or marked
+      UNKNOWN/NOT_VERIFIED when absent or inaccessible. Secret values are never recorded.
+    verification_method: "Inspect actual package manifests, lockfiles, config files, and relevant GAIS panels; cite the source file or screenshot for each fact."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-005"
+    statement: >-
+      Preview/build outcome is recorded exactly as observed, including error
+      text and blockers. Preview success is not described as a production build,
+      runtime acceptance, persistence verification, or deployment readiness.
+    verification_method: "Human Owner screenshot of the actual preview and any visible build or error output."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-006"
+    statement: >-
+      No GitHub repository is connected, no source code is pushed, no secrets
+      or real personal/customer data are exposed, and no database, Auth, RLS,
+      external integration, hosting, or deployment is configured.
+    verification_method: "Review the task activity record, screenshots, exported file set, and explicit Human Owner confirmation."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-007"
+    statement: >-
+      The Markdown report and YAML inventory are complete, mutually consistent,
+      evidence-linked, and explicitly distinguish OBSERVED, INFERRED, UNKNOWN,
+      and NOT_VERIFIED. Inference must never replace missing observation.
+    verification_method: "Manual report review and YAML parsing."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-008"
+    statement: >-
+      Repository changes consist of exactly the two authorized CREATE files,
+      with zero MODIFY, zero DELETE, zero binary files, and no application source
+      or unrelated changes, within the approved Change Budget.
+    verification_method: "VCS-derived changed-file inventory and repository Contract Validator VC-007."
+    required_evidence_level: 2
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 2
+  checks:
+    - id: "VC-001"
+      kind: "MANUAL_REVIEW"
+      description: "Verify one isolated GAIS WEB app was created with the authorized placeholder-only prompt and no unrelated app resource was created."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002"]
+    - id: "VC-002"
+      kind: "MANUAL_REVIEW"
+      description: "Compare the scaffold inventory with the actual Code view and the exported ZIP listing, where export is available."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-003"]
+    - id: "VC-003"
+      kind: "STATIC_ANALYSIS"
+      description: "Inspect actual manifests, lockfiles, runtime/configuration files, scripts, output settings, routing, and environment-variable names; record UNKNOWN where evidence is absent."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-004"]
+    - id: "VC-004"
+      kind: "REAL_WORLD_CHECK"
+      description: "Open the actual GAIS Preview once and record the visible outcome or exact error; do not claim production or persistence verification."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-005"]
+    - id: "VC-005"
+      kind: "SECURITY_REVIEW"
+      description: "Verify no secret values, real personal/customer data, GitHub link, database, Auth, RLS, external integration, hosting, or deployment entered the task scope."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-006"]
+    - id: "VC-006"
+      kind: "STATIC_ANALYSIS"
+      description: "Parse the scaffold inventory YAML and run Markdown whitespace checks on the report."
+      command: "python -c \"import yaml; yaml.safe_load(open('projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml', encoding='utf-8')); print('PASS: GAIS Scaffold Inventory')\""
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-007"]
+    - id: "VC-007"
+      kind: "SYSTEM_CHECK"
+      description: "Use a VCS-derived changed-files JSON inventory and the repository validator to verify exactly two CREATE paths, zero MODIFY, zero DELETE, zero binary files, and Change Budget compliance."
+      command: "python scripts/validate_task_contracts.py <contract-yaml-path> --changed-files-json <vcs-diff-inventory.json>"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-008"]
+  known_verification_limits:
+    - "This task does not implement the BVC Task Management first vertical slice."
+    - "This task does not test browser localStorage persistence, CRUD, import/export behavior, or task workflows."
+    - "This task does not provision Supabase/PostgreSQL or configure Auth/RLS."
+    - "This task does not perform responsive, accessibility, security penetration, integration, end-to-end, or production tests."
+    - "This task does not select or validate a hosting provider or deploy the app."
+    - "If GAIS ZIP export or a file detail is unavailable, record the limitation and mark the affected fields NOT_VERIFIED."
+
+change_budget:
+  max_changed_files: 2
+  max_created_files: 2
+  max_modified_files: 0
+  max_deleted_files: 0
+  max_total_diff_lines: 1500
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: >-
+    BVC-TM-RISK-001 v0.1.0 — project-specific R0-R5 risk policy. Its Product
+    Owner approval is recorded in the policy file; publication-pending header
+    metadata remains a governance finding and must not be silently rewritten.
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: >-
+    Human Owner explicitly approved BVC-TM-TC-003 Revision 1 on 2026-11-05.
+    This approval authorizes only the exact scope, constraints, and change
+    budget defined in this Contract. Any scope expansion requires a new or
+    revised Contract and explicit approval.
+  executor:
+    class: HYBRID
+    identifier: "Human Owner creates the GAIS app, captures screenshots and exports locally; AI guides prompts and reviews evidence only, with no direct GAIS access or GitHub write/commit/push/merge authority."
+    capability_requirements:
+      - "Read the current main baseline and approved Phase 3.2 design records."
+      - "Guide the Human Owner through one blank web-app scaffold creation."
+      - "Inspect screenshots and files explicitly supplied by the Human Owner."
+      - "Record only facts evidenced by the actual scaffold or UI."
+      - "Create only the two authorized documentation outputs through the Human Owner's local workflow."
+      - "Validate YAML, Markdown, and VCS-derived scope inventory."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - create
+    - run_build
+    - run_tests
+  human_approval:
+    required: true
+    status: APPROVED
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Human Owner explicitly approved BVC-TM-TC-003 Revision 1 in conversation on 2026-11-05."
+    rationale: "R2 scaffold generation creates one isolated external app resource. The Human Owner has explicitly approved the exact scope, constraints, and Change Budget in this revision."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+  - other
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: >-
+    One bounded retry may correct an inspection recording or report-formatting
+    issue without creating a second GAIS app. A failed initial scaffold creation,
+    repeated generation that materially changes the scaffold, or any request to
+    add functionality requires Human Owner review and a new or revised Contract.
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "specifications/v0.1/task-contract.md#4.13-reporting-and-continuity"
