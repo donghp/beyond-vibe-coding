@@ -2,8 +2,10 @@
 
 **Learning level:** Beginner\
 **Estimated time:** 10–15 minutes\
-**Status:** Draft — current-interface screenshots and observation required\
-**Project:** BVC Task Management
+**Status:** In progress — checkpoint A1-01 observed; A1-02 awaiting Human Owner capture\
+**Project:** BVC Task Management\
+**Evidence baseline:** A1-01 actual GAIS screenshot supplied by Human Owner\
+**Scaffold task boundary:** BVC-TM-TC-003 Revision 1 — APPROVED
 
 ## What you will learn
 
@@ -58,11 +60,24 @@ You should arrive at the Google AI Studio interface available to your account.
 
 **Screenshot checkpoint — A1-01**
 
-> [SCREENSHOT REQUIRED: Capture the actual first screen after sign-in. Keep relevant navigation visible. Hide personal account details before sharing.]
+<figure>
 
-![Placeholder: actual Google AI Studio starting screen to be supplied](../../assets/screenshots/phase-a/a1-01-gais-start-screen-PLACEHOLDER.png)
+![Google AI Studio Apps landing screen supplied by the Human Owner, showing the Explore, Build, and Manage navigation groups and the New app entry](../../assets/screenshots/phase-a/a1-01-gais-start-screen.png)
 
-*Figure A1-01. Replace this placeholder with the actual screenshot supplied during the lesson recording.*
+<figcaption>Figure A1-01. Actual Google AI Studio Apps landing screen at aistudio.google.com/apps. The New app entry is visible and highlighted under BUILD. Evidence status: OBSERVED.</figcaption>
+</figure>
+
+**Observation from the supplied screenshot**
+
+The left navigation shows three groups:
+
+- **EXPLORE:** Playground, History.
+- **BUILD:** New app, My apps, Gallery.
+- **MANAGE:** Dashboard, Documentation.
+
+The address bar shows `aistudio.google.com/apps`.
+
+This screenshot proves that the Apps landing screen was displayed and that **New app** was visible under **BUILD**. It does not prove that an application was created, that WEB was selected, or that a scaffold or Preview exists.
 
 **Check**
 
@@ -70,29 +85,36 @@ Confirm that you are in Google AI Studio. Do not continue by guessing where a co
 
 If your screen looks different from the final verified screenshot, stop and compare it with the current lesson version. The interface may differ by account, rollout, or product update.
 
-## Step 2 — Understand Build mode
+## Step 2 — Open the app creation area
 
-**What it means**
+**What you can see**
 
-Build mode is the area of Google AI Studio used to create an application with help from AI. You describe what you want, and the tool can generate an application project.
+The actual A1-01 screenshot shows the **BUILD** navigation group on the left and the **New app** entry directly beneath it.
 
 **Do this**
 
-After the current GAIS screen has been captured and reviewed, locate the Build mode entry using the label visible in your account.
+1. Find **BUILD** in the left navigation.
+2. Select **New app** once.
+3. Wait for the next screen to finish loading.
+4. Stop. Do not choose WEB or Android and do not enter a prompt yet.
 
-**Important**
+**Why**
 
-The exact location and wording of the entry must be confirmed from the actual screenshot before this step is published as a final click-by-click instruction.
+We need to inspect the app-creation screen before choosing the application type. This avoids guessing about controls that have not yet been observed.
 
-> [SCREENSHOT REQUIRED: Capture the current GAIS screen with the actual Build mode entry visible. Add a numbered callout only after the location has been verified.]
+**What you should see**
 
-![Placeholder: actual Build mode entry to be supplied](../../assets/screenshots/phase-a/a1-02-build-mode-PLACEHOLDER.png)
+The next GAIS screen after selecting **New app**. Its exact labels and app-type options are not yet verified.
 
-*Figure A1-02. Replace with the real GAIS screen and a verified callout.*
+**Screenshot checkpoint — A1-02**
+
+> [SCREENSHOT REQUIRED: Capture the full visible GAIS application area after selecting New app, before choosing an app type or entering a prompt.]
+
+Save the screenshot as `a1-02-new-app-screen.png` in `practical-labs/bvc-task-management/assets/screenshots/phase-a/`.
 
 **Check**
 
-You should be able to identify the Build mode entry on your own screen. Do not select Android or another app type in this introductory lesson.
+Confirm that the screen changed. If it did not, stop and share a screenshot of what is visible. Do not guess an alternate button or menu.
 
 ## Step 3 — Understand Preview
 
@@ -109,11 +131,11 @@ A Preview is useful, but it is not proof that every feature works. For example, 
 - Preview lets you inspect the visible result.
 - You must still test the behavior you care about.
 
-> [SCREENSHOT REQUIRED: Capture an actual Preview screen from the blank scaffold created under the separately approved scaffold-inspection task. Do not use a mock interface.]
+> [SCREENSHOT REQUIRED: Capture an actual Preview screen from the blank web scaffold created under BVC-TM-TC-003. Do not use a mock interface.]
 
-![Placeholder: actual application Preview to be supplied](../../assets/screenshots/phase-a/a1-03-preview-PLACEHOLDER.png)
+![Blank BVC Task Management scaffold Preview](../../assets/screenshots/phase-a/a1-03-blank-app-preview.png)
 
-*Figure A1-03. Replace with a real Preview screenshot after the scaffold is created.*
+*Figure A1-03. Actual blank web scaffold Preview — awaiting Human Owner capture and review.*
 
 ## What you have learned
 
@@ -148,7 +170,7 @@ Do not accept extra functionality automatically. We will learn to give clearer c
 
 Explain, without technical language, how you would ask AI to create a simple tool that helps you remember one thing you need to do tomorrow.
 
-Do not ask AI to build the full Task Management application yet. The next lesson will create one isolated blank web app and inspect what GAIS actually generates.
+The approved BVC-TM-TC-003 Revision 1 authorizes one isolated blank WEB app and scaffold inspection only. The actual Task Management features will be implemented progressively under a separate approved implementation scope.
 
 ## References
 
