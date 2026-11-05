@@ -259,6 +259,12 @@ verification:
       evidence_level: 1
       required: true
       acceptance_criteria_refs: ["AC-007"]
+    - id: "VC-005"
+      kind: SYSTEM_CHECK
+      description: "Use the repository version-control diff inventory to prove exactly two CREATE operations, zero MODIFY operations, zero DELETE operations, and compliance with the authorized change budget."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-007"]
   known_verification_limits:
     - "No GAIS application has been created or run in this task."
     - "The current GAIS user interface and generated scaffold are not inspected here; exact menu/button instructions and build commands must be verified in the later Scaffold Inspection task."
