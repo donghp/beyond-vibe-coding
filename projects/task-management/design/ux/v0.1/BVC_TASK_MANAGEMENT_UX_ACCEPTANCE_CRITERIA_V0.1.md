@@ -27,6 +27,8 @@ Canonical open decisions and source aliases are maintained in the [Product/UX De
 
 ## 3. UX acceptance criteria
 
+The criteria below are the draft Phase 3.1 review baseline, not proof of Product Owner acceptance. In particular, UX-002 describes the proposed disclosure outcome; the precise first-use timing and copy remain OPEN under DR-005.
+
 ### A. First-use and navigation
 
 | ID | Criterion | Evidence |
