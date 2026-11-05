@@ -1,0 +1,373 @@
+contract_version: "0.1.0"
+contract_id: "BVC-TM-TC-002"
+revision: 1
+status: APPROVED
+created_at: "2026-11-05T06:40:00+07:00"
+
+task:
+  id: "BVC-TM-P3.3-002"
+  title: "HUMAN OWNER ACCEPTANCE METADATA RECONCILIATION — TASK #001"
+  objective: >-
+    Synchronize the explicit Human Owner acceptance dated 2026-11-05 into the
+    two BVC Task #001 deliverables already published on main. Preserve all
+    approved substantive content and modify only the acceptance metadata and
+    completion statement identified in this contract.
+  requested_by: "Human Owner / Product Owner"
+  parent_task_id: "BVC-TM-P3.3-001"
+
+project:
+  project_id: "BVC-TASK-MANAGEMENT"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "9ae342a24380655fc1ec681f4173d1f84bbafb17"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+      - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+      - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    recovery_point:
+      kind: git_commit
+      reference: "main@9ae342a24380655fc1ec681f4173d1f84bbafb17"
+      verified: true
+
+intent:
+  objective: >-
+    Publish a consistent record of the Human Owner's acceptance of BVC Task
+    #001 without changing the approved beginner learning blueprint, product
+    scope, architecture, or decision statuses.
+  rationale: >-
+    PR #10 merged the two Task #001 deliverables into main before their final
+    acceptance metadata was synchronized. The Human Owner subsequently
+    explicitly accepted both deliverables on 2026-11-05. Commit 9ab44b6
+    contains the corresponding metadata update and has been pushed to the
+    original feature branch, but it was not included in the already merged
+    PR #10.
+  expected_outcome: >-
+    Both files on main consistently record ACCEPTED status and the Human Owner
+    acceptance date, while retaining all substantive content and existing
+    verification limitations.
+  business_or_user_value: >-
+    Keep published project documentation consistent with the actual Human
+    Owner acceptance decision and GitHub review history.
+
+risk:
+  level: R1
+  policy_ref: >-
+    BVC-TM-RISK-001 v0.1.0 — project-specific R1-R5 policy. Product Owner
+    approval is recorded in the policy metadata; the policy's publication
+    metadata on main still says publication pending, so verify the canonical
+    publication state before relying on it as the effective policy.
+  rationale: >-
+    This task changes only non-executable acceptance metadata and completion
+    wording in two existing documentation files. It does not alter
+    application behavior, data structures, dependencies, security,
+    authentication, financial logic, architecture, CI, or deployment.
+  impact_factors: []
+  reversibility: EASY
+  risk_owner: "Product Owner / Human Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create: []
+    modify:
+      - "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+      - "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    delete: []
+  forbidden_paths:
+    - "projects/task-management/README.md"
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml"
+    - "scripts/validate_task_contracts.py"
+  forbidden_path_prefixes:
+    - "application/"
+    - "starter-kits/"
+    - "examples/"
+    - "specifications/"
+    - "scripts/"
+    - "tests/"
+    - ".github/"
+    - "projects/task-management/product/"
+    - "projects/task-management/design/"
+    - "projects/task-management/governance/"
+  protected_resource_refs:
+    - "Product Definition v0.2.0"
+    - "Phase 3.1 UX Acceptance remains OPEN"
+    - "Phase 3.2 accepted architecture baseline"
+    - "Phase 3 Product / UX Decision Register"
+    - "Task Contract BVC-TM-TC-001 Revision 3"
+    - "Five Phase 2 Core Specifications and their schemas, examples, validators, tests, and workflow"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Modify exactly the two files listed in scope.allowed_changes.modify."
+  - "Do not create or delete any file."
+  - "In the Markdown document, record ACCEPTED status and Human Owner approval dated 2026-11-05."
+  - "In the Markdown document, update Section 14 to record acceptance of both deliverables and preserve all runtime and UX limitations."
+  - "In the Context Pack YAML, update only the top-level status field and the human_owner_review mapping."
+  - "Set human_owner_review.status to ACCEPTED."
+  - "Record approver_role as Human Owner / Product Owner and accepted_date as 2026-11-05."
+  - "Keep formal Phase 3.1 UX Acceptance OPEN."
+  - "Do not claim GAIS application implementation, scaffold inspection, browser persistence testing, database provisioning, security testing, or deployment acceptance."
+  - "Do not change DR-001 through DR-019 or ODEC-001 through ODEC-008."
+  - "Do not alter the first vertical slice, learning-level boundaries, source paths, reading sequence, or verification plan."
+  - "Do not change Product Definition, UX, Architecture, Governance, Task Contract #001, or the five Core Specifications."
+  - "Do not change application code, dependencies, lockfiles, schemas, tests, scripts, workflows, CI, hosting, or deployment."
+  - "Use the existing E02 metadata patch as a candidate reference only; verify it against this Contract and the current main baseline."
+  - "Do not push directly to main. Publish changes through a new Pull Request."
+  - "AI may review and recommend; only the Human Owner performs final merge."
+
+required_context:
+  - reference: "specifications/v0.1/task-contract.md"
+    purpose: "Canonical Task Contract lifecycle, exact-scope, approval, verification, and reporting requirements."
+    authority: CANONICAL
+    required: true
+  - reference: "specifications/v0.1/task-contract.schema.json"
+    purpose: "Machine-readable schema for validating this Task Contract."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    purpose: "Project-specific R1 classification and mandatory controls; publication metadata must be reconciled with its approved status."
+    authority: APPROVED
+    required: true
+    version_or_commit: "BVC-TM-RISK-001 v0.1.0; PR #7 merged; file metadata currently says publication pending."
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Original approved scope and acceptance authority for Task #001."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "BVC-TM-TC-001 Revision 3."
+  - reference: "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+    purpose: "Published Markdown deliverable whose acceptance status must be reconciled."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    purpose: "Published Context Pack whose acceptance status must be reconciled."
+    authority: APPROVED
+    required: true
+  - reference: "https://github.com/donghp/beyond-vibe-coding/pull/10"
+    purpose: "Merged PR and Human Owner acceptance record for Task #001."
+    authority: REFERENCE
+    required: true
+  - reference: "https://github.com/donghp/beyond-vibe-coding/commit/9ab44b69e5e71d3032b42eed2c577c5358a0a210"
+    purpose: "Candidate E02 metadata patch already pushed to the old feature branch."
+    authority: REFERENCE
+    required: true
+  - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    purpose: "Confirm canonical decision states remain unchanged and UX Acceptance remains OPEN."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    purpose: "Confirm current product authority and Beginner/Intermediate/Advanced boundaries remain unchanged."
+    authority: CANONICAL
+    required: true
+
+dependencies:
+  - reference: "BVC Task #001 — PR #10 merged into main"
+    relationship: MUST_COMPLETE_FIRST
+    reason: "Both deliverables must exist on main before their acceptance metadata can be modified."
+  - reference: "Human Owner explicit acceptance of both Task #001 deliverables on 2026-11-05"
+    relationship: MUST_COMPLETE_FIRST
+    reason: "The acceptance state and date are grounded in the recorded Owner decision."
+  - reference: "Phase 3.1 UX Acceptance remains OPEN"
+    relationship: INFORMATIONAL
+    reason: "The metadata update must not close or imply acceptance of the separate UX gate."
+
+expected_outputs:
+  - id: OUT-001
+    kind: DOCUMENTATION
+    description: >-
+      Updated Beginner Implementation Readiness document recording Human Owner
+      acceptance dated 2026-11-05 and retaining all substantive content and
+      limitations.
+    path: "projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md"
+    required: true
+  - id: OUT-002
+    kind: CONFIGURATION
+    description: >-
+      Updated Context Pack recording ACCEPTED status, approver role, acceptance
+      date, and acceptance boundary.
+    path: "projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml"
+    required: true
+
+acceptance_criteria:
+  - id: AC-001
+    statement: "The Markdown document header records ACCEPTED status and the Human Owner approval date 2026-11-05."
+    verification_method: "Inspect the document metadata on the task branch."
+    required_evidence_level: 1
+    required: true
+  - id: AC-002
+    statement: >-
+      Markdown Section 14 accurately records Human Owner acceptance of both
+      Task #001 deliverables and preserves limitations concerning GAIS,
+      scaffold inspection, runtime persistence, and the independent Phase 3.1
+      UX Acceptance gate.
+    verification_method: "Manual review of the complete Section 14 and surrounding handoff."
+    required_evidence_level: 1
+    required: true
+  - id: AC-003
+    statement: >-
+      The Context Pack top-level status and human_owner_review mapping
+      consistently record ACCEPTED, Human Owner / Product Owner, and
+      accepted_date 2026-11-05.
+    verification_method: "Parse YAML and inspect the exact values."
+    required_evidence_level: 1
+    required: true
+  - id: AC-004
+    statement: >-
+      No product requirements, learning boundaries, decision statuses, source
+      authority, reading sequence, or verification limitations are changed by
+      this metadata reconciliation.
+    verification_method: "Review the complete Git diff against the authorized metadata-only changes."
+    required_evidence_level: 1
+    required: true
+  - id: AC-005
+    statement: >-
+      Exactly two existing files are modified, with zero created files, zero
+      deleted files, and no unrelated repository changes.
+    verification_method: "Validate the VCS-derived diff inventory against the exact path scope and Change Budget."
+    required_evidence_level: 2
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 1
+  checks:
+    - id: VC-001
+      kind: STATIC_ANALYSIS
+      description: "Validate this Task Contract against the repository JSON Schema and semantic validator."
+      command: "python scripts/validate_task_contracts.py <contract-yaml-path>"
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-005"]
+    - id: VC-002
+      kind: STATIC_ANALYSIS
+      description: "Parse the updated Beginner Context Pack YAML."
+      command: "python -c \"import yaml; yaml.safe_load(open('projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml', encoding='utf-8')); print('PASS: Context Pack')\""
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-003"]
+    - id: VC-003
+      kind: MANUAL_REVIEW
+      description: "Verify exact Markdown and YAML acceptance metadata and ensure no substantive content was changed."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-003", "AC-004"]
+    - id: VC-004
+      kind: MANUAL_REVIEW
+      description: "Review whitespace, complete diff, and exact two-file operation scope."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-004", "AC-005"]
+    - id: VC-005
+      kind: SYSTEM_CHECK
+      description: "Use a VCS-derived changed-files JSON inventory and the repository validator to verify two MODIFY operations, zero CREATE, zero DELETE, and Change Budget compliance."
+      command: "python scripts/validate_task_contracts.py <contract-yaml-path> --changed-files-json <vcs-diff-inventory.json>"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-005"]
+  known_verification_limits:
+    - "This task does not create or inspect a GAIS application."
+    - "This task does not perform application runtime or browser persistence tests."
+    - "This task does not change or close the formal Phase 3.1 UX Acceptance gate."
+    - "The E02 candidate commit must be checked against the current main baseline before reuse."
+
+change_budget:
+  max_changed_files: 2
+  max_created_files: 0
+  max_modified_files: 2
+  max_deleted_files: 0
+  max_total_diff_lines: 100
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: >-
+    BVC-TM-RISK-001 v0.1.0 — project-specific R1-R5 policy. Its Product Owner
+    approval is recorded in the file; main-branch publication metadata is
+    internally inconsistent and remains a governance finding.
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: >-
+    Human Owner explicitly approved BVC-TM-TC-002 Revision 1 on 2026-11-05.
+    This approval authorizes only the exact MODIFY scope and constraints
+    defined in this Contract. It does not retroactively amend BVC-TM-TC-001.
+  executor:
+    class: HYBRID
+    identifier: >-
+      Human Owner performs local file edits and Git actions. AI provides
+      drafting, review, and verification guidance only. AI has no direct
+      GitHub write, commit, push, or merge authority.
+    capability_requirements:
+      - "Read the current main baseline and merged PR #10."
+      - "Inspect the two existing deliverables and candidate E02 patch."
+      - "Modify only the exact two authorized local files."
+      - "Validate YAML, Markdown whitespace, and the complete Git diff."
+      - "Prepare VCS-derived evidence for the repository Contract Validator."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - modify
+    - run_tests
+  human_approval:
+    required: true
+    status: APPROVED
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Explicit approval of BVC-TM-TC-002 Revision 1 recorded in conversation on 2026-11-05."
+    rationale: "The Human Owner approved this exact Contract revision and its two-file MODIFY scope."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - working_tree_changed_unexpectedly
+  - other
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: >-
+    One bounded repair attempt may correct formatting or metadata consistency
+    without expanding scope. Any additional content change requires renewed
+    approval.
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "specifications/v0.1/task-contract.md#4.13-reporting-and-continuity"
