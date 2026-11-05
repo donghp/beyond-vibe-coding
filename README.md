@@ -643,7 +643,7 @@ The project is developed incrementally. Each phase should produce reviewable, do
 | **3.0** | Product Baseline — BVC Task Management | Complete; Product Definition v0.2.0 is the current baseline on `main` |
 | **3.1** | UX & Product Design | UX package published; formal UX acceptance remains OPEN |
 | **3.2** | Application Architecture & Technical Design | Product Owner accepted; PR #5 merged on 2026-11-04 |
-| **3.3** | Implementation, Verification, Learning Curriculum & Publication | Active; runtime and learning evidence are being produced through bounded tasks |
+| **3.3** | Implementation, Verification, Learning Curriculum & Publication | Active workstream; readiness and curriculum preparation underway; GAIS app implementation/runtime not yet evidenced |
 | **Phase 4** | BVC Engineering Runtime & Platform | Proposed future phase; not yet approved as an implementation baseline |
 
 Phase 3.3 progresses through Beginner (GAIS + browser storage), Intermediate (Supabase PostgreSQL/Auth/RLS), and Advanced (GitHub, VS Code/Localhost, CI/testing and compatible hosting). Phase 3 should not be declared complete until all required product, UX, implementation, security, learning-validation and publication acceptance criteria have been evidenced.
@@ -665,7 +665,7 @@ Phase 3 has a more specific status:
 - Product Definition v0.2.0 is the current Product Owner-approved baseline on `main`, published through merged PR #5.
 - Phase 3.1 UX artifacts remain available as the design reference, but the formal UX acceptance record remains OPEN.
 - Phase 3.2 Application Architecture & Technical Design was accepted by the Product Owner on 2026-11-04 and published through merged PR #5.
-- Phase 3.3 is the active implementation and learning-delivery phase. The GAIS application, browser persistence, Supabase integration, CI, hosting and runtime behaviors must each be verified before being described as implemented or accepted.
+- Phase 3.3 is the active implementation and learning-delivery workstream. Current work is in readiness and curriculum preparation; the GAIS application has not yet been evidenced as created/run in this repository. Browser persistence, Supabase integration, CI, hosting and runtime behaviors must be verified before being described as implemented or accepted.
 
 The repository is an evolving engineering companion, not a claim that every described component is already a production runtime.
 
