@@ -1,0 +1,44 @@
+{
+  "state_version": "0.1.0",
+  "state_id": "REPLACE-PROJECT-STATE-ID",
+  "revision": 1,
+  "project_id": "REPLACE-PROJECT-ID",
+  "state_as_of": "2000-01-01T00:00:00Z",
+  "lifecycle_state": "PLANNING",
+  "repository": {
+    "url": "https://github.com/OWNER/REPOSITORY",
+    "default_branch": "main"
+  },
+  "baseline": {
+    "source_commit": "0000000000000000000000000000000000000000",
+    "working_tree_status": "UNKNOWN"
+  },
+  "current_milestone": {
+    "milestone_id": "MILESTONE-001",
+    "title": "Replace with the first measurable project milestone",
+    "status": "PLANNED"
+  },
+  "current_objectives": [
+    "REPLACE: define the current measurable objective for this project."
+  ],
+  "facts": [],
+  "decisions": [],
+  "active_tasks": [],
+  "blocked_items": [],
+  "open_risks": [],
+  "open_issues": [],
+  "next_actions": [
+    {
+      "action_id": "ACTION-001",
+      "description": "Replace this placeholder with the next authorized action after live source reconciliation.",
+      "priority": "HIGH"
+    }
+  ],
+  "recovery": {
+    "recovery_point_ref": "NOT_CONFIGURED_REPLACE_BEFORE_USE",
+    "source_commit": "0000000000000000000000000000000000000000",
+    "verified": false,
+    "notes": "Template sentinel values. Replace with a real source commit and verified recovery point before use."
+  },
+  "updated_by": "TEMPLATE — replace with the responsible role"
+}

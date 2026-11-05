@@ -1,0 +1,5 @@
+source_id,scope,canonical_path_or_url,source_type,authority_or_status,availability,bootstrap_requirement,purpose,precedence_and_limitations
+SRC-001,PROJECT,REPLACE-PATH,PROJECT_INDEX,CANONICAL,TO_VERIFY,YES,Project scope and navigation,Index only; canonical sources control
+SRC-002,PROJECT,REPLACE-PATH,BASELINE,APPROVED,TO_VERIFY,YES,Current baseline,Verify version and approval state on live default branch
+SRC-003,PROJECT,REPLACE-PATH,DECISION_REGISTER,CANONICAL,TO_VERIFY,YES,Current decisions,Do not copy decision content into Project State
+SRC-004,PROJECT,REPLACE-PATH,ACTIVE_TASK_CONTRACT,TASK_AUTHORITY,TO_VERIFY,WHEN_TASK_ACTIVE,Exact execution scope,Open PRs are proposals; check approved Contract on canonical branch
