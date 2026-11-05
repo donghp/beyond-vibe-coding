@@ -1,8 +1,10 @@
-﻿# 00 — BVC ChatGPT Continuity Entry Point
+﻿# 00 — BVC Project Continuity Entry Point
 
 **Project:** BVC Task Management (BVCTM)\
 **Project ID:** `BVC-TASK-MANAGEMENT`\
-**Purpose:** Recover this project in a new ChatGPT window or another AI executor without copying the previous conversation history.\
+**Former filename:** `00_BVC_CHATGPT_CONTINUITY.md`\
+**Purpose:** Recover this project in any authorized AI executor across providers, models, applications, and sessions, without copying the previous conversation history.\
+**Principle:** Project owns continuity. AI executors consume continuity.\
 **Prepared against `main`:** `53ed2649bd5ee687ae76be686db5838f4b9b0173`\
 **Status:** PILOT — live bootstrap is required on every new session.
 

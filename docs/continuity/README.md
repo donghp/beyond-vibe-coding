@@ -4,7 +4,7 @@
 **Project:** BEYOND VIBE CODING — Build & Learn  
 **Operating model:** Event-Driven Continuity
 
-The repository owns durable project knowledge. ChatGPT sessions are temporary executors that must reconstruct current truth from GitHub.
+The repository owns durable project knowledge. AI executors are temporary and replaceable; every authorized executor must reconstruct current truth from canonical repository records. No model, provider, application, or session is authoritative.
 
 ## Start here
 

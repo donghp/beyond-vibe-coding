@@ -12,7 +12,7 @@ The template provides a common continuity interface while allowing each project'
 
 ## Files
 
-- `00_PROJECT_AI_CONTINUITY.template.md`: entry point for a new AI session.
+- `00_BVC_PROJECT_CONTINUITY.template.md`: provider-independent entry point for any authorized AI executor.
 - `PROJECT_CONTINUITY_PROFILE.template.yaml`: project-specific profile to be completed.
 - `PROJECT_STATE.template.json`: starter record conforming structurally to BVC Project State Draft/Experimental v0.1.0; replace all sentinel values.
 - `SOURCE_MANIFEST.template.csv`: source navigation template.

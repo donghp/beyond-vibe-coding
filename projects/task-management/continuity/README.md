@@ -9,15 +9,15 @@
 
 ## Purpose
 
-This folder is the durable, project-owned continuity record for BVC Task Management. It exists so a new ChatGPT window, a different AI model, or a human maintainer can reconstruct the project context from repository sources rather than relying on the previous conversation's memory.
+This folder is the durable, project-owned continuity record for BVC Task Management. It enables any authorized AI executor, regardless of provider, model, application, or session, or a human maintainer to reconstruct project context from repository sources rather than relying on previous conversation memory.
 
-**The project owns its knowledge, state, authority, and evidence. AI reconstructs context from the project.**
+**Project owns continuity. AI executors consume continuity.**
 
 ## Contents
 
 | File | Responsibility | Update trigger |
 |---|---|---|
-| `00_BVC_CHATGPT_CONTINUITY.md` | New-session entry point and bootstrap instructions | Bootstrap path or recovery rules change |
+| `00_BVC_PROJECT_CONTINUITY.md` | Provider-independent project entry point and bootstrap instructions | Bootstrap path or recovery rules change |
 | `PROJECT_CONTINUITY_PROFILE.yaml` | BVCTM-specific continuity configuration and domain rules | Project architecture or continuity design changes |
 | `PROJECT_STATE.json` | Current project snapshot conforming to BVC Project State Draft/Experimental v0.1.0 | Material state, milestone, task, risk, or recovery change |
 | `SOURCE_MANIFEST.csv` | Navigation map to current canonical and supporting sources | Source path, authority, or bootstrap requirement changes |

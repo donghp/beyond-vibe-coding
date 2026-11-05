@@ -19,12 +19,12 @@
 
 ## 2. Recovery tests
 
-All recovery tests remain **NOT_RUN**. No fresh ChatGPT window or alternate model has yet been used to reconstruct BVCTM from the published continuity package.
+All recovery tests remain **NOT_RUN**. No independent AI executor cold-start or cross-provider/model recovery test has yet been executed against the published continuity package.
 
 | Test ID | Status | Evidence |
 |---|---|---|
-| CONT-T01 New ChatGPT cold-start | NOT_RUN | None |
-| CONT-T02 Cross-model recovery | NOT_RUN | None |
+| CONT-T01 Independent AI executor cold-start | NOT_RUN | None |
+| CONT-T02 Cross-executor recovery (provider/model) | NOT_RUN | None |
 | CONT-T03 Open PR / branch separation | NOT_RUN | None |
 | CONT-T04 Stale handoff detection | NOT_RUN | None |
 | CONT-T05 Authority preservation | NOT_RUN | None |
