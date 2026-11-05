@@ -78,7 +78,7 @@ The following ODEC identifiers remain authoritative aliases in the Phase 3.2 Arc
 | ODEC-003 | Beginner browser store | ACCEPTED FOR DESIGN — runtime validation remains required | Canonical DR-014 |
 | ODEC-004 | Frontend build tool | DEFERRED — inspect the actual GAIS-generated scaffold before selecting build configuration | No framework/build tool is frozen before scaffold inspection |
 | ODEC-005 | Authentication method | DEFERRED until the Product Owner decides the method and recovery flow | Canonical DR-019; resolve before first Intermediate Auth implementation task |
-| ODEC-006 | Local Supabase stack | OPTIONAL — Advanced local database stack is not a Phase 3.2 blocker | Supabase CLI/migrations remain part of the Advanced learning workflow |
+| ODEC-006 | Local Supabase stack | OPTIONAL for the Phase 3.2 architecture baseline; this does not settle whether a local stack belongs in the Advanced curriculum | DR-018 remains OPEN until the Advanced local-environment lesson scope is decided; Supabase CLI/migrations remain the recommended workflow |
 | ODEC-007 | Product Definition baseline transition | RESOLVED — v0.2.0 is current on main through merged PR #5 (ff59827d07eef982e0a23a11279e47c7817c457c) | v0.1.0 remains historical |
 | ODEC-008 | Exact hosting service used in practical screenshots | DEFERRED — choose a compatible free-tier example when preparing the practical lesson | Provider-neutral; not a Product Owner product/architecture mandate |
 
