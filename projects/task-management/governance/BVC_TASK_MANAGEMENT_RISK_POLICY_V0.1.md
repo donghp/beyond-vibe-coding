@@ -2,12 +2,14 @@
 
 **Policy ID:** BVC-TM-RISK-001  
 **Version:** 0.1.0  
-**Status:** PROPOSED — Product Owner approval required  
+**Status:** APPROVED — Product Owner approval recorded 2026-11-05; publication to `main` pending  
 **Owner:** Product Owner / Human Owner  
 **Scope:** BVC Task Management project engineering tasks and AI-assisted repository changes  
 **Source specification:** BVC Task Contract Specification v0.1.0 — Draft / Experimental  
 **Prepared:** 2026-11-05  
-**Effective date:** Not effective until explicitly approved by the Product Owner
+**Approval date:** 2026-11-05  
+**Approved by:** Product Owner / Human Owner  
+**Effective date:** Upon controlled merge to `main`
 
 ---
 
@@ -17,7 +19,7 @@ This policy defines how BVC Task Management classifies engineering-task risk fro
 
 It provides the project-specific mapping required by the `risk.policy_ref` field in a BVC Task Contract.
 
-The policy is based on the risk principles and illustrative R0–R5 crosswalk in the BVC Task Contract Specification v0.1.0. The specification explicitly states that the labels are not a universal standard and that each adopting project must provide its own approved mapping. This document proposes that mapping for BVC Task Management; it does not become active until Product Owner approval is recorded.
+The policy is based on the risk principles and illustrative R0–R5 crosswalk in the BVC Task Contract Specification v0.1.0. The specification explicitly states that the labels are not a universal standard and that each adopting project must provide its own approved mapping. The Product Owner approved this project-specific mapping on 2026-11-05. The policy becomes the published, authoritative project risk mapping when this approved revision is merged into the repository's `main` branch.
 
 > **Risk determines control depth. The task's scope determines what the executor is allowed to change.**
 
@@ -293,8 +295,9 @@ No exception may silently lower the assigned risk level. An exception must ident
 
 ## 9. Policy lifecycle and review
 
-- This document is **PROPOSED** and has no operative effect until the Product Owner explicitly approves it.
-- After approval, record the approver, approval date, effective date, and the Git commit containing the approved policy.
+- The Product Owner approved this policy on **2026-11-05**. Approval is recorded in the document metadata and this commit history.
+- The policy becomes the published project authority when the approved revision is merged into `main`; until then, the approved branch copy is pending publication.
+- After merge, the effective Git commit on `main` is the canonical policy reference for subsequent Task Contracts.
 - Review the policy when the Task Contract Specification changes, the project adds new sensitive domains, or an incident/near miss reveals a control gap.
 - Any change to risk-level meanings or mandatory controls requires a versioned policy update and Product Owner approval.
 - Do not retrospectively change the classification of an already executed task to make its control record appear compliant.
