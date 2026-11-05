@@ -2,7 +2,7 @@
 
 **Document ID:** BVC-GOV-REC-001  
 **Version:** 0.1.0  
-**Status:** Prepared for Product Owner review  
+**Status:** Merged — post-merge follow-up recorded 2026-11-05  
 **Execution date:** 2026-11-04  
 **Repository:** `donghp/beyond-vibe-coding`  
 **Working branch:** `docs/readme-v0.2-and-phase3.3-status`  
@@ -20,7 +20,7 @@ This record documents the governance reconciliation changes prepared on the expl
 - The repository `main` branch was used only as a read-only source for comparison.
 - No changes were written to `main`.
 - No branch was merged, deleted, renamed, or force-updated.
-- PR #6 remains OPEN and unmerged.
+- At the time this reconciliation record was first written on 2026-11-04, PR #6 was OPEN and unmerged; see Section 9 for the verified post-merge outcome.
 - Product Definition v0.1.0 was not deleted.
 - No Phase 2 Core Specification or schema was modified.
 
@@ -100,7 +100,7 @@ No files were deleted. Historical Product Definition v0.1.0 remains intact.
 - Phase 3.3 app implementation has not yet been evidenced.
 - Proposed Phase 4 remains unapproved.
 
-## 6. Required review before merge
+## 6. Pre-merge review checklist (historical)
 
 The Product Owner should review:
 1. Root README and the current Product Baseline links.
@@ -109,7 +109,7 @@ The Product Owner should review:
 4. Canonical Decision Register proposed defaults and OPEN status.
 5. Whether any UX decision should be approved, deferred, or kept open.
 
-Do not merge PR #6 merely because GitHub reports it as mergeable. The Product Owner must explicitly approve the branch contents and authorize the merge.
+This was the required pre-merge control: GitHub's mergeable state alone did not authorize merging; explicit Product Owner approval was required. PR #6 was subsequently merged on 2026-11-05; see Section 9.
 
 ## 7. Final reconciliation update — 2026-11-04
 
@@ -146,4 +146,34 @@ At the time of this review, PR #6 was OPEN, unmerged and reported mergeable, wit
 
 ---
 
-**BVC Governance Reconciliation — Branch review package only.**
+## 9. Post-merge outcome and follow-up — 2026-11-05
+
+### 9.1 Merge result
+
+- PR #6 was closed and merged on 2026-11-05 using **Squash and merge**.
+- Merge commit on `main`: `5d230516a1eddede51c457c85d5fc6bef23506f8`.
+- The merge commit's parent is the prior `main` baseline: `ff59827d07eef982e0a23a11279e47c7817c457c`.
+- The consolidated PR included 23 changed files: 667 additions and 278 deletions; no files were deleted.
+- The merged commit message contains the scope, preservation boundaries and outstanding acceptance states. GitHub reports the commit signature as verified.
+
+### 9.2 Post-merge documentation cleanup
+
+- `projects/task-management/README.md` was updated on `main` to record the PR #6 merge, remove the obsolete instruction to review/merge PR #6, and replace it with the current Phase 3.3 gates.
+- The project README now states the reader-facing learning rule: write practical material as numbered Beginner steps (Step 1, Step 2, Step 3…), one action at a time, with plain-language explanation, expected result and a verification checkpoint. The internal Task Contract controls project execution; it is not a prerequisite for the reader to understand before starting the beginner lesson.
+- The next implementation milestone remains readiness preparation. No GAIS application, Supabase resource, runtime or deployment is claimed as completed by this post-merge cleanup.
+
+### 9.3 Main branch protection — still outstanding
+
+The post-merge repository check found that `main` was not protected and no active repository rulesets were listed. The available GitHub connection used for this execution can read repository/branch/ruleset data and write repository files, but it does not expose a branch-protection/ruleset creation action. The branch-protection write was therefore not performed and is not claimed as complete.
+
+The repository Owner must enable a protection rule for `main` in GitHub Settings → Branches. Recommended baseline: require a Pull Request before merging; keep force-push and deletion disabled; require conversation resolution; do not require named status checks until an applicable application CI workflow exists and its exact check name has been observed. This is a separate repository setting, not a code/documentation change.
+
+### 9.4 CI and verification boundary
+
+The current Actions workflow has path filters for Core Specifications, validators, tests, `requirements-dev.txt` and the workflow file. PR #6 changed none of those paths, so no workflow run was expected. Zero workflow runs/status checks for that PR are neither a CI failure nor a CI PASS.
+
+No application runtime, GAIS execution, browser-persistence test, Supabase provisioning, RLS/security test, live deployment or real-device UX verification is claimed by the governance merge or this post-merge cleanup.
+
+---
+
+**BVC Governance Reconciliation — Merged baseline and post-merge record.**
