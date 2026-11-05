@@ -240,7 +240,7 @@ No automatic cross-device synchronization is provided by the Beginner browser-st
 
 ## 15. Local-data disclosure
 
-Before first important data entry, explain the behavior of the active learning level:
+**Proposed timing under DR-005 (still OPEN):** show the level-specific storage/access disclosure before first important data entry. The Product Owner must still confirm its exact placement and copy. The disclosure content should explain:
 
 - **Beginner:** the workspace is stored in this browser profile; it does not automatically appear in other browsers/devices; export a JSON backup for portability.
 - **Intermediate/Advanced:** the workspace is saved to the user's signed-in Supabase account. RLS restricts records to that account. Do not imply a team workspace or claim that database persistence itself is a backup.
