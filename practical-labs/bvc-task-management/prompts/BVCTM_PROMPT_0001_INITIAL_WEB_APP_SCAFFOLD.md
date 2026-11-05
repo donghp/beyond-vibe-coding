@@ -1,57 +1,42 @@
-# BVCTM — PROMPT #0001
-## Initial Blank WEB App Scaffold
+# BVCTM-PROMPT-0001 — Create the Initial BVC Task Management Web App Scaffold
 
 **Project:** BVC Task Management (BVCTM)  
 **Prompt ID:** BVCTM-PROMPT-0001  
-**Purpose:** Create the one isolated, non-production WEB app authorized by BVC-TM-TC-003 Revision 1.  
-**Status:** Approved prompt text for scaffold inspection only — not a Task Management feature implementation prompt.
+**Authorized by:** BVC-TM-TC-003 Revision 1 — APPROVED  
+**Purpose:** Create one isolated, non-production blank WEB app for scaffold inspection.
 
-> This prompt must be used only after the Human Owner has opened the app-creation flow and confirmed the WEB app type. It must not be expanded to implement product features during this task.
-
-### Copy this prompt into Google AI Studio Build mode
+## Copy and run in Google AI Studio Build mode
 
 ```text
-Create one minimal blank WEB application for the BVC Task Management learning project.
+Create one minimal blank WEB application for the BVC Task Management (BVCTM) project scaffold inspection.
 
-For this first step, I only want to establish and inspect the application scaffold.
-
-Display only this exact text on the page:
+This is a non-production scaffold inspection. Display only this exact text on the page:
 
 BVC Task Management Scaffold Inspection
 
-Do not implement any Task Management functionality yet.
+Do not implement any Task Management features.
 
-Do not add:
-- Task forms or task lists
-- Task creation, editing, deletion, or completion
-- Data persistence or browser storage
-- User accounts or authentication
-- Database connections
-- APIs or external integrations
-- Hosting or deployment configuration
+Do not add task forms, task lists, task creation, editing, deletion, completion, data persistence, browser storage, user accounts, authentication, databases, APIs, external integrations, hosting, or deployment.
 
-Keep the initial application as small and simple as possible.
+Keep the application as small and simple as possible.
 
-After generating the application:
-1. Show the live Preview.
-2. Make the generated code files available for inspection.
-3. Do not add extra functionality beyond this instruction.
-
-This is a non-production scaffold inspection exercise. Do not connect the project to GitHub.
+Do not connect the project to GitHub.
 ```
 
-## Execution checklist
+## Run rule
 
-- [ ] Confirm the selected app type is WEB.
-- [ ] Use the prompt once.
-- [ ] Capture the generated Preview.
-- [ ] Inspect the generated code tree.
-- [ ] Export one ZIP for read-only inspection outside the BVC repository, if export is available.
-- [ ] Record only observed facts; mark unknown fields UNKNOWN or NOT_VERIFIED.
-- [ ] Do not connect GitHub, a database, Auth, RLS, external services, hosting, or deployment.
+Copy the complete prompt above into the large prompt box in GAIS Build mode and run it once. Do not add extra requirements to this prompt.
 
-## Scope warning
+## Expected checkpoint
 
-BVC-TM-TC-003 Revision 1 does not authorize implementation of the Task Management product itself. Do not add the title-only task, save behavior, persistence, task organization, search, filters, or other product functionality in this scaffold-inspection run.
+The generated app should be a minimal blank WEB scaffold displaying only:
 
-The next product implementation prompt requires its own approved Task Contract.
+`BVC Task Management Scaffold Inspection`
+
+Capture the actual Preview and inspect the generated Code/files. Record the generated framework, runtime, files, and export behavior only from observed evidence.
+
+## Scope boundary
+
+This prompt is authorized only for the blank scaffold inspection in BVC-TM-TC-003 Revision 1. It does not authorize task creation, task forms, task lists, save/persistence behavior, authentication, databases, APIs, external integrations, GitHub connection, hosting, or deployment.
+
+The first real Task Management feature will be introduced by a later, separately approved implementation Contract.
