@@ -1,6 +1,6 @@
 # Phase A Screenshot Evidence
 
-Store authentic screenshots supplied by the Human Owner.
+Deprecated location. The canonical screenshot folder is `/practical-labs/assets/screenshots/`, as specified by the Human Owner. Do not add new screenshots under this nested path.
 
 | Checkpoint | Filename | Purpose | Status |
 |---|---|---|---|
