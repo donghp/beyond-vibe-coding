@@ -17,8 +17,10 @@ continuity_architecture:
   global_framework: docs/continuity/
   project_continuity_root: projects/task-management/continuity/
   model: GLOBAL_CORE_PLUS_PROJECT_SPECIFIC_EXTENSIONS
-  ai_independence: The repository and canonical project records own durable project truth; no AI session
-    or model memory is authoritative.
+  ai_independence: >-
+    The repository and canonical project records own durable project truth. Any authorized AI executor may
+    reconstruct project context, but no AI session, model, provider, application, or execution environment is
+    authoritative.
   project_state_specification:
     path: specifications/v0.1/project-state.md
     schema: specifications/v0.1/project-state.schema.json
@@ -67,7 +69,7 @@ state_management:
   event_log: projects/task-management/continuity/HANDOFF_LOG.md
   source_manifest: projects/task-management/continuity/SOURCE_MANIFEST.csv
 recovery:
-  entry_point: projects/task-management/continuity/00_BVC_CHATGPT_CONTINUITY.md
+  entry_point: projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
   must_reconcile_live_main: true
   must_inspect_open_prs: true
   must_read_active_contract: true

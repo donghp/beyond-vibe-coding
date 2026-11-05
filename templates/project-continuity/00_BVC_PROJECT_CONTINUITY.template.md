@@ -1,9 +1,12 @@
-# 00 — Project AI Continuity Entry Point
+# 00 — BVC Project Continuity Entry Point
 
 **Project name:** [REPLACE]\
 **Project ID:** [REPLACE]\
 **Repository:** [REPLACE]\
 **Default branch:** [REPLACE]\
+**Former filename:** `00_PROJECT_AI_CONTINUITY.template.md`\
+**Principle:** Project owns continuity. AI executors consume continuity.\
+**Executor independence:** This entry point is independent of any specific AI model, provider, application, conversation, or execution environment.
 **Status:** TEMPLATE — complete and validate before use.
 
 ## Instructions for a new AI session

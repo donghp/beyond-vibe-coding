@@ -132,7 +132,7 @@
   "open_risks": [
     {
       "risk_id": "TM-RISK-001",
-      "description": "The Project Continuity bootstrap and recovery approach has not yet been validated across a fresh ChatGPT window or a different AI model.",
+      "description": "The Project Continuity bootstrap and recovery approach has not yet been validated across independent AI executor sessions or materially different providers/models.",
       "severity": "MEDIUM",
       "status": "OPEN",
       "owner": "Human Owner / BVC architecture workstream",
@@ -184,7 +184,7 @@
     },
     {
       "action_id": "TM-NEXT-004",
-      "description": "Run and record the first cold-start recovery test in a completely new ChatGPT window using only the published project-owned continuity sources.",
+      "description": "Run and record the first cold-start recovery test in a fresh, independent AI executor session using only the published project-owned continuity sources.",
       "priority": "NORMAL",
       "owner": "Human Owner / independent AI session"
     }
