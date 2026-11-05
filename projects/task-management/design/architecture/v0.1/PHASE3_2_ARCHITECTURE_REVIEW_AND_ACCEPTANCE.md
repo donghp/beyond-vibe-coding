@@ -164,7 +164,7 @@ Do not hardcode permanent provider quotas in the architecture baseline.
 | ODEC-003 | Beginner browser store | Small versioned browser JSON workspace (`localStorage`) | ACCEPTED FOR DESIGN — Implementation validation in Phase 3.3 |
 | ODEC-004 | Frontend build tool | Inspect GAIS scaffold; verify framework, build output and compatibility | DEFERRED — Phase 3.3 |
 | ODEC-005 | Authentication method | Select Supabase email/password or magic link | DEFERRED — Before Auth implementation |
-| ODEC-006 | Local Supabase stack | Optional Advanced practice; CLI migrations recommended | OPTIONAL — Not a Phase 3.2 blocker |
+| ODEC-006 | Local Supabase stack | Optional Advanced practice; CLI migrations recommended | OPTIONAL — Not a Phase 3.2 blocker; whether to include a local stack in the Advanced curriculum remains OPEN under DR-018 |
 | ODEC-007 | Product Definition baseline transition | v0.2.0 approved by Product Owner and published on main through merged PR #5 (ff59827d07eef982e0a23a11279e47c7817c457c) | RESOLVED — current Product Baseline on main; v0.1.0 retained as historical |
 | ODEC-008 | Exact hosting service used in practical screenshots | Choose a compatible free-tier example when preparing the lesson; do not make it a product requirement | DEFERRED — Practical lesson preparation |
 
