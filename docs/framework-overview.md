@@ -356,7 +356,7 @@ The BVC repository is developed incrementally. Each phase should produce reviewa
 |---|---|---|
 | Phase 1 | Framework Foundation and Conceptual Architecture | Published foundation documents. |
 | Phase 2 | Five Core Specifications and validation foundation | Integration completed and merged via PR #2; specifications remain Draft / Experimental v0.1.0. |
-| Phase 3 | Build & Learn — Practical Projects and Hands-on Guides; first project: BVC Task Management | 3.0 Product Baseline complete (v0.2.0 current); 3.1 UX acceptance OPEN; 3.2 architecture design accepted; 3.3 implementation/verification and learning publication active. |
+| Phase 3 | Build & Learn — Practical Projects and Hands-on Guides; first project: BVC Task Management | 3.0 Product Baseline complete (v0.2.0 current); 3.1 UX acceptance OPEN; 3.2 architecture design accepted; 3.3 readiness and curriculum preparation active; application implementation not yet evidenced. |
 | Proposed Phase 4 | BVC Engineering Runtime & Platform | Future proposal only; not approved for implementation and not a Phase 3 deliverable. |
 | Future evolution | Advanced multi-agent orchestration, runtime enforcement, and broader integrations | Research/future work, dependent on use cases, security review and explicit approval. |
 
@@ -370,7 +370,7 @@ The product progresses through three learning levels:
 - **Intermediate — Build & Connect:** Supabase PostgreSQL, Auth, SQL, data ownership and Row Level Security.
 - **Advanced — Production Engineering:** GitHub, VS Code/Localhost, migrations, CI/testing and compatible hosting.
 
-The repository's Task Management project folder owns the product definition, UX, architecture, security and project documentation. The separate `/practical-labs/` area provides step-by-step learning activities. Phase 3.1 UX Acceptance remains OPEN; Phase 3.2 Architecture Design Baseline is accepted; Phase 3.3 implementation and verification must be evidenced by bounded tasks and actual tests.
+The repository's Task Management project folder owns the product definition, UX, architecture, security and project documentation. The separate `/practical-labs/` area provides step-by-step learning activities. Phase 3.1 UX Acceptance remains OPEN; Phase 3.2 Architecture Design Baseline is accepted; Phase 3.3 readiness and curriculum preparation are underway, while application implementation and verification remain subject to bounded tasks and actual test evidence.
 
 A separate **BVC Engineering Runtime & Platform** is a proposed Phase 4 direction, after Phase 3 closure and explicit product/architecture approval. It is not the current Phase 3 deliverable. Its possible capabilities (Task Contract execution, Context/Project State, Change and Verification controls, Human Approval and Continuity) remain conceptual until separately scoped and approved.
 
