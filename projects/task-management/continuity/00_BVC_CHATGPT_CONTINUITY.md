@@ -1,4 +1,4 @@
-# 00 — BVC ChatGPT Continuity Entry Point
+﻿# 00 — BVC ChatGPT Continuity Entry Point
 
 **Project:** BVC Task Management (BVCTM)\
 **Project ID:** `BVC-TASK-MANAGEMENT`\
@@ -119,7 +119,7 @@ Do not invent context-window capacity percentages. If the UI exposes no capacity
 - Phase 3.2 Architecture Design: accepted design baseline.
 - Phase 3.1 formal UX Acceptance: OPEN.
 - BVC-TM-TC-003 Revision 1: APPROVED; one isolated blank WEB scaffold inspection only.
-- Current Task #003 execution: NOT_VERIFIED as started; no scaffold result has been evidenced in the repository at this checkpoint.
+- Current Task #003 execution: NOT_STARTED_OR_NOT_EVIDENCED; no scaffold result has been evidenced in the repository at this checkpoint.
 - PR #15: MERGED on 2026-11-05; merge commit / current `main` HEAD: `53ed2649bd5ee687ae76be686db5838f4b9b0173`. Lesson A1 and Prompt #0001 are canonical on `main`.
 - A1-01 screen: supplied by the Human Owner in chat; repository PNG synchronization not verified.
 - BVCTM-PROMPT-0001: published on `main`, but execution in GAIS is NOT_VERIFIED / NOT_STARTED_OR_NOT_EVIDENCED.
@@ -134,3 +134,4 @@ Always refresh this section after material project events. Never use it in place
 - Current `main` commit: `https://github.com/donghp/beyond-vibe-coding/commit/53ed2649bd5ee687ae76be686db5838f4b9b0173`.
 - Verified at: `2026-11-05T21:54:16+07:00`.
 - Repository open-PR query: no open PRs returned at this checkpoint.
+
