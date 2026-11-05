@@ -76,11 +76,11 @@ The branch is a review proposal. Its presence or an open/mergeable PR is not app
 
 No files were deleted. Historical Product Definition v0.1.0 remains intact.
 
-## 4. Verification performed
+## 4. Pre-merge verification snapshot — 2026-11-04
 
 - Repository default branch was verified as `main`.
 - PR #5 was verified as merged; its merge commit is the base of the current `main`.
-- PR #6 was verified as OPEN and unmerged.
+- At the 2026-11-04 pre-merge verification snapshot, PR #6 was OPEN and unmerged. This is historical evidence; the verified merge outcome is recorded in Section 9.
 - Branch comparison reported the working branch ahead of `main` and not behind it at the time of verification.
 - All 19 Task Management Markdown documents were re-read on the working branch.
 - 74 relative Markdown links across those 19 Task Management documents were checked against the branch tree; no broken targets were found.
@@ -88,7 +88,7 @@ No files were deleted. Historical Product Definition v0.1.0 remains intact.
 - Historical v0.1.0 Local-First wording was intentionally retained in the historical Product Definition v0.1.0.
 - No application test suite, GAIS runtime, browser persistence test, Supabase provisioning, RLS test, deployment, or user usability/device test was executed by this documentation reconciliation.
 
-## 5. Current governance state after branch reconciliation
+## 5. Governance state recorded at the 2026-11-04 reconciliation snapshot
 
 - Product Definition v0.2.0 is the current product baseline on `main` through merged PR #5.
 - Product Definition v0.1.0 remains the historical baseline and is not deleted.
@@ -158,9 +158,9 @@ At the time of this review, PR #6 was OPEN, unmerged and reported mergeable, wit
 
 ### 9.2 Post-merge documentation cleanup
 
-- `projects/task-management/README.md` was updated on `main` to record the PR #6 merge, remove the obsolete instruction to review/merge PR #6, and replace it with the current Phase 3.3 gates.
+- `projects/task-management/README.md` was updated on `main` to record the PR #6 merge, remove the obsolete instruction to review/merge PR #6, and replace it with the current Phase 3.3 gates. A later Priority 2 follow-up further aligned the Next Gates list with the Owner's decision to defer Branch Protection work.
 - The project README now states the reader-facing learning rule: write practical material as numbered Beginner steps (Step 1, Step 2, Step 3…), one action at a time, with plain-language explanation, expected result and a verification checkpoint. The internal Task Contract controls project execution; it is not a prerequisite for the reader to understand before starting the beginner lesson.
-- The next implementation milestone remains readiness preparation. No GAIS application, Supabase resource, runtime or deployment is claimed as completed by this post-merge cleanup.
+- The next implementation milestone remains readiness preparation. The current Next Gates begin with the Beginner reader journey and the first bounded Phase 3.3 Task Contract; Branch Protection is not a prerequisite for this readiness work and is currently deferred. No GAIS application, Supabase resource, runtime or deployment is claimed as completed by this post-merge cleanup.
 
 ### 9.3 Main branch protection — still outstanding
 
@@ -175,6 +175,25 @@ The repository Owner can enable a protection rule for `main` in GitHub Settings 
 The current Actions workflow has path filters for Core Specifications, validators, tests, `requirements-dev.txt` and the workflow file. PR #6 changed none of those paths, so no workflow run was expected. Zero workflow runs/status checks for that PR are neither a CI failure nor a CI PASS.
 
 No application runtime, GAIS execution, browser-persistence test, Supabase provisioning, RLS/security test, live deployment or real-device UX verification is claimed by the governance merge or this post-merge cleanup.
+
+---
+
+### 9.5 Priority 2 post-merge follow-up — 2026-11-05
+
+At the Owner's direction, this follow-up was limited to Priority 2 (post-merge documentation/status reconciliation); Priority 1 (Branch Protection) was explicitly paused.
+
+- Removed the obsolete PR #6 merge/review instruction from the Task Management README and aligned the Next Gates list with the current Beginner-first readiness sequence.
+- The README now starts the next work with confirmation of the Beginner reader journey and scope-dependent UX decisions, followed by the first Phase 3.3 Task Contract and Context Pack, GAIS scaffold inspection, and the first verified vertical slice.
+- Clarified in this record that the pre-merge PR states in Sections 4, 5, 7 and 8 are historical snapshots, not current repository status.
+- No Branch Protection Rule or Ruleset was created or modified in this follow-up. `main` remains unprotected; this is recorded accurately and remains deferred.
+- No application code, GAIS runtime, Supabase resource, database, RLS policy, CI workflow or deployment was created or modified.
+
+**Commits created on `main` for post-merge documentation follow-up:**
+
+- `145db546cf23719a53bdf81428631eddb544f943` — initial post-merge README/record update.
+- `068146877f805e69a0a6d577932f7b86964af693` — initial merged-outcome/branch-protection status record.
+- `028b70e1c6bf7cfca76ddb08267920c992fa0420` — align Task Management Next Gates with the deferred Priority 1 scope.
+- The current Priority 2 record update is the commit that adds this Section 9.5.
 
 ---
 
