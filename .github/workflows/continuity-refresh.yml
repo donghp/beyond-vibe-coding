@@ -68,7 +68,7 @@ jobs:
       - name: Check out main history
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: true
 
@@ -86,7 +86,6 @@ jobs:
         run: python -m unittest discover -s tests -p "test_continuity_updater.py" -v
 
       - name: Prepare reserved automation branch
-        if: github.ref == 'refs/heads/main'
         env:
           BRANCH_NAME: automation/continuity-refresh
         run: |
