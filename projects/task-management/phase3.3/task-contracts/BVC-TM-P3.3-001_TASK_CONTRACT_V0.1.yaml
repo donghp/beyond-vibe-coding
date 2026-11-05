@@ -1,7 +1,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-TC-001"
 revision: 1
-status: DRAFT
+status: PROPOSED
 created_at: "2026-11-05T09:30:00+07:00"
 
 task:
@@ -35,7 +35,7 @@ intent:
 
 risk:
   level: R1
-  policy_ref: "PENDING — BVC Task Management has no published, Product Owner-approved project risk policy mapping R0-R5. R1 is a provisional proposal for bounded documentation/readiness work only; this reference must be resolved before this contract can be approved or executed."
+  policy_ref: "PROPOSED — projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md (policy branch: governance/task-management-risk-policy-v0.1). R1 is proposed for this documentation/readiness scope. The policy is not effective until Product Owner approval and controlled merge to main; this dependency blocks execution."
   rationale: "The proposed work creates only two documentation/configuration artifacts on a separate branch. It does not modify application code, dependencies, database schema, authentication, financial logic, architecture baselines, or production systems. The R1 label is provisional because the repository has no approved project-specific R0-R5 mapping."
   impact_factors: []
   reversibility: EASY
@@ -174,7 +174,7 @@ dependencies:
     reason: "Accepted for design only; runtime persistence must be verified in the later implementation task."
   - reference: "BVC Task Management project-specific Risk Policy"
     relationship: MUST_COMPLETE_FIRST
-    reason: "A project-approved R0-R5 risk mapping does not yet exist. The Human Owner must approve or publish the policy reference before this contract can move to APPROVED."
+    reason: "BVC-TM-RISK-001 is proposed on branch governance/task-management-risk-policy-v0.1. The Product Owner must approve the policy and merge it to main before this contract can move from PROPOSED to APPROVED or be executed."
 
 expected_outputs:
   - id: "OUT-001"
@@ -290,7 +290,7 @@ authority:
   policy_ref: "specifications/v0.1/task-contract.md — Draft / Experimental v0.1.0; project-specific risk/authority policy still requires Owner approval."
   requested_by: "Human Owner / Product Owner"
   authorized_by: "Human Owner / Product Owner"
-  authorization_reference: "Owner request to begin Phase 3.3 Kickoff Task Contract on 2026-11-05; this authorizes preparation/review of the DRAFT contract, not execution of its two deliverables."
+  authorization_reference: "Product Owner explicitly approved the scope and intent of BVC-TM-P3.3-001 in the conversation on 2026-11-05. Execution remains blocked until BVC-TM-RISK-001 is approved and merged to main."
   executor:
     class: HYBRID
     identifier: "AI drafting executor under Human Owner review and acceptance"
@@ -307,9 +307,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    rationale: "The contract is a DRAFT. The project-specific risk mapping must be approved, then the Owner must explicitly approve this contract before the two deliverables are created."
+    approval_reference: "Explicit Product Owner approval recorded in conversation on 2026-11-05."
+    rationale: "The Product Owner approved the task scope and intent. The overall contract remains PROPOSED and is not execution-authorized until the separate BVC-TM-RISK-001 policy dependency is approved and merged to main."
 
 stopping_conditions:
   - scope_expansion_required
