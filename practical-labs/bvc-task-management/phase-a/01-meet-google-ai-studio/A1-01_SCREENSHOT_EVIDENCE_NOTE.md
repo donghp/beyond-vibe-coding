@@ -2,8 +2,7 @@
 
 **Evidence ID:** A1-01  
 **Evidence status:** OBSERVED — supplied by Human Owner  
-**Observed URL:** `aistudio.google.com/apps`  
-**Source image:** original screenshot supplied in the ChatGPT conversation
+**Observed URL:** `aistudio.google.com/apps`
 
 ## Observed interface
 
@@ -12,18 +11,24 @@
 - BUILD: New app (highlighted), My apps, Gallery.
 - MANAGE: Dashboard, Documentation.
 - Main heading: "Build your ideas with Gemini".
-- Prompt area: "Describe an app and let Gemini do the rest".
+- Central prompt area: "Describe an app and let Gemini do the rest".
 - Mode selector: "Default mode".
 - The browser address bar shows `aistudio.google.com/apps`.
 
 ## What this evidence establishes
 
-The actual supplied screenshot shows the Google AI Studio Apps landing screen. The New app entry is visible and highlighted under BUILD.
+The actual supplied screenshot shows the GAIS Apps / Build starting screen. The New app entry is highlighted under BUILD and the central prompt area is visible.
 
-## What it does not establish
+## Platform note
 
-It does not show that an app has been created, a WEB app type has been selected, a scaffold has been generated, or a Preview has been tested.
+Google's Build mode documentation says web apps are the default. Android apps are selected separately from the platform picker. The visible "Default mode" control in this screenshot is not, by itself, evidence of an Android or WEB platform selection.
+
+Reference: [Google AI Studio Build mode documentation](https://ai.google.dev/gemini-api/docs/aistudio-build-mode).
+
+## What this evidence does not establish
+
+It does not show that an app has been generated, that the scaffold exists, or that Preview/build/export has been tested.
 
 ## Next action
 
-Select New app once and capture the next screen before choosing WEB or submitting a prompt. Suggested filename: `a1-02-new-app-screen.png`.
+Copy and run **BVCTM-PROMPT-0001 — Create the Initial BVC Task Management Web App Scaffold** in the visible prompt area. Capture the actual result as A1-02.
