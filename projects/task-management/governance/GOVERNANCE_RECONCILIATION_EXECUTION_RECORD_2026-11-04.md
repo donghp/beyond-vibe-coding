@@ -129,4 +129,21 @@ The 74-link check recorded in Section 4 applies to the initial review of the 19 
 
 ---
 
+## 8. Final pre-merge review — 2026-11-05
+
+A fresh review was performed against the current PR head before the proposed merge:
+
+- The root README, Framework Overview, project catalog and Task Management status now consistently describe Phase 3.3 as active readiness/curriculum preparation; the GAIS app implementation/runtime is not yet evidenced in this repository.
+- The Data Model no longer presents open design proposals as approved rules: project removal is explicitly tied to OPEN DR-003; timezone source/default/editing is tied to OPEN DR-017; Starter Kit definition packaging remains OPEN under DR-015.
+- UX interaction and journey documents now identify first-use disclosure timing/copy as a proposal under OPEN DR-005. UX acceptance criteria are explicitly labelled draft and not Product Owner acceptance.
+- The ODEC-006 note now clarifies that a local Supabase stack is not a Phase 3.2 blocker, while the Advanced-curriculum decision remains OPEN under DR-018.
+- All 21 current Task Management Markdown files in the branch (the complete current package other than the unchanged historical Product Definition v0.1.0) were fetched and their relative Markdown targets were checked against the recursive branch tree. The root README, Framework Overview and project catalog links were also checked. No missing local link target was found.
+- The PR remains documentation/governance-only: 23 changed files and no deletions; no Phase 2 specification, validator, test or workflow file is changed.
+- The Actions workflow on `main` uses path filters limited to Core Specifications, validators, tests, `requirements-dev.txt` and the workflow file. PR #6 changes none of those paths, so no workflow run is expected. The head SHA currently has zero workflow runs and zero combined status checks; this is not a failed CI result and must not be described as CI PASS.
+- No application runtime, GAIS execution, browser persistence, Supabase provisioning, RLS/security test, deployment, or real-device UX test is claimed.
+
+At the time of this review, PR #6 was OPEN, unmerged and reported mergeable, with `main` still based on `ff59827d07eef982e0a23a11279e47c7817c457c`. All corrections were confined to `docs/readme-v0.2-and-phase3.3-status`; no operation was performed on `main`.
+
+---
+
 **BVC Governance Reconciliation — Branch review package only.**
