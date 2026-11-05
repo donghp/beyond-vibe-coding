@@ -8,8 +8,8 @@
 
 | Lesson | Draft status | Evidence needed before publication |
 |---|---|---|
-| A1 — Meet Google AI Studio | Draft ready for interface review | Current GAIS starting screen; actual Build mode entry; actual Preview view. |
-| A2 — Create Your First Blank Web App | Scaffold inspection pending | Human Owner's GAIS screenshots, generated code tree, exported ZIP if available, actual Preview outcome. |
+| A1 — Meet Google AI Studio | In progress — A1-01 observed; A1-02 awaiting capture | Actual GAIS starting screen supplied; next app-creation screen; actual blank scaffold Preview. |
+| A2 — Create Your First Blank Web App | Authorized by BVC-TM-TC-003 Revision 1; execution not yet evidenced | Confirm WEB app type; run BVCTM-PROMPT-0001 once; capture Preview, inspect generated code tree, and export ZIP if available. |
 | A3 — Talk to AI Like a Teammate | Draft ready for practical review | Real prompt and response examples captured from the current GAIS session; verify exact chat/build UI wording. |
 
 ## Phase B — Build Your First Task
