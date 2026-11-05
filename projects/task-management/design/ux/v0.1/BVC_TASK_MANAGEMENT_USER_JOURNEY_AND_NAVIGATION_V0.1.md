@@ -107,6 +107,8 @@ Help a first-time user reach a useful workspace and create the first task withou
 
 ### 5.3 First-use rules
 
+The disclosure at step 2 is the current proposed journey. Its exact timing, placement and copy remain OPEN under DR-005 until the Product Owner records a decision.
+
 - Do not require registration, email, password, company name, or API key.
 - Do not force the user to choose a role. Starting blank is always available.
 - Do not import example tasks without telling the user what will be added.
