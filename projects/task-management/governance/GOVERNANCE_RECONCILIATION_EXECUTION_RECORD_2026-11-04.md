@@ -166,7 +166,9 @@ At the time of this review, PR #6 was OPEN, unmerged and reported mergeable, wit
 
 The post-merge repository check found that `main` was not protected and no active repository rulesets were listed. The available GitHub connection used for this execution can read repository/branch/ruleset data and write repository files, but it does not expose a branch-protection/ruleset creation action. The branch-protection write was therefore not performed and is not claimed as complete.
 
-The repository Owner must enable a protection rule for `main` in GitHub Settings → Branches. Recommended baseline: require a Pull Request before merging; keep force-push and deletion disabled; require conversation resolution; do not require named status checks until an applicable application CI workflow exists and its exact check name has been observed. This is a separate repository setting, not a code/documentation change.
+The repository Owner can enable a protection rule for `main` in GitHub Settings → Branches when this administration task is resumed. Recommended baseline: require a Pull Request before merging; keep force-push and deletion disabled; require conversation resolution; do not require named status checks until an applicable application CI workflow exists and its exact check name has been observed. This is a separate repository setting, not a code/documentation change.
+
+**Owner direction on 2026-11-05:** Branch Protection setup is temporarily deferred. The current follow-up is limited to Priority 2 (post-merge documentation/status reconciliation); no Branch Protection or Ruleset configuration was changed in this follow-up. The repository's `main` branch remains unprotected as of this record update.
 
 ### 9.4 CI and verification boundary
 
