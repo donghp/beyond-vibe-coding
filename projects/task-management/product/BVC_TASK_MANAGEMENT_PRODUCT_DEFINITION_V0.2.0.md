@@ -4,9 +4,9 @@
 
 **Document ID:** BVC-TM-PD-001  
 **Version:** 0.2.0  
-**Status:** Product Owner Approved — 2026-11-04; pending controlled merge into `main`  
+**Status:** Product Owner Approved — 2026-11-04; current Product Baseline on `main` via PR #5  
 **Prepared:** 2026-11-04  
-**Supersedes:** BVC-TM-PD-001 v0.1.0, effective after controlled merge  
+**Supersedes:** BVC-TM-PD-001 v0.1.0; effective on `main` through merged PR #5  
 **Change Record:** BVC-TM-PCR-001  
 **Product:** BVC Task Management — A Simple Daily Work Manager
 
@@ -26,7 +26,7 @@ The product remains one practical Task Management application. The levels introd
 
 The Product Owner approved Product Definition v0.2.0 on 2026-11-04.
 
-The repository's active baseline on `main` remains v0.1.0 until this revision is merged through the controlled repository process. After the approved PR is merged, v0.2.0 becomes the operational Product Baseline.
+Product Definition v0.2.0 is the current operational Product Baseline on `main`, published through PR #5 (merge commit `ff59827d07eef982e0a23a11279e47c7817c457c`). Product Definition v0.1.0 is retained as a historical record of the original product direction and is superseded for current product authority.
 
 Application implementation remains subject to Phase 3.2 Architecture Acceptance and a separately approved Phase 3.3 implementation Task Contract.
 
@@ -552,7 +552,7 @@ They do not define or replace the Business Task data model.
 
 Version 0.2.0 establishes the progressive three-level learning architecture and revises the single Local-First implementation path in v0.1.0.
 
-The Product Owner approved v0.2.0 on 2026-11-04. It becomes the operational repository baseline after its controlled merge into `main`.
+The Product Owner approved v0.2.0 on 2026-11-04. It became the operational repository baseline on `main` through merged PR #5 (merge commit `ff59827d07eef982e0a23a11279e47c7817c457c`).
 
 The following remain unchanged:
 

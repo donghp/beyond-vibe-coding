@@ -4,7 +4,9 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** `BVC-TM-PD-001`, Product Definition v0.1.0
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 
 ---
 
@@ -200,7 +202,7 @@ Use chips for active filters, project metadata, and compact state markers. Keep 
 - Loading: restrained, non-blocking when possible; prevent duplicate submission.
 - Success: show only after the operation has succeeded.
 - Error: explain what failed and what the user can do next.
-- Offline/local state: explain local storage without implying cloud backup or synchronization.
+- Persistence disclosure must be level-specific: Beginner explains browser-profile storage and manual JSON backup; Intermediate/Advanced explain the authenticated Supabase personal workspace. Do not imply team sharing or equate database persistence with a backup.
 
 ## 8. Iconography and imagery
 
@@ -291,7 +293,9 @@ These values are proposals. No final visual brand or theme decision is implied u
 - [Interaction Specification](BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md)
 - [Accessibility & Usability](BVC_TASK_MANAGEMENT_ACCESSIBILITY_USABILITY_V0.1.md)
 - [UX Acceptance Criteria](BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md)
-- [Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+- [Current Product Definition v0.2.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+- [Historical Product Definition v0.1.0](../../../product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+- [Canonical Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md)
 
 ---
 

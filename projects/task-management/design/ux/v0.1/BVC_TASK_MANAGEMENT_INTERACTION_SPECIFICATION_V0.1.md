@@ -4,7 +4,9 @@
 **Version:** 0.1.0  
 **Status:** Draft — Product Owner Review Required  
 **Date:** 2026-11-03  
-**Parent baseline:** BVC-TM-PD-001, Product Definition v0.1.0
+**Original design baseline:** BVC-TM-PD-001 v0.1.0 (UX authoring baseline dated 2026-11-03)  
+**Current product authority:** BVC-TM-PD-001 v0.2.0 (Product Owner approved 2026-11-04; published by merged PR #5)  
+**Compatibility status:** Reconciled for v0.2.0 in this branch; formal Phase 3.1 UX Acceptance remains OPEN
 
 ---
 
@@ -112,7 +114,7 @@ The user can change status through a menu/button. Kanban drag-and-drop may be su
 
 ### 8.2 My Day section order
 
-The My Day sections must appear in the order established by Product Definition v0.1.0, Section 8.2:
+The My Day sections must appear in the order established by current Product Definition v0.2.0, Section 7.2:
 
 1. Overdue
 2. Due Today
@@ -234,15 +236,16 @@ Do not implement a cascade deletion of tasks without an explicit, separately rev
 6. Apply restore atomically where technically possible; on failure, preserve or recover the prior workspace.
 7. Show a truthful result and make the restored data visible.
 
-No automatic cloud backup or synchronization is part of v0.1.
+No automatic cross-device synchronization is provided by the Beginner browser-storage level. Intermediate/Advanced use the authenticated Supabase personal workspace; do not describe that as a team/shared workspace or as a backup service.
 
 ## 15. Local-data disclosure
 
-Before first important data entry, explain:
+**Proposed timing under DR-005 (still OPEN):** show the level-specific storage/access disclosure before first important data entry. The Product Owner must still confirm its exact placement and copy. The disclosure content should explain:
 
-> Your tasks are stored in this browser on this device. They do not automatically appear on your other devices. Use Settings & Backup to export a file and restore it on another device.
+- **Beginner:** the workspace is stored in this browser profile; it does not automatically appear in other browsers/devices; export a JSON backup for portability.
+- **Intermediate/Advanced:** the workspace is saved to the user's signed-in Supabase account. RLS restricts records to that account. Do not imply a team workspace or claim that database persistence itself is a backup.
 
-Keep the explanation accessible later through More → Settings & Backup. The wording must not imply that the app controls the user's chosen file-storage location.
+Keep the explanation accessible later through More → Settings & Backup. For Beginner export, do not imply that the app controls the user's chosen file-storage location.
 
 ## 16. Notifications and feedback
 
@@ -280,4 +283,4 @@ Use non-blocking status messages for routine success. Use dialogs only when the 
 | INT-OPEN-04 | Restore conflict | Validate first, then explicitly replace current workspace after confirmation |
 | INT-OPEN-05 | Delete task | Confirmation dialog; no silent deletion |
 
-These decisions should be reviewed before implementation tasks are written.
+These decisions are tracked in the canonical [Product/UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md). Review or explicitly defer each applicable item before the dependent implementation task begins.

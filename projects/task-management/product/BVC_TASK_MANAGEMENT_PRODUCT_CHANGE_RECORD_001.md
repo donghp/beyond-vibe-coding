@@ -2,7 +2,7 @@
 
 **Document ID:** BVC-TM-PCR-001  
 **Version:** 0.1.2  
-**Status:** Product Owner Approved — 2026-11-04; controlled repository merge pending  
+**Status:** Product Owner Approved and Published — 2026-11-04; PR #5 merged  
 **Date:** 2026-11-04  
 **Affected baseline:** BVC-TM-PD-001 Product Definition v0.1.0  
 **Target revision:** BVC-TM-PD-001 Product Definition v0.2.0
@@ -73,7 +73,7 @@ The following v0.1.0 statements conflict with the revised direction and are addr
 
 The AC-025/AC-026 references are intentionally excluded from the local-only conflict list because they are not the relevant local-persistence acceptance criteria.
 
-Unchanged product behavior remains governed by Product Definition v0.1.0 unless separately revised:
+Unchanged product behavior remains governed by the current Product Definition v0.2.0 unless separately revised. Product Definition v0.1.0 is retained only as the historical source baseline for this change record:
 
 - Task, Project, Checklist and Starter Kit concepts.
 - My Day, My Tasks and navigation.
@@ -161,7 +161,7 @@ Intermediate → Advanced primarily changes the engineering and deployment workf
 ## 9. Approval and record status
 
 - **Product direction:** Product Owner approved the three-level learning direction on 2026-11-04.
-- **Product Definition v0.2.0:** Approved by the Product Owner on 2026-11-04; controlled repository merge pending.
+- **Product Definition v0.2.0:** Approved by the Product Owner on 2026-11-04 and published on `main` through merged PR #5 (commit `ff59827d07eef982e0a23a11279e47c7817c457c`).
 - **Database learning environment:** Supabase Free is the reference environment for the book's practical exercises.
 - **Hosting approach:** Provider-neutral; free-tier hosting is the focus of the practical walkthrough.
 - **Vercel:** May be used as an optional illustrative example; it is not a mandatory platform or Product Owner hosting decision.
@@ -171,16 +171,16 @@ Intermediate → Advanced primarily changes the engineering and deployment workf
 - **Phase 2 Core Specifications:** Remain unchanged.
 - **Phase 3.2 Architecture:** Design acceptance is recorded separately in BVC-TM-AR-001. Runtime verification is deferred to Phase 3.3.
 - **Implementation authorization:** This change record alone does not authorize coding. Phase 3.3 requires a separately approved implementation Task Contract.
-- **Repository publication:** PR #5 remains open until the controlled merge into `main`.
+- **Repository publication:** PR #5 is merged into `main`; merge commit `ff59827d07eef982e0a23a11279e47c7817c457c` is the published baseline evidence.
 
 ## 10. Required next action
 
-1. Publish the approved Product Definition v0.2.0 through the controlled repository process.
-2. Complete Phase 3.2 Architecture Review & Acceptance.
-3. Preserve the Phase 3.1 UX package and the five Phase 2 Core Specifications.
-4. Prepare Phase 3.3 implementation Task Contracts only after the required approval gates pass.
-5. Verify the actual GAIS scaffold before finalizing framework/build and deployment instructions.
-6. Use Supabase Free and a suitable free-tier hosting service as the reference practical learning environment; verify current provider documentation before publication.
+1. Preserve Product Definition v0.2.0 as the current product baseline and v0.1.0 as its historical predecessor.
+2. Reconcile the Phase 3.1 UX package against v0.2.0 without redesigning the UX direction or silently closing its OPEN acceptance gate.
+3. Preserve the Phase 3.2 Architecture Design Acceptance; keep runtime, security and deployment verification deferred to Phase 3.3.
+4. Resolve or explicitly defer the canonical Product/UX/Architecture decisions before the dependent implementation tasks.
+5. Approve a bounded Phase 3.3 implementation Task Contract before executing the first GAIS app task.
+6. Inspect the actual GAIS scaffold and verify provider documentation before finalizing build and deployment instructions.
 
 ---
 

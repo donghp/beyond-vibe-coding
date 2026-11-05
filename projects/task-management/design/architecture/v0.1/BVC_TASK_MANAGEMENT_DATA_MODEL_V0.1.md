@@ -3,7 +3,7 @@
 **Document ID:** BVC-TM-DATA-001\
 **Phase:** 3.2\
 **Version:** 0.1.0\
-**Status:** Draft for Owner Review\
+**Status:** Product Owner Accepted — Phase 3.2 Data Model Design Baseline; implementation verification deferred to Phase 3.3\
 **Date:** 2026-11-04
 
 ## 1. Purpose
@@ -69,7 +69,7 @@ erDiagram
 | `updated_at` | TIMESTAMPTZ | Required |
 | `archived_at` | TIMESTAMPTZ | Optional |
 
-When a project is removed, tasks are preserved and `project_id` becomes null. Do not cascade-delete tasks.
+**Proposed behavior — DR-003 remains OPEN:** if the Product Owner selects the non-destructive removal option, preserve tasks and set `project_id` to null. Do not implement this proposal as an approved product rule until DR-003 is resolved.
 
 ### 4.3 Task Checklist Item
 
@@ -89,7 +89,7 @@ When a project is removed, tasks are preserved and `project_id` becomes null. Do
 | Field | Type | Rule |
 |---|---|---|
 | `user_id` | UUID | Primary key and reference to `auth.users(id)` |
-| `timezone` | TEXT | IANA timezone; default from browser, user may change |
+| `timezone` | TEXT | IANA timezone identifier; source/default and user-editing behavior remain OPEN under DATA-004 / DR-017 |
 | `selected_starter_kit` | TEXT | Optional |
 | `preferences` | JSONB | Small validated UI preferences only |
 | `created_at` | TIMESTAMPTZ | Required |
@@ -108,7 +108,7 @@ Do not use `preferences` as an unstructured substitute for core entities or secu
 | `applied_at` | TIMESTAMPTZ | Required |
 | Unique constraint | `(user_id, kit_key, kit_version)` | Prevent duplicate application record |
 
-Starter-kit definitions are bundled, versioned application assets. The database stores application history and resulting user-editable records, not the canonical static kit definitions.
+One proposed option is to bundle starter-kit definitions as versioned application assets. The exact packaging/source remains OPEN under DATA-002 / DR-015. The `applied_starter_kits` table records application history; it does not by itself decide where canonical kit definitions are stored.
 
 ## 5. PostgreSQL schema proposal
 
@@ -211,15 +211,17 @@ No business-data migration is required if the same Supabase project and schema a
 - Calculate My Day sections using the user's selected timezone.
 - Test boundary conditions at local midnight, month-end, year-end and daylight-saving transitions in applicable zones.
 
-## 10. Open decisions for Owner / implementation review
+## 10. Open decisions and canonical governance status
 
-| ID | Decision | Recommended default | Status |
+The [Phase 3 Product / UX Decision Register](../../../governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md) is the canonical source for current decision IDs, statuses, source aliases, and implementation dependencies. The DATA identifiers below remain as source aliases for traceability. Proposed defaults are not Product Owner approvals.
+
+| Source ID | Decision | Recommended default (not approved unless explicitly recorded) | Current status |
 |---|---|---|---|
-| DATA-001 | Is browser `localStorage` acceptable for Beginner persistence? | Yes for a small teaching workspace; no external database, Localhost or Local-First architecture | Proposed |
-| DATA-002 | Should starter-kit definitions be static application assets? | Yes, versioned in source code | Proposed |
-| DATA-003 | Import semantics for existing Supabase workspace | Preview + merge by default; replacement only with confirmation | Proposed |
-| DATA-004 | Timezone source | Browser IANA timezone on first use, user-editable | Proposed |
-| DATA-005 | Is an Advanced local Supabase stack required? | No; Supabase CLI/migrations are taught, local DB stack optional | Proposed |
+| DATA-001 | Is browser `localStorage` acceptable for Beginner persistence? | Yes for a small teaching workspace; no external database, Localhost or Local-First architecture | ACCEPTED FOR DESIGN — ODEC-003; runtime verification required in Phase 3.3 |
+| DATA-002 | Should starter-kit definitions be static application assets? | Yes, versioned in source code | OPEN — proposal only; see DR-015 |
+| DATA-003 | Import semantics for existing Supabase workspace | Preview + merge by default; replacement only with confirmation | OPEN — proposal only; see DR-016 |
+| DATA-004 | Timezone source | Browser IANA timezone on first use, user-editable | OPEN — proposal only; see DR-017 |
+| DATA-005 | Is an Advanced local Supabase stack required? | No; Supabase CLI/migrations are taught, local DB stack optional | OPEN — proposal only; see DR-018 |
 
 ## 11. References
 

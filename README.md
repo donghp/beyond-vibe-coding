@@ -28,7 +28,7 @@ BVC provides a practical foundation for people who want to use AI coding tools w
 2. [Framework Overview](docs/framework-overview.md)
 3. [Task Contract Guide](docs/task-contract.md)
 4. [Core Specifications Index](specifications/v0.1/README.md)
-5. [Build & Learn — BVC Task Management Product Definition](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)
+5. [Build & Learn — BVC Task Management Product Definition v0.2.0](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
 
 You can also explore the [Documentation Index](docs/README.md) for the complete reading path.
 
@@ -468,7 +468,7 @@ Transparency about implementation maturity is a core BVC principle.
 - Automated unit tests.
 - GitHub Actions validation workflow.
 - A documented relationship between the book and the technical companion repository.
-- The Build & Learn direction and the BVC Task Management Product Definition v0.1.0.
+- The Build & Learn direction and the current BVC Task Management Product Definition v0.2.0; v0.1.0 is retained as the historical product baseline.
 
 ### Not Yet Provided
 
@@ -502,9 +502,11 @@ The goal is not to build software merely to practice coding. The goal is to star
 
 ### First project — BVC Task Management
 
-**[BVC Task Management — A Simple Daily Work Manager](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.1.md)** is the first Build & Learn project.
+**[BVC Task Management — A Simple Daily Work Manager](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)** is the first Build & Learn project. Product Definition v0.2.0 was approved by the Product Owner on 2026-11-04 and published through the controlled merge of PR #5. It is the current product baseline on `main`; v0.1.0 remains available as a historical record of the original product direction.
 
-It is intended to be a simple personal work-management application that people can adapt to different everyday roles and responsibilities, including:
+For current project status, acceptance gates, and unresolved implementation decisions, see the [Task Management project guide](projects/task-management/README.md), the [Phase 3 Product / UX Decision Register](projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md), and the [Governance Reconciliation Execution Record](projects/task-management/governance/GOVERNANCE_RECONCILIATION_EXECUTION_RECORD_2026-11-04.md).
+
+The product remains one practical personal work-management application. It is designed for people managing everyday responsibilities in contexts such as:
 
 - Individual and personal work.
 - Sales team leads.
@@ -514,17 +516,27 @@ It is intended to be a simple personal work-management application that people c
 - Restaurant owners.
 - Project managers.
 
-The initial product direction is one core application with role-based starter kits—not separate applications for every profession. Starter kits provide relevant example categories, projects, tasks, and checklists that users can change to suit their own work.
+Role Starter Kits provide editable starting configurations. They do not create separate products, account roles, access permissions, or specialist CRM/POS/ERP systems.
 
-The initial product experience is organized around a small set of understandable areas:
+The product uses a progressive three-level learning and implementation model:
 
-- **My Day:** focus on what needs attention today, overdue work, and upcoming tasks.
-- **My Tasks:** view, create, update, search, and filter work items.
-- **Projects:** group related tasks by project or area of responsibility.
-- **Templates:** choose a starter kit and adapt it to personal work.
-- **Settings & Backup:** manage preferences and export or restore local data.
+| Level | Learning environment | Persistence and capabilities |
+|---|---|---|
+| **Beginner — Build & Use** | Google AI Studio Build mode and application preview | No external database, sign-in, VS Code, or Localhost. A small versioned JSON workspace uses browser `localStorage`; users can export and restore a JSON backup. |
+| **Intermediate — Build & Connect** | Google AI Studio + Supabase | Supabase PostgreSQL, Auth, SQL, CRUD, and Row Level Security (RLS). Each authenticated user owns a personal workspace. |
+| **Advanced — Production Engineering** | Google AI Studio + GitHub + VS Code/Localhost + Supabase + compatible Web App Hosting | Source control, local development, migrations, CI/testing, Preview and live deployment, and operational verification. |
 
-The exact MVP scope and acceptance criteria are defined in the Product Definition. Features must not be added merely because they are technically possible; they should solve a clear user need without making everyday use unnecessarily complicated.
+The same product and logical domain model progress through all three levels. The levels add engineering capability progressively; they are not three separate applications.
+
+### Product experience
+
+The application is organized around a small set of everyday work-management areas:
+
+- **My Day:** Overdue, Due Today, Today's Focus, and Upcoming work, following the approved placement rules.
+- **My Tasks:** task list, search, filters, sorting, and Kanban where the viewport supports it.
+- **Projects:** optional groupings for related tasks; tasks may remain unassigned.
+- **Templates:** preview and apply editable Role Starter Kits without silently replacing user data.
+- **Settings & Backup:** preferences, versioned JSON export/import, and clear data-storage information.
 
 ### User experience direction
 
@@ -534,17 +546,19 @@ The application is intended to provide a simple, natural, responsive experience 
 - Tablets in portrait and landscape orientations.
 - Laptops and desktop PCs.
 
-The design direction is mobile-first and responsive. The interface should make the next useful action easy to discover, keep common tasks simple, reveal advanced details only when needed, and support touch, keyboard, and accessible interaction.
+The Phase 3.1 UX package remains the design reference for navigation, screen hierarchy, responsive behavior, interactions, and accessibility expectations. It is not being silently redesigned in Phase 3.2 or Phase 3.3. Its separate formal UX acceptance record remains **OPEN** and must be resolved before the applicable implementation and release gates are closed.
 
-Responsive display across devices does **not** mean automatic data synchronization between them.
+### Data, persistence, and synchronization boundaries
 
-### Local-first MVP and its limits
+The three learning levels deliberately have different data behavior:
 
-The first version is planned as a browser-based, local-first, single-user application. User data is stored locally on the current device and browser. The MVP does not automatically synchronize data between a phone, tablet, laptop, or PC. Moving data between devices requires an explicit backup and restore process.
+- **Beginner:** the small practice workspace is stored in the current browser profile using `localStorage`. It is not cloud storage, does not automatically synchronize between devices, and may be lost if browser data is cleared. Export and restore are the explicit portability mechanism.
+- **Intermediate:** the application uses Supabase PostgreSQL and Supabase Auth. RLS must enforce that each authenticated user can access only their own records.
+- **Advanced:** the same Supabase data model is managed with version-controlled migrations and a controlled source-to-deployment workflow.
 
-Cloud synchronization, accounts, multi-user access, team collaboration, and real-time updates are future scope. They will be considered only when real user needs justify the additional security, privacy, authorization, and operational requirements.
+Supabase Free is the reference database environment for the book's practical exercises. Hosting remains provider-neutral; a compatible free-tier service may be shown as an optional walkthrough example. Vercel is not a mandatory product or architecture dependency. Free-tier terms, eligibility, quotas, inactivity behavior, and backup limitations must be checked against current official provider documentation.
 
-The specific application architecture and technology choices will be evaluated in the next design stage. The Product Definition describes the user-facing product and its scope; it does not by itself settle the implementation architecture.
+The exact frontend framework and build tool are not assumed. The actual GAIS-exported application scaffold must be inspected before build commands and hosting compatibility are finalized.
 
 ### Build & Learn and the five Core Specifications
 
@@ -558,11 +572,16 @@ The five Phase 2 Core Specifications remain the engineering control foundation:
 4. **Change Record** — record observed repository changes.
 5. **Verification Evidence** — record checks performed and the evidence produced.
 
-These specifications govern AI-assisted engineering work. They are not the same as the everyday Business Tasks that a person creates and manages inside BVC Task Management. The two concepts must remain separate. An application task may reference an engineering task where useful, but the application must not silently redefine or modify the frozen Core Specifications.
+These specifications govern AI-assisted engineering work. They are not the same as the everyday Business Tasks that a person creates and manages inside BVC Task Management. The two concepts must remain separate. An application task may reference an engineering task where useful, but the application must not silently redefine or modify the five Core Specifications.
 
-Build & Learn will progressively publish practical projects, role-based starter kits, examples, and hands-on guides. Product implementation and learning materials will be published only when their stated behavior and instructions have been reviewed and verified.
+### Phase 3 status
 
-**Current Phase 3 status:** Product Definition v0.1.0 establishes the proposed MVP baseline. Application implementation has not started.
+- **3.0 — Product Baseline:** complete. Product Definition v0.2.0 is the current product baseline on `main`.
+- **3.1 — UX & Product Design:** UX artifacts are published; formal UX acceptance remains OPEN.
+- **3.2 — Application Architecture & Technical Design:** Product Owner accepted the Phase 3.2 design baseline on 2026-11-04; PR #5 is merged.
+- **3.3 — Implementation, Verification, Learning Curriculum & Publication:** active phase. Implementation and verification must be evidenced through bounded tasks and actual test results.
+
+No completed application runtime, Supabase resource, live hosting deployment, RLS test, or production test is claimed by this README unless a corresponding implementation artifact and evidence record is published.
 
 ---
 
@@ -621,12 +640,15 @@ The project is developed incrementally. Each phase should produce reviewable, do
 |---|---|---|
 | **Phase 1** | Framework Foundation and Conceptual Architecture | Published |
 | **Phase 2** | Five Core Specifications and validation foundation | Integration completed and merged via PR #2; specifications remain Draft / Experimental v0.1.0 |
-| **Phase 3** | Build & Learn — Practical Projects and Hands-on Guides; first project: BVC Task Management | Product Definition v0.1.0 establishes the proposed MVP baseline; implementation not started |
-| **Future Evolution** | Cloud synchronization, team collaboration, advanced runtime enforcement, and broader integrations | Future scope; subject to real use cases, security requirements, and evidence |
+| **3.0** | Product Baseline — BVC Task Management | Complete; Product Definition v0.2.0 is the current baseline on `main` |
+| **3.1** | UX & Product Design | UX package published; formal UX acceptance remains OPEN |
+| **3.2** | Application Architecture & Technical Design | Product Owner accepted; PR #5 merged on 2026-11-04 |
+| **3.3** | Implementation, Verification, Learning Curriculum & Publication | Active workstream; readiness and curriculum preparation underway; GAIS app implementation/runtime not yet evidenced |
+| **Phase 4** | BVC Engineering Runtime & Platform | Proposed future phase; not yet approved as an implementation baseline |
 
-Advanced multi-agent orchestration, Router–Worker systems, and complex Harness implementations are not prerequisites for the beginner-friendly Build & Learn projects.
+Phase 3.3 progresses through Beginner (GAIS + browser storage), Intermediate (Supabase PostgreSQL/Auth/RLS), and Advanced (GitHub, VS Code/Localhost, CI/testing and compatible hosting). Phase 3 should not be declared complete until all required product, UX, implementation, security, learning-validation and publication acceptance criteria have been evidenced.
 
-They may be evaluated in future versions when real use cases and validation evidence justify them.
+Advanced multi-agent orchestration, Router–Worker systems, and complex Harness implementations are not prerequisites for the beginner-friendly Build & Learn projects. They may be evaluated in the future when real use cases and validation evidence justify them.
 
 The priority is a simple, secure, and useful learning experience—not unnecessary complexity.
 
@@ -634,11 +656,18 @@ The priority is a simple, secure, and useful learning experience—not unnecessa
 
 ## Repository Status and Maturity
 
-**Current development focus: Phase 3 — Build & Learn.**
+**Current development focus: Phase 3.3 — BVC Task Management implementation, verification and learning publication.**
 
-Phase 2 provides five machine-readable Core Specifications, all **Draft / Experimental v0.1.0**, together with JSON Schemas, examples, templates, Python validators, automated tests, and a GitHub Actions workflow.
+Phase 1 provides the framework foundation and conceptual architecture. Phase 2 provides five machine-readable Core Specifications, all **Draft / Experimental v0.1.0**, together with JSON Schemas, examples, templates, Python validators, automated tests, and a GitHub Actions workflow.
 
-The repository provides a testable initial foundation for project-centric AI-assisted engineering. Build & Learn is the practical project and learning direction. Its first Product Definition establishes the proposed MVP baseline; the Task Management application has not yet been implemented.
+Phase 3 has a more specific status:
+
+- Product Definition v0.2.0 is the current Product Owner-approved baseline on `main`, published through merged PR #5.
+- Phase 3.1 UX artifacts remain available as the design reference, but the formal UX acceptance record remains OPEN.
+- Phase 3.2 Application Architecture & Technical Design was accepted by the Product Owner on 2026-11-04 and published through merged PR #5.
+- Phase 3.3 is the active implementation and learning-delivery workstream. Current work is in readiness and curriculum preparation; the GAIS application has not yet been evidenced as created/run in this repository. Browser persistence, Supabase integration, CI, hosting and runtime behaviors must be verified before being described as implemented or accepted.
+
+The repository is an evolving engineering companion, not a claim that every described component is already a production runtime.
 
 However:
 

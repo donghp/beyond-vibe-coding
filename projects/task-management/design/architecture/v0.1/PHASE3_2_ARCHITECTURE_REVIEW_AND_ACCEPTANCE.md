@@ -49,8 +49,8 @@ Phase 3.2 does not:
 
 | Gate | Acceptance question | Evidence required | Status |
 |---|---|---|---|
-| G1 — Product change control | Has the Local-First v0.1 conflict been resolved through a controlled revision? | Product Owner approval of BVC-TM-PCR-001 and Product Definition v0.2.0 | PASS — Owner approval recorded 2026-11-04; merge pending |
-| G2 — Phase boundary | Is the Phase 3.1 UX package preserved without redesign in Phase 3.2? | Owner direction and repository diff showing no Phase 3.1 UX file modifications | PASS — Scope boundary only |
+| G1 — Product change control | Has the Local-First v0.1 conflict been resolved through the approved revision? | Product Owner approval of BVC-TM-PCR-001 and Product Definition v0.2.0; PR #5 merge evidence | PASS — Owner approval recorded 2026-11-04; PR #5 merged to `main` at `ff59827d07eef982e0a23a11279e47c7817c457c` |
+| G2 — Phase boundary | Is the Phase 3.1 UX package preserved without redesign in Phase 3.2? | Owner direction and PR #5 diff showing no Phase 3.1 UX redesign or scope change | PASS — Phase 3.2 preserved the existing UX design direction |
 | G3 — Three-level architecture | Are Beginner, Intermediate and Advanced flows distinct and coherent? | Application Architecture document and diagrams | PASS — Design accepted |
 | G4 — Persistence model | Is the same logical domain model supported by browser and Supabase adapters? | Data Model document | PASS — Design accepted |
 | G5 — Database/RLS design | Are tables, ownership, constraints, grants and RLS policies specified? | Data Model and Security documents | PASS — Design specified; runtime tests deferred |
@@ -64,9 +64,9 @@ Phase 3.2 does not:
 
 ### 3.1 Acceptance boundary
 
-The PASS state of G2 means only that the Phase 3.1 UX package is preserved as the design boundary for Phase 3.2.
+The PASS state of G2 means only that Phase 3.2 preserved the Phase 3.1 UX design direction as its design boundary; it does not mean the separate Phase 3.1 UX Review & Acceptance record was closed.
 
-It does not mean that the separate Phase 3.1 UX Review & Acceptance record has been formally closed.
+The subsequent PR #6 governance reconciliation updates UX document authority metadata, learning-level storage/access disclosures, and FR/AC traceability against Product Definition v0.2.0. These are governance and compatibility corrections, not a visual, navigation, or interaction redesign. Formal Phase 3.1 UX Acceptance remains OPEN.
 
 The PASS state of G5, G6 and G7 refers to design completeness and specified controls. It does not claim that RLS, secret scanning, backup/restore or migration tests have already been executed.
 
@@ -164,8 +164,8 @@ Do not hardcode permanent provider quotas in the architecture baseline.
 | ODEC-003 | Beginner browser store | Small versioned browser JSON workspace (`localStorage`) | ACCEPTED FOR DESIGN — Implementation validation in Phase 3.3 |
 | ODEC-004 | Frontend build tool | Inspect GAIS scaffold; verify framework, build output and compatibility | DEFERRED — Phase 3.3 |
 | ODEC-005 | Authentication method | Select Supabase email/password or magic link | DEFERRED — Before Auth implementation |
-| ODEC-006 | Local Supabase stack | Optional Advanced practice; CLI migrations recommended | OPTIONAL — Not a Phase 3.2 blocker |
-| ODEC-007 | Product Definition baseline transition | v0.2.0 approved by Product Owner; effective repository baseline after controlled merge | RESOLVED — Owner approval recorded |
+| ODEC-006 | Local Supabase stack | Optional Advanced practice; CLI migrations recommended | OPTIONAL — Not a Phase 3.2 blocker; whether to include a local stack in the Advanced curriculum remains OPEN under DR-018 |
+| ODEC-007 | Product Definition baseline transition | v0.2.0 approved by Product Owner and published on main through merged PR #5 (ff59827d07eef982e0a23a11279e47c7817c457c) | RESOLVED — current Product Baseline on main; v0.1.0 retained as historical |
 | ODEC-008 | Exact hosting service used in practical screenshots | Choose a compatible free-tier example when preparing the lesson; do not make it a product requirement | DEFERRED — Practical lesson preparation |
 
 The reader's or author's private hosting account, subscription, billing arrangement or infrastructure selection is not an architecture decision and is not required as a project record.
@@ -199,7 +199,7 @@ The exact hosting service selected by an individual reader is not a Phase 3.2 ex
 **Architecture acceptance:** Approved by the Product Owner on 2026-11-04.  
 **Database learning reference:** Supabase Free.  
 **Hosting approach:** Provider-neutral free-tier hosting.  
-**Repository publication status:** PR #5 remains subject to controlled merge into `main`.
+**Repository publication status:** PR #5 merged into `main`; merge commit `ff59827d07eef982e0a23a11279e47c7817c457c`.
 
 ### Accepted baseline
 
@@ -208,7 +208,7 @@ The exact hosting service selected by an individual reader is not a Phase 3.2 ex
 - Supabase Free is accepted as the reference database environment for the book's practical exercises.
 - Hosting is provider-neutral. The practical guide focuses on compatible free-tier hosting.
 - Vercel is an optional illustrative example only; it is not a mandatory provider or architectural standard.
-- Phase 3.1 UX files remain unchanged. Their separate UX Review & Acceptance record is independent.
+- The Phase 3.1 UX design direction is preserved. PR #6 makes governance/compatibility and traceability updates only; it does not redesign the UX. The separate UX Review & Acceptance record remains independent and OPEN.
 - The five Phase 2 Core Specifications remain unchanged in the PR #5 diff.
 - Application Architecture, Data Model, Security and Development/Deployment designs are accepted as the Phase 3.2 design baseline.
 - Private hosting accounts, subscriptions, billing arrangements and infrastructure choices are outside the project documentation scope.
@@ -230,7 +230,7 @@ These deferred items do not invalidate the Phase 3.2 design acceptance.
 
 They must be resolved in the relevant Phase 3.3 Task Contracts before implementation or release activities that depend on them.
 
-**Next action:** Publish the accepted Phase 3.2 baseline through the controlled PR #5 merge, then prepare and approve the first Phase 3.3 implementation Task Contract.
+**Next action:** Complete the Phase 3.1 UX compatibility/acceptance gate to the extent required by the first implementation scope, resolve or explicitly defer its dependent decisions, then prepare and obtain approval for the first bounded Phase 3.3 implementation Task Contract.
 
 ---
 
