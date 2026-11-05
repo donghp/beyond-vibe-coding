@@ -1,7 +1,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-TC-001"
-revision: 2
-status: PROPOSED
+revision: 3
+status: APPROVED
 created_at: "2026-11-05T09:30:00+07:00"
 
 task:
@@ -295,7 +295,7 @@ authority:
   policy_ref: "Task Contract Specification v0.1.0 — Draft / Experimental; BVC-TM-RISK-001 v0.1.0 — Product Owner-approved and published on main via PR #7 (main@5641482236b2b7dc2f515a5125aa6e4c554139ef)."
   requested_by: "Human Owner / Product Owner"
   authorized_by: "Human Owner / Product Owner"
-  authorization_reference: "Product Owner explicitly approved the scope and intent of BVC-TM-P3.3-001 on 2026-11-05. BVC-TM-RISK-001 v0.1.0 was approved and published on main via PR #7 on 2026-11-05. Contract execution authority is active only after this revision is validated and status is APPROVED."
+  authorization_reference: "Product Owner explicitly approved the scope and intent of BVC-TM-P3.3-001 on 2026-11-05. BVC-TM-RISK-001 v0.1.0 was approved and merged into main via PR #7 on 2026-11-05. Revision 2 passed the repository JSON Schema and semantic validator on the Human Owner local environment on 2026-11-05 (Python 3.14.5): PASS BVC-TM-TC-001; failures: 0. Revision 3 records the resulting APPROVED contract state; revalidation of this exact revision is required before publishing its approval PR."
   executor:
     class: HYBRID
     identifier: "AI drafting executor under Human Owner review and acceptance"
@@ -315,7 +315,7 @@ authority:
     status: APPROVED
     approver_role: "Human Owner / Product Owner"
     approval_reference: "Explicit Product Owner approval recorded in conversation on 2026-11-05."
-    rationale: "The Product Owner approved the task scope and intent on 2026-11-05. The required BVC-TM-RISK-001 v0.1.0 policy has since been approved and merged into main through PR #7. This revision is promoted to APPROVED only after the schema and semantic validator pass."
+    rationale: "The Product Owner approved the task scope and intent on 2026-11-05. The required BVC-TM-RISK-001 v0.1.0 policy has been approved and merged into main through PR #7. Revision 2 passed the repository schema and semantic validator with zero failures on 2026-11-05. This revision records the APPROVED lifecycle state and must itself be revalidated before publication."
 
 stopping_conditions:
   - scope_expansion_required
