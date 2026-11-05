@@ -1,38 +1,94 @@
-schema_version: "3.0.0"
-state_id: "BVC-CONTINUITY-PORTFOLIO"
+schema_version: 3.0.0
+state_id: BVC-CONTINUITY-PORTFOLIO
 repository:
-  full_name: "donghp/beyond-vibe-coding"
-  url: "https://github.com/donghp/beyond-vibe-coding"
-  default_branch: "main"
+  full_name: donghp/beyond-vibe-coding
+  url: https://github.com/donghp/beyond-vibe-coding
+  default_branch: main
 portfolio:
-  name: "BEYOND VIBE CODING — Build & Learn"
-  state_semantics: "Portfolio index and continuity navigation; not a replacement for project-specific BVC Project State records."
+  name: BEYOND VIBE CODING — Build & Learn
+  state_semantics: Portfolio index and continuity navigation; not a replacement for
+    project-specific BVC Project State records.
   last_semantic_review: null
-  review_status: "REQUIRES_LIVE_RECONCILIATION"
+  review_status: REQUIRES_LIVE_RECONCILIATION
   projects:
-    - project_id: "BVC-TASK-MANAGEMENT"
-      display_name: "BVC Task Management"
-      canonical_index: "projects/task-management/README.md"
-      status_at_historical_snapshot: "ACTIVE"
-      historical_baseline: "Product Definition v0.2.0; Phase 3.2 design accepted; Phase 3.1 UX acceptance open."
-      historical_active_task: "BVC-TM-P3.3-001"
-      historical_contract: "BVC-TM-TC-001 Revision 3; APPROVED on its task branch at the 2026-11-05 snapshot."
-      note: "Historical anchor only. Reconcile current main, PR #8 or successor, contracts and project records before using."
+  - project_id: BVC-TASK-MANAGEMENT
+    display_name: BVC Task Management
+    canonical_index: projects/task-management/README.md
+    status_at_historical_snapshot: ACTIVE
+    historical_baseline: Product Definition v0.2.0; Phase 3.2 design accepted; Phase
+      3.1 UX acceptance open.
+    historical_active_task: BVC-TM-P3.3-001
+    historical_contract: BVC-TM-TC-001 Revision 3; APPROVED on its task branch at
+      the 2026-11-05 snapshot.
+    note: 'Historical anchor only. Reconcile current main, PR #8 or successor, contracts
+      and project records before using.'
 machine_snapshot:
-  updater_version: "3.0.0"
-  last_observed_main_sha: "5641482236b2b7dc2f515a5125aa6e4c554139ef"
-  last_observed_main_url: "https://github.com/donghp/beyond-vibe-coding/commit/5641482236b2b7dc2f515a5125aa6e4c554139ef"
-  last_observed_at_utc: null
-  event_name: "INITIAL_HISTORICAL_SNAPSHOT"
-  previous_main_sha: null
-  commit_count_since_previous_snapshot: 0
-  changed_path_count: 0
-  changed_paths: []
+  updater_version: 3.0.0
+  repository: donghp/beyond-vibe-coding
+  last_observed_main_sha: ef538a3ec1925f9039c332e71fb9c6b67493561c
+  last_observed_main_url: https://github.com/donghp/beyond-vibe-coding/commit/ef538a3ec1925f9039c332e71fb9c6b67493561c
+  last_observed_at_utc: '2026-11-05T16:35:40+00:00'
+  event_name: push
+  previous_main_sha: 5641482236b2b7dc2f515a5125aa6e4c554139ef
+  commit_count_since_previous_snapshot: 9
+  changed_path_count: 46
+  changed_paths:
+  - practical-labs/AUTHORIZATION_AND_SCOPE.md
+  - practical-labs/README.md
+  - practical-labs/assets/screenshots/README.md
+  - practical-labs/bvc-task-management/CURRICULUM_MAP_V0.1.md
+  - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.1.md
+  - practical-labs/bvc-task-management/phase-a/01-meet-google-ai-studio/A1-01_SCREENSHOT_EVIDENCE_NOTE.md
+  - practical-labs/bvc-task-management/phase-a/01-meet-google-ai-studio/README.md
+  - practical-labs/bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md
+  - practical-labs/bvc-task-management/phase-a/03-talk-to-ai-like-a-teammate/README.md
+  - practical-labs/bvc-task-management/phase-b/README.md
+  - practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
+  - practical-labs/bvc-task-management/phase-b/b2-save-your-task/README.md
+  - practical-labs/bvc-task-management/phase-b/b3-close-and-reopen/README.md
+  - practical-labs/bvc-task-management/phase-b/b4-improve-one-small-thing/README.md
+  - practical-labs/bvc-task-management/phase-c/README.md
+  - practical-labs/bvc-task-management/phase-d/README.md
+  - practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md
+  - practical-labs/standards/DONG_HONG_STYLE_PRACTICAL_LAB_AUTHORING_STANDARD_V0.1.md
+  - projects/task-management/continuity/00_BVC_CHATGPT_CONTINUITY.md
+  - projects/task-management/continuity/HANDOFF_LOG.md
+  - projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml
+  - projects/task-management/continuity/PROJECT_STATE.json
+  - projects/task-management/continuity/README.md
+  - projects/task-management/continuity/SOURCE_MANIFEST.csv
+  - projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml
+  - projects/task-management/continuity/evidence/README.md
+  - projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml
+  - projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml
+  - projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml
+  - projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md
+  - projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md
+  - projects/task-management/continuity/validation/README.md
+  - projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml
+  - projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md
+  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml
+  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-002_TASK_CONTRACT_V0.1.yaml
+  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml
+  - templates/project-continuity/00_PROJECT_AI_CONTINUITY.template.md
+  - templates/project-continuity/HANDOFF_LOG.template.md
+  - templates/project-continuity/PROJECT_CONTINUITY_PROFILE.template.yaml
+  - templates/project-continuity/PROJECT_STATE.template.json
+  - templates/project-continuity/README.md
+  - templates/project-continuity/SOURCE_MANIFEST.template.csv
+  - templates/project-continuity/evidence/EVIDENCE_INDEX.template.yaml
+  - templates/project-continuity/registers/REGISTER_DESIGN_GUIDE.md
+  - templates/project-continuity/validation/CONTINUITY_TEST_PLAN.template.md
   changed_paths_truncated: false
   semantic_review_required: true
-  semantic_review_status: "REQUIRES_LIVE_RECONCILIATION"
-  review_note: "The machine updater may replace only this machine_snapshot mapping. Portfolio and project status are human/AI-curated and must never be inferred from Git metadata."
+  semantic_review_status: PENDING_AI_AND_OWNER_REVIEW
+  review_note: Machine-observed Git metadata only. AI must inspect the changed sources;
+    the Human Owner retains decision and acceptance authority. This updater does not
+    change project facts, task status, decisions, baselines or acceptance.
 notes:
-  - "This file is a continuity aid. Live GitHub main and canonical project records take precedence."
-  - "The updater does not mark tasks complete, accept decisions, approve baselines, or change project lifecycle."
-  - "The old snapshot SHA and historical Task Management details must be reconciled before execution."
+- This file is a continuity aid. Live GitHub main and canonical project records take
+  precedence.
+- The updater does not mark tasks complete, accept decisions, approve baselines, or
+  change project lifecycle.
+- The old snapshot SHA and historical Task Management details must be reconciled before
+  execution.
