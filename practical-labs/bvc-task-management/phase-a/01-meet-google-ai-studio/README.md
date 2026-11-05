@@ -60,9 +60,9 @@ You should arrive at the Google AI Studio interface available to your account.
 
 > [SCREENSHOT REQUIRED: Capture the actual first screen after sign-in. Keep relevant navigation visible. Hide personal account details before sharing.]
 
-![Placeholder: actual Google AI Studio starting screen to be supplied](../../assets/screenshots/phase-a/a1-01-gais-start-screen-PLACEHOLDER.png)
+![Google AI Studio Apps landing screen after sign-in, showing the Explore, Build, and Manage navigation groups and the New app entry](../../assets/screenshots/phase-a/a1-01-gais-start-screen.png)
 
-*Figure A1-01. Replace this placeholder with the actual screenshot supplied during the lesson recording.*
+*Figure A1-01. Google AI Studio Apps landing screen after sign-in. The New app entry is visible under the Build navigation group.*
 
 **Check**
 
@@ -70,29 +70,42 @@ Confirm that you are in Google AI Studio. Do not continue by guessing where a co
 
 If your screen looks different from the final verified screenshot, stop and compare it with the current lesson version. The interface may differ by account, rollout, or product update.
 
-## Step 2 — Understand Build mode
+## Step 2 — Open the app creation area
 
-**What it means**
+**What you can see in the current screenshot**
 
-Build mode is the area of Google AI Studio used to create an application with help from AI. You describe what you want, and the tool can generate an application project.
+On the left side of Google AI Studio, the navigation is grouped into three areas:
+
+- **EXPLORE** — includes `Playground` and `History`.
+- **BUILD** — includes `New app`, `My apps`, and `Gallery`.
+- **MANAGE** — includes `Dashboard` and `Documentation`.
+
+For this project, the relevant entry is **New app**, shown under **BUILD**.
 
 **Do this**
 
-After the current GAIS screen has been captured and reviewed, locate the Build mode entry using the label visible in your account.
+1. Find the **BUILD** heading in the left navigation.
+2. Select **New app** once.
+3. Wait for the next screen to finish loading.
+4. Stop there. Do not select an app type or enter a prompt yet.
 
-**Important**
+**Why**
 
-The exact location and wording of the entry must be confirmed from the actual screenshot before this step is published as a final click-by-click instruction.
+We are following the actual app-creation flow one screen at a time. The next screen will show which app choices and controls are available in this GAIS session.
 
-> [SCREENSHOT REQUIRED: Capture the current GAIS screen with the actual Build mode entry visible. Add a numbered callout only after the location has been verified.]
+**What you should see**
 
-![Placeholder: actual Build mode entry to be supplied](../../assets/screenshots/phase-a/a1-02-build-mode-PLACEHOLDER.png)
+The next screen after selecting **New app**. Its exact controls have not yet been observed in the evidence supplied for this lesson.
 
-*Figure A1-02. Replace with the real GAIS screen and a verified callout.*
+**Screenshot checkpoint — A1-02**
+
+> [SCREENSHOT REQUIRED: After selecting New app, capture the next screen before choosing WEB/Android or entering a prompt.]
+
+The next screen's labels, app-type options, and controls will be documented only after the Human Owner supplies that screenshot. Do not guess or select a different control if the screen looks different.
 
 **Check**
 
-You should be able to identify the Build mode entry on your own screen. Do not select Android or another app type in this introductory lesson.
+Confirm that the screen has changed after selecting **New app**. If it has not, capture the current screen and share it before proceeding.
 
 ## Step 3 — Understand Preview
 
