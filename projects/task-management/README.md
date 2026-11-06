@@ -1,3 +1,4 @@
+> **Project navigation:** [Practical Labs Home](../../practical-labs/README.md) · [BVC Task Management Learning Path](../../practical-labs/bvc-task-management/CURRICULUM_MAP_V0.2.md) · [Phase A Index](../../practical-labs/bvc-task-management/phase-a/README.md) · [Product Definition](product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
 
 # Project 01 — BVC Task Management
 
@@ -5,7 +6,7 @@
 **Learning level:** Beginner to Advanced  
 **Product:** BVC Task Management — A Simple Daily Work Manager  
 **Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. PR #6 Governance Reconciliation was Squash and Merged on 2026-11-05 (commit `5d230516a1eddede51c457c85d5fc6bef23506f8`). Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
-**Implementation status:** Phase 3.3 readiness preparation underway; GAIS application implementation has not yet been evidenced
+**Implementation status:** A blank GAIS web-app scaffold has been created and its actual Preview has been observed. The scaffold is for inspection only; Task Management features have not yet been implemented. Detailed scaffold verification and the A3 Project Instructions understanding check remain in progress.
 
 > **Build something useful. Use it every day. Learn by doing.**
 
@@ -29,14 +30,17 @@ The product also serves as a progressive hands-on learning project. Readers star
 
 ## 2. Who can learn from this project
 
-| Audience | What to practice |
-|---|---|
-| Beginner / Vibe Coder | Describe a real need, guide AI step by step, build a small feature, and check the result. |
-| Independent Builder | Adapt the application to personal routines and daily work. |
-| Developer | Understand the UI, data model, application structure, validation, and tests. |
-| Tech Lead / Engineering Manager | Break work into bounded tasks and review changes and evidence. |
-| CTO / Architect | Evaluate architecture, security, data ownership, and design trade-offs. |
-| AI Engineer | Apply the BVC Engineering Task Contract and the five Core Specifications to AI-assisted code changes. |
+The learning path is designed to welcome people who have never programmed before. It starts with an everyday problem and an AI app-building tool, then introduces technical depth only when the learner is ready.
+
+| Learner group | Where to start | What this project helps them learn |
+|---|---|---|
+| **First-time builders and non-programmers** — beginners, new Vibe Coders, and curious readers | Phase A — GAIS and the first blank app | Explain an everyday need, follow prepared steps, set Project Instructions, and ask AI for one clear task without needing to write code first. |
+| **Independent builders, founders, and business owners** | Beginner — Build & Use | Turn a familiar personal or business routine into a useful application and learn by seeing the result in their own GAIS workspace. |
+| **Students, aspiring developers, and software practitioners** | Beginner, then Intermediate | Progress from visual results to application structure, TypeScript, data, validation, testing, and security concepts. |
+| **Developers and software engineers** | Intermediate and Advanced | Inspect the application, understand data and architecture, write and review code, test behavior, and manage source changes. |
+| **Technical leaders and AI practitioners** — Tech Leads, Engineering Managers, CTOs, Architects, and AI Engineers | Advanced learning path | Evaluate bounded work, authority, architecture, security, data ownership, verification evidence, and controlled AI-assisted engineering. |
+
+These are learning audiences, not separate application products. The everyday users of the app — for example, people managing personal work, sales follow-ups, marketing activity, shop routines, restaurant operations, and projects — are described separately in the Product Definition.
 
 ## 3. Product baseline and change control
 
@@ -55,6 +59,21 @@ Documents:
 **Authority rule:** v0.2.0 governs current product scope on `main`. v0.1.0 remains immutable historical evidence of the original product direction. Any future product change requires a new reviewed revision and change record.
 
 ## 4. Project documentation
+
+### Reader learning path — Practical Labs
+
+The reader-facing lessons are maintained separately from the product, UX, architecture, and governance baselines. Start with these links:
+
+- [BEYOND VIBE CODING — Practical Labs Home](../../practical-labs/README.md)
+- [BVC Task Management Curriculum Map v0.2.0](../../practical-labs/bvc-task-management/CURRICULUM_MAP_V0.2.md)
+- [Phase A — Meet AI & Build Your First App](../../practical-labs/bvc-task-management/phase-a/README.md)
+- [Lesson A1 — Meet Google AI Studio](../../practical-labs/bvc-task-management/phase-a/01-meet-google-ai-studio/README.md)
+- [Lesson A2 — Create Your First Blank Web App](../../practical-labs/bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md)
+- [Lesson A3 — Set Up Project Instructions](../../practical-labs/bvc-task-management/phase-a/03-set-up-project-instructions/README.md)
+- [Lesson A4 — Talk to AI Like a Teammate](../../practical-labs/bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/README.md)
+- [Lesson Development and Evidence Register v0.2.0](../../practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md)
+
+The Beginner path starts with GAIS and prepared prompts. It does not require prior programming knowledge, GitHub, VS Code, Localhost, Supabase, or an external database.
 
 ### Product
 
@@ -255,7 +274,7 @@ The reader-facing guide must assume that a Beginner has never programmed before.
 
 Every practical lesson must be written as a numbered sequence: **Step 1, Step 2, Step 3…** Each step should contain one clear action, explain why it is needed in plain language, show exactly what to click or type, identify what the reader should see afterward, and provide a simple way to check whether it worked. Introduce technical terms only when needed and explain each term the first time it appears. Never assume the reader knows where a menu, button, file, or setting is located.
 
-A lesson must stop at a meaningful checkpoint before adding the next layer of complexity. Include common mistakes and recovery instructions. The goal is that a reader can follow the steps independently and understand what they have built—not merely copy a long Prompt and hope for the best.
+A lesson must stop at a meaningful checkpoint before adding the next layer of complexity. Include common mistakes and recovery instructions. The goal is that a reader can follow the steps independently and understand what they have built—not merely copy a long Prompt and hope for the best. The canonical lesson and prompt-authoring requirements are in the [BVC Practical Labs Authoring Standard v0.2.0](../../practical-labs/standards/BVC_PRACTICAL_LABS_AUTHORING_STANDARD_V0.2.md), [Project Instructions Standard v0.1.0](../../practical-labs/standards/BVC_PROJECT_INSTRUCTIONS_STANDARD_V0.1.md), and [Task Prompt Standard v0.1.0](../../practical-labs/standards/BVC_TASK_PROMPT_STANDARD_V0.1.md).
 
 ## 10. Current status and next gate
 
@@ -275,8 +294,11 @@ A lesson must stop at a meaningful checkpoint before adding the next layer of co
 
 **Phase 3.3 implementation status**
 
-- Phase 3.3 readiness and learning-curriculum preparation are underway.
-- The GAIS application has not yet been created/run with evidence in this repository.
+- Phase 3.3 readiness and learning-curriculum preparation are underway. The blank scaffold exists in the Human Owner's GAIS workspace; the first functional Task Management feature has not yet been implemented.
+- A blank GAIS web-app scaffold has been generated using BVCTM-PROMPT-0001. The actual Preview shows the exact text **“BVC Task Management Scaffold Inspection”**; the screenshot is recorded in the Phase A lesson assets.
+- The GAIS conversation screenshot shows an initial development-server startup problem followed by the AI reporting that dependencies were installed, the Next.js development server was running on port 3000, and the Preview request returned HTTP 200 OK. The visible Preview is **OBSERVED**; the recovery details are the AI's reported actions, not an independently repeated build or test.
+- The saved Custom Instructions card is visible in GAIS Chat settings. The read-only BVCTM-PROMPT-0002 understanding check has not yet been evidenced.
+- No Task Management feature, task persistence behavior, database, Authentication, Supabase, GitHub integration, or deployment is claimed as implemented or verified.
 - No provisioned Supabase learning project, application database, hosting project or live deployment is claimed.
 - No runtime security, integration, end-to-end or production deployment test is claimed as passed.
 
