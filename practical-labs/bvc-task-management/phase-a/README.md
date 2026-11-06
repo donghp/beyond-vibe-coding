@@ -11,8 +11,8 @@
 | Lesson | Title | Practical result | Status |
 |---|---|---|---|
 | A1 | [Meet Google AI Studio](01-meet-google-ai-studio/README.md) | Understand GAIS, Build mode, and Preview. | In progress — evidence checkpoints remain |
-| A2 | [Create Your First Blank Web App](02-create-your-first-blank-web-app/README.md) | Create and inspect a blank application scaffold with Prompt #0001. | Evidence required — scaffold observed; some technical details remain unverified |
-| A3 | [Set Up Project Instructions](03-set-up-project-instructions/README.md) | Save project-specific AI instructions and check understanding without code changes. | Draft — save and response evidence required |
+| A2 | [Inspect Your First Web App Scaffold](02-create-your-first-blank-web-app/README.md) | Inspect the blank application scaffold created in A1; do not run Prompt #0001 again. | Partially observed — File Explorer screenshot synchronized; full manifest/version inspection remains pending |
+| A3 | [Set Up Project Instructions](03-set-up-project-instructions/README.md) | Save project-specific AI instructions and check understanding without code changes. | Partially complete — Prompt #0002 response received; independent file verification pending |
 | A4 | [Talk to AI Like a Teammate](04-talk-to-ai-like-a-teammate/README.md) | Prepare and review one clear, bounded task request. | Draft — practical conversation evidence required |
 
 ## Beginner boundary

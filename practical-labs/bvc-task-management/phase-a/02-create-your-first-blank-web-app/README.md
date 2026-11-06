@@ -1,82 +1,171 @@
-# Phase A · Lesson 02 — Create Your First Blank Web App
+# Phase A · Lesson A2 — Inspect Your First Web App Scaffold
 
-**Learning level:** Beginner  
-**Status:** Evidence Required — scaffold inspection is partially observed; technical details and evidence sync remain incomplete  
+> **Quick navigation:** [Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · [← A1 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md) · [A3 — Set Up Project Instructions →](../03-set-up-project-instructions/README.md)  
+> **Progress:** Lesson A2 of A4 · Inspect before you change.
+
 **Project:** BVC Task Management  
-**Previous:** [A1 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md)  
-**Next:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)
+**Learning level:** Beginner  
+**Status:** Evidence observed — actual GAIS Code / File Explorer screenshot supplied and synchronized; manifest/version inspection remains pending  
+**Estimated time:** 10–15 minutes
 
-## What You Will Achieve
+## 00. One practical outcome
 
-Create one isolated, non-production blank WEB app in Google AI Studio Build mode and inspect what GAIS actually generated.
+You can find the Preview, Code view, File Explorer, and project configuration files in your own GAIS project. You can describe what you can actually see without guessing or changing the app.
 
-The app is only a starting point for learning. It does not contain Task Management features yet.
+**Important:** A1 already created the blank app with Prompt #0001. **Do not run Prompt #0001 again in A2.**
 
-## Why It Matters
+## 01. What you will do
 
-Before asking AI to build a real application, inspect the starting point instead of guessing which framework, files, or commands are being used.
+1. Open the same BVC Task Management project you created in A1.
+2. Switch to Code view.
+3. Inspect the File Explorer and open a few project files.
+4. Understand what the filenames tell you — and what they do not tell you.
+5. Return to Preview and confirm that the blank scaffold still appears.
 
-## Before You Start
+No programming knowledge is required. You are looking around, not writing code.
 
-- Complete [Lesson A1 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md).
-- Use the GAIS account authorized for your practice.
-- Do not connect the app to the BVC GitHub repository.
-- Do not enter API keys, passwords, personal data, or customer information.
+## 02. Before you start
 
-## Authorized scaffold-only prompt
+- Complete [A1 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md).
+- Keep the same GAIS app open.
+- Do not run Prompt #0001 again.
+- Do not edit, rename, move, or delete any files.
+- Do not install packages, change configuration, connect GitHub, or deploy.
+- Never share API keys, passwords, private account information, or customer data.
 
-When the current GAIS Build interface and app-type selection have been verified, use the exact approved prompt from [BVCTM-PROMPT-0001](../../prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md).
+## 03. Step-by-step guide
 
-~~~text
-Create a minimal blank WEB application for the BVC Task Management
-(BVCTM) project scaffold inspection.
+### Step 1 — Open the Code view
 
-Display only the text:
+**Do this:** In your GAIS app workspace, select **Code** next to Preview.
+
+**Why:** Preview shows the page. Code shows the files that make up the app.
+
+**What you should see:** A File Explorer on the left and a code editor on the right.
+
+**Check:** Make sure you are still in the BVC Task Management scaffold created in A1.
+
+### Step 2 — Look at the File Explorer
+
+**Do this:** Expand the `app` folder. Then look at the other folders and files in the project root.
+
+**Observed in the actual owner-supplied screenshot:**
+
+| File or folder | Plain-language explanation |
+|---|---|
+| `app/page.tsx` | The page shown at the main web address. |
+| `app/layout.tsx` | The shared outer structure around pages. |
+| `app/globals.css` | Shared visual styling rules. |
+| `app/not-found.tsx` | The page shown when a requested page is not found. |
+| `hooks/use-mobile.ts` | A reusable helper related to mobile screen behavior. |
+| `lib/` | A place for shared helper code. |
+| `package.json` | A project manifest listing scripts and software packages. |
+| `tsconfig.json` | Settings used by the TypeScript language tools. |
+| `next.config.ts` | Configuration for the Next.js framework. |
+
+Your screen may contain additional files. The list above records files visible in the supplied screenshot; it is not a promise that every GAIS app has exactly the same structure.
+
+**Figure A2-01 — Actual Google AI Studio Code view and File Explorer**
+
+![Actual GAIS Code view showing the BVC Task Management scaffold file tree and tsconfig.json editor](../../../assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg)
+
+*Look at the left-hand File Explorer first. The filenames help identify where the application page, shared layout, styles, and project settings live. The open editor shows tsconfig.json; it does not prove the contents of every other file.*
+
+### Step 3 — Open `app/page.tsx`
+
+**Do this:** Select `app/page.tsx` in the File Explorer.
+
+**Why:** This file contains the page content that the Preview displays.
+
+**What you should see:** The actual source code for the scaffold inspection page.
+
+**Check:** Find the text `BVC Task Management Scaffold Inspection`. Do not edit it.
+
+### Step 4 — Open `package.json`
+
+**Do this:** Select `package.json` in the project root.
+
+**Why:** This file lists the scripts and software packages that the project declares.
+
+**What to look for:** The `scripts` section contains available commands; `dependencies` and `devDependencies` list software packages.
+
+**Important:** A version range in package.json is not always the exact installed version. Exact installed versions require checking the applicable lockfile or runtime package information.
+
+**Check:** Read the file only. Do not change version numbers or scripts.
+
+### Step 5 — Separate what is known from what is not yet known
+
+| Question | What the supplied evidence tells us |
+|---|---|
+| Is this a web app? | Yes — the GAIS app was created as a web app. |
+| Are TypeScript / TSX files visible? | Yes — files ending in `.ts` and `.tsx` are visible. |
+| Are Next.js-related files visible? | Yes — for example, `next.config.ts` is visible. |
+| What exact package versions are installed? | Not established by the File Explorer screenshot alone. |
+| Which package manager is authoritative? | Not established until the actual lockfile and environment are checked. |
+| Did a production build pass? | Not established by viewing files or Preview. |
+| Are tests passing? | Not established unless a test suite was actually run. |
+
+The Prompt #0002 response later listed several version numbers, but that response also stated that it had not read any project files in that turn. Do not use that answer as independent evidence that those versions were inspected. Keep those details unverified until they are checked against the actual project files.
+
+### Step 6 — Return to Preview
+
+**Do this:** Select **Preview**.
+
+**What you should see:** The page displaying:
+
+```text
 BVC Task Management Scaffold Inspection
+```
 
-Do not implement Task Management features, forms, persistence,
-authentication, database access, APIs, external integrations,
-hosting, or deployment.
+**Check:** Confirm that the blank scaffold remains visible and that you did not make any file changes.
 
-Keep the application as small and simple as possible.
-Do not connect the project to GitHub.
-~~~
+## 04. Prompt
 
-This prompt is for scaffold inspection only. Do not add a task form, save button, database, sign-in, external integration, or deployment request.
+A2 is a read-only inspection lesson. You do not need to run a feature-building prompt.
 
-## What Has Been Observed
+Do not ask AI to “improve the app”, “fix the design”, or “add the first task” yet. Those are different tasks and need their own approved scope.
 
-The Human Owner has supplied a GAIS screenshot showing the scaffold inspection app and its Code / File Explorer area. The visible tree includes entries such as app/layout.tsx, app/page.tsx, next.config.ts, tsconfig.json, package.json, and app/globals.css.
+## 05. What the real screenshot shows
 
-This is OBSERVED evidence of visible file names and the scaffold UI. It does not yet establish:
-- Exact Next.js or React versions.
-- The full dependency set.
-- Package manager or lockfile state.
-- Runtime behavior or successful build.
-- Build command or output directory.
-- Export completion.
+The supplied screenshot records the actual GAIS Code view and the visible file tree. It is evidence of those visible filenames and the open editor only.
 
-Do not infer these facts from file names alone.
+It does not prove exact installed package versions, complete dependency resolution, successful production build, automated tests, security, persistence, or deployment.
 
-## Evidence checkpoints
+## 06. Check your work
 
-- A2-01 — actual GAIS Build screen and verified entry point.
-- A2-02 — actual app-type choice showing WEB selected.
-- A2-03 — authorized prompt as entered before submission.
-- A2-04 — actual scaffold Preview.
-- A2-05 — actual generated file tree or Code view.
-- A2-06 — export outcome, only if export is available.
+- [ ] I reopened the same GAIS project from A1.
+- [ ] I opened Code view.
+- [ ] I found the `app` folder.
+- [ ] I found `app/page.tsx` and `package.json`.
+- [ ] I understand the basic purpose of these files.
+- [ ] I did not edit, rename, move, or delete any file.
+- [ ] I did not run Prompt #0001 again.
+- [ ] I returned to Preview and saw the scaffold inspection text.
 
-Use only screenshots that materially help a Beginner. These are possible evidence points, not a requirement to capture every click.
+**Completion rule:** A2 is complete when you can locate the main files and distinguish observed facts from details that remain unknown. It is not a code-writing or debugging exercise.
 
-## What You Have Learned
+## 07. Common mistakes and recovery
 
-The goal is to create and inspect a blank starting point, not to build the Task Management application. Understanding the scaffold comes before choosing implementation commands or assuming a framework.
+| What happened | What to do |
+|---|---|
+| I cannot find a file in the list | Expand the folders and check the actual names. Do not create a replacement file. |
+| I accidentally typed into a file | Stop. Do not save. Tell the Human Owner what changed. |
+| I cannot tell what a file means | Read the explanation above. Do not guess its technical role from its name alone. |
+| Preview is blank or shows an error | Capture the actual screen. Do not ask AI to rewrite the project as a first response. |
+| AI suggests adding features | Remind it that A2 is inspection only. Do not approve changes. |
 
-## Next Lesson
+## 08. What you have learned
 
-[Lesson A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)
+You have learned the first important engineering habit: **look at what exists before asking AI to change it.**
+
+## 09. Continue learning
+
+- **Previous:** [A1 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md)
+- **Lesson Index:** [Phase A](../README.md)
+- **Next:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)
+- **Progress:** Lesson A2 of A4.
 
 ---
 
-**Status note:** Scaffold UI and file names have been observed in the supplied screenshot. Full scaffold inspection and repository screenshot synchronization remain Evidence Required.
+**BVC — Learn by Building.**  
+*First see what AI created. Then decide what to do next.*

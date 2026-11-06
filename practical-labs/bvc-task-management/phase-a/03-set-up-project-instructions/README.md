@@ -2,9 +2,9 @@
 
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
-**Status:** Draft — owner-supplied GAIS editor screenshot observed; save and understanding check not yet verified  
+**Status:** Evidence partially complete — Custom Instructions summary card observed; BVCTM-PROMPT-0002 response received; independent file verification and before/after comparison pending  
 **Estimated time:** 10–15 minutes, subject to practical review  
-**Previous:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)  
+**Previous:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)  
 **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
 
 ---
@@ -49,7 +49,7 @@ Project Instructions give AI that missing background and the working rules. They
 - Do not paste passwords, API keys, private account information, or customer data.
 - Do not ask AI to create a task form, database, sign-in screen, or other feature in this lesson.
 
-The scaffold screenshot has shown Next.js-related files and TypeScript / TSX files. Exact versions and dependencies are not established by that screenshot. The Project Instructions deliberately tell AI to inspect the actual files rather than guess.
+The GAIS Code / File Explorer screenshot shows Next.js-related filenames and TypeScript / TSX files. The AI response to Prompt #0002 also listed exact versions, but later stated that no project files were inspected during that turn. Those version and dependency details are therefore NOT VERIFIED by Prompt #0002 until they are checked against the actual GAIS files.
 
 ## 04. Step-by-Step Guide
 
@@ -175,14 +175,52 @@ Do not write a feature-building prompt in this lesson.
 
 ## 06. See the Real Result
 
-Required evidence checkpoints:
+### A3-02 — Custom Instructions card visible in Chat settings
 
-- **A3-01 — Instructions editor populated:** owner-supplied screenshot currently observed in the conversation; repository asset synchronization is pending.
-- **A3-02 — Instructions saved:** capture after reopening the editor and confirming the saved text.
-- **A3-03 — AI understanding check:** capture the actual AI response to BVCTM-PROMPT-0002.
-- **A3-04 — File tree unchanged:** capture or record the before/after comparison showing no application files changed during the check.
+![Actual Google AI Studio Chat settings showing the BVC Task Management Custom instructions card](../../../assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg)
 
-Do not mark A3-02, A3-03, or A3-04 complete until actual evidence is supplied.
+*Figure A3-02. Actual owner-supplied GAIS screenshot. The Chat settings panel shows the Custom instructions card with a summary beginning “PROJECT INSTRUCTIONS — BVC TASK MANAGEMENT”. This is OBSERVED evidence that the settings summary is present after the editor was closed. It is not a full-text reopen check and does not independently prove every line was saved exactly.*
+
+### A3-03 — BVCTM-PROMPT-0002 understanding response
+
+**Owner-supplied result:** The Human Owner ran [BVCTM-PROMPT-0002](../../prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md) in the BVC Task Management GAIS project and supplied the AI response.
+
+The AI answered all ten requested areas. It correctly restated the project purpose, Human Owner authority, Beginner boundary, OPEN Phase 3.1 UX status, file-integrity rules, Project Isolation Rule for EFIN and ENERIXON FIN, verification distinctions, and stop conditions.
+
+<badge color="success">Response received</badge> The Project Instructions understanding check has been run and its response reviewed.
+
+#### Important evidence inconsistency — technology details remain unverified
+
+In its answer to questions 4 and 5, the AI listed exact runtime, framework, React, TypeScript, Tailwind, and package versions as “Inspected & Verified”.
+
+However, at the end of that same response, it explicitly stated:
+
+> “Which project files did you actually inspect during this turn? None were read or modified in this turn; this response was generated strictly from the provided Project Instructions and existing project context.”
+
+These statements do not support a claim that the versions were independently inspected during Prompt #0002. Therefore:
+
+- Treat those version numbers and package details as **NOT VERIFIED by this understanding check**.
+- Check the actual `package.json`, applicable lockfile (if present), and runtime evidence in the scaffold lesson before publishing exact versions as facts.
+- Do not state that a build or test passed merely because the response described what those checks mean.
+
+#### File-change statement
+
+The AI explicitly reported **NO** project file changes. This is an AI self-report and is consistent with the read-only purpose of Prompt #0002. The independent before/after File Explorer or diff comparison is still pending.
+
+### A3-04 — File tree unchanged
+
+**Status:** NOT VERIFIED independently.
+
+Compare the current GAIS Code / File Explorer with the A2 checkpoint. Confirm that no file was created, modified, renamed, moved, or deleted during the understanding check. Capture the actual screen or change history as evidence.
+
+### Evidence status summary
+
+| Checkpoint | Status | Meaning |
+|---|---|---|
+| A3-01 — Instructions editor populated | OBSERVED in earlier owner-supplied screenshot | The editor contained instruction text at capture time. |
+| A3-02 — Settings card visible | OBSERVED; image synchronized in this PR | The Custom Instructions summary card appeared after leaving the editor. |
+| A3-03 — Prompt #0002 response | OWNER-SUPPLIED TEXT RESPONSE RECEIVED | All ten questions answered; the technology-version inconsistency is recorded above. |
+| A3-04 — File tree unchanged | NOT VERIFIED independently | AI said no files changed; before/after comparison is still needed. |
 
 ## 07. Check Your Work
 
@@ -192,12 +230,14 @@ Do not mark A3-02, A3-03, or A3-04 complete until actual evidence is supplied.
 - [ ] The editor was reopened and the saved text was confirmed.
 - [ ] AI correctly summarized the project's purpose and authority.
 - [ ] AI correctly identified the learning boundary.
-- [ ] AI did not guess unverified versions or dependencies.
+- [ ] I reviewed the ten answers from BVCTM-PROMPT-0002.
+- [ ] I recognized that exact technology versions remain unverified until the actual files are inspected.
 - [ ] AI correctly explained Project Isolation, including EFIN and ENERIXON FIN.
-- [ ] The AI understanding check made no application file changes.
+- [ ] I recorded the AI's statement that it made no application file changes.
+- [ ] I compared the before/after file tree or diff independently.
 - [ ] The actual evidence checkpoints were captured.
 
-**Completion rule:** A3 is complete only when the instructions are saved, the AI understanding check is reviewed, and the file tree remains unchanged. A populated editor alone is not enough.
+**Completion rule:** The understanding-check response has been received, but A3 remains partially complete until the full saved instructions are reopened and confirmed, and the before/after file tree is independently checked. An AI self-report is not a substitute for evidence.
 
 ## 08. Common Mistakes & Recovery
 

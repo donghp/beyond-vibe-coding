@@ -22,8 +22,8 @@ You do not need to study every standard before beginning. Start with Lesson A1 a
 | Step | Lesson | What you will do | Current evidence status |
 |---|---|---|---|
 | A1 | [Meet Google AI Studio](bvc-task-management/phase-a/01-meet-google-ai-studio/README.md) | Open GAIS, start a web app with Prompt #0001, and see the first blank Preview. | Preview observed; Apps landing screenshot file still needs synchronization. |
-| A2 | [Create Your First Blank Web App](bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md) | Inspect the scaffold created in A1 and learn what the generated files tell you. Do not run Prompt #0001 again. | File names observed; exact versions and technical details still need verification. |
-| A3 | [Set Up Project Instructions](bvc-task-management/phase-a/03-set-up-project-instructions/README.md) | Add the project's working rules to GAIS and ask AI to explain them without changing code. | Saved Custom Instructions card observed; read-only understanding check remains pending. |
+| A2 | [Inspect Your First Web App Scaffold](bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md) | Inspect the Preview, Code view, File Explorer, and configuration of the scaffold created in A1. Do not run Prompt #0001 again. | Actual Code / File Explorer screenshot synchronized; exact installed versions and package-manager details remain to be checked. |
+| A3 | [Set Up Project Instructions](bvc-task-management/phase-a/03-set-up-project-instructions/README.md) | Add the project's working rules to GAIS and ask AI to explain them without changing code. | Custom Instructions settings card observed; Prompt #0002 response received, with independent file verification still pending. |
 | A4 | [Talk to AI Like a Teammate](bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/README.md) | Prepare one clear request with context, boundaries, and an expected result. | Lesson draft; practical conversation evidence required. |
 
 **Open the [Phase A Lesson Index](bvc-task-management/phase-a/README.md)** to see the full sequence, current status, and shared learning standards.

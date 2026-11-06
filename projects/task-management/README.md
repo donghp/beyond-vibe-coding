@@ -6,7 +6,7 @@
 **Learning level:** Beginner to Advanced  
 **Product:** BVC Task Management — A Simple Daily Work Manager  
 **Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. PR #6 Governance Reconciliation was Squash and Merged on 2026-11-05 (commit `5d230516a1eddede51c457c85d5fc6bef23506f8`). Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
-**Implementation status:** A blank GAIS web-app scaffold has been created and its actual Preview has been observed. The scaffold is for inspection only; Task Management features have not yet been implemented. Detailed scaffold verification and the A3 Project Instructions understanding check remain in progress.
+**Implementation status:** A blank GAIS web-app scaffold has been created and its actual Preview has been observed. The scaffold is for inspection only; Task Management features have not yet been implemented. The A3 Project Instructions understanding response has been received; independent file verification and before/after file-tree comparison remain pending.
 
 > **Build something useful. Use it every day. Learn by doing.**
 
@@ -68,7 +68,7 @@ The reader-facing lessons are maintained separately from the product, UX, archit
 - [BVC Task Management Curriculum Map v0.2.0](../../practical-labs/bvc-task-management/CURRICULUM_MAP_V0.2.md)
 - [Phase A — Meet AI & Build Your First App](../../practical-labs/bvc-task-management/phase-a/README.md)
 - [Lesson A1 — Meet Google AI Studio](../../practical-labs/bvc-task-management/phase-a/01-meet-google-ai-studio/README.md)
-- [Lesson A2 — Create Your First Blank Web App](../../practical-labs/bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md)
+- [Lesson A2 — Inspect Your First Web App Scaffold](../../practical-labs/bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md)
 - [Lesson A3 — Set Up Project Instructions](../../practical-labs/bvc-task-management/phase-a/03-set-up-project-instructions/README.md)
 - [Lesson A4 — Talk to AI Like a Teammate](../../practical-labs/bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/README.md)
 - [Lesson Development and Evidence Register v0.2.0](../../practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md)
@@ -295,9 +295,9 @@ A lesson must stop at a meaningful checkpoint before adding the next layer of co
 **Phase 3.3 implementation status**
 
 - Phase 3.3 readiness and learning-curriculum preparation are underway. The blank scaffold exists in the Human Owner's GAIS workspace; the first functional Task Management feature has not yet been implemented.
-- A blank GAIS web-app scaffold has been generated using BVCTM-PROMPT-0001. The actual Preview shows the exact text **“BVC Task Management Scaffold Inspection”**; the screenshot is recorded in the Phase A lesson assets.
+- A blank GAIS web-app scaffold has been generated using BVCTM-PROMPT-0001. The actual Preview shows the exact text **“BVC Task Management Scaffold Inspection”**; the Preview image is committed in the Phase A lesson assets.
 - The GAIS conversation screenshot shows an initial development-server startup problem followed by the AI reporting that dependencies were installed, the Next.js development server was running on port 3000, and the Preview request returned HTTP 200 OK. The visible Preview is **OBSERVED**; the recovery details are the AI's reported actions, not an independently repeated build or test.
-- The saved Custom Instructions card is visible in GAIS Chat settings. The read-only BVCTM-PROMPT-0002 understanding check has not yet been evidenced.
+- The Custom Instructions summary card is visible in GAIS Chat settings, and the Human Owner supplied the complete response to the read-only BVCTM-PROMPT-0002 understanding check. The AI correctly restated the project's core rules, but its claimed package/runtime versions are not independently verified because it also stated that no project files were read during that turn. Independent before/after file-tree evidence is still pending.
 - No Task Management feature, task persistence behavior, database, Authentication, Supabase, GitHub integration, or deployment is claimed as implemented or verified.
 - No provisioned Supabase learning project, application database, hosting project or live deployment is claimed.
 - No runtime security, integration, end-to-end or production deployment test is claimed as passed.

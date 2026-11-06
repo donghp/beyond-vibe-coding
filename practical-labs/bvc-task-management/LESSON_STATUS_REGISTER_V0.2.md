@@ -10,22 +10,20 @@
 
 | Lesson | Current status | Observed evidence | Remaining evidence before publication |
 |---|---|---|---|
-| A1 — Meet Google AI Studio | In progress | A1-01 starting screen observed in an owner-supplied screenshot. | Remaining current GAIS navigation and app creation checkpoints; verify exact labels in the session. |
-| A2 — Create Your First Blank Web App | Evidence Required | Owner-supplied GAIS screenshot shows the scaffold inspection app, Preview context, and Code / File Explorer entries including Next.js-related and TypeScript/TSX files. | Store authentic screenshots in the repository; inspect package.json and any lockfile; verify framework/dependency versions, package manager, scripts, build command, and export outcome only if available. |
-| A3 — Set Up Project Instructions | Draft / Evidence Required | Owner-supplied screenshot shows Project Instructions text populated in the GAIS Instructions editor. | Confirm Save changes; reopen and confirm persistence; run BVCTM-PROMPT-0002; capture AI response; verify no application files changed; synchronize authentic screenshot asset to repository. |
+| A1 — Meet Google AI Studio | Partially evidenced | A1-02 actual scaffold Preview screenshot committed; Preview shows the required scaffold text. A1-01 filename is visible in a local VS Code Explorer screenshot, but the original image bytes are not yet committed. | Commit the actual A1-01 Apps landing screenshot; review A1 steps against the current GAIS interface. |
+| A2 — Inspect Your First Web App Scaffold | Partially evidenced | Actual GAIS Code / File Explorer screenshot committed; visible entries include app/layout.tsx, app/page.tsx, app/globals.css, package.json, next.config.ts and tsconfig.json. | Inspect package.json and applicable lockfile/runtime evidence; verify exact installed versions and package-manager state. Do not infer these details from filenames or the Prompt #0002 summary. |
+| A3 — Set Up Project Instructions | Partially complete — Prompt #0002 response received | GAIS Custom Instructions summary card screenshot committed; Human Owner supplied the full text response to all ten Prompt #0002 questions. AI reported no file changes, but its final statement says it inspected no files during that turn. | Reopen the full Instructions editor and confirm saved text; independently compare the before/after file tree; verify exact technology versions from actual project files separately. |
 | A4 — Talk to AI Like a Teammate | Draft | Existing lesson content retained and expanded into the A4 position. | Capture an authentic GAIS conversation with the practice request and response; review the seven-step and Prompt Readiness Gate explanations with a beginner. |
 
 ### A3 evidence interpretation
 
-The supplied screenshot is **OBSERVED** evidence that the Instructions editor contained the pasted text at capture time.
+The latest owner-supplied GAIS screenshot shows the Custom Instructions summary card after the editor was closed. It is OBSERVED evidence that the settings card is present; it does not show the complete text reopened for comparison.
 
-It does not prove:
-- The Save changes action completed.
-- The Instructions remained saved after closing and reopening.
-- The AI correctly understood the Instructions.
-- The AI made no file changes during a later understanding check.
+The Human Owner also supplied the response to BVCTM-PROMPT-0002. The AI answered all ten questions and accurately restated the project purpose, Human Owner authority, Beginner boundary, Project Isolation Rule, verification distinctions, and stop conditions.
 
-Those remain NOT VERIFIED until the corresponding evidence is supplied.
+However, the AI described exact package/runtime versions as “Inspected & Verified” and then stated that it had inspected no project files during that turn. Those exact technology details are therefore NOT VERIFIED by the understanding-check response.
+
+The AI self-reported that no files changed. The independent before/after File Explorer or diff comparison remains NOT VERIFIED.
 
 ## 2. Phase B — Build Your First Task
 
