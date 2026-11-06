@@ -74,7 +74,7 @@ By the end of this lesson, you will be able to:
 
 [Insert an authentic screenshot near the relevant step.]
 
-![Descriptive text for the actual screenshot](../assets/screenshots/[phase]/[checkpoint-filename].png)
+[Insert the Markdown image link only after the authentic screenshot has been synchronized to its actual repository path.]
 
 *Figure [ID]. [Describe what the learner should notice. State OBSERVED or VERIFIED accurately.]*
 

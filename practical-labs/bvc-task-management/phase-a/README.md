@@ -34,6 +34,6 @@ The purpose is to learn the AI tool, inspect the actual scaffold, establish proj
 
 ## Continue
 
-After A4, proceed to [Phase B — Build Your First Task](../phase-b/README.md).
+After A4, proceed to [Phase B — Build Your First Task](../../phase-b/README.md).
 
 Phase B is the first product implementation milestone. Its implementation and runtime verification remain subject to the applicable approved Task Contract and product/UX decisions.
