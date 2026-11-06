@@ -1,0 +1,501 @@
+# BVC Global Task Contract 002
+# PROPOSED CONTRACT — not authorized for execution until approved by the Human Owner.
+contract_version: "0.1.0"
+contract_id: "BVC-GLOBAL-TC-002"
+revision: 1
+status: PROPOSED
+created_at: "2026-11-07"
+
+task:
+  id: "BVC-GLOBAL-CONT-002"
+  title: "Cross-Executor Continuity and Recovery System — Foundation and Pilot Readiness"
+  objective: >-
+    Establish a provider-neutral, repository-owned handoff and recovery system
+    that allows authorized AI executors to resume the same project task from a
+    verified GitHub checkpoint across Google AI Studio workers HTW and MSW,
+    DeepSeek in VS Code worker TVW, and ChatGPT or another authorized executor.
+    Provide one reusable start prompt, a machine-readable handoff contract, a
+    template, deterministic validation, cross-executor operating instructions,
+    and a recovery test plan. Preserve the existing project authority,
+    Task Contract, evidence, privacy, and Human Owner approval boundaries.
+  requested_by: "Human Owner / Product Owner"
+
+project:
+  project_id: "BVC-BUILD-LEARN"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+    # CLEAN means the committed GitHub main snapshot at this SHA.
+    # It does NOT describe the Human Owner's laptop, GAIS workspaces, or IDE working tree.
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/CONTINUITY_PROTOCOL.md"
+      - "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+      - "docs/continuity/CURRENT_STATE.yaml"
+      - "docs/continuity/HANDOFF_TEMPLATE.md"
+      - "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+      - "docs/continuity/SOURCE_MANIFEST.csv"
+      - "specifications/v0.1/task-contract.md"
+      - "specifications/v0.1/task-contract.schema.json"
+    recovery_point:
+      kind: git_commit
+      reference: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+      verified: true
+
+intent:
+  objective: "Make BVC project work recoverable and transferable between authorized AI executors using a verified repository checkpoint and one shared start prompt."
+  rationale: >-
+    The project must not depend on the memory, quota, provider, model, application,
+    or session of one AI executor. HTW and MSW use Google AI Studio Build Mode;
+    TVW uses DeepSeek through VS Code; ChatGPT may inspect the repository through
+    an on-demand GitHub connection or another explicitly available tool. These
+    environments have different capabilities and synchronization controls. A
+    common handoff record and recovery procedure is needed to preserve task,
+    contract, branch, commit, file-change, verification, and writer-release state.
+  expected_outcome: >-
+    A portable cross-executor continuity protocol, one reusable start prompt,
+    a versioned worker-handoff schema and template, a local validator and tests,
+    a recovery test plan, and documentation/CI integration. The system will
+    support controlled sequential handoff; it will not claim to provide a
+    universal real-time collaboration service, automatic quota detection,
+    guaranteed two-way sync in every executor, or an enforced distributed lock.
+  business_or_user_value: >-
+    Human Owner can switch from HTW to MSW or TVW without reconstructing project
+    context from chat history. Each receiving executor can verify the same
+    repository checkpoint, load the active Task Contract and required context,
+    and continue only the next authorized action.
+
+risk:
+  level: R2
+  policy_ref: "Task-specific proposed classification; no approved repository-wide R0-R5 risk mapping has been identified. See specifications/v0.1/task-contract.md#4.4. The Human Owner must confirm or revise this classification before approval."
+  rationale: >-
+    The work is confined to continuity documentation, a handoff data schema,
+    a read-only validator, tests, and a dedicated validation workflow. It changes
+    the operating process for multiple executors and adds CI validation, so its
+    impact is greater than a simple documentation-only edit. It does not modify
+    product code, production systems, data, credentials, repository settings,
+    the existing refresh workflow, or project-specific baselines. R2 is proposed,
+    not a claim of an approved universal BVC risk mapping.
+  impact_factors:
+    - other
+  reversibility: EASY
+  risk_owner: "Human Owner / Product Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
+      - "docs/continuity/WORKER_HANDOFF.schema.json"
+      - "docs/continuity/WORKER_HANDOFF.template.yaml"
+      - "docs/continuity/CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md"
+      - "scripts/validate_worker_handoff.py"
+      - "tests/test_worker_handoff.py"
+      - ".github/workflows/validate-cross-executor-continuity.yml"
+    modify:
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/CONTINUITY_PROTOCOL.md"
+      - "docs/continuity/HANDOFF_TEMPLATE.md"
+      - "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+      - "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+      - "docs/continuity/README.md"
+      - "docs/continuity/SOURCE_MANIFEST.csv"
+      - "docs/continuity/HANDOFF_LOG.md"
+    delete: []
+  forbidden_paths:
+    - "docs/continuity/CURRENT_STATE.yaml"
+    - "docs/continuity/DECISIONS.md"
+    - ".github/workflows/continuity-refresh.yml"
+    - "requirements-dev.txt"
+    - "projects/task-management/continuity/PROJECT_STATE.json"
+    - "projects/task-management/continuity/HANDOFF_LOG.md"
+    - "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+    - "projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml"
+  forbidden_path_prefixes:
+    - "projects/"
+    - "practical-labs/"
+    - "specifications/"
+    - "templates/"
+    - "src/"
+    - "app/"
+    - "public/"
+  protected_resource_refs:
+    - "docs/continuity/CURRENT_STATE.yaml#machine_snapshot"
+    - "docs/continuity/DECISIONS.md"
+    - ".github/workflows/continuity-refresh.yml"
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/phase3.3/task-contracts/"
+    - "projects/task-management/continuity/"
+    - "private EFIN source material, credentials, customer data, and logs"
+    - "private ENERIXON MDS and corporate design-system sources"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Do not modify main directly. All implementation changes must be on a dedicated branch and submitted through a Pull Request."
+  - "Do not merge a Pull Request. Human Owner review and merge are required."
+  - "Treat GitHub main and approved canonical project records as durable project truth; chat memory, old ZIP files, and handoff summaries are not substitutes."
+  - "Use the worker aliases supplied by the Human Owner: HTW = Hoàng Trung Worker in Google AI Studio; MSW = Mã Siêu Worker in Google AI Studio; TVW = Triệu Vân Worker using DeepSeek in VS Code. These are operational aliases, not credentials or proof of account access."
+  - "Use one provider-neutral start prompt for all authorized executors. The prompt must discover the current executor capabilities and must not assume a specific tool is available."
+  - "The start prompt must read and reconcile the live repository, current handoff, active Task Contract, required context, and evidence before proposing or performing work."
+  - "An executor may continue implementation only when the active Task Contract is APPROVED, its required context is available, its exact scope and recovery point are verified, and the current executor has been authorized for the task."
+  - "A worker handoff requires a committed and remotely verified checkpoint, exact branch and commit SHA, actual file operation inventory, verification evidence, unresolved findings, next permitted action, and explicit release by the sending writer."
+  - "The receiving worker must verify the checkpoint and accept the handoff before writing. If the sender has not released the writer role or the receiver cannot verify the remote checkpoint, stop writes."
+  - "One active writer per task/working branch is a mandatory coordination rule. The handoff schema and validator record compliance but do not constitute a distributed lock or technically enforce exclusive access."
+  - "Prefer one shared task branch for sequential handoff between workers. Do not push directly to main. A completed task is submitted by Pull Request for Human Owner review."
+  - "If quota ends unexpectedly before a commit/push, recover only the last remotely verified commit. Uncommitted in-memory changes are not assumed to be recoverable and may need to be repeated."
+  - "For Google AI Studio Build Mode, document its official GitHub import/push/pull/conflict-resolution capabilities, but require the Human Owner to verify the actual app, linked repository, branch, account permissions, and sync result on each worker."
+  - "For VS Code / TVW, require local git status, branch, HEAD, remote, fetch result, and fast-forward pull verification before continuing. Never infer local state from GitHub."
+  - "For ChatGPT, distinguish the official read-only GitHub app from any separately available connector or Codex write capability. A successful read does not prove write capability."
+  - "Do not claim that the single start prompt automatically creates external account access, bypasses quota, performs an unverified pull/push, executes a task without an approved Contract, or deploys an application."
+  - "Do not create, store, or publish access tokens, passwords, API keys, customer data, private EFIN information, or private ENERIXON source material."
+  - "Do not enable or change GitHub Actions permissions, repository settings, branch protection, secrets, or rulesets."
+  - "Do not modify the existing continuity-refresh workflow or attempt to repair its PR-creation permission failure under this Contract."
+  - "Preserve the existing seven canonical global continuity records. Supporting protocols and templates do not become new state stores unless explicitly approved."
+  - "Do not modify the global machine snapshot or semantic portfolio fields in CURRENT_STATE.yaml. The existing automation branch snapshot is a separate proposal that requires its own Owner-reviewed recovery path."
+  - "Do not modify BVC Task Management product baselines, project-specific decisions, Task Contracts, execution registers, evidence indexes, or UX/architecture acceptance."
+  - "Do not claim that the real HTW-to-MSW or MSW-to-TVW pilot has passed until the Human Owner supplies inspectable evidence from the actual GAIS and VS Code environments."
+
+required_context:
+  - reference: "docs/continuity/BOOTSTRAP.md"
+    purpose: "Preserve authority order, mandatory bootstrap sequence, write gates, and Human Owner approval boundaries."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "docs/continuity/CONTINUITY_PROTOCOL.md"
+    purpose: "Preserve event-driven machine/semantic separation, update ownership, and anti-loop rules."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+    purpose: "Use the current repository identity, live refs, PR inspection, pagination, capability, and local/remote verification rules."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "docs/continuity/HANDOFF_TEMPLATE.md and docs/continuity/HANDOFF_LOG.md"
+    purpose: "Preserve existing handoff history and extend the handoff fields without rewriting prior records."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "docs/continuity/BVC_NEXT_CHAT_PROMPT.md and docs/continuity/README.md"
+    purpose: "Maintain the existing single-prompt entry point and seven-record model."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "docs/continuity/SOURCE_MANIFEST.csv"
+    purpose: "Update the navigation map with the new cross-executor protocol, handoff schema, validator, and test plan."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "specifications/v0.1/task-contract.md and specifications/v0.1/task-contract.schema.json"
+    purpose: "Follow Task Contract scope, baseline, evidence, risk, change budget, authority, and handoff requirements."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "requirements-dev.txt"
+    purpose: "Confirm existing YAML/JSON validation dependencies before implementation; do not change dependencies in this task."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@47ff9641cd720567dc1e2a4d3666daae44fc6df5"
+  - reference: "BVC_Continuity_Kit_v1_1_DOWNLOAD(3).zip and BVC_NEXT_CHAT_PROMPT_DOWNLOAD(3).md supplied in the conversation"
+    purpose: "Historical reference for the Owner's GREEN/AMBER/RED rule, evidence labeling, handoff structure, and public/private data boundaries."
+    authority: REFERENCE
+    required: true
+    freshness_requirement: "Use these only for principles still supported by current Owner instructions. The PR #4 checkpoint, Product v0.1.0, phase status, and next action in the ZIP are stale and must not override current main."
+  - reference: "Google AI Studio Build Mode GitHub integration documentation: https://ai.google.dev/gemini-api/docs/aistudio-build-mode"
+    purpose: "Ground the GAIS adapter description in currently documented import, push, pull, and conflict-resolution capabilities."
+    authority: REFERENCE
+    required: true
+    freshness_requirement: "Recheck the official documentation and visible account capability during the actual pilot."
+  - reference: "OpenAI Help Center — Connecting GitHub to ChatGPT: https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt"
+    purpose: "Ground the ChatGPT adapter description and distinguish official read-only GitHub access from other write-capable tools."
+    authority: REFERENCE
+    required: true
+    freshness_requirement: "Recheck actual capabilities for the ChatGPT product surface used during the pilot."
+  - reference: "GitHub Actions workflow run 42273614715 and run 42271322947; branch automation/continuity-refresh at 4f5ffbe688c8458242e9a130ca7a75863aa6d2b1"
+    purpose: "Record the current machine-snapshot refresh failure and the unmerged automation-branch snapshot as an open operational finding."
+    authority: REFERENCE
+    required: true
+    freshness_requirement: "Reconcile current branch/PR/run state before any recovery action."
+  - reference: "Human Owner instruction dated 2026-11-07"
+    purpose: "Establish the requested Cross-Executor Continuity & Recovery System and the HTW/MSW/TVW executor handoff goal."
+    authority: APPROVED
+    required: true
+
+dependencies: []
+
+expected_outputs:
+  - id: "OUT-001"
+    kind: DOCUMENTATION
+    description: "Cross-executor operating protocol defining canonical repository truth, worker lifecycle, checkpoint, single-writer handoff, branch recovery, provider capability checks, quota interruption behavior, and Human Owner control."
+    path: "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
+    required: true
+  - id: "OUT-002"
+    kind: "OTHER"
+    description: "JSON Schema for a machine-readable worker handoff envelope, including task/contract identity, sender/receiver, branch and SHA, remote sync evidence, writer release, execution status, file inventory, verification, blockers, and next permitted action."
+    path: "docs/continuity/WORKER_HANDOFF.schema.json"
+    required: true
+  - id: "OUT-003"
+    kind: "OTHER"
+    description: "YAML template for a worker-to-worker handoff that can be copied into the relevant project's own continuity directory under that project's Task Contract."
+    path: "docs/continuity/WORKER_HANDOFF.template.yaml"
+    required: true
+  - id: "OUT-004"
+    kind: DOCUMENTATION
+    description: "Recovery test plan for cold-start ChatGPT, HTW-to-MSW, MSW-to-TVW, TVW-to-GAIS, quota interruption at last verified checkpoint, and conflict/writer-release scenarios."
+    path: "docs/continuity/CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md"
+    required: true
+  - id: "OUT-005"
+    kind: CODE
+    description: "Read-only local validator that loads a YAML handoff, validates it against WORKER_HANDOFF.schema.json, reports field/path errors, and never edits project files or Git state."
+    path: "scripts/validate_worker_handoff.py"
+    required: true
+  - id: "OUT-006"
+    kind: TEST
+    description: "Automated tests for valid handoff records, missing required fields, invalid enums, invalid writer-release state, and schema/template drift."
+    path: "tests/test_worker_handoff.py"
+    required: true
+  - id: "OUT-007"
+    kind: CONFIGURATION
+    description: "Dedicated least-privilege GitHub Actions workflow that runs only handoff validator/tests on relevant Pull Requests and main changes; no write permissions or PR creation."
+    path: ".github/workflows/validate-cross-executor-continuity.yml"
+    required: true
+  - id: "OUT-008"
+    kind: DOCUMENTATION
+    description: "Bootstrap updated to load the cross-executor protocol and inspect the active handoff before continuing."
+    path: "docs/continuity/BOOTSTRAP.md"
+    required: true
+  - id: "OUT-009"
+    kind: DOCUMENTATION
+    description: "Continuity Protocol updated with worker-switch events, checkpoint frequency, quota interruption, writer release, and receiving-worker acceptance."
+    path: "docs/continuity/CONTINUITY_PROTOCOL.md"
+    required: true
+  - id: "OUT-010"
+    kind: DOCUMENTATION
+    description: "Human-readable handoff template expanded to capture executor identity, sync direction, branch/commit, release, receiver acceptance, verification, and limitations."
+    path: "docs/continuity/HANDOFF_TEMPLATE.md"
+    required: true
+  - id: "OUT-011"
+    kind: DOCUMENTATION
+    description: "The existing single start prompt updated to work across ChatGPT, HTW, MSW, TVW, and future authorized executors without provider-specific memory."
+    path: "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+    required: true
+  - id: "OUT-012"
+    kind: DOCUMENTATION
+    description: "GitHub Repository Verification Protocol linked to cross-executor sync and handoff verification rules without claiming universal connector capability."
+    path: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+    required: true
+  - id: "OUT-013"
+    kind: DOCUMENTATION
+    description: "Continuity README indexes the new protocol, schema, template, validator, and recovery test plan while preserving the seven-record canonical model."
+    path: "docs/continuity/README.md"
+    required: true
+  - id: "OUT-014"
+    kind: DOCUMENTATION
+    description: "Global Source Manifest updated with the new cross-executor sources and their authority/limitations."
+    path: "docs/continuity/SOURCE_MANIFEST.csv"
+    required: true
+  - id: "OUT-015"
+    kind: DOCUMENTATION
+    description: "Append-only handoff entry records PR #20 merge, current main checkpoint, automation refresh failure, unmerged machine-snapshot branch, and the start of this proposed task without rewriting historical entries."
+    path: "docs/continuity/HANDOFF_LOG.md"
+    required: true
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "The cross-executor protocol defines one repository-owned continuity model for HTW, MSW, TVW, ChatGPT, and future authorized executors."
+    verification_method: "Review the complete protocol against the owner-requested handoff scenarios and current repository governance."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-002"
+    statement: "The protocol defines sequential writer release and receiver acceptance, and explicitly states that the YAML handoff/validator is not a technically enforced distributed lock."
+    verification_method: "Inspect protocol and schema for sender stop/release, receiver verification/acceptance, task branch, checkpoint SHA, and conflict handling."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-003"
+    statement: "The handoff JSON Schema and YAML template are mutually consistent and validate with the read-only validator."
+    verification_method: "Run scripts/validate_worker_handoff.py against the canonical template and the automated positive/negative tests."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-004"
+    statement: "The single start prompt instructs a receiving executor to verify repository identity, live main, handoff checkpoint, active Task Contract, required context, actual environment sync, and next permitted action before writing."
+    verification_method: "Manual prompt review and a cold-start execution using only repository continuity sources; record the executor and evidence."
+    required_evidence_level: 3
+    required: true
+  - id: "AC-005"
+    statement: "The documented GAIS, VS Code/DeepSeek, and ChatGPT capability descriptions are grounded in current official sources and require per-session capability checks."
+    verification_method: "Review source references and verify account-specific UI/tool capability during the pilot; report anything unavailable as UNKNOWN."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-006"
+    statement: "The recovery test plan covers HTW-to-MSW, MSW-to-TVW, TVW-to-GAIS, fresh ChatGPT recovery, abrupt quota interruption, uncommitted work, and concurrent-writer/conflict cases."
+    verification_method: "Inspect the test plan and confirm each scenario has preconditions, actions, expected results, evidence required, and stop conditions."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-007"
+    statement: "The dedicated GitHub Actions workflow runs the handoff validator and tests with least privilege and does not require PR-creation permission."
+    verification_method: "Inspect workflow triggers and permissions; verify the workflow run on the implementation PR."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-008"
+    statement: "Bootstrap, Continuity Protocol, Handoff Template, Next Chat Prompt, GitHub Verification Protocol, Continuity README, and Source Manifest are consistent and do not duplicate project state."
+    verification_method: "Cross-document review, relative-link checks, CSV parsing, and confirmation that the seven canonical continuity records remain unchanged in role."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-009"
+    statement: "The handoff log records the PR #20 checkpoint and current continuity automation finding as an append-only event supported by live GitHub evidence."
+    verification_method: "Compare the new entry with PR #20, main SHA, workflow run logs, and the automation branch commit."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-010"
+    statement: "Exactly seven files are created, eight files are modified, and zero files are deleted; no out-of-scope paths or prohibited changes appear in the PR."
+    verification_method: "Inspect the complete paginated PR changed-file inventory and full diff."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-011"
+    statement: "No repository setting, GitHub Actions permission, existing continuity-refresh workflow, machine snapshot, product baseline, project-specific state, private EFIN or ENERIXON source is changed."
+    verification_method: "Review all changed paths, workflow permissions, repository settings evidence, and full diff against forbidden/protected paths."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-012"
+    statement: "The task report distinguishes a system foundation that has been validated locally/CI from a real account-based HTW/MSW/TVW pilot that remains unverified until owner-supplied evidence exists."
+    verification_method: "Review the final report and recovery test results; prohibit PASS labels without inspectable screenshots, commit SHAs, tool outputs, and receiver confirmation."
+    required_evidence_level: 3
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 2
+  checks:
+    - id: "VC-001"
+      kind: STATIC_ANALYSIS
+      description: "Parse the handoff JSON Schema, validate the YAML template against it, and check that all required fields and enum values are consistent."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-002", "AC-003"]
+    - id: "VC-002"
+      kind: UNIT_TEST
+      description: "Run positive and negative unit tests for the handoff validator."
+      command: "python -m unittest tests.test_worker_handoff -v"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-003"]
+    - id: "VC-003"
+      kind: STATIC_ANALYSIS
+      description: "Parse all modified Markdown links, YAML and CSV; verify relative links and Source Manifest column consistency."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-008", "AC-009"]
+    - id: "VC-004"
+      kind: MANUAL_REVIEW
+      description: "Inspect the complete implementation PR diff and exact CREATE/MODIFY/DELETE inventory against this Contract."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-010", "AC-011"]
+    - id: "VC-005"
+      kind: MANUAL_REVIEW
+      description: "Human Owner reviews and decides whether to merge the implementation PR."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-004", "AC-005", "AC-006", "AC-007", "AC-008", "AC-009", "AC-010", "AC-011", "AC-012"]
+    - id: "VC-006"
+      kind: REAL_WORLD_CHECK
+      description: "Human Owner conducts at least one real HTW-to-MSW handoff and one MSW-to-TVW handoff pilot after the foundation is available; provide visible sync state, remote commit SHAs, handoff YAML, receiving-worker report, and any blockers. Do not claim the pilot passed when only the documentation or local tests pass."
+      evidence_level: 3
+      required: true
+      acceptance_criteria_refs: ["AC-004", "AC-005", "AC-006", "AC-012"]
+  known_verification_limits:
+    - "The executor cannot access the Human Owner's Google AI Studio accounts or see the HTW/MSW app settings unless the Human Owner supplies current evidence."
+    - "The executor cannot assume the same GitHub repository is linked to both GAIS workers; each link, account permission, branch, and sync result must be verified in the actual UI."
+    - "The executor cannot verify TVW local Git state without Human Owner supplied terminal output or an authorized local workspace tool."
+    - "The handoff record and validator do not implement a distributed lock. One-writer coordination remains a human-controlled protocol unless a separate enforceable service is authorized."
+    - "The official ChatGPT GitHub app is documented as read-only. Other connectors/Codex capabilities must be checked independently."
+    - "The existing continuity-refresh workflow has a current GitHub Actions PR-creation permission failure. This Contract does not change repository settings or the existing refresh workflow."
+    - "A test plan or prompt is not proof of an actual cross-executor pilot. Pilot acceptance requires Owner-supplied evidence."
+
+change_budget:
+  max_changed_files: 15
+  max_created_files: 7
+  max_modified_files: 8
+  max_deleted_files: 0
+  max_total_diff_lines: 2500
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; specifications/v0.1/task-contract.md. Repository-wide R0-R5 risk mapping is not yet established."
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Pending explicit Human Owner approval of this Contract's exact scope and risk classification."
+  authorization_reference: "Human Owner agreed on 2026-11-07 to transition to BVC-GLOBAL-TC-002 — Cross-Executor Continuity & Recovery System. This is authorization to prepare the Contract, not yet approval to execute its proposed file changes."
+  executor:
+    class: HYBRID
+    identifier: "ChatGPT prepares and validates repository artifacts; Human Owner operates Google AI Studio/VS Code and supplies pilot evidence."
+    capability_requirements:
+      - "Read live GitHub repository metadata, files, branches, commits, PRs and workflow evidence."
+      - "Create a dedicated branch and exact-path documentation/schema/script/test/workflow files after Contract approval."
+      - "Run Python YAML/JSON Schema validation and unit tests."
+      - "Inspect complete Git diff and PR file inventory."
+      - "Do not claim direct access to HTW, MSW, TVW, Google AI Studio or the Human Owner's laptop."
+      - "Do not modify repository settings, branch protections, secrets or the existing continuity refresh workflow."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - create
+    - modify
+    - run_tests
+  human_approval:
+    required: true
+    status: PENDING
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Not yet supplied for the complete proposed Contract."
+    rationale: "The Owner approved moving to the TC-002 workstream; the exact file scope, R2 risk proposal, acceptance criteria, and pilot boundary require review."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded repair attempt may correct YAML, JSON Schema, Markdown-link, CSV, or test formatting within the approved paths. Any change to scope, repository settings, security permissions, or worker synchronization behavior requires a revised Contract and explicit approval."
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md; docs/continuity/BVC_NEXT_CHAT_PROMPT.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
