@@ -1,0 +1,690 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/docs/continuity/WORKER_HANDOFF.schema.json",
+  "title": "BVC Cross-Executor Worker Handoff",
+  "description": "Provider-neutral handoff envelope. Records evidence and coordination state; does not implement a distributed lock.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "handoff_id",
+    "status",
+    "created_at_utc",
+    "repository",
+    "task",
+    "participants",
+    "capability_snapshot",
+    "checkpoint",
+    "writer_control",
+    "execution",
+    "file_inventory",
+    "verification",
+    "blockers",
+    "next_action",
+    "security",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "handoff_id": {
+      "type": "string",
+      "pattern": "^BVC-HO-[A-Z0-9][A-Z0-9._-]{2,70}$"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "READY_FOR_HANDOFF",
+        "RECEIVER_ACCEPTED",
+        "BLOCKED",
+        "CLOSED"
+      ]
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "full_name",
+        "url",
+        "default_branch"
+      ],
+      "properties": {
+        "full_name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "default_branch": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id",
+        "contract_id",
+        "contract_revision",
+        "contract_status",
+        "risk"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contract_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contract_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "contract_status": {
+          "enum": [
+            "DRAFT",
+            "PROPOSED",
+            "APPROVED",
+            "REJECTED",
+            "NOT_APPLICABLE",
+            "UNKNOWN"
+          ]
+        },
+        "risk": {
+          "enum": [
+            "R0",
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "participants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sender",
+        "receiver"
+      ],
+      "properties": {
+        "sender": {
+          "$ref": "#/$defs/executor"
+        },
+        "receiver": {
+          "$ref": "#/$defs/executor"
+        }
+      }
+    },
+    "capability_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "github_read",
+        "github_write",
+        "local_git",
+        "gais_build_mode",
+        "deepseek_vscode"
+      ],
+      "properties": {
+        "github_read": {
+          "$ref": "#/$defs/capability"
+        },
+        "github_write": {
+          "$ref": "#/$defs/capability"
+        },
+        "local_git": {
+          "$ref": "#/$defs/capability"
+        },
+        "gais_build_mode": {
+          "$ref": "#/$defs/capability"
+        },
+        "deepseek_vscode": {
+          "$ref": "#/$defs/capability"
+        }
+      }
+    },
+    "checkpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "branch",
+        "commit_sha",
+        "commit_url",
+        "remote_verified",
+        "remote_verified_at_utc",
+        "working_tree_status",
+        "uncommitted_work_status",
+        "sync_direction",
+        "sync_status",
+        "remote_verification"
+      ],
+      "properties": {
+        "branch": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "commit_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "remote_verified": {
+          "type": "boolean"
+        },
+        "remote_verified_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "working_tree_status": {
+          "enum": [
+            "CLEAN",
+            "DIRTY",
+            "UNKNOWN"
+          ]
+        },
+        "uncommitted_work_status": {
+          "enum": [
+            "NONE",
+            "PRESENT_LOCAL_ONLY",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "sync_direction": {
+          "enum": [
+            "LOCAL_TO_REMOTE",
+            "REMOTE_TO_LOCAL",
+            "GITHUB_CHECKED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "sync_status": {
+          "enum": [
+            "VERIFIED",
+            "FAILED",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "remote_verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "branch",
+            "commit_sha",
+            "checked_at_utc",
+            "evidence_reference"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "VERIFIED",
+                "FAILED",
+                "UNKNOWN"
+              ]
+            },
+            "branch": {
+              "type": "string",
+              "minLength": 1
+            },
+            "commit_sha": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            "checked_at_utc": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "evidence_reference": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "writer_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "one_writer_rule_acknowledged",
+        "active_writer",
+        "sender_release_status",
+        "sender_released_at_utc",
+        "sender_release_evidence",
+        "receiver_acceptance_status",
+        "receiver_accepted_at_utc",
+        "receiver_acceptance_evidence"
+      ],
+      "properties": {
+        "one_writer_rule_acknowledged": {
+          "type": "boolean",
+          "const": true
+        },
+        "active_writer": {
+          "enum": [
+            "SENDER",
+            "RECEIVER",
+            "NONE",
+            "UNKNOWN"
+          ]
+        },
+        "sender_release_status": {
+          "enum": [
+            "NOT_RELEASED",
+            "RELEASED"
+          ]
+        },
+        "sender_released_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "sender_release_evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receiver_acceptance_status": {
+          "enum": [
+            "NOT_ACCEPTED",
+            "ACCEPTED"
+          ]
+        },
+        "receiver_accepted_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "receiver_acceptance_evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "summary"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "NOT_STARTED",
+            "IN_PROGRESS",
+            "BLOCKED",
+            "COMPLETED"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "file_inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "operation",
+          "summary"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operation": {
+            "enum": [
+              "CREATE",
+              "MODIFY",
+              "DELETE"
+            ]
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "check_id",
+          "result",
+          "method",
+          "evidence_reference"
+        ],
+        "properties": {
+          "check_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_RUN",
+              "BLOCKED"
+            ]
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_reference": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "OPEN",
+              "RESOLVED"
+            ]
+          }
+        }
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "permitted",
+        "owner_approval_required",
+        "authorization_reference"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permitted": {
+          "type": "boolean"
+        },
+        "owner_approval_required": {
+          "type": "boolean"
+        },
+        "authorization_reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "credentials_included",
+        "private_customer_data_included",
+        "reviewed_by_sender"
+      ],
+      "properties": {
+        "credentials_included": {
+          "type": "boolean",
+          "const": false
+        },
+        "private_customer_data_included": {
+          "type": "boolean",
+          "const": false
+        },
+        "reviewed_by_sender": {
+          "type": "boolean"
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "executor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alias",
+        "executor_id",
+        "environment"
+      ],
+      "properties": {
+        "alias": {
+          "enum": [
+            "HTW",
+            "MSW",
+            "TVW",
+            "CHATGPT",
+            "OTHER",
+            "UNKNOWN"
+          ]
+        },
+        "executor_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "environment": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "evidence_reference"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "CONFIRMED",
+            "UNKNOWN",
+            "UNAVAILABLE"
+          ]
+        },
+        "evidence_reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "READY_FOR_HANDOFF"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "checkpoint": {
+            "properties": {
+              "remote_verified": {
+                "const": true
+              },
+              "working_tree_status": {
+                "const": "CLEAN"
+              },
+              "uncommitted_work_status": {
+                "const": "NONE"
+              },
+              "sync_status": {
+                "const": "VERIFIED"
+              },
+              "remote_verification": {
+                "properties": {
+                  "status": {
+                    "const": "VERIFIED"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              }
+            },
+            "required": [
+              "remote_verified",
+              "working_tree_status",
+              "uncommitted_work_status",
+              "sync_status",
+              "remote_verification"
+            ]
+          },
+          "writer_control": {
+            "properties": {
+              "active_writer": {
+                "const": "NONE"
+              },
+              "sender_release_status": {
+                "const": "RELEASED"
+              },
+              "receiver_acceptance_status": {
+                "const": "NOT_ACCEPTED"
+              }
+            },
+            "required": [
+              "active_writer",
+              "sender_release_status",
+              "receiver_acceptance_status"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "RECEIVER_ACCEPTED"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "checkpoint": {
+            "properties": {
+              "remote_verified": {
+                "const": true
+              },
+              "working_tree_status": {
+                "const": "CLEAN"
+              },
+              "uncommitted_work_status": {
+                "const": "NONE"
+              },
+              "sync_status": {
+                "const": "VERIFIED"
+              },
+              "remote_verification": {
+                "properties": {
+                  "status": {
+                    "const": "VERIFIED"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              }
+            },
+            "required": [
+              "remote_verified",
+              "working_tree_status",
+              "uncommitted_work_status",
+              "sync_status",
+              "remote_verification"
+            ]
+          },
+          "writer_control": {
+            "properties": {
+              "active_writer": {
+                "const": "RECEIVER"
+              },
+              "sender_release_status": {
+                "const": "RELEASED"
+              },
+              "receiver_acceptance_status": {
+                "const": "ACCEPTED"
+              }
+            },
+            "required": [
+              "active_writer",
+              "sender_release_status",
+              "receiver_acceptance_status"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

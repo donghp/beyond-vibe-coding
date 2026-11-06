@@ -79,3 +79,21 @@ For a meaningful chat-only event, prepare the relevant semantic record or a hand
 - A missing workflow run is not PASS.
 - A machine snapshot is not a substitute for live bootstrap.
 - Keep Git history as the audit trail; do not create a duplicate log entry for every commit.
+
+## 8. Cross-executor and worker-switch events
+
+A change of model, provider, chat session, GAIS worker, or IDE is a continuity event when another executor is expected to continue the same task.
+
+| Event | Required action |
+|---|---|
+| Sender prepares a handoff | Commit and remotely verify a checkpoint; record exact files, checks, blockers, and next action |
+| Sender releases writer role | Stop all writes; record RELEASED with time and evidence; active writer becomes NONE |
+| Receiver starts | Re-read authority/context; independently verify branch and SHA; inspect actual workspace sync |
+| Receiver accepts | Record ACCEPTED with evidence; active writer becomes RECEIVER before any write |
+| Quota/session interruption | Recover only the last remotely verified commit; report uncommitted work as local-only or unknown |
+| Sync conflict or possible concurrent writer | Stop writes; preserve both states; request Human Owner coordination |
+| Material checkpoint | Refresh the handoff record only when it records a meaningful new recovery point |
+
+The receiver must not treat a connected account, visible preview, successful file import, or prior worker report as proof that its own workspace is synchronized. Verify the repository, branch, commit SHA, and actual tool capabilities in the receiving session.
+
+See [CROSS_EXECUTOR_CONTINUITY.md](./CROSS_EXECUTOR_CONTINUITY.md) for lifecycle rules and [CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md](./CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md) for pilot scenarios. The schema and validator are consistency checks, not a distributed lock or task-acceptance engine.

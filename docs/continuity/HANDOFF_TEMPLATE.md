@@ -49,3 +49,19 @@
 ## New-chat instruction
 
 Start with `BVC_NEXT_CHAT_PROMPT.md` and reconcile all items against live GitHub before acting.
+
+## Cross-executor worker handoff fields
+
+For a handoff between executors, also complete the machine-readable structure in [WORKER_HANDOFF.template.yaml](./WORKER_HANDOFF.template.yaml). Do not omit these fields from the human-readable report:
+
+- Sender and receiver aliases, actual model/tool labels, and environments.
+- Current capability snapshot: GitHub read/write, local Git, GAIS Build Mode, and DeepSeek/VS Code; use UNKNOWN when not verified.
+- Task/Contract ID, revision, status, and risk.
+- Task branch, checkpoint SHA, commit URL, remote-verification evidence, and sync direction/result.
+- Working-tree status and whether uncommitted work exists.
+- Sender release status, timestamp, evidence, and confirmation that the sender stopped writing.
+- Receiver acceptance status, timestamp, evidence, and confirmation that it independently verified the checkpoint.
+- Actual CREATE/MODIFY/DELETE inventory, verification checks, blockers, and one next permitted action.
+- Security review confirming that credentials and private customer data are not included.
+
+A sender may mark the handoff READY_FOR_HANDOFF only after the checkpoint is committed and remotely verified, the working tree is clean, no uncommitted work remains, and the sender has released the writer role. The receiver changes it to RECEIVER_ACCEPTED only after independent verification. Neither state is proof of task completion or Human Owner acceptance.
