@@ -1,0 +1,100 @@
+# Valid DRAFT example. Replace every REPLACE_* value before use.
+# Do not set READY_FOR_HANDOFF until a clean, committed, remotely verified checkpoint
+# exists and the sender has explicitly released the writer role.
+
+schema_version: "1.0.0"
+handoff_id: "BVC-HO-EXAMPLE-0001"
+status: "DRAFT"
+created_at_utc: "2026-11-07T00:00:00Z"
+
+repository:
+  full_name: "REPLACE_WITH_OWNER/REPOSITORY"
+  url: "https://github.com/REPLACE_WITH_OWNER/REPOSITORY"
+  default_branch: "main"
+
+task:
+  task_id: "REPLACE_WITH_TASK_ID"
+  contract_id: "REPLACE_WITH_APPROVED_CONTRACT_ID"
+  contract_revision: 1
+  contract_status: "UNKNOWN"
+  risk: "UNKNOWN"
+
+participants:
+  sender:
+    alias: "UNKNOWN"
+    executor_id: "REPLACE_WITH_SENDER_EXECUTOR_ID"
+    environment: "REPLACE_WITH_ACTUAL_PROVIDER_MODEL_AND_ENVIRONMENT"
+  receiver:
+    alias: "UNKNOWN"
+    executor_id: "REPLACE_WITH_RECEIVER_EXECUTOR_ID"
+    environment: "REPLACE_WITH_ACTUAL_PROVIDER_MODEL_AND_ENVIRONMENT"
+
+capability_snapshot:
+  github_read:
+    status: "UNKNOWN"
+    evidence_reference: "Not checked in this session."
+  github_write:
+    status: "UNKNOWN"
+    evidence_reference: "Not checked in this session."
+  local_git:
+    status: "UNKNOWN"
+    evidence_reference: "Not checked in this session."
+  gais_build_mode:
+    status: "UNKNOWN"
+    evidence_reference: "Not checked in this session."
+  deepseek_vscode:
+    status: "UNKNOWN"
+    evidence_reference: "Not checked in this session."
+
+checkpoint:
+  branch: "REPLACE_WITH_TASK_BRANCH"
+  commit_sha: "0000000000000000000000000000000000000000"
+  commit_url: "https://github.com/REPLACE_WITH_OWNER/REPOSITORY/commit/0000000000000000000000000000000000000000"
+  remote_verified: false
+  remote_verified_at_utc: null
+  working_tree_status: "UNKNOWN"
+  uncommitted_work_status: "UNKNOWN"
+  sync_direction: "NOT_APPLICABLE"
+  sync_status: "UNKNOWN"
+  remote_verification:
+    status: "UNKNOWN"
+    branch: "REPLACE_WITH_TASK_BRANCH"
+    commit_sha: "0000000000000000000000000000000000000000"
+    checked_at_utc: null
+    evidence_reference: "Not yet verified."
+
+writer_control:
+  one_writer_rule_acknowledged: true
+  active_writer: "SENDER"
+  sender_release_status: "NOT_RELEASED"
+  sender_released_at_utc: null
+  sender_release_evidence: "Sender has not released the writer role."
+  receiver_acceptance_status: "NOT_ACCEPTED"
+  receiver_accepted_at_utc: null
+  receiver_acceptance_evidence: "Receiver has not independently verified or accepted the checkpoint."
+
+execution:
+  status: "NOT_STARTED"
+  summary: "Replace with a factual summary of work completed, in progress, and not done."
+
+file_inventory: []
+
+verification: []
+
+blockers: []
+
+next_action:
+  description: "Verify the approved Task Contract, repository checkpoint, and actual receiver environment."
+  permitted: false
+  owner_approval_required: true
+  authorization_reference: "REPLACE_WITH_CONTRACT_OR_EXPLICIT_OWNER_AUTHORIZATION"
+
+security:
+  credentials_included: false
+  private_customer_data_included: false
+  reviewed_by_sender: false
+
+limitations:
+  - "A handoff record is not a distributed lock."
+  - "Remote commit evidence does not prove local workspace synchronization."
+  - "Uncommitted in-memory work is not assumed to be recoverable."

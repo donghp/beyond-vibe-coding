@@ -46,3 +46,18 @@ End this recovery report and every executor prompt with exactly one conservative
 Continuity Health and Window Capacity Risk are separate. Never invent a context-window percentage. If the UI exposes no meter, report it as unknown.
 
 Begin with live repository verification now. Do not ask the Human Owner to reproduce old chat history when canonical records or current evidence can answer the question.
+
+## Cross-executor resume requirements
+
+This single entry prompt applies to ChatGPT, HTW, MSW, TVW, and future executors. Do not assume the current provider or tool has the same capabilities as the previous executor.
+
+- Read [CROSS_EXECUTOR_CONTINUITY.md](./CROSS_EXECUTOR_CONTINUITY.md) and inspect the latest handoff record in its authorized project location.
+- Declare the actual executor alias, model/tool label, environment, and capabilities. Mark unverified capabilities UNKNOWN.
+- Confirm the active Contract is APPROVED on live main and that it authorizes the exact next action.
+- If receiving a handoff, verify sender release, remote branch, exact commit SHA, remote verification evidence, and local/workspace sync before acceptance.
+- Record receiver acceptance before any write. If sender release or checkpoint verification is missing, stop writes.
+- If quota or session access ends, recover only the last remote checkpoint. Never assume uncommitted in-memory work is recoverable.
+- Use one active writer per task/branch. The record documents coordination but is not a technical lock.
+- Keep account permissions, repository synchronization, task authority, and Human Owner acceptance as separate facts.
+
+Use the machine-readable structure from [WORKER_HANDOFF.template.yaml](./WORKER_HANDOFF.template.yaml) and validate it with the repository's read-only validator. End with one operational status: GREEN, AMBER, or RED.

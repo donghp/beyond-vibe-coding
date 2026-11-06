@@ -55,3 +55,16 @@ A conversation that produces no repository event cannot be detected by GitHub Ac
 - Project State, Context Manifest, Change Record and Verification Evidence retain their own BVC Core Specification meanings. This portfolio continuity index does not replace them.
 
 See [CONTINUITY_PROTOCOL.md](./CONTINUITY_PROTOCOL.md) for detailed event rules and [SOURCE_MANIFEST.csv](./SOURCE_MANIFEST.csv) for the startup reading map.
+
+## Cross-executor continuity and recovery
+
+The following supporting documents standardize sequential handoff across ChatGPT, HTW, MSW, TVW, and future authorized executors. They do not add another canonical project-state record or grant task authority.
+
+- [Cross-Executor Continuity Protocol](./CROSS_EXECUTOR_CONTINUITY.md) — bootstrap, capability checks, writer release, receiver acceptance, checkpoint and recovery rules.
+- [Worker Handoff JSON Schema](./WORKER_HANDOFF.schema.json) — machine-readable handoff contract.
+- [Worker Handoff YAML Template](./WORKER_HANDOFF.template.yaml) — reusable handoff example.
+- [Cross-Executor Recovery Test Plan](./CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md) — cold-start, worker switch, quota, and conflict scenarios.
+- [Read-only Worker Handoff Validator](../../scripts/validate_worker_handoff.py) — local YAML/JSON Schema validation.
+- [Validation Workflow](../../.github/workflows/validate-cross-executor-continuity.yml) — least-privilege PR/main validation; no PR-creation permission.
+
+The seven canonical continuity records and their roles remain unchanged. Store any live handoff in the relevant project's own authorized continuity location under that project's Task Contract.

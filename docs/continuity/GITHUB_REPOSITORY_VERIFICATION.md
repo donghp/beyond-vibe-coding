@@ -196,3 +196,27 @@ This document defines a verification and handoff procedure. It does not implemen
 - a workflow that validates product behavior or accepts deliverables automatically.
 
 Those capabilities require separate technical design, tool verification, and approved Task Contracts.
+
+## 13. Cross-executor capability and sync verification
+
+### Google AI Studio Build Mode
+
+The official Build Mode guide describes importing projects from GitHub, linking an existing repository, pushing AI Studio changes to GitHub, pulling external GitHub changes into AI Studio, and using a side-by-side conflict-resolution dialog. It also states that direct real-time collaborative editing is not supported.
+
+Reference: https://ai.google.dev/gemini-api/docs/aistudio-build-mode
+
+These product-level features do not prove that a particular Human Owner account or HTW/MSW workspace is linked to the intended repository. Verify, in each actual worker session, the account, repository, branch, last sync result, visible files, and permissions. Record unavailable or unobserved items as UNKNOWN.
+
+### ChatGPT
+
+The official ChatGPT GitHub app is documented as read-only and retrieves permitted repository content on demand. OpenAI directs users to Codex for generating, editing, and pushing repository changes.
+
+Reference: https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt
+
+A separately available connector or Codex tool may have different capabilities. Inspect the exact actions and permissions available in the current environment. A successful repository read does not prove write capability. A write-capable tool does not acquire authority to expand scope, merge a PR, or change acceptance.
+
+### VS Code / TVW
+
+Before local work, verify the actual repository path, remote URL, current branch, HEAD, clean/dirty status, fetched remote-tracking SHA, and any unsaved editor state. Do not infer the laptop's state from GitHub. Do not pull, reset, clean, rebase, or overwrite until local work and divergence have been inspected.
+
+For the complete worker-release and receiving-worker procedure, follow [CROSS_EXECUTOR_CONTINUITY.md](./CROSS_EXECUTOR_CONTINUITY.md). Use the [recovery test plan](./CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md) to collect pilot evidence.

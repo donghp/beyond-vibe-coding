@@ -106,3 +106,13 @@ Repository-wide read access does not grant blanket write, merge, delete, setting
 ## 6. One next action
 
 After the live audit, recommend the smallest safe action that is actually authorized by current project records. Do not ask the Human Owner to repeat facts already proven in current canonical sources.
+
+## 7. Cross-executor handoff gate
+
+When work moves between ChatGPT, HTW, MSW, TVW, or another authorized executor, follow [CROSS_EXECUTOR_CONTINUITY.md](./CROSS_EXECUTOR_CONTINUITY.md).
+
+Before the receiver writes, it must independently verify the sender's release, exact remote branch and commit SHA, clean working-tree declaration, active Task Contract, and next permitted action. The receiver must then record acceptance. A handoff record is not a distributed lock; the Human Owner coordinates the single-writer rule.
+
+Use [WORKER_HANDOFF.template.yaml](./WORKER_HANDOFF.template.yaml), validate it against [WORKER_HANDOFF.schema.json](./WORKER_HANDOFF.schema.json), and preserve the record in the relevant project's authorized continuity location. The global template/schema do not create a second project-state store.
+
+If the sender has not released, the checkpoint cannot be verified, another writer may still be active, or local/AI workspace state is unknown, stop writes. Recover only from the last remotely verified commit. Do not claim that uncommitted in-memory work has been recovered.
