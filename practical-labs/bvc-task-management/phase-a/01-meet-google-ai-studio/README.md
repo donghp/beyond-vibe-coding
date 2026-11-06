@@ -1,195 +1,202 @@
 # Phase A · Lesson 01 — Meet Google AI Studio
 
-**Learning level:** Beginner\
-**Estimated time:** 10–15 minutes\
-**Status:** In progress — A1-01 observed; Prompt #0001 ready; scaffold result awaiting capture
-**Project:** BVC Task Management (BVCTM)
-**Evidence baseline:** A1-01 actual GAIS screenshot supplied by Human Owner\
-**Scaffold task boundary:** BVC-TM-TC-003 Revision 1 — APPROVED
+**Project:** BVC Task Management  
+**Learning level:** Beginner  
+**Status:** Draft / Evidence Required — actual Preview observed; A1-01 screenshot asset still needs synchronization  
+**Estimated time:** 15–20 minutes  
+**Previous:** [Practical Labs Home](../../../README.md) — first lesson in this learning path  
+**Next:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)
 
-## What you will learn
+> **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Full Learning Path](../../CURRICULUM_MAP_V0.2.md) · [Project Overview](../../../../projects/task-management/README.md)  
+> **Next step →:** [A2 — Inspect the Blank Web App](../02-create-your-first-blank-web-app/README.md)
 
-By the end of this lesson, you should be able to explain in simple words:
+---
 
-- What Google AI Studio (GAIS) is used for in this project.
-- What Build mode is intended to help you do.
-- What Preview means.
-- Why we check what AI creates instead of assuming it is correct.
+## 00. Lesson Information
 
-You do not need to know programming to complete this introduction.
+**One practical outcome:** Open Google AI Studio, create the first blank BVC Task Management web app with Prompt #0001, and see the exact result in Preview.
 
-## Why this matters
+**Starting state:** You have a browser, an internet connection, and access to the Google AI Studio account you will use for this practice.
 
-Imagine you have an idea for a small tool that helps you remember the work you need to do.
+**Scope boundary:** This lesson creates only a blank scaffold for inspection. It does not build Task Management features.
 
-In the traditional approach, you might need to learn a programming language, install development tools, and write code before you see anything.
+## 01. What You Will Achieve
 
-With an AI app-building tool, you can describe what you need in ordinary language and ask AI to help create an initial application. You still need to review and test the result. AI can misunderstand a request or produce something that does not work as expected.
+By the end of this lesson, you will be able to:
+- Find Google AI Studio and the Build entry point.
+- Understand, in simple words, what Build mode and Preview are for.
+- Run the prepared Prompt #0001.
+- See the first blank BVC Task Management page in your own GAIS Preview.
 
-Our goal is not to ask AI to build everything at once. We will work together in small steps.
+You do not need to know programming to complete this lesson.
 
-## Before you start
+## 02. Why It Matters
+
+Imagine you have an idea for a small tool that helps you remember your daily work.
+
+With an AI app-building tool, you can describe what you need in ordinary language and ask AI to create a starting point. You still need to look at what it creates. AI can misunderstand a request or produce a result that needs fixing.
+
+We will not ask AI to build the whole product at once. We will take one small step and check the result.
+
+## 03. Before You Start
 
 You need:
-
 - A Google account that you are allowed to use with Google AI Studio.
 - A modern web browser.
 - An internet connection.
 
-You do **not** need Python, VS Code, GitHub, a local development server, a database, Supabase, or a programming background.
+You do **not** need Python, VS Code, GitHub, Localhost, a database, Supabase, or a programming background.
 
-Use the GAIS account and workspace authorized for your own practice. Do not share passwords, private account information, API keys, or secret values in screenshots.
+Do not share passwords, private account details, API keys, or secret values in screenshots.
 
-## Step 1 — Open Google AI Studio
+## 04. Step-by-Step Guide
 
-**Do this**
+### Step 1 — Open Google AI Studio
 
-Open the official Google AI Studio website:
+**Do this**  
+Open the Google AI Studio Apps page:
 
-[https://aistudio.google.com/](https://aistudio.google.com/)
+[https://aistudio.google.com/apps](https://aistudio.google.com/apps)
 
 Sign in using the account you intend to use for this practice project.
 
-**Why**
+**Why**  
+This is the workspace where we will create the first practice web app.
 
-We need to start in the actual tool that will help us create the first web application.
+**What you should see**  
+The Google AI Studio Apps page available to your account.
 
-**What you should see**
+**Figure A1-01 — Actual Google AI Studio Apps landing screen**  
+The repository contains an evidence note describing the owner-supplied screen and its observed controls, but the original screenshot image file has not yet been synchronized into GitHub. We do not insert a placeholder or invented image.
 
-You should arrive at the Google AI Studio interface available to your account.
+[Read the A1-01 screenshot evidence note](A1-01_SCREENSHOT_EVIDENCE_NOTE.md).
 
-**Screenshot checkpoint — A1-01**
+**Check**  
+Confirm that the address bar shows `aistudio.google.com/apps` and that you are signed in to the intended GAIS account.
 
-<figure>
+If your screen differs, stop and compare it with the current interface. Do not guess a different menu path.
 
-![Google AI Studio Apps landing screen supplied by the Human Owner, showing the Explore, Build, and Manage navigation groups and the New app entry](../../../assets/screenshots/phase-a/a1-01-gais-start-screen.png)
+### Step 2 — Start a new app
 
-<figcaption>Figure A1-01. Actual Google AI Studio Apps landing screen at aistudio.google.com/apps. The New app entry is visible and highlighted under BUILD. Evidence status: OBSERVED.</figcaption>
-</figure>
+**Do this**  
+Choose the **New app** entry under the Build area, as described in the A1-01 evidence note.
 
-**Observation from the supplied screenshot**
+**Why**  
+This opens the app-building workspace where you can describe the first result you want.
 
-The left navigation shows three groups:
+**What you should see**  
+The GAIS Build workspace with a prompt area.
 
-- **EXPLORE:** Playground, History.
-- **BUILD:** New app, My apps, Gallery.
-- **MANAGE:** Dashboard, Documentation.
+**Check**  
+Make sure you are creating a web app for the BVC Task Management practice project. Do not connect GitHub or an external service.
 
-The address bar shows `aistudio.google.com/apps`.
+### Step 3 — Copy Prompt #0001
 
-This screenshot proves that the Apps landing screen was displayed and that **New app** was visible under **BUILD**. It does not prove that an application was created, that WEB was selected, or that a scaffold or Preview exists.
+**Do this**  
+Open the canonical [BVCTM-PROMPT-0001 — Create the Initial BVC Task Management Web App Scaffold](../../prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md).
 
-**Check**
+Copy the complete prompt. It is deliberately prepared so you do not have to invent technical instructions.
 
-Confirm that you are in Google AI Studio. Do not continue by guessing where a control is located.
+**Why**  
+The first task is only to create an empty starting point. The prompt prevents AI from adding task forms, saving, accounts, or a database before those features are authorized.
 
-If your screen looks different from the final verified screenshot, stop and compare it with the current lesson version. The interface may differ by account, rollout, or product update.
+**Check**  
+Confirm the prompt title says **Create the Initial BVC Task Management Web App Scaffold** and its scope is scaffold inspection only.
 
-## Step 2 — Build with your first BVCTM prompt
+### Step 4 — Paste and run Prompt #0001
 
-Your A1-01 screenshot already shows **New app** highlighted under **BUILD** and the large prompt box in the center. You are at the starting point for Build mode.
+**Do this**  
+Paste the complete Prompt #0001 into the large GAIS prompt box and run it once.
 
-Google's current Build mode documentation says web apps are the default. Android apps require a separate selection from the platform picker. The visible **Default mode** control in your screenshot is a mode selector, not an Android selection. Keep the current default; do not switch to Android. [Google AI Studio Build mode documentation](https://ai.google.dev/gemini-api/docs/aistudio-build-mode).
-
-### BVCTM-PROMPT-0001 — Create the Initial BVC Task Management Web App Scaffold
-
-This is the first official prompt in the BVCTM project. It creates only the blank web scaffold permitted by approved Contract BVC-TM-TC-003 Revision 1. It does not build Task Management features yet.
-
-**Copy the complete Prompt #0001 below into GAIS, paste it into the large prompt box, and run it.**
+**What you should see**  
+GAIS generates a minimal blank web app. The page should display this exact text:
 
 ```text
-Create one minimal blank WEB application for the BVC Task Management (BVCTM) project scaffold inspection.
-
-This is a non-production scaffold inspection. Display only this exact text on the page:
-
 BVC Task Management Scaffold Inspection
-
-Do not implement any Task Management features.
-
-Do not add task forms, task lists, task creation, editing, deletion, completion, data persistence, browser storage, user accounts, authentication, databases, APIs, external integrations, hosting, or deployment.
-
-Keep the application as small and simple as possible.
-
-Do not connect the project to GitHub.
 ```
 
-**What you should see**
+**Scope boundary**  
+Do not add task forms, sample tasks, save behavior, browser storage, login, a database, APIs, external integrations, hosting, or deployment in this run.
 
-GAIS should generate the initial web-app scaffold and show its Preview. The actual generated files and framework must be inspected rather than assumed.
+If GAIS does not clearly create a web app, stop and share the actual screen instead of guessing.
 
-**Screenshot checkpoint — A1-02**
+### Step 5 — Look at the Preview
 
-After generation finishes, capture the screen showing the actual Preview and app result. Save it as `a1-02-bvctm-initial-scaffold-preview.png` in:
+**Do this**  
+Open or view the Preview for the generated app.
 
-`C:\\beyond-vibe-coding\\practical-labs\\assets\\screenshots\\phase-a\\`
+**Why**  
+Preview lets you see what the app looks like while it is being built. It does not mean every feature has been tested.
 
-**Important scope boundary**
+**What you should see**  
+A simple page with the exact text **BVC Task Management Scaffold Inspection**.
 
-Do not ask GAIS to add task forms, sample tasks, save behavior, storage, login, or database features in this run. Those belong to a later implementation task and require their own approved Contract.
+**Figure A1-02 — Actual blank web scaffold Preview after Prompt #0001**
 
-If GAIS presents an Android selection or a platform choice that does not clearly show WEB, stop and share a screenshot before submitting the prompt.
+![Actual Google AI Studio Preview showing the BVC Task Management Scaffold Inspection page and the AI's visible development-server recovery report](../../../assets/screenshots/phase-a/a1-02-bvctm-initial-scaffold-preview.jpg)
 
-## Step 3 — Understand Preview
+*Figure A1-02. Owner-supplied GAIS screenshot. The Preview displays the exact scaffold text. The conversation also shows that the first development-server start failed, then the AI reported installing dependencies, starting the Next.js development server on port 3000, and receiving HTTP 200 OK. The Preview is OBSERVED; the recovery details are the AI's reported actions, not an independently repeated build/test.*
 
-**What it means**
+**What this proves**
+- A blank web-app Preview was displayed.
+- The page showed the exact scaffold-inspection text.
+- The GAIS conversation reported a recovery after the initial server-start problem.
 
-A Preview is a view of the application as it appears while you are building it. It helps you inspect the visible result and interact with the prototype.
+**What this does not prove**
+- That Task Management features work.
+- That data can be saved or persisted.
+- That a production build, automated tests, security checks, or deployment passed.
+- That the exact framework and dependency versions have been fully verified.
 
-A Preview is useful, but it is not proof that every feature works. For example, seeing a task on screen does not by itself prove that the task is saved and will still be there after reopening the app.
+**If the development server does not start**  
+Do not repeatedly ask AI to “fix everything”. Show the exact message, keep the task limited to starting the existing blank app, and check that AI did not add features outside Prompt #0001.
 
-**What you should remember**
+## 05. Complete Prompt
 
-- The prompt describes what you want.
-- AI generates or changes the application.
-- Preview lets you inspect the visible result.
-- You must still test the behavior you care about.
+Use the canonical [BVCTM-PROMPT-0001](../../prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md). Do not modify the prompt or add extra features during this first run.
 
-> [SCREENSHOT REQUIRED: Capture an actual Preview screen from the blank web scaffold created under BVC-TM-TC-003. Do not use a mock interface.]
+## 06. Check Your Work
 
-![Blank BVC Task Management scaffold Preview](../../assets/screenshots/phase-a/a1-02-bvctm-initial-scaffold-preview.png)
+- [ ] I opened Google AI Studio Apps.
+- [ ] I opened the Build workspace for a new web app.
+- [ ] I copied and ran the complete Prompt #0001 once.
+- [ ] The Preview displays exactly **BVC Task Management Scaffold Inspection**.
+- [ ] I did not ask AI to create Task Management features.
+- [ ] I understand that Preview is not proof of saving, persistence, security, or deployment.
 
-*Figure A1-02. Actual blank web scaffold Preview — awaiting Human Owner capture and review.*
+**Completion rule:** A1 is complete when the blank app Preview is visible and the scope boundary is understood. A2 will inspect the generated scaffold; it will not run Prompt #0001 a second time.
 
-## What you have learned
+## 07. What You Have Learned
 
 | Term | Plain-language meaning |
 |---|---|
-| Google AI Studio | The online AI tool we will use to help create the practice app. |
-| Build mode | The app-building area where we describe what we want AI to create. |
-| Preview | A view that lets us inspect the visible application while building it. |
+| Google AI Studio | The online AI workspace used in this practice project. |
+| Build mode | The area where you describe the app you want AI to create. |
+| Prompt | The prepared instruction you give AI for one task. |
+| Preview | A view of the app as it looks while you are building it. |
 
-## Check your understanding
+## 08. Common Mistakes & Recovery
 
-Answer these questions in your own words:
+**I cannot find the same Build entry.**  
+Do not click a different control based on guesswork. Capture the screen you actually see and compare it with the current lesson.
 
-1. What is the difference between asking AI to create an app and checking the app in Preview?
-2. Why is a visible Preview not enough to prove that a task is saved?
-3. Why will we make one small change at a time?
+**The development server does not start.**  
+Show the exact error to AI and ask for a minimal recovery within the blank-scaffold scope. Check that no feature was added.
 
-You do not need technical definitions. Explain the ideas as you would explain them to a friend.
+**The Preview looks correct, so I assume the application is finished.**  
+A Preview shows the visible result at that moment. Later lessons must test actual behavior separately.
 
-## Common mistakes
+**AI created more than I asked for.**  
+Do not accept extra functionality automatically. Stop and inspect what changed.
 
-**I cannot find the same Build mode entry shown in the lesson.**\
-Do not click a different control based on guesswork. Take a screenshot of the screen you actually see and compare it with the current lesson version.
+## 09. Continue Learning
 
-**The Preview looks correct, so I assume the application is finished.**\
-A Preview only shows what is visible at that moment. Later lessons will test saving, reopening, and other behavior separately.
+- **Previous:** [Practical Labs Home](../../../README.md)
+- **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md)
+- **Next:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)
+- **Progress:** Lesson A1 of A4.
 
-**The AI created more than I asked for.**\
-Do not accept extra functionality automatically. We will learn to give clearer constraints and check the generated result.
+---
 
-## Your next small challenge
-
-Explain, without technical language, how you would ask AI to create a simple tool that helps you remember one thing you need to do tomorrow.
-
-The approved BVC-TM-TC-003 Revision 1 authorizes one isolated blank WEB app and scaffold inspection only. The actual Task Management features will be implemented progressively under a separate approved implementation scope.
-
-## References
-
-- [Google AI Studio Build mode — official documentation](https://aistudio.google.com/docs/aistudio-build-mode)
-- [Google Cloud: How to build an app with AI](https://cloud.google.com/use-cases/how-to-build-an-app-with-ai)
-
-## Publication note
-
-This is a lesson draft, not a fully verified GAIS walkthrough. Replace every screenshot placeholder with an authentic, privacy-safe screenshot. Verify exact interface labels and actions against the Human Owner's current GAIS session before marking this lesson Ready for Review.
+**BVC — Learn by Building.**  
+*Start with one useful result. Check what AI creates.*
