@@ -70,15 +70,15 @@ intent:
 
 risk:
   level: R2
-  policy_ref: "Task-specific proposed classification; no approved repository-wide R0-R5 risk mapping has been identified. See specifications/v0.1/task-contract.md#4.4. The Human Owner must confirm or revise this classification before approval."
+  policy_ref: "Task-specific R2 classification explicitly confirmed by the Human Owner on 2026-11-07; no repository-wide R0-R5 risk mapping is asserted. See specifications/v0.1/task-contract.md#4.4."
   rationale: >-
     The work is confined to continuity documentation, a handoff data schema,
     a read-only validator, tests, and a dedicated validation workflow. It changes
     the operating process for multiple executors and adds CI validation, so its
     impact is greater than a simple documentation-only edit. It does not modify
     product code, production systems, data, credentials, repository settings,
-    the existing refresh workflow, or project-specific baselines. R2 is proposed,
-    not a claim of an approved universal BVC risk mapping.
+    the existing refresh workflow, or project-specific baselines. The Human Owner
+    explicitly confirmed R2 for this task; this is not a universal BVC risk mapping.
   impact_factors:
     - other
   reversibility: EASY
