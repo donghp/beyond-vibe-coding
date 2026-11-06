@@ -3,7 +3,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-GLOBAL-TC-002"
 revision: 1
-status: PROPOSED
+status: APPROVED
 created_at: "2026-11-07"
 
 task:
@@ -435,8 +435,8 @@ change_budget:
 authority:
   policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; specifications/v0.1/task-contract.md. Repository-wide R0-R5 risk mapping is not yet established."
   requested_by: "Human Owner / Product Owner"
-  authorized_by: "Pending explicit Human Owner approval of this Contract's exact scope and risk classification."
-  authorization_reference: "Human Owner agreed on 2026-11-07 to transition to BVC-GLOBAL-TC-002 — Cross-Executor Continuity & Recovery System. This is authorization to prepare the Contract, not yet approval to execute its proposed file changes."
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: "Human Owner explicitly approved BVC-GLOBAL-TC-002 Revision 1, including the complete 15-file scope, R2 risk classification, 2,500-line Change Budget, acceptance criteria, verification plan, and implementation boundaries in the current conversation on 2026-11-07."
   executor:
     class: HYBRID
     identifier: "ChatGPT prepares and validates repository artifacts; Human Owner operates Google AI Studio/VS Code and supplies pilot evidence."
@@ -456,10 +456,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Not yet supplied for the complete proposed Contract."
-    rationale: "The Owner approved moving to the TC-002 workstream; the exact file scope, R2 risk proposal, acceptance criteria, and pilot boundary require review."
+    approval_reference: "Explicit Human Owner approval in the current conversation on 2026-11-07."
+    rationale: "The Human Owner explicitly approved this exact Contract Revision 1, including the complete implementation scope, proposed R2 risk classification, Change Budget, acceptance criteria, verification requirements, and pilot boundaries. Implementation may proceed only after this approval record is merged into main."
 
 stopping_conditions:
   - scope_expansion_required
