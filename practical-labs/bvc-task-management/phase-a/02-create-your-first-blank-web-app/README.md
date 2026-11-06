@@ -1,72 +1,82 @@
 # Phase A · Lesson 02 — Create Your First Blank Web App
 
-**Learning level:** Beginner\
-**Status:** Evidence Required — scaffold inspection must be completed first\
-**Project:** BVC Task Management
+**Learning level:** Beginner  
+**Status:** Evidence Required — scaffold inspection is partially observed; technical details and evidence sync remain incomplete  
+**Project:** BVC Task Management  
+**Previous:** [A1 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md)  
+**Next:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)
 
-## What you will build
+## What You Will Achieve
 
-You will create one isolated, non-production blank web app in Google AI Studio Build mode. The app is only a starting point for learning. It will not contain Task Management features yet.
+Create one isolated, non-production blank WEB app in Google AI Studio Build mode and inspect what GAIS actually generated.
 
-## Why this matters
+The app is only a starting point for learning. It does not contain Task Management features yet.
 
-Before we ask AI to build a real application, we should learn what the tool creates by default. This helps us understand the starting point instead of guessing which framework, files, or commands are being used.
+## Why It Matters
 
-## Before you start
+Before asking AI to build a real application, inspect the starting point instead of guessing which framework, files, or commands are being used.
 
-- Complete [Lesson 01 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md).
+## Before You Start
+
+- Complete [Lesson A1 — Meet Google AI Studio](../01-meet-google-ai-studio/README.md).
 - Use the GAIS account authorized for your practice.
 - Do not connect the app to the BVC GitHub repository.
 - Do not enter API keys, passwords, personal data, or customer information.
 
-## Important
-
-The exact click-by-click instructions, screenshots, generated file list, framework, runtime, and export steps will be filled in only after the Human Owner completes the approved **BVC-TM-P3.3-003 — GAIS Scaffold Inspection** and supplies the actual screenshots and exported evidence.
-
-Do not assume the interface labels, generated framework, package manager, file names, build command, or output directory.
-
 ## Authorized scaffold-only prompt
 
-When the current GAIS Build interface and app-type selection have been verified, use the exact approved prompt from the Task Contract:
+When the current GAIS Build interface and app-type selection have been verified, use the exact approved prompt from [BVCTM-PROMPT-0001](../../prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md).
 
-```text
-Create a minimal blank web application for scaffold inspection.
-Display only the text "BVC Task Management Scaffold Inspection".
-Do not implement task management features, task forms, data persistence,
-authentication, database access, APIs, external integrations, or deployment.
-```
+~~~text
+Create a minimal blank WEB application for the BVC Task Management
+(BVCTM) project scaffold inspection.
+
+Display only the text:
+BVC Task Management Scaffold Inspection
+
+Do not implement Task Management features, forms, persistence,
+authentication, database access, APIs, external integrations,
+hosting, or deployment.
+
+Keep the application as small and simple as possible.
+Do not connect the project to GitHub.
+~~~
 
 This prompt is for scaffold inspection only. Do not add a task form, save button, database, sign-in, external integration, or deployment request.
 
-## Evidence checkpoints to be added
+## What Has Been Observed
+
+The Human Owner has supplied a GAIS screenshot showing the scaffold inspection app and its Code / File Explorer area. The visible tree includes entries such as app/layout.tsx, app/page.tsx, next.config.ts, tsconfig.json, package.json, and app/globals.css.
+
+This is OBSERVED evidence of visible file names and the scaffold UI. It does not yet establish:
+- Exact Next.js or React versions.
+- The full dependency set.
+- Package manager or lockfile state.
+- Runtime behavior or successful build.
+- Build command or output directory.
+- Export completion.
+
+Do not infer these facts from file names alone.
+
+## Evidence checkpoints
 
 - A2-01 — actual GAIS Build screen and verified entry point.
 - A2-02 — actual app-type choice showing WEB selected.
 - A2-03 — authorized prompt as entered before submission.
-- A2-04 — actual placeholder Preview.
+- A2-04 — actual scaffold Preview.
 - A2-05 — actual generated file tree or Code view.
-- A2-06 — actual export outcome, only if export is available.
+- A2-06 — export outcome, only if export is available.
 
-Use only the screenshots that materially help a Beginner. Six is a list of possible evidence points, not a requirement to capture every screen.
+Use only screenshots that materially help a Beginner. These are possible evidence points, not a requirement to capture every click.
 
-## What will be recorded
-
-The lesson will describe only observed facts:
-
-- Actual app type and displayed project name.
-- Actual Build and Preview controls.
-- Actual generated file tree.
-- Framework and version, if evidenced by actual files.
-- Runtime and package manager, if evidenced.
-- Manifest, lockfile, scripts, build command, and output directory, if present.
-- Export behavior and any limitations.
-
-Unknown items will be marked UNKNOWN or NOT VERIFIED.
-
-## What you have learned
+## What You Have Learned
 
 The goal is to create and inspect a blank starting point, not to build the Task Management application. Understanding the scaffold comes before choosing implementation commands or assuming a framework.
 
-## Next lesson
+## Next Lesson
 
-[Lesson 03 — Talk to AI Like a Teammate](../03-talk-to-ai-like-a-teammate/README.md)
+[Lesson A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)
+
+---
+
+**Status note:** Scaffold UI and file names have been observed in the supplied screenshot. Full scaffold inspection and repository screenshot synchronization remain Evidence Required.
