@@ -7,6 +7,8 @@
 **Previous:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)  
 **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
 
+> **Quick navigation:** [Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · [← A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md) · **A3 of A4** · [A4 — Talk to AI Like a Teammate →](../04-talk-to-ai-like-a-teammate/README.md)
+
 ---
 
 ## 00. Lesson Information
@@ -270,3 +272,8 @@ You have learned that:
 
 **BVC — Learn by Building.**  
 *Give AI the project rules before giving it the work.*
+
+
+## Continue learning
+
+[Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · [← A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md) · [A4 — Talk to AI Like a Teammate →](../04-talk-to-ai-like-a-teammate/README.md)

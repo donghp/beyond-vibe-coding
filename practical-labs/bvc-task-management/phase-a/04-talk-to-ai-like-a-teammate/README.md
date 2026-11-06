@@ -7,6 +7,8 @@
 **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)  
 **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
 
+> **Quick navigation:** [Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · [← A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md) · **A4 of A4** · [Next Phase — Build Your First Task](../../phase-b/README.md)
+
 ---
 
 ## 00. Lesson Information
@@ -221,3 +223,8 @@ A useful request should explain:
 
 **BVC — Learn by Building.**  
 *Clear work begins with a clear request.*
+
+
+## Continue learning
+
+[Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · [← A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md) · [Next Phase — Build Your First Task](../../phase-b/README.md)

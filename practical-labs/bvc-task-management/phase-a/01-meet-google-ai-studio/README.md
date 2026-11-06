@@ -2,13 +2,15 @@
 
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
-**Status:** Draft / Evidence Required — actual Preview observed; A1-01 screenshot asset still needs synchronization  
+**Status:** Partially evidenced — A1-02 actual Preview screenshot synchronized; A1-01 Apps landing image file remains pending  
 **Estimated time:** 15–20 minutes  
 **Previous:** [Practical Labs Home](../../../README.md) — first lesson in this learning path  
-**Next:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)
+**Next:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)
 
 > **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Full Learning Path](../../CURRICULUM_MAP_V0.2.md) · [Project Overview](../../../../projects/task-management/README.md)  
-> **Next step →:** [A2 — Inspect the Blank Web App](../02-create-your-first-blank-web-app/README.md)
+> **Next step →:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)
+
+> **Quick navigation:** [Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · **A1 of A4** · [Next — A2: Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)
 
 ---
 
@@ -200,3 +202,8 @@ Do not accept extra functionality automatically. Stop and inspect what changed.
 
 **BVC — Learn by Building.**  
 *Start with one useful result. Check what AI creates.*
+
+
+## Continue learning
+
+[Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · [Next — A2: Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)
