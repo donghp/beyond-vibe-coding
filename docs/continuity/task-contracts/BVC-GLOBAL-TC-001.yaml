@@ -1,0 +1,363 @@
+# BVC Global Task Contract 001
+# Approved by the Human Owner in the 2026-11-07 conversation.
+# This file becomes canonical authority only after the PR is reviewed and merged to main.
+contract_version: "0.1.0"
+contract_id: "BVC-GLOBAL-TC-001"
+revision: 1
+status: APPROVED
+
+task:
+  id: "BVC-GLOBAL-CONT-001"
+  title: "Repository README Positioning and GitHub Verification Continuity"
+  objective: >-
+    Align the repository README with the Human Owner-approved positioning and
+    audience hierarchy of BEYOND VIBE CODING, and establish a provider-neutral,
+    on-demand GitHub Repository Verification Protocol for new AI sessions.
+    Preserve existing project baselines, continuity semantics, governance,
+    product claims, and execution authority.
+  requested_by: "Human Owner / Product Owner"
+
+project:
+  project_id: "BVC-BUILD-LEARN"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "0c14b53da12e532eeeb827f25bddb364aad2a09f"
+    # CLEAN refers only to the committed GitHub main snapshot used as the remote starting point.
+    # The Human Owner's laptop working tree is UNKNOWN and is not represented as clean.
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "README.md"
+      - "docs/continuity/README.md"
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/CONTINUITY_PROTOCOL.md"
+      - "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+      - "docs/continuity/SOURCE_MANIFEST.csv"
+      - "specifications/v0.1/task-contract.md"
+    recovery_point:
+      kind: git_commit
+      reference: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+      verified: true
+
+intent:
+  objective: "Update repository positioning and mandatory repository-verification instructions without changing product or implementation baselines."
+  rationale: >-
+    The current README's learning-path order does not reflect the Owner-approved
+    primary and extended audiences. The global continuity system also needs a
+    single, explicit GitHub verification protocol so a new authorized executor
+    reconstructs repository truth from live GitHub instead of stale chat memory
+    or snapshots.
+  expected_outcome: >-
+    One new GitHub Repository Verification Protocol and five coordinated
+    documentation updates, delivered on a dedicated branch and Human
+    Owner-reviewed Pull Request.
+  business_or_user_value: >-
+    Readers see the book's intended engineering positioning, while ChatGPT,
+    GAIS workers, and IDE-based executors receive a consistent repository
+    recovery and verification procedure.
+    
+risk:
+  level: R1
+  policy_ref: "specifications/v0.1/task-contract.md#4.4; no repository-wide risk policy is asserted by this Contract. The BVCTM risk policy is project-specific and is not generalized here."
+  rationale: >-
+    The authorized changes are limited to repository README and continuity
+    documentation. They do not change executable code, product behavior,
+    security controls, data, dependencies, architecture baselines, or external
+    services. The R1 classification is a task-specific documentation risk
+    assessment explicitly approved by the Human Owner; it does not adopt the
+    separate BVCTM risk-policy mapping.
+  impact_factors:
+    - other
+  reversibility: EASY
+  risk_owner: "Human Owner / Product Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+    modify:
+      - "README.md"
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+      - "docs/continuity/README.md"
+      - "docs/continuity/SOURCE_MANIFEST.csv"
+    delete: []
+  forbidden_paths:
+    - "docs/continuity/CURRENT_STATE.yaml"
+    - "docs/continuity/DECISIONS.md"
+    - "docs/continuity/HANDOFF_LOG.md"
+    - "docs/continuity/HANDOFF_TEMPLATE.md"
+    - "projects/task-management/README.md"
+  forbidden_path_prefixes:
+    - "projects/"
+    - "practical-labs/"
+    - "specifications/"
+    - "scripts/"
+    - "tests/"
+    - ".github/"
+    - "templates/"
+    - "docs/continuity/task-contracts/"
+  protected_resource_refs:
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "specifications/v0.1/"
+    - "projects/task-management/governance/"
+    - "projects/task-management/continuity/"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Do not modify main directly. All changes must be made on a dedicated branch and submitted in a Pull Request."
+  - "Do not merge the Pull Request; Human Owner review and merge are required."
+  - "Keep the README's existing factual content, roadmap statuses, limitations, and technical neutrality unless a specific in-scope positioning passage must be adjusted."
+  - "Use the Owner-approved audience hierarchy: primary—Programmers / Developers, Software Engineers, Junior Developers, Tech Leads / CTOs; extended—Technical Founders / Indie Hackers, CEOs / Owners, beginners, and non-programmers."
+  - "Preserve the book's distinction between Vibe Coding, prototypes, product engineering, AI execution, human responsibility, verification, and real-world value."
+  - "Do not rewrite the repository README as a BVCTM-only page or turn it into promotional copy."
+  - "Do not claim that GitHub App access automatically synchronizes a local laptop, GAIS workspace, or IDE working tree."
+  - "Describe connector capabilities per actual tool and permission. Do not assume a read-only connector can write or that repository push permission authorizes merge."
+  - "Preserve the Human Owner's mandatory GREEN / AMBER / RED continuity rule and the distinction between reported execution and verified execution."
+  - "Preserve the separation of public BVC materials from private EFIN information and private ENERIXON MDS/corporate design-system sources."
+  - "Do not modify project-specific product baselines, task statuses, decisions, acceptance records, or historical handoffs."
+  - "Do not introduce provider-specific assumptions as universal requirements. ChatGPT, GAIS, and IDE executors must use the same repository truth but may have different access and execution capabilities."
+
+required_context:
+  - reference: "README.md on main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+    purpose: "Preserve existing repository positioning, engineering principles, roadmap, maturity statements, and companion-book references while editing only relevant passages."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+    freshness_requirement: "Refetch live main before execution."
+  - reference: "docs/continuity/BOOTSTRAP.md"
+    purpose: "Preserve global authority order, startup sequence, execution gates, and Owner approval boundaries."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+  - reference: "docs/continuity/CONTINUITY_PROTOCOL.md"
+    purpose: "Preserve event-driven machine/semantic separation and existing continuity mechanics."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+  - reference: "docs/continuity/README.md"
+    purpose: "Maintain the seven-record continuity model and position the new verification protocol without creating a duplicate state store."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+  - reference: "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+    purpose: "Align the single-prompt resume sequence with the new repository-verification protocol."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+  - reference: "docs/continuity/SOURCE_MANIFEST.csv"
+    purpose: "Register the new protocol as a navigation source without changing source authority semantics."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+  - reference: "specifications/v0.1/task-contract.md and specifications/v0.1/task-contract.schema.json"
+    purpose: "Follow Task Contract structure, risk, scope, evidence, Change Budget, authorization, and pre/post-execution controls."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@0c14b53da12e532eeeb827f25bddb364aad2a09f"
+  - reference: "Human Owner decision in this conversation dated 2026-11-07"
+    purpose: "Establish the primary/extended audience hierarchy and approve this Contract and six-file documentation scope."
+    authority: APPROVED
+    required: true
+    freshness_requirement: "Current explicit Owner approval."
+  - reference: "BVC_Continuity_Kit_v1_1_DOWNLOAD(3).zip and BVC_NEXT_CHAT_PROMPT_DOWNLOAD(3).md supplied on 2026-11-07"
+    purpose: "Historical reference for BVC-CONTINUITY-OPS-001, GREEN/AMBER/RED, evidence classification, privacy boundaries, and prior handoff structure. Its PR #4 checkpoint, Product Definition v0.1.0, old phase status, and next action are stale and must not override current main."
+    authority: REFERENCE
+    required: true
+    freshness_requirement: "Use only historically relevant rules; reconcile all facts against current main."
+
+dependencies: []
+
+expected_outputs:
+  - id: "OUT-001"
+    kind: DOCUMENTATION
+    description: "New provider-neutral GitHub Repository Verification Protocol covering identity, live refs, PR/diff/review/check inspection, authority, pagination, connector limits, and local/remote boundaries."
+    path: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+    required: true
+  - id: "OUT-002"
+    kind: DOCUMENTATION
+    description: "README updated to reflect Owner-approved primary and extended audiences and the book's core engineering positioning without removing factual repository content."
+    path: "README.md"
+    required: true
+  - id: "OUT-003"
+    kind: DOCUMENTATION
+    description: "Bootstrap updated to require live GitHub Repository Verification before continuity reconciliation or consequential action."
+    path: "docs/continuity/BOOTSTRAP.md"
+    required: true
+  - id: "OUT-004"
+    kind: DOCUMENTATION
+    description: "Single-prompt resume updated to invoke the verification protocol and preserve status/evidence/authority rules."
+    path: "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+    required: true
+  - id: "OUT-005"
+    kind: DOCUMENTATION
+    description: "Continuity README updated to document the new supporting protocol without changing the seven canonical state-record model."
+    path: "docs/continuity/README.md"
+    required: true
+  - id: "OUT-006"
+    kind: DOCUMENTATION
+    description: "Global Source Manifest updated with the new protocol path, role, authority, and limitations."
+    path: "docs/continuity/SOURCE_MANIFEST.csv"
+    required: true
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "README clearly presents the Owner-approved primary audience hierarchy and extended audience hierarchy."
+    verification_method: "Review the edited README sections against the Human Owner's explicit 2026-11-07 audience decision."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-002"
+    statement: "README retains BVC's project-centric engineering positioning and accurately reflects the book's distinction between prototype generation and finishing reliable, valuable software."
+    verification_method: "Review the edited passages against current README source and the Owner-supplied book; confirm no unsupported production or outcome claims."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-003"
+    statement: "The new verification protocol defines how an executor verifies repository identity, live main, open PRs, relevant branches, diffs, reviews, comments, checks, pagination, and source freshness."
+    verification_method: "Manual checklist review against the protocol's required sections and live connector capabilities."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-004"
+    statement: "The protocol explicitly distinguishes GitHub on-demand retrieval from synchronization of local laptop, GAIS, or IDE workspaces."
+    verification_method: "Inspect protocol language for remote/local boundaries and executor-specific capability checks."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-005"
+    statement: "BOOTSTRAP and BVC_NEXT_CHAT_PROMPT require the same verification protocol and do not contradict the existing authority order or execution gates."
+    verification_method: "Cross-check both files against the new protocol and current BOOTSTRAP authority hierarchy."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-006"
+    statement: "The continuity README and Source Manifest reference the new protocol accurately while preserving the seven canonical continuity records."
+    verification_method: "Check Markdown links and parse the CSV structure; verify the protocol is classified as supporting operations/navigation, not an additional state store."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-007"
+    statement: "Exactly one file is created, five files are modified, and no file is deleted; all paths match the Contract."
+    verification_method: "Use the GitHub PR changed-file inventory and diff to verify exact paths and operation types."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-008"
+    statement: "No product baseline, project-specific governance, task state, code, workflow, dependency, schema, or deployment artifact changes."
+    verification_method: "Inspect the complete PR diff and compare against forbidden paths and protected-resource references."
+    required_evidence_level: 1
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 1
+  checks:
+    - id: "VC-001"
+      kind: STATIC_ANALYSIS
+      description: "Check Markdown headings, internal relative links, and consistency between README, Bootstrap, Next Chat Prompt, and verification protocol."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-003", "AC-004", "AC-005"]
+    - id: "VC-002"
+      kind: STATIC_ANALYSIS
+      description: "Parse the Source Manifest CSV and verify consistent columns and the new protocol row."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-006"]
+    - id: "VC-003"
+      kind: MANUAL_REVIEW
+      description: "Review the full Git diff and PR changed-file inventory for exact scope, no prohibited paths, and no unintended factual/status changes."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-007", "AC-008"]
+    - id: "VC-004"
+      kind: MANUAL_REVIEW
+      description: "Human Owner reviews and decides whether to merge the documentation PR."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-003", "AC-004", "AC-005", "AC-006", "AC-007", "AC-008"]
+  known_verification_limits:
+    - "A passing documentation check does not prove that every future GitHub connector or AI executor exposes the same endpoints or permissions."
+    - "A GitHub connector read or push permission does not prove local laptop, GAIS, or IDE workspace synchronization."
+    - "This task does not implement cross-worker state synchronization, automatic GAIS import/export, or an execution orchestration service; those require a separate design and Task Contract."
+
+change_budget:
+  max_changed_files: 6
+  max_created_files: 1
+  max_modified_files: 5
+  max_deleted_files: 0
+  max_total_diff_lines: 1000
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: "docs/continuity/BOOTSTRAP.md#4; specifications/v0.1/task-contract.md; Human Owner explicit approval in this conversation."
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: "Human Owner explicitly approved BVC-GLOBAL-TC-001 contents and the exact six-file Phase 2 scope on 2026-11-07, instructed execution by dedicated branch and Pull Request, and prohibited direct main modification or merge."
+  executor:
+    class: HYBRID
+    identifier: "ChatGPT with connected GitHub repository tools; Human Owner performs final review and merge."
+    capability_requirements:
+      - "Read live repository files and refs from GitHub."
+      - "Create a dedicated branch and perform exact-path documentation writes on that branch."
+      - "Inspect complete Git diffs and PR changed-file inventories."
+      - "Run Markdown/link and CSV validation where supported."
+      - "Do not claim access to or cleanliness of the Human Owner's laptop working tree."
+      - "Do not merge the Pull Request."
+  permitted_actions:
+    - read
+    - inspect
+    - create
+    - modify
+    - run_analysis
+    - run_tests
+  human_approval:
+    required: true
+    status: APPROVED
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Explicit approval in the current conversation on 2026-11-07."
+    rationale: "The Human Owner approved the exact Contract contents, the six-file documentation scope, and the branch_pr delivery method."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded repair attempt may correct Markdown, link, or CSV formatting without changing file scope. Any scope expansion, new requirement, or protected-file change requires a revised Contract and explicit approval."
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md and docs/continuity/BOOTSTRAP.md"
