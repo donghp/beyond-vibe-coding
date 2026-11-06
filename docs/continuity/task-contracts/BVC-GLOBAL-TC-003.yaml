@@ -18,7 +18,6 @@ task:
     content and status, preserve the distinction between the BVC framework and
     the separate BVC Task Management learning product, and avoid claiming that
     planned or unverified capabilities already exist.
-  parent_task_id: "BVC-GLOBAL-CONT-002"
   requested_by: "Human Owner / Product Owner"
 
 project:
@@ -51,8 +50,9 @@ intent:
   objective: "Turn the current repository's framework, learning path, practical labs, and resources into four clear, directly navigable public pages."
   rationale: >-
     The current main branch is a documentation-and-learning repository and does
-    not yet contain a website frontend or GitHub Pages configuration. The
-    reference AI Engineering from Scratch site demonstrates the value of clear
+    not yet contain website frontend files. GitHub Pages settings and any
+    published URL have not been verified. The reference AI Engineering from
+    Scratch site demonstrates the value of clear
     navigation, a coherent curriculum, and direct links from the landing page
     into learning content. BVC should adopt those information-design lessons
     without copying its visual identity, proprietary content, counts, claims, or
