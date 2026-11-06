@@ -10,6 +10,11 @@ The repository owns durable project knowledge. AI executors are temporary and re
 
 Use [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) as the single entry prompt. It directs the receiving session to read [BOOTSTRAP.md](./BOOTSTRAP.md), reconcile live GitHub, then inspect the seven continuity records.
 
+## Supporting operational protocol
+
+- [GITHUB_REPOSITORY_VERIFICATION.md](./GITHUB_REPOSITORY_VERIFICATION.md) defines live GitHub identity, baseline, PR/branch/diff/check inspection, evidence classification, and local/AI workspace boundaries required during bootstrap.
+- This is an operating procedure under `BOOTSTRAP.md`; it is not an eighth canonical state record and does not create a duplicate project-state store.
+
 ## The seven canonical continuity records
 
 | File | Responsibility | Update rule |

@@ -18,9 +18,11 @@ BVC does not aim to make prompts longer, build more autonomous agents, or depend
 
 ## Start Here
 
-New to AI-assisted software development? You do not need to be an AI engineer to begin.
+BVC is built primarily for people who design, build, review, and lead software engineering work. It helps developers use AI coding tools and agents without giving up control of product decisions, architecture, code quality, security, or delivery.
 
-BVC provides a practical foundation for people who want to use AI coding tools without losing control of the software they build. Through **Build & Learn**, readers can also start with a practical project that solves an everyday work problem.
+You do not have to hand-write every line of code. You do need to understand the software being built, inspect what AI changes, verify important behavior, and remain accountable for the engineering outcome.
+
+Through **Build & Learn**, readers can apply the method to practical projects and see how the ideas work beyond isolated prompts and prototypes.
 
 **Recommended starting points:**
 
@@ -29,22 +31,29 @@ BVC provides a practical foundation for people who want to use AI coding tools w
 3. [Task Contract Guide](docs/task-contract.md)
 4. [Core Specifications Index](specifications/v0.1/README.md)
 5. [Build & Learn — BVC Task Management Product Definition v0.2.0](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+6. [GitHub Repository Verification Protocol](docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md)
 
 You can also explore the [Documentation Index](docs/README.md) for the complete reading path.
 
-### Choose your learning path
+### Primary audience
 
-| Audience | What you will learn |
+| Audience | What BVC helps them do |
 |---|---|
-| **Beginner / Vibe Coder** | How to start with a simple practical project, explain what you need, guide AI step by step, and check the result. |
-| **Individual / Independent Builder** | How to build and use small personal tools, organize project knowledge, and keep control of AI-assisted changes. |
-| **Business User / Owner** | How to use a role-based starter kit as a starting point for everyday work, then adapt the tool to your own needs. |
-| **Developer** | How to apply structured task contracts, validation, testing, and source-control practices. |
-| **Team Lead / Engineering Manager** | How to coordinate AI-assisted work, review changes, and maintain consistent engineering practices. |
-| **CTO / Software Architect** | How to reason about authority, security, architecture integrity, risk, and project governance. |
-| **AI Engineer** | How to integrate AI executors into a technology-neutral, project-controlled engineering method. |
+| **Programmers / Developers** | Decompose work, prepare context, direct AI coding tools, inspect generated changes, test behavior, and deliver maintainable software. |
+| **Software Engineers** | Apply engineering judgment to AI-assisted implementation, architecture, verification, security, and long-term maintenance. |
+| **Junior Developers** | Build sound habits for task definition, code review, testing, source control, and responsible AI collaboration. |
+| **Tech Leads / CTOs** | Establish team-level boundaries for architecture, risk, authorization, quality, delivery, and continuity across AI executors. |
 
-BVC is intended to make practical building and engineering discipline progressively accessible. Beginners can start with simple projects; experienced practitioners can examine the specifications, schemas, validators, tests, and engineering boundaries.
+### Extended audience
+
+| Audience | What BVC helps them do |
+|---|---|
+| **Technical Founders / Indie Hackers** | Turn product ideas into software while keeping scope, quality, cost, and technical risk visible. |
+| **CEOs / Business Owners** | Understand what AI-assisted software work can deliver, what must be verified, and where human decisions remain essential. |
+| **Beginners** | Start with guided practical work and progressively understand the product, tools, and engineering decisions involved. |
+| **Non-programmers** | Work with AI to explore and shape useful software while recognizing the limits of prototypes and the need for engineering review. |
+
+BVC does not lower engineering standards to make AI tools appear effortless. It makes the process understandable and progressively accessible: experienced practitioners can go deep into specifications, schemas, validators, tests, and architecture, while extended audiences can begin with guided product-focused work.
 
 ---
 
