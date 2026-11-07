@@ -1,0 +1,428 @@
+# BVC Global Task Contract 003
+# Proposed scope only. Human Owner approval is pending.
+contract_version: "0.1.0"
+contract_id: "BVC-GLOBAL-TC-003"
+revision: 1
+status: PROPOSED
+created_at: "2026-11-07"
+
+task:
+  id: "BVC-GLOBAL-WEB-001"
+  title: "Beyond Vibe Coding — Four-Page Public Learning Website"
+  objective: >-
+    Create a complete, responsive, four-page public website for the Beyond Vibe
+    Coding repository. The site will make the framework understandable and
+    navigable, direct readers into the existing learning materials and practical
+    labs, and provide a clear resource hub. The proposed navigation is Home,
+    Learn, Build, and Resources. Pages must reflect the live repository's actual
+    content and status, preserve the distinction between the BVC framework and
+    the separate BVC Task Management learning product, and avoid claiming that
+    planned or unverified capabilities already exist.
+  requested_by: "Human Owner / Product Owner"
+
+project:
+  project_id: "BVC-PUBLIC-WEBSITE"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "README.md"
+      - "docs/00-start-here.md"
+      - "docs/framework-overview.md"
+      - "docs/architecture.md"
+      - "docs/README.md"
+      - "docs/book-chapter-map.md"
+      - "specifications/v0.1/README.md"
+      - "practical-labs/README.md"
+      - "practical-labs/bvc-task-management/CURRICULUM_MAP_V0.1.md"
+      - "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.1.md"
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+    recovery_point:
+      kind: git_commit
+      reference: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+      verified: true
+
+intent:
+  objective: "Turn the current repository's framework, learning path, practical labs, and resources into four clear, directly navigable public pages."
+  rationale: >-
+    The current main branch is a documentation-and-learning repository and does
+    not yet contain website frontend files. GitHub Pages settings and any
+    published URL have not been verified. The reference AI Engineering from
+    Scratch site demonstrates the value of clear
+    navigation, a coherent curriculum, and direct links from the landing page
+    into learning content. BVC should adopt those information-design lessons
+    without copying its visual identity, proprietary content, counts, claims, or
+    implementation. The four proposed BVC areas map to content already present
+    in the repository.
+  expected_outcome: >-
+    Four independent static HTML pages with a shared responsive navigation and
+    design system; accurate content and working repository links; a source map
+    documenting where each page's claims come from; a small standard-library
+    validator and automated tests; and least-privilege CI validation. The files
+    will be ready for a GitHub Pages source configuration, but this task will
+    not change repository settings or claim the site is live.
+  business_or_user_value: >-
+    Readers can understand BVC quickly, choose a learning path, start hands-on
+    work, and find the companion book and reusable engineering resources
+    without having to navigate the repository structure unaided.
+
+risk:
+  level: R1
+  policy_ref: "Task-specific R1 proposal for a static public information website; BVC has not established a repository-wide R0-R5 risk mapping. See specifications/v0.1/task-contract.md#4.4."
+  rationale: >-
+    The proposed work adds a static, informational frontend and read-only
+    validation. It does not introduce a backend, user accounts, data collection,
+    analytics, payments, database, secrets, production integration, dependency
+    changes, or changes to the BVC Task Management product. The pages will link
+    to existing public material and clearly label draft or unverified content.
+    R1 is a task-specific proposal, not a general risk classification rule.
+  impact_factors:
+    - other
+  reversibility: EASY
+  risk_owner: "Human Owner / Product Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "index.html"
+      - "learn.html"
+      - "build.html"
+      - "resources.html"
+      - "assets/css/bvc-site.css"
+      - "assets/js/bvc-site.js"
+      - "docs/WEBSITE_INFORMATION_ARCHITECTURE.md"
+      - "scripts/validate_public_site.py"
+      - "tests/test_public_site.py"
+      - ".github/workflows/validate-public-site.yml"
+    modify:
+      - "README.md"
+    delete: []
+  forbidden_paths:
+    - "docs/continuity/CURRENT_STATE.yaml"
+    - "docs/continuity/DECISIONS.md"
+    - "docs/continuity/HANDOFF_LOG.md"
+    - "docs/continuity/BOOTSTRAP.md"
+    - "docs/continuity/CONTINUITY_PROTOCOL.md"
+    - ".github/workflows/continuity-refresh.yml"
+    - ".github/workflows/validate-cross-executor-continuity.yml"
+    - "requirements-dev.txt"
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    - "projects/task-management/continuity/PROJECT_STATE.json"
+    - "projects/task-management/continuity/HANDOFF_LOG.md"
+    - "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+    - "projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml"
+  forbidden_path_prefixes:
+    - "projects/"
+    - "practical-labs/"
+    - "specifications/"
+    - "templates/"
+  protected_resource_refs:
+    - "All five BVC Core Specifications and their schemas, examples, templates, and validators."
+    - "BVC Task Management Product Definition v0.2.0 and its project-specific UX, architecture, governance, task contracts, state, and evidence."
+    - "The seven canonical global continuity records and the approved TC-002 deliverables."
+    - "Private EFIN and ENERIXON sources, customer data, credentials, and corporate design-system materials."
+    - "GitHub repository settings, Pages settings, Actions permissions, secrets, branch protection, and rulesets."
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Do not modify main directly. All changes must be made on a dedicated task branch and submitted through a Pull Request."
+  - "Do not merge the Pull Request. Human Owner review and final Squash and merge authority remain with the Human Owner."
+  - "Treat live main and approved repository sources as truth. Historical chats and the reference website are not authority for BVC content or status."
+  - "The four proposed page labels are Home, Learn, Build, and Resources. This is a proposed information architecture based on current repository content and must remain subject to Human Owner review before implementation."
+  - "Home introduces BVC, its audience, core proposition, and clear paths into the other three pages."
+  - "Learn explains the framework and five Core Specifications and links to the current documentation. Preserve Draft / Experimental v0.1.0 status and all stated limitations."
+  - "Build presents the Practical Labs learning path and BVC Task Management as the first learning project. Preserve the real lesson register and do not represent Planned, Draft, Evidence Required, or unverified items as Published."
+  - "Resources indexes the companion book, documentation, schemas, examples, templates, glossary, chapter map, contribution guidance, and repository links."
+  - "Keep the BVC framework separate from the BVC Task Management product. Do not imply that the product's UX acceptance, implementation, database, Auth, RLS, or deployment is complete."
+  - "Build four independently addressable HTML pages with a consistent shared navigation and active-page state. Navigation must work without JavaScript."
+  - "Use semantic HTML, keyboard-accessible navigation, visible focus states, responsive layouts, sufficient contrast, and descriptive link text."
+  - "Use plain HTML, CSS, and minimal vanilla JavaScript. Do not add frameworks, package managers, dependencies, analytics, tracking, advertising, backend services, authentication, forms that collect personal data, or remote fonts."
+  - "Do not copy the reference website's text, code, graphics, design identity, metrics, lesson counts, or social proof. Learn only from its information architecture and reader navigation patterns."
+  - "Do not invent testimonials, user counts, star counts, completion percentages, progress statistics, endorsements, screenshots, or product capabilities."
+  - "Do not publish screenshots or illustrations unless they are original, authorized, and accurately represent the current project. CSS/HTML-native decoration is preferred for this initial version."
+  - "Do not change repository settings or enable/configure GitHub Pages. Prepare deployable static files and report that publication remains pending until the Human Owner configures and verifies Pages."
+  - "The new CI workflow must use least privilege, have contents: read only, and must not create PRs, write to the repository, or alter other workflows."
+  - "Do not change dependency manifests, lockfiles, schemas, databases, authentication, financial calculations, security baselines, product baselines, or architecture governance."
+  - "Avoid embedding content that is not already supported by the repository. Record each page's canonical source paths in the website information architecture document."
+  - "Do not claim that a GitHub Pages URL is live or verified until the Human Owner enables Pages and the published URL is checked."
+
+required_context:
+  - reference: "README.md"
+    purpose: "Canonical repository overview, project positioning, audience, framework principles, limitations, and current development status."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+  - reference: "docs/00-start-here.md; docs/framework-overview.md; docs/architecture.md; docs/README.md"
+    purpose: "Source the framework introduction, conceptual architecture, five engineering concerns, learning paths, and limitations."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+  - reference: "specifications/v0.1/README.md and specifications/v0.1/"
+    purpose: "Source the five Core Specifications, current versions, Draft / Experimental status, examples, templates, and limitations."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+  - reference: "practical-labs/README.md; practical-labs/bvc-task-management/CURRICULUM_MAP_V0.1.md; practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.1.md"
+    purpose: "Source the Build & Learn introduction, four learning phases, lesson progression, dependencies, and accurate lesson publication states."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+  - reference: "docs/book-chapter-map.md"
+    purpose: "Source the companion book relationship and traceability to the 21-chapter English International Edition."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+  - reference: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; docs/continuity/BOOTSTRAP.md"
+    purpose: "Preserve repository truth, review, evidence, and Human Owner authority boundaries."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+  - reference: "specifications/v0.1/task-contract.md; specifications/v0.1/task-contract.schema.json; scripts/validate_task_contracts.py"
+    purpose: "Validate this task scope, contract structure, exact file inventory, and required evidence."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+  - reference: "https://aiengineeringfromscratch.com/; https://github.com/rohitg00/ai-engineering-from-scratch"
+    purpose: "Reference-only research for clear navigation, curriculum discoverability, and direct learning-resource links. Do not copy their content, assets, metrics, or identity."
+    authority: REFERENCE
+    required: true
+    freshness_requirement: "Reference was inspected on 2026-11-07; recheck before relying on any current site feature."
+
+dependencies: []
+
+expected_outputs:
+  - id: "OUT-001"
+    kind: CODE
+    description: "Home page introducing BVC, audience, central proposition, framework value, and direct routes to Learn, Build, and Resources."
+    path: "index.html"
+    required: true
+  - id: "OUT-002"
+    kind: CODE
+    description: "Learn page explaining the framework and five Core Specifications, with source-grounded links and explicit Draft / Experimental limitations."
+    path: "learn.html"
+    required: true
+  - id: "OUT-003"
+    kind: CODE
+    description: "Build page presenting Practical Labs, the four learning phases, BVC Task Management, and accurate lesson readiness states."
+    path: "build.html"
+    required: true
+  - id: "OUT-004"
+    kind: CODE
+    description: "Resources page indexing the companion book, documentation, specifications, examples, templates, glossary, chapter map, and contribution routes."
+    path: "resources.html"
+    required: true
+  - id: "OUT-005"
+    kind: CODE
+    description: "Shared responsive, accessible visual system and page layout styles."
+    path: "assets/css/bvc-site.css"
+    required: true
+  - id: "OUT-006"
+    kind: CODE
+    description: "Minimal progressive-enhancement JavaScript for small-screen navigation and optional interface behavior; page navigation must still work without it."
+    path: "assets/js/bvc-site.js"
+    required: true
+  - id: "OUT-007"
+    kind: DOCUMENTATION
+    description: "Website information architecture, page content map, source traceability, link policy, design decisions, and GitHub Pages publication boundary."
+    path: "docs/WEBSITE_INFORMATION_ARCHITECTURE.md"
+    required: true
+  - id: "OUT-008"
+    kind: CODE
+    description: "Standard-library static site validator checking required pages, navigation parity, internal link targets, and basic structural constraints."
+    path: "scripts/validate_public_site.py"
+    required: true
+  - id: "OUT-009"
+    kind: TEST
+    description: "Automated unit tests for the public site validator and required four-page structure."
+    path: "tests/test_public_site.py"
+    required: true
+  - id: "OUT-010"
+    kind: CONFIGURATION
+    description: "Least-privilege GitHub Actions workflow running only the public site validator/tests on relevant pull requests and main changes."
+    path: ".github/workflows/validate-public-site.yml"
+    required: true
+  - id: "OUT-011"
+    kind: DOCUMENTATION
+    description: "README entry point updated with a clear link to the four-page site source and local preview instructions, without claiming live deployment."
+    path: "README.md"
+    required: true
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "The repository contains four distinct, directly addressable public pages named Home, Learn, Build, and Resources, each with a clear purpose and complete reader-facing content."
+    verification_method: "Inspect all four HTML pages and compare their content with the approved information architecture and canonical source documents."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-002"
+    statement: "All four pages share consistent navigation, identify the current page, work without JavaScript, and adapt to mobile, tablet, and desktop layouts."
+    verification_method: "Inspect navigation markup and CSS breakpoints; perform keyboard and responsive viewport review."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-003"
+    statement: "Every material statement about the framework, specifications, product, learning phases, and publication status is supported by a canonical repository source; draft, planned, open, and unverified work is labeled accurately."
+    verification_method: "Cross-check site text against README, documentation, five Core Specifications, curriculum map, and lesson status register."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-004"
+    statement: "The site introduces no backend, personal-data collection, accounts, analytics, tracking, advertising, third-party runtime dependency, or unapproved external asset."
+    verification_method: "Inspect HTML, CSS, JavaScript, workflow, and network/resource references for external scripts, data submission, tracking, or new dependencies."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-005"
+    statement: "The standard-library validator and automated tests pass for the four-page navigation and internal-link structure."
+    verification_method: "Run python scripts/validate_public_site.py and python -m unittest tests.test_public_site -v; inspect CI result for the exact PR revision."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-006"
+    statement: "The information architecture document maps all four pages to current canonical source files and records the distinction between BVC framework and BVC Task Management product."
+    verification_method: "Review the source-to-page mapping and verify that no product-specific baseline is presented as a global BVC rule."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-007"
+    statement: "The implementation PR changes exactly the authorized ten CREATE paths and one MODIFY path, with no deletion or out-of-scope changes."
+    verification_method: "Inspect the complete PR changed-file inventory and diff against this Contract."
+    required_evidence_level: 1
+    required: true
+  - id: "AC-008"
+    statement: "GitHub Pages publication is not represented as complete unless repository settings are separately configured by the Human Owner and the published URL is verified."
+    verification_method: "Inspect the site, README, PR description, and final report for deployment claims; report publication as NOT CONFIGURED / NOT VERIFIED until actual evidence is available."
+    required_evidence_level: 1
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 2
+  checks:
+    - id: "VC-001"
+      kind: MANUAL_REVIEW
+      description: "Review the four pages, page hierarchy, source mapping, and reader journeys."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-006"]
+    - id: "VC-002"
+      kind: MANUAL_REVIEW
+      description: "Review shared navigation, active-page indication, keyboard focus, and responsive layouts."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-002"]
+    - id: "VC-003"
+      kind: STATIC_ANALYSIS
+      description: "Run the static site validator and check internal links, canonical status wording, and prohibited external dependencies."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-003", "AC-004", "AC-008"]
+    - id: "VC-004"
+      kind: UNIT_TEST
+      description: "Run public site validator unit tests and the existing repository test suite."
+      command: "python scripts/validate_public_site.py && python -m unittest tests.test_public_site -v && python -m unittest discover -s tests -v"
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-005"]
+    - id: "VC-005"
+      kind: MANUAL_REVIEW
+      description: "Inspect the full implementation PR diff, exact file inventory, and scope boundaries before Human Owner review."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-007"]
+    - id: "VC-006"
+      kind: MANUAL_REVIEW
+      description: "Confirm no deployment or Pages activation is claimed without a separate Owner-operated settings change and a live URL check."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-008"]
+  known_verification_limits:
+    - "The current repository main branch contains no website frontend; this Contract proposes a new static site."
+    - "GitHub Pages settings and the published URL have not been verified. This task does not change repository or Pages settings."
+    - "Automated tests can check structure and links but cannot replace visual review in actual browsers or human usability testing."
+    - "No authentic reader analytics or completion statistics are available; the website must not invent them."
+    - "Practical Lab lessons have mixed Draft, Planned, and Evidence Required states; the site must preserve those states."
+
+change_budget:
+  max_changed_files: 11
+  max_created_files: 10
+  max_modified_files: 1
+  max_deleted_files: 0
+  max_total_diff_lines: 1800
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; specifications/v0.1/task-contract.md. No repository-wide R0-R5 risk mapping is asserted."
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Pending Human Owner approval"
+  authorization_reference: "Human Owner instruction on 2026-11-07 requests continued completion of the BVC public repository with four tab pages. This Contract records a proposed Home / Learn / Build / Resources scope for Owner review; it is not yet approved."
+  executor:
+    class: HYBRID
+    identifier: "ChatGPT prepares repository artifacts and tests; Human Owner reviews the implementation PR and controls merge and Pages publication."
+    capability_requirements:
+      - "Read live GitHub repository metadata, files, branches, commits, PRs, and workflow evidence."
+      - "Create a dedicated branch and the exact website files after Contract approval."
+      - "Run existing Python validation, standard-library static site validation, and unit tests."
+      - "Inspect the full Git diff and exact PR file inventory."
+      - "Do not claim access to the Human Owner's local browser, workstation, or GitHub Pages settings."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - create
+    - modify
+    - run_tests
+  human_approval:
+    required: true
+    status: PENDING
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Pending explicit Human Owner approval of BVC-GLOBAL-TC-003 Revision 1."
+    rationale: "Implementation must not begin until the exact four-page information architecture, scope, risk proposal, change budget, acceptance criteria, and verification plan are approved and the approval record is canonical on main."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded repair attempt may correct static HTML, CSS, JavaScript, internal-link, source-map, validator, or test issues within the approved paths. Changes to the page map, architecture, external services, dependencies, deployment settings, or protected project baselines require a revised Contract and explicit approval."
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md; docs/continuity/BVC_NEXT_CHAT_PROMPT.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
