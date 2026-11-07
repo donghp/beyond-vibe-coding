@@ -1,7 +1,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-CONT-TC-001"
 revision: 4
-status: PROPOSED
+status: APPROVED
 created_at: "2026-11-08T06:40:00+07:00"
 
 task:
@@ -23,7 +23,7 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "3d5c65c84ac28b99d4fe453164b90a2e766df058"
+    source_commit: "ec3c12f4bf894c76918be57f669d53c60d0fdc30"
     working_tree_status: DIRTY
     pre_existing_changes_ref: "Latest Human Owner terminal evidence supplied 2026-11-07: local C:\\beyond-vibe-coding is on branch docs/bvctm-continuity-contract-r3 at c2f4b7987a08151f46606f5a68200629b71ab691, with projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md modified and two untracked files practical-labs/bvc-task-management/phase-a/a1-01-gais-start-screen.png and practical-labs/bvc-task-management/phase-a/a1-02-bvctm-initial-scaffold-preview.png; origin/main is 3d5c65c84ac28b99d4fe453164b90a2e766df058. These pre-existing local changes are excluded from this Contract and its implementation diff; do not stage, reset, overwrite, or include them."
     architecture_baseline_refs:
@@ -37,7 +37,7 @@ project:
       - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
     recovery_point:
       kind: git_commit
-      reference: "main@3d5c65c84ac28b99d4fe453164b90a2e766df058"
+      reference: "main@ec3c12f4bf894c76918be57f669d53c60d0fdc30"
       verified: true
 
 intent:
@@ -50,11 +50,11 @@ intent:
     and exactly one next permitted action without relying on previous chat.
   rationale: >-
     Contract Revision 3 was separately approved and published by PR #34.
-    Revision 4 makes an administrative baseline refresh only, setting the
-    source commit and recovery point to the verified main checkpoint after
-    PR #34. It does not change the task objective, risk controls, acceptance
-    criteria, verification checks, exact file permissions or Change Budget.
-    Revision 4 remains PROPOSED until separately approved by the Human Owner.
+    Revision 4 refreshes the administrative baseline to the verified main
+    checkpoint after PR #35. The Human Owner separately approved Revision 4
+    after its proposal was published and validated. Task objective, risk
+    controls, acceptance criteria, verification checks, exact file permissions
+    and Change Budget remain unchanged. All other preflight gates still apply.
   expected_outcome: >-
     One current BVCTM Project State, one Source Manifest, one append-only
     Handoff Log, one Task Execution Register, and one Evidence Index describe
@@ -76,7 +76,7 @@ risk:
     projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
     — Sections 3, 4.1, 7 and 8. Policy header remains publication pending;
     effective date is upon controlled merge. Human Owner confirmed R1 on
-    2026-11-07; this Revision 4 requires separate approval.
+    2026-11-07 and separately approved Contract Revision 4 on 2026-11-08.
   rationale: >-
     The planned changes are bounded documentation, continuity metadata,
     registers, and validation-plan updates. No application source, product
@@ -540,10 +540,10 @@ authority:
   requested_by: "Human Owner / Product Owner"
   authorized_by: "Human Owner / Product Owner"
   authorization_reference: >-
-    The Human Owner explicitly authorized preparation of Contract Revision 4
-    in the current conversation on 2026-11-08 for baseline refresh only. This
-    authorizes proposal preparation, not approval of Revision 4 or execution.
-    The exact 13-path scope and all technical controls remain unchanged.
+    The Human Owner authorized preparation and then explicitly confirmed
+    successful merge of PR #35 on 2026-11-08. This records approval of the
+    published Revision 4 baseline refresh only; all technical scope remains
+    unchanged and all execution gates continue to apply.
   executor:
     class: HYBRID
     identifier: "CHATGPT prepares bounded repository artifacts; Human Owner operates GAIS and local DeepSeek/VS Code sessions and supplies evidence; the receiving executor independently verifies remote checkpoints."
@@ -562,10 +562,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "PR #34 records approval of Contract Revision 3 and was merged as 3d5c65c84ac28b99d4fe453164b90a2e766df058. That approval does not automatically approve Revision 4; separate Human Owner review and approval of this baseline refresh are pending."
-    rationale: "Revision 4 refreshes only the source baseline and recovery point, while preserving the technical task definition and exact 13-path scope. The Human Owner authorized preparation only; execution remains blocked until Revision 4 is explicitly approved and all preflight gates pass."
+    approval_reference: "Human Owner explicitly confirmed on 2026-11-08 that PR #35 was successfully merged. This records approval of the exact published Revision 4 baseline refresh; PR #35 merge commit ec3c12f4bf894c76918be57f669d53c60d0fdc30."
+    rationale: "Revision 4 is approved with the refreshed source baseline and recovery point. Approval preserves R1, the exact 13-path scope, all 11 acceptance criteria, all 7 verification checks and the existing Change Budget. Implementation preflight, independent verification and action-specific gates remain mandatory."
 
 stopping_conditions:
   - scope_expansion_required
