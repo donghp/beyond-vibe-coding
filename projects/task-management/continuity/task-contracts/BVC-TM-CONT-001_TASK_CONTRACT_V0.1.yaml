@@ -1,0 +1,606 @@
+contract_version: "0.1.0"
+contract_id: "BVC-TM-CONT-TC-001"
+revision: 1
+status: PROPOSED
+created_at: "2026-11-07T12:16:00+07:00"
+
+task:
+  id: "BVC-TM-CONT-001"
+  title: "BVCTM PROJECT CONTINUITY RECONCILIATION AND CROSS-EXECUTOR RESUME"
+  objective: >-
+    Reconcile BVC Task Management project-owned continuity records against
+    verified post-PR-30 main, establish one provider-neutral copy-ready
+    recovery prompt in the existing project entry point, and define a reliable
+    GAIS-to-DeepSeek/VS Code handoff path using committed checkpoints, the
+    Global Worker Handoff schema, explicit writer release, and receiver
+    acceptance. Preserve one canonical Project State, Source Manifest,
+    Handoff Log, Task Execution Register, and Evidence Index for this project.
+  requested_by: "Human Owner / Product Owner"
+
+project:
+  project_id: "BVC-TASK-MANAGEMENT"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "fa3762f4b9a78e645b2531d954b9022531ba6cd0"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "projects/task-management/README.md"
+      - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+      - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+      - "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+      - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
+    recovery_point:
+      kind: git_commit
+      reference: "main@fa3762f4b9a78e645b2531d954b9022531ba6cd0"
+      verified: true
+
+intent:
+  objective: >-
+    Make BVCTM independently recoverable from project-owned GitHub records
+    when a GAIS session reaches quota or another executor must continue the
+    work. A new executor must identify repository baseline, project purpose,
+    approved product/design/governance baselines, active Task Contract, task
+    and prompt status, evidence, external-system limitations, writer ownership,
+    and exactly one next permitted action without relying on previous chat.
+  rationale: >-
+    The current BVCTM continuity package was prepared against main@53ed264
+    and has not been reconciled after publication of Practical Labs Lessons
+    A3/A4, Prompts #0002/#0003, PRs #24/#27/#28/#29, and Global Continuity
+    PR #30. The Human Owner explicitly approved the project-owned continuity
+    purpose and single-source-of-truth principles in the current conversation
+    on 2026-11-07. The detailed file scope, verification plan and execution
+    authority in this Contract remain PROPOSED until the Human Owner reviews
+    and approves this exact Contract.
+  expected_outcome: >-
+    One current BVCTM Project State, one Source Manifest, one append-only
+    Handoff Log, one Task Execution Register, and one Evidence Index describe
+    the same verified project checkpoint. A single copy-ready prompt in
+    00_BVC_PROJECT_CONTINUITY.md enables any authorized executor to recover
+    from live GitHub records. Actual worker handoffs are stored as individual
+    YAML records under continuity/handoffs/ using the Global Worker Handoff
+    schema and template. GAIS-to-DeepSeek recovery never assumes uncommitted
+    or in-memory GAIS work is visible to DeepSeek.
+  business_or_user_value: >-
+    BVCTM becomes a practical reference project for model-independent,
+    AI-assisted engineering continuity while remaining a beginner-friendly
+    Vibe Coding learning project with clear separation between public lessons
+    and private project governance.
+
+risk:
+  level: R1
+  policy_ref: >-
+    projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
+    — Sections 3, 4.1, 7 and 8. The policy records Product Owner approval
+    dated 2026-11-05 but its main-branch header still says publication pending
+    and its effective date is upon controlled merge. R1 is the proposed
+    classification for bounded documentation/state metadata reconciliation;
+    the Human Owner must confirm it when approving this Contract.
+  rationale: >-
+    The planned changes are bounded documentation, continuity metadata,
+    registers, and validation-plan updates. No application source, product
+    behavior, database, identity, security control, dependency, financial
+    formula, deployment, or production resource is changed. All changes are
+    reversible through reviewed Git commits. Because Project State and
+    execution evidence are governance-sensitive records, exact paths,
+    independent review, schema validation, and Owner acceptance are required.
+  impact_factors:
+    - other
+  reversibility: EASY
+  risk_owner: "Product Owner / Human Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "projects/task-management/continuity/handoffs/README.md"
+    modify:
+      - "projects/task-management/continuity/README.md"
+      - "projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md"
+      - "projects/task-management/continuity/PROJECT_STATE.json"
+      - "projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml"
+      - "projects/task-management/continuity/SOURCE_MANIFEST.csv"
+      - "projects/task-management/continuity/HANDOFF_LOG.md"
+      - "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+      - "projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml"
+      - "projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml"
+      - "projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml"
+      - "projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md"
+      - "projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md"
+    delete: []
+  forbidden_paths:
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    - "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml"
+    - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-002_TASK_CONTRACT_V0.1.yaml"
+    - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+    - "docs/continuity/CURRENT_STATE.yaml"
+    - "docs/continuity/DECISIONS.md"
+  forbidden_path_prefixes:
+    - "application/"
+    - "starter-kits/"
+    - "examples/"
+    - "specifications/"
+    - "scripts/"
+    - "tests/"
+    - ".github/"
+    - "practical-labs/"
+    - "projects/task-management/product/"
+    - "projects/task-management/governance/"
+    - "projects/task-management/design/"
+    - "projects/task-management/phase3.3/"
+  protected_resource_refs:
+    - "Product Definition v0.2.0 — current Product Owner-approved product baseline"
+    - "Phase 3.1 UX Acceptance — remains OPEN"
+    - "Phase 3.2 Architecture — accepted design baseline only"
+    - "PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md — preserve all decision statuses"
+    - "BVC-TM-P3.3-001, BVC-TM-P3.3-002 and BVC-TM-P3.3-003 — preserve existing task identity, scope and evidence"
+    - "BVC Global Continuity seven canonical records and Global Worker Handoff schema/template"
+    - "Public Practical Labs materials — separate from internal BVCTM continuity"
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Keep exactly one canonical PROJECT_STATE.json, SOURCE_MANIFEST.csv, HANDOFF_LOG.md, TASK_EXECUTION_REGISTER.yaml, and EVIDENCE_INDEX.yaml for BVC Task Management. Do not create competing copies or shadow registries."
+  - "Keep Task Contract IDs, Task IDs, Prompt IDs, Run IDs, and Handoff IDs distinct. Link records by ID and canonical path; do not copy full Contract or Prompt content into registers."
+  - "Keep Global Continuity under docs/continuity/ and BVCTM-only continuity under projects/task-management/continuity/. Do not merge their state stores."
+  - "Use the existing 00_BVC_PROJECT_CONTINUITY.md as the one canonical BVCTM entry point and place one copy-ready, provider-neutral recovery prompt there. Do not create a second competing BVCTM bootstrap prompt."
+  - "The recovery prompt must instruct a new executor to verify repository identity, live main SHA, open PRs, branch/checkpoint state, read the Global Bootstrap and BVCTM canonical continuity records, inspect the BVCTM source tree, follow SOURCE_MANIFEST.csv, read the active Contract and required context, and report one next permitted action before writing."
+  - "The recovery prompt must require the executor to declare its actual alias, model/tool label, environment, and verified capabilities. Unsupported capabilities must be UNKNOWN or UNAVAILABLE; never infer GAIS, GitHub write, local Git, DeepSeek, or VS Code access from a product name or prior session."
+  - "For a GAIS quota interruption, DeepSeek may resume only from information it can actually access: verified remote commits, committed repository files, or artifacts explicitly exported and supplied by the Human Owner. Do not claim DeepSeek can read the private GAIS workspace or recover uncommitted in-memory changes."
+  - "If the latest GAIS work is not committed, exported, or otherwise captured as an inspectable checkpoint, mark it LOCAL_ONLY / NOT_RECOVERABLE_FROM_GITHUB, stop dependent writes, and ask the Human Owner to preserve or supply the missing work."
+  - "A worker handoff must identify active task and Contract revision, exact branch and commit SHA, source main SHA, changed-file inventory, verification results, sender release, receiver acceptance, workspace synchronization, blockers, and one next permitted action."
+  - "Use docs/continuity/WORKER_HANDOFF.schema.json and docs/continuity/WORKER_HANDOFF.template.yaml as the only generic handoff schema/template. Do not copy or fork the Global schema into BVCTM."
+  - "Store individual BVCTM worker handoff records under projects/task-management/continuity/handoffs/. The Handoff Log remains append-only event history and links to handoff records; it is not itself the current worker handoff payload."
+  - "Do not create a handoff record claiming sender release or receiver acceptance unless an actual sender has stopped writing and the receiver has independently verified and accepted the exact remote checkpoint."
+  - "One active writer per task/branch. The YAML record is not a technical lock; if writer exclusivity is uncertain, stop writes."
+  - "Preserve Task Execution Register status semantics. The task may mirror an APPROVED Contract into the register only after that exact Contract is APPROVED on main. The executor must not set its own task to IN_PROGRESS, READY_FOR_ACCEPTANCE, or COMPLETED_ACCEPTED; those transitions require independent Human Owner/governance confirmation."
+  - "Preserve the BVCTM prompt sequence. Record Prompt #0001/#0002/#0003 by existing IDs and canonical paths; set next_number to 4 only after both new prompt identities are verified. Do not allocate Prompt #0004 in this task."
+  - "Record publication, execution, and acceptance separately for every Prompt. PR merge proves publication only. Prompt #0001/#0002/#0003 execution status must remain NOT_VERIFIED unless actual execution evidence is present."
+  - "Update External System records only with verified or explicitly Owner-reported facts. Current local working tree, local branch, GAIS app state, DeepSeek model, quota, and VS Code connectivity remain UNKNOWN unless current evidence is supplied."
+  - "Update Evidence Index with exact PR/commit/file references. The three GAIS JPG assets on main are repository-verified evidence assets; their presence does not prove the corresponding prompt was executed or the app is complete."
+  - "Update Project State only using fields supported by specifications/v0.1/project-state.schema.json. Keep that schema's Draft/Experimental status visible; do not add unvalidated properties."
+  - "Append to HANDOFF_LOG.md; do not rewrite H-0001 or H-0002 or make historical entries appear current."
+  - "Add the GAIS-to-DeepSeek quota/interruption scenario to CONTINUITY_TEST_PLAN.md and record it as NOT_RUN in CONTINUITY_TEST_RESULTS.md until a real test is executed."
+  - "Do not mark cold-start, cross-model, sender-release, receiver-acceptance, local-sync, GAIS-sync, or continuity pilot validation PASS without actual evidence."
+  - "Keep formal Phase 3.1 UX Acceptance OPEN, Phase 3.2 at accepted-design-only status, and the existing Task #003 execution state NOT_STARTED_OR_NOT_EVIDENCED unless new canonical evidence proves otherwise."
+  - "Do not change product scope, Product Definition, UX, Architecture, Governance decisions, risk policy, Phase 3.3 Contracts, application code, public Practical Labs lessons, CI, workflows, repository settings, secrets, database, Auth, hosting, or deployment."
+  - "Do not place API keys, tokens, credentials, passwords, private account data, customer data, or confidential business data in continuity records or handoff YAML."
+  - "The recorded baseline CLEAN refers to the immutable remote main checkpoint only. Before any local/IDE write, the actual local branch and working tree must be inspected; unknown or dirty state blocks local write operations."
+  - "The original Phase 3.3 Task #002 is already COMPLETED_ACCEPTED. Do not reuse its ID; this continuity workstream uses BVC-TM-CONT-001."
+
+required_context:
+  - reference: "docs/continuity/BOOTSTRAP.md"
+    purpose: "Global authority order, repository bootstrap and execution gate."
+    authority: CANONICAL
+    required: true
+  - reference: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+    purpose: "Live GitHub identity, refs, PRs, diffs, checks and workspace evidence procedure."
+    authority: CANONICAL
+    required: true
+  - reference: "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
+    purpose: "Provider-neutral worker capability, release, receiver acceptance and checkpoint rules."
+    authority: CANONICAL
+    required: true
+  - reference: "docs/continuity/WORKER_HANDOFF.schema.json"
+    purpose: "Canonical machine-readable worker handoff schema."
+    authority: CANONICAL
+    required: true
+  - reference: "docs/continuity/WORKER_HANDOFF.template.yaml"
+    purpose: "Canonical reusable handoff template."
+    authority: CANONICAL
+    required: true
+  - reference: "specifications/v0.1/project-state.md"
+    purpose: "Meaning and limitations of Project State v0.1.0."
+    authority: REFERENCE
+    required: true
+  - reference: "specifications/v0.1/project-state.schema.json"
+    purpose: "Validate the single BVCTM Project State JSON snapshot."
+    authority: REFERENCE
+    required: true
+  - reference: "specifications/v0.1/task-contract.md"
+    purpose: "Task Contract lifecycle, exact scope, status and self-certification boundaries."
+    authority: CANONICAL
+    required: true
+  - reference: "specifications/v0.1/task-contract.schema.json"
+    purpose: "Machine-readable Task Contract validation."
+    authority: CANONICAL
+    required: true
+  - reference: "scripts/validate_task_contracts.py"
+    purpose: "Read-only Task Contract schema and semantic validator."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/README.md"
+    purpose: "Canonical BVCTM project overview, product status and links."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    purpose: "Current Product Owner-approved product baseline."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    purpose: "Preserve exact project decision statuses and open decisions."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    purpose: "Project R1-R5 risk classification; publication-pending metadata must remain visible."
+    authority: APPROVED
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+    purpose: "Accepted architecture design baseline and non-runtime acceptance boundary."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+    purpose: "Formal UX Acceptance remains OPEN."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Completed Task #001 identity and scope for continuity context."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-002_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Completed Task #002 identity; prevent ID reuse."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Current approved GAIS scaffold inspection scope and execution limits."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/README.md"
+    purpose: "Current BVCTM continuity record map and authority precedence."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md"
+    purpose: "Current single BVCTM recovery entry point; update without creating a competing prompt."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/PROJECT_STATE.json"
+    purpose: "Current project snapshot; reconcile against current canonical sources."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml"
+    purpose: "BVCTM-specific continuity architecture and external-system rules."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/SOURCE_MANIFEST.csv"
+    purpose: "Single authoritative BVCTM source navigation map."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/HANDOFF_LOG.md"
+    purpose: "Append-only BVCTM material event and handoff history."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+    purpose: "Single canonical BVCTM task lifecycle register; no self-certification."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml"
+    purpose: "Prompt IDs, contract links, publication status, execution status and sequence."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml"
+    purpose: "GAIS, GitHub, local workspace and DeepSeek/VS Code access states."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml"
+    purpose: "One index for repository, screenshot, execution and recovery evidence."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md"
+    purpose: "Existing cold-start, cross-model and recovery scenarios."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md"
+    purpose: "Actual validation results; NOT_RUN remains NOT_RUN until evidenced."
+    authority: CANONICAL
+    required: true
+  - reference: "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md"
+    purpose: "Canonical Prompt #0001 identity and scope."
+    authority: CANONICAL
+    required: true
+  - reference: "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md"
+    purpose: "Canonical Prompt #0002 identity and read-only scope."
+    authority: CANONICAL
+    required: true
+  - reference: "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md"
+    purpose: "Canonical Prompt #0003 identity and read-only scope."
+    authority: CANONICAL
+    required: true
+  - reference: "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+    purpose: "Published Phase A lesson evidence states; publication does not prove execution."
+    authority: CANONICAL
+    required: true
+  - reference: "practical-labs/assets/screenshots/README.md"
+    purpose: "Canonical screenshot index and evidence status."
+    authority: CANONICAL
+    required: true
+
+dependencies:
+  - reference: "BVC-GLOBAL-TC-002 Revision 1 implementation merged through PR #30; Global handoff protocol and schema are canonical on main."
+    relationship: MUST_COMPLETE_FIRST
+    reason: "The BVCTM project-specific handoff implementation must reuse the already-published Global protocol and schema."
+  - reference: "BVC-TM-P3.3-002 / BVC-TM-TC-002 Revision 1 is COMPLETED_ACCEPTED."
+    relationship: INFORMATIONAL
+    reason: "This Phase 3.3 Task #002 is a different task and its ID must not be reused."
+  - reference: "BVC-TM-P3.3-003 / BVC-TM-TC-003 Revision 1 is APPROVED; execution remains NOT_STARTED_OR_NOT_EVIDENCED."
+    relationship: INFORMATIONAL
+    reason: "Continuity reconciliation must preserve the existing GAIS scaffold-only authorization and its execution evidence state."
+
+expected_outputs:
+  - id: OUT-001
+    kind: DOCUMENTATION
+    description: "Updated BVCTM continuity README explaining the single-state architecture, registers, task-contract location, handoff-record location and Global schema reuse."
+    path: "projects/task-management/continuity/README.md"
+    required: true
+  - id: OUT-002
+    kind: DOCUMENTATION
+    description: "Updated single entry point containing one copy-ready executor bootstrap prompt for ChatGPT, HTW, MSW, TVW, DeepSeek/VS Code and future authorized executors."
+    path: "projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md"
+    required: true
+  - id: OUT-003
+    kind: CONFIGURATION
+    description: "Reconciled Project State revision using only Project State Draft/Experimental v0.1.0 schema fields, with remote baseline, tasks, decisions, risks, unknowns and next action."
+    path: "projects/task-management/continuity/PROJECT_STATE.json"
+    required: true
+  - id: OUT-004
+    kind: CONFIGURATION
+    description: "Updated BVCTM continuity profile describing Global Core plus project-specific state, one entry prompt, checkpoint recovery and worker handoff boundaries."
+    path: "projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml"
+    required: true
+  - id: OUT-005
+    kind: CONFIGURATION
+    description: "Reconciled single Source Manifest with current canonical paths, approvals, PR publications and explicit limitations."
+    path: "projects/task-management/continuity/SOURCE_MANIFEST.csv"
+    required: true
+  - id: OUT-006
+    kind: DOCUMENTATION
+    description: "Append-only H-0003 checkpoint recording the Human Owner continuity decision and verified main baseline without asserting a real sender release or receiver acceptance."
+    path: "projects/task-management/continuity/HANDOFF_LOG.md"
+    required: true
+  - id: OUT-007
+    kind: CONFIGURATION
+    description: "One Task Execution Register updated with the continuity task's Contract reference and Owner-approved lifecycle status; the executor must not self-promote its task beyond APPROVED."
+    path: "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+    required: true
+  - id: OUT-008
+    kind: CONFIGURATION
+    description: "Single Prompt Register with existing Prompt #0001/#0002/#0003 IDs, canonical paths, Contract links, publication/execution/acceptance separation, and next_number 4."
+    path: "projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml"
+    required: true
+  - id: OUT-009
+    kind: CONFIGURATION
+    description: "Updated External System Register recording GitHub main, GAIS, local workspace and DeepSeek/VS Code with actual evidence and UNKNOWN where capabilities or synchronization are not verified."
+    path: "projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml"
+    required: true
+  - id: OUT-010
+    kind: CONFIGURATION
+    description: "One Evidence Index linking verified PR/commit publications, three canonical GAIS JPG assets, Prompt execution limitations and recovery evidence."
+    path: "projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml"
+    required: true
+  - id: OUT-011
+    kind: DOCUMENTATION
+    description: "Project handoffs directory instructions defining one record per real worker transition and referencing the Global schema/template without copying them."
+    path: "projects/task-management/continuity/handoffs/README.md"
+    required: true
+  - id: OUT-012
+    kind: DOCUMENTATION
+    description: "Updated continuity test plan with a GAIS quota interruption and GAIS-to-DeepSeek/VS Code recovery scenario, preconditions, evidence and stop conditions."
+    path: "projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md"
+    required: true
+  - id: OUT-013
+    kind: DOCUMENTATION
+    description: "Updated validation result log preserving prior results and marking the new GAIS-to-DeepSeek scenario NOT_RUN until a real test is executed."
+    path: "projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md"
+    required: true
+
+acceptance_criteria:
+  - id: AC-001
+    statement: "The continuity package preserves exactly one canonical Project State, Source Manifest, Handoff Log, Task Execution Register and Evidence Index; no duplicate state store or shadow register is introduced."
+    verification_method: "Inspect the complete BVCTM continuity tree and compare README, Profile and Source Manifest; confirm each canonical record has one path."
+    required_evidence_level: 1
+    required: true
+  - id: AC-002
+    statement: "00_BVC_PROJECT_CONTINUITY.md contains the single copy-ready provider-neutral bootstrap prompt, and README links to that entry point without introducing a second competing prompt."
+    verification_method: "Review live repository verification, required reading sequence, executor identity/capabilities, authority gate, workspace sync check and Vietnamese recovery report requirements."
+    required_evidence_level: 1
+    required: true
+  - id: AC-003
+    statement: "The recovery instructions explain that a DeepSeek/VS Code receiver can resume only from remotely verified commits or supplied exported artifacts; uncommitted/in-memory GAIS state is not assumed recoverable from GitHub."
+    verification_method: "Inspect the bootstrap prompt, External System Register and handoff instructions for quota interruption, missing checkpoint and stop behavior."
+    required_evidence_level: 1
+    required: true
+  - id: AC-004
+    statement: "PROJECT_STATE.json is refreshed against the verified source baseline and validates against the current Draft/Experimental project-state.schema.json without adding unsupported fields."
+    verification_method: "Run JSON parsing and Draft 2020-12 schema validation; manually compare task, milestone, decisions, risks, open issues and recovery references against canonical sources."
+    required_evidence_level: 2
+    required: true
+  - id: AC-005
+    statement: "SOURCE_MANIFEST.csv contains one row per canonical source, consistent columns, resolvable repository paths or explicit external URLs, and clear authority/limitation notes."
+    verification_method: "Parse CSV, check unique source IDs, resolve every repository-relative path against the reconciled main tree, and inspect authority and bootstrap requirements."
+    required_evidence_level: 2
+    required: true
+  - id: AC-006
+    statement: "The Task Execution Register records BVC-TM-CONT-001 only after its Contract is APPROVED on main and never self-certifies IN_PROGRESS, READY_FOR_ACCEPTANCE or COMPLETED_ACCEPTED."
+    verification_method: "Compare the register's task and Contract identity/status with the approved Contract on main and require separate Owner/governance evidence for any lifecycle transition."
+    required_evidence_level: 1
+    required: true
+  - id: AC-007
+    statement: "Prompt Register records Prompt #0001/#0002/#0003 by exact ID and path, distinguishes PUBLISHED, EXECUTED and ACCEPTED, and sets next_number to 4 without allocating Prompt #0004."
+    verification_method: "Compare register entries to the three canonical prompt files and merged PR evidence; verify execution and acceptance statuses are not inferred from publication."
+    required_evidence_level: 1
+    required: true
+  - id: AC-008
+    statement: "External System Register distinguishes confirmed GitHub facts from Owner-reported or UNKNOWN GAIS, local Git, DeepSeek, VS Code, model and quota facts."
+    verification_method: "Compare GitHub metadata with live refs/PRs; review external and local fields for unsupported claims."
+    required_evidence_level: 1
+    required: true
+  - id: AC-009
+    statement: "Each real worker handoff has a dedicated YAML record under continuity/handoffs/ that conforms to the Global Worker Handoff schema and includes checkpoint, sender release and receiver acceptance; Handoff Log remains an append-only event index."
+    verification_method: "Inspect the handoff directory instructions and validate any handoff record created under a separately authorized transition. Do not invent sender release or receiver acceptance when no real handoff occurred."
+    required_evidence_level: 2
+    required: true
+  - id: AC-010
+    statement: "The GAIS quota interruption and GAIS-to-DeepSeek recovery test is added to the test plan and explicitly remains NOT_RUN until a real evidence-backed pilot occurs."
+    verification_method: "Inspect CONTINUITY_TEST_PLAN.md and CONTINUITY_TEST_RESULTS.md; require executor identities, remote SHA, actual environment sync, handoff YAML and receiver report for future PASS."
+    required_evidence_level: 1
+    required: true
+  - id: AC-011
+    statement: "All actual changes match exact CREATE/MODIFY/DELETE lists and Change Budget; Product, UX, Architecture, Governance, Phase 3.3, Practical Labs, application and Global Continuity sources remain untouched."
+    verification_method: "Use a VCS-derived changed-file inventory and scripts/validate_task_contracts.py --changed-files-json; manually inspect the full diff and protected prefixes."
+    required_evidence_level: 2
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 1
+  checks:
+    - id: VC-001
+      kind: STATIC_ANALYSIS
+      description: "Parse PROJECT_STATE.json and validate it against project-state.schema.json Draft 2020-12."
+      command: "python -c \"import json, jsonschema; s=json.load(open('specifications/v0.1/project-state.schema.json', encoding='utf-8')); d=json.load(open('projects/task-management/continuity/PROJECT_STATE.json', encoding='utf-8')); jsonschema.Draft202012Validator(s).validate(d); print('PASS: BVCTM Project State')\""
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: [AC-004]
+    - id: VC-002
+      kind: STATIC_ANALYSIS
+      description: "Parse all BVCTM continuity YAML profile/register/evidence sources."
+      command: "python -c \"import yaml, pathlib; p=pathlib.Path('projects/task-management/continuity'); files=[p/'PROJECT_CONTINUITY_PROFILE.yaml',p/'registers/TASK_EXECUTION_REGISTER.yaml',p/'registers/BVC_TM_PROMPT_REGISTER.yaml',p/'registers/EXTERNAL_SYSTEM_REGISTER.yaml',p/'evidence/EVIDENCE_INDEX.yaml']; [yaml.safe_load(x.read_text(encoding='utf-8')) for x in files]; print('PASS: BVCTM YAML')\""
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: [AC-006, AC-007, AC-008]
+    - id: VC-003
+      kind: STATIC_ANALYSIS
+      description: "Parse Source Manifest CSV, require consistent columns and unique source_id values, and resolve repository-relative sources."
+      command: "python -c \"import csv; p='projects/task-management/continuity/SOURCE_MANIFEST.csv'; rows=list(csv.DictReader(open(p, encoding='utf-8-sig', newline=''))); ids=[r['source_id'] for r in rows]; assert len(ids)==len(set(ids)); print('PASS: BVCTM Source Manifest', len(rows))\""
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: [AC-005]
+    - id: VC-004
+      kind: STATIC_ANALYSIS
+      description: "Validate the Task Contract with the repository Task Contract schema and semantic validator."
+      command: "python scripts/validate_task_contracts.py projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml"
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: [AC-011]
+    - id: VC-005
+      kind: MANUAL_REVIEW
+      description: "Review the full diff, exact operation inventory, evidence labels, links and protected-resource boundaries."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: [AC-001, AC-002, AC-003, AC-009, AC-010, AC-011]
+    - id: VC-006
+      kind: MANUAL_REVIEW
+      description: "Human Owner reviews the recovered state, single entry prompt, handoff protocol and exact file scope before accepting the continuity update."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: [AC-001, AC-002, AC-003, AC-006, AC-007, AC-008, AC-009, AC-010]
+
+  known_verification_limits:
+    - "No executor can inspect private GAIS session contents unless the Human Owner supplies accessible screenshots or exported files."
+    - "A DeepSeek model in VS Code cannot recover uncommitted GAIS in-memory state through GitHub."
+    - "The current local Windows working tree and its synchronization are UNKNOWN until the Human Owner supplies current terminal output or an authorized local workspace is available."
+    - "No GAIS-to-DeepSeek or cross-provider handoff pilot has been run by this Contract proposal."
+    - "The Global Worker Handoff schema and validator do not create a distributed lock or prevent concurrent writers."
+    - "The Project State specification/schema is Draft / Experimental v0.1.0; this task does not upgrade that specification."
+    - "The Task Contract validation workflow is path-filtered to specifications/scripts/tests and does not automatically trigger merely because this project-specific Contract path changes. This Contract does not authorize workflow changes."
+
+change_budget:
+  max_changed_files: 13
+  max_created_files: 1
+  max_modified_files: 12
+  max_deleted_files: 0
+  max_total_diff_lines: 3000
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: >-
+    docs/continuity/BOOTSTRAP.md; docs/continuity/CROSS_EXECUTOR_CONTINUITY.md;
+    specifications/v0.1/task-contract.md; projects/task-management/governance/
+    BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md. R1 classification is proposed;
+    risk-policy publication metadata remains pending on main.
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: >-
+    Human Owner explicitly approved the BVCTM project-owned continuity purpose
+    and the principles of one Project State, one Source Manifest, one Handoff
+    Log, one Task Execution Register, one Evidence Index, and ID-linked
+    Contracts/Prompts in the current conversation on 2026-11-07. This authorizes
+    preparation and review of this Contract proposal only; the exact 13-path
+    execution scope remains PROPOSED and requires separate explicit approval.
+  executor:
+    class: HYBRID
+    identifier: "CHATGPT prepares bounded repository artifacts; Human Owner operates GAIS and local DeepSeek/VS Code sessions and supplies evidence; the receiving executor independently verifies remote checkpoints."
+    capability_requirements:
+      - "Read live GitHub repository identity, refs, branches, PRs, commits, files and workflow evidence."
+      - "Prepare and validate exact-scope Markdown, JSON, YAML and CSV changes."
+      - "Reuse the Global Worker Handoff schema and template without copying them."
+      - "Do not claim direct access to the Human Owner's GAIS account or local Windows filesystem."
+      - "Do not claim a specific DeepSeek model, quota, VS Code capability or repository synchronization without current evidence."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - create
+    - modify
+    - run_tests
+  human_approval:
+    required: true
+    status: PENDING
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Approval of continuity purpose and principles in conversation 2026-11-07; exact Contract approval pending."
+    rationale: "The project continuity principles are approved, but the exact write scope, R1 risk classification, outputs and acceptance criteria must be reviewed before this Contract becomes execution-ready."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+  - other
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded repair may correct Markdown, JSON, YAML, CSV or link formatting within exact approved paths. Any scope, risk, tool permission or workflow change requires a revised Contract."
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md; projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md"
