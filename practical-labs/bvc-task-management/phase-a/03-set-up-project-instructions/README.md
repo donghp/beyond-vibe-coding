@@ -4,8 +4,10 @@
 **Learning level:** Beginner  
 **Status:** Evidence review in progress — Human Owner confirms the Custom Instructions were saved; the GAIS Chat settings card and Prompt #0002 response have been supplied; independent before/after file-change verification remains pending  
 **Estimated time:** 10–15 minutes, subject to practical review  
-**Previous:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)  
+**Previous:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)  
 **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
+
+> **Quick navigation:** [Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase A Index](../README.md) · [← A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md) · **A3 of A4** · [A4 — Talk to AI Like a Teammate →](../04-talk-to-ai-like-a-teammate/README.md)
 
 ---
 
@@ -185,6 +187,10 @@ Record the four A3 checkpoints separately. Do not promote an owner report or an 
 
 - **A3-01 — Instructions editor populated:** an owner-supplied screenshot showed the Project Instructions text in the GAIS editor. **OBSERVED.**
 - **A3-02 — Instructions saved:** the Human Owner confirms that Save changes was completed. A follow-up screenshot shows the GAIS Chat settings **Custom instructions** card with the BVC Task Management instructions preview. **OWNER-CONFIRMED + OBSERVED.**
+
+![Actual Google AI Studio Chat settings showing the BVC Task Management Custom instructions card](../../../assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg)
+
+*Figure A3-02. Actual owner-supplied GAIS screenshot. The Chat settings panel shows the Custom instructions summary card after the editor was closed. This is OBSERVED evidence of the summary card, not a full-text reopen check and not independent proof that every instruction line was saved exactly.*
 - **A3-03 — Understanding check:** BVCTM-PROMPT-0002 was run in the BVC Task Management GAIS project and the ten-part response was supplied. **EXECUTION REPORTED; RESPONSE RECEIVED.** Review the internal inconsistency between detailed technical-version claims and the statement that no project files were read. Those version claims remain **NOT VERIFIED**.
 - **A3-04 — File integrity:** GAIS reported that no project files were changed. An independent before/after file-tree comparison or equivalent file-change evidence has not yet been supplied. **NOT VERIFIED.**
 
@@ -231,7 +237,7 @@ You have learned that:
 
 ## 10. Continue Learning
 
-- **Previous:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)
+- **Previous:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)
 - **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
 - **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md)
 - **Progress:** Lesson A3 of A4.
