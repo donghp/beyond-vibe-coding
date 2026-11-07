@@ -449,8 +449,8 @@ acceptance_criteria:
     required_evidence_level: 1
     required: true
   - id: AC-009
-    statement: "Each real worker handoff has a dedicated YAML record under continuity/handoffs/ that conforms to the Global Worker Handoff schema and includes checkpoint, sender release and receiver acceptance; Handoff Log remains an append-only event index."
-    verification_method: "Inspect the handoff directory instructions and validate any handoff record created under a separately authorized transition. Do not invent sender release or receiver acceptance when no real handoff occurred."
+    statement: "The handoffs directory instructions require each actual worker transition to be recorded in its own YAML file under continuity/handoffs/ using the Global Worker Handoff schema/template, with a verified checkpoint, sender release and receiver acceptance; no handoff record is fabricated when no real transition has occurred, and Handoff Log remains append-only history."
+    verification_method: "Inspect handoffs/README.md for the canonical Global schema/template references, required checkpoint/release/acceptance fields, and the prohibition on fabricated handoffs. Validate an individual record against the Global schema only when a real, separately authorized handoff record exists; no such record is required for this task absent an actual transition."
     required_evidence_level: 1
     required: true
   - id: AC-010
