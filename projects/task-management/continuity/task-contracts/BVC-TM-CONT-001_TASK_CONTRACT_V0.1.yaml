@@ -1,7 +1,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-CONT-TC-001"
 revision: 3
-status: PROPOSED
+status: APPROVED
 created_at: "2026-11-07T17:53:11+07:00"
 
 task:
@@ -23,7 +23,7 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "400b8d5916bc66759597395905dfa2e153aca18b"
+    source_commit: "be5b5a473151c9119c3309dc909f18b3fe752e45"
     working_tree_status: DIRTY
     pre_existing_changes_ref: "Human Owner terminal evidence supplied 2026-11-07: local main@400b8d5916bc66759597395905dfa2e153aca18b has a pre-existing modification to projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md and two untracked files practical-labs/bvc-task-management/phase-a/a1-01-gais-start-screen.png and practical-labs/bvc-task-management/phase-a/a1-02-bvctm-initial-scaffold-preview.png. These local changes are excluded from this Contract proposal and must not be staged, reset, overwritten, or included in its implementation diff."
     architecture_baseline_refs:
@@ -37,7 +37,7 @@ project:
       - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
     recovery_point:
       kind: git_commit
-      reference: "main@400b8d5916bc66759597395905dfa2e153aca18b"
+      reference: "main@be5b5a473151c9119c3309dc909f18b3fe752e45"
       verified: true
 
 intent:
@@ -55,9 +55,9 @@ intent:
     level 1. Revision 3 corrects this mismatch without expanding the exact
     13-path scope: AC-009 is aligned to the handoff-directory instructions
     deliverable when no real handoff has occurred; AC-011 gains an explicit
-    required level-2 VCS changed-file inventory check. Revision 3 remains
-    PROPOSED until the Human Owner reviews and approves the revised criteria
-    and verification checks.
+    required level-2 VCS changed-file inventory check. The Human Owner has
+    approved this revision. Execution remains subject to all baseline,
+    workspace, context, dependency, verification and action-specific gates.
   expected_outcome: >-
     One current BVCTM Project State, one Source Manifest, one append-only
     Handoff Log, one Task Execution Register, and one Evidence Index describe
@@ -77,9 +77,9 @@ risk:
   level: R1
   policy_ref: >-
     projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
-    — Sections 3, 4.1, 7 and 8. Header remains publication pending; effective
-    date is upon controlled merge. Human Owner confirmed R1 on 2026-11-07.
-    Revision 3 requires separate approval.
+    — Sections 3, 4.1, 7 and 8. Policy header remains publication pending;
+    effective date is upon controlled merge. Human Owner confirmed R1 and
+    approved Contract Revision 3 on 2026-11-07.
   rationale: >-
     The planned changes are bounded documentation, continuity metadata,
     registers, and validation-plan updates. No application source, product
@@ -538,17 +538,15 @@ authority:
   policy_ref: >-
     docs/continuity/BOOTSTRAP.md; docs/continuity/CROSS_EXECUTOR_CONTINUITY.md;
     specifications/v0.1/task-contract.md; projects/task-management/governance/
-    BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md. R1 classification is proposed;
-    risk-policy publication metadata remains pending on main.
+    BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md. R1 is confirmed for this
+    Contract; risk-policy publication metadata remains pending on main.
   requested_by: "Human Owner / Product Owner"
   authorized_by: "Human Owner / Product Owner"
   authorization_reference: >-
-    The Human Owner requested preparation of Contract Revision 3 in the current
-    conversation on 2026-11-07 after the local validator reported AC-009 and
-    AC-011 evidence-level mismatches. This request authorizes preparation and
-    publication of a PROPOSED revision for review only; it does not approve
-    Revision 3 or authorize execution. The previously approved 13-path scope
-    remains unchanged and still requires revision-specific Human Owner approval.
+    The Human Owner directed the separate approval process for Revision 3 in
+    this conversation on 2026-11-07 after review of AC-009, AC-011 and VC-007.
+    This records approval of Revision 3 only; scope remains CREATE 1, MODIFY 12,
+    DELETE 0. Execution remains subject to all preflight and verification gates.
   executor:
     class: HYBRID
     identifier: "CHATGPT prepares bounded repository artifacts; Human Owner operates GAIS and local DeepSeek/VS Code sessions and supplies evidence; the receiving executor independently verifies remote checkpoints."
@@ -567,10 +565,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Revision 2 approval remains evidenced by PR #32 and main@400b8d5916bc66759597395905dfa2e153aca18b. That approval does not cover the revised AC-009/AC-011 wording and VC-007 in Revision 3; explicit Revision 3 approval is pending."
-    rationale: "Revision 2 was approved, but Revision 3 changes acceptance and verification requirements. Do not infer approval from Revision 2; execution remains blocked until the Human Owner explicitly approves Revision 3."
+    approval_reference: "Human Owner instruction in this conversation on 2026-11-07: Thực hiện quy trình riêng để phê duyệt Revision 3. Recorded as approval direction for this exact revision after review of AC-009, AC-011, VC-007 and the unchanged 13-path scope."
+    rationale: "The Human Owner directed approval of Revision 3. Approval applies only to this revision and its exact existing scope; all baseline, workspace, context, dependency, verification and action-specific approval gates remain in force."
 
 stopping_conditions:
   - scope_expansion_required
