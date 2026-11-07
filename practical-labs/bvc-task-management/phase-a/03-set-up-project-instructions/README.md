@@ -2,7 +2,7 @@
 
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
-**Status:** Draft — owner-supplied GAIS editor screenshot observed; save and understanding check not yet verified  
+**Status:** Evidence review in progress — Human Owner confirms the Custom Instructions were saved; the GAIS Chat settings card and Prompt #0002 response have been supplied; independent before/after file-change verification remains pending  
 **Estimated time:** 10–15 minutes, subject to practical review  
 **Previous:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)  
 **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
@@ -118,7 +118,7 @@ The editor contains the headings and rules from the canonical file, including Pr
 Compare the first and last sections with the canonical GitHub file.
 
 **Evidence note**  
-The Human Owner supplied a screenshot showing the Project Instructions text populated in the GAIS Instructions editor. This is OBSERVED evidence of the editor content only; it does not prove that the Save action completed.
+Evidence update: the Human Owner confirms that the instructions were saved. A later owner-supplied screenshot shows the GAIS Chat settings page with the **Custom instructions** card and a preview of the BVC Task Management instructions. Record the save as OWNER-CONFIRMED and the visible card as OBSERVED evidence. The screenshot is not an independent audit of GAIS storage, but it is stronger evidence than a populated editor alone.
 
 ### Step 5 — Save the instructions
 
@@ -129,13 +129,13 @@ Use the Save changes control shown by the GAIS editor.
 Pasting text into the editor is not the same as saving it.
 
 **What you should see**  
-The editor closes or returns to its previous settings state. The exact post-save behavior must be confirmed in the current GAIS session.
+Return to Chat settings, where GAIS displays the **Custom instructions** card.
+
+**Evidence in this project**  
+The Human Owner confirms that Save changes was completed. The supplied follow-up screenshot shows the Custom instructions card with a preview beginning `PROJECT INSTRUCTIONS — BVC TASK MANAGEMENT — VERSION 0.1`. Record this as OWNER-CONFIRMED save plus OBSERVED card display.
 
 **Check**  
-Reopen the Instructions editor and confirm that the text is still present.
-
-**If it looks different**  
-Do not assume the save succeeded. Check the content, save again if the control is available, and capture the actual result.
+Open the card again and confirm that the saved text is still present. When the interface behaves differently, follow the current on-screen labels rather than assuming the save succeeded.
 
 ### Step 6 — Ask AI to explain the instructions
 
@@ -149,7 +149,10 @@ The point is to check whether the AI can explain the rules before it is asked to
 This is a read-only understanding check. The prompt explicitly prohibits file creation, modification, renaming, and deletion.
 
 **What you should see**  
-The AI summarizes the project identity, current learning boundary, observed technology, project isolation, and verification rules. Facts not visible in the actual project should be marked UNKNOWN.
+The AI summarizes the project identity, Human Owner authority, Beginner boundary, Project Isolation Rule, verification rules, and facts that remain UNKNOWN.
+
+**Evidence in this project**  
+The Human Owner ran BVCTM-PROMPT-0002 in the BVC Task Management GAIS project and supplied the resulting ten-part response. The response correctly describes several governance and scope rules. However, it labels framework and dependency details as inspected while also stating that no project files were read in that turn. Treat those technical version claims as NOT VERIFIED until they are checked against the actual project files or runtime.
 
 ### Step 7 — Check that no application files changed
 
@@ -160,7 +163,10 @@ Look at the GAIS Code / File Explorer area after the understanding check.
 The lesson is about instructions, not implementation.
 
 **What you should see**  
-No new or modified application files as a result of the read-only check.
+The application file tree should remain unchanged by this read-only check.
+
+**Evidence limitation in this project**  
+The supplied Prompt #0002 response says that no files were changed, but it also says no project files were inspected during that turn. This is an AI-reported statement, not an independent before/after comparison. Do not treat it as proof of file integrity.
 
 **Check**  
 Compare the visible file tree with the scaffold recorded in Lesson A2.
@@ -175,29 +181,33 @@ Do not write a feature-building prompt in this lesson.
 
 ## 06. See the Real Result
 
-Required evidence checkpoints:
+Record the four A3 checkpoints separately. Do not promote an owner report or an AI statement into independent verification.
 
-- **A3-01 — Instructions editor populated:** owner-supplied screenshot currently observed in the conversation; repository asset synchronization is pending.
-- **A3-02 — Instructions saved:** capture after reopening the editor and confirming the saved text.
-- **A3-03 — AI understanding check:** capture the actual AI response to BVCTM-PROMPT-0002.
-- **A3-04 — File tree unchanged:** capture or record the before/after comparison showing no application files changed during the check.
+- **A3-01 — Instructions editor populated:** an owner-supplied screenshot showed the Project Instructions text in the GAIS editor. **OBSERVED.**
+- **A3-02 — Instructions saved:** the Human Owner confirms that Save changes was completed. A follow-up screenshot shows the GAIS Chat settings **Custom instructions** card with the BVC Task Management instructions preview. **OWNER-CONFIRMED + OBSERVED.**
+- **A3-03 — Understanding check:** BVCTM-PROMPT-0002 was run in the BVC Task Management GAIS project and the ten-part response was supplied. **EXECUTION REPORTED; RESPONSE RECEIVED.** Review the internal inconsistency between detailed technical-version claims and the statement that no project files were read. Those version claims remain **NOT VERIFIED**.
+- **A3-04 — File integrity:** GAIS reported that no project files were changed. An independent before/after file-tree comparison or equivalent file-change evidence has not yet been supplied. **NOT VERIFIED.**
 
-Do not mark A3-02, A3-03, or A3-04 complete until actual evidence is supplied.
+Suggested screenshot captions:
+
+*Figure A3-01. Google AI Studio Instructions editor containing the BVC Task Management Project Instructions.*
+
+*Figure A3-02. Google AI Studio Chat settings displaying the saved Custom instructions card.*
+
+Capture and store any additional evidence from the actual GAIS session. Do not use a generated illustration as evidence of a real GAIS screen.
 
 ## 07. Check Your Work
 
-- [ ] The complete canonical Project Instructions were copied.
-- [ ] The text was pasted into the correct BVC Task Management GAIS project.
-- [ ] Save changes was performed.
-- [ ] The editor was reopened and the saved text was confirmed.
-- [ ] AI correctly summarized the project's purpose and authority.
-- [ ] AI correctly identified the learning boundary.
-- [ ] AI did not guess unverified versions or dependencies.
-- [ ] AI correctly explained Project Isolation, including EFIN and ENERIXON FIN.
-- [ ] The AI understanding check made no application file changes.
-- [ ] The actual evidence checkpoints were captured.
+- [x] The complete canonical Project Instructions were copied into the BVC Task Management GAIS project.
+- [x] The Human Owner confirms that Save changes was completed.
+- [x] The Custom instructions card is visible in the supplied GAIS Chat settings screenshot.
+- [x] BVCTM-PROMPT-0002 was run and its response was received.
+- [x] The response was reviewed for project identity, authority, scope, isolation, and verification rules.
+- [ ] Independently compare the application file tree or file-change history before and after Prompt #0002.
+- [ ] Verify any technical-version claims against the actual manifests or runtime before treating them as facts.
+- [ ] Capture and synchronize the A3 evidence assets to the repository.
 
-**Completion rule:** A3 is complete only when the instructions are saved, the AI understanding check is reviewed, and the file tree remains unchanged. A populated editor alone is not enough.
+**Completion rule:** A3 has meaningful owner-confirmed and observed evidence for saving the instructions and receiving the understanding-check response. Keep the lesson in evidence review until the file-integrity check is independently supported. Do not claim technical versions are verified from the Prompt #0002 response alone.
 
 ## 08. Common Mistakes & Recovery
 
