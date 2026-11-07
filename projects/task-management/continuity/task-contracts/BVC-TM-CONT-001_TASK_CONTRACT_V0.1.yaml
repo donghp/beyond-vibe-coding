@@ -77,14 +77,9 @@ risk:
   level: R1
   policy_ref: >-
     projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
-    — Sections 3, 4.1, 7 and 8. The policy records Product Owner approval
-    dated 2026-11-05 but its main-branch header still says publication pending
-    and its effective date is upon controlled merge. The Human Owner confirmed
-    R1 for this bounded documentation/state metadata reconciliation on
-    2026-11-07; Revision 3 carries forward that classification because the
-    exact authorized file scope is unchanged. Revision 3 still requires its
-    own explicit Human Owner approval before execution and does not resolve
-    the separate policy-publication metadata inconsistency.
+    — Sections 3, 4.1, 7 and 8. Header remains publication pending; effective
+    date is upon controlled merge. Human Owner confirmed R1 on 2026-11-07.
+    Revision 3 requires separate approval.
   rationale: >-
     The planned changes are bounded documentation, continuity metadata,
     registers, and validation-plan updates. No application source, product
@@ -511,7 +506,7 @@ verification:
     - id: VC-007
       kind: STATIC_ANALYSIS
       description: "Validate the complete VCS-derived changed-file inventory against this Contract's exact CREATE/MODIFY/DELETE scope and Change Budget. The inventory must cover the full implementation diff from the approved source baseline and include each path, operation, additions-plus-deletions diff_lines, is_binary flag, and any applicable sensitive categories."
-      command: "python scripts/validate_task_contracts.py projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml --changed-files-json <temporary-vcs-inventory.json>"
+      command: "python scripts/validate_task_contracts.py projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml --changed-files-json \"$env:TEMP\\bvc-tm-cont-001-changed-files.json\""
       evidence_level: 2
       required: true
       acceptance_criteria_refs: [AC-011]
