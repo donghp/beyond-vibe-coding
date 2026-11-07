@@ -1,7 +1,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-CONT-TC-001"
-revision: 1
-status: PROPOSED
+revision: 2
+status: APPROVED
 created_at: "2026-11-07T12:16:00+07:00"
 
 task:
@@ -23,7 +23,7 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "fa3762f4b9a78e645b2531d954b9022531ba6cd0"
+    source_commit: "ecad2ee9c51772d5219384b9727dfc436e46b35b"
     working_tree_status: CLEAN
     architecture_baseline_refs:
       - "projects/task-management/README.md"
@@ -36,7 +36,7 @@ project:
       - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
     recovery_point:
       kind: git_commit
-      reference: "main@fa3762f4b9a78e645b2531d954b9022531ba6cd0"
+      reference: "main@ecad2ee9c51772d5219384b9727dfc436e46b35b"
       verified: true
 
 intent:
@@ -77,9 +77,10 @@ risk:
     projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
     — Sections 3, 4.1, 7 and 8. The policy records Product Owner approval
     dated 2026-11-05 but its main-branch header still says publication pending
-    and its effective date is upon controlled merge. R1 is the proposed
-    classification for bounded documentation/state metadata reconciliation;
-    the Human Owner must confirm it when approving this Contract.
+    and its effective date is upon controlled merge. The Human Owner confirmed
+    R1 for this bounded documentation/state metadata reconciliation on
+    2026-11-07; this approval does not resolve the separate policy-publication
+    metadata inconsistency.
   rationale: >-
     The planned changes are bounded documentation, continuity metadata,
     registers, and validation-plan updates. No application source, product
@@ -560,10 +561,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Approval of continuity purpose and principles in conversation 2026-11-07; exact Contract approval pending."
-    rationale: "The project continuity principles are approved, but the exact write scope, R1 risk classification, outputs and acceptance criteria must be reviewed before this Contract becomes execution-ready."
+    approval_reference: "Human Owner explicitly approved exact BVC-TM-CONT-001 scope and R1 risk classification in conversation on 2026-11-07 after PR #31 merge; PR #31 merge commit ecad2ee9c51772d5219384b9727dfc436e46b35b."
+    rationale: "The Human Owner approved the exact write scope, R1 risk classification, outputs and acceptance criteria on 2026-11-07. Revision 2 records this approval; all preflight, baseline, context and verification gates still apply."
 
 stopping_conditions:
   - scope_expansion_required
