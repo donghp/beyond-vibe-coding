@@ -1,8 +1,8 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-CONT-TC-001"
-revision: 2
-status: APPROVED
-created_at: "2026-11-07T12:16:00+07:00"
+revision: 3
+status: PROPOSED
+created_at: "2026-11-07T17:53:11+07:00"
 
 task:
   id: "BVC-TM-CONT-001"
@@ -23,8 +23,9 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "ecad2ee9c51772d5219384b9727dfc436e46b35b"
-    working_tree_status: CLEAN
+    source_commit: "400b8d5916bc66759597395905dfa2e153aca18b"
+    working_tree_status: DIRTY
+    pre_existing_changes_ref: "Human Owner terminal evidence supplied 2026-11-07: local main@400b8d5916bc66759597395905dfa2e153aca18b has a pre-existing modification to projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md and two untracked files practical-labs/bvc-task-management/phase-a/a1-01-gais-start-screen.png and practical-labs/bvc-task-management/phase-a/a1-02-bvctm-initial-scaffold-preview.png. These local changes are excluded from this Contract proposal and must not be staged, reset, overwritten, or included in its implementation diff."
     architecture_baseline_refs:
       - "projects/task-management/README.md"
       - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
@@ -36,7 +37,7 @@ project:
       - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
     recovery_point:
       kind: git_commit
-      reference: "main@ecad2ee9c51772d5219384b9727dfc436e46b35b"
+      reference: "main@400b8d5916bc66759597395905dfa2e153aca18b"
       verified: true
 
 intent:
@@ -48,14 +49,15 @@ intent:
     and prompt status, evidence, external-system limitations, writer ownership,
     and exactly one next permitted action without relying on previous chat.
   rationale: >-
-    The current BVCTM continuity package was prepared against main@53ed264
-    and has not been reconciled after publication of Practical Labs Lessons
-    A3/A4, Prompts #0002/#0003, PRs #24/#27/#28/#29, and Global Continuity
-    PR #30. The Human Owner explicitly approved the project-owned continuity
-    purpose and single-source-of-truth principles in the current conversation
-    on 2026-11-07. The detailed file scope, verification plan and execution
-    authority in this Contract remain PROPOSED until the Human Owner reviews
-    and approves this exact Contract.
+    Contract Revision 2 is APPROVED on main, but the repository validator
+    run by the Human Owner on 2026-11-07 reported that AC-009 and AC-011
+    require evidence level 2 while their linked required checks provide only
+    level 1. Revision 3 corrects this mismatch without expanding the exact
+    13-path scope: AC-009 is aligned to the handoff-directory instructions
+    deliverable when no real handoff has occurred; AC-011 gains an explicit
+    required level-2 VCS changed-file inventory check. Revision 3 remains
+    PROPOSED until the Human Owner reviews and approves the revised criteria
+    and verification checks.
   expected_outcome: >-
     One current BVCTM Project State, one Source Manifest, one append-only
     Handoff Log, one Task Execution Register, and one Evidence Index describe
@@ -75,12 +77,9 @@ risk:
   level: R1
   policy_ref: >-
     projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
-    — Sections 3, 4.1, 7 and 8. The policy records Product Owner approval
-    dated 2026-11-05 but its main-branch header still says publication pending
-    and its effective date is upon controlled merge. The Human Owner confirmed
-    R1 for this bounded documentation/state metadata reconciliation on
-    2026-11-07; this approval does not resolve the separate policy-publication
-    metadata inconsistency.
+    — Sections 3, 4.1, 7 and 8. Header remains publication pending; effective
+    date is upon controlled merge. Human Owner confirmed R1 on 2026-11-07.
+    Revision 3 requires separate approval.
   rationale: >-
     The planned changes are bounded documentation, continuity metadata,
     registers, and validation-plan updates. No application source, product
@@ -176,7 +175,7 @@ constraints:
   - "Keep formal Phase 3.1 UX Acceptance OPEN, Phase 3.2 at accepted-design-only status, and the existing Task #003 execution state NOT_STARTED_OR_NOT_EVIDENCED unless new canonical evidence proves otherwise."
   - "Do not change product scope, Product Definition, UX, Architecture, Governance decisions, risk policy, Phase 3.3 Contracts, application code, public Practical Labs lessons, CI, workflows, repository settings, secrets, database, Auth, hosting, or deployment."
   - "Do not place API keys, tokens, credentials, passwords, private account data, customer data, or confidential business data in continuity records or handoff YAML."
-  - "The recorded baseline CLEAN refers to the immutable remote main checkpoint only. Before any local/IDE write, the actual local branch and working tree must be inspected; unknown or dirty state blocks local write operations."
+  - "The Contract source commit and recovery point identify the immutable remote main checkpoint. The Human Owner's local working tree was DIRTY at the latest supplied check and its three pre-existing paths are recorded in project.baseline.pre_existing_changes_ref; this proposal does not alter or include them. Before any local/IDE write, re-inspect the actual branch and working tree; dirty or unknown local state blocks local write operations."
   - "The original Phase 3.3 Task #002 is already COMPLETED_ACCEPTED. Do not reuse its ID; this continuity workstream uses BVC-TM-CONT-001."
 
 required_context:
@@ -445,9 +444,9 @@ acceptance_criteria:
     required_evidence_level: 1
     required: true
   - id: AC-009
-    statement: "Each real worker handoff has a dedicated YAML record under continuity/handoffs/ that conforms to the Global Worker Handoff schema and includes checkpoint, sender release and receiver acceptance; Handoff Log remains an append-only event index."
-    verification_method: "Inspect the handoff directory instructions and validate any handoff record created under a separately authorized transition. Do not invent sender release or receiver acceptance when no real handoff occurred."
-    required_evidence_level: 2
+    statement: "The handoffs directory instructions require each actual worker transition to be recorded in its own YAML file under continuity/handoffs/ using the Global Worker Handoff schema/template, with a verified checkpoint, sender release and receiver acceptance; no handoff record is fabricated when no real transition has occurred, and Handoff Log remains append-only history."
+    verification_method: "Inspect handoffs/README.md for the canonical Global schema/template references, required checkpoint/release/acceptance fields, and the prohibition on fabricated handoffs. Validate an individual record against the Global schema only when a real, separately authorized handoff record exists; no such record is required for this task absent an actual transition."
+    required_evidence_level: 1
     required: true
   - id: AC-010
     statement: "The GAIS quota interruption and GAIS-to-DeepSeek recovery test is added to the test plan and explicitly remains NOT_RUN until a real evidence-backed pilot occurs."
@@ -456,7 +455,7 @@ acceptance_criteria:
     required: true
   - id: AC-011
     statement: "All actual changes match exact CREATE/MODIFY/DELETE lists and Change Budget; Product, UX, Architecture, Governance, Phase 3.3, Practical Labs, application and Global Continuity sources remain untouched."
-    verification_method: "Use a VCS-derived changed-file inventory and scripts/validate_task_contracts.py --changed-files-json; manually inspect the full diff and protected prefixes."
+    verification_method: "Generate a complete VCS-derived inventory from the approved source baseline to the implementation candidate commit, classifying every added, modified and deleted path and recording additions plus deletions, binary status and any sensitive categories. Run the Contract validator with --changed-files-json, then compare the inventory against the full PR changed-file list and diff to confirm exact operation scope, Change Budget and untouched protected paths."
     required_evidence_level: 2
     required: true
 
@@ -504,11 +503,18 @@ verification:
       evidence_level: 1
       required: true
       acceptance_criteria_refs: [AC-001, AC-002, AC-003, AC-006, AC-007, AC-008, AC-009, AC-010]
+    - id: VC-007
+      kind: STATIC_ANALYSIS
+      description: "Validate the complete VCS-derived changed-file inventory against this Contract's exact CREATE/MODIFY/DELETE scope and Change Budget. The inventory must cover the full implementation diff from the approved source baseline and include each path, operation, additions-plus-deletions diff_lines, is_binary flag, and any applicable sensitive categories."
+      command: "python scripts/validate_task_contracts.py projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml --changed-files-json \"$env:TEMP\\bvc-tm-cont-001-changed-files.json\""
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: [AC-011]
 
   known_verification_limits:
     - "No executor can inspect private GAIS session contents unless the Human Owner supplies accessible screenshots or exported files."
     - "A DeepSeek model in VS Code cannot recover uncommitted GAIS in-memory state through GitHub."
-    - "The current local Windows working tree and its synchronization are UNKNOWN until the Human Owner supplies current terminal output or an authorized local workspace is available."
+    - "The latest Human Owner terminal output supplied on 2026-11-07, after fast-forward to main@400b8d5916bc66759597395905dfa2e153aca18b, showed a DIRTY local main: 00_BVC_PROJECT_CONTINUITY.md modified and two untracked A1-01/A1-02 PNG files under practical-labs/bvc-task-management/phase-a. This is time-bounded Owner-supplied evidence; re-check before any local write, and do not include those paths in this task."
     - "No GAIS-to-DeepSeek or cross-provider handoff pilot has been run by this Contract proposal."
     - "The Global Worker Handoff schema and validator do not create a distributed lock or prevent concurrent writers."
     - "The Project State specification/schema is Draft / Experimental v0.1.0; this task does not upgrade that specification."
@@ -537,12 +543,12 @@ authority:
   requested_by: "Human Owner / Product Owner"
   authorized_by: "Human Owner / Product Owner"
   authorization_reference: >-
-    Human Owner explicitly approved the BVCTM project-owned continuity purpose
-    and the principles of one Project State, one Source Manifest, one Handoff
-    Log, one Task Execution Register, one Evidence Index, and ID-linked
-    Contracts/Prompts in the current conversation on 2026-11-07. This authorizes
-    preparation and review of this Contract proposal only; the exact 13-path
-    execution scope remains PROPOSED and requires separate explicit approval.
+    The Human Owner requested preparation of Contract Revision 3 in the current
+    conversation on 2026-11-07 after the local validator reported AC-009 and
+    AC-011 evidence-level mismatches. This request authorizes preparation and
+    publication of a PROPOSED revision for review only; it does not approve
+    Revision 3 or authorize execution. The previously approved 13-path scope
+    remains unchanged and still requires revision-specific Human Owner approval.
   executor:
     class: HYBRID
     identifier: "CHATGPT prepares bounded repository artifacts; Human Owner operates GAIS and local DeepSeek/VS Code sessions and supplies evidence; the receiving executor independently verifies remote checkpoints."
@@ -561,10 +567,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: APPROVED
+    status: PENDING
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Human Owner explicitly approved exact BVC-TM-CONT-001 scope and R1 risk classification in conversation on 2026-11-07 after PR #31 merge; PR #31 merge commit ecad2ee9c51772d5219384b9727dfc436e46b35b."
-    rationale: "The Human Owner approved the exact write scope, R1 risk classification, outputs and acceptance criteria on 2026-11-07. Revision 2 records this approval; all preflight, baseline, context and verification gates still apply."
+    approval_reference: "Revision 2 approval remains evidenced by PR #32 and main@400b8d5916bc66759597395905dfa2e153aca18b. That approval does not cover the revised AC-009/AC-011 wording and VC-007 in Revision 3; explicit Revision 3 approval is pending."
+    rationale: "Revision 2 was approved, but Revision 3 changes acceptance and verification requirements. Do not infer approval from Revision 2; execution remains blocked until the Human Owner explicitly approves Revision 3."
 
 stopping_conditions:
   - scope_expansion_required
