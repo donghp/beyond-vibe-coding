@@ -10,6 +10,7 @@ Use the prompts below only in the BVC Task Management GAIS project. Each prompt 
 |---|---|---|
 | [BVCTM-PROMPT-0001 — Initial Web App Scaffold](BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md) | Create the initial blank web-app scaffold only. | [A1 — Meet Google AI Studio](../phase-a/01-meet-google-ai-studio/README.md) |
 | [BVCTM-PROMPT-0002 — Project Instructions Understanding Check](BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md) | Read-only check that the AI can explain the project instructions. It must not modify files. | [A3 — Set Up Project Instructions](../phase-a/03-set-up-project-instructions/README.md) |
+| [BVCTM-PROMPT-0003 — Task Understanding & Read-Only Planning Exercise](BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md) | Read-only exercise that turns an everyday task request into a structured understanding and plan; it does not authorize implementation. | [A4 — Talk to AI Like a Teammate](../phase-a/04-talk-to-ai-like-a-teammate/README.md) |
 
 ## Prompt use rules
 

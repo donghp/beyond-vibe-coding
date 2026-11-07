@@ -16,7 +16,7 @@ Organize screenshots by learning phase:
 | A1-02 | phase-a/a1-02-bvctm-initial-scaffold-preview.jpg | Actual Preview after Prompt #0001 | COMMITTED in this PR; shows the expected scaffold text and the AI's reported server recovery |
 | A2-01 | phase-a/a2-01-gais-code-file-explorer.jpg | Actual GAIS Code view / File Explorer and tsconfig editor | COMMITTED in this PR; supports the A2 scaffold inspection lesson |
 | A3-02 | phase-a/a3-02-gais-project-instructions-saved.jpg | Custom Instructions summary card visible in GAIS Chat settings after editor closed | COMMITTED in this PR; OBSERVED settings summary, not a full-text reopen verification |
-| A3-02 | phase-a/a3-02-project-instructions-saved.png | Reopen Instructions editor and confirm saved text | NOT VERIFIED — awaiting screenshot |
+| A3-02R | phase-a/a3-02-project-instructions-saved.png | Reopen Instructions editor and confirm the complete saved text | NOT VERIFIED — awaiting screenshot |
 | A3-03 | phase-a/a3-03-instructions-understanding-check.png | Actual response to BVCTM-PROMPT-0002 | OWNER-SUPPLIED TEXT RESPONSE RECEIVED; response screenshot has not been supplied or committed |
 | A3-04 | phase-a/a3-04-file-tree-unchanged.png | Evidence that the read-only understanding check did not change application files | NOT VERIFIED — awaiting before/after comparison |
 

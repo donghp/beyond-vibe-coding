@@ -10,20 +10,20 @@
 
 | Lesson | Current status | Observed evidence | Remaining evidence before publication |
 |---|---|---|---|
-| A1 — Meet Google AI Studio | Partially evidenced | A1-02 actual scaffold Preview screenshot committed; Preview shows the required scaffold text. A1-01 filename is visible in a local VS Code Explorer screenshot, but the original image bytes are not yet committed. | Commit the actual A1-01 Apps landing screenshot; review A1 steps against the current GAIS interface. |
-| A2 — Inspect Your First Web App Scaffold | Partially evidenced | Actual GAIS Code / File Explorer screenshot committed; visible entries include app/layout.tsx, app/page.tsx, app/globals.css, package.json, next.config.ts and tsconfig.json. | Inspect package.json and applicable lockfile/runtime evidence; verify exact installed versions and package-manager state. Do not infer these details from filenames or the Prompt #0002 summary. |
-| A3 — Set Up Project Instructions | Partially complete — Prompt #0002 response received | GAIS Custom Instructions summary card screenshot committed; Human Owner supplied the full text response to all ten Prompt #0002 questions. AI reported no file changes, but its final statement says it inspected no files during that turn. | Reopen the full Instructions editor and confirm saved text; independently compare the before/after file tree; verify exact technology versions from actual project files separately. |
-| A4 — Talk to AI Like a Teammate | Draft | Existing lesson content retained and expanded into the A4 position. | Capture an authentic GAIS conversation with the practice request and response; review the seven-step and Prompt Readiness Gate explanations with a beginner. |
+| A1 — Meet Google AI Studio | Partially evidenced | A1-02 actual scaffold Preview screenshot is committed in this PR; it shows the expected scaffold text. A1-01 Apps landing image remains OWNER-REPORTED / not committed. | Commit the original A1-01 Apps landing screenshot when available; confirm the current GAIS navigation and app-creation checkpoints. |
+| A2 — Inspect Your First Web App Scaffold | Partially evidenced | Actual GAIS Code / File Explorer screenshot is committed in this PR. Visible entries include app/page.tsx, app/layout.tsx, app/globals.css, package.json, next.config.ts, and tsconfig.json. | Inspect the actual package.json and applicable lockfile; verify exact installed versions, package manager, scripts, build command, and export outcome only if available. Do not infer them from filenames or Prompt #0002. |
+| A3 — Set Up Project Instructions | Evidence review in progress | OWNER-CONFIRMED: Human Owner confirms Save changes. OBSERVED: Custom Instructions summary-card image is committed in this PR. RESPONSE RECEIVED: Human Owner supplied the ten-part Prompt #0002 response. Its exact technology-version claims remain NOT VERIFIED because the same response says no project files were read. | Reopen the full Instructions editor to confirm saved text; independently compare the file tree/change history before and after Prompt #0002; verify technical versions against actual manifests/runtime. A3-03 response screenshot is not supplied; A3-04 file-integrity comparison remains NOT VERIFIED. |
+| A4 — Talk to AI Like a Teammate | Draft / Prompt prepared | BVCTM-PROMPT-0003 is prepared as a read-only task-understanding and planning exercise. It separates permission to analyze the example from authorization to implement it. | Run the complete prompt in the existing BVC Task Management GAIS Chat; review the actual response; capture A4-01 response and A4-02 file-view evidence; verify no project files were changed. |
 
 ### A3 evidence interpretation
 
-The latest owner-supplied GAIS screenshot shows the Custom Instructions summary card after the editor was closed. It is OBSERVED evidence that the settings card is present; it does not show the complete text reopened for comparison.
+The Human Owner confirms that Save changes was completed, and a supplied follow-up screenshot shows the GAIS Chat settings **Custom instructions** card with the BVC Task Management instructions preview. Record the save as **OWNER-CONFIRMED** and the visible card as **OBSERVED** evidence.
 
-The Human Owner also supplied the response to BVCTM-PROMPT-0002. The AI answered all ten questions and accurately restated the project purpose, Human Owner authority, Beginner boundary, Project Isolation Rule, verification distinctions, and stop conditions.
+The Human Owner also supplied the response to BVCTM-PROMPT-0002. The response explains the project rules, but it presents detailed technology-version claims while also stating that no project files were read during that turn. Those technical claims remain **NOT VERIFIED** until checked against the actual manifests or runtime.
 
-However, the AI described exact package/runtime versions as “Inspected & Verified” and then stated that it had inspected no project files during that turn. Those exact technology details are therefore NOT VERIFIED by the understanding-check response.
+GAIS reported that no files were changed. An independent before/after file-tree comparison or equivalent change evidence remains pending. An AI statement alone is not an independent file-integrity check.
 
-The AI self-reported that no files changed. The independent before/after File Explorer or diff comparison remains NOT VERIFIED.
+Those remain NOT VERIFIED until the corresponding evidence is supplied.
 
 ## 2. Phase B — Build Your First Task
 
@@ -60,6 +60,10 @@ The AI self-reported that no files changed. The independent before/after File Ex
 
 ## 5. Status definitions
 
+- **OWNER-CONFIRMED:** the Human Owner reports that an action was completed; record it separately from independent verification.
+- **OBSERVED:** visible in an authentic screenshot or actual file.
+- **VERIFIED:** a behavior or check was actually performed and its result recorded with evidence.
+- **UNKNOWN / NOT VERIFIED:** not established by the available evidence.
 - **Planned:** accepted as a learning destination; lesson instructions or implementation are not complete.
 - **Draft:** lesson content exists but requires practical review.
 - **Evidence Required:** actual UI, save, runtime, or behavior evidence is missing.

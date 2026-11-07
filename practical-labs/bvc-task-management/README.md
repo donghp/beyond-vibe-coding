@@ -33,6 +33,7 @@ Follow the four learning phases in order:
 - [BVC Task Management Project Instructions v0.1](PROJECT_INSTRUCTIONS_V0.1.md)
 - [Prompt #0001 — Create Initial Blank Web App Scaffold](prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md)
 - [Prompt #0002 — Project Instructions Understanding Check](prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md)
+- [Prompt #0003 — Task Understanding & Read-Only Planning Exercise](prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md)
 - [Prompt Library](prompts/README.md)
 
 ## Project boundaries

@@ -22,9 +22,9 @@ You do not need to study every standard before beginning. Start with Lesson A1 a
 | Step | Lesson | What you will do | Current evidence status |
 |---|---|---|---|
 | A1 | [Meet Google AI Studio](bvc-task-management/phase-a/01-meet-google-ai-studio/README.md) | Open GAIS, start a web app with Prompt #0001, and see the first blank Preview. | Preview observed; Apps landing screenshot file still needs synchronization. |
-| A2 | [Inspect Your First Web App Scaffold](bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md) | Inspect the Preview, Code view, File Explorer, and configuration of the scaffold created in A1. Do not run Prompt #0001 again. | Actual Code / File Explorer screenshot synchronized; exact installed versions and package-manager details remain to be checked. |
-| A3 | [Set Up Project Instructions](bvc-task-management/phase-a/03-set-up-project-instructions/README.md) | Add the project's working rules to GAIS and ask AI to explain them without changing code. | Custom Instructions settings card observed; Prompt #0002 response received, with independent file verification still pending. |
-| A4 | [Talk to AI Like a Teammate](bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/README.md) | Prepare one clear request with context, boundaries, and an expected result. | Lesson draft; practical conversation evidence required. |
+| A2 | [Inspect Your First Web App Scaffold](bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md) | Inspect the Preview, Code view, File Explorer, and configuration of the scaffold created in A1. Do not run Prompt #0001 again. | Actual Code / File Explorer screenshot synchronized; visible filenames are recorded in A2; exact installed versions and package-manager details remain unverified. |
+| A3 | [Set Up Project Instructions](bvc-task-management/phase-a/03-set-up-project-instructions/README.md) | Save the project's working rules in GAIS and ask AI to explain them without changing code. | Custom Instructions settings-card screenshot committed; Prompt #0002 response supplied; full-text reopen and independent before/after file-change verification remain pending. |
+| A4 | [Talk to AI Like a Teammate](bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/README.md) | Run Prompt #0003 to turn one everyday task request into a structured, read-only understanding and plan. | Prompt prepared; actual GAIS response and file-view evidence are still required. |
 
 **Open the [Phase A Lesson Index](bvc-task-management/phase-a/README.md)** to see the full sequence, current status, and shared learning standards.
 
@@ -86,6 +86,7 @@ Project-specific learning resources:
 - [BVC Task Management Project Instructions v0.1](bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md)
 - [Prompt #0001 — Create the Blank App Scaffold](bvc-task-management/prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md)
 - [Prompt #0002 — Check Project Instructions](bvc-task-management/prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md)
+- [Prompt #0003 — Task Understanding & Read-Only Planning Exercise](bvc-task-management/prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md)
 - [Lesson Development and Evidence Register v0.2.0](bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md)
 
 The original [Dong Hong Style Authoring Standard v0.1.0](standards/DONG_HONG_STYLE_PRACTICAL_LAB_AUTHORING_STANDARD_V0.1.md) is retained as a historical version.
