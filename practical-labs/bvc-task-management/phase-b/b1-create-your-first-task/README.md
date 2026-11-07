@@ -1,5 +1,9 @@
 # Phase B · Lesson B1 — Create Your First Task
 
+> **Quick navigation:** [Practical Labs Home](../../../README.md) · [Project Index](../../README.md) · [Phase B Index](../README.md) · [Next →](../b2-save-your-task/README.md)
+> **Progress:** Phase B · Lesson B1 — Create Your First Task
+
+
 **Learning level:** Beginner\
 **Status:** Planned — wait for the first vertical slice implementation.
 
@@ -21,3 +25,10 @@ Do not write exact button names, field labels, or click instructions until the i
 ## Next
 
 [Lesson B2 — Save Your Task](../b2-save-your-task/README.md)
+
+
+---
+
+## Continue learning
+
+[Phase Index](../README.md) · [Next →](../b2-save-your-task/README.md)
