@@ -3,7 +3,8 @@
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
 **Estimated time:** 15–20 minutes  
-**Status:** Draft — practical GAIS conversation screenshots required  
+**Status:** Draft — Prompt #0003 prepared; actual GAIS execution and learner evidence are pending  
+**Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Practical Labs Home](../../../README.md)  
 **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)  
 **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
 
@@ -11,213 +12,187 @@
 
 ## 00. Lesson Information
 
-**One practical outcome:** You can prepare a clear, bounded task request and ask AI to explain its understanding before any implementation begins.
+**One practical outcome:** You can give AI one everyday request and review its structured understanding and proposed plan before any implementation begins.
 
-**Starting state:** Complete A1–A3. Project Instructions have been saved and checked in the GAIS project.
+**Starting state:** Complete A1 and A2. In A3, save the BVC Task Management Project Instructions in the same GAIS project and run Prompt #0002. The Human Owner has supplied evidence that the Custom instructions card is visible and has supplied the Prompt #0002 response. A3's independent file-integrity check remains open.
 
-**Scope boundary:** This lesson teaches how to communicate a task. It does not authorize a new application feature.
+**Scope boundary:** This lesson is a read-only communication exercise. It does not authorize a Task Management feature, source-code changes, or Phase B implementation.
 
 ## 01. What You Will Achieve
 
-You will learn to explain what you need, provide the context AI needs, set a boundary, describe the result you expect, and ask AI to confirm its understanding.
+You will practice turning a simple everyday need into a clear task that AI can explain back to you.
 
-You do not need special prompt-engineering vocabulary. Start by speaking clearly.
+You will learn to check whether AI:
+- Understands the result you actually want.
+- Separates what you asked for from what it is merely assuming.
+- Keeps unrelated features out of the request.
+- Identifies information that is missing.
+- Suggests ways to check the result without pretending those suggestions are approved requirements.
+
+You do not need programming knowledge or special prompt-engineering vocabulary.
 
 ## 02. Why It Matters
 
-Imagine asking a friend to help you remember tomorrow's work.
+Imagine asking a friend to help you remember tomorrow's work. Saying “make me a useful app” leaves many things open. Saying “I want to add one task by entering its title, then see it in a simple list” gives a much clearer starting point.
 
-You probably would not say: “Build a complete enterprise productivity platform with advanced architecture.”
+But even a clear request does not automatically answer every question. Should the task remain after the app is closed? Can it be edited? Does it need a due date? Those are separate decisions.
 
-You might say: “I need a simple way to remember the three things I must do tomorrow.”
-
-That is a better starting point because the need is understandable.
+A good teammate asks, explains, and checks before acting. AI should do the same.
 
 ## 03. Before You Start
 
-- Complete [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md).
-- Use a simple, non-sensitive example.
-- Do not enter passwords, API keys, personal account details, customer information, or confidential data.
-- Remember: the example in this lesson is for communication practice. It does not authorize a product feature.
+- Open the same BVC Task Management project you used in A1–A3.
+- Confirm that the project's **Custom instructions** card is visible in GAIS Chat settings.
+- Use the **Chat** area for this exercise. Do not start a new app or use Remix.
+- Keep the example free of passwords, API keys, customer details, or confidential information.
+- Remember: the feature described below is only a practice scenario. It is not approved for implementation.
 
 ## 04. Step-by-Step Guide
 
-### Step 1 — Start with the outcome
+### Step 1 — Open the existing project chat
 
 **Do this**  
-Write one sentence that explains what you want to achieve.
-
-~~~text
-I want a simple way to remember the tasks I need to do tomorrow.
-~~~
+Open your existing BVC Task Management project in Google AI Studio and use its Chat conversation area.
 
 **Why**  
-AI needs to understand the problem before suggesting a solution.
+The exercise should use the same project context and saved Project Instructions as A3.
 
 **Check**  
-Can someone who does not know your project understand the sentence?
+Make sure you are not in a different GAIS app or project.
 
-### Step 2 — Add everyday context
+### Step 2 — Open Prompt #0003 on GitHub
 
 **Do this**  
-Explain who will use the tool and when it will be useful.
-
-~~~text
-I will use it for my personal daily work. I want to open it in the morning
-and quickly see what I need to do.
-~~~
+Open [BVCTM-PROMPT-0003 — Task Understanding & Read-Only Planning Exercise](../../prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md).
 
 **Why**  
-The same request can lead to different solutions depending on how the tool will be used.
+The complete prompt is prepared for you. You do not need to invent technical instructions or decide which files AI should change.
 
 **Check**  
-Does your context explain the situation without becoming a long story?
+The heading shows BVCTM-PROMPT-0003 and says that the exercise is read-only.
 
-### Step 3 — Set a boundary
+### Step 3 — Copy the complete prompt
 
 **Do this**  
-Tell AI what must stay out of the current task.
-
-~~~text
-Keep the first request very simple. Do not add user accounts,
-a database, team collaboration, or advanced features.
-~~~
-
-**Why**  
-A boundary prevents a small request from turning into a much larger project.
+Copy the complete text inside the prompt's copyable block, from its opening instruction through the final reminder.
 
 **Check**  
-Have you stated what is outside the current request?
+Do not copy only the title or the first few paragraphs.
 
-### Step 4 — Describe the visible result
+### Step 4 — Paste and run it in GAIS Chat
 
 **Do this**  
-Explain what you expect to see.
+Return to the existing BVC Task Management project, paste the prompt into the Chat message box, and send it.
 
-~~~text
-I want one simple screen with a clear list of tasks and an easy way
-to add a new task.
-~~~
+**Do not**  
+- Ask AI to build the task feature.
+- Click Remix to create another app.
+- Ask AI to generate or edit application code.
+- Connect a database or external service.
 
-**Why**  
-A visible result gives you something concrete to review.
+**What you should see**  
+AI should return a structured explanation with the eight sections listed in Prompt #0003. It should say that this read-only exercise is permitted while feature implementation is not authorized.
 
-**Check**  
-Could you look at the result and decide whether the request was understood?
+### Step 5 — Review the response
 
-### Step 5 — Put the request together
+Read the response and ask:
 
-Use this generic example as a starting point:
+- Did AI restate the request in everyday language?
+- Did it keep the request to one title-only task shown in a simple list?
+- Did it avoid assuming permanent saving, due dates, priorities, projects, editing, or deletion?
+- Did it distinguish facts from assumptions and unknown information?
+- Did it label acceptance criteria as suggestions?
+- Did it say what should be inspected before a later implementation?
+- Did it clearly say that Prompt #0003 does not authorize implementation?
 
-~~~text
-I want a simple way to remember the tasks I need to do tomorrow.
+A confident answer is not automatically a correct answer. Check each point against the prompt and the project information actually available to GAIS.
 
-I will use it for my personal daily work. I want to open it in the morning
-and quickly see what I need to do.
+### Step 6 — Check the project was not changed
 
-Keep this request very simple. Do not add user accounts,
-a database, team collaboration, or advanced features.
+Look at the GAIS Code / File Explorer view after the response.
 
-I want one simple screen with a clear list of tasks and an easy way
-to add a new task.
+**Expected result**  
+No application code or project file should have been changed by this exercise.
 
-Before making any changes, explain your understanding of the request,
-identify anything unclear, and tell me what you would plan to do.
-Do not implement anything until I have reviewed the plan.
-~~~
+If you see an unexpected file or change, stop and report it. Compare before/after evidence where available. If you cannot make a reliable comparison, record file integrity as NOT VERIFIED; do not rely only on AI saying that it changed nothing.
 
-**Why**  
-This request explains the goal, context, boundary, expected result, and the next action expected from AI.
+### Step 7 — Save your learning evidence
 
-**Check**  
-Can you identify the task, its limits, and the result you expect?
+Capture the actual GAIS response and the visible Code / File Explorer state after the exercise.
 
-### Step 6 — Use the seven-step task process
+Suggested checkpoint names:
+- **A4-01:** AI's response to Prompt #0003.
+- **A4-02:** Project file view after the read-only exercise.
 
-The BVC process is:
-
-1. Understand the request.
-2. Inspect the actual project and relevant files.
-3. Prepare the context, scope, constraints, expected result, and checks.
-4. Confirm authorization.
-5. Execute the bounded task.
-6. Verify the actual result.
-7. Ask the Human Owner to accept or reject the evidence.
-
-You do not need to write seven paragraphs in every simple prompt. The process is a working discipline; the prompt should include the details needed for its actual task.
-
-### Step 7 — Review AI's understanding
-
-When you use this lesson in GAIS, compare the AI response with your original request.
-
-Check:
-- Did AI understand the everyday problem?
-- Did it preserve the project instructions?
-- Did it keep the request small?
-- Did it introduce a database or account system even though you excluded them?
-- Did it describe a visible result?
-- Did it identify assumptions or ask a useful question?
-- Did it wait for permission before changing files?
-
-Do not accept a response merely because it sounds confident.
+Do not use a generated image as proof of an actual GAIS result.
 
 ## 05. Complete Prompt
 
-The example in Step 5 is a communication exercise, not an implementation authorization.
+Use the canonical [BVCTM-PROMPT-0003](../../prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md).
 
-For real write-capable tasks, use the [BVC Task Prompt Standard](../../../standards/BVC_TASK_PROMPT_STANDARD_V0.1.md) and its Prompt Readiness Gate.
+For real write-capable work, follow the [BVC Task Prompt Standard](../../../standards/BVC_TASK_PROMPT_STANDARD_V0.1.md), including the seven-step process and the mandatory Prompt Readiness Gate.
 
-## 06. See the Real Result
+## 06. What a Good Result Looks Like
 
-Capture the actual GAIS conversation showing the practice request and AI response.
+A good response does not rush to write code. It explains the request, shows what is included and excluded, names assumptions and unknowns, and proposes checks that a Human Owner can review.
 
-**Evidence status:** screenshot required. Do not reuse a generated or illustrative screen as real GAIS evidence.
+The two readiness decisions must stay separate:
+
+| Activity | Required result |
+|---|---|
+| Understand and plan this communication exercise | READY for read-only analysis |
+| Implement the example task feature | NOT READY / NOT AUTHORIZED by Prompt #0003 |
+
+**Important:** Suggested acceptance criteria are not approved product requirements. A future implementation needs its own approved scope and authorization.
 
 ## 07. Check Your Work
 
-- [ ] The request has one main outcome.
-- [ ] Everyday context is clear.
-- [ ] The boundary is explicit.
-- [ ] The expected visible result is described.
-- [ ] AI explains its understanding before making changes.
-- [ ] AI identifies uncertainty rather than guessing.
-- [ ] No feature was implemented during this communication-only exercise.
+- [ ] I used the existing BVC Task Management GAIS project.
+- [ ] I used the Chat conversation area.
+- [ ] I copied and ran the complete Prompt #0003.
+- [ ] AI explained the request in plain language.
+- [ ] AI separated included scope, excluded scope, assumptions, and unknowns.
+- [ ] AI labeled acceptance criteria as proposals.
+- [ ] AI identified what must be inspected before implementation.
+- [ ] AI stated that implementation is not authorized.
+- [ ] I checked the Code / File Explorer view for unexpected changes.
+- [ ] I captured the actual response and evidence.
 
 ## 08. Common Mistakes & Recovery
 
-**I describe too many features at once.**  
-Start with one outcome. Save unrelated ideas for later.
+**I ask AI to build the feature immediately.**  
+Stop. This lesson is only for understanding and planning. Prompt #0003 does not authorize implementation.
 
-**I use words such as “modern”, “smart”, or “professional” without explaining what I mean.**  
-Describe what the user should see or do.
+**AI assumes the task must be saved permanently.**  
+Ask it to separate displaying a task from saving it. Persistence belongs to a separate requirement and learning milestone.
 
-**I let AI add features I did not request.**  
-Restate the boundary and ask for a smaller plan.
+**AI adds due dates, priorities, projects, or user accounts.**  
+Point to the explicit exclusions in Prompt #0003 and ask it to correct the scope without changing files.
 
-**I assume AI understood because it said “I understand”.**  
-Compare its summary with your original goal.
+**AI claims it inspected a file that it could not access.**  
+Ask which exact source it actually opened. Treat unsupported claims as UNKNOWN / NOT VERIFIED.
 
-**I ask AI to implement before the task is ready.**  
-Use the Prompt Readiness Gate. If context or scope is missing, allow read-only inspection only.
+**AI says “no files changed” without before/after evidence.**  
+Record the statement as AI-reported, not independently verified. Inspect the actual project state.
 
 ## 09. What You Have Learned
 
-A useful request should explain:
-1. What you want.
-2. Why you need it.
-3. What must stay out of scope.
-4. What result you expect.
-5. How AI should confirm its understanding.
-6. How you will check the actual result.
+- A clear task begins with one practical outcome.
+- Context explains why the task matters.
+- Boundaries prevent unrelated work from entering the request.
+- Assumptions and unknowns must be visible.
+- Acceptance criteria can be proposed without being approved.
+- Understanding a task is not the same as receiving permission to implement it.
 
 ## 10. Continue Learning
 
+- **Practical Labs Home:** [BEYOND VIBE CODING — Practical Labs](../../../README.md)
+- **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md)
 - **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)
-- **Next:** [B1 — Create Your First Task](../../phase-b/b1-create-your-first-task/README.md)
-- **Lesson Index:** [Phase A](../README.md)
+- **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
 - **Progress:** Lesson A4 of A4.
 
 ---
 
 **BVC — Learn by Building.**  
-*Clear work begins with a clear request.*
+*Understand the work before asking AI to do the work.*

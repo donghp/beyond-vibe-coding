@@ -12,18 +12,16 @@
 |---|---|---|---|
 | A1 — Meet Google AI Studio | In progress | A1-01 starting screen observed in an owner-supplied screenshot. | Remaining current GAIS navigation and app creation checkpoints; verify exact labels in the session. |
 | A2 — Create Your First Blank Web App | Evidence Required | Owner-supplied GAIS screenshot shows the scaffold inspection app, Preview context, and Code / File Explorer entries including Next.js-related and TypeScript/TSX files. | Store authentic screenshots in the repository; inspect package.json and any lockfile; verify framework/dependency versions, package manager, scripts, build command, and export outcome only if available. |
-| A3 — Set Up Project Instructions | Draft / Evidence Required | Owner-supplied screenshot shows Project Instructions text populated in the GAIS Instructions editor. | Confirm Save changes; reopen and confirm persistence; run BVCTM-PROMPT-0002; capture AI response; verify no application files changed; synchronize authentic screenshot asset to repository. |
-| A4 — Talk to AI Like a Teammate | Draft | Existing lesson content retained and expanded into the A4 position. | Capture an authentic GAIS conversation with the practice request and response; review the seven-step and Prompt Readiness Gate explanations with a beginner. |
+| A3 — Set Up Project Instructions | Evidence review in progress | OWNER-CONFIRMED: Human Owner confirms Save changes was completed. OBSERVED: supplied GAIS Chat settings screenshot displays the Custom instructions card and BVC Task Management text preview. RESPONSE RECEIVED: BVCTM-PROMPT-0002 was run and its ten-part response was supplied. | Independently compare the file tree or file-change history before/after the check. Reconcile the response's detailed technical-version claims with its statement that no project files were read; verify versions against actual manifests/runtime before calling them facts. Synchronize authentic A3 screenshots when available. |
+| A4 — Talk to AI Like a Teammate | Draft / Prompt prepared | BVCTM-PROMPT-0003 is prepared as a read-only task-understanding and planning exercise. It separates permission to analyze the example from authorization to implement it. | Run the complete prompt in the existing BVC Task Management GAIS Chat; review the actual response; capture A4-01 response and A4-02 file-view evidence; verify no project files were changed. |
 
 ### A3 evidence interpretation
 
-The supplied screenshot is **OBSERVED** evidence that the Instructions editor contained the pasted text at capture time.
+The Human Owner confirms that Save changes was completed, and a supplied follow-up screenshot shows the GAIS Chat settings **Custom instructions** card with the BVC Task Management instructions preview. Record the save as **OWNER-CONFIRMED** and the visible card as **OBSERVED** evidence.
 
-It does not prove:
-- The Save changes action completed.
-- The Instructions remained saved after closing and reopening.
-- The AI correctly understood the Instructions.
-- The AI made no file changes during a later understanding check.
+The Human Owner also supplied the response to BVCTM-PROMPT-0002. The response explains the project rules, but it presents detailed technology-version claims while also stating that no project files were read during that turn. Those technical claims remain **NOT VERIFIED** until checked against the actual manifests or runtime.
+
+GAIS reported that no files were changed. An independent before/after file-tree comparison or equivalent change evidence remains pending. An AI statement alone is not an independent file-integrity check.
 
 Those remain NOT VERIFIED until the corresponding evidence is supplied.
 
@@ -62,6 +60,10 @@ Those remain NOT VERIFIED until the corresponding evidence is supplied.
 
 ## 5. Status definitions
 
+- **OWNER-CONFIRMED:** the Human Owner reports that an action was completed; record it separately from independent verification.
+- **OBSERVED:** visible in an authentic screenshot or actual file.
+- **VERIFIED:** a behavior or check was actually performed and its result recorded with evidence.
+- **UNKNOWN / NOT VERIFIED:** not established by the available evidence.
 - **Planned:** accepted as a learning destination; lesson instructions or implementation are not complete.
 - **Draft:** lesson content exists but requires practical review.
 - **Evidence Required:** actual UI, save, runtime, or behavior evidence is missing.
