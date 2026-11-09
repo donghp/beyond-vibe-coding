@@ -3,7 +3,7 @@
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
 **Estimated time:** 15–20 minutes  
-**Status:** Response received — Prompt #0003 run in GAIS; all eight required sections supplied; review in progress; A4-02 Code / File Explorer evidence remains pending  
+**Status:** Response and Code-view evidence received — Prompt #0003 run in GAIS; all eight required sections supplied; learner review in progress; independent file-integrity verification remains NOT VERIFIED  
 **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Practical Labs Home](../../../README.md)  
 **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)  
 **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
@@ -114,7 +114,7 @@ After the response, switch from **Preview** to **Code** and inspect the **File E
 **Expected result**  
 No application code or project file should have been changed by this exercise.
 
-**Current screenshot limitation:** The owner-supplied A4 screenshot shows the GAIS response beside the **Preview** tab and the original scaffold heading. It does not show the Code / File Explorer, so it is not A4-02 evidence.
+**Observed A4-02 evidence:** The Human Owner supplied a follow-up screenshot showing the GAIS response beside **Code** view, with the File Explorer open and `app/layout.tsx` selected. The visible scaffold tree includes the same core paths recorded at A2: `app/globals.css`, `app/layout.tsx`, `app/not-found.tsx`, `app/page.tsx`, `hooks/use-mobile.ts`, and `lib/utils.ts`, plus root configuration files. This is a post-exercise observation, not an independent before/after diff.
 
 If you see an unexpected file or change, stop and report it. Compare before/after evidence where available. If you cannot make a reliable comparison, record file integrity as NOT VERIFIED; do not rely only on AI saying that it changed nothing.
 
@@ -128,7 +128,9 @@ Suggested checkpoint names:
 
 Do not use a generated image as proof of an actual GAIS result.
 
-**Current evidence status:** The Human Owner has supplied the full Prompt #0003 response text and a GAIS screenshot showing Gemini 3.8 Flash's response beside the scaffold Preview. A4-01 response received; screenshot binary has not yet been synchronized as a repository asset. A4-02 Code / File Explorer evidence remains pending.
+**Current evidence status:** A4-01 response text and screenshot have been supplied. A4-02 Code / File Explorer screenshot has now also been supplied; it shows `app/layout.tsx` open and the scaffold file tree. The two screenshot binaries have not yet been synchronized as repository assets. Independent file integrity remains NOT VERIFIED because no before/after file-tree export or diff was supplied.
+
+**Evidence record:** [A4-01 — Prompt #0003 Response Evidence Note](A4-01_PROMPT_0003_EVIDENCE_NOTE.md).
 
 **Evidence record:** [A4-01 — Prompt #0003 Response Evidence Note](A4-01_PROMPT_0003_EVIDENCE_NOTE.md).
 
