@@ -2,7 +2,7 @@
 
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
-**Status:** Partially evidenced — A1-02 actual Preview screenshot synchronized; A1-01 Apps landing image file remains pending  
+**Status:** Evidence supplied — A1-01 and A1-02 authentic GAIS screenshots synchronized; app Preview observed  
 **Estimated time:** 15–20 minutes  
 **Previous:** [Practical Labs Home](../../../README.md) — first lesson in this learning path  
 **Next:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)
@@ -68,8 +68,11 @@ This is the workspace where we will create the first practice web app.
 **What you should see**  
 The Google AI Studio Apps page available to your account.
 
-**Figure A1-01 — Actual Google AI Studio Apps landing screen**  
-The repository contains an evidence note describing the owner-supplied screen and its observed controls, but the original screenshot image file has not yet been synchronized into GitHub. We do not insert a placeholder or invented image.
+**Figure A1-01 — Actual Google AI Studio Apps landing screen**
+
+![Actual Google AI Studio Apps page showing the BUILD navigation, highlighted New app entry, and app description area](../../../assets/screenshots/phase-a/a1-01-gais-start-screen.png)
+
+The screenshot shows the GAIS Apps page at `aistudio.google.com/apps`. In the left navigation, **New app** is highlighted under **BUILD**. The main area displays **Build your ideas with Gemini** and the prompt area **Describe an app and let Gemini do the rest**.
 
 [Read the A1-01 screenshot evidence note](A1-01_SCREENSHOT_EVIDENCE_NOTE.md).
 
@@ -81,7 +84,7 @@ If your screen differs, stop and compare it with the current interface. Do not g
 ### Step 2 — Start a new app
 
 **Do this**  
-Choose the **New app** entry under the Build area, as described in the A1-01 evidence note.
+Choose the **New app** entry under the Build area, as shown in Figure A1-01.
 
 **Why**  
 This opens the app-building workspace where you can describe the first result you want.
@@ -135,14 +138,14 @@ A simple page with the exact text **BVC Task Management Scaffold Inspection**.
 
 **Figure A1-02 — Actual blank web scaffold Preview after Prompt #0001**
 
-![Actual Google AI Studio Preview showing the BVC Task Management Scaffold Inspection page and the AI's visible development-server recovery report](../../../assets/screenshots/phase-a/a1-02-bvctm-initial-scaffold-preview.jpg)
+![Actual Google AI Studio Preview showing the BVC Task Management Scaffold Inspection heading and the Prompt #0001 instruction in the side panel](../../../assets/screenshots/phase-a/a1-02-bvctm-initial-scaffold-preview.jpg)
 
-*Figure A1-02. Owner-supplied GAIS screenshot. The Preview displays the exact scaffold text. The conversation also shows that the first development-server start failed, then the AI reported installing dependencies, starting the Next.js development server on port 3000, and receiving HTTP 200 OK. The Preview is OBSERVED; the recovery details are the AI's reported actions, not an independently repeated build/test.*
+*Figure A1-02. The owner-supplied GAIS screenshot shows the Prompt #0001 instruction in the conversation panel and the Preview displaying the exact scaffold-inspection heading. The visible Preview is observed evidence of the rendered page. It does not independently verify server logs, package installation, production build, automated tests, or deployment.*
 
 **What this proves**
 - A blank web-app Preview was displayed.
 - The page showed the exact scaffold-inspection text.
-- The GAIS conversation reported a recovery after the initial server-start problem.
+- The screenshot shows the prompt context alongside the Preview.
 
 **What this does not prove**
 - That Task Management features work.
@@ -195,7 +198,7 @@ Do not accept extra functionality automatically. Stop and inspect what changed.
 
 - **Previous:** [Practical Labs Home](../../../README.md)
 - **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md)
-- **Next:** [A2 — Create Your First Blank Web App](../02-create-your-first-blank-web-app/README.md)
+- **Next:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)
 - **Progress:** Lesson A1 of A4.
 
 ---
