@@ -3,7 +3,7 @@
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
 **Estimated time:** 15–20 minutes  
-**Status:** Response and Code-view evidence received — Prompt #0003 run in GAIS; all eight required sections supplied; learner review in progress; independent file-integrity verification remains NOT VERIFIED  
+**Status:** A4 learning exercise completed — Prompt #0003 run in GAIS; all eight sections reviewed; A4-01 and A4-02 evidence supplied; independent file-integrity verification remains NOT VERIFIED  
 **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Practical Labs Home](../../../README.md)  
 **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)  
 **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
@@ -165,14 +165,14 @@ The two readiness decisions must stay separate:
 
 ## 07. Check Your Work
 
-- [ ] I used the existing BVC Task Management GAIS project.
-- [ ] I used the Chat conversation area.
-- [ ] I copied and ran the complete Prompt #0003.
-- [ ] AI explained the request in plain language.
-- [ ] AI separated included scope, excluded scope, assumptions, and unknowns.
-- [ ] AI labeled acceptance criteria as proposals.
-- [ ] AI identified what must be inspected before implementation.
-- [ ] AI stated that implementation is not authorized.
+- [x] I used the existing BVC Task Management GAIS project.
+- [x] I used the Chat conversation area.
+- [x] I copied and ran the complete Prompt #0003.
+- [x] AI explained the request in plain language.
+- [x] AI separated included scope, excluded scope, assumptions, and unknowns.
+- [x] AI labeled acceptance criteria as proposals.
+- [x] AI identified what must be inspected before implementation.
+- [x] AI stated that implementation is not authorized.
 - [x] I opened Code view and supplied the post-exercise File Explorer screenshot (A4-02).
 - [x] I supplied the actual Prompt #0003 response text and response screenshot (A4-01).
 - [ ] I independently compared the before/after file inventory or file contents.
@@ -188,7 +188,7 @@ The two readiness decisions must stay separate:
 - The A4-02 screenshot shows **Code** view, the File Explorer, and `app/layout.tsx` selected. The core scaffold paths seen in A2 remain visible. This is a visual post-exercise observation, not proof that every file's contents are unchanged.
 - Gemini's statement that no write actions were performed is AI-reported. Independent before/after file comparison remains NOT VERIFIED.
 
-**Review result:** Structurally aligned with Prompt #0003; learner review is in progress. No product requirement or implementation scope is approved by this exercise.
+**Review result:** The A4 learning exercise is complete: the canonical prompt was run, all eight response sections were reviewed, and both A4-01 and A4-02 screenshots were supplied. Independent file-integrity verification remains NOT VERIFIED. No product requirement or implementation scope is approved by this exercise.
 
 ## 08. Common Mistakes & Recovery
 
