@@ -3,7 +3,7 @@
 **Project:** BVC Task Management (BVCTM)  
 **Prompt ID:** BVCTM-PROMPT-0003  
 **Lesson:** Phase A — A4 Talk to AI Like a Teammate  
-**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + ORIGINAL A4-01 AND A4-02 PNG FILES IDENTIFIED; branch synchronization in progress  
+**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + ORIGINAL A4-01 AND A4-02 PNG FILES COMMITTED ON PR #41 BRANCH; pending merge to main  
 **Observed model label:** Gemini 3.8 Flash
 
 ## Evidence supplied
@@ -57,8 +57,8 @@ The response says that no project files were created, modified, renamed, moved, 
 
 | Checkpoint | Status | Explanation |
 |---|---|---|
-| A4-01 — Prompt #0003 response | RECEIVED | Full response text and screenshot supplied by the Human Owner; screenshot binary not yet committed to the repository |
-| A4-02 — Post-exercise Code / File Explorer | RECEIVED | Owner-supplied screenshot shows Code view, File Explorer, and `app/layout.tsx` selected; core scaffold paths remain visible compared with A2; not an independent content diff |
+| A4-01 — Prompt #0003 response | COMMITTED ON PR #41 BRANCH | Full response text and original PNG committed on the evidence branch; publication to main awaits PR #41 merge |
+| A4-02 — Post-exercise Code / File Explorer | COMMITTED ON PR #41 BRANCH | Original PNG shows Code view, File Explorer, and `app/layout.tsx` selected; core scaffold paths remain visible compared with A2; not an independent content diff; publication to main awaits PR #41 merge |
 | Independent file integrity | NOT VERIFIED | No before/after file-tree or file-diff evidence supplied |
 
 ## Review result
