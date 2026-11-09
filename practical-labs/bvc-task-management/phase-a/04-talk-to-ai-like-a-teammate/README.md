@@ -130,6 +130,8 @@ Do not use a generated image as proof of an actual GAIS result.
 
 **Current evidence status:** The Human Owner has supplied the full Prompt #0003 response text and a GAIS screenshot showing Gemini 3.8 Flash's response beside the scaffold Preview. A4-01 response received; screenshot binary has not yet been synchronized as a repository asset. A4-02 Code / File Explorer evidence remains pending.
 
+**Evidence record:** [A4-01 — Prompt #0003 Response Evidence Note](A4-01_PROMPT_0003_EVIDENCE_NOTE.md).
+
 ## 05. Complete Prompt
 
 Use the canonical [BVCTM-PROMPT-0003](../../prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md).
