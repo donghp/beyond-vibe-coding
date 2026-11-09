@@ -3,7 +3,7 @@
 **Project:** BVC Task Management (BVCTM)  
 **Prompt ID:** BVCTM-PROMPT-0003  
 **Lesson:** Phase A — A4 Talk to AI Like a Teammate  
-**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + SCREENSHOT RECEIVED; screenshot binary not yet committed  
+**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + A4-01 AND A4-02 SCREENSHOTS RECEIVED; screenshot binaries not yet committed  
 **Observed model label:** Gemini 3.8 Flash
 
 ## Evidence supplied
@@ -11,7 +11,8 @@
 The Human Owner supplied:
 - The full text of the GAIS response to BVCTM-PROMPT-0003.
 - A screenshot showing the response in the GAIS Chat panel and the existing BVC Task Management scaffold in the Preview panel.
-- The screenshot displays the model label Gemini 3.8 Flash and a run duration of 24 seconds.
+- The A4-01 screenshot displays the model label Gemini 3.8 Flash and a run duration of 24 seconds.
+- A follow-up A4-02 screenshot shows the GAIS response panel beside Code view, with the File Explorer open and `app/layout.tsx` selected.
 
 ## Structural review
 
@@ -57,7 +58,7 @@ The response says that no project files were created, modified, renamed, moved, 
 | Checkpoint | Status | Explanation |
 |---|---|---|
 | A4-01 — Prompt #0003 response | RECEIVED | Full response text and screenshot supplied by the Human Owner; screenshot binary not yet committed to the repository |
-| A4-02 — Post-exercise Code / File Explorer | PENDING | Current screenshot shows Preview, not Code / File Explorer |
+| A4-02 — Post-exercise Code / File Explorer | RECEIVED | Owner-supplied screenshot shows Code view, File Explorer, and `app/layout.tsx` selected; visible scaffold paths correspond to the A2 screenshot |
 | Independent file integrity | NOT VERIFIED | No before/after file-tree or file-diff evidence supplied |
 
 ## Review result
