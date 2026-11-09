@@ -3,7 +3,7 @@
 **Project:** BVC Task Management (BVCTM)  
 **Prompt ID:** BVCTM-PROMPT-0003  
 **Lesson:** Phase A — A4 Talk to AI Like a Teammate  
-**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + A4-01 AND A4-02 SCREENSHOTS RECEIVED; screenshot binaries not yet committed  
+**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + ORIGINAL A4-01 AND A4-02 PNG FILES COMMITTED ON PR #41 BRANCH; pending merge to main  
 **Observed model label:** Gemini 3.8 Flash
 
 ## Evidence supplied
@@ -11,8 +11,8 @@
 The Human Owner supplied:
 - The full text of the GAIS response to BVCTM-PROMPT-0003.
 - A screenshot showing the response in the GAIS Chat panel and the existing BVC Task Management scaffold in the Preview panel.
-- The A4-01 screenshot displays the model label Gemini 3.8 Flash and a run duration of 24 seconds.
-- A follow-up A4-02 screenshot shows the GAIS response panel beside Code view, with the File Explorer open and `app/layout.tsx` selected. The main scaffold paths recorded in A2 remain visible; this is a visual comparison only, not an independent file inventory or content diff.
+- The A4-01 screenshot displays the model label Gemini 3.8 Flash and a run duration of 24 seconds. Original PNG: [a4-01-gais-prompt-0003-response.png](../../../assets/screenshots/phase-a/a4-01-gais-prompt-0003-response.png).
+- A follow-up A4-02 screenshot shows the GAIS response panel beside Code view, with the File Explorer open and `app/layout.tsx` selected. The main scaffold paths recorded in A2 remain visible; this is a visual comparison only, not an independent file inventory or content diff. Original PNG: [a4-02-gais-post-prompt-code-view.png](../../../assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png).
 
 ## Structural review
 
@@ -57,16 +57,16 @@ The response says that no project files were created, modified, renamed, moved, 
 
 | Checkpoint | Status | Explanation |
 |---|---|---|
-| A4-01 — Prompt #0003 response | RECEIVED | Full response text and screenshot supplied by the Human Owner; screenshot binary not yet committed to the repository |
-| A4-02 — Post-exercise Code / File Explorer | RECEIVED | Owner-supplied screenshot shows Code view, File Explorer, and `app/layout.tsx` selected; core scaffold paths remain visible compared with A2; not an independent content diff |
+| A4-01 — Prompt #0003 response | COMMITTED ON PR #41 BRANCH | Full response text and original PNG committed on the evidence branch; publication to main awaits PR #41 merge |
+| A4-02 — Post-exercise Code / File Explorer | COMMITTED ON PR #41 BRANCH | Original PNG shows Code view, File Explorer, and `app/layout.tsx` selected; core scaffold paths remain visible compared with A2; not an independent content diff; publication to main awaits PR #41 merge |
 | Independent file integrity | NOT VERIFIED | No before/after file-tree or file-diff evidence supplied |
 
 ## Review result
 
-**STRUCTURALLY ALIGNED — LEARNER REVIEW IN PROGRESS.**
+**A4 LEARNING EXERCISE COMPLETED — ALL EIGHT SECTIONS REVIEWED; INDEPENDENT FILE INTEGRITY NOT VERIFIED.**
 
 No Task Management feature, product requirement, acceptance criterion, or implementation scope is approved by this read-only exercise.
 
 ## Safe next action
 
-For stronger file-integrity evidence, export or capture a before/after file inventory from the same GAIS app and compare paths and contents. The current screenshots are visual observations only. Until a reliable comparison is supplied, keep file integrity marked NOT VERIFIED.
+For stronger file-integrity evidence, export or capture a before/after file inventory from the same GAIS app and compare paths and contents. The current screenshots are visual observations only. Until a reliable comparison is supplied, keep file integrity marked NOT VERIFIED. This limitation does not undo completion of the A4 communication and planning learning exercise.

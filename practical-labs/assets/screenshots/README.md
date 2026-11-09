@@ -19,8 +19,8 @@ Organize screenshots by learning phase:
 | A3-02R | phase-a/a3-02-project-instructions-saved.png | Close and reopen Instructions editor to confirm the complete saved text remains present | **NOT VERIFIED** — awaiting a separate post-save reopen screenshot |
 | A3-03 | phase-a/a3-03-instructions-understanding-check.png | Actual response to BVCTM-PROMPT-0002 | **OWNER-SUPPLIED TEXT RESPONSE RECEIVED** — response screenshot has not been supplied or committed |
 | A3-04 | phase-a/a3-04-file-tree-unchanged.png | Evidence that the read-only understanding check did not change application files | **NOT VERIFIED** — awaiting before/after comparison |
-| A4-01 | phase-a/a4-01-gais-prompt-0003-response.png | Actual GAIS response to BVCTM-PROMPT-0003, shown beside Preview | **OWNER-SUPPLIED — RECEIVED IN CONVERSATION; BINARY NOT COMMITTED** |
-| A4-02 | phase-a/a4-02-gais-post-prompt-code-view.png | Actual GAIS Code / File Explorer after Prompt #0003, with `app/layout.tsx` selected | **OWNER-SUPPLIED — RECEIVED IN CONVERSATION; BINARY NOT COMMITTED** — visual observation only; not independent file-integrity proof |
+| A4-01 | phase-a/a4-01-gais-prompt-0003-response.png | Actual GAIS response to BVCTM-PROMPT-0003, shown beside Preview | **COMMITTED ON PR #41 BRANCH — pending merge to main; owner-supplied PNG; 1917 × 1015; 190,232 bytes** |
+| A4-02 | phase-a/a4-02-gais-post-prompt-code-view.png | Actual GAIS Code / File Explorer after Prompt #0003, with `app/layout.tsx` selected | **COMMITTED ON PR #41 BRANCH — pending merge to main; owner-supplied PNG; 1905 × 1012; 292,819 bytes** — visual observation only; not independent file-integrity proof |
 
 Capture by checkpoint, not by every click. Never include credentials, API keys, tokens, private account details, customer data, or confidential information.
 
@@ -30,4 +30,4 @@ A checkpoint marked OBSERVED in the conversation is not automatically a reposito
 
 ## Asset publication note
 
-The four Phase A JPG/PNG files above are authentic owner-supplied GAIS screenshots synchronized for repository use. The original images are retained in their supplied evidence format apart from the three JPG screenshots prepared for repository display. No screenshot has been synthesized to represent the GAIS interface.
+The Phase A JPG/PNG files above are authentic owner-supplied GAIS screenshots. A1–A3 assets are on main. A4-01 and A4-02 are committed as original PNG files on the PR #41 branch and will be published on main after Human Owner merge. No screenshot has been synthesized to represent the GAIS interface.
