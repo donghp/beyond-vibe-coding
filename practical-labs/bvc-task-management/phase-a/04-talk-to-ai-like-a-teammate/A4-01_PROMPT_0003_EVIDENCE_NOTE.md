@@ -3,7 +3,7 @@
 **Project:** BVC Task Management (BVCTM)  
 **Prompt ID:** BVCTM-PROMPT-0003  
 **Lesson:** Phase A — A4 Talk to AI Like a Teammate  
-**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + A4-01 AND A4-02 SCREENSHOTS RECEIVED; screenshot binaries not yet committed  
+**Evidence status:** OWNER-SUPPLIED RESPONSE TEXT + ORIGINAL A4-01 AND A4-02 PNG FILES IDENTIFIED; branch synchronization in progress  
 **Observed model label:** Gemini 3.8 Flash
 
 ## Evidence supplied
@@ -11,8 +11,8 @@
 The Human Owner supplied:
 - The full text of the GAIS response to BVCTM-PROMPT-0003.
 - A screenshot showing the response in the GAIS Chat panel and the existing BVC Task Management scaffold in the Preview panel.
-- The A4-01 screenshot displays the model label Gemini 3.8 Flash and a run duration of 24 seconds.
-- A follow-up A4-02 screenshot shows the GAIS response panel beside Code view, with the File Explorer open and `app/layout.tsx` selected. The main scaffold paths recorded in A2 remain visible; this is a visual comparison only, not an independent file inventory or content diff.
+- The A4-01 screenshot displays the model label Gemini 3.8 Flash and a run duration of 24 seconds. Original PNG: [a4-01-gais-prompt-0003-response.png](../../../assets/screenshots/phase-a/a4-01-gais-prompt-0003-response.png).
+- A follow-up A4-02 screenshot shows the GAIS response panel beside Code view, with the File Explorer open and `app/layout.tsx` selected. The main scaffold paths recorded in A2 remain visible; this is a visual comparison only, not an independent file inventory or content diff. Original PNG: [a4-02-gais-post-prompt-code-view.png](../../../assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png).
 
 ## Structural review
 
