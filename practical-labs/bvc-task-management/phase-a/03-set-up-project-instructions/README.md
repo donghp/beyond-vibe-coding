@@ -139,6 +139,10 @@ The Human Owner confirms that the Save changes action was completed.
 
 *Figure A3-02. The supplied screenshot shows the Instructions editor with the BVC Task Management Project Instructions text visible. The Save changes control appears disabled in the captured state. Together with the Human Owner's confirmation that Save changes was completed, record this as OWNER-CONFIRMED + OBSERVED. The screenshot alone does not prove that the editor was closed and reopened or that every saved line was independently re-read.*
 
+**Figure A3-03 — Prompt #0002 response and live Code view**
+
+The Human Owner supplied a screenshot showing Gemini 3.8 Flash's response to BVCTM-PROMPT-0002 beside the GAIS Code / File Explorer view. The visible `app/page.tsx` editor contains the scaffold heading. This is a single observed screenshot of the response and project view; it does not independently establish that no file changed before or after the response.
+
 **Recommended verification**  
 After the save, close the editor if it remains open. Reopen **Custom instructions** and confirm that the text is still present. Capture that separate screen as A3-02R. This additional check is not yet evidenced by the supplied A3-02 image.
 
