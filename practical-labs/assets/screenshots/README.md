@@ -19,6 +19,8 @@ Organize screenshots by learning phase:
 | A3-02R | phase-a/a3-02-project-instructions-saved.png | Close and reopen Instructions editor to confirm the complete saved text remains present | **NOT VERIFIED** — awaiting a separate post-save reopen screenshot |
 | A3-03 | phase-a/a3-03-instructions-understanding-check.png | Actual response to BVCTM-PROMPT-0002 | **OWNER-SUPPLIED TEXT RESPONSE RECEIVED** — response screenshot has not been supplied or committed |
 | A3-04 | phase-a/a3-04-file-tree-unchanged.png | Evidence that the read-only understanding check did not change application files | **NOT VERIFIED** — awaiting before/after comparison |
+| A4-01 | phase-a/a4-01-gais-prompt-0003-response.png | Actual GAIS response to BVCTM-PROMPT-0003, shown beside Preview | **OWNER-SUPPLIED — RECEIVED IN CONVERSATION; BINARY NOT COMMITTED** |
+| A4-02 | phase-a/a4-02-gais-post-prompt-code-view.png | Actual GAIS Code / File Explorer after Prompt #0003, with `app/layout.tsx` selected | **OWNER-SUPPLIED — RECEIVED IN CONVERSATION; BINARY NOT COMMITTED** — visual observation only; not independent file-integrity proof |
 
 Capture by checkpoint, not by every click. Never include credentials, API keys, tokens, private account details, customer data, or confidential information.
 
