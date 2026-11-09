@@ -2,7 +2,7 @@
 
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
-**Status:** Evidence review in progress — Human Owner confirms the Custom Instructions were saved; the GAIS Chat settings card and Prompt #0002 response have been supplied; independent before/after file-change verification remains pending  
+**Status:** Evidence review in progress — Human Owner confirms that Save changes was completed; the supplied A3-02 screenshot shows the populated Instructions editor; independent close/reopen and before/after file-change verification remain pending  
 **Estimated time:** 10–15 minutes, subject to practical review  
 **Previous:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)  
 **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
@@ -13,7 +13,7 @@
 
 ## 00. Lesson Information
 
-**One practical outcome:** Your GAIS project has the BVC Task Management Project Instructions saved, and the AI can explain the main rules without changing any application files.
+**One practical outcome:** Configure the BVC Task Management Project Instructions in the same GAIS project, confirm that the Human Owner completed the save action, and ask AI to explain the main rules without changing application files.
 
 **Starting state:** You have created the blank web app and inspected its visible scaffold in Lesson A2.
 
@@ -61,7 +61,7 @@ The scaffold screenshot has shown Next.js-related files and TypeScript / TSX fil
 Open the project settings area in Google AI Studio.
 
 **Where**  
-Use the settings gear shown in the supplied GAIS screenshot. In the Chat settings view, the supplied screenshot shows the System instructions area.
+Use the settings gear in your GAIS project. The exact position or labels may change; follow the controls shown by your current interface.
 
 **Why**  
 Project Instructions are configured for the AI conversation, not by editing application source code.
@@ -81,13 +81,13 @@ Do not guess another menu path. Stop and share a screenshot of the screen you se
 Open the Custom instructions editor under System instructions.
 
 **Where**  
-The supplied GAIS screenshots show a Custom instructions card that opens an Instructions editor.
+
 
 **Why**  
 This editor is where you provide the project's durable working rules to the AI.
 
 **What you should see**  
-A large text area in the Instructions panel.
+An Instructions panel with a large text area.
 
 **Check**  
 Make sure the panel belongs to the BVC Task Management project, not another GAIS app.
@@ -119,9 +119,6 @@ The editor contains the headings and rules from the canonical file, including Pr
 **Check**  
 Compare the first and last sections with the canonical GitHub file.
 
-**Evidence note**  
-Evidence update: the Human Owner confirms that the instructions were saved. A later owner-supplied screenshot shows the GAIS Chat settings page with the **Custom instructions** card and a preview of the BVC Task Management instructions. Record the save as OWNER-CONFIRMED and the visible card as OBSERVED evidence. The screenshot is not an independent audit of GAIS storage, but it is stronger evidence than a populated editor alone.
-
 ### Step 5 — Save the instructions
 
 **Do this**  
@@ -131,13 +128,19 @@ Use the Save changes control shown by the GAIS editor.
 Pasting text into the editor is not the same as saving it.
 
 **What you should see**  
-Return to Chat settings, where GAIS displays the **Custom instructions** card.
+The editor closes or returns to the preceding settings view. Follow the current GAIS behavior; do not assume the interface will look identical for every account.
 
-**Evidence in this project**  
-The Human Owner confirms that Save changes was completed. The supplied follow-up screenshot shows the Custom instructions card with a preview beginning `PROJECT INSTRUCTIONS — BVC TASK MANAGEMENT — VERSION 0.1`. Record this as OWNER-CONFIRMED save plus OBSERVED card display.
+**Owner confirmation**  
+The Human Owner confirms that the Save changes action was completed.
 
-**Check**  
-Open the card again and confirm that the saved text is still present. When the interface behaves differently, follow the current on-screen labels rather than assuming the save succeeded.
+**Screenshot evidence — Figure A3-02**
+
+![Actual Google AI Studio Instructions editor showing the BVC Task Management Project Instructions text and the Save changes control](../../../assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg)
+
+*Figure A3-02. The supplied screenshot shows the Instructions editor with the BVC Task Management Project Instructions text visible. The Save changes control appears disabled in the captured state. Together with the Human Owner's confirmation that Save changes was completed, record this as OWNER-CONFIRMED + OBSERVED. The screenshot alone does not prove that the editor was closed and reopened or that every saved line was independently re-read.*
+
+**Recommended verification**  
+After the save, close the editor if it remains open. Reopen **Custom instructions** and confirm that the text is still present. Capture that separate screen as A3-02R. This additional check is not yet evidenced by the supplied A3-02 image.
 
 ### Step 6 — Ask AI to explain the instructions
 
@@ -186,11 +189,11 @@ Do not write a feature-building prompt in this lesson.
 Record the four A3 checkpoints separately. Do not promote an owner report or an AI statement into independent verification.
 
 - **A3-01 — Instructions editor populated:** an owner-supplied screenshot showed the Project Instructions text in the GAIS editor. **OBSERVED.**
-- **A3-02 — Instructions saved:** the Human Owner confirms that Save changes was completed. A follow-up screenshot shows the GAIS Chat settings **Custom instructions** card with the BVC Task Management instructions preview. **OWNER-CONFIRMED + OBSERVED.**
+- **A3-02 — Save action:** the Human Owner confirms that Save changes was completed. The supplied screenshot shows the Instructions editor and the Save changes control in a disabled state. **OWNER-CONFIRMED + OBSERVED; close/reopen check pending.**
 
-![Actual Google AI Studio Chat settings showing the BVC Task Management Custom instructions card](../../../assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg)
+![Actual Google AI Studio Instructions editor showing the BVC Task Management Project Instructions text and the Save changes control](../../../assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg)
 
-*Figure A3-02. Actual owner-supplied GAIS screenshot. The Chat settings panel shows the Custom instructions summary card after the editor was closed. This is OBSERVED evidence of the summary card, not a full-text reopen check and not independent proof that every instruction line was saved exactly.*
+*Figure A3-02. The screenshot shows the Instructions editor with the BVC Task Management Project Instructions text visible. The Save changes control appears disabled in the captured state. It is not a separate post-save close/reopen verification.*
 - **A3-03 — Understanding check:** BVCTM-PROMPT-0002 was run in the BVC Task Management GAIS project and the ten-part response was supplied. **EXECUTION REPORTED; RESPONSE RECEIVED.** Review the internal inconsistency between detailed technical-version claims and the statement that no project files were read. Those version claims remain **NOT VERIFIED**.
 - **A3-04 — File integrity:** GAIS reported that no project files were changed. An independent before/after file-tree comparison or equivalent file-change evidence has not yet been supplied. **NOT VERIFIED.**
 
@@ -198,7 +201,7 @@ Suggested screenshot captions:
 
 *Figure A3-01. Google AI Studio Instructions editor containing the BVC Task Management Project Instructions.*
 
-*Figure A3-02. Google AI Studio Chat settings displaying the saved Custom instructions card.*
+*Figure A3-02. Google AI Studio Instructions editor displaying the BVC Task Management Project Instructions text.*
 
 Capture and store any additional evidence from the actual GAIS session. Do not use a generated illustration as evidence of a real GAIS screen.
 
@@ -206,14 +209,15 @@ Capture and store any additional evidence from the actual GAIS session. Do not u
 
 - [x] The complete canonical Project Instructions were copied into the BVC Task Management GAIS project.
 - [x] The Human Owner confirms that Save changes was completed.
-- [x] The Custom instructions card is visible in the supplied GAIS Chat settings screenshot.
+- [x] The Instructions editor with the project rules is visible in the supplied screenshot.
+- [ ] Close and reopen Custom instructions to verify that the complete text remains present.
 - [x] BVCTM-PROMPT-0002 was run and its response was received.
 - [x] The response was reviewed for project identity, authority, scope, isolation, and verification rules.
 - [ ] Independently compare the application file tree or file-change history before and after Prompt #0002.
 - [ ] Verify any technical-version claims against the actual manifests or runtime before treating them as facts.
 - [ ] Capture and synchronize the A3 evidence assets to the repository.
 
-**Completion rule:** A3 has meaningful owner-confirmed and observed evidence for saving the instructions and receiving the understanding-check response. Keep the lesson in evidence review until the file-integrity check is independently supported. Do not claim technical versions are verified from the Prompt #0002 response alone.
+**Completion rule:** A3 has owner-confirmed evidence that the save action was completed and an observed screenshot of the populated Instructions editor. Keep the lesson in evidence review until the close/reopen and file-integrity checks are supported. Do not claim technical versions are verified from the Prompt #0002 response alone.
 
 ## 08. Common Mistakes & Recovery
 
