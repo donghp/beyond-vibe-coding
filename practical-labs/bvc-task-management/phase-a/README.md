@@ -12,9 +12,9 @@
 
 | Lesson | Title | Practical result | Current status |
 |---|---|---|---|
-| A1 | [Meet Google AI Studio](01-meet-google-ai-studio/README.md) | Open GAIS, start a web app with Prompt #0001, and see the first blank Preview. | In progress — Preview observed; screenshot synchronization and remaining navigation evidence are pending. |
-| A2 | [Inspect Your First Web App Scaffold](02-create-your-first-blank-web-app/README.md) | Inspect the blank application scaffold created in A1; do not run Prompt #0001 again. | Partially observed — actual Code / File Explorer screenshot committed; exact framework/dependency versions and package-manager details remain unverified. |
-| A3 | [Set Up Project Instructions](03-set-up-project-instructions/README.md) | Save the project's working rules in GAIS and check whether AI can explain them. | Evidence review — Owner confirms save; Custom instructions card and Prompt #0002 response supplied; independent file-change comparison remains pending. |
+| A1 | [Meet Google AI Studio](01-meet-google-ai-studio/README.md) | Open GAIS, start a web app with Prompt #0001, and see the first blank Preview. | Evidence supplied — authentic A1-01 Apps landing and A1-02 Preview screenshots synchronized; app Preview observed. |
+| A2 | [Inspect Your First Web App Scaffold](02-create-your-first-blank-web-app/README.md) | Inspect the blank application scaffold created in A1; do not run Prompt #0001 again. | Evidence supplied — authentic Code / File Explorer screenshot shows the file tree and `app/page.tsx`; exact framework/dependency versions and package-manager actions remain unverified. |
+| A3 | [Set Up Project Instructions](03-set-up-project-instructions/README.md) | Save the project's working rules in GAIS and check whether AI can explain them. | Evidence review — Owner confirms Save changes; populated Instructions editor screenshot supplied; close/reopen and independent file-change comparison remain pending. |
 | A4 | [Talk to AI Like a Teammate](04-talk-to-ai-like-a-teammate/README.md) | Run Prompt #0003 to turn one everyday feature request into a structured, read-only task understanding and plan. | Draft — Prompt #0003 prepared; actual GAIS response and learner review are pending. |
 
 ## What you need for Phase A

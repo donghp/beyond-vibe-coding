@@ -58,40 +58,47 @@ No programming knowledge is required. You are looking around, not writing code.
 | `app/globals.css` | Shared visual styling rules. |
 | `app/not-found.tsx` | The page shown when a requested page is not found. |
 | `hooks/use-mobile.ts` | A reusable helper related to mobile screen behavior. |
-| `lib/` | A place for shared helper code. |
+| `lib/utils.ts` | A shared utility file. |
+| `.env.example` | An example environment-variable file; do not put secret values in it. |
+| `.eslintrc.json` | A visible ESLint configuration file. |
+| `.gitignore` | Names of files and folders Git should normally ignore. |
+| `bun.lock` | A Bun lockfile is visible; this screenshot alone does not prove it is the only package-manager artifact or that Bun was used for every operation. |
+| `eslint.config.mjs` | A visible ESLint configuration file. |
+| `metadata.json` | A project metadata file. Its complete purpose is not established by the screenshot alone. |
+| `next-env.d.ts` | A Next.js TypeScript declaration file. |
 | `package.json` | A project manifest listing scripts and software packages. |
+| `postcss.config...` | A visible PostCSS configuration file; the filename is truncated in the screenshot. |
 | `tsconfig.json` | Settings used by the TypeScript language tools. |
 | `next.config.ts` | Configuration for the Next.js framework. |
 
-Your screen may contain additional files. The list above records files visible in the supplied screenshot; it is not a promise that every GAIS app has exactly the same structure.
+Your screen may contain additional files. This table records visible names from the supplied screenshot and gives a beginner-level explanation; it does not assert the exact content or runtime status of each file.
 
 **Figure A2-01 — Actual Google AI Studio Code view and File Explorer**
 
-![Actual GAIS Code view showing the BVC Task Management scaffold file tree and tsconfig.json editor](../../../assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg)
+![Actual GAIS Code view showing the BVC Task Management scaffold file tree and app/page.tsx editor](../../../assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg)
 
-*Look at the left-hand File Explorer first. The filenames help identify where the application page, shared layout, styles, and project settings live. The open editor shows tsconfig.json; it does not prove the contents of every other file.*
+*Figure A2-01. The left side shows the GAIS File Explorer with the `app`, `hooks`, and `lib` folders and visible root-level project files. The editor on the right has `app/page.tsx` open. The visible JSX returns the heading "BVC Task Management Scaffold Inspection". This screenshot supports the visible file-tree and open-file observations only; it does not prove exact installed package versions, successful build, tests, security, persistence, or deployment.*
 
-### Step 3 — Open `app/page.tsx`
+### Step 3 — Inspect `app/page.tsx`
 
-**Do this:** Select `app/page.tsx` in the File Explorer.
+**Do this:** Select `app/page.tsx` in the File Explorer. In the supplied screenshot it is already open.
 
 **Why:** This file contains the page content that the Preview displays.
 
-**What you should see:** The actual source code for the scaffold inspection page.
+**What you should see:** A small React page component. The visible code returns a `main` element and an `h1` containing `BVC Task Management Scaffold Inspection`.
 
-**Check:** Find the text `BVC Task Management Scaffold Inspection`. Do not edit it.
+**Check:** Confirm the heading matches the Preview. Do not edit it in this lesson.
 
-### Step 4 — Open `package.json`
+### Step 4 — Inspect the visible scaffold files
 
-**Do this:** Select `package.json` in the project root.
+Open the files below one at a time, read them, and do not save changes:
 
-**Why:** This file lists the scripts and software packages that the project declares.
+- `package.json` — scripts and declared dependencies.
+- `tsconfig.json` — TypeScript compiler settings.
+- `next.config.ts` — Next.js configuration.
+- `bun.lock` — lockfile content, if you need to identify exact resolved package versions.
 
-**What to look for:** The `scripts` section contains available commands; `dependencies` and `devDependencies` list software packages.
-
-**Important:** A version range in package.json is not always the exact installed version. Exact installed versions require checking the applicable lockfile or runtime package information.
-
-**Check:** Read the file only. Do not change version numbers or scripts.
+The screenshot proves these filenames are visible, not the full content of those files. Exact installed versions must be read from the actual lockfile or verified runtime; do not infer them from a screenshot or from a model response.
 
 ### Step 5 — Separate what is known from what is not yet known
 
@@ -99,9 +106,11 @@ Your screen may contain additional files. The list above records files visible i
 |---|---|
 | Is this a web app? | Yes — the GAIS app was created as a web app. |
 | Are TypeScript / TSX files visible? | Yes — files ending in `.ts` and `.tsx` are visible. |
-| Are Next.js-related files visible? | Yes — for example, `next.config.ts` is visible. |
-| What exact package versions are installed? | Not established by the File Explorer screenshot alone. |
-| Which package manager is authoritative? | Not established until the actual lockfile and environment are checked. |
+| Are Next.js-related files visible? | Yes — `next.config.ts` and `next-env.d.ts` are visible. |
+| Is `app/page.tsx` open? | Yes — the editor displays the file and its scaffold heading. |
+| Which lockfile is visible? | `bun.lock` is visible in the File Explorer. |
+| What exact package versions are installed? | Not established by the screenshot alone. |
+| Which package manager was actually used for each operation? | Not established by the screenshot alone. |
 | Did a production build pass? | Not established by viewing files or Preview. |
 | Are tests passing? | Not established unless a test suite was actually run. |
 
@@ -127,7 +136,7 @@ Do not ask AI to “improve the app”, “fix the design”, or “add the firs
 
 ## 05. What the real screenshot shows
 
-The supplied screenshot records the actual GAIS Code view and the visible file tree. It is evidence of those visible filenames and the open editor only.
+The supplied screenshot records the actual GAIS Code view and File Explorer. It shows the `app/page.tsx` editor and the scaffold heading in the visible code. It is not a complete project export or a dependency audit.
 
 It does not prove exact installed package versions, complete dependency resolution, successful production build, automated tests, security, persistence, or deployment.
 
