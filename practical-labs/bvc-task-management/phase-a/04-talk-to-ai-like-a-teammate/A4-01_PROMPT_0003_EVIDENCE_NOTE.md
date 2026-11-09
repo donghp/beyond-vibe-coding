@@ -63,10 +63,10 @@ The response says that no project files were created, modified, renamed, moved, 
 
 ## Review result
 
-**STRUCTURALLY ALIGNED — LEARNER REVIEW IN PROGRESS.**
+**A4 LEARNING EXERCISE COMPLETED — ALL EIGHT SECTIONS REVIEWED; INDEPENDENT FILE INTEGRITY NOT VERIFIED.**
 
 No Task Management feature, product requirement, acceptance criterion, or implementation scope is approved by this read-only exercise.
 
 ## Safe next action
 
-For stronger file-integrity evidence, export or capture a before/after file inventory from the same GAIS app and compare paths and contents. The current screenshots are visual observations only. Until a reliable comparison is supplied, keep file integrity marked NOT VERIFIED.
+For stronger file-integrity evidence, export or capture a before/after file inventory from the same GAIS app and compare paths and contents. The current screenshots are visual observations only. Until a reliable comparison is supplied, keep file integrity marked NOT VERIFIED. This limitation does not undo completion of the A4 communication and planning learning exercise.
