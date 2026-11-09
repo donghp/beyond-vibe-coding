@@ -3,7 +3,7 @@
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
 **Estimated time:** 15–20 minutes  
-**Status:** Draft — Prompt #0003 prepared; actual GAIS execution and learner evidence are pending  
+**Status:** Ready for learner execution — Prompt #0003 is prepared; A4 has not yet been run in GAIS and no A4 response evidence has been supplied  
 **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Practical Labs Home](../../../README.md)  
 **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)  
 **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
@@ -14,7 +14,7 @@
 
 **One practical outcome:** You can give AI one everyday request and review its structured understanding and proposed plan before any implementation begins.
 
-**Starting state:** Complete A1 and A2. In A3, save the BVC Task Management Project Instructions in the same GAIS project and run Prompt #0002. The Human Owner has supplied evidence that the Custom instructions card is visible and has supplied the Prompt #0002 response. A3's independent file-integrity check remains open.
+**Starting state:** Complete A1 and A2. In A3, save the BVC Task Management Project Instructions in the same GAIS project and run Prompt #0002. The Human Owner has supplied the A3-02 Instructions editor screenshot, confirmed the Save changes action, and supplied the Prompt #0002 response alongside a GAIS Code view screenshot. The specific technical-version claims in that response remain unverified because Gemini stated that no project files were read during that response. A3's close/reopen and independent file-integrity checks remain open.
 
 **Scope boundary:** This lesson is a read-only communication exercise. It does not authorize a Task Management feature, source-code changes, or Phase B implementation.
 
@@ -125,6 +125,8 @@ Suggested checkpoint names:
 - **A4-02:** Project file view after the read-only exercise.
 
 Do not use a generated image as proof of an actual GAIS result.
+
+**Current evidence status:** Prompt #0003 is prepared in the repository. The Human Owner has not yet supplied an A4 execution response or A4 screenshot in this project record. Keep A4 as NOT RUN / EVIDENCE PENDING until the actual GAIS response is received and reviewed.
 
 ## 05. Complete Prompt
 
