@@ -2,7 +2,7 @@
 
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
-**Status:** Evidence review in progress — Human Owner confirms that Save changes was completed; the supplied A3-02 screenshot shows the populated Instructions editor; independent close/reopen and before/after file-change verification remain pending  
+**Status:** Evidence review in progress — Human Owner confirms that Save changes was completed; A3-02 Instructions editor screenshot and the BVCTM-PROMPT-0002 response have been supplied; close/reopen and independent before/after file-change verification remain pending  
 **Estimated time:** 10–15 minutes, subject to practical review  
 **Previous:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)  
 **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
@@ -162,7 +162,7 @@ The Human Owner ran BVCTM-PROMPT-0002 in the BVC Task Management GAIS project an
 ### Step 7 — Check that no application files changed
 
 **Do this**  
-Look at the GAIS Code / File Explorer area after the understanding check.
+Look at the GAIS Code / File Explorer area after the understanding check. The Human Owner supplied a screenshot showing the GAIS project chat beside Code view, with `app/page.tsx` open and the scaffold heading visible.
 
 **Why**  
 The lesson is about instructions, not implementation.
@@ -171,7 +171,7 @@ The lesson is about instructions, not implementation.
 The application file tree should remain unchanged by this read-only check.
 
 **Evidence limitation in this project**  
-The supplied Prompt #0002 response says that no files were changed, but it also says no project files were inspected during that turn. This is an AI-reported statement, not an independent before/after comparison. Do not treat it as proof of file integrity.
+The supplied Prompt #0002 response says that no files were changed and that no project files were read during that response. The supplied GAIS screenshot shows the Code view and `app/page.tsx` alongside the response, but it is a single after-response view, not a before/after comparison. Record the result as AI-REPORTED + OWNER-SUPPLIED SCREENSHOT; independent file integrity remains NOT VERIFIED.
 
 **Check**  
 Compare the visible file tree with the scaffold recorded in Lesson A2.
@@ -194,7 +194,7 @@ Record the four A3 checkpoints separately. Do not promote an owner report or an 
 ![Actual Google AI Studio Instructions editor showing the BVC Task Management Project Instructions text and the Save changes control](../../../assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg)
 
 *Figure A3-02. The screenshot shows the Instructions editor with the BVC Task Management Project Instructions text visible. The Save changes control appears disabled in the captured state. It is not a separate post-save close/reopen verification.*
-- **A3-03 — Understanding check:** BVCTM-PROMPT-0002 was run in the BVC Task Management GAIS project and the ten-part response was supplied. **EXECUTION REPORTED; RESPONSE RECEIVED.** Review the internal inconsistency between detailed technical-version claims and the statement that no project files were read. Those version claims remain **NOT VERIFIED**.
+- **A3-03 — Understanding check:** BVCTM-PROMPT-0002 was run in the BVC Task Management GAIS project. The Human Owner supplied the ten-part response and a GAIS screenshot showing the response alongside Code view. **OWNER-REPORTED EXECUTION; RESPONSE RECEIVED; SCREENSHOT OBSERVED.** The response's specific technical-version and dependency claims remain **NOT VERIFIED** because its final report states that no project files were read during that response.
 - **A3-04 — File integrity:** GAIS reported that no project files were changed. An independent before/after file-tree comparison or equivalent file-change evidence has not yet been supplied. **NOT VERIFIED.**
 
 Suggested screenshot captions:
@@ -212,7 +212,8 @@ Capture and store any additional evidence from the actual GAIS session. Do not u
 - [x] The Instructions editor with the project rules is visible in the supplied screenshot.
 - [ ] Close and reopen Custom instructions to verify that the complete text remains present.
 - [x] BVCTM-PROMPT-0002 was run and its response was received.
-- [x] The response was reviewed for project identity, authority, scope, isolation, and verification rules.
+- [x] The ten-part response was received and reviewed for project identity, authority, scope, isolation, and verification rules.
+- [x] A GAIS screenshot showing the response beside Code view and `app/page.tsx` was supplied.
 - [ ] Independently compare the application file tree or file-change history before and after Prompt #0002.
 - [ ] Verify any technical-version claims against the actual manifests or runtime before treating them as facts.
 - [ ] Capture and synchronize the A3 evidence assets to the repository.
