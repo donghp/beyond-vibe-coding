@@ -3,7 +3,7 @@
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
 **Estimated time:** 15–20 minutes  
-**Status:** A4 learning exercise completed — Prompt #0003 run in GAIS; all eight sections reviewed; A4-01 and A4-02 evidence supplied; independent file-integrity verification remains NOT VERIFIED  
+**Status:** A4 learning exercise completed — Prompt #0003 run in GAIS; all eight sections reviewed; original A4-01 and A4-02 PNGs included in PR #41 (pending merge to main); independent file-integrity verification remains NOT VERIFIED  
 **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Practical Labs Home](../../../README.md)  
 **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)  
 **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
@@ -128,7 +128,7 @@ Suggested checkpoint names:
 
 Do not use a generated image as proof of an actual GAIS result.
 
-**Current evidence status:** A4-01 response and A4-02 Code / File Explorer screenshots have been supplied as original PNG files. They are being synchronized to the canonical Practical Labs screenshot directory in this branch. Independent file integrity remains NOT VERIFIED because no before/after file-tree export or diff was supplied.
+**Current evidence status:** A4-01 response and A4-02 Code / File Explorer original PNG files are committed on the PR #41 branch at the canonical screenshot paths. They will be published on main when the Human Owner merges PR #41. Independent file integrity remains NOT VERIFIED because no before/after file-tree export or diff was supplied.
 
 **Figure A4-01 — Actual GAIS response to Prompt #0003**
 
