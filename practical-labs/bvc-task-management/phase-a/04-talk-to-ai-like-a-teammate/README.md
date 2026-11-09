@@ -128,7 +128,19 @@ Suggested checkpoint names:
 
 Do not use a generated image as proof of an actual GAIS result.
 
-**Current evidence status:** A4-01 response text and screenshot have been supplied. A4-02 Code / File Explorer screenshot has now also been supplied; it shows `app/layout.tsx` open and the scaffold file tree. The two screenshot binaries have not yet been synchronized as repository assets. Independent file integrity remains NOT VERIFIED because no before/after file-tree export or diff was supplied.
+**Current evidence status:** A4-01 response and A4-02 Code / File Explorer screenshots have been supplied as original PNG files. They are being synchronized to the canonical Practical Labs screenshot directory in this branch. Independent file integrity remains NOT VERIFIED because no before/after file-tree export or diff was supplied.
+
+**Figure A4-01 — Actual GAIS response to Prompt #0003**
+
+![Google AI Studio showing Gemini 3.8 Flash's eight-section Prompt #0003 response beside the BVC Task Management Preview](../../../assets/screenshots/phase-a/a4-01-gais-prompt-0003-response.png)
+
+*The screenshot records the response in the existing GAIS project and the unchanged-looking scaffold Preview. It is owner-supplied visual evidence, not a disk-level audit.*
+
+**Figure A4-02 — GAIS Code view after Prompt #0003**
+
+![Google AI Studio showing the Prompt #0003 response beside Code view, the File Explorer, and \`app/layout.tsx\`](../../../assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png)
+
+*The screenshot shows the File Explorer and \`app/layout.tsx\` selected after the read-only exercise. It is visual post-exercise evidence, not an independent before/after file diff.*
 
 **Evidence record:** [A4-01 — Prompt #0003 Response Evidence Note](A4-01_PROMPT_0003_EVIDENCE_NOTE.md).
 
