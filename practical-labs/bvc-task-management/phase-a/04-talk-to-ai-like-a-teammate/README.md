@@ -3,7 +3,7 @@
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
 **Estimated time:** 15–20 minutes  
-**Status:** Draft — Prompt #0003 prepared; actual GAIS execution and learner evidence are pending  
+**Status:** Response received — Prompt #0003 run in GAIS; all eight required sections supplied; review in progress; A4-02 Code / File Explorer evidence remains pending  
 **Lesson Index:** [Phase A — Meet AI & Build Your First App](../README.md) · [Practical Labs Home](../../../README.md)  
 **Previous:** [A3 — Set Up Project Instructions](../03-set-up-project-instructions/README.md)  
 **Next:** [Phase B — Build Your First Task](../../phase-b/README.md)
@@ -14,7 +14,7 @@
 
 **One practical outcome:** You can give AI one everyday request and review its structured understanding and proposed plan before any implementation begins.
 
-**Starting state:** Complete A1 and A2. In A3, save the BVC Task Management Project Instructions in the same GAIS project and run Prompt #0002. The Human Owner has supplied evidence that the Custom instructions card is visible and has supplied the Prompt #0002 response. A3's independent file-integrity check remains open.
+**Starting state:** Complete A1 and A2. In A3, save the BVC Task Management Project Instructions in the same GAIS project and run Prompt #0002. The Human Owner has supplied the A3-02 Instructions editor screenshot, confirmed the Save changes action, and supplied the Prompt #0002 response alongside a GAIS Code view screenshot. The specific technical-version claims in that response remain unverified because Gemini stated that no project files were read during that response. A3's close/reopen and independent file-integrity checks remain open.
 
 **Scope boundary:** This lesson is a read-only communication exercise. It does not authorize a Task Management feature, source-code changes, or Phase B implementation.
 
@@ -109,10 +109,12 @@ A confident answer is not automatically a correct answer. Check each point again
 
 ### Step 6 — Check the project was not changed
 
-Look at the GAIS Code / File Explorer view after the response.
+After the response, switch from **Preview** to **Code** and inspect the **File Explorer**.
 
 **Expected result**  
 No application code or project file should have been changed by this exercise.
+
+**Current screenshot limitation:** The owner-supplied A4 screenshot shows the GAIS response beside the **Preview** tab and the original scaffold heading. It does not show the Code / File Explorer, so it is not A4-02 evidence.
 
 If you see an unexpected file or change, stop and report it. Compare before/after evidence where available. If you cannot make a reliable comparison, record file integrity as NOT VERIFIED; do not rely only on AI saying that it changed nothing.
 
@@ -125,6 +127,8 @@ Suggested checkpoint names:
 - **A4-02:** Project file view after the read-only exercise.
 
 Do not use a generated image as proof of an actual GAIS result.
+
+**Current evidence status:** The Human Owner has supplied the full Prompt #0003 response text and a GAIS screenshot showing Gemini 3.8 Flash's response beside the scaffold Preview. A4-01 response received; screenshot binary has not yet been synchronized as a repository asset. A4-02 Code / File Explorer evidence remains pending.
 
 ## 05. Complete Prompt
 
@@ -156,7 +160,20 @@ The two readiness decisions must stay separate:
 - [ ] AI identified what must be inspected before implementation.
 - [ ] AI stated that implementation is not authorized.
 - [ ] I checked the Code / File Explorer view for unexpected changes.
-- [ ] I captured the actual response and evidence.
+- [x] I supplied the actual Prompt #0003 response text and response screenshot.
+- [ ] I captured the post-exercise Code / File Explorer state (A4-02).
+
+**Review of the owner-supplied Prompt #0003 response**
+
+- The response contains all eight required sections.
+- The two Prompt Readiness Gate decisions are correct: read-only analysis is READY; feature implementation is NOT READY / NOT AUTHORIZED.
+- The response correctly identifies project sources and technical facts it did not actually access as UNKNOWN / NOT VERIFIED.
+- Treat blank-input handling, Enter-key submission, input clearing, duplicate-title behavior, single-versus-multiple tasks, and reset-on-refresh behavior as assumptions or PROPOSALS. They are not approved requirements.
+- In particular, the response lists empty/whitespace validation and in-memory-only state under Included Scope. These are reasonable design proposals, but the original request does not explicitly approve those implementation details.
+- The screenshot supplied for A4-01 shows the response beside **Preview**, not Code / File Explorer. It therefore does not prove file integrity or satisfy A4-02.
+- Gemini's statement that no write actions were performed is AI-reported. Independent before/after file comparison remains NOT VERIFIED.
+
+**Review result:** Structurally aligned with Prompt #0003; learner review is in progress. No product requirement or implementation scope is approved by this exercise.
 
 ## 08. Common Mistakes & Recovery
 
