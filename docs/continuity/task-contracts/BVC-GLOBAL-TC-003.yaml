@@ -1,9 +1,9 @@
 # BVC Global Task Contract 003
-# Proposed scope only. Human Owner approval is pending.
+# Human Owner approved Revision 1 on 2026-11-11. This approval record becomes canonical when merged to main.
 contract_version: "0.1.0"
 contract_id: "BVC-GLOBAL-TC-003"
 revision: 1
-status: PROPOSED
+status: APPROVED
 created_at: "2026-11-07"
 
 task:
@@ -363,8 +363,8 @@ change_budget:
 authority:
   policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; specifications/v0.1/task-contract.md. No repository-wide R0-R5 risk mapping is asserted."
   requested_by: "Human Owner / Product Owner"
-  authorized_by: "Pending Human Owner approval"
-  authorization_reference: "Human Owner instruction on 2026-11-07 requests continued completion of the BVC public repository with four tab pages. This Contract records a proposed Home / Learn / Build / Resources scope for Owner review; it is not yet approved."
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: "Human Owner explicitly approved BVC-GLOBAL-TC-003 Revision 1 in the ChatGPT conversation on 2026-11-11. Approval applies to the exact Revision 1 scope and content proposed on main before this approval update. It does not authorize scope expansion, repository settings changes, GitHub Pages activation, or implementation beyond the listed paths and controls."
   executor:
     class: HYBRID
     identifier: "ChatGPT prepares repository artifacts and tests; Human Owner reviews the implementation PR and controls merge and Pages publication."
@@ -383,10 +383,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Pending explicit Human Owner approval of BVC-GLOBAL-TC-003 Revision 1."
-    rationale: "Implementation must not begin until the exact four-page information architecture, scope, risk proposal, change budget, acceptance criteria, and verification plan are approved and the approval record is canonical on main."
+    approval_reference: "Explicit Human Owner approval of BVC-GLOBAL-TC-003 Revision 1 in the ChatGPT conversation on 2026-11-11; this approval record is submitted through a dedicated Pull Request and becomes canonical only after the Human Owner merges that PR."
+    rationale: "The Human Owner approved the exact four-page information architecture, scope, task-specific R1 proposal, Change Budget, acceptance criteria, verification plan, and publication boundary. Execution remains subject to canonical publication of this approval, refreshed preflight against live main, and all Contract stopping conditions."
 
 stopping_conditions:
   - scope_expansion_required
