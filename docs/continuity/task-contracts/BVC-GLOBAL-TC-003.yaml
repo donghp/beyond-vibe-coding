@@ -1,9 +1,9 @@
 # BVC Global Task Contract 003
-# Revision 2 proposal: refresh baseline and required context after PR #44 and PR #45. Revision 2 approval is pending.
+# Human Owner approved BVC-GLOBAL-TC-003 Revision 2 on 2026-11-11. Approval record submitted via PR #46; canonical after merge.
 contract_version: "0.1.0"
 contract_id: "BVC-GLOBAL-TC-003"
 revision: 2
-status: PROPOSED
+status: APPROVED
 created_at: "2026-11-11"
 
 task:
@@ -372,8 +372,8 @@ change_budget:
 authority:
   policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; specifications/v0.1/task-contract.md. No repository-wide R0-R5 risk mapping is asserted."
   requested_by: "Human Owner / Product Owner"
-  authorized_by: "Pending Human Owner approval of Revision 2"
-  authorization_reference: "Human Owner approved Revision 1 on 2026-11-11. Revision 2 is a proposal limited to refreshing the baseline to main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0, updating superseded Practical Labs V0.1 references to canonical V0.2 sources, recording the known local dirty state, and refreshing the external reference inspection date. All implementation paths, four-page information architecture, risk proposal, constraints, outputs, acceptance criteria, verification plan, and Change Budget remain unchanged. Revision 1 approval does not automatically approve Revision 2."
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: "Human Owner explicitly approved BVC-GLOBAL-TC-003 Revision 2 in the ChatGPT conversation on 2026-11-11. Approval applies to the exact Revision 2 baseline/context refresh and retains the Revision 1 implementation scope, controls, outputs, acceptance criteria, verification plan, risk proposal and Change Budget. It does not authorize implementation outside the exact scope or repository/Pages settings changes."
   executor:
     class: HYBRID
     identifier: "ChatGPT prepares repository artifacts and tests; Human Owner reviews the implementation PR and controls merge and Pages publication."
@@ -392,10 +392,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Pending explicit Human Owner approval of BVC-GLOBAL-TC-003 Revision 2. Revision 1 approval does not automatically approve this refreshed baseline/context revision."
-    rationale: "Revision 2 refreshes the source baseline and required context without expanding the approved website scope. Implementation remains blocked until the Human Owner explicitly approves Revision 2, the approved revision is canonical on main, and all Contract preflight gates pass."
+    approval_reference: "Explicit Human Owner approval of BVC-GLOBAL-TC-003 Revision 2 in the ChatGPT conversation on 2026-11-11; approval record is submitted through PR #46 and becomes canonical only after the Human Owner merges that PR."
+    rationale: "The Human Owner approved the refreshed baseline and current canonical Practical Labs V0.2 sources. Implementation remains subject to canonical publication of Revision 2 and all Contract preflight gates; this approval does not authorize scope expansion or external settings changes."
 
 stopping_conditions:
   - scope_expansion_required
