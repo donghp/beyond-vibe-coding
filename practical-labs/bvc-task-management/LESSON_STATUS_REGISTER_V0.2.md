@@ -8,22 +8,22 @@
 
 ## 1. Phase A — Meet AI & Build Your First App
 
-| Lesson | Current status | Observed evidence | Remaining evidence before publication |
+| Lesson | Current status | Observed evidence | Remaining verification / follow-up (not all block lesson completion) |
 |---|---|---|---|
 | A1 — Meet Google AI Studio | Learning outcome evidenced | A1-01 authentic GAIS Apps landing PNG and A1-02 actual scaffold Preview JPG are committed on main (PR #37). The screenshots show the app entry point and expected blank scaffold heading. | No missing screenshot asset is currently known. Confirm interface labels against the reader's current GAIS account because the UI may change. |
 | A2 — Inspect Your First Web App Scaffold | Core visual inspection evidenced; technical profile NOT VERIFIED | A2-01 authentic GAIS Code / File Explorer JPG is committed on main; it shows the scaffold tree and app/page.tsx with the scaffold heading. A4-02 later shows the core tree again with app/layout.tsx selected. | The actual package.json, bun.lock, runtime, scripts, build/export behavior have not been independently inspected and recorded. Do not infer exact versions or package-manager actions from screenshots or Prompt #0002. The separate BVC-TM-TC-003 scaffold inspection/inventory remains NOT_STARTED_OR_NOT_EVIDENCED in the Task Execution Register. |
-| A3 — Set Up Project Instructions | Evidence review in progress | OWNER-CONFIRMED: Human Owner confirms Save changes. OBSERVED: supplied A3-02 screenshot shows the populated Instructions editor and disabled Save changes control. RESPONSE RECEIVED: ten-part Prompt #0002 response and GAIS screenshot showing the response beside Code view were supplied. Gemini's exact framework/dependency claims remain NOT VERIFIED because the response says no project files were read. | Reopen the full Custom Instructions editor after closing it to verify the saved text remains present. Independently compare the A2 and A3 Code/File Explorer evidence or a before/after file-change record; screenshots are visual evidence, not a binary diff. Keep technical versions UNKNOWN until actual manifests/runtime are inspected. |
+| A3 — Set Up Project Instructions | LEARNING EXERCISE COMPLETED | OWNER-CONFIRMED: Human Owner confirms the Project Instructions were saved successfully. OBSERVED: original A3-02 screenshot shows the populated editor and disabled Save changes control; follow-up screenshot supplied 2026-11-10 shows the Instructions panel still populated and Save changes disabled. RESPONSE RECEIVED + REVIEWED: ten-part Prompt #0002 response and GAIS screenshot showing the response beside Code view. | The follow-up screenshot is supplied in conversation but its binary is not yet committed as a repository asset. The exact close/reopen sequence is not independently established by the screenshot. Independent before/after file integrity remains NOT VERIFIED. Gemini's exact framework/dependency claims remain NOT VERIFIED because the response says no project files were read. These are supplementary verification limits, not blockers to A3 learning completion. |
 | A4 — Talk to AI Like a Teammate | Learning exercise completed; evidence published on main (PR #41 merged) | OWNER-SUPPLIED: full BVCTM-PROMPT-0003 response. REVIEWED: all eight required sections; read-only analysis READY and implementation NOT READY / NOT AUTHORIZED. OBSERVED: A4-01 Preview/response screenshot and A4-02 Code/File Explorer screenshot with app/layout.tsx selected. Both original PNGs are published on main by PR #41. | Independent before/after file-content integrity remains NOT VERIFIED; A4-02 is a visual post-exercise observation only. |
 
 ### A3 evidence interpretation
 
-The Human Owner confirms that Save changes was completed, and a supplied follow-up screenshot shows the GAIS Chat settings **Custom instructions** card with the BVC Task Management instructions preview. Record the save as **OWNER-CONFIRMED** and the visible card as **OBSERVED** evidence.
+The Human Owner confirms that the BVC Task Management Project Instructions were saved successfully. The follow-up screenshot supplied on 2026-11-10 shows the GAIS **Instructions** panel populated with the project rules and the **Save changes** control disabled. Record the save as **OWNER-CONFIRMED** and the visible panel as **OBSERVED** evidence. This is sufficient to close the A3 learning exercise together with the completed BVCTM-PROMPT-0002 understanding check.
+
+The screenshot does not, by itself, establish the exact close/reopen sequence or prove that every line was independently re-read after a fresh reopen. Keep that stronger persistence claim **NOT VERIFIED** unless separately evidenced.
 
 The Human Owner also supplied the response to BVCTM-PROMPT-0002. The response explains the project rules, but it presents detailed technology-version claims while also stating that no project files were read during that turn. Those technical claims remain **NOT VERIFIED** until checked against the actual manifests or runtime.
 
-GAIS reported that no files were changed. An independent before/after file-tree comparison or equivalent change evidence remains pending. An AI statement alone is not an independent file-integrity check.
-
-Those remain NOT VERIFIED until the corresponding evidence is supplied.
+GAIS reported that no files were changed. An independent before/after file-tree comparison or equivalent change evidence remains **NOT VERIFIED**. An AI statement alone is not an independent file-integrity check. These evidence limits remain visible but do not block A3 learning completion.
 
 ## 2. Phase B — Build Your First Task
 
@@ -39,12 +39,12 @@ Those remain NOT VERIFIED until the corresponding evidence is supplied.
 
 ### Phase A closure and Phase B entry gate
 
-Phase A has produced the four practical learning outcomes, but its evidence/release status is not yet fully closed:
+**Phase A learning path is COMPLETED (A1–A4).**
 
 - A1: A1-01 and A1-02 authentic screenshots are published on main.
 - A2: The blank Preview and scaffold file tree are evidenced. Exact framework/runtime/dependency/package-manager/build facts remain NOT VERIFIED; do not invent them.
-- A3: Save action is OWNER-CONFIRMED and the populated Instructions editor is OBSERVED. The full close/reopen check and independent before/after file-integrity evidence remain open.
-- A4: The read-only learning exercise is complete; all eight response sections were reviewed. The original A4-01/A4-02 PNGs are in PR #41 and await merge to main. Independent file integrity remains NOT VERIFIED.
+- A3: Learning exercise completed. Save is OWNER-CONFIRMED; the new Instructions screenshot is OBSERVED; Prompt #0002 response received and reviewed. Exact close/reopen sequence and independent before/after file integrity remain NOT VERIFIED as supplementary checks.
+- A4: The read-only learning exercise is complete; all eight response sections were reviewed. Original A4-01/A4-02 PNGs are published on main by merged PR #41. Independent file integrity remains NOT VERIFIED.
 
 **Phase B implementation is not automatically authorized by completing Phase A.** Before implementing the First Vertical Slice:
 
