@@ -1,10 +1,10 @@
 # BVC Global Task Contract 003
-# Human Owner approved Revision 1 on 2026-11-11. This approval record becomes canonical when merged to main.
+# Revision 2 proposal: refresh baseline and required context after PR #44 and PR #45. Revision 2 approval is pending.
 contract_version: "0.1.0"
 contract_id: "BVC-GLOBAL-TC-003"
-revision: 1
-status: APPROVED
-created_at: "2026-11-07"
+revision: 2
+status: PROPOSED
+created_at: "2026-11-11"
 
 task:
   id: "BVC-GLOBAL-WEB-001"
@@ -26,8 +26,17 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
-    working_tree_status: CLEAN
+    source_commit: "04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
+    working_tree_status: DIRTY
+    pre_existing_changes_ref: >-
+      Last Human Owner supplied VS Code state (2026-11-11, before PR #44/#45 merges):
+      C:\beyond-vibe-coding on docs/bvctm-continuity-contract-r3 had one modified file
+      projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md and two
+      untracked original screenshots under practical-labs/bvc-task-management/phase-a/:
+      a1-01-gais-start-screen.png and a1-02-bvctm-initial-scaffold-preview.png.
+      C:\beyond-vibe-coding-a4-evidence was last reported clean at the pre-merge
+      d2ac0f5 checkpoint. Neither local clone has been re-inspected after PR #44/#45;
+      preserve all pre-existing local work and recheck before local integration.
     architecture_baseline_refs:
       - "README.md"
       - "docs/00-start-here.md"
@@ -37,13 +46,13 @@ project:
       - "docs/book-chapter-map.md"
       - "specifications/v0.1/README.md"
       - "practical-labs/README.md"
-      - "practical-labs/bvc-task-management/CURRICULUM_MAP_V0.1.md"
-      - "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.1.md"
+      - "practical-labs/bvc-task-management/CURRICULUM_MAP_V0.2.md"
+      - "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
       - "docs/continuity/BOOTSTRAP.md"
       - "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
     recovery_point:
       kind: git_commit
-      reference: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+      reference: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
       verified: true
 
 intent:
@@ -160,42 +169,42 @@ required_context:
     purpose: "Canonical repository overview, project positioning, audience, framework principles, limitations, and current development status."
     authority: CANONICAL
     required: true
-    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+    version_or_commit: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
   - reference: "docs/00-start-here.md; docs/framework-overview.md; docs/architecture.md; docs/README.md"
     purpose: "Source the framework introduction, conceptual architecture, five engineering concerns, learning paths, and limitations."
     authority: CANONICAL
     required: true
-    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+    version_or_commit: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
   - reference: "specifications/v0.1/README.md and specifications/v0.1/"
     purpose: "Source the five Core Specifications, current versions, Draft / Experimental status, examples, templates, and limitations."
     authority: CANONICAL
     required: true
-    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
-  - reference: "practical-labs/README.md; practical-labs/bvc-task-management/CURRICULUM_MAP_V0.1.md; practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.1.md"
+    version_or_commit: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
+  - reference: "practical-labs/README.md; practical-labs/bvc-task-management/CURRICULUM_MAP_V0.2.md; practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
     purpose: "Source the Build & Learn introduction, four learning phases, lesson progression, dependencies, and accurate lesson publication states."
     authority: CANONICAL
     required: true
-    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+    version_or_commit: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
   - reference: "docs/book-chapter-map.md"
     purpose: "Source the companion book relationship and traceability to the 21-chapter English International Edition."
     authority: CANONICAL
     required: true
-    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+    version_or_commit: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
   - reference: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; docs/continuity/BOOTSTRAP.md"
     purpose: "Preserve repository truth, review, evidence, and Human Owner authority boundaries."
     authority: CANONICAL
     required: true
-    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+    version_or_commit: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
   - reference: "specifications/v0.1/task-contract.md; specifications/v0.1/task-contract.schema.json; scripts/validate_task_contracts.py"
     purpose: "Validate this task scope, contract structure, exact file inventory, and required evidence."
     authority: CANONICAL
     required: true
-    version_or_commit: "main@7ccd33ec2824e32cbeb6720bf788108b8a3a451c"
+    version_or_commit: "main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0"
   - reference: "https://aiengineeringfromscratch.com/; https://github.com/rohitg00/ai-engineering-from-scratch"
     purpose: "Reference-only research for clear navigation, curriculum discoverability, and direct learning-resource links. Do not copy their content, assets, metrics, or identity."
     authority: REFERENCE
     required: true
-    freshness_requirement: "Reference was inspected on 2026-11-07; recheck before relying on any current site feature."
+    freshness_requirement: "Official site and repository rechecked on 2026-11-11 for information architecture, curriculum navigation, and the plain HTML/CSS/vanilla JavaScript approach only. Do not copy its content, visual identity, metrics, assets, newsletter, or product claims."
 
 dependencies: []
 
@@ -363,8 +372,8 @@ change_budget:
 authority:
   policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md; specifications/v0.1/task-contract.md. No repository-wide R0-R5 risk mapping is asserted."
   requested_by: "Human Owner / Product Owner"
-  authorized_by: "Human Owner / Product Owner"
-  authorization_reference: "Human Owner explicitly approved BVC-GLOBAL-TC-003 Revision 1 in the ChatGPT conversation on 2026-11-11. Approval applies to the exact Revision 1 scope and content proposed on main before this approval update. It does not authorize scope expansion, repository settings changes, GitHub Pages activation, or implementation beyond the listed paths and controls."
+  authorized_by: "Pending Human Owner approval of Revision 2"
+  authorization_reference: "Human Owner approved Revision 1 on 2026-11-11. Revision 2 is a proposal limited to refreshing the baseline to main@04d8ca96bc7574b6ab782ead37c9bb7a74cf3ea0, updating superseded Practical Labs V0.1 references to canonical V0.2 sources, recording the known local dirty state, and refreshing the external reference inspection date. All implementation paths, four-page information architecture, risk proposal, constraints, outputs, acceptance criteria, verification plan, and Change Budget remain unchanged. Revision 1 approval does not automatically approve Revision 2."
   executor:
     class: HYBRID
     identifier: "ChatGPT prepares repository artifacts and tests; Human Owner reviews the implementation PR and controls merge and Pages publication."
@@ -383,10 +392,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: APPROVED
+    status: PENDING
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Explicit Human Owner approval of BVC-GLOBAL-TC-003 Revision 1 in the ChatGPT conversation on 2026-11-11; this approval record is submitted through a dedicated Pull Request and becomes canonical only after the Human Owner merges that PR."
-    rationale: "The Human Owner approved the exact four-page information architecture, scope, task-specific R1 proposal, Change Budget, acceptance criteria, verification plan, and publication boundary. Execution remains subject to canonical publication of this approval, refreshed preflight against live main, and all Contract stopping conditions."
+    approval_reference: "Pending explicit Human Owner approval of BVC-GLOBAL-TC-003 Revision 2. Revision 1 approval does not automatically approve this refreshed baseline/context revision."
+    rationale: "Revision 2 refreshes the source baseline and required context without expanding the approved website scope. Implementation remains blocked until the Human Owner explicitly approves Revision 2, the approved revision is canonical on main, and all Contract preflight gates pass."
 
 stopping_conditions:
   - scope_expansion_required
