@@ -2,7 +2,7 @@
 
 **Project:** BVC Task Management  
 **Learning level:** Beginner  
-**Status:** Evidence review in progress — Human Owner confirms that Save changes was completed; A3-02 Instructions editor screenshot and the BVCTM-PROMPT-0002 response have been supplied; close/reopen and independent before/after file-change verification remain pending  
+**Status:** Learning exercise completed — Human Owner confirms successful save; the follow-up GAIS screenshot shows the populated Instructions panel and disabled Save changes control; BVCTM-PROMPT-0002 response was received and reviewed. Independent close/reopen sequence, file integrity, and technical-version claims remain NOT VERIFIED.  
 **Estimated time:** 10–15 minutes, subject to practical review  
 **Previous:** [A2 — Inspect Your First Web App Scaffold](../02-create-your-first-blank-web-app/README.md)  
 **Next:** [A4 — Talk to AI Like a Teammate](../04-talk-to-ai-like-a-teammate/README.md)
@@ -143,8 +143,8 @@ The Human Owner confirms that the Save changes action was completed.
 
 The Human Owner supplied a screenshot showing Gemini 3.8 Flash's response to BVCTM-PROMPT-0002 beside the GAIS Code / File Explorer view. The visible `app/page.tsx` editor contains the scaffold heading. This is a single observed screenshot of the response and project view; it does not independently establish that no file changed before or after the response.
 
-**Recommended verification**  
-After the save, close the editor if it remains open. Reopen **Custom instructions** and confirm that the text is still present. Capture that separate screen as A3-02R. This additional check is not yet evidenced by the supplied A3-02 image.
+**Supplementary verification (not a blocker for completing the A3 learning exercise)**  
+A follow-up screenshot supplied by the Human Owner on 2026-11-10 shows the GAIS **Instructions** panel with the BVC Task Management Project Instructions visible and the **Save changes** control disabled. The Human Owner confirms that the instructions were saved successfully. This supports an **OWNER-CONFIRMED + OBSERVED** save result. The screenshot alone does not establish the exact close/reopen sequence or independently prove that every saved line persists after a fresh reopen. Keep that stronger persistence check as NOT VERIFIED unless a separate close/reopen sequence is explicitly evidenced.
 
 ### Step 6 — Ask AI to explain the instructions
 
@@ -193,7 +193,8 @@ Do not write a feature-building prompt in this lesson.
 Record the four A3 checkpoints separately. Do not promote an owner report or an AI statement into independent verification.
 
 - **A3-01 — Instructions editor populated:** an owner-supplied screenshot showed the Project Instructions text in the GAIS editor. **OBSERVED.**
-- **A3-02 — Save action:** the Human Owner confirms that Save changes was completed. The supplied screenshot shows the Instructions editor and the Save changes control in a disabled state. **OWNER-CONFIRMED + OBSERVED; close/reopen check pending.**
+- **A3-02 — Save action:** the Human Owner confirms that the instructions were saved successfully. The original screenshot shows the populated editor and the Save changes control disabled. **OWNER-CONFIRMED + OBSERVED.**
+- **A3-02R — Follow-up Instructions view (2026-11-10):** the Human Owner supplied a new screenshot showing the Instructions panel with the BVC Task Management text visible and Save changes disabled. **OWNER-SUPPLIED + OBSERVED.** The screenshot binary has not yet been synchronized as a repository asset; it does not independently prove the full close/reopen sequence.
 
 ![Actual Google AI Studio Instructions editor showing the BVC Task Management Project Instructions text and the Save changes control](../../../assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg)
 
@@ -214,15 +215,15 @@ Capture and store any additional evidence from the actual GAIS session. Do not u
 - [x] The complete canonical Project Instructions were copied into the BVC Task Management GAIS project.
 - [x] The Human Owner confirms that Save changes was completed.
 - [x] The Instructions editor with the project rules is visible in the supplied screenshot.
-- [ ] Close and reopen Custom instructions to verify that the complete text remains present.
+- [ ] (Supplementary verification, not required to record A3 learning completion) Independently document a close/reopen sequence and confirm the complete saved text remains present.
 - [x] BVCTM-PROMPT-0002 was run and its response was received.
 - [x] The ten-part response was received and reviewed for project identity, authority, scope, isolation, and verification rules.
 - [x] A GAIS screenshot showing the response beside Code view and `app/page.tsx` was supplied.
 - [ ] Independently compare the application file tree or file-change history before and after Prompt #0002.
 - [ ] Verify any technical-version claims against the actual manifests or runtime before treating them as facts.
-- [ ] Capture and synchronize the A3 evidence assets to the repository.
+- [ ] (Evidence publication follow-up) Synchronize the new A3-02R screenshot binary to the canonical repository screenshot folder.
 
-**Completion rule:** A3 has owner-confirmed evidence that the save action was completed and an observed screenshot of the populated Instructions editor. Keep the lesson in evidence review until the close/reopen and file-integrity checks are supported. Do not claim technical versions are verified from the Prompt #0002 response alone.
+**Completion rule:** A3 learning exercise is **COMPLETED** because the Human Owner confirms that the complete Project Instructions were saved, the supplied GAIS screenshot shows the populated Instructions panel after the save, and BVCTM-PROMPT-0002 was run with its ten-part response received and reviewed. The close/reopen sequence, independent before/after file integrity, and exact technical-version claims remain separate **NOT VERIFIED** items; they do not invalidate completion of the A3 learning outcome.
 
 ## 08. Common Mistakes & Recovery
 
