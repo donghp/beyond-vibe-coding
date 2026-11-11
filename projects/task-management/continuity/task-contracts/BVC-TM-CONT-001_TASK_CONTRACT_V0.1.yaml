@@ -1,7 +1,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-CONT-TC-001"
 revision: 5
-status: PROPOSED
+status: APPROVED
 created_at: "2026-11-11T00:00:00+07:00"
 
 task:
@@ -556,12 +556,17 @@ authority:
     BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md. R1 is confirmed for this
     Contract; risk-policy publication metadata remains pending on main.
   requested_by: "Human Owner / Product Owner"
-  authorized_by: "Pending Human Owner approval of Revision 5"
+  authorized_by: "Human Owner / Product Owner"
   authorization_reference: >-
-    The Human Owner explicitly authorized preparation of a baseline-only
-    Revision 5 proposal in ChatGPT on 2026-11-11. This is not approval of
-    Revision 5. Revision 4's existing approval remains the current canonical
-    authority until a separately approved Revision 5 is merged to main.
+    The Human Owner explicitly approved the exact BVC-TM-CONT-001 Revision 5
+    baseline-refresh content in ChatGPT on 2026-11-11, after PR #47 published
+    the PROPOSED revision on main. This approval applies to the baseline and
+    recovery-point refresh and local workspace evidence recorded in Revision 5.
+    It does not expand task scope, CREATE/MODIFY/DELETE permissions, risk,
+    acceptance criteria, verification checks, Change Budget, or authorize
+    execution beyond the exact Contract. This approval record is submitted
+    through a dedicated PR and becomes canonical only after the Human Owner
+    merges that approval PR.
   executor:
     class: HYBRID
     identifier: "CHATGPT prepares bounded repository artifacts; Human Owner operates GAIS and local DeepSeek/VS Code sessions and supplies evidence; the receiving executor independently verifies remote checkpoints."
@@ -580,10 +585,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Pending explicit Human Owner approval of BVC-TM-CONT-001 Revision 5. The Human Owner authorized preparation of the proposal on 2026-11-11; this does not constitute approval."
-    rationale: "Revision 5 proposes only an administrative source baseline/recovery-point refresh and an update to the recorded local workspace evidence. R1, exact 13-path scope, all 11 acceptance criteria, all 7 verification checks and the 3,000-line Change Budget are unchanged. Revision 4 remains the current approved revision until Revision 5 is explicitly approved and merged. All execution gates remain mandatory."
+    approval_reference: "Human Owner explicitly approved BVC-TM-CONT-001 Revision 5 in ChatGPT on 2026-11-11. PR #47 published Revision 5 as PROPOSED on main; this separate approval-record PR makes the explicit Owner approval canonical only after merge."
+    rationale: "The Human Owner approved the exact Revision 5 baseline and recovery-point refresh and the recorded local workspace evidence. R1, exact 13-path permissions (1 CREATE, 12 MODIFY, 0 DELETE), all 11 acceptance criteria, all 7 verification checks and the 3,000-line Change Budget remain unchanged. Approval of the Contract does not itself prove that reconciliation execution has started or that any output has been verified or accepted. All preflight and stopping conditions remain mandatory."
 
 stopping_conditions:
   - scope_expansion_required
