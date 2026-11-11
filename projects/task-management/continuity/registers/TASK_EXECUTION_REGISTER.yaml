@@ -63,5 +63,5 @@ tasks:
   published_outputs:
   - projects/task-management/continuity/README.md
   - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
-  notes: "Revision 5 is APPROVED on main. PR #48 published three of the twelve MODIFY outputs. The follow-up R5 completion branch must finish the remaining nine MODIFY paths and the one CREATE path. Do not self-promote lifecycle status beyond APPROVED; no final acceptance is claimed."
-  next_action: "Complete the remaining ten authorized paths, run the seven Contract verification checks with evidence, and submit one final PR for Human Owner review."
+  notes: "Revision 5 is APPROVED on main. PR #48 published three of the twelve MODIFY outputs. Draft PR #50 now proposes the remaining nine MODIFY paths and one CREATE path; the PR is not canonical and is NOT READY FOR MERGE. AC-011 baseline inventory and required static validation remain unresolved. Do not self-promote lifecycle status beyond APPROVED; no final acceptance is claimed."
+  next_action: "Resolve AC-011, run the seven Contract verification checks with evidence, obtain Human Owner review, and merge only after all acceptance criteria are verified."
