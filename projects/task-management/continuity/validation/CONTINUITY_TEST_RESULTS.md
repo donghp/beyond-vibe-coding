@@ -52,3 +52,12 @@ All recovery tests remain **NOT_RUN**. No independent AI executor cold-start or 
 ## 5. Acceptance
 
 Do not mark BVCTM Continuity as VALIDATED until the exit criteria in `CONTINUITY_TEST_PLAN.md` have been run, recorded, and reviewed by the Human Owner.
+
+
+## 4. Additional scenario — CONT-T11
+
+| Test ID | Test | Status | Evidence |
+|---|---|---|---|
+| CONT-T11 | GAIS quota interruption and GAIS-to-DeepSeek/VS Code recovery | NOT_RUN | Scenario added to CONTINUITY_TEST_PLAN.md. No actual quota interruption, sender release, receiver acceptance or cross-provider recovery has been executed. |
+
+No new continuity test is marked PASS by this documentation update. Existing test results remain unchanged.
