@@ -158,6 +158,16 @@
         "https://github.com/donghp/beyond-vibe-coding/pull/50",
         "projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-015",
+      "statement": "Draft PR #51 proposes the two Task #003 report/inventory outputs using authentic repository-published A2/A4 screenshots and the 2026-11-11 Owner-supplied GAIS Preview screenshot. Both files remain proposal-only; technical manifests, app-type confirmation and export are unverified.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "https://github.com/donghp/beyond-vibe-coding/pull/51",
+        "practical-labs/assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg",
+        "practical-labs/assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png"
+      ]
     }
   ],
   "decisions": [
@@ -245,12 +255,19 @@
       "status": "BLOCKED",
       "owner": "Human Owner / BVC governance",
       "reference": "https://github.com/donghp/beyond-vibe-coding/pull/50; projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml"
+    },
+    {
+      "issue_id": "TM-ISSUE-TASK003-TECHNICAL-EXPORT",
+      "description": "Draft PR #51 records the screenshot-visible scaffold tree and Preview but package.json, bun.lock, next.config.ts, tsconfig.json, .env.example contents, exact PostCSS filename, WEB app-type label, external connection state and actual ZIP export remain NOT_VERIFIED. Obtain the read-only ZIP outside the BVC repository or supply redacted screenshots/text.",
+      "status": "OPEN",
+      "owner": "Human Owner",
+      "reference": "https://github.com/donghp/beyond-vibe-coding/pull/51"
     }
   ],
   "next_actions": [
     {
       "action_id": "TM-NEXT-001",
-      "description": "In the existing GAIS scaffold project, open Code/File Explorer and provide the actual visible file tree plus package.json and applicable lockfile/config evidence; keep the exercise read-only.",
+      "description": "Use the GAIS Export control to download one read-only ZIP outside the BVC repository, if available, and upload it for inspection; otherwise supply redacted screenshots/text of package.json, bun.lock, next.config.ts, tsconfig.json, .env.example and the complete PostCSS config filename.",
       "priority": "URGENT",
       "owner": "Human Owner",
       "related_task_id": "BVC-TM-P3.3-003"
@@ -293,7 +310,7 @@
     "source_commit": "aff2b42da26ec548de8088bf77de455a94723773",
     "verified": true,
     "last_verified_at": "2026-11-11T08:30:00+07:00",
-    "notes": "GitHub live main and PR #47/#48/#49 merge states were verified in this session; open PR query returned zero. This is a remote repository checkpoint. The canonical local worktree was last Owner-verified clean at 202e780 before those three merges and is not yet rechecked at aff2b42. The second linked worktree remains Owner-reported DIRTY; neither local path was directly inspected by ChatGPT. Draft PR #50 is now open on docs/bvctm-continuity-r5-completion; its current-main diff matches 13 authorized outputs, but AC-011 baseline inventory remains blocked because PR #47/#49 modified the Contract file after the approved source baseline."
+    "notes": "GitHub live main and PR #47/#48/#49 merge states were verified in this session; open PR query returned zero. This is a remote repository checkpoint. The canonical local worktree was last Owner-verified clean at 202e780 before those three merges and is not yet rechecked at aff2b42. The second linked worktree remains Owner-reported DIRTY; neither local path was directly inspected by ChatGPT. Draft PR #50 is now open on docs/bvctm-continuity-r5-completion; its current-main diff matches 13 authorized outputs, but AC-011 baseline inventory remains blocked because PR #47/#49 modified the Contract file after the approved source baseline. Draft PR #51 is open from docs/bvctm-task003-scaffold-evidence and contains two partial Task #003 output files. They use authentic repository A2/A4 screenshots and the current Owner-supplied Preview image; no ZIP or package/config file contents have been inspected."
   },
   "updated_by": "AI-prepared Project State revision 3 from live GitHub and Owner-supplied evidence; Human Owner review required. Project State v0.1.0 remains Draft/Experimental."
 }
