@@ -14,6 +14,12 @@ Use [START_HERE.md](./START_HERE.md) as the first landing page, then paste [BVC_
 
 - [TASK_LIFECYCLE.md](./TASK_LIFECYCLE.md) defines the mandatory Backlog → Contract → canonical Prompt → GAIS → Evidence → Review → Owner Acceptance flow. It is operating guidance under existing governance and does not create authority or a duplicate register.
 
+## AI executor roles and first-response review
+
+- [AI_EXECUTOR_ROLE_MODEL.md](./AI_EXECUTOR_ROLE_MODEL.md) defines Human Owner authority, ChatGPT Chief Architect/Orchestrator, Gemini GAIS implementation and DeepSeek VS Code independent review roles, including one-writer and provider-adapter rules.
+- [PROJECT_UNDERSTANDING_REVIEW.template.md](./PROJECT_UNDERSTANDING_REVIEW.template.md) defines the required source-backed Vietnamese first response for every new ChatGPT window and the `WAITING_FOR_OWNER_REVIEW` stop gate.
+- These are supporting operating documents, not new canonical state records. The Project Understanding Review is a per-session chat response; do not commit a duplicate report for every window.
+
 ## Supporting operational protocol
 
 - [GITHUB_REPOSITORY_VERIFICATION.md](./GITHUB_REPOSITORY_VERIFICATION.md) defines live GitHub identity, baseline, PR/branch/diff/check inspection, evidence classification, and local/AI workspace boundaries required during bootstrap.

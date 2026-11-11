@@ -2,6 +2,18 @@
 
 **Purpose:** Define the mandatory repository-backed lifecycle for BEYOND VIBE CODING — Build & Learn. This is an operating protocol under existing BVC governance and Task Contracts; it does not create a second state store or grant task authority.
 
+## Executor roles and first-response gate
+
+Follow [AI_EXECUTOR_ROLE_MODEL.md](./AI_EXECUTOR_ROLE_MODEL.md) for the assigned responsibilities:
+- Human Owner retains final Product, Architecture, Governance, Task Contract, risk-escalation, acceptance and merge authority.
+- ChatGPT acts as Chief Architect and Project Engineering Orchestrator; this is a delegated working role, not self-approval authority.
+- Gemini in Google AI Studio is the primary implementation worker for beginner/Vibe Coding tasks when the active Contract routes the work to GAIS.
+- DeepSeek in VS Code is the default independent reviewer/tester/code auditor when available. It may implement only under separate explicit authorization and after the previous writer releases the workspace.
+
+One semantic Task Contract governs every executor. Provider-specific prompt adapters preserve objective, authorization, scope, constraints, risk, acceptance criteria, verification and stop conditions. Only one authorized writer may modify a task branch/workspace at a time.
+
+Before continuing work in a new ChatGPT window, complete the read-only Vietnamese Project Understanding Review using [PROJECT_UNDERSTANDING_REVIEW.template.md](./PROJECT_UNDERSTANDING_REVIEW.template.md). Ask the Human Owner to confirm or correct it and stop at `WAITING_FOR_OWNER_REVIEW`. Do not create a task, prompt or implementation action until the Owner confirms.
+
 ## Canonical sequence
 
 `PRODUCT BACKLOG → TASK SPECIFICATION → TASK CONTRACT → OWNER APPROVAL → CONTRACT MERGED ON MAIN → PROMPT DRAFT → PROMPT REVIEW → PROMPT MERGED ON MAIN → GAIS EXECUTION → EVIDENCE INTAKE → TECHNICAL REVIEW → OWNER ACCEPTANCE → REGISTER RECONCILIATION`
