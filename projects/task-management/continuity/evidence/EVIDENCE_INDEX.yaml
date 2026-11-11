@@ -88,3 +88,10 @@ evidence:
   observed_at: '2026-11-11T08:30:00+07:00'
   claim: "Draft PR #50 contains exactly 13 paths compared with current main: 12 MODIFY and one CREATE; current-main diff is 766 additions-plus-deletions, no binary files."
   limitations: "PR is DRAFT and not canonical. AC-011 remains NOT_YET_VERIFIED because compare from approved R5 source baseline 202e780 also includes the separate Contract control-plane update from PRs #47/#49. Static validators and full baseline inventory have not passed."
+- evidence_id: BVC-EV-014
+  subject: PR #51 — Task #003 scaffold report and inventory proposal
+  classification: PROPOSAL_ONLY
+  source: https://github.com/donghp/beyond-vibe-coding/pull/51
+  observed_at: '2026-11-11T10:12:00+07:00'
+  claim: "Draft PR #51 contains exactly the two CREATE paths authorized by BVC-TM-P3.3-003 R1; A2/A4 screenshots show the scaffold file tree and partial Next.js/TypeScript source observations; the Owner-supplied Preview screenshot shows the expected heading."
+  limitations: "PR is PARTIAL and not accepted. Manifest and lockfile contents, package versions/scripts/runtime, exact PostCSS config, WEB type label, export ZIP, environment variable names and full security/integration review remain NOT_VERIFIED."
