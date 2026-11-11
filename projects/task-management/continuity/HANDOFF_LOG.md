@@ -117,3 +117,19 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Next permitted action:** Human Owner supplies the read-only GAIS ZIP export outside the BVC repository, if available; otherwise supplies redacted file contents/screenshots. Then finish report/inventory and run VC-006/VC-007.
 - **Handoff status:** Material evidence checkpoint, not worker handoff. No sender release or receiver acceptance is claimed.
 - **Human Owner review:** REQUIRED.
+
+## H-0006 — Task #003 Owner Closure and B1 Contract Approval
+
+- **Recorded at:** 2026-11-11 (Asia/Bangkok)
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source `main` SHA:** `58ee43cefff59b3e99a48314a322d639652b38fb`
+- **Event type:** TASK_ACCEPTANCE / AUTHORIZATION_CHECKPOINT
+- **GitHub checkpoint:** PR #50, #51 and #52 are merged. Main is `58ee43cefff59b3e99a48314a322d639652b38fb`.
+- **Task #003:** Human Owner explicitly closed BVC-TM-P3.3-003 after reviewing the supplied 18-file source ZIP and the merged report/inventory. Lifecycle is `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`.
+- **Known limitations retained:** explicit GAIS WEB app-type label not captured; live GAIS external GitHub/service connections and secrets panel not independently inspected; VC-006 and VC-007 NOT_RUN; runtime/build/lint/test results NOT_VERIFIED. No residual is silently marked PASS.
+- **B1 approval:** Human Owner approved Contract `BVC-TM-TC-004` Revision 1. It allows only MODIFY `app/page.tsx` in the existing GAIS app, for title-only task creation, an in-memory list, empty-title validation and keyboard submission.
+- **Prompt:** `BVCTM-PROMPT-0004` is allocated in the canonical sequence (next number 5) and prepared as the B1 executor prompt. B1 implementation is NOT_STARTED.
+- **Publication:** Contract #004, Prompt #0004, Task Register, Prompt Register, Project State, evidence index and learner guidance are proposed on branch `docs/bvctm-task004-b1-first-task`; not canonical until PR #53 is merged.
+- **Next permitted action:** After PR #53 merges, the Human Owner pastes Prompt #0004 into the existing GAIS project after confirming the app identity and inspecting the current `app/page.tsx`. Stop if it materially differs from the source snapshot.
+- **Phase B boundary:** GitHub project setup and GAIS↔GitHub sync are deferred to Phase C as directed by the Human Owner. B2 persistence remains gated by DR-005 and a separate B2 Contract.
+- **Handoff status:** This is a project checkpoint, not a worker handoff. No sender release or receiver acceptance is claimed.
