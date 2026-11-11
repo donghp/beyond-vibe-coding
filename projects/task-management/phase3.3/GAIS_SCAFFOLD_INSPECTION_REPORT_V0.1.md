@@ -1,188 +1,305 @@
-# BVC Task Management — GAIS Scaffold Inspection Report
+# BVC Task Management — GAIS Scaffold Source Inspection Report
 
 **Task ID:** BVC-TM-P3.3-003  
 **Contract:** BVC-TM-TC-003 Revision 1 — APPROVED  
-**Project:** BVC Task Management (BVCTM)  
-**Report version:** 0.1.0 — evidence-backed preliminary inventory  
-**Repository baseline:** `main@aff2b42da26ec548de8088bf77de455a94723773`  
-**Current report status:** PARTIAL — Human Owner evidence and technical manifest inspection still required  
-**Prepared by:** ChatGPT, based only on repository-published screenshots and the Owner-supplied GAIS Preview screenshot
+**Report version:** 0.2.0 — exported-source-backed inspection  
+**Repository baseline:** main@aff2b42da26ec548de8088bf77de455a94723773  
+**GAIS project:** BVC Task Management Scaffold Inspection  
+**GAIS app URL:** https://aistudio.google.com/apps/ca589018-617d-4919-bbe2-6b9c588ccd85  
+**Source evidence:** Human Owner-uploaded bvc-task-management-scaffold-inspection.zip  
+**Source archive SHA-256:** fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723  
+**Inspection status:** SOURCE INVENTORY COMPLETE FOR THE SUPPLIED ZIP; CONTRACT ACCEPTANCE STILL PARTIAL  
+**Prepared by:** ChatGPT, based on the supplied ZIP, repository-published A2/A4 screenshots and the Owner-supplied Preview screenshot
 
 ---
 
 ## 1. Executive result
 
-The current GAIS project and the canonical Phase A screenshots support that a minimal scaffold exists and that the Preview displays the expected placeholder heading:
+The supplied GAIS source ZIP is readable and passes the ZIP integrity test. It contains 18 files, with 6,754 bytes of uncompressed content. All 18 entries were listed and inspected.
 
-`BVC Task Management Scaffold Inspection`
+The source confirms a minimal Next.js App Router / TypeScript scaffold with one placeholder page. It also contains default scaffold metadata, utility files, configuration files, and template dependencies for Gemini/Firebase-related capabilities. No task-management feature implementation was found in the supplied 18-file source package.
 
-The repository-published A2 Code/File Explorer screenshot exposes a real generated file tree and shows the corresponding `app/page.tsx` code. The A4 post-exercise screenshot exposes `app/layout.tsx` and imports `Metadata` from `next`.
+Important technical findings:
 
-This is sufficient to record the visible file-tree evidence and a provisional framework indication. It is **not sufficient to complete the technical scaffold profile**. The contents of `package.json`, `bun.lock`, `next.config.ts`, `tsconfig.json`, `.env.example`, and the remaining configuration files have not been supplied or inspected as files. Framework/package versions, scripts, runtime, output directory, exact environment-variable names, and export behavior therefore remain UNKNOWN / NOT_VERIFIED.
+1. package.json declares Next.js ^15.4.9, React ^19.2.1 and TypeScript 5.9.3, among other dependencies. These are declared package ranges/versions, not independently resolved installed versions.
+2. package.json has dev, build, start, lint and clean scripts.
+3. next.config.ts sets output to standalone.
+4. bun.lock exists but is zero bytes. It is not a populated dependency lockfile.
+5. package.json does not declare packageManager. README.md instructs the reader to use Node.js and npm install. No package-lock.json is present in the supplied ZIP.
+6. eslint-config-next is declared as 16.0.8 while next is declared as ^15.4.9. This is a major-version alignment issue that must be checked before relying on lint/build results.
+7. Both eslint.config.mjs and .eslintrc.json are present. The project contains both flat-config and legacy ESLint configuration files; their effective interaction was not tested.
+8. metadata.json declares MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API. package.json includes @google/genai and firebase-tools. .env.example contains placeholder names GEMINI_API_KEY and APP_URL. These facts indicate template/configuration scaffolding; they do not prove that a live Gemini/Firebase API call, credential, external integration or deployment is configured.
+9. .env.example contains placeholder values only in the supplied archive. No real secret value was identified in that file.
+10. The Preview screenshot shows the expected placeholder heading. No build, lint, test or runtime command was executed against the exported ZIP.
 
-**This report does not mark Task #003 COMPLETED_ACCEPTED.** The Contract requires a fuller manifest/config inspection and the YAML inventory must be reconciled against the actual files or a read-only ZIP export.
+**Result:** the source-level file inventory and manifest inspection are substantially complete for the supplied ZIP. Task #003 must remain PARTIAL / NOT ACCEPTED until the remaining Human Owner confirmations and Contract verification checks are completed.
 
-## 2. Identity and environment
+## 2. Source archive verification
+
+| Property | Result |
+|---|---|
+| Uploaded archive | bvc-task-management-scaffold-inspection.zip |
+| Archive integrity | PASS — ZipFile testzip returned no corrupt member |
+| File entries | 18 |
+| Directories represented | app/, hooks/, lib/ |
+| Total uncompressed bytes | 6,754 |
+| Archive bytes | 8,884 |
+| Archive SHA-256 | fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723 |
+| Extraction into BVC repository | NOT DONE |
+| Build/install/test execution | NOT DONE |
+
+The inventory in the companion YAML records all 18 paths, their sizes and SHA-256 hashes. This is the complete file listing returned by the supplied ZIP. It is not a claim that GAIS contains no additional remote metadata or files excluded from the export operation.
+
+## 3. Application identity and Preview
 
 | Item | Observation | Evidence status |
 |---|---|---|
-| GAIS project display name | BVC Task Management Scaffold Inspection | OWNER_SUPPLIED / OBSERVED |
-| GAIS app identifier visible in current browser URL | `ca589018-617d-4919-bbe2-6b9c588ccd85` | OWNER_SUPPLIED |
-| Current GAIS project URL | `https://aistudio.google.com/apps/ca589018-617d-4919-bbe2-6b9c588ccd85` | OWNER_SUPPLIED |
-| App type (WEB / Android) | Not visible in the supplied Preview screenshot or repository Code screenshots | UNKNOWN |
-| Build environment | Google AI Studio; Code and Preview panels are visible | OBSERVED |
-| Model label | A4 screenshot shows Gemini 3.8 Flash; current Preview screenshot does not show a model label | OBSERVED IN A4 ONLY |
-| Exact Prompt #0001 execution event | Scaffold-only prompt text is visible in A2 screenshot; no independent run record supplied | NOT_VERIFIED |
-| External GitHub app connection | No connection evidence was supplied; do not infer from repository screenshots | NOT_VERIFIED |
-| Export | Code screenshot shows an Export control; no ZIP download/listing has been supplied | CONTROL OBSERVED; EXPORT OUTCOME NOT_VERIFIED |
+| Project display name | BVC Task Management Scaffold Inspection | OWNER_SUPPLIED / OBSERVED |
+| GAIS app ID | ca589018-617d-4919-bbe2-6b9c588ccd85 | OWNER_SUPPLIED |
+| Platform | Google AI Studio Build mode | OWNER_SUPPLIED |
+| Intended app type | WEB | Contract scope; UI type label not independently captured |
+| Visible Preview text | BVC Task Management Scaffold Inspection | OWNER_SUPPLIED screenshot |
+| Build result | NOT_VERIFIED | No build command run |
+| Runtime result | NOT_VERIFIED | No independent runtime check |
+| Model label | Gemini 3.8 Flash in A4 screenshot | OBSERVED IN A4 SCREENSHOT ONLY |
+| Export | A GAIS Export control was visible; Owner supplied the exported ZIP | OWNER_SUPPLIED SOURCE ARCHIVE |
 
-The app display name matches the expected scaffold inspection label. The visible app identifier is recorded only to connect the evidence to the current Human Owner-supplied GAIS project; it is not an authentication credential.
+The Preview screenshot shows the expected heading on a blank page. The ZIP source shows app/page.tsx rendering the same heading. This verifies the placeholder source and supplied Preview evidence, but it does not establish production build quality or deployment readiness.
 
-## 3. Preview result
+## 4. Complete ZIP file inventory
 
-**Observed expected text:** `BVC Task Management Scaffold Inspection`
+| Path | Bytes | SHA-256 prefix | Inspection |
+|---|---:|---|---|
+| metadata.json | 246 | 1dbdad04bdc5 | Parsed |
+| tsconfig.json | 658 | 68015f80f40f | Parsed |
+| bun.lock | 0 | e3b0c44298fc | Empty file |
+| app/layout.tsx | 819 | 88737eb883e7 | Read |
+| eslint.config.mjs | 314 | 81f2f39167e0 | Read |
+| app/globals.css | 23 | 42070e0b45bb | Read |
+| hooks/use-mobile.ts | 524 | 09e4adaed27f | Read |
+| .env.example | 445 | b6d12c728de0 | Read; placeholders only |
+| .gitignore | 67 | d3b60dc32593 | Read |
+| .eslintrc.json | 24 | a66f8ca4ad16 | Read |
+| app/page.tsx | 325 | 0ad827a10491 | Read |
+| app/not-found.tsx | 329 | 8073ae7aa75f | Read |
+| package.json | 972 | b0e3374f2520 | Parsed |
+| postcss.config.mjs | 168 | 37036f1d557b | Read |
+| next.config.ts | 870 | f850c0166355 | Read |
+| lib/utils.ts | 166 | 7c8c3dfc0cdd | Read |
+| next-env.d.ts | 262 | 85ae5aee75f0 | Read |
+| README.md | 542 | 2c78b6e085a3 | Read |
 
-- The current screenshot supplied by the Human Owner on 2026-11-11 shows the GAIS Preview panel and the expected heading centered on an otherwise blank page.
-- The A2 Code/File Explorer screenshot shows `app/page.tsx` rendering the same heading inside a single `main` element.
-- The screenshots do not show an error message in the visible Preview area.
+The full hashes are stored in GAIS_SCAFFOLD_INVENTORY_V0.1.yaml.
 
-**Verification boundary:** this is evidence of a visible Preview result only. It is not evidence of a production build, test suite, deployed app, correct behavior beyond the placeholder, persistence, security, or release readiness. No independent build/test command was run as part of this report.
+## 5. Framework, language and package manifest
 
-## 4. Generated scaffold file tree
+### 5.1 Framework and language
 
-The A2 screenshot shows the following visible entries. The A4 screenshot shows the same principal tree with `app/layout.tsx` selected.
-
-### 4.1 Observed directories
-
-- `app/`
-- `hooks/`
-- `lib/`
-
-### 4.2 Observed files
-
-| Observed path | Evidence | Notes |
+| Field | Source-derived value | Qualification |
 |---|---|---|
-| `app/globals.css` | A2 and A4 Code/File Explorer screenshots | File contents not inspected |
-| `app/layout.tsx` | A4 screenshot | Partial content visibly inspected; see §5 |
-| `app/not-found.tsx` | A2 and A4 screenshots | File contents not inspected |
-| `app/page.tsx` | A2 screenshot | Visible placeholder component; see §5 |
-| `hooks/use-mobile.ts` | A2 and A4 screenshots | File contents not inspected |
-| `lib/utils.ts` | A2 and A4 screenshots | File contents not inspected |
-| `.env.example` | A2 and A4 screenshots | Contents and variable names not inspected |
-| `.eslintrc.json` | A2 and A4 screenshots | Contents not inspected |
-| `.gitignore` | A2 and A4 screenshots | Contents not inspected |
-| `bun.lock` | A2 and A4 screenshots | File visible; lockfile contents not inspected |
-| `eslint.config.mjs` | A2 and A4 screenshots | Contents not inspected |
-| `metadata.json` | A2 and A4 screenshots | Contents not inspected |
-| `next-env.d.ts` | A2 and A4 screenshots | Contents not inspected |
-| `next.config.ts` | A2 and A4 screenshots | Contents not inspected |
-| `package.json` | A2 and A4 screenshots | Contents not inspected |
-| `tsconfig.json` | A2 and A4 screenshots | Contents not inspected |
+| Frontend framework | Next.js | package.json, next.config.ts, next-env.d.ts and App Router files |
+| Declared Next.js version | ^15.4.9 | Range, not resolved installed version |
+| UI library | React | package.json |
+| Declared React version | ^19.2.1 | Range, not resolved installed version |
+| Declared React DOM version | ^19.2.1 | Range, not resolved installed version |
+| Language | TypeScript / TSX | tsconfig.json, .ts/.tsx files |
+| Declared TypeScript version | 5.9.3 | devDependency |
+| Router indication | Next.js App Router | app/page.tsx, app/layout.tsx and app/not-found.tsx |
+| Server runtime version | UNKNOWN | No Node version declaration or runtime output supplied |
+| Browser support matrix | UNKNOWN | Not established by source inspection |
 
-The A2 screenshot also displays a truncated label beginning `postcss.config...`. The complete filename and extension are not readable at the captured resolution, so this entry is recorded separately as a partial observation and is not treated as a verified exact path.
+### 5.2 package.json scripts
 
-### 4.3 Tree inventory limitations
-
-- This is the **visible screenshot inventory**, not a verified exhaustive ZIP inventory.
-- Hidden files or collapsed directory contents may be absent from the screenshot.
-- Exact capitalization and the complete PostCSS configuration filename need confirmation from the actual file tree or ZIP listing.
-- No file was created, changed, renamed, moved, or deleted in the user's GAIS workspace by ChatGPT. ChatGPT has no direct GAIS file-system access.
-
-## 5. Source-code observations
-
-### 5.1 `app/page.tsx` — A2 screenshot
-
-The visible code shows a default `Page()` component returning a `main` element and an `h1` containing the exact placeholder text. The visible utility classes include a full-height centered layout, white background, zinc text, sans-serif font, and responsive heading sizing.
-
-The file shown is a minimal placeholder page. The screenshot does not show task forms, task lists, task state, browser storage, network calls, authentication, or a database in this file.
-
-### 5.2 `app/layout.tsx` — A4 screenshot
-
-The visible code shows:
-
-- `import type { Metadata } from 'next'`
-- `import './globals.css'`
-- an exported `metadata: Metadata` object with title/description and Open Graph/Twitter metadata;
-- a `RootLayout` component returning `<html lang="en">` and a body containing `children`.
-
-The screenshot shows a reference to `React.ReactNode` in the RootLayout type annotation. The complete file is not independently available as text, so this is a visual transcription of the visible portion only.
-
-### 5.3 Framework and language classification
-
-- **Framework indication:** Next.js is strongly indicated by the observed `next.config.ts`, `next-env.d.ts`, `app/` route tree, and import from `next` in `app/layout.tsx`.
-- **Framework version:** UNKNOWN — `package.json` content was not inspected.
-- **Language indication:** TypeScript/TSX is strongly indicated by `.ts`, `.tsx`, `next-env.d.ts`, and TypeScript type annotations visible in `layout.tsx`.
-- **React version:** UNKNOWN — package manifest content was not inspected.
-- **Server runtime / Node version:** UNKNOWN.
-- **Package manager:** `bun.lock` is visible, which indicates a Bun lockfile is present; the declared package manager and its version remain UNKNOWN until the manifest and lockfile are inspected.
-
-These are evidence-based indications, not a final toolchain acceptance.
-
-## 6. Manifests, scripts and configuration
-
-| Inspection target | Current result | Required follow-up |
-|---|---|---|
-| `package.json` | File visible; contents not supplied | Inspect dependencies, devDependencies, packageManager, scripts and engines |
-| `bun.lock` | File visible; contents not supplied | Inspect lockfile format and lockfile metadata |
-| `next.config.ts` | File visible; contents not supplied | Inspect output mode, rewrites, redirects, images and runtime configuration |
-| `tsconfig.json` | File visible; contents not supplied | Inspect TypeScript compiler options and path aliases |
-| `postcss.config.*` | Truncated filename visible | Confirm exact filename and inspect contents |
-| `eslint.config.mjs` / `.eslintrc.json` | Both names visible | Inspect whether both are active and their configuration |
-| `.env.example` | File visible | Record environment-variable NAMES only; never record values |
-| Build scripts and output directory | UNKNOWN | Derive only from inspected manifest/configuration |
-| Runtime and versions | UNKNOWN | Derive only from inspected manifest/configuration |
-| Routing | `app/` tree with `page.tsx`, `layout.tsx`, `not-found.tsx` observed | Inspect config and actual application tree to establish complete routing behavior |
-
-## 7. Export and build observations
-
-- The Code screenshot displays an `Export` control in the upper-right interface.
-- The button/control is OBSERVED; no click, ZIP download, or ZIP integrity check is evidenced.
-- Export outcome: NOT_VERIFIED.
-- Build/test result: NOT_VERIFIED.
-- The Owner-supplied Preview screenshot is OBSERVED as described in §3.
-
-## 8. Security and scope boundary
-
-The screenshots display only scaffold code and placeholder content. No secret value is visible in the captured areas. However, `.env.example` contents and the complete exported file set have not been inspected, so a full secrets/configuration review is NOT_VERIFIED.
-
-This report does not assert that:
-- a GitHub repository is connected or disconnected;
-- any API key or environment value is present or absent;
-- a database, Auth, RLS, API, hosting, or deployment is configured;
-- a production build or test passed.
-
-No task-management feature has been observed in the displayed `page.tsx`. The first task feature is outside Contract #003 and requires a separate approved implementation Contract.
-
-## 9. Evidence references
-
-| Evidence ID | Source | What it supports | Limitation |
-|---|---|---|---|
-| EV-TM-SC-001 | Human Owner screenshot supplied on 2026-11-11 in ChatGPT | Current project display name and expected Preview heading | Does not show Code/File Explorer or app type |
-| EV-TM-SC-002 | `practical-labs/assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg`; blob SHA `1b57ea2119642bfd328d92b160d752e78b9ea781` | Visible scaffold file tree, placeholder `page.tsx`, Export control, scaffold-only prompt text in the chat panel | Does not expose manifest contents or prove prompt execution event independently |
-| EV-TM-SC-003 | `practical-labs/assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png`; blob SHA `d26e0a2692066f5b79d257f9533de6c8f2331d75` | Post-exercise visible file tree and partial `layout.tsx` source; Gemini 3.8 Flash label in the chat panel | Not a full source export or package/config inspection |
-| EV-TM-SC-004 | `practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md` | A2 and A4 learning evidence and known technical verification limitations | Learning evidence is distinct from Contract #003 technical acceptance |
-
-## 10. Acceptance status and remaining work
-
-| Contract criterion | Current assessment |
+| Script | Command |
 |---|---|
-| AC-001 — one isolated WEB app | PARTIAL — project identified; app type label not visible |
-| AC-002 — blank placeholder-only scaffold | PARTIAL / SUPPORTED BY VISIBLE PAGE — full exported file set not inspected |
-| AC-003 — complete observed file inventory | PARTIAL — screenshot-visible tree recorded; exact PostCSS filename and exhaustive listing pending |
-| AC-004 — framework/runtime/package/config findings | PARTIAL — Next.js/TypeScript indications recorded; manifest/version/scripts/runtime/config contents pending |
-| AC-005 — Preview result | OWNER-SUPPLIED OBSERVED — expected heading visible |
-| AC-006 — no protected/external integration or secrets | NOT_VERIFIED — explicit Owner confirmation and complete file-set review pending |
-| AC-007 — report/YAML consistency and parse | PENDING — candidate files require static validation |
-| AC-008 — exactly two CREATE outputs | PENDING — candidate branch diff and Contract Validator VC-007 required |
+| dev | next dev |
+| build | next build |
+| start | next start |
+| lint | eslint . |
+| clean | next clean |
 
-**Required next evidence from the Human Owner:**
+The scripts were read from package.json. None of them was executed as part of this inspection.
 
-1. Use the visible GAIS `Export` control to download one read-only ZIP outside the BVC repository, if available, and upload that ZIP here. Do not extract it into the BVC repository.
-2. If export is unavailable, open `package.json`, `bun.lock`, `next.config.ts`, `tsconfig.json`, `.env.example`, and the truncated `postcss.config...` entry in GAIS Code view and supply screenshots or file contents. Remove all secret values before sharing; environment-variable names alone are sufficient.
-3. Confirm the GAIS app type is WEB and whether the app has been connected to any external service or GitHub repository.
+### 5.3 Declared dependencies
 
-**Next permitted project action:** finish the two authorized report/inventory files after the missing manifest and file-tree evidence is supplied, run VC-006/VC-007 and the applicable static checks, then obtain Human Owner acceptance. Only after this scaffold inspection is complete should a separate First Vertical Slice Contract authorize Phase B implementation.
+**dependencies**
+
+- @google/genai: ^2.4.0
+- @hookform/resolvers: ^5.2.1
+- autoprefixer: ^10.4.21
+- class-variance-authority: ^0.7.1
+- clsx: ^2.1.1
+- lucide-react: ^0.553.0
+- motion: ^12.23.24
+- next: ^15.4.9
+- postcss: ^8.5.6
+- react: ^19.2.1
+- react-dom: ^19.2.1
+- tailwind-merge: ^3.3.1
+
+**devDependencies**
+
+- @tailwindcss/postcss: 4.1.11
+- @tailwindcss/typography: ^0.5.19
+- @types/node: ^20
+- @types/react: ^19
+- @types/react-dom: ^19
+- eslint: 9.39.1
+- eslint-config-next: 16.0.8
+- firebase-tools: ^15.0.0
+- tailwindcss: 4.1.11
+- tw-animate-css: ^1.4.0
+- typescript: 5.9.3
+
+These are manifest declarations only. The empty bun.lock does not provide resolved dependency versions.
+
+## 6. Package manager and reproducibility findings
+
+- README.md specifies Node.js as a prerequisite.
+- README.md instructs the user to install packages with npm install and run npm run dev.
+- package.json has no packageManager field.
+- No package-lock.json appears in the supplied ZIP.
+- bun.lock exists but is exactly 0 bytes.
+- The supplied ZIP therefore does not contain a populated lockfile that can reproduce an exact dependency resolution.
+- The source archive does not establish the actual package manager used by the original GAIS environment.
+
+**Finding:** package manager = NOT_CONFIRMED. README usage = npm instructions. Bun lockfile = present but empty. A clean reproducibility check must be performed separately and only under an approved task.
+
+## 7. Configuration findings
+
+### 7.1 next.config.ts
+
+Observed:
+- reactStrictMode: true
+- eslint.ignoreDuringBuilds: true
+- typescript.ignoreBuildErrors: false
+- images.remotePatterns permits https://picsum.photos/**
+- output: standalone
+- transpilePackages includes motion
+- webpack watch behavior checks DISABLE_HMR
+
+No build was executed. These are configuration settings, not test results.
+
+### 7.2 tsconfig.json
+
+Observed:
+- strict: true
+- noEmit: true
+- moduleResolution: bundler
+- jsx: preserve
+- Next.js TypeScript plugin
+- path alias @/* -> ./*
+- target ES2017
+- includes next-env.d.ts, TypeScript files and .next/types
+
+### 7.3 Tailwind / PostCSS
+
+- app/globals.css imports tailwindcss.
+- postcss.config.mjs registers @tailwindcss/postcss and autoprefixer.
+- tailwindcss and @tailwindcss/postcss are declared at 4.1.11.
+
+### 7.4 ESLint configuration
+
+- eslint.config.mjs imports eslint/config and eslint-config-next.
+- .eslintrc.json also declares extends: next.
+- eslint is declared at 9.39.1.
+- eslint-config-next is declared at 16.0.8 while next is ^15.4.9.
+
+**Finding:** two ESLint configuration styles coexist and the declared Next ESLint config major differs from the declared Next major. No lint run or compatibility test was performed. This must be reviewed before relying on the lint script.
+
+## 8. Environment, AI metadata and security observations
+
+### 8.1 .env.example
+
+The file declares these variable names:
+- GEMINI_API_KEY
+- APP_URL
+
+The values in the supplied file are illustrative placeholders (MY_GEMINI_API_KEY and MY_APP_URL), not real credentials. No actual secret value was identified in the supplied .env.example.
+
+.gitignore ignores .env* and then re-includes .env.example.
+
+### 8.2 metadata.json
+
+The metadata declares:
+- name: BVC Task Management Scaffold Inspection
+- description: Minimal project scaffold inspection for BVC Task Management (BVCTM).
+- requestFramePermissions: empty array
+- majorCapabilities: MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API
+
+This is a declared platform capability. It does not by itself prove that the app currently makes a Gemini API call.
+
+### 8.3 AI/Firebase dependency residue
+
+- @google/genai appears in dependencies.
+- firebase-tools appears in devDependencies.
+- No live Gemini API call, Firebase configuration, Firebase app integration, database connection, or authentication flow was identified in the supplied 18 files.
+- Presence of dependencies and metadata is not proof of actual integration. Their necessity and removal are outside this read-only inspection Contract.
+
+### 8.4 Security and external services
+
+| Item | Status |
+|---|---|
+| Real secret values in supplied .env.example | Not identified |
+| Environment variable names | GEMINI_API_KEY, APP_URL |
+| Live Gemini API connection | NOT_VERIFIED |
+| Firebase service connection | NOT_VERIFIED |
+| GitHub repository connection from GAIS | NOT_VERIFIED |
+| Database / Auth / RLS | NOT_VERIFIED |
+| Hosting / deployment | NOT_VERIFIED |
+| Full runtime secrets panel | NOT_INSPECTED |
+
+No secret values should be added to the repository, report, inventory or future screenshots. Contract #003 forbids expanding this inspection into external integrations or deployment.
+
+## 9. Application source observations
+
+- app/page.tsx renders one main element and the expected h1 placeholder.
+- app/not-found.tsx renders the same placeholder on the not-found route.
+- app/layout.tsx sets basic HTML metadata, Open Graph and Twitter metadata, and imports app/globals.css.
+- app/globals.css imports Tailwind CSS.
+- hooks/use-mobile.ts implements a responsive breakpoint hook using React.useSyncExternalStore.
+- lib/utils.ts provides a class-name helper using clsx and tailwind-merge.
+
+No task creation, editing, deletion, completion, project management, browser persistence, import/export workflow, database, API route or authentication feature was found in the supplied 18-file package.
+
+## 10. Contract acceptance status
+
+| Criterion | Assessment | Reason |
+|---|---|---|
+| AC-001 — one isolated WEB app | PARTIAL | App identity and Next web scaffold are evidenced; explicit GAIS app-type label and no-unrelated-resource confirmation remain Owner confirmation |
+| AC-002 — blank placeholder-only app | PARTIAL / SUPPORTED | Visible page is placeholder-only; source also contains template metadata and additional dependencies; no task feature was found |
+| AC-003 — actual file inventory | EVIDENCED FOR SUPPLIED ZIP | All 18 ZIP entries were inventoried with sizes and hashes; this is the supplied archive, not a separate GAIS remote inventory |
+| AC-004 — framework/runtime/manifest | PARTIAL | Manifest, scripts and configs inspected; runtime version and resolved dependency graph remain unknown; lockfile is empty |
+| AC-005 — Preview outcome | OWNER-SUPPLIED OBSERVED | Expected heading visible; build/test remains NOT_VERIFIED |
+| AC-006 — no secrets/external integration | PARTIAL / NOT_VERIFIED | No real secret in .env.example; actual secrets panel, GitHub link, external services and deployment were not inspected |
+| AC-007 — report/YAML consistency | PENDING VALIDATION | Companion YAML must be parsed and cross-checked with this report |
+| AC-008 — exactly two CREATE outputs | PENDING VCS VALIDATION | PR diff and repository Contract Validator must establish exact two CREATEs, zero MODIFY/DELETE/binaries |
+
+## 11. Evidence references
+
+| Evidence ID | Source | Supports |
+|---|---|---|
+| EV-TM-SC-001 | Human Owner supplied GAIS Preview screenshot | Project title and expected Preview heading |
+| EV-TM-SC-002 | practical-labs/assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg; blob 1b57ea2119642bfd328d92b160d752e78b9ea781 | File tree, placeholder page and Export control |
+| EV-TM-SC-003 | practical-labs/assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png; blob d26e0a2692066f5b79d257f9533de6c8f2331d75 | Partial layout.tsx and Code view |
+| EV-TM-SC-005 | Owner-uploaded bvc-task-management-scaffold-inspection.zip; SHA-256 fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723 | Actual 18-file source listing and source contents |
+| EV-TM-SC-006 | package.json in supplied ZIP; SHA-256 b0e3374f2520f28c38bea18a462e44ccfd51328035caff0f9fb1d5e7c1b0e92e | Dependencies, versions and scripts |
+| EV-TM-SC-007 | bun.lock in supplied ZIP; SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | Zero-byte lockfile finding |
+| EV-TM-SC-008 | next.config.ts in supplied ZIP; SHA-256 f850c0166355ee9c296bdf04a6c0f2a598b70550e0d62ff3c8f758a17a325e85 | Next.js output/build configuration |
+| EV-TM-SC-009 | .env.example and metadata.json in supplied ZIP | Placeholder environment names and declared major capability |
+
+## 12. Remaining actions before Task #003 acceptance
+
+1. Human Owner confirms the app-type label is WEB and confirms whether the GAIS project was connected to GitHub or any external service.
+2. Human Owner confirms the source ZIP is the export produced by the current GAIS project and not a manually altered copy.
+3. Run VC-006: parse the YAML inventory and apply Markdown whitespace checks to this report.
+4. Run VC-007: generate the VCS changed-files inventory and repository Contract Validator result, verifying exactly two CREATE paths, zero MODIFY, zero DELETE, zero binary files, and the approved Change Budget.
+5. Human Owner reviews and records acceptance under the Task Contract lifecycle.
+
+No package installation, build, lint, test, application code modification, API call, external integration, GitHub connection from GAIS, or deployment was executed by this inspection.
+
+**Final task status: PARTIAL / NOT ACCEPTED.** The source inventory is materially complete for the supplied ZIP, but the remaining Contract evidence and verification checks must be closed before Task #003 can be marked complete.
 
 ---
 
-*This is a preliminary evidence record. It intentionally preserves UNKNOWN / NOT_VERIFIED fields and must not be treated as final Task #003 acceptance.*
+This report is a record of inspected evidence, not an approval of the scaffold for production use.
