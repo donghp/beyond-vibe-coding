@@ -100,3 +100,20 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Next permitted action:** Resolve AC-011's control-plane/baseline distinction and execute the required static validators; then update PR #50 from Draft only when the evidence supports readiness.
 - **Handoff status:** Material task checkpoint only, not a worker handoff. No sender release or receiver acceptance is claimed.
 - **Human Owner review:** REQUIRED.
+
+## H-0005 — Task #003 Scaffold Evidence Draft Prepared
+
+- **Recorded at:** 2026-11-11T10:12:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source `main` SHA:** `aff2b42da26ec548de8088bf77de455a94723773`
+- **Event type:** TASK_TRANSITION / EVIDENCE_CHECKPOINT
+- **Event:** Draft PR #51 was opened from `docs/bvctm-task003-scaffold-evidence` with the two report/inventory outputs authorized by BVC-TM-P3.3-003 Revision 1.
+- **Verified screenshot evidence:**
+  - A2 screenshot blob `1b57ea2119642bfd328d92b160d752e78b9ea781` shows the file explorer tree, `app/page.tsx` placeholder and Export control.
+  - A4 screenshot blob `d26e0a2692066f5b79d257f9533de6c8f2331d75` shows the tree and partial `app/layout.tsx` import from `next`.
+  - Owner-supplied 2026-11-11 Preview screenshot shows the expected project name and heading.
+- **Proposal:** PR #51 is OPEN / DRAFT, exactly two CREATE files, 437 additions, 0 deletions; not canonical.
+- **Still NOT_VERIFIED:** package.json and bun.lock contents, exact versions/scripts/runtime, full PostCSS filename/config, .env.example variable names, WEB app type label, GitHub/external connection state, ZIP export, and complete file inventory.
+- **Next permitted action:** Human Owner supplies the read-only GAIS ZIP export outside the BVC repository, if available; otherwise supplies redacted file contents/screenshots. Then finish report/inventory and run VC-006/VC-007.
+- **Handoff status:** Material evidence checkpoint, not worker handoff. No sender release or receiver acceptance is claimed.
+- **Human Owner review:** REQUIRED.
