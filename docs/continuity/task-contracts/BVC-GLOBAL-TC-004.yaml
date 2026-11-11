@@ -82,7 +82,7 @@ intent:
 
 risk:
   level: R2
-  policy_ref: "Task-specific R2 proposal based on BVC-GLOBAL-TC-002 Revision 1's R2 continuity-system precedent and specifications/v0.1/task-contract.md. Human Owner approval of this Contract's risk classification is pending."
+  policy_ref: "Task-specific R2 proposal based on BVC-GLOBAL-TC-002 Revision 1's R2 continuity-system precedent and specifications/v0.1/task-contract.md. The Human Owner approved the proposed R2 classification for this exact Contract Revision 1 on 2026-11-11."
   rationale: >-
     The outputs are documentation and operating-protocol changes, but they
     affect who may design, execute, review, accept, and continue engineering
@@ -215,7 +215,7 @@ required_context:
     purpose: "Establish ChatGPT's Chief Architect/Orchestrator role, Gemini's GAIS implementation role, DeepSeek's VS Code review/test role, and mandatory Owner review of every new ChatGPT session's project-understanding report."
     authority: APPROVED
     required: true
-    freshness_requirement: "The exact Task Contract scope, risk and acceptance criteria still require explicit approval."
+    freshness_requirement: "The Human Owner explicitly approved the exact Contract scope, R2 classification and Acceptance Criteria AC-001 through AC-010 on 2026-11-11."
 
 dependencies:
   - reference: "BVC-GLOBAL-TC-001 Revision 1"
