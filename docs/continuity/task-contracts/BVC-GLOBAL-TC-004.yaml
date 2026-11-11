@@ -1,0 +1,425 @@
+# BVC Global Task Contract 004
+# Proposed by ChatGPT Chief Architect for Human Owner review.
+# PROPOSED is not execution authority. Do not create implementation prompts or modify implementation outputs until this exact revision is approved and canonical on main.
+contract_version: "0.1.0"
+contract_id: "BVC-GLOBAL-TC-004"
+revision: 1
+status: APPROVED
+created_at: "2026-11-11T00:00:00Z"
+
+task:
+  id: "BVC-GLOBAL-CONT-004"
+  title: "Bootstrap Project Understanding Review and AI Executor Role Model"
+  objective: >-
+    Strengthen the BVC GitHub-first continuity process so every new ChatGPT
+    window reconstructs the current project from live canonical records,
+    produces a structured Project Understanding Review for the Human Owner,
+    and pauses for explicit confirmation before proposing or performing the
+    next task. Establish one shared Engineering Method and a provider-neutral
+    AI role model for ChatGPT as Chief Architect and Project Engineering
+    Orchestrator, Gemini in Google AI Studio as the primary implementation
+    worker, and DeepSeek in VS Code as an independent reviewer/tester or
+    separately authorized implementation worker.
+  requested_by: "Human Owner / Product Owner"
+
+project:
+  project_id: "BVC-BUILD-LEARN"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "7d438404c21158462acde97afe9c4d5b3ebcf923"
+    working_tree_status: CLEAN
+    pre_existing_changes_ref: >-
+      CLEAN refers only to the committed GitHub main snapshot at the stated
+      SHA. The Human Owner's Windows worktrees, GAIS app, and VS Code/DeepSeek
+      environment are separate and are not represented as clean or synchronized.
+    architecture_baseline_refs:
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/START_HERE.md"
+      - "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+      - "docs/continuity/TASK_LIFECYCLE.md"
+      - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
+      - "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+      - "docs/continuity/SOURCE_MANIFEST.csv"
+      - "specifications/v0.1/task-contract.md"
+      - "specifications/v0.1/task-contract.schema.json"
+    recovery_point:
+      kind: git_commit
+      reference: "main@7d438404c21158462acde97afe9c4d5b3ebcf923"
+      verified: true
+
+intent:
+  objective: >-
+    Make the first response of every new ChatGPT session a verified,
+    source-backed project-understanding report that the Human Owner can review,
+    while clarifying how the same task and Engineering Method are routed to
+    different authorized AI executors.
+  rationale: >-
+    Reconstructing long chat histories wastes time and creates stale or
+    conflicting interpretations. The repository already contains a Global
+    Continuity Engine, Project State, Task and Prompt Registers, Evidence
+    Index, handoff records, and a single-prompt entry point. The remaining
+    operational gap is that a new session is not required to demonstrate its
+    understanding and wait for Human Owner review before continuing. The
+    project also needs an explicit role assignment that distinguishes
+    architecture/orchestration from implementation and independent
+    verification, without creating multiple sources of truth or concurrent
+    writers.
+  expected_outcome: >-
+    A canonical AI Executor Role Model, a reusable Project Understanding
+    Review template, and coordinated updates to the Global Bootstrap,
+    Start Here page, new-chat prompt, Task Lifecycle, Cross-Executor protocol,
+    continuity README, and source manifest. Every new ChatGPT window must
+    bootstrap read-only, produce the structured review in Vietnamese, ask the
+    Human Owner to confirm or correct its understanding, and stop in
+    WAITING_FOR_OWNER_REVIEW until the Owner responds.
+  business_or_user_value: >-
+    The Human Owner can move to a new ChatGPT window and provide only new
+    GAIS screenshots or copied Gemini/DeepSeek execution results after the
+    understanding review is confirmed. The project remains independent of
+    chat memory, model provider, executor quota, and session lifetime.
+
+risk:
+  level: R2
+  policy_ref: "Task-specific R2 proposal based on BVC-GLOBAL-TC-002 Revision 1's R2 continuity-system precedent and specifications/v0.1/task-contract.md. The Human Owner approved the proposed R2 classification for this exact Contract Revision 1 on 2026-11-11."
+  rationale: >-
+    The outputs are documentation and operating-protocol changes, but they
+    affect who may design, execute, review, accept, and continue engineering
+    work across the repository. An ambiguous role or bootstrap gate could
+    lead to unauthorized changes or incorrect project-state claims. The
+    scope does not change application code, product behavior, security
+    controls, data, dependencies, repository settings, or external services.
+  impact_factors:
+    - other
+  reversibility: EASY
+  risk_owner: "Human Owner / Product Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create:
+      - "docs/continuity/AI_EXECUTOR_ROLE_MODEL.md"
+      - "docs/continuity/PROJECT_UNDERSTANDING_REVIEW.template.md"
+    modify:
+      - "docs/continuity/START_HERE.md"
+      - "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+      - "docs/continuity/BOOTSTRAP.md"
+      - "docs/continuity/README.md"
+      - "docs/continuity/TASK_LIFECYCLE.md"
+      - "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
+      - "docs/continuity/SOURCE_MANIFEST.csv"
+    delete: []
+  forbidden_paths:
+    - "docs/continuity/CURRENT_STATE.yaml"
+    - "docs/continuity/DECISIONS.md"
+    - "docs/continuity/HANDOFF_LOG.md"
+    - "docs/continuity/HANDOFF_TEMPLATE.md"
+    - "docs/continuity/task-contracts/"
+    - "projects/task-management/continuity/"
+    - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    - "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+  forbidden_path_prefixes:
+    - "projects/"
+    - "practical-labs/"
+    - "specifications/"
+    - "scripts/"
+    - "tests/"
+    - ".github/"
+    - "templates/"
+  protected_resource_refs:
+    - "The seven canonical Global Continuity records and their existing ownership semantics."
+    - "BVC Task Management Product Definition v0.2.0."
+    - "BVC Task Management Decision Register, Risk Policy, UX and Architecture acceptance records."
+    - "All existing Task Contracts, Task IDs, Prompt IDs, Prompt Register, Task Register, Project State and Evidence Index."
+    - "The current approved BVC Engineering Method and Task Contract Specification; this task may document adapters but may not silently revise those standards."
+    - "Private EFIN information and private ENERIXON sources, credentials, customer data and corporate design-system materials."
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Do not modify main directly. Implementation work must use a dedicated branch and Pull Request after this Contract is APPROVED and canonical on main."
+  - "Do not merge the implementation Pull Request. Human Owner review and merge authority remain with the Human Owner."
+  - "This Contract PR contains only this proposed Contract. It does not implement its own deliverables."
+  - "Do not publish an implementation prompt for this task before this Contract is approved and merged to main."
+  - "Human Owner remains the final Product, Architecture, Governance, task-approval, risk-escalation, acceptance and merge authority."
+  - "ChatGPT is assigned the working role of Chief Architect and Project Engineering Orchestrator: design and challenge platform/system/module architecture; decompose product intent into tasks; prepare Task Specifications, Contracts, context packages and provider-specific prompts; review executor results; and reconcile proposed records. This role does not grant ChatGPT final architecture approval, self-approval, merge authority or permission to exceed a Contract."
+  - "Gemini on Google AI Studio is the primary Vibe Coding implementation worker for beginner practical labs and GAIS app work when the active Contract routes the task to GAIS. Gemini receives the approved semantic task through a GAIS-specific prompt adapter and may change only the exact authorized paths."
+  - "DeepSeek in VS Code is assigned as the independent engineering reviewer/tester/code auditor by default when available: inspect diffs, run authorized tests, identify defects, security or architecture deviations, and report findings. DeepSeek may act as an implementation worker only when a Task Contract or explicit Owner authorization assigns it that role and the prior writer has released the workspace."
+  - "The actual DeepSeek model, VS Code access, local Git capability, account connection and quota remain UNKNOWN until verified in the active session. Role assignment is not evidence of connectivity."
+  - "The actual GAIS app and model label must be verified from current Owner-supplied evidence. Historical labels or app screenshots are not proof of present session capability."
+  - "Use one semantic Task Contract for all executors. Provider-specific prompts may differ in format and tool instructions, but the objective, authorization, scope, acceptance criteria, risk, and verification expectations must remain invariant."
+  - "Do not allow concurrent writes to the same task branch or workspace. Multiple AIs may participate sequentially or in a controlled discovery/review pipeline; only one authorized writer may modify a task branch at a time."
+  - "When executors disagree, record the conflicting proposals and evidence explicitly. Do not decide by model majority, confidence, or semantic similarity. Escalate unresolved architecture, product, governance, security or scope conflicts to the Human Owner."
+  - "A fresh ChatGPT session must complete a read-only live bootstrap and produce the Project Understanding Review before generating a task, Contract, prompt, code change, PR, acceptance or next implementation action."
+  - "After the Project Understanding Review, ChatGPT must explicitly ask the Human Owner to confirm or correct the understanding and enter WAITING_FOR_OWNER_REVIEW. It must not continue merely because it has found a valid next action."
+  - "Only after the Human Owner confirms the understanding may ChatGPT resume the next action permitted by a current approved Contract or explicit Owner instruction."
+  - "The Project Understanding Review is a session response, not a duplicate Project State. Do not commit a separate report for every chat window unless a material correction, decision or state transition must be persisted."
+  - "Use the existing Source Manifest and authority order. Retrieval relevance or the presence of a file does not make it canonical. Reconcile conflicts against approved authority and current evidence."
+  - "Build task-specific context from current state, canonical knowledge, authority, dependencies, recent changes and evidence. Do not force every executor to ingest the entire repository for every task."
+  - "GitHub main and the canonical records stored in the repository are the controlled remote recovery source for this project. Git history alone is not Project Continuity; Project Knowledge, Project State, Decisions, Evidence, Run Records, Checkpoints and Handoffs retain distinct meanings."
+  - "Do not modify project-specific registers or Practical Labs learner content under this Contract. If bootstrap reconciliation discovers project-specific stale records, report the conflict and create a separate scoped Task Contract proposal."
+  - "Do not claim cold-start, cross-model, GAIS quota-interruption or DeepSeek recovery tests have passed unless a real pilot is executed and evidence is recorded under the authorized validation process."
+  - "Preserve the book's method: one method, multiple executors, one project; prompt is not context; a claim is not evidence; capability does not create authority; architecture is human-governed."
+
+required_context:
+  - reference: "docs/continuity/README.md"
+    purpose: "Understand the seven canonical Global Continuity records and the existing operating procedures."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "docs/continuity/BOOTSTRAP.md"
+    purpose: "Preserve authority order, mandatory startup sequence, execution gate and GREEN/AMBER/RED continuity semantics."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "docs/continuity/START_HERE.md"
+    purpose: "Align the new first-response review gate with the current landing page."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "docs/continuity/BVC_NEXT_CHAT_PROMPT.md"
+    purpose: "Preserve the single prompt entry point and add the mandatory Project Understanding Review stage."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "docs/continuity/TASK_LIFECYCLE.md"
+    purpose: "Align role assignment, task design, Contract approval, prompt publication, execution, verification and acceptance."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
+    purpose: "Preserve writer release, receiver acceptance, checkpoint and recovery requirements."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md"
+    purpose: "Ensure repository identity, main SHA, PR, branch, diff and evidence verification is completed before claims or writes."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "docs/continuity/SOURCE_MANIFEST.csv"
+    purpose: "Register new role and Project Understanding Review resources without creating a parallel source index."
+    authority: CANONICAL
+    required: true
+    freshness_requirement: "Read live main immediately before implementation."
+  - reference: "specifications/v0.1/task-contract.md and specifications/v0.1/task-contract.schema.json"
+    purpose: "Follow Task Contract semantics, exact path scope, fail-closed expansion, evidence and approval requirements."
+    authority: CANONICAL
+    required: true
+    version_or_commit: "main@7d438404c21158462acde97afe9c4d5b3ebcf923"
+  - reference: "Human Owner direction in the 2026-11-11 conversation"
+    purpose: "Establish ChatGPT's Chief Architect/Orchestrator role, Gemini's GAIS implementation role, DeepSeek's VS Code review/test role, and mandatory Owner review of every new ChatGPT session's project-understanding report."
+    authority: APPROVED
+    required: true
+    freshness_requirement: "The Human Owner explicitly approved the exact Contract scope, R2 classification and Acceptance Criteria AC-001 through AC-010 on 2026-11-11."
+
+dependencies:
+  - reference: "BVC-GLOBAL-TC-001 Revision 1"
+    relationship: INFORMATIONAL
+    reason: "Established repository verification and continuity bootstrap procedures; do not override its exact scope."
+  - reference: "BVC-GLOBAL-TC-002 Revision 1"
+    relationship: INFORMATIONAL
+    reason: "Established provider-neutral cross-executor handoff and one-writer protocol; this task adds role assignment and first-response understanding review without changing its schema or validators."
+  - reference: "BVC-TM-CONT-001 Revision 5"
+    relationship: INFORMATIONAL
+    reason: "BVCTM project continuity remains a separate project-specific extension; project registers are deliberately outside this Contract."
+  - reference: "Human Owner review of this proposed Contract"
+    relationship: MUST_COMPLETE_FIRST
+    reason: "No implementation files or executor prompts may be created until this exact Contract is approved and canonical on main."
+
+expected_outputs:
+  - id: "OUT-001"
+    kind: DOCUMENTATION
+    description: "Canonical AI Executor Role Model defining Human Owner, ChatGPT Chief Architect/Orchestrator, Gemini GAIS Worker and DeepSeek VS Code Reviewer/Tester with role boundaries, routing, adapters, one-writer rule and conflict resolution."
+    path: "docs/continuity/AI_EXECUTOR_ROLE_MODEL.md"
+  - id: "OUT-002"
+    kind: DOCUMENTATION
+    description: "Reusable Project Understanding Review output template with source-backed sections, evidence classifications, project map, active task, blockers, capability limits, next permitted action and explicit Owner confirmation request."
+    path: "docs/continuity/PROJECT_UNDERSTANDING_REVIEW.template.md"
+  - id: "OUT-003"
+    kind: DOCUMENTATION
+    description: "Updated START_HERE, BVC_NEXT_CHAT_PROMPT and BOOTSTRAP instructions requiring a read-only live bootstrap, a Vietnamese project-understanding report, an explicit Owner confirmation gate and WAITING_FOR_OWNER_REVIEW before any continuation."
+  - id: "OUT-004"
+    kind: DOCUMENTATION
+    description: "Updated Task Lifecycle, Cross-Executor Continuity and Continuity README showing the shared semantic Contract, provider-specific prompt adapters, task-focused context compilation, sequential worker routing and role authority."
+  - id: "OUT-005"
+    kind: DOCUMENTATION
+    description: "Updated Global Source Manifest entries for the new role model and understanding-review template."
+  - id: "OUT-006"
+    kind: REPORT
+    description: "Implementation PR with exact changed-file inventory, validation results, unresolved limitations and Owner review request."
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "The AI Executor Role Model explicitly assigns ChatGPT the Chief Architect and Project Engineering Orchestrator working role; Gemini on GAIS the primary beginner/Vibe Coding implementation worker; and DeepSeek in VS Code the independent reviewer/tester/code-auditor role by default, while retaining optional separately authorized implementation routing."
+    verification_method: "Review the complete role model and cross-executor protocol for role clarity, task routing and explicit UNKNOWN capability treatment."
+    required_evidence_level: 1
+  - id: "AC-002"
+    statement: "Human Owner is explicitly retained as final Product, Architecture, Governance, Task Contract, risk-escalation, acceptance and merge authority. ChatGPT's Chief Architect role is a delegated working role, not self-approval authority."
+    verification_method: "Cross-review the Role Model, Bootstrap and Task Lifecycle for consistent authority boundaries."
+    required_evidence_level: 1
+  - id: "AC-003"
+    statement: "One semantic Task Contract governs all executors. Gemini and DeepSeek prompt adapters may differ in tool format but preserve objective, scope, authorization, acceptance criteria, risk and verification requirements."
+    verification_method: "Review role model and Task Lifecycle for explicit semantic-contract invariance."
+    required_evidence_level: 1
+  - id: "AC-004"
+    statement: "Every new ChatGPT session is instructed to complete a read-only live bootstrap, produce a structured Vietnamese Project Understanding Review, cite canonical sources and clearly classify VERIFIED, OWNER_REPORTED, PROPOSAL, OPEN_QUESTION, STALE and NOT_VERIFIED information."
+    verification_method: "Review START_HERE, BVC_NEXT_CHAT_PROMPT and the report template against all required report sections and evidence labels."
+    required_evidence_level: 1
+  - id: "AC-005"
+    statement: "After the Project Understanding Review, the ChatGPT session explicitly asks the Human Owner to confirm or correct the understanding and stops in WAITING_FOR_OWNER_REVIEW. It does not create a task, Contract, prompt, code change, PR, acceptance or next implementation action before confirmation."
+    verification_method: "Inspect the exact new-chat prompt and Bootstrap state transition. Confirm the stop condition is unambiguous."
+    required_evidence_level: 1
+  - id: "AC-006"
+    statement: "The Project Understanding Review covers project identity and purpose, product and curriculum map, architecture/knowledge sources, governance and decision gates, active and completed tasks, Contracts and Prompts, execution and evidence, AI roles/capabilities, GitHub state, local/GAIS/VS Code boundaries, stale/conflicting records, blockers, and exactly one next permitted action."
+    verification_method: "Map every required topic to a section in the report template; verify source references and unknown-state declarations."
+    required_evidence_level: 1
+  - id: "AC-007"
+    statement: "The operating method applies task-focused context compilation and distinguishes Project Knowledge, Project State, Evidence, Git history, Run Records, Checkpoints and Handoffs rather than treating GitHub commit history or a long prompt as complete project memory."
+    verification_method: "Review Task Lifecycle, Role Model and Continuity README for terminology consistent with the supplied BEYOND VIBE CODING chapters."
+    required_evidence_level: 1
+  - id: "AC-008"
+    statement: "The new role and review resources are registered in the existing Global Source Manifest. No duplicate continuity state store or parallel Task/Prompt register is created."
+    verification_method: "Parse the CSV, check unique source IDs and resolve each new canonical path."
+    required_evidence_level: 1
+  - id: "AC-009"
+    statement: "All implementation changes remain within the exact allowed CREATE/MODIFY paths; zero DELETE, application code, project-specific registers, Practical Labs learner content, specifications, scripts, tests, workflows, repository settings or binary changes occur."
+    verification_method: "Inspect complete PR changed-file inventory and full diff against the Contract path allowlist and forbidden prefixes."
+    required_evidence_level: 1
+  - id: "AC-010"
+    statement: "Human Owner reviews the implementation PR and explicitly decides whether it may be merged; no AI executor merges the PR or records its own acceptance."
+    verification_method: "Human Owner review/merge decision recorded on GitHub."
+    required_evidence_level: 1
+
+verification:
+  required: true
+  minimum_evidence_level: 1
+  checks:
+    - id: "VC-001"
+      kind: "STATIC_ANALYSIS"
+      description: "Validate this proposed Task Contract against the BVC Task Contract v0.1.0 JSON Schema."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-003", "AC-004", "AC-005", "AC-006", "AC-009"]
+    - id: "VC-002"
+      kind: "STATIC_ANALYSIS"
+      description: "Parse all modified Markdown links and the Global Source Manifest CSV; resolve exact new source paths and verify unique source IDs."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-006", "AC-008", "AC-009"]
+    - id: "VC-003"
+      kind: "MANUAL_REVIEW"
+      description: "Inspect the complete implementation PR diff and exact CREATE/MODIFY/DELETE inventory against this approved Contract."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-003", "AC-004", "AC-005", "AC-006", "AC-007", "AC-008", "AC-009"]
+    - id: "VC-004"
+      kind: "MANUAL_REVIEW"
+      description: "Human Owner reviews the implementation PR and explicitly decides whether to merge it."
+      evidence_level: 1
+      required: true
+      acceptance_criteria_refs: ["AC-010"]
+    - id: "VC-005"
+      kind: "REAL_WORLD_CHECK"
+      description: "Run at least one actual new-ChatGPT-window cold-start after implementation merge. Confirm the report is produced from live GitHub, the first response asks for Owner review, and no write/prompt/task continuation occurs before the Owner confirms."
+      evidence_level: 3
+      required: true
+      acceptance_criteria_refs: ["AC-004", "AC-005", "AC-006"]
+    - id: "VC-006"
+      kind: "REAL_WORLD_CHECK"
+      description: "When DeepSeek/VS Code access becomes available, perform a controlled read-only reviewer pilot using the same semantic Task Contract as the Gemini adapter. Do not claim a DeepSeek pilot passed while environment access remains UNKNOWN."
+      evidence_level: 3
+      required: false
+      acceptance_criteria_refs: ["AC-001", "AC-003"]
+
+  known_verification_limits:
+    - "ChatGPT cannot infer local Windows working-tree state, GAIS private app state, or DeepSeek/VS Code availability from GitHub. The Human Owner must supply current evidence."
+    - "The real cold-start test cannot be completed within a documentation-only PR; it is a post-merge pilot and must remain NOT_RUN until actually performed."
+    - "DeepSeek/VS Code role definition does not establish a current connected account, model label, quota or repository permission."
+    - "The first Project Understanding Review is a chat response. It must not be stored as a canonical state copy unless a material correction or decision is explicitly approved."
+    - "The supplied book PDF is the methodological reference. This Contract must preserve its terminology and distinctions without claiming the book is itself a repository authority artifact."
+
+change_budget:
+  max_changed_files: 9
+  max_created_files: 2
+  max_modified_files: 7
+  max_deleted_files: 0
+  max_total_diff_lines: 2400
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/TASK_LIFECYCLE.md; docs/continuity/CROSS_EXECUTOR_CONTINUITY.md; specifications/v0.1/task-contract.md. The role assignment does not override Human Owner authority."
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: "Human Owner instructed ChatGPT to act as Chief Architect and proactively complete the project-understanding bootstrap/resume mechanism on 2026-11-11. Explicit approval of this exact Contract Revision 1 remains PENDING."
+  executor:
+    class: HYBRID
+    identifier: "ChatGPT GPT-6 as Chief Architect / Project Engineering Orchestrator; Human Owner performs final review and merge. Gemini GAIS and DeepSeek VS Code are role targets, not assumed connected executors during this documentation task."
+    capability_requirements:
+      - "Read live GitHub main, source manifests, canonical continuity records, relevant Contracts and recent PR/check evidence."
+      - "Create the exact approved documentation files on a dedicated branch after this Contract is approved and merged."
+      - "Validate Markdown links, Source Manifest CSV and Task Contract references."
+      - "Do not claim access to the Human Owner's laptop, GAIS private workspace, or DeepSeek/VS Code unless current session evidence confirms access."
+      - "Do not change project-specific state or learner materials under this Global Contract."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - create
+    - modify
+    - run_tests
+  human_approval:
+    required: true
+    status: APPROVED
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Human Owner explicit approval in the ChatGPT conversation on 2026-11-11: approved BVC-GLOBAL-TC-004 Revision 1, including three-AI roles, R2 risk, exact 9-file scope and Acceptance Criteria."
+    rationale: "The Human Owner explicitly approved this exact Contract Revision 1. This approval authorizes the Contract only; implementation may begin only after the APPROVED Contract is canonical on main and all other preconditions are met."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: "One bounded documentation/formatting repair is allowed within the approved exact paths. Any change to role assignments, authority, scope, lifecycle gates, or new files outside the allowlist requires a revised Contract and explicit Owner approval."
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "docs/continuity/START_HERE.md; docs/continuity/BVC_NEXT_CHAT_PROMPT.md; docs/continuity/BOOTSTRAP.md; docs/continuity/CROSS_EXECUTOR_CONTINUITY.md"
