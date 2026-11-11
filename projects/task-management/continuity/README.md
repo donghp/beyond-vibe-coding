@@ -2,10 +2,10 @@
 
 **Project:** BVC Task Management (BVCTM)  
 **Project ID:** `BVC-TASK-MANAGEMENT`  
-**Continuity profile:** `BVC-TM-CONTINUITY-PROFILE` v0.1.0, revision 3  
+**Continuity profile:** `BVC-TM-CONTINUITY-PROFILE` v0.1.0, revision 4  
 **Maturity:** PILOT — independent cold-start and cross-model recovery are NOT_RUN  
-**Current canonical source:** `main@202e78065e96d339f78d5a406edcd19ccf687e7f`  
-**Reconciled at:** 2026-11-11T06:44:00+07:00
+**Current canonical source:** `main@aff2b42da26ec548de8088bf77de455a94723773`  
+**Reconciled at:** 2026-11-11T08:30:00+07:00
 
 ## Purpose
 
@@ -61,13 +61,15 @@ Approved for one isolated, non-production blank WEB app scaffold inspection and 
 - `projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md`
 - `projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml`
 
-At this checkpoint the Task Execution Register still records `NOT_STARTED_OR_NOT_EVIDENCED`. The GAIS screenshot supplied on 2026-11-11 shows a project title and blank Preview; Phase A screenshots show a visual scaffold tree. They do not replace the two required outputs or independently verify package manifests, runtime, dependencies, scripts, versions, build/export behavior.
+At this checkpoint the Task Execution Register still records `NOT_STARTED_OR_NOT_EVIDENCED`. The Owner-supplied GAIS screenshot on 2026-11-11 shows the project title and expected Preview heading; Phase A screenshots show a visual scaffold tree. They do not replace the two required outputs or independently verify package manifests, runtime, dependencies, scripts, versions, build/export behavior.
 
 The Task #003 Contract's own baseline is historical and must not be silently rewritten. Any baseline/context revision must be handled under the applicable authority and approval process.
 
-### BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 4
+### BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5
 
-Approved on `main`. It authorizes exactly one CREATE and twelve MODIFY paths under this continuity directory, with no DELETE. This reconciliation is proposed on a dedicated branch/PR; it is not canonical until the Human Owner merges the PR.
+Revision 5 is APPROVED on `main` after PR #47 published the baseline refresh and PR #49 recorded the Human Owner's explicit approval. It authorizes exactly one CREATE and twelve MODIFY paths under this continuity directory, with no DELETE.
+
+PR #48 merged three MODIFY outputs (README, entry point and profile). The R5 completion branch is preparing the remaining nine MODIFY paths and the one CREATE path. Those proposed changes are not canonical until their final PR is merged by the Human Owner.
 
 ## Phase A evidence distinctions
 
@@ -81,18 +83,17 @@ Publication, prompt execution, learning completion, technical verification and p
 ## Current GitHub checkpoint
 
 - Repository: https://github.com/donghp/beyond-vibe-coding
-- Current main SHA: `202e78065e96d339f78d5a406edcd19ccf687e7f`
+- Current main SHA: `aff2b42da26ec548de8088bf77de455a94723773`
 - Open PRs at last live check: 0
-- Remote branch refs returned: 45 (including `main`)
-- PR #37, #38, #39, #40, #41, #43, #44, #45 and #46 are merged.
+- PR #47, #48 and #49 are merged. PR #48 published three continuity MODIFY outputs; the remaining outputs are still under R5 reconciliation.
 - Main branch protection was `false` at the last repository endpoint check; do not change settings under this Contract.
 
 ## External and local-state boundaries
 
 - GAIS is Human Owner-operated. ChatGPT must not claim direct account or private project access.
-- The 2026-11-11 GAIS screenshot is OWNER_SUPPLIED and shows the named project and blank Preview only.
-- `C:\beyond-vibe-coding-a4-evidence` was clean at `main@d2ac0f5` and behind 3 commits after fetching the current remote. It has not yet been fast-forwarded.
-- `C:\beyond-vibe-coding` remains DIRTY on `docs/bvctm-continuity-contract-r3` with one modified continuity Markdown file and two untracked A1 PNGs. Preserve it and all six stash entries.
+- The 2026-11-11 GAIS screenshot is OWNER_SUPPLIED and shows the project title and expected Preview heading; the screenshot does not expose the Code/File Explorer tree or technical manifests.
+- `C:\beyond-vibe-coding-a4-evidence` was Owner-verified clean and equal to `origin/main@202e780` after fast-forward. PR #47, #48 and #49 subsequently added three commits, so current remote `main@aff2b42` is expected to be three commits ahead; local status has not been rechecked after those merges.
+- `C:\beyond-vibe-coding` remains DIRTY on `docs/bvctm-continuity-contract-r3` at `c2f4b798...` with one modified continuity Markdown file and two untracked A1 PNGs. Preserve it and all six stash entries.
 - The two paths are linked worktrees in the same local Git common directory; inspect worktree relationships before any local branch switch.
 - Local state is Owner-supplied terminal evidence, not direct ChatGPT filesystem inspection.
 
@@ -110,3 +111,12 @@ Update semantic records only on material, evidence-backed events. Keep machine-o
 
 Never store secrets, API keys, tokens, passwords, recovery information, customer data or confidential business data in continuity records.
 
+
+
+## Phase B priority checkpoint — 2026-11-11
+
+- Phase A A1–A4 learning path: COMPLETED in the canonical Practical Labs Lesson Status Register V0.2.
+- Phase B B1 — Create Your First Task: next product implementation target, but not yet authorized for code changes.
+- The approved GAIS scaffold inspection remains a prerequisite. Its two report/inventory outputs are absent from main; the current Owner-supplied Preview screenshot does not show the generated file tree or technical manifests.
+- DR-005 first-use storage disclosure remains OPEN; DR-014 browser persistence is ACCEPTED FOR DESIGN only and still needs runtime verification.
+- A separate First Vertical Slice Task Contract must be approved and canonical before feature implementation.
