@@ -73,7 +73,7 @@ tasks:
   risk_level: R2
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml
   approval_reference: "Human Owner explicitly approved Contract B1 in the 2026-11-11 ChatGPT conversation."
-  publication_status: "APPROVED_CONTRACT_PROPOSED_IN_PR_53; NOT_YET_CANONICAL_ON_MAIN"
+  publication_status: "OPEN_PR_53; NOT_YET_CANONICAL_ON_MAIN"
   allowed_gaIs_changes:
   - "MODIFY app/page.tsx only"
   forbidden_changes:
