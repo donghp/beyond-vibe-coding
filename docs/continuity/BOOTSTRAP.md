@@ -59,28 +59,35 @@ The manifest does not override the source files and may itself become stale. Rec
 
 Read the latest complete entry in `HANDOFF_LOG.md`. Reconcile every status against current `main`, active PRs and canonical project records. Mark historical, owner-reported, unverified and superseded claims explicitly.
 
-### Step 6 — Report before acting
+### Step 6 — Project Understanding Review before acting
 
-Respond in Vietnamese. Separate:
-- `VERIFIED_FACT`: directly confirmed from current repository/API/check evidence;
-- `OWNER_REPORTED`: supplied by the Human Owner but not independently rechecked;
-- `ASSUMPTION`: plausible but not proven;
-- `OPEN_QUESTION`: unresolved;
-- `STALE`: historical or superseded.
+Every new ChatGPT window must remain read-only until it has produced a source-backed Project Understanding Review in Vietnamese using [PROJECT_UNDERSTANDING_REVIEW.template.md](./PROJECT_UNDERSTANDING_REVIEW.template.md). Follow [AI_EXECUTOR_ROLE_MODEL.md](./AI_EXECUTOR_ROLE_MODEL.md) for role boundaries. The report is a per-session response, not a new canonical state file.
 
-Report Continuity Health and Window Capacity Risk independently. Never invent context-token percentages. If no remaining-context meter is exposed, say so. A new chat gets a fresh capacity assessment; do not inherit the previous chat's status.
+The report must cover:
+- repository identity, live `main` SHA, open PRs, relevant branches and checks;
+- project purpose, product baselines, product/learning map and architecture/knowledge sources;
+- governance, decisions, approval gates and risk boundaries;
+- active and completed tasks, Task Contracts/revisions, Prompt IDs/publication, execution, verification and acceptance;
+- current AI executor roles and capabilities actually verified in this session;
+- local Windows, GAIS and VS Code synchronization boundaries;
+- stale snapshots, conflicting registers, missing evidence, blockers and exactly one next permitted action.
 
-End every substantive recovery report and every executor prompt with exactly one conservative continuity signal:
-- `GREEN`: repository identity, current baseline, task authority, required context, and relevant evidence are sufficiently verified for the stated next action; this is not a claim that the whole project is complete.
-- `AMBER`: recovery is partial or contains stale/unverified facts, but bounded read-only inspection may continue. Stop writes that depend on unresolved facts.
-- `RED`: repository identity, authority, scope, security, recovery point, or writer coordination is materially conflicted or unverified. Stop consequential actions and request Owner intervention.
+Classify material claims as `VERIFIED`, `OWNER_REPORTED`, `PROPOSAL`, `OPEN_QUESTION`, `STALE`, or `NOT_VERIFIED`. Preserve source-native labels (for example `VERIFIED_FACT`, `ASSUMPTION`, or `PARTIAL / NOT VERIFIED`) in the supporting evidence; do not silently upgrade a claim or replace the source's terminology.
 
-Continuity Health and Window Capacity Risk are separate assessments. GREEN/AMBER/RED is a conservative operating judgment, not a measured context-window percentage.
+At the end, ask the Human Owner explicitly to confirm or correct the report. Set the session gate to `WAITING_FOR_OWNER_REVIEW`. Until the Owner confirms or corrects the understanding, do not create or continue a task, Contract, prompt, code change, PR, acceptance record or other implementation action. A continuity signal (GREEN/AMBER/RED) does not waive this Owner-review gate.
+
+Respond in Vietnamese. Report Continuity Health and Window Capacity Risk separately. Never invent context-token percentages; if no remaining-context meter is exposed, report it as unknown.
+
+End the report with exactly one conservative continuity signal:
+- `GREEN`: identity, baseline, authority, required context and evidence are sufficiently verified for the stated next action; this is not a claim that the whole project is complete.
+- `AMBER`: recovery is partial or contains stale/unverified facts; bounded read-only inspection may continue, but dependent writes must stop.
+- `RED`: identity, authority, scope, security, recovery point or writer coordination is materially conflicted or unverified; stop consequential actions and request Owner intervention.
 
 ## 4. Execution gate
 
 Before any write or external action:
 
+0. For a new ChatGPT window, verify that the Project Understanding Review has been explicitly confirmed or corrected by the Human Owner. `WAITING_FOR_OWNER_REVIEW` blocks all continuation; a valid next action does not override this gate.
 1. Identify the exact approved Task Contract or explicit Human Owner authorization.
 2. Check its current revision, project baseline, risk policy and required context.
 3. Confirm exact CREATE/MODIFY/DELETE paths and change budget.
@@ -103,6 +110,8 @@ Repository-wide read access does not grant blanket write, merge, delete, setting
 - GitHub on-demand retrieval is not synchronization of a laptop, GAIS workspace, or IDE working tree. Verify each environment separately.
 - Before a local `pull`, inspect `git status`, branch, HEAD, remotes and divergence. Never overwrite unsaved or uncommitted work.
 - Coordinate one active writer per task/working branch. A receiving executor verifies the checkpoint and confirms the previous writer has stopped before writing.
+- Use one semantic Task Contract across executors; provider-specific prompt adapters may change tool syntax, not objective, authorization, scope, risk, acceptance criteria or verification.
+- Follow `AI_EXECUTOR_ROLE_MODEL.md` for ChatGPT, Gemini GAIS and DeepSeek VS Code responsibilities; verify each session's actual capabilities rather than inferring them from a role label.
 - A branch/PR may carry an explicitly handed-off working checkpoint, but remains a proposal until reviewed, merged and accepted under project governance.
 
 ## 6. One next action
