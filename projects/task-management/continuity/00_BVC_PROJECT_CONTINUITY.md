@@ -4,7 +4,7 @@
 **Project ID:** `BVC-TASK-MANAGEMENT`  
 **Purpose:** Recover the current project in any authorized AI executor without copying an old conversation.  
 **Principle:** Project owns continuity. AI executors consume continuity.  
-**Current snapshot prepared against:** `main@202e78065e96d339f78d5a406edcd19ccf687e7f`  
+**Current snapshot prepared against:** `main@aff2b42da26ec548de8088bf77de455a94723773`  
 **Record status:** PILOT — live bootstrap is mandatory for every new session.
 
 ---
@@ -83,18 +83,19 @@ Preserve:
 - Formal Phase 3.1 UX Acceptance remains OPEN.
 - Phase 3.2 is an accepted design baseline only.
 - DR-005 remains OPEN; DR-014 is accepted for design only, runtime verification remains required.
-- BVC-TM-P3.3-003 / BVC-TM-TC-003 R1 is a separate scaffold-inspection Contract. Its execution remains NOT_STARTED_OR_NOT_EVIDENCED until its actual authorized report and inventory are delivered and verified.
+- BVC-TM-P3.3-003 / BVC-TM-TC-003 R1 is a separate scaffold-inspection Contract. It remains APPROVED; its execution is NOT_STARTED_OR_NOT_EVIDENCED and both required report/inventory outputs are absent from main.
+- BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5 is APPROVED on main after PR #49. PR #48 published three of twelve MODIFY outputs; R5 completion is preparing the remaining nine MODIFY outputs and one CREATE output.
 - Do not confuse BVCTM Task #003 with Global BVC-GLOBAL-TC-003 (public website).
 
 **6. Treat evidence correctly**
 Use VERIFIED_FACT, OWNER_REPORTED, PROPOSAL, ASSUMPTION, OPEN_QUESTION, STALE and PARTIAL / NOT VERIFIED.
 A PR merge proves publication, not prompt execution, runtime behavior or Human Owner acceptance.
-The 2026-11-11 GAIS screenshot only shows a project title and blank Preview. Do not infer code-tree details, framework, dependencies, versions, package manager, scripts, build or export behavior from it.
+The 2026-11-11 Owner-supplied GAIS screenshot shows the project title and expected Preview heading. It does not show the generated Code/File Explorer tree. Do not infer framework, dependencies, versions, package manager, scripts, build or export behavior from it.
 A2/A4 repository screenshots show a visual code tree; they do not replace the scaffold inventory output.
 
 **7. Check local worktrees only from actual evidence**
 The last Owner-supplied output:
-- C:\beyond-vibe-coding-a4-evidence: clean main at d2ac0f5, origin/main fetched to 202e780, 0 ahead / 3 behind. It is safe for a fast-forward only after a fresh clean-status check.
+- C:\beyond-vibe-coding-a4-evidence: Owner-verified clean main at 202e780 after fast-forward. PR #47, #48 and #49 then advanced remote main to aff2b42. Expected local divergence is 0 ahead / 3 behind, but current local status has not been rechecked.
 - C:\beyond-vibe-coding: DIRTY on docs/bvctm-continuity-contract-r3; one modified continuity Markdown file, two untracked A1 PNGs, six stashes; linked worktrees share a common Git directory.
 Do not reset, clean, switch, pop stashes, overwrite or delete local-only work. Recheck current status before local operations.
 
@@ -125,13 +126,19 @@ Do not invent context-window percentages. During this bootstrap, perform read-on
 
 ## Current verified checkpoint
 
-- Current main: `202e78065e96d339f78d5a406edcd19ccf687e7f`
+- Current main: `aff2b42da26ec548de8088bf77de455a94723773`
 - Open PRs: 0 at last live check.
-- Continuity Contract: BVC-TM-CONT-TC-001 Revision 4, APPROVED.
+- Continuity Contract: BVC-TM-CONT-TC-001 Revision 5, APPROVED after PR #47 and approval-record PR #49.
+- PR #48: merged partial reconciliation of three MODIFY paths; final R5 completion remains a separate proposal.
 - Product baseline: Product Definition v0.2.0.
 - Phase A: learning A1–A4 completed.
-- Phase B: next focus, implementation not yet authorized.
+- Phase B: next focus; implementation requires completion of scaffold inspection, applicable UX decision gates and a separate approved First Vertical Slice Task Contract.
 - Task #003: approved Contract, execution NOT_STARTED_OR_NOT_EVIDENCED; report/inventory outputs absent.
-- Continuity pilot: T01–T11 NOT_RUN.
+- Continuity pilot: CONT-T01–CONT-T11 NOT_RUN.
 - Local worktrees: one clean-but-behind main clone and one dirty historical worktree, per latest Owner terminal output.
 
+
+
+## Phase B operating rule
+
+Phase B's first implementation target is B1 — Create Your First Task: one personal task entered by title and displayed in a simple list. Keep creation/display separate from saving/persistence; saving is a later milestone. Before code changes: complete the approved scaffold inspection, resolve or explicitly defer DR-005 for the applicable first-use disclosure, review relevant UX conditions, and obtain a separate approved First Vertical Slice Task Contract. This bootstrap prompt itself is read-only and does not authorize implementation.
