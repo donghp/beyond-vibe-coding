@@ -1,6 +1,6 @@
 evidence_index_version: 0.1.0
 project_id: BVC-TASK-MANAGEMENT
-evidence_status: TASK_003_OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_CONTRACT_APPROVED_PENDING_CANONICAL_PUBLICATION
+evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_CONTRACT_AND_PROMPT_CANONICAL; GAIS_EXECUTION_NOT_STARTED
 classification_legend:
   REPOSITORY_VERIFIED: Directly checked against current GitHub main or canonical file.
   OWNER_SUPPLIED: Provided by Human Owner in the conversation; binary/source may not be committed.
@@ -97,11 +97,11 @@ evidence:
   limitations: "VC-006/VC-007 were not independently run; GAIS app-type label and live external connection/secrets-panel state remain NOT_VERIFIED. Runtime/build/lint/test results are not claimed."
 
 - evidence_id: BVC-EV-015
-  subject: GitHub main checkpoint after PR #50, #51 and #52
+  subject: GitHub main checkpoint before B1 publication PR #53
   classification: REPOSITORY_VERIFIED
   source: https://github.com/donghp/beyond-vibe-coding/commit/58ee43cefff59b3e99a48314a322d639652b38fb
   observed_at: '2026-11-11'
-  claim: "Live main HEAD is 58ee43cefff59b3e99a48314a322d639652b38fb. PR #50, #51 and #52 are merged."
+  claim: "Historical main HEAD before PR #53 was 58ee43cefff59b3e99a48314a322d639652b38fb; PR #50, #51 and #52 were merged at that checkpoint."
   limitations: "Local Windows worktrees were not rechecked after these merges."
 - evidence_id: BVC-EV-016
   subject: Task #003 Owner acceptance with known limitations
@@ -129,5 +129,13 @@ evidence:
   classification: OWNER_REPORTED
   source: "Human Owner approval in the 2026-11-11 ChatGPT conversation"
   observed_at: '2026-11-11'
-  claim: "Human Owner approved BVC-TM-TC-004 Revision 1 for title-only in-memory task creation in app/page.tsx only. Prompt #0004 is registered and prepared on docs/bvctm-task004-b1-first-task."
-  limitations: "Contract and prompt are not canonical on main until the publication PR is merged. GAIS execution remains NOT_STARTED."
+  claim: "Human Owner approved BVC-TM-TC-004 Revision 1 for title-only in-memory task creation in app/page.tsx only. Contract #004 and Prompt #0004 are now canonical on main through merged PR #53."
+  limitations: "GAIS execution remains NOT_STARTED pending app identity and app/page.tsx preflight. Local Windows worktree synchronization after PR #53 remains NOT_VERIFIED."
+
+- evidence_id: BVC-EV-020
+  subject: PR #53 publication of B1 Contract #004 and Prompt #0004
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/53
+  observed_at: '2026-11-11T17:28:01+07:00'
+  claim: "PR #53 was Squash & Merged. Merge commit and current main HEAD are ff2f1685d8dbc797c29377c090b972aa1922ab15. Contract BVC-TM-TC-004 Revision 1 and BVCTM-PROMPT-0004 are canonical on main."
+  limitations: "B1 GAIS execution remains NOT_STARTED. Live app identity and current app/page.tsx must be preflighted before running the prompt; local Windows worktree status after the merge is NOT_VERIFIED."
