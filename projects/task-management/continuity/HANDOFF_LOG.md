@@ -133,3 +133,19 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Next permitted action:** After PR #53 merges, the Human Owner pastes Prompt #0004 into the existing GAIS project after confirming the app identity and inspecting the current `app/page.tsx`. Stop if it materially differs from the source snapshot.
 - **Phase B boundary:** GitHub project setup and GAIS↔GitHub sync are deferred to Phase C as directed by the Human Owner. B2 persistence remains gated by DR-005 and a separate B2 Contract.
 - **Handoff status:** This is a project checkpoint, not a worker handoff. No sender release or receiver acceptance is claimed.
+
+
+## H-0007 — PR #53 Merged; B1 Contract and Prompt Published on Main
+
+- **Recorded at:** 2026-11-11T17:28:01+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Remote source checkpoint:** `main@ff2f1685d8dbc797c29377c090b972aa1922ab15`
+- **Event type:** PUBLICATION / TASK_AUTHORIZATION_CHECKPOINT
+- **Pull request:** [PR #53](https://github.com/donghp/beyond-vibe-coding/pull/53) was Squash & Merged; merge commit is `ff2f1685d8dbc797c29377c090b972aa1922ab15`.
+- **Published authority:** `BVC-TM-TC-004` Revision 1 is canonical on main with status APPROVED. It permits MODIFY `app/page.tsx` only in the existing GAIS app.
+- **Published prompt:** `BVCTM-PROMPT-0004` is canonical on main; Prompt Register next_number is 5.
+- **B1 execution status:** NOT_STARTED. Publication and approval do not constitute GAIS execution or acceptance.
+- **Next permitted action:** Human Owner opens the existing GAIS app, confirms its identity, opens Code and inspects `app/page.tsx`. If it matches the expected scaffold, paste the complete canonical Prompt #0004. If the source differs materially, stop and report. Then inspect the actual one-file diff and Preview evidence.
+- **Phase boundary:** Learner-owned GitHub repository creation, source-control learning and GAIS↔GitHub synchronization are deferred to Phase C. B2 persistence remains gated by DR-005 and its own approved Contract.
+- **Local status:** Windows local worktrees were not checked after PR #53. Preserve the previously reported dirty worktree and all local-only content.
+- **Handoff status:** Project checkpoint only; no sender release or receiver acceptance is claimed.
