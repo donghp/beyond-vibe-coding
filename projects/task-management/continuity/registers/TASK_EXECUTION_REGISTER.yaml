@@ -35,19 +35,56 @@ tasks:
   contract_id: BVC-TM-TC-003
   revision: 1
   title: GAIS Blank WEB App Scaffold Inspection and Inventory
-  status: APPROVED
-  execution_status: NOT_STARTED_OR_NOT_EVIDENCED
+  status: COMPLETED_ACCEPTED
+  execution_status: COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS
   risk_level: R2
   approved_outputs:
   - projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md
   - projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml
+  evidence_refs:
+  - https://github.com/donghp/beyond-vibe-coding/pull/51
+  - projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md
+  - projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml
+  - "Human Owner-supplied source ZIP SHA-256: fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723"
   external_outputs:
-  - One isolated non-production blank WEB app; read-only ZIP export outside repository if export is available
-  next_action: "Draft PR #51 records the screenshot-visible tree and Preview. Obtain the read-only GAIS ZIP or redacted manifest/config evidence; then complete the inventory and run VC-006/VC-007."
-  scope: No product features, localStorage, Auth, database, external API, GitHub app sync, hosting, or
-    deployment.
-  draft_evidence_pr: https://github.com/donghp/beyond-vibe-coding/pull/51
-  draft_evidence_status: PARTIAL_NOT_ACCEPTED; manifest/export/app-type verification pending
+  - One isolated GAIS WEB scaffold and one Owner-supplied read-only source ZIP export.
+  acceptance_record:
+    accepted_by: "Human Owner / Product Owner"
+    accepted_on: "2026-11-11"
+    authorization_reference: "Human Owner explicitly instructed: 'Tôi phê duyệt Contract B1, đóng gate task #003, hãy tiếp tục triển khai phase B' in the ChatGPT conversation on 2026-11-11."
+    decision: "COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS"
+    rationale: "The Owner reviewed the exported 18-file source inventory, report and Preview evidence and explicitly closed the Task #003 gate so Phase B could proceed."
+    known_limitations:
+    - "The explicit GAIS WEB app-type label was not captured in the supplied evidence."
+    - "The GAIS secrets panel and external GitHub/service connection state were not independently inspected; no claim that external connections are absent is made."
+    - "VC-006 YAML/Markdown validation was not run as an independently evidenced check."
+    - "VC-007 repository Contract Validator was not run; PR #51 merge proves the two report/inventory files were published, but is not represented as a validator PASS."
+    - "Runtime version, resolved dependency graph and build/lint outcomes remain NOT_VERIFIED; bun.lock is zero bytes and eslint-config-next 16.0.8 is declared with Next.js ^15.4.9."
+    verification_disposition: "Owner accepted the deliverables and closed the gate with the limitations above. No outstanding check is falsely marked PASS."
+  next_action: "Proceed under the separate approved BVC-TM-TC-004 Revision 1 for Phase B1; do not add B2 persistence."
+  scope: "Scaffold inspection and two evidence-backed documentation outputs only; no product features, persistence, Auth, database, external API, GitHub app sync, hosting, or deployment."
+
+- task_id: BVC-TM-P3.3-004
+  contract_id: BVC-TM-TC-004
+  revision: 1
+  title: "Phase B1 — Create and Display the First Task"
+  status: APPROVED
+  execution_status: NOT_STARTED
+  risk_level: R2
+  contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml
+  approval_reference: "Human Owner explicitly approved Contract B1 in the 2026-11-11 ChatGPT conversation."
+  publication_status: "APPROVED_CONTRACT_PROPOSED_IN_PR_53; NOT_YET_CANONICAL_ON_MAIN"
+  allowed_gaIs_changes:
+  - "MODIFY app/page.tsx only"
+  forbidden_changes:
+  - "No CREATE or DELETE."
+  - "No storage APIs, persistence, database, Auth, API, external services, GitHub connection, dependencies, lockfiles, or configuration changes."
+  evidence_refs:
+  - practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md
+  - practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
+  - "GAIS source ZIP SHA-256: fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723"
+  next_action: "After Contract #004 is published on main, the Human Owner runs BVCTM-PROMPT-0004 in the existing GAIS app, reviews the actual diff and Preview, and supplies evidence."
+  scope: "One title-only task form, one in-memory list, empty-title validation and keyboard submission in app/page.tsx only. Persistence is B2 and is excluded."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
