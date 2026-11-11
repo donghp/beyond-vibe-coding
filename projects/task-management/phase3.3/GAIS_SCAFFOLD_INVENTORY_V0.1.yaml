@@ -1,0 +1,249 @@
+schema_version: "0.1.0"
+document_id: "BVC-TM-P3.3-003-GAIS-SCAFFOLD-INVENTORY"
+project_id: "BVC-TASK-MANAGEMENT"
+task_id: "BVC-TM-P3.3-003"
+contract:
+  id: "BVC-TM-TC-003"
+  revision: 1
+  status: "APPROVED"
+  path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+inventory_version: "0.1.0"
+inventory_status: "PARTIAL_NOT_ACCEPTED"
+observed_at: "2026-11-11"
+source_baseline:
+  repository: "https://github.com/donghp/beyond-vibe-coding"
+  main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
+  branch: "docs/bvctm-task003-scaffold-evidence"
+application:
+  platform: "Google AI Studio Build mode"
+  display_name:
+    value: "BVC Task Management Scaffold Inspection"
+    evidence: "OWNER_SUPPLIED"
+  app_id:
+    value: "ca589018-617d-4919-bbe2-6b9c588ccd85"
+    evidence: "OWNER_SUPPLIED_CURRENT_BROWSER_URL"
+  app_url: "https://aistudio.google.com/apps/ca589018-617d-4919-bbe2-6b9c588ccd85"
+  app_type:
+    value: "UNKNOWN"
+    reason: "WEB is the intended scope and TSX/Next.js files are visible, but no app-type label is visible in the supplied screenshots."
+  model:
+    value: "Gemini 3.8 Flash"
+    evidence: "OBSERVED_IN_A4_SCREENSHOT_ONLY"
+  exact_prompt_0001_execution:
+    value: "NOT_VERIFIED"
+    reason: "The authorized scaffold-only prompt text appears in the A2 screenshot and its result is visible, but an independent run event/record was not supplied."
+preview:
+  status: "OWNER_SUPPLIED_OBSERVED"
+  visible_text: "BVC Task Management Scaffold Inspection"
+  screenshot_date: "2026-11-11"
+  result_scope: "Visible Preview only; not a production build, test, persistence, security, or deployment verification."
+  build_result: "NOT_VERIFIED"
+  runtime_result: "NOT_VERIFIED"
+export:
+  control_visible: true
+  control_evidence: "A2 screenshot shows an Export control in the Code view toolbar."
+  export_attempted: false
+  zip_downloaded: false
+  zip_integrity: "NOT_VERIFIED"
+  export_behavior: "NOT_VERIFIED"
+source_evidence:
+  - evidence_id: "EV-TM-SC-001"
+    classification: "OWNER_SUPPLIED"
+    source: "Human Owner supplied GAIS Preview screenshot in ChatGPT on 2026-11-11."
+    supports:
+      - "GAIS project display name"
+      - "Expected Preview heading"
+    limitations:
+      - "Does not show app-type label."
+      - "Does not show Code/File Explorer or manifest contents."
+  - evidence_id: "EV-TM-SC-002"
+    classification: "REPOSITORY_VERIFIED_SCREENSHOT"
+    source: "practical-labs/assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg"
+    blob_sha: "1b57ea2119642bfd328d92b160d752e78b9ea781"
+    supports:
+      - "Visible file-tree entries"
+      - "Placeholder app/page.tsx code"
+      - "Export control label"
+      - "Scaffold-only prompt text displayed in chat panel"
+    limitations:
+      - "Does not show file contents for package.json, bun.lock, or config files."
+      - "Screenshot alone does not prove exact prompt execution event."
+  - evidence_id: "EV-TM-SC-003"
+    classification: "REPOSITORY_VERIFIED_SCREENSHOT"
+    source: "practical-labs/assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png"
+    blob_sha: "d26e0a2692066f5b79d257f9533de6c8f2331d75"
+    supports:
+      - "Visible file-tree entries"
+      - "Partial app/layout.tsx source"
+      - "Gemini 3.8 Flash label in the chat panel"
+    limitations:
+      - "Not a complete source export."
+      - "Does not expose package manifest or lockfile contents."
+  - evidence_id: "EV-TM-SC-004"
+    classification: "REPOSITORY_VERIFIED_DOCUMENT"
+    source: "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+    supports:
+      - "Phase A A2/A4 learning evidence status"
+      - "Existing technical verification limitations"
+observed_directories:
+  - "app/"
+  - "hooks/"
+  - "lib/"
+observed_files:
+  - path: "app/globals.css"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "app/layout.tsx"
+    classification: "SCREENSHOT_PARTIALLY_INSPECTED"
+    content_inspected: "PARTIAL"
+    observed_symbols:
+      - "import type { Metadata } from 'next'"
+      - "import './globals.css'"
+      - "metadata: Metadata"
+      - "RootLayout"
+      - "React.ReactNode"
+      - "html lang=en"
+  - path: "app/not-found.tsx"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "app/page.tsx"
+    classification: "SCREENSHOT_PARTIALLY_INSPECTED"
+    content_inspected: "PARTIAL"
+    observed_symbols:
+      - "default export function Page"
+      - "main element with utility classes"
+      - "h1 displays BVC Task Management Scaffold Inspection"
+  - path: "hooks/use-mobile.ts"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "lib/utils.ts"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: ".env.example"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+    environment_variable_names: "UNKNOWN"
+    secret_values_recorded: false
+  - path: ".eslintrc.json"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: ".gitignore"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "bun.lock"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+    package_manager_status: "BUN_LOCKFILE_VISIBLE; DECLARED_PACKAGE_MANAGER_NOT_VERIFIED"
+  - path: "eslint.config.mjs"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "metadata.json"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "next-env.d.ts"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "next.config.ts"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+  - path: "package.json"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+    dependencies: "UNKNOWN"
+    dev_dependencies: "UNKNOWN"
+    scripts: "UNKNOWN"
+    package_manager: "UNKNOWN"
+    engine: "UNKNOWN"
+  - path: "tsconfig.json"
+    classification: "SCREENSHOT_VISIBLE"
+    content_inspected: false
+unresolved_tree_entries:
+  - display_label: "postcss.config..."
+    exact_path: "UNKNOWN"
+    reason: "File Explorer screenshot truncates the filename and extension."
+framework_indication:
+  name: "Next.js"
+  evidence:
+    - "next.config.ts is visible in the Code/File Explorer."
+    - "next-env.d.ts is visible in the Code/File Explorer."
+    - "app/layout.tsx visibly imports Metadata from 'next'."
+    - "app/page.tsx, app/layout.tsx and app/not-found.tsx are visible under app/."
+  classification: "STRONGLY_INDICATED_BY_SCREENSHOT; PACKAGE_MANIFEST_NOT_INSPECTED"
+  version: "UNKNOWN"
+language_indication:
+  name: "TypeScript / TSX"
+  evidence:
+    - "Visible .ts, .tsx and .d.ts file extensions."
+    - "Visible type annotations in app/layout.tsx."
+  classification: "STRONGLY_INDICATED_BY_SCREENSHOT"
+  version: "NOT_APPLICABLE"
+react:
+  usage_indication: "React.ReactNode is visible in app/layout.tsx."
+  version: "UNKNOWN"
+runtime:
+  server_runtime: "UNKNOWN"
+  node_version: "UNKNOWN"
+  browser_target: "UNKNOWN"
+  edge_runtime: "UNKNOWN"
+package_manager:
+  lockfile_file_visible: "bun.lock"
+  declared_package_manager: "UNKNOWN"
+  bun_version: "UNKNOWN"
+  lockfile_format_version: "UNKNOWN"
+dependencies:
+  next_version: "UNKNOWN"
+  react_version: "UNKNOWN"
+  react_dom_version: "UNKNOWN"
+  all_dependencies: "UNKNOWN"
+scripts:
+  dev: "UNKNOWN"
+  build: "UNKNOWN"
+  start: "UNKNOWN"
+  lint: "UNKNOWN"
+  test: "UNKNOWN"
+build:
+  command: "UNKNOWN"
+  output_directory: "UNKNOWN"
+  output_mode: "UNKNOWN"
+  build_result: "NOT_VERIFIED"
+routing:
+  observed_router_indication: "app/ directory with page.tsx, layout.tsx and not-found.tsx"
+  router_mode: "APP_ROUTER_STRONGLY_INDICATED; FULL_ROUTING_CONFIG_NOT_VERIFIED"
+  routes_fully_inventoried: false
+environment:
+  example_file_visible: ".env.example"
+  variable_names: "UNKNOWN"
+  secret_values_recorded: false
+  environment_file_contents_inspected: false
+security_scope:
+  secrets_in_screenshot_regions: "NO_SECRET_VALUE_VISIBLE"
+  full_export_secret_review: "NOT_VERIFIED"
+  github_connection_status: "NOT_VERIFIED"
+  database_status: "NOT_VERIFIED"
+  authentication_status: "NOT_VERIFIED"
+  api_integration_status: "NOT_VERIFIED"
+  hosting_status: "NOT_VERIFIED"
+  deployment_status: "NOT_VERIFIED"
+change_inventory:
+  authorized_repository_outputs:
+    create:
+      - "projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md"
+      - "projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml"
+    modify: []
+    delete: []
+  expected_binary_files: 0
+acceptance_status:
+  AC-001: "PARTIAL_APP_TYPE_NOT_VERIFIED"
+  AC-002: "PARTIAL_VISIBLE_PLACEHOLDER_ONLY"
+  AC-003: "PARTIAL_SCREENSHOT_TREE_ONLY"
+  AC-004: "PARTIAL_MANIFEST_AND_RUNTIME_FIELDS_UNKNOWN"
+  AC-005: "OWNER_SUPPLIED_PREVIEW_OBSERVED"
+  AC-006: "NOT_VERIFIED_FULL_EXTERNAL_CONNECTION_AND_SECRET_REVIEW"
+  AC-007: "PENDING_STATIC_VALIDATION"
+  AC-008: "PENDING_VCS_CHANGED_FILE_INVENTORY_AND_CONTRACT_VALIDATOR"
+next_required_evidence:
+  - "Read-only GAIS ZIP export outside the BVC repository, if available, and compare the complete file listing."
+  - "Inspect package.json, bun.lock, next.config.ts, tsconfig.json, .env.example and the exact PostCSS config filename."
+  - "Confirm the app type is WEB from an actual GAIS UI label."
+  - "Confirm whether any external integrations or GitHub repository connections were added."
+  - "Run VC-006 and VC-007 with the exact two CREATE files and zero other changes."
