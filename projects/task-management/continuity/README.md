@@ -69,7 +69,7 @@ The Task #003 Contract's own baseline is historical and must not be silently rew
 
 Revision 5 is APPROVED on `main` after PR #47 published the baseline refresh and PR #49 recorded the Human Owner's explicit approval. It authorizes exactly one CREATE and twelve MODIFY paths under this continuity directory, with no DELETE.
 
-PR #48 merged three MODIFY outputs (README, entry point and profile). The R5 completion branch is preparing the remaining nine MODIFY paths and the one CREATE path. Those proposed changes are not canonical until their final PR is merged by the Human Owner.
+PR #48 merged three MODIFY outputs (README, entry point and profile). Draft PR #50 now proposes the remaining nine MODIFY paths and the one CREATE path. PR #50 is not canonical and is NOT READY FOR MERGE while AC-011 baseline inventory and static validation remain unresolved.
 
 ## Phase A evidence distinctions
 
@@ -84,8 +84,8 @@ Publication, prompt execution, learning completion, technical verification and p
 
 - Repository: https://github.com/donghp/beyond-vibe-coding
 - Current main SHA: `aff2b42da26ec548de8088bf77de455a94723773`
-- Open PRs at last live check: 0
-- PR #47, #48 and #49 are merged. PR #48 published three continuity MODIFY outputs; the remaining outputs are still under R5 reconciliation.
+- At the `aff2b42` checkpoint before PR #50 was opened, the live open-PR query returned 0.
+- PR #47, #48 and #49 are merged. PR #50 is now OPEN as a Draft proposal for the remaining R5 continuity outputs; it is not canonical.
 - Main branch protection was `false` at the last repository endpoint check; do not change settings under this Contract.
 
 ## External and local-state boundaries
