@@ -102,5 +102,5 @@ tasks:
   published_outputs:
   - projects/task-management/continuity/README.md
   - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
-  notes: "Revision 5 is APPROVED on main. PR #48 published three of the twelve MODIFY outputs. Draft PR #50 now proposes the remaining nine MODIFY paths and one CREATE path; the PR is not canonical and is NOT READY FOR MERGE. AC-011 baseline inventory and required static validation remain unresolved. Do not self-promote lifecycle status beyond APPROVED; no final acceptance is claimed."
-  next_action: "Resolve AC-011, run the seven Contract verification checks with evidence, obtain Human Owner review, and merge only after all acceptance criteria are verified."
+  notes: "Revision 5 is APPROVED on main. PRs #48 and #50 are merged and the 13 authorized reconciliation outputs are published. AC-011 approved-baseline/control-plane inventory treatment remains unresolved; PR #50 merge does not prove all validators passed. Execution remains PARTIAL / NOT ACCEPTED until AC-011 and required verification evidence are resolved."
+  next_action: "Resolve AC-011 baseline/control-plane treatment and run the required verification checks; keep PARTIAL / NOT ACCEPTED until evidence and Owner acceptance support closure."
