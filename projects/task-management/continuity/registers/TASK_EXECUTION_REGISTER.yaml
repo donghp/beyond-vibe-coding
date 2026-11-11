@@ -46,3 +46,22 @@ tasks:
   next_action: Run one exact scaffold-only prompt and gather actual GAIS Preview / code-tree evidence.
   scope: No product features, localStorage, Auth, database, external API, GitHub app sync, hosting, or
     deployment.
+
+- task_id: BVC-TM-CONT-001
+  contract_id: BVC-TM-CONT-TC-001
+  revision: 5
+  title: BVCTM Project Continuity Reconciliation and Cross-Executor Resume
+  status: APPROVED
+  risk_level: R1
+  execution_status: "PARTIAL / NOT ACCEPTED"
+  contract_status: APPROVED_ON_MAIN
+  contract_path: projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml
+  evidence_refs:
+  - https://github.com/donghp/beyond-vibe-coding/pull/47
+  - https://github.com/donghp/beyond-vibe-coding/pull/48
+  - https://github.com/donghp/beyond-vibe-coding/pull/49
+  published_outputs:
+  - projects/task-management/continuity/README.md
+  - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
+  notes: "Revision 5 is APPROVED on main. PR #48 published three of the twelve MODIFY outputs. The follow-up R5 completion branch must finish the remaining nine MODIFY paths and the one CREATE path. Do not self-promote lifecycle status beyond APPROVED; no final acceptance is claimed."
+  next_action: "Complete the remaining ten authorized paths, run the seven Contract verification checks with evidence, and submit one final PR for Human Owner review."
