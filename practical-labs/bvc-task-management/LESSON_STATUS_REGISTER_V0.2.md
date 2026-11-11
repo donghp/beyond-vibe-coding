@@ -29,12 +29,12 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 
 | Lesson | Status | Required dependency / evidence |
 |---|---|---|
-| B1 — Create Your First Task | Planned | Approved First Vertical Slice implementation exists; title-only task creation works in Preview. |
-| B2 — Save Your Task | Planned | Save behavior is implemented and a truthful save result is verified. |
-| B3 — Close and Reopen | Planned | Same-browser-profile reload/reopen confirms the task remains available. |
-| B4 — Improve One Small Thing | Planned | A bounded change is made and a regression check proves the original flow still works. |
+| B1 — Create Your First Task | Owner-approved scope; guide prepared; implementation evidence pending | The active B1 Contract and exact file allowlist must be available. Verify title-only creation, list display, empty-title validation, and in-memory-only behavior in the actual GAIS Preview. |
+| B2 — Save Your Task | Planned — gated | Resolve DR-005 first-use storage disclosure and approve a separate B2 implementation scope; then verify actual browser persistence. |
+| B3 — Close and Reopen | Planned — depends on B2 | Same app origin and browser profile must show the exact saved task after reload/reopen. |
+| B4 — Improve One Small Thing | Planned — depends on B1–B3 | One bounded, approved improvement is made; relevant B1–B3 regression checks pass. |
 
-**Gate:** Phase B remains a separate product implementation milestone requiring its applicable approved Task Contract, product/UX checks, and runtime evidence.
+**Gate:** B1 scope is Owner-approved, but application completion still requires implementation, actual Preview checks, and evidence. B2 is blocked until DR-005 is resolved and its own Task Contract is approved. Phase B is not complete merely because these lesson guides are published.
 
 
 ### Phase A closure and Phase B entry gate

@@ -47,33 +47,33 @@ Project Instructions and the read-only understanding check do not implement Task
 
 **Learning level:** Beginner  
 **Theme:** First Vertical Slice  
-**Status:** Next product milestone — separate implementation authorization and runtime evidence required.
+**Status:** B1 scope approved by the Human Owner; implementation and runtime evidence remain separate acceptance items.
 
 | Lesson | Title | What the reader will do | Completion checkpoint |
 |---|---|---|---|
-| B1 | Create Your First Task | Create one task by entering only its title. | The task appears in the application and no extra fields are required. |
-| B2 | Save Your Task | Save the task using the approved and observed application behavior. | The learner can see a truthful save result. |
-| B3 | Close and Reopen | Reopen the application in the same supported browser profile. | The previously saved task is still available. |
-| B4 | Improve One Small Thing | Request one bounded improvement and check the original flow again. | The change is visible and the first vertical slice still works. |
+| B1 | Create Your First Task | Enter a title, add the task, and see it in a list. Keep it in page memory only. | A valid title appears; blank and spaces-only titles are rejected. Refreshing resets the temporary list. |
+| B2 | Save Your Task | Save the task in the approved Beginner browser workspace after the first-use disclosure decision is resolved. | The actual save behavior is verified; the app gives truthful feedback. |
+| B3 | Close and Reopen | Reload or reopen the app in the same browser profile and app origin. | The exact saved task remains available without being re-created. |
+| B4 | Improve One Small Thing | Make one approved, bounded improvement and repeat the relevant regression checks. | The improvement is visible and B1–B3 still work. |
 
-The first vertical slice remains deliberately small:
+### The B1/B2 distinction
 
-1. Open the application.
-2. Enter a non-empty task title.
-3. Save the task.
-4. Reload or normally close and reopen the application using the same supported browser profile.
-5. Confirm that the task is still available.
+The First Vertical Slice is taught in two separate data-lifecycle steps:
 
-Do not claim persistence is verified until the learner has performed the reopen check and observed the saved task.
+1. **B1 — Create:** keep tasks in the current page's in-memory state and show them in a list. No browser persistence is added.
+2. **B2 — Save:** introduce the approved, versioned Beginner browser workspace. DR-014 is ACCEPTED FOR DESIGN; runtime behavior still requires evidence.
+3. **B3 — Reopen:** verify that the same saved task is loaded again in the same browser profile and application origin.
 
-### Phase B boundary
+A task disappearing after refresh during B1 is expected. Do not describe it as a persistence bug or add storage to B1.
 
-- The current Product Definition v0.2.0 governs the product outcome.
-- A separate approved implementation Task Contract is required.
-- The scaffold must be inspected before choosing framework-specific implementation commands.
-- Beginner does not require an external database, sign-in, Supabase, VS Code, or Localhost.
-- The UX decision and architecture gates must be respected.
-- A Preview or successful build is not proof that the First Vertical Slice works.
+### Phase B implementation gates
+
+- B1 scope has been approved by the Human Owner; use the active, published B1 Contract and exact file allowlist before executing.
+- B2 must not be implemented until DR-005 (first-use storage disclosure timing and exact copy) is explicitly resolved and a separate B2 scope is approved.
+- The actual GAIS scaffold and existing files must be inspected before choosing implementation details.
+- Beginner does not require an external database, sign-in, Supabase, VS Code, Localhost, or deployment.
+- A Preview or successful build is not proof that the task flow works.
+- Keep formal Phase 3.1 UX Acceptance OPEN; do not treat this learning-path update as formal UX acceptance.
 
 ## 4. PHASE C — MAKE IT USEFUL EVERY DAY
 
