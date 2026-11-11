@@ -84,7 +84,8 @@ Preserve:
 - Phase 3.2 is an accepted design baseline only.
 - DR-005 remains OPEN; DR-014 is accepted for design only, runtime verification remains required.
 - BVC-TM-P3.3-003 / BVC-TM-TC-003 R1 is a separate scaffold-inspection Contract. It remains APPROVED; its execution is NOT_STARTED_OR_NOT_EVIDENCED and both required report/inventory outputs are absent from main.
-- BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5 is APPROVED on main after PR #49. PR #48 published three of twelve MODIFY outputs. Draft PR #50 proposes the remaining nine MODIFY outputs and one CREATE output; it remains NOT READY FOR MERGE pending AC-011 baseline inventory resolution and static validation.
+- BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5 is APPROVED on main after PR #49. PR #48 published three of twelve MODIFY outputs. Draft PR #50 proposes the remaining nine MODIFY outputs and one CREATE output; it remains NOT READY FOR MERGE pending AC-011 and static validation.
+- Draft PR #51 proposes the two Task #003 scaffold report/inventory outputs using published A2/A4 screenshots and the Owner-supplied Preview image. It is PARTIAL and does not establish Task #003 acceptance; actual manifest/config content and ZIP export remain pending.
 - Do not confuse BVCTM Task #003 with Global BVC-GLOBAL-TC-003 (public website).
 
 **6. Treat evidence correctly**
