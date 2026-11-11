@@ -13,15 +13,17 @@ Recover the current project state from the repository, verify the handoff and ac
 
 0. Read `docs/continuity/START_HERE.md` first, then follow this full sequence and `BOOTSTRAP.md`.
 
-1. Read `docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md` and `docs/continuity/BOOTSTRAP.md` completely.
+1. Read `docs/continuity/AI_EXECUTOR_ROLE_MODEL.md`, `docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md` and `docs/continuity/BOOTSTRAP.md` completely.
 2. Verify live repository identity, repository ID, default branch, `main` HEAD, open PRs, relevant branches, changed-file inventories, diffs, reviews, comments, checks, and workflow runs to the extent the current connector/tool supports them. Follow pagination and disclose limitations.
 3. Read all seven canonical continuity records listed in `docs/continuity/README.md`.
 4. Read `docs/continuity/SOURCE_MANIFEST.csv`, then inspect the complete current canonical project sources relevant to the active task.
 5. Verify the latest handoff, active Task Contract/revision, required context, exact scope, baseline, recovery point, execution evidence, and next permitted action.
 6. For a worker handoff, verify the exact branch and checkpoint commit. Confirm the previous worker has stopped and no other executor is writing to the same task/branch.
 7. For a local laptop, GAIS, or IDE workspace, inspect its actual branch, synchronization state, and working-tree status. Never infer local state from remote GitHub.
-8. Report in Vietnamese: live repository baseline; completed/in-progress/blocked/not-verified work; active task and Contract; relevant PRs/checks; conflicts and missing sources; local/AI workspace synchronization; Continuity Health; Window Capacity Risk; and exactly one next permitted action.
-9. Execute only when the current approved Contract or explicit Owner authorization permits it. Otherwise stop at read-only recovery and identify the missing approval or evidence.
+8. Before any continuation, produce the structured Vietnamese Project Understanding Review from `docs/continuity/PROJECT_UNDERSTANDING_REVIEW.template.md`. Cover project identity and purpose; product and curriculum map; architecture/knowledge sources; governance and decision gates; active/completed tasks; Contracts and Prompts; execution and evidence; AI roles and verified capabilities; GitHub state; local/GAIS/VS Code boundaries; stale/conflicting records; blockers; and exactly one next permitted action.
+9. Cite live canonical source paths and the inspected `main` SHA. Classify material claims as `VERIFIED`, `OWNER_REPORTED`, `PROPOSAL`, `OPEN_QUESTION`, `STALE`, or `NOT_VERIFIED`. Preserve source-native evidence labels as qualifiers; do not silently upgrade evidence.
+10. Ask the Human Owner explicitly to confirm or correct the Project Understanding Review. Then enter `WAITING_FOR_OWNER_REVIEW` and stop. Do not create a task, Contract, prompt, code change, PR, acceptance record or next implementation action while waiting.
+11. Continue only after the Human Owner confirms or corrects the review, and only when the current approved Contract or explicit Owner instruction authorizes the exact next action.
 
 ## Authority and safety
 
@@ -36,7 +38,7 @@ Recover the current project state from the repository, verify the handoff and ac
 
 ## Evidence labels
 
-Use `VERIFIED_FACT`, `OWNER_REPORTED`, `PROPOSAL`, `ASSUMPTION`, `OPEN_QUESTION`, `STALE`, and `PARTIAL / NOT VERIFIED` for material claims.
+For the Project Understanding Review, use `VERIFIED`, `OWNER_REPORTED`, `PROPOSAL`, `OPEN_QUESTION`, `STALE`, and `NOT_VERIFIED`. Preserve source-native labels such as `VERIFIED_FACT`, `ASSUMPTION` and `PARTIAL / NOT VERIFIED` in the evidence notes; map them transparently without rewriting the source record.
 
 ## Continuity signal
 
@@ -54,7 +56,8 @@ Begin with live repository verification now. Do not ask the Human Owner to repro
 This single entry prompt applies to ChatGPT, HTW, MSW, TVW, and future executors. Do not assume the current provider or tool has the same capabilities as the previous executor.
 
 - Read [CROSS_EXECUTOR_CONTINUITY.md](./CROSS_EXECUTOR_CONTINUITY.md) and inspect the latest handoff record in its authorized project location.
-- Declare the actual executor alias, model/tool label, environment, and capabilities. Mark unverified capabilities UNKNOWN.
+- Declare the actual executor alias, model/tool label, environment, and capabilities using `AI_EXECUTOR_ROLE_MODEL.md`. Mark unverified capabilities UNKNOWN.
+- ChatGPT is the Chief Architect / Project Engineering Orchestrator; Gemini on GAIS is the primary implementation worker when the Contract routes work to GAIS; DeepSeek in VS Code is the default independent reviewer/tester/code auditor when actually available. Role assignment is not proof of connection or permission.
 - Confirm the active Contract is APPROVED on live main and that it authorizes the exact next action.
 - If receiving a handoff, verify sender release, remote branch, exact commit SHA, remote verification evidence, and local/workspace sync before acceptance.
 - Record receiver acceptance before any write. If sender release or checkpoint verification is missing, stop writes.
