@@ -127,7 +127,8 @@ scope:
     - ".github/"
     - "templates/"
     - "docs/continuity/task-contracts/"
-    - "projects/task-management/continuity/"  protected_resource_refs:
+    - "projects/task-management/continuity/"
+  protected_resource_refs:
     - "The seven canonical Global Continuity records and their existing ownership semantics."
     - "BVC Task Management Product Definition v0.2.0."
     - "BVC Task Management Decision Register, Risk Policy, UX and Architecture acceptance records."
