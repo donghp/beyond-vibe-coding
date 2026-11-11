@@ -80,3 +80,23 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Next permitted action:** Complete the remaining R5 continuity records, then finish the read-only scaffold inventory and prepare a separate First Vertical Slice Contract before Phase B implementation.
 - **Handoff status:** This is a material checkpoint entry, **not** a worker handoff. No sender release, receiver acceptance, or handoff YAML is claimed.
 - **Human Owner review:** REQUIRED.
+
+## H-0004 — R5 Continuity Completion Draft PR Prepared
+
+- **Recorded at:** 2026-11-11T08:30:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source `main` SHA:** `aff2b42da26ec548de8088bf77de455a94723773`
+- **Event type:** TASK_TRANSITION / BLOCKER
+- **Event:** Draft PR #50 was opened from `docs/bvctm-continuity-r5-completion` for the remaining R5 continuity outputs.
+- **Verified facts:**
+  - GitHub compare against current main shows exactly 13 authorized output paths: 12 MODIFY, 1 CREATE, 0 DELETE.
+  - Current-main diff totals 766 additions-plus-deletions, under the 3,000-line Change Budget; no binary path is changed.
+  - Project State parses as JSON; Prompt Register contains #0001/#0002/#0003 and `next_number: 4`; CONT-T11 remains NOT_RUN.
+  - PR #50 is DRAFT and not canonical.
+- **Blocker:** Compare from the approved R5 source baseline `202e780...` to the candidate also includes the Contract YAML changed by the separately merged PR #47/#49 control-plane updates. This Contract path is outside the 13 authorized output paths. AC-011 is NOT_YET_VERIFIED; no validator PASS is claimed.
+- **Other pending validation:** Draft 2020-12 Project State schema, YAML syntax, CSV parser/source-path resolution and Contract Validator VC-004/VC-007 have not been run in a full checkout.
+- **Phase B boundary:** Task #003 scaffold inspection is still NOT_STARTED_OR_NOT_EVIDENCED; DR-005 remains OPEN; no First Vertical Slice implementation Contract has been approved.
+- **Evidence:** https://github.com/donghp/beyond-vibe-coding/pull/50
+- **Next permitted action:** Resolve AC-011's control-plane/baseline distinction and execute the required static validators; then update PR #50 from Draft only when the evidence supports readiness.
+- **Handoff status:** Material task checkpoint only, not a worker handoff. No sender release or receiver acceptance is claimed.
+- **Human Owner review:** REQUIRED.
