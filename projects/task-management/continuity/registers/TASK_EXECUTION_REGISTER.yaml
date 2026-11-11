@@ -73,7 +73,7 @@ tasks:
   risk_level: R2
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml
   approval_reference: "Human Owner explicitly approved Contract B1 in the 2026-11-11 ChatGPT conversation."
-  publication_status: "OPEN_PR_53; NOT_YET_CANONICAL_ON_MAIN"
+  publication_status: "MERGED_PR_53; CANONICAL_ON_MAIN"
   allowed_gaIs_changes:
   - "MODIFY app/page.tsx only"
   forbidden_changes:
@@ -83,7 +83,7 @@ tasks:
   - practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md
   - practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
   - "GAIS source ZIP SHA-256: fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723"
-  next_action: "After Contract #004 is published on main, the Human Owner runs BVCTM-PROMPT-0004 in the existing GAIS app, reviews the actual diff and Preview, and supplies evidence."
+  next_action: "Contract #004 and Prompt #0004 are canonical on main via merged PR #53. Before execution, the Human Owner verifies the existing GAIS app identity and current app/page.tsx. If it matches the expected scaffold, paste the complete Prompt #0004; stop if materially different. Then review the exact one-file diff and Preview evidence."
   scope: "One title-only task form, one in-memory list, empty-title validation and keyboard submission in app/page.tsx only. Persistence is B2 and is excluded."
 
 - task_id: BVC-TM-CONT-001
