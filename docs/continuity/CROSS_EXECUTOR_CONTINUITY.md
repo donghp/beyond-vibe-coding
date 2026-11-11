@@ -22,6 +22,15 @@ This is a controlled sequential handoff procedure. It is not a real-time collabo
 - **Receiver acceptance:** the receiver's explicit confirmation that it independently verified the checkpoint and is now the sole active writer.
 - **Handoff record:** a machine-readable snapshot conforming to WORKER_HANDOFF.schema.json.
 
+### Assigned AI executor roles
+
+- **Human Owner:** final Product, Architecture, Governance, Task Contract, risk-escalation, acceptance and merge authority.
+- **ChatGPT:** Chief Architect and Project Engineering Orchestrator. It bootstraps from live canonical records, prepares task/context/Contract and provider-specific prompt proposals, reviews executor results and reconciles evidence. It does not self-approve architecture, Contracts, task acceptance or PR merges.
+- **Gemini on Google AI Studio:** primary implementation worker for beginner/Vibe Coding and GAIS app tasks when the active approved Contract routes the task to GAIS. It may change only the exact authorized paths.
+- **DeepSeek in VS Code:** independent reviewer/tester/code auditor by default when available. It inspects diffs, runs authorized checks and reports findings. It may implement only under separate explicit Owner authorization after the previous writer has released the workspace.
+
+One semantic Task Contract governs every executor. Provider-specific prompt adapters may differ in tool syntax and environment instructions, but must preserve the same objective, authorization, scope, constraints, risk, acceptance criteria, verification and stopping conditions. Only one authorized writer may modify a task branch/workspace at a time. Role assignment is not evidence that an account, model, IDE, repository connection or quota is available.
+
 The Human Owner supplied these operational aliases:
 
 | Alias | Intended environment | Important qualification |
@@ -55,7 +64,9 @@ The schema and validator check that a handoff record is internally consistent. T
 
 The receiving executor must:
 
-1. Read BOOTSTRAP.md and GITHUB_REPOSITORY_VERIFICATION.md.
+For a new ChatGPT window, first complete the read-only Vietnamese Project Understanding Review, ask the Human Owner to confirm or correct it, and stop at `WAITING_FOR_OWNER_REVIEW`. Do not start task continuation before that confirmation.
+
+1. Read BOOTSTRAP.md, GITHUB_REPOSITORY_VERIFICATION.md and AI_EXECUTOR_ROLE_MODEL.md.
 2. Verify repository full name, stable repository identity, default branch, live main SHA, and current open PRs.
 3. Read the seven canonical continuity records and the current Source Manifest.
 4. Inspect the active project's approved baseline, active Task Contract, required context, decisions, and evidence.
