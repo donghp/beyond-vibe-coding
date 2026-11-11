@@ -12,17 +12,13 @@ Use the prompts below only in the BVC Task Management GAIS project. Each prompt 
 | [BVCTM-PROMPT-0002 — Project Instructions Understanding Check](BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md) | Read-only check that the AI can explain the project instructions. It must not modify files. | [A3 — Set Up Project Instructions](../phase-a/03-set-up-project-instructions/README.md) |
 | [BVCTM-PROMPT-0003 — Task Understanding & Read-Only Planning Exercise](BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md) | Read-only exercise that turns an everyday task request into a structured understanding and plan; it does not authorize implementation. | [A4 — Talk to AI Like a Teammate](../phase-a/04-talk-to-ai-like-a-teammate/README.md) |
 
-## Phase B lesson-embedded implementation requests
+## Phase B prompts
 
-The first Phase B request is embedded in the B1 lesson so the learner can read the goal, scope, and verification steps together before copying it into GAIS.
-
-| Lesson | Request | Scope |
+| Prompt | Purpose | Lesson |
 |---|---|---|
-| [B1 — Create Your First Task](../phase-b/b1-create-your-first-task/README.md#copy-and-paste-request) | B1 first-task request (embedded in the lesson) | One title input, Add action, visible in-memory list, and empty-title validation. No persistence or extra task features. |
+| [BVCTM-PROMPT-0004 — Phase B1: Create Your First Task](BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md) | Implement title-only task creation, visible in-memory list, empty-title validation and keyboard submission. | [B1 — Create Your First Task](../phase-b/b1-create-your-first-task/README.md) |
 
-**Execution rule:** Use the B1 request only when the approved B1 Task Contract is available in the working project and its exact file allowlist has been checked. If the Contract is unavailable or the requested change exceeds its scope, stop before editing.
-
-The B1 request is lesson-embedded guidance. Do not allocate a new numbered Prompt ID from this table; numbered prompts remain controlled by the canonical Project Prompt Register.
+**Contract requirement:** Prompt #0004 is authorized only by BVC-TM-TC-004 Revision 1. It may modify only `app/page.tsx` in the existing GAIS app. It must not add persistence, dependencies, configuration, database, Auth, APIs or external integrations.
 
 ## Prompt use rules
 
