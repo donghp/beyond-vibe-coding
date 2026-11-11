@@ -1,4 +1,4 @@
-schema_version: "0.2.0"
+schema_version: "0.3.0"
 document_id: "BVC-TM-P3.3-003-GAIS-SCAFFOLD-INVENTORY"
 project_id: "BVC-TASK-MANAGEMENT"
 task_id: "BVC-TM-P3.3-003"
@@ -7,7 +7,7 @@ contract:
   revision: 1
   status: "APPROVED"
   path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
-inventory_status: "SOURCE_ZIP_INVENTORY_COMPLETE; CONTRACT_ACCEPTANCE_PARTIAL"
+inventory_status: "OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS; SOURCE_ZIP_INVENTORY_COMPLETE"
 observed_at: "2026-11-11"
 source_archive:
   file_name: "bvc-task-management-scaffold-inspection.zip"
@@ -21,8 +21,9 @@ source_archive:
   note: "All 18 file entries in the uploaded ZIP were inspected. This does not prove whether GAIS excluded remote metadata or files outside the exported archive."
 repository_checkpoint:
   repository: "https://github.com/donghp/beyond-vibe-coding"
-  main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
+  main_sha: "58ee43cefff59b3e99a48314a322d639652b38fb"
   evidence_branch: "docs/bvctm-task003-scaffold-evidence"
+  evidence_merged_by: "https://github.com/donghp/beyond-vibe-coding/pull/51"
 application:
   platform: "Google AI Studio Build mode"
   display_name: "BVC Task Management Scaffold Inspection"
@@ -290,17 +291,33 @@ application_source_observations:
   - path: "lib/utils.ts"
     observed: "Exports cn helper using clsx and tailwind-merge."
 acceptance_status:
-  AC-001: "PARTIAL; explicit app-type label and Owner external-resource confirmation pending"
+  AC-001: "OWNER_ACCEPTED_WITH_KNOWN_LIMITATION; explicit GAIS app-type label not captured"
   AC-002: "PARTIAL_SUPPORTED; placeholder-only app page, but template metadata/dependencies present"
   AC-003: "EVIDENCED_FOR_SUPPLIED_ZIP; all 18 entries inventoried"
   AC-004: "PARTIAL; manifest/config inspected, package resolution and runtime versions unknown, bun.lock empty"
   AC-005: "OWNER_SUPPLIED_PREVIEW_OBSERVED; build/test not run"
-  AC-006: "PARTIAL_NOT_VERIFIED; no real secret found in archive, external account/secrets/connectivity state not inspected"
-  AC-007: "PENDING_YAML_PARSE_AND_REPORT_CONSISTENCY_CHECK"
-  AC-008: "PENDING_VCS_INVENTORY_AND_CONTRACT_VALIDATOR"
+  AC-006: "OWNER_ACCEPTED_WITH_KNOWN_LIMITATION; no real secret identified in supplied .env.example; live external connection/secrets panel NOT_VERIFIED"
+  AC-007: "NOT_RUN; explicitly accepted by Human Owner as a known limitation; no PASS claimed"
+  AC-008: "TWO_OUTPUT_FILES_MERGED_BY_PR_51; AUTOMATED_CONTRACT_VALIDATOR_NOT_RUN; no PASS claimed"
 required_remaining_evidence:
   - "Human Owner confirms app type is WEB from GAIS UI."
   - "Human Owner confirms whether this app was connected to GitHub or another external integration."
   - "Run VC-006 YAML parser and Markdown whitespace validation."
   - "Run VC-007 with a VCS-derived inventory proving exactly two CREATE, zero MODIFY, zero DELETE, zero binary files."
   - "Human Owner reviews and records Contract #003 acceptance."
+
+owner_acceptance:
+  status: "COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS"
+  accepted_by: "Human Owner / Product Owner"
+  accepted_on: "2026-11-11"
+  authorization_reference: "Human Owner explicitly instructed: 'Tôi phê duyệt Contract B1, đóng gate task #003, hãy tiếp tục triển khai phase B' in the ChatGPT conversation on 2026-11-11."
+  evidence:
+    - "https://github.com/donghp/beyond-vibe-coding/pull/51"
+    - "Owner-supplied source ZIP SHA-256 fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723"
+  known_limitations:
+    - "GAIS WEB app-type UI label not separately captured."
+    - "Live GAIS GitHub/external-service connections and secrets panel not independently inspected."
+    - "VC-006 YAML/Markdown validation NOT_RUN."
+    - "VC-007 automated repository Contract Validator NOT_RUN; PR #51 merge confirms publication of two files, not a validator PASS."
+    - "Runtime/resolved dependency versions and build/lint/test outcomes NOT_VERIFIED."
+  disposition: "Owner closes Task #003 gate with the limitations preserved. No unverified check is represented as PASS."
