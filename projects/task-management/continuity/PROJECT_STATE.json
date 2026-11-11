@@ -1,23 +1,23 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 4,
+  "revision": 5,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-11T17:00:00+07:00",
+  "state_as_of": "2026-11-11T17:28:01+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
     "default_branch": "main"
   },
   "baseline": {
-    "source_commit": "58ee43cefff59b3e99a48314a322d639652b38fb",
+    "source_commit": "ff2f1685d8dbc797c29377c090b972aa1922ab15",
     "working_tree_status": "UNKNOWN",
-    "pre_existing_changes_ref": "Owner-verified C:\\beyond-vibe-coding-a4-evidence was clean and equal to origin/main at 202e780 on 2026-11-11, before PR #47, #48 and #49 merged. It is therefore expected to be behind current main by those three commits, but local status has not been rechecked after the merges. C:\\beyond-vibe-coding remains a separate DIRTY linked worktree on docs/bvctm-continuity-contract-r3 at c2f4b7987a08151f46606f5a68200629b71ab691 with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees. Preserve all local-only content."
+    "pre_existing_changes_ref": "The last observed local worktree outputs predate PRs #50–#53. C:\\\\beyond-vibe-coding-a4-evidence was owner-reported clean at 202e780 before later merges, but its current HEAD/status after PR #53 is NOT_VERIFIED. C:\\\\beyond-vibe-coding remains a separate DIRTY linked worktree with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees from the last owner-supplied output. Preserve all local-only content; do not reset, clean, pop stashes or overwrite it."
   },
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-B1-CREATE-FIRST-TASK",
     "title": "Phase B1 — Create and Display the First Task",
-    "status": "APPROVED; IMPLEMENTATION NOT_STARTED"
+    "status": "CONTRACT_AND_PROMPT_PUBLISHED_ON_MAIN; IMPLEMENTATION_NOT_STARTED"
   },
   "current_objectives": [
     "Use the Owner-accepted GAIS scaffold inventory with its known verification limitations preserved.",
@@ -25,7 +25,8 @@
     "Keep the B1 task list in page memory; do not add persistence, localStorage, database, Auth, APIs or external services.",
     "Verify the actual GAIS Preview for valid task creation, empty-title validation, keyboard submission and expected reset after refresh.",
     "Keep B2 storage work blocked until DR-005 is resolved and a separate B2 Contract is approved.",
-    "Maintain Phase 3.1 formal UX Acceptance as OPEN; no product or UX baseline is changed by B1."
+    "Maintain Phase 3.1 formal UX Acceptance as OPEN; no product or UX baseline is changed by B1.",
+    "Keep GitHub repository creation, learner source-control training and GAIS↔GitHub synchronization in Phase C; do not add them to Phase B."
   ],
   "facts": [
     {
@@ -75,24 +76,23 @@
     },
     {
       "fact_id": "TM-FACT-006",
-      "statement": "BVCTM-PROMPT-0001, BVCTM-PROMPT-0002 and BVCTM-PROMPT-0003 are published as canonical prompt files on main; publication is distinct from execution and learning acceptance.",
+      "statement": "BVCTM-PROMPT-0001 through BVCTM-PROMPT-0004 are published as canonical prompt files on main. Prompt #0004 is approved for B1 but execution remains NOT_STARTED; publication is distinct from execution and learning acceptance.",
       "classification": "VERIFIED_FACT",
       "source_refs": [
         "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md",
         "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md",
         "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md",
-        "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+        "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md",
+        "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md"
       ]
     },
     {
       "fact_id": "TM-FACT-007",
-      "statement": "The current GitHub main checkpoint is 58ee43cefff59b3e99a48314a322d639652b38fb. PRs #47, #48, #49, #50, #51 and #52 are merged; the open-PR query returned zero at the verified checkpoint before the current Contract #004 branch was opened.",
+      "statement": "The current GitHub main checkpoint is ff2f1685d8dbc797c29377c090b972aa1922ab15. PR #47 through #53 are merged; PR #53 published the approved B1 Contract #004 and Prompt #0004.",
       "classification": "VERIFIED_FACT",
       "source_refs": [
-        "https://github.com/donghp/beyond-vibe-coding/commit/58ee43cefff59b3e99a48314a322d639652b38fb",
-        "https://github.com/donghp/beyond-vibe-coding/pull/50",
-        "https://github.com/donghp/beyond-vibe-coding/pull/51",
-        "https://github.com/donghp/beyond-vibe-coding/pull/52"
+        "https://github.com/donghp/beyond-vibe-coding/commit/ff2f1685d8dbc797c29377c090b972aa1922ab15",
+        "https://github.com/donghp/beyond-vibe-coding/pull/53"
       ]
     },
     {
@@ -172,11 +172,12 @@
     },
     {
       "fact_id": "TM-FACT-016",
-      "statement": "The Human Owner explicitly approved Contract B1 / BVC-TM-TC-004 Revision 1 on 2026-11-11. It authorizes modifying only app/page.tsx in the existing GAIS app for title-only in-memory task creation, empty-title validation and keyboard submission. The Contract is prepared on branch docs/bvctm-task004-b1-first-task and is not yet canonical on main.",
+      "statement": "The Human Owner approved BVC-TM-TC-004 Revision 1 on 2026-11-11. It is canonical on main through merged PR #53 and authorizes modifying only app/page.tsx in the existing GAIS app for title-only in-memory task creation, empty-title validation and keyboard submission. Execution remains NOT_STARTED.",
       "classification": "OWNER_REPORTED",
       "source_refs": [
         "Human Owner approval in the ChatGPT conversation on 2026-11-11",
-        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml"
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml",
+        "https://github.com/donghp/beyond-vibe-coding/pull/53"
       ]
     },
     {
@@ -186,6 +187,17 @@
       "source_refs": [
         "Human Owner instruction in the ChatGPT conversation on 2026-11-11",
         "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-018",
+      "statement": "PR #53 was Squash & Merged into main at 2026-11-11T17:28:01+07:00; merge commit and current main HEAD are ff2f1685d8dbc797c29377c090b972aa1922ab15. Contract BVC-TM-TC-004 Revision 1 and BVCTM-PROMPT-0004 are now canonical on main. This publication does not mean B1 has been executed or accepted in GAIS.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "https://github.com/donghp/beyond-vibe-coding/pull/53",
+        "https://github.com/donghp/beyond-vibe-coding/commit/ff2f1685d8dbc797c29377c090b972aa1922ab15",
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml",
+        "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md"
       ]
     }
   ],
@@ -216,7 +228,7 @@
       "contract_revision": 1,
       "status": "APPROVED",
       "owner": "Human Owner operates GAIS; Gemini in GAIS executes; ChatGPT prepares/reviews",
-      "next_action": "Publish Contract #004 on main via PR #53, then run BVCTM-PROMPT-0004 in the same GAIS app after confirming the current app/page.tsx baseline. Verify the one-file diff and actual Preview."
+      "next_action": "BVC-TM-TC-004 Revision 1 and BVCTM-PROMPT-0004 are canonical on main through merged PR #53. The Human Owner now verifies the existing GAIS app identity and inspects the live app/page.tsx. If it matches the expected scaffold, paste the complete canonical Prompt #0004. Stop if it materially differs. Review the exact one-file diff and Preview evidence."
     }
   ],
   "blocked_items": [
@@ -256,10 +268,10 @@
     },
     {
       "issue_id": "TM-ISSUE-LOCAL-SYNC",
-      "description": "The candidate local main worktree was last synchronized to 202e780 before PR #47–#49; current local main synchronization to aff2b42 is not verified. A separate linked worktree remains DIRTY with one modified Markdown file and two untracked A1 screenshots.",
+      "description": "Local Windows worktree HEAD/status after PRs #50–#53 is NOT_VERIFIED. The last observed output showed C:\\\\beyond-vibe-coding-a4-evidence clean at 202e780 before the subsequent merges; C:\\\\beyond-vibe-coding was a separate DIRTY linked worktree with one modified continuity Markdown file, two untracked A1 screenshots, six stashes and seven linked worktrees. Preserve all local-only content.",
       "status": "OPEN",
       "owner": "Human Owner",
-      "reference": "C:\\beyond-vibe-coding-a4-evidence; C:\\beyond-vibe-coding"
+      "reference": "C:\\\\beyond-vibe-coding-a4-evidence; C:\\\\beyond-vibe-coding; owner-supplied terminal output dated 2026-11-11"
     },
     {
       "issue_id": "TM-ISSUE-CONT-AC011",
@@ -304,18 +316,18 @@
     },
     {
       "action_id": "TM-NEXT-008",
-      "description": "After Contract #004 is canonical on main, run BVCTM-PROMPT-0004 in the existing GAIS app; capture the actual one-file diff, Preview behavior and required evidence for B1.",
+      "description": "Contract BVC-TM-TC-004 Revision 1 and Prompt #0004 are now canonical on main through merged PR #53. First preflight the existing GAIS app identity and current app/page.tsx; if the source matches the expected scaffold, run Prompt #0004. Capture the exact one-file diff, Preview behavior and evidence for B1.",
       "priority": "URGENT",
       "owner": "Human Owner / Gemini in GAIS; ChatGPT reviews supplied evidence",
       "related_task_id": "BVC-TM-P3.3-004"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@58ee43cefff59b3e99a48314a322d639652b38fb",
-    "source_commit": "58ee43cefff59b3e99a48314a322d639652b38fb",
+    "recovery_point_ref": "main@ff2f1685d8dbc797c29377c090b972aa1922ab15",
+    "source_commit": "ff2f1685d8dbc797c29377c090b972aa1922ab15",
     "verified": true,
-    "last_verified_at": "2026-11-11T17:00:00+07:00",
-    "notes": "GitHub live main is 58ee43cefff59b3e99a48314a322d639652b38fb after PR #50, #51 and #52 merged; no open PRs were returned at the checkpoint before branch docs/bvctm-task004-b1-first-task was created. Task #003 was explicitly closed by the Human Owner with known limitations; VC-006/VC-007 were not run and are not PASS. B1 Contract #004 Revision 1 is Owner-approved and prepared on docs/bvctm-task004-b1-first-task but remains non-canonical until PR #53 merges. GAIS must be preflighted against app/page.tsx before editing. Local Windows worktrees were not rechecked; preserve the separately DIRTY C:\\beyond-vibe-coding worktree and all stashes."
+    "last_verified_at": "2026-11-11T17:28:01+07:00",
+    "notes": "GitHub live main is ff2f1685d8dbc797c29377c090b972aa1922ab15 after PR #53 was Squash & Merged at 2026-11-11T17:28:01+07:00. PRs #50–#53 are merged. Contract #004 Revision 1 and Prompt #0004 are canonical on main; B1 implementation remains NOT_STARTED. Before pasting Prompt #0004, Human Owner/Gemini must verify the existing GAIS app identity and inspect current app/page.tsx; stop if materially different. Task #003 remains COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; VC-006/VC-007 and live GAIS external connections remain NOT_RUN/NOT_VERIFIED. GitHub learner setup/synchronization are deferred to Phase C. Local Windows worktrees were not rechecked; preserve the separately DIRTY C:\\\\beyond-vibe-coding worktree and all stashes."
   },
-  "updated_by": "AI-prepared Project State revision 4 from live GitHub and explicit Human Owner decisions on 2026-11-11; approval/acceptance references and known limitations preserved."
+  "updated_by": "AI-prepared Project State revision 5 from live GitHub PR #53 merge metadata and main checkpoint; B1 execution remains NOT_STARTED."
 }
