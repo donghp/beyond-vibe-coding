@@ -33,7 +33,13 @@ systems:
   default_branch: main
   observed_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
   observed_at: "2026-11-11T08:30:00+07:00"
-  open_prs_at_last_check: []
+  open_prs_at_main_checkpoint: []
+  current_open_prs:
+  - number: 50
+    title: docs(bvctm-continuity): complete revision 5 project record reconciliation
+    status: DRAFT; NOT_READY_FOR_MERGE
+    head: docs/bvctm-continuity-r5-completion
+    url: https://github.com/donghp/beyond-vibe-coding/pull/50
   recently_merged_prs:
   - number: 47
     url: https://github.com/donghp/beyond-vibe-coding/pull/47
