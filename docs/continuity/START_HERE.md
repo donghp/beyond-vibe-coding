@@ -6,15 +6,17 @@
 
 ## One-minute resume
 
-A new ChatGPT window or AI executor must:
-1. Read this file, then `BOOTSTRAP.md` and `GITHUB_REPOSITORY_VERIFICATION.md`.
+A new ChatGPT window must begin in read-only bootstrap mode:
+1. Read this file, `BOOTSTRAP.md`, `GITHUB_REPOSITORY_VERIFICATION.md` and `AI_EXECUTOR_ROLE_MODEL.md`.
 2. Verify live repository identity, `main` SHA, open PRs, relevant branches, diffs/reviews/checks and any incomplete writer handoff.
 3. Read the seven canonical continuity records listed in `README.md`.
-4. Read sources relevant to the active task: Product Definition, Decision Register, Risk Policy, Task Contract, Task Execution Register, Prompt Register, Lesson Status Register and Evidence Index.
-5. Report phase, active Task ID, Contract/revision, Prompt ID/publication state, GAIS execution, evidence gaps, acceptance, blockers and exactly one next permitted action.
-6. Continue only within an approved Contract or explicit Owner authorization. Open PRs are proposals, not canonical state.
+4. Read the current approved project sources relevant to the active project/task: Product Definition, Decision Register, Risk Policy, UX/architecture acceptance, Task Contract, Task/Prompt Registers, evidence and handoff.
+5. Build a structured Vietnamese Project Understanding Review using `PROJECT_UNDERSTANDING_REVIEW.template.md`; cite current sources and classify each material claim.
+6. State capability limits and unresolved conflicts explicitly. Never infer local Windows, GAIS or VS Code state from GitHub.
+7. Ask the Human Owner to confirm or correct the review, then stop with `WAITING_FOR_OWNER_REVIEW`.
+8. Do not create a task, Contract, prompt, code change, PR, acceptance record or next implementation action until the Owner confirms the review. After confirmation, continue only under the current approved Contract or explicit Owner instruction.
 
-Use [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) as the copy/paste instruction for a new chat. This entrypoint is navigation, not a separate state store.
+Use [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) as the copy/paste instruction for a new chat. Read [AI_EXECUTOR_ROLE_MODEL.md](./AI_EXECUTOR_ROLE_MODEL.md) for role boundaries and [PROJECT_UNDERSTANDING_REVIEW.template.md](./PROJECT_UNDERSTANDING_REVIEW.template.md) for the mandatory first-response report. These are operating resources, not additional project-state stores.
 
 ## Authority rules
 
@@ -26,6 +28,7 @@ Use [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) as the copy/paste instr
 - GAIS screenshots/responses require evidence provenance. A ChatGPT attachment is not automatically a GitHub asset.
 - Execution, technical verification, evidence completeness and Human Owner acceptance are separate dimensions.
 - No AI executor may self-approve a Contract, accept its own task, expand scope or merge a PR.
+- A new ChatGPT window must complete the read-only Project Understanding Review and wait for explicit Human Owner confirmation before any continuation or write.
 - GitHub cannot prove local Windows, GAIS or IDE state. Unsaved/in-memory work is not recoverable unless exported and supplied.
 - Use one active writer per task/branch. Cross-executor writes require real sender release and receiver acceptance.
 
