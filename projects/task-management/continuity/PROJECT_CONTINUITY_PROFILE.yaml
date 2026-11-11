@@ -1,14 +1,14 @@
 profile_schema_version: 0.1.0
 profile_id: BVC-TM-CONTINUITY-PROFILE
-profile_revision: 4
+profile_revision: 5
 profile_status: PILOT
 project:
   project_id: BVC-TASK-MANAGEMENT
   display_name: BVC Task Management
   repository: https://github.com/donghp/beyond-vibe-coding
   default_branch: main
-  current_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
-  last_reconciled_at: "2026-11-11T08:30:00+07:00"
+  current_main_sha: "58ee43cefff59b3e99a48314a322d639652b38fb"
+  last_reconciled_at: "2026-11-11"
   project_index: projects/task-management/README.md
   domain: SOFTWARE_PRODUCT_AND_BEGINNER_AI_VIBE_CODING
   product_baseline:
@@ -90,8 +90,10 @@ state_management:
       - BVCTM-PROMPT-0001
       - BVCTM-PROMPT-0002
       - BVCTM-PROMPT-0003
-    next_number: 4
+      - BVCTM-PROMPT-0004
+    next_number: 5
     prompt_0001_execution: NOT_STARTED_OR_NOT_EVIDENCED
+    prompt_0004_execution: NOT_STARTED
     prompt_0002_execution: OWNER_REPORTED_EXECUTED_RESPONSE_RECEIVED_AND_REVIEWED
     prompt_0003_execution: OWNER_REPORTED_EXECUTED_RESPONSE_RECEIVED_AND_REVIEWED
 recovery:
@@ -110,7 +112,7 @@ external_systems:
     owner: Human Owner
     role: Build-mode app creation, preview, and generated scaffold inspection
     access_mode: Human-operated; AI reviews only screenshots/files supplied by Owner
-    current_status: OWNER_SUPPLIED_PROJECT_TITLE_AND_BLANK_PREVIEW; TECHNICAL_SCAFFOLD_INVENTORY_NOT_VERIFIED
+    current_status: OWNER_SUPPLIED_SOURCE_ZIP_INSPECTED; TASK_003_OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_NOT_STARTED
     canonical_url: https://aistudio.google.com/apps
     app_name_observed: BVC Task Management Scaffold Inspection
     model_label_observed_in_screenshot: Gemini 3.8 Flash
@@ -118,28 +120,26 @@ external_systems:
     code_tree_status: A2_AND_A4_SCREENSHOTS_SHOW_FILE_TREE_AND_PARTIAL_PAGE_LAYOUT_SOURCE; PACKAGE_AND_TOOLCHAIN_INVENTORY_NOT_VERIFIED
     app_id_observed: ca589018-617d-4919-bbe2-6b9c588ccd85
     export_control_visible: true
-    export_status: CONTROL_VISIBLE; ZIP_NOT_DOWNLOADED_OR_INSPECTED
+    export_status: OWNER_SUPPLIED_ZIP_INSPECTED; 18_FILES_SHA256_RECORDED
     secrets_policy: Never record API keys, tokens, credentials, or account-private details.
   - system_id: GITHUB
     system_name: GitHub
     owner: Human Owner / repository governance
     role: Canonical source repository, PR review, commit history and continuity storage
     access_mode: GitHub connector verified in originating ChatGPT session; new sessions must re-authenticate independently
-    current_status: MAIN_SHA_VERIFIED; PR_50_DRAFT_OPEN
-    observed_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
-    observed_at: "2026-11-11T08:30:00+07:00"
+    current_status: MAIN_SHA_VERIFIED; PR_50_PR_51_PR_52_MERGED; B1_CONTRACT_PR_53_PROPOSED
+    observed_main_sha: "58ee43cefff59b3e99a48314a322d639652b38fb"
+    observed_at: "2026-11-11"
     open_pr_count_at_main_checkpoint: 0
-    current_open_proposals:
-      - number: 50
-        status: DRAFT; NOT_READY_FOR_MERGE
-        url: https://github.com/donghp/beyond-vibe-coding/pull/50
-        head: docs/bvctm-continuity-r5-completion
-      - number: 51
-        status: DRAFT; PARTIAL; NOT_READY_FOR_ACCEPTANCE
-        url: https://github.com/donghp/beyond-vibe-coding/pull/51
-        head: docs/bvctm-task003-scaffold-evidence
-    recent_merged_prs: [47, 48, 49]
+    current_open_proposals: []
+    prepared_proposals:
+      - id: B1_CONTRACT_PUBLICATION
+        status: OPEN_PR_53; REVIEW_PENDING
+        branch: docs/bvctm-task004-b1-first-task
+        next_expected_pr: 53
+    recent_merged_prs: [47, 48, 49, 50, 51, 52]
     main_branch_protected: false
+    local_sync_after_pr_50_51_52: NOT_VERIFIED
     recently_merged_prs:
       - number: 37
         status: MERGED
@@ -178,6 +178,15 @@ external_systems:
       - number: 49
         status: MERGED
         merge_commit: aff2b42da26ec548de8088bf77de455a94723773
+      - number: 50
+        status: MERGED
+        merge_commit: 157f48d
+      - number: 51
+        status: MERGED
+        merge_commit: 90c578f
+      - number: 52
+        status: MERGED
+        merge_commit: 58ee43cefff59b3e99a48314a322d639652b38fb
     merge_authority: Human Owner
     auto_merge: Not assumed; follow current repository settings and the Global Continuity protocol.
   - system_id: LOCAL-WORKSPACE-MAIN

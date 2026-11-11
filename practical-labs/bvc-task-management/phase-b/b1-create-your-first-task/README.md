@@ -5,8 +5,9 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Enter a task title, add the task, and see it appear in a simple list.  
-**Implementation scope:** Human Owner-approved B1 first vertical slice. Use the active B1 Task Contract and its exact file allowlist before making changes.  
-**Lesson status:** Guide prepared; actual application behavior still requires implementation and Preview verification.
+**Implementation scope:** [BVC-TM-TC-004 Revision 1 — APPROVED](../../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml). MODIFY `app/page.tsx` only in the existing GAIS app.  
+**Canonical prompt:** [BVCTM-PROMPT-0004 — Phase B1: Create Your First Task](../../prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md).  
+**Lesson status:** Contract approved; application implementation NOT_STARTED. Preview evidence and Human Owner acceptance are still required.
 
 ## 1. What you will make
 
@@ -35,43 +36,98 @@ For this first lesson, tasks exist only in the page's current memory.
 1. Open your existing BVC Task Management project in GAIS.
 2. Open **Code** and **Preview**.
 3. Confirm the current project still shows the blank scaffold screen.
-4. Make sure the approved B1 Task Contract is available to the AI session. Check its exact allowed file list.
-5. Tell AI to inspect the current `app/page.tsx` before editing.
+4. Make sure BVC-TM-TC-004 Revision 1 is published on `main` and available to the AI session.
+5. Confirm that the Contract authorizes only `app/page.tsx` and that the current GAIS file still matches the inspected scaffold.
+6. Open the canonical [Prompt #0004](../../prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md).
 
 If the active Contract is missing, its scope differs from this lesson, or AI says another file must change, stop and ask the Human Owner. Do not expand the scope yourself.
 
 ## 4. Copy-and-paste request for AI
 
-Use this request only under the active, approved B1 Task Contract:
+Use **BVCTM-PROMPT-0004** only after Contract BVC-TM-TC-004 Revision 1 is canonical on main. The separate prompt file is the canonical record; the same complete request is embedded below for easy learner use.
 
-> You are helping me build the existing BVC Task Management beginner project.
->
-> First read the current BVC Task Management Project Instructions and the approved B1 First Vertical Slice Task Contract. Confirm the Contract ID, its allowed file list, and the exact change you are about to make. If the Contract is unavailable or does not authorize this request, do not edit anything.
->
-> **B1 goal:** let me create a task by entering only its title and then see that task in a simple list.
->
-> Please inspect the existing project and implement only this small B1 behavior:
->
-> 1. Show a clearly labelled task-title input.
-> 2. Provide an **Add task** button.
-> 3. When the title contains text after trimming leading/trailing spaces, add that title to the visible task list.
-> 4. After a successful add, clear the input so I can enter another task.
-> 5. If the title is empty or contains only spaces, do not add a task. Show a clear, friendly validation message and keep the user on the form.
-> 6. Make the form usable with a keyboard as well as a mouse or touch.
-> 7. Show a simple empty state before the first task is added.
->
-> **Important B1 boundary:**
->
-> - Keep tasks in the page's in-memory state only.
-> - Do not use `localStorage`, `sessionStorage`, IndexedDB, cookies, a database, or any remote service.
-> - Do not add login, authentication, API calls, GitHub connection, cloud sync, export, or deployment.
-> - Do not add task editing, deleting, completion, priority, due dates, projects, notes, or checklists.
-> - Do not install packages or change dependencies.
-> - Do not change configuration, routing, layout, styling foundations, or any unrelated file.
-> - Modify only the file or files explicitly allowed by the active B1 Contract. If the Contract authorizes only `app/page.tsx`, change only that file.
->
-> Before editing, summarize the current file and your plan. After editing, report the exact changed-file list and explain how I can check the result in Preview. Do not claim that you ran a build, test, or browser check unless you actually did so.
+```text
+You are the AI development partner for the existing **BVC Task Management** beginner project.
 
+### 1. Read the project rules and approved task scope
+
+Read the current BVC Task Management Project Instructions and **BVC-TM-TC-004 Revision 1**.
+
+Confirm these details before editing:
+
+- Task ID: `BVC-TM-P3.3-004`
+- Contract ID: `BVC-TM-TC-004`
+- Contract status: `APPROVED`
+- Allowed operation: **MODIFY exactly one file — `app/page.tsx`**
+- Forbidden operations: create, modify, rename, move, or delete any other file; install packages; change dependencies or configuration; connect GitHub or external services.
+
+If you cannot access the approved Contract or the current Project Instructions, do not edit anything. Ask the Human Owner to provide the missing source.
+
+### 2. Inspect before editing
+
+Inspect the current project identity and the existing `app/page.tsx`.
+
+The supplied scaffold snapshot had:
+- Next.js App Router with TypeScript/TSX.
+- `app/page.tsx` was a minimal placeholder showing “BVC Task Management Scaffold Inspection”.
+- The page was the only file authorized for modification.
+
+If the current project identity or `app/page.tsx` differs materially from this snapshot, stop and report the difference. Do not assume the exported ZIP is still the exact live state.
+
+Before editing, summarize the current page, the exact single-file plan, and confirm that no other file needs to change.
+
+### 3. B1 learning outcome
+
+Implement a very small task-capture interaction:
+
+1. Show a clearly labelled input named **Task title**.
+2. Show an **Add task** submit button.
+3. Show a friendly empty state before the first task is added.
+4. When the learner enters a non-empty title and selects Add task, add exactly one task to a visible list.
+5. Trim leading and trailing spaces from the title.
+6. After a successful add, clear the input and any previous validation message.
+7. If the title is empty or contains only spaces, add nothing and show exactly this friendly message: **Please enter a task title.**
+8. Allow the learner to submit the form with Enter as well as by clicking/tapping the button.
+9. Keep task order the same as the order in which the learner added items.
+
+### 4. Strict B1 boundary — do not exceed
+
+- Keep tasks in React component/page memory only.
+- Do not use `localStorage`, `sessionStorage`, IndexedDB, cookies, browser databases, files, server actions, API calls, or remote storage.
+- Do not add task editing, deletion, completion, priority, due dates, projects, notes, checklists, tags, or assignments.
+- Do not add login, authentication, database, Supabase, Firebase, Gemini API calls, GitHub integration, cloud sync, export, hosting, or deployment.
+- Do not add packages or change `package.json`, lockfiles, configuration, global styles, routing, layout, or any file other than `app/page.tsx`.
+- Do not redesign the whole product. Keep the page clean, responsive, accessible, and consistent with the existing Tailwind-based scaffold.
+- Use semantic form markup and associate the label with the input.
+- Show validation feedback in a way that can be understood by assistive technology.
+- A page refresh is expected to clear the temporary task list. This is not a bug in B1; saving is a separate B2 lesson.
+
+### 5. Implement, then report
+
+Make the smallest clear change in `app/page.tsx` that satisfies the criteria. Do not introduce unnecessary abstractions.
+
+After the edit, report:
+
+1. Contract ID and Task ID.
+2. The exact file changed (it must be only `app/page.tsx`).
+3. A short explanation of how the task state is held in memory.
+4. Whether the Preview updated successfully or showed an error.
+5. Which checks you actually performed:
+   - Add one valid task.
+   - Add a second task.
+   - Submit an empty title.
+   - Submit a spaces-only title.
+   - Submit using Enter.
+   - Refresh and confirm that the list resets.
+6. Any checks not performed and all remaining limitations.
+
+Do not claim that build, lint, tests, or browser checks passed unless you actually ran them. Do not claim B1 is accepted; the Human Owner reviews the actual Preview and evidence.
+
+**Stop immediately** if more than `app/page.tsx` must change or if an external service, dependency, storage mechanism, or configuration change appears necessary.
+```
+
+The prompt authorizes one file only: `app/page.tsx`. If GAIS reports that another file, package, dependency, configuration, storage mechanism, or external service is needed, stop and ask the Human Owner.
+ 
 ## 5. Check the result in Preview
 
 After AI reports that it has finished, inspect the actual Preview. Try these steps yourself:

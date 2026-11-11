@@ -2,13 +2,13 @@
 
 **Task ID:** BVC-TM-P3.3-003  
 **Contract:** BVC-TM-TC-003 Revision 1 — APPROVED  
-**Report version:** 0.2.0 — exported-source-backed inspection  
+**Report version:** 0.3.0 — exported-source-backed inspection with Owner acceptance record  
 **Repository baseline:** main@aff2b42da26ec548de8088bf77de455a94723773  
 **GAIS project:** BVC Task Management Scaffold Inspection  
 **GAIS app URL:** https://aistudio.google.com/apps/ca589018-617d-4919-bbe2-6b9c588ccd85  
 **Source evidence:** Human Owner-uploaded bvc-task-management-scaffold-inspection.zip  
 **Source archive SHA-256:** fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723  
-**Inspection status:** SOURCE INVENTORY COMPLETE FOR THE SUPPLIED ZIP; CONTRACT ACCEPTANCE STILL PARTIAL  
+**Inspection status:** COMPLETED_ACCEPTED BY HUMAN OWNER WITH KNOWN LIMITATIONS  
 **Prepared by:** ChatGPT, based on the supplied ZIP, repository-published A2/A4 screenshots and the Owner-supplied Preview screenshot
 
 ---
@@ -288,17 +288,23 @@ No task creation, editing, deletion, completion, project management, browser per
 | EV-TM-SC-008 | next.config.ts in supplied ZIP; SHA-256 f850c0166355ee9c296bdf04a6c0f2a598b70550e0d62ff3c8f758a17a325e85 | Next.js output/build configuration |
 | EV-TM-SC-009 | .env.example and metadata.json in supplied ZIP | Placeholder environment names and declared major capability |
 
-## 12. Remaining actions before Task #003 acceptance
+## 12. Human Owner acceptance and known limitations
 
-1. Human Owner confirms the app-type label is WEB and confirms whether the GAIS project was connected to GitHub or any external service.
-2. Human Owner confirms the source ZIP is the export produced by the current GAIS project and not a manually altered copy.
-3. Run VC-006: parse the YAML inventory and apply Markdown whitespace checks to this report.
-4. Run VC-007: generate the VCS changed-files inventory and repository Contract Validator result, verifying exactly two CREATE paths, zero MODIFY, zero DELETE, zero binary files, and the approved Change Budget.
-5. Human Owner reviews and records acceptance under the Task Contract lifecycle.
+**Owner decision:** On 2026-11-11, the Human Owner explicitly instructed: “Tôi phê duyệt Contract B1, đóng gate task #003, hãy tiếp tục triển khai phase B.” The Owner accepted the report and inventory published by merged PR #51 and closed the Task #003 gate so Phase B could proceed.
 
-No package installation, build, lint, test, application code modification, API call, external integration, GitHub connection from GAIS, or deployment was executed by this inspection.
+**Recorded lifecycle outcome:** COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS. This is an explicit Owner acceptance, not a statement that every verification check passed.
 
-**Final task status: PARTIAL / NOT ACCEPTED.** The source inventory is materially complete for the supplied ZIP, but the remaining Contract evidence and verification checks must be closed before Task #003 can be marked complete.
+| Outstanding item | Recorded disposition |
+|---|---|
+| Explicit GAIS app-type WEB label | Not captured in the supplied evidence; accepted by Owner as a known limitation. |
+| GAIS secrets panel and external GitHub/service connection state | NOT_VERIFIED; no claim that external connections are absent. Accepted as a known limitation for closing the scaffold inspection gate. |
+| VC-006 YAML parse and Markdown whitespace check | NOT_RUN; no PASS is claimed. |
+| VC-007 VCS inventory and repository Contract Validator | NOT_RUN as an automated validator; PR #51 shows the two output files were merged, but that is not represented as a validator PASS. |
+| Runtime version, resolved dependency graph, build/lint/test | NOT_VERIFIED / NOT_RUN. The source archive has a zero-byte bun.lock and a Next.js/eslint-config-next major mismatch that remain documented. |
+
+The complete source inventory is evidenced for the supplied 18-file ZIP. The report and inventory are canonical on main through PR #51. No package installation, build, lint, test, application code modification, API call, external integration, GAIS-to-GitHub connection, or deployment was performed by Task #003.
+
+**Final task status: COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS by explicit Human Owner decision on 2026-11-11.** Do not convert the remaining VC-006/VC-007 or external-connection checks to PASS. These limitations do not authorize work outside the separate B1 Contract.
 
 ---
 

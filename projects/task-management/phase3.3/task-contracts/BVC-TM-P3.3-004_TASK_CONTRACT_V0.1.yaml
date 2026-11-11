@@ -1,0 +1,399 @@
+contract_version: "0.1.0"
+contract_id: "BVC-TM-TC-004"
+revision: 1
+status: APPROVED
+created_at: "2026-11-11T17:00:00+07:00"
+
+task:
+  id: "BVC-TM-P3.3-004"
+  title: "PHASE B1 — CREATE AND DISPLAY THE FIRST TASK"
+  objective: >-
+    Implement one beginner-friendly task creation flow in the existing GAIS
+    BVC Task Management app. A learner enters only a task title, submits it,
+    sees the task in a visible list, and receives clear validation for an
+    empty or whitespace-only title. Tasks remain in the current page's
+    in-memory React state only; persistence is explicitly excluded.
+  requested_by: "Human Owner / Product Owner"
+  parent_task_id: "BVC-TM-P3.3-003"
+
+project:
+  project_id: "BVC-TASK-MANAGEMENT"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "58ee43cefff59b3e99a48314a322d639652b38fb"
+    working_tree_status: CLEAN
+    architecture_baseline_refs:
+      - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+      - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    recovery_point:
+      kind: snapshot
+      reference: "Owner-supplied GAIS source ZIP bvc-task-management-scaffold-inspection.zip; SHA-256 fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723. Re-export or compare app/page.tsx immediately before execution."
+      verified: true
+
+intent:
+  objective: >-
+    Replace the blank scaffold placeholder with one minimal, observable
+    task-capture interaction for the Beginner learning path.
+  rationale: >-
+    Phase A is complete and the scaffold has been inspected from the
+    Owner-supplied GAIS export. The Human Owner approved the Phase B1 scope.
+    The first lesson must demonstrate one useful behavior without mixing
+    task creation with persistence, database setup, authentication, or
+    advanced application features.
+  expected_outcome: >-
+    In GAIS Preview, a learner can type a non-empty task title, select Add
+    task, and see exactly one new list item. Empty and whitespace-only input
+    is rejected with a helpful message. A successful submission clears the
+    input. Tasks exist only in page memory and are lost after a page reload.
+  business_or_user_value: >-
+    Give beginners an immediate first product outcome while teaching the
+    difference between in-memory UI state and persistent storage.
+
+risk:
+  level: R2
+  policy_ref: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md — R2 bounded single-component change"
+  rationale: >-
+    This is one reversible UI/state change in a single page. It handles only
+    synthetic task titles in transient browser memory. It does not introduce
+    personal-data storage, external services, dependencies, authentication,
+    database changes, shared business logic, or production operations.
+  impact_factors:
+    - other
+  reversibility: EASY
+  risk_owner: "Product Owner / Human Owner"
+
+scope:
+  mode: WRITE
+  allowed_changes:
+    create: []
+    modify:
+      - "app/page.tsx"
+    delete: []
+  forbidden_paths:
+    - "package.json"
+    - "bun.lock"
+    - "package-lock.json"
+    - "yarn.lock"
+    - "pnpm-lock.yaml"
+    - "next.config.ts"
+    - "tsconfig.json"
+    - "postcss.config.mjs"
+    - "eslint.config.mjs"
+    - ".eslintrc.json"
+    - ".env.example"
+    - "metadata.json"
+    - "app/layout.tsx"
+    - "app/globals.css"
+    - "app/not-found.tsx"
+    - "README.md"
+  forbidden_path_prefixes:
+    - "node_modules/"
+    - ".next/"
+    - ".github/"
+    - "app/api/"
+    - "supabase/"
+    - "firebase/"
+    - "prisma/"
+  protected_resource_refs:
+    - "The exported GAIS scaffold inventory is factual evidence; do not alter or replace the scaffold toolchain."
+    - "Product Definition v0.2.0 is the current product authority."
+    - "Phase 3.2 Architecture is accepted design only; no architecture change is authorized."
+    - "Formal Phase 3.1 UX Acceptance remains OPEN."
+    - "DR-005 first-use storage disclosure remains OPEN and is explicitly outside B1 because B1 introduces no persistence or first-use storage."
+    - "DR-014 browser localStorage is ACCEPTED FOR DESIGN only; B1 must not implement it."
+  scope_expansion_allowed: false
+  scope_expansion_policy: STOP_AND_REQUEST_APPROVAL
+  discovery_outside_scope_allowed: true
+  stop_if_out_of_scope_change_detected: true
+
+constraints:
+  - "Execute only in the existing BVC Task Management GAIS project identified by app id ca589018-617d-4919-bbe2-6b9c588ccd85. Do not create a second app."
+  - "Immediately before editing, inspect the current app/page.tsx and compare it with the Owner-supplied scaffold snapshot. If the file or project identity differs materially, stop and report the difference."
+  - "Modify exactly one file: app/page.tsx relative to the GAIS project root. No other repository or GAIS file may be created, modified, renamed, moved, or deleted."
+  - "Use the existing Next.js App Router and TypeScript/TSX scaffold. Add no package, dependency, lockfile, environment variable, configuration, route, API, service, or external resource."
+  - "Use local React component state only for the in-memory task list. Do not use localStorage, sessionStorage, IndexedDB, cookies, browser databases, files, server actions, API calls, or remote persistence."
+  - "The task title is the only required field. Do not add due date, priority, project, status selector, notes, checklist, assignment, tags, editing, completion, or deletion."
+  - "Trim leading and trailing whitespace before creating a task. Reject empty or whitespace-only titles, create no list item, and show the friendly message: Please enter a task title."
+  - "For a successful submission, add exactly one task, clear the input, and clear any previous validation message."
+  - "Use a semantic form with an explicitly associated label and a submit button so the learner can submit with Enter as well as mouse or touch."
+  - "Show a simple empty state before the first task is added and a clearly readable list after tasks are added."
+  - "Keep tasks in insertion order. No duplicate-detection or additional task-management rules are required."
+  - "Keep the visual design simple, responsive, and consistent with the existing scaffold's Tailwind utility styling. Do not change global styling foundations."
+  - "A page refresh resets the B1 task list. This is expected behavior and must not be hidden or described as persistence."
+  - "Do not connect GitHub, Firebase, Gemini APIs, Supabase, databases, Auth, RLS, hosting, analytics, or other external services."
+  - "Do not reveal or record secret values, personal data, customer information, or private account details."
+  - "Before editing, state the Contract ID, exact allowed file, current page structure, and planned behavior. After editing, report the actual changed-file list and any checks actually run."
+  - "If more than app/page.tsx must change, stop and request a new or revised Contract. Do not silently expand scope."
+  - "The Human Owner operates the authenticated GAIS account and reviews/accepts the Preview. ChatGPT does not have direct GAIS file-system or account access."
+  - "Do not mark B1 complete based on an AI response alone. Human Owner Preview evidence and acceptance are required."
+
+required_context:
+  - reference: "practical-labs/bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md"
+    purpose: "Canonical BVC Task Management working instructions copied into the GAIS project."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    purpose: "Title-only quick task capture and Beginner product boundary."
+    authority: APPROVED
+    required: true
+    version_or_commit: "Product Owner-approved v0.2.0."
+  - reference: "projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md"
+    purpose: "Evidence-backed source inventory and scaffold limitations."
+    authority: APPROVED
+    required: true
+    version_or_commit: "Task #003 report; accepted by Human Owner with known limitations on 2026-11-11."
+  - reference: "projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml"
+    purpose: "18-file source inventory and declared package/configuration facts."
+    authority: APPROVED
+    required: true
+    version_or_commit: "Source ZIP SHA-256 fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723."
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Predecessor scaffold-inspection Contract; its gate was explicitly closed by the Human Owner."
+    authority: APPROVED
+    required: true
+    version_or_commit: "BVC-TM-TC-003 Revision 1; Owner acceptance with known limitations recorded in this revision's execution record."
+  - reference: "practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md"
+    purpose: "Learner-facing B1 outcome and verification steps."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    purpose: "Preserve DR statuses; in particular B1 excludes the OPEN DR-005 storage disclosure and does not implement DR-014."
+    authority: CANONICAL
+    required: true
+  - reference: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md"
+    purpose: "Task capture interaction principles; this Contract narrows behavior to title-only in-memory B1."
+    authority: REFERENCE
+    required: true
+  - reference: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+    purpose: "R2 single-component change controls."
+    authority: APPROVED
+    required: true
+    version_or_commit: "BVC-TM-RISK-001 v0.1.0; known publication-pending header metadata remains outside this task."
+
+dependencies:
+  - reference: "BVC-TM-P3.3-003 / BVC-TM-TC-003 Revision 1 — scaffold inspection"
+    relationship: MUST_COMPLETE_FIRST
+    reason: "Human Owner explicitly closed Task #003 after reviewing the exported source ZIP, report and inventory; known verification limitations are recorded, not hidden."
+  - reference: "Phase A A1-A4 learning path"
+    relationship: MUST_COMPLETE_FIRST
+    reason: "The learner has completed the scaffold, Project Instructions, and task-understanding foundations."
+  - reference: "DR-005 first-use storage disclosure"
+    relationship: INFORMATIONAL
+    reason: "B1 is in-memory only and shows no persistence or first-use storage disclosure. DR-005 remains OPEN and must be resolved before B2 onboarding/storage implementation."
+  - reference: "DR-014 Beginner browser persistence"
+    relationship: INFORMATIONAL
+    reason: "Accepted for design only; its implementation and runtime verification belong to B2, not B1."
+
+expected_outputs:
+  - id: "OUT-001"
+    kind: "CODE"
+    description: >-
+      One modified GAIS source file app/page.tsx implementing the B1 title-only
+      task form, in-memory task list, empty state, input trimming, and empty-title
+      validation. No other source or configuration file may change.
+    path: "app/page.tsx"
+    required: true
+  - id: "OUT-002"
+    kind: "OTHER"
+    description: >-
+      Human Owner-captured GAIS Preview evidence showing the initial empty state,
+      a successful task creation, rejection of empty/whitespace-only input, and
+      the temporary in-memory behavior after refresh. These are external evidence
+      artifacts and are not repository file outputs under this Contract.
+    required: true
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "The Preview shows one clearly labelled task-title input and one Add task submit action; title is the only required task field."
+    verification_method: "Inspect the actual GAIS Preview and form labels."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-002"
+    statement: "Submitting a non-empty title after trimming leading/trailing whitespace creates exactly one visible list item containing the trimmed title."
+    verification_method: "Enter a sample title such as Call the supplier and verify exactly one corresponding list item appears."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-003"
+    statement: "Submitting an empty or whitespace-only title creates no task and shows the friendly validation message."
+    verification_method: "Submit an empty field and a spaces-only value; verify the list is unchanged and the message is visible."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-004"
+    statement: "After a successful task creation, the input is cleared and any prior validation message is cleared."
+    verification_method: "Trigger a validation message, then submit a valid title and inspect the input and message."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-005"
+    statement: "Multiple tasks can be added during the current page session and remain visible in insertion order."
+    verification_method: "Add two distinct sample titles and verify both appear once in the order entered."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-006"
+    statement: "The form supports keyboard submission with Enter and exposes a programmatically associated input label."
+    verification_method: "Inspect semantic form/label source and submit a task using Enter in Preview."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-007"
+    statement: "Tasks are held in page memory only; no browser persistence or external integration is implemented, and refresh resets the temporary list."
+    verification_method: "Inspect app/page.tsx for state-only behavior and prohibited storage/API use, then refresh Preview and observe reset."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-008"
+    statement: "The only changed GAIS source file is app/page.tsx; no dependency, lockfile, configuration, route, or unrelated file is changed."
+    verification_method: "Review the actual GAIS Code/File Explorer change list or before/after source inventory."
+    required_evidence_level: 2
+    required: true
+  - id: "AC-009"
+    statement: "The Human Owner reviews and accepts the actual Preview behavior and evidence; an AI-generated completion statement alone is insufficient."
+    verification_method: "Human Owner confirmation and supplied Preview screenshots or equivalent observable evidence."
+    required_evidence_level: 2
+    required: true
+
+verification:
+  required: true
+  minimum_evidence_level: 2
+  checks:
+    - id: "VC-001"
+      kind: "MANUAL_REVIEW"
+      description: "Reconfirm GAIS project identity and compare the current app/page.tsx with the Owner-supplied source snapshot before editing."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-008"]
+    - id: "VC-002"
+      kind: "STATIC_ANALYSIS"
+      description: "Review app/page.tsx and confirm the implementation uses in-memory component state only and introduces none of the forbidden APIs or imports."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-007", "AC-008"]
+    - id: "VC-003"
+      kind: "MANUAL_REVIEW"
+      description: "Review the actual Code diff and confirm exactly app/page.tsx changed, with no package/configuration or unrelated changes."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-008"]
+    - id: "VC-004"
+      kind: "REAL_WORLD_CHECK"
+      description: "Use GAIS Preview to add two sample tasks and verify that each appears exactly once in insertion order."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-001", "AC-002", "AC-005"]
+    - id: "VC-005"
+      kind: "REAL_WORLD_CHECK"
+      description: "Use GAIS Preview to submit an empty title and a spaces-only title; verify both are rejected with a helpful message and no blank item."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-003", "AC-004"]
+    - id: "VC-006"
+      kind: "REAL_WORLD_CHECK"
+      description: "Submit a valid title by pressing Enter and verify one item is created."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-006"]
+    - id: "VC-007"
+      kind: "REAL_WORLD_CHECK"
+      description: "Refresh GAIS Preview and verify the B1 in-memory list resets. Record this as expected B1 behavior, not as a defect."
+      evidence_level: 2
+      required: true
+      acceptance_criteria_refs: ["AC-007"]
+  known_verification_limits:
+    - "ChatGPT has no direct access to the Human Owner's authenticated GAIS session or local browser."
+    - "No local npm/bun install, lint, unit test, build, production runtime, or deployment is claimed unless the Human Owner supplies actual output."
+    - "The source ZIP contained a zero-byte bun.lock and a declared eslint-config-next/Next.js major-version mismatch; this task does not repair either issue."
+    - "This task does not test persistence, localStorage, database, Auth, RLS, external APIs, cross-device sync, or backup/restore."
+    - "Formal Phase 3.1 UX Acceptance remains OPEN."
+
+change_budget:
+  max_changed_files: 1
+  max_created_files: 0
+  max_modified_files: 1
+  max_deleted_files: 0
+  max_total_diff_lines: 400
+  max_binary_files: 0
+  allow_dependency_changes: false
+  allow_lockfile_changes: false
+  allow_database_schema_changes: false
+  allow_financial_formula_changes: false
+  allow_authentication_changes: false
+  allow_architecture_changes: false
+
+authority:
+  policy_ref: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md — R2 bounded single-component change"
+  requested_by: "Human Owner / Product Owner"
+  authorized_by: "Human Owner / Product Owner"
+  authorization_reference: >-
+    Human Owner explicitly approved Contract B1 and instructed that Phase B
+    continue after closing Task #003 in the ChatGPT conversation on 2026-11-11.
+    This Contract records the approved B1 scope as one file, app/page.tsx,
+    with title-only in-memory task creation and validation. Publication to
+    main is required before learner execution.
+  executor:
+    class: HYBRID
+    identifier: "Human Owner operates GAIS; Gemini in the authenticated GAIS session performs the authorized code edit when prompted; ChatGPT prepares the exact prompt and reviews supplied source/Preview evidence. ChatGPT has no direct GAIS account or file-system access."
+    provider: "Google AI Studio"
+    capability_requirements:
+      - "Read the current BVC Task Management Project Instructions and this approved Contract."
+      - "Inspect the current app/page.tsx and stop if the scaffold differs from the verified source snapshot."
+      - "Modify only app/page.tsx in the existing GAIS project."
+      - "Use the existing React/Next.js/TypeScript scaffold with no new packages."
+      - "Run or inspect GAIS Preview where available and report actual outcomes."
+      - "Provide the exact changed-file list and evidence to the Human Owner."
+  permitted_actions:
+    - read
+    - inspect
+    - run_analysis
+    - modify
+    - run_build
+    - run_tests
+  human_approval:
+    required: true
+    status: APPROVED
+    approver_role: "Human Owner / Product Owner"
+    approval_reference: "Explicit Human Owner approval of Contract B1 in the 2026-11-11 ChatGPT conversation."
+    rationale: "R2 is a reversible single-page change that uses synthetic task titles in transient browser memory and does not introduce persistent personal data, external services, dependencies, or protected architecture changes."
+
+stopping_conditions:
+  - scope_expansion_required
+  - protected_resource_detected
+  - change_budget_exceeded
+  - baseline_or_recovery_point_unverified
+  - required_context_missing_or_conflicting
+  - authorization_missing_or_revoked
+  - verification_failed_or_insufficient
+  - unexpected_file_change
+  - risk_escalation
+  - security_or_data_exposure
+  - working_tree_changed_unexpectedly
+  - other
+
+retry_policy:
+  max_repair_attempts: 1
+  additional_attempts_require_approval: true
+  retry_rationale: >-
+    One bounded repair may correct a defect within app/page.tsx. Any need for
+    another file, dependency, configuration, persistence, API, or broader UI
+    change requires stopping and obtaining a new or revised Contract.
+
+reporting:
+  required_items:
+    - task_and_run_identifiers
+    - actual_file_inventory
+    - created_modified_deleted_breakdown
+    - scope_integrity_result
+    - change_budget_result
+    - verification_results
+    - evidence_references
+    - unresolved_findings
+    - limitations
+    - next_action
+    - checkpoint_reference
+    - handoff_reference
+  out_of_scope_findings_must_be_recorded: true
+
+continuity:
+  checkpoint_required: true
+  handoff_on_interruption: true
+  recovery_instructions_ref: "specifications/v0.1/task-contract.md#4.13-reporting-and-continuity"
