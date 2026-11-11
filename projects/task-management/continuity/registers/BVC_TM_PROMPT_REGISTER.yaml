@@ -77,7 +77,7 @@ prompts:
     path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml
   authorization_status: AUTHORIZED_WITHIN_CONTRACT_SCOPE
   execution_status: NOT_STARTED
-  publication_status: PROPOSED_IN_PR_53; NOT_YET_CANONICAL_ON_MAIN
+  publication_status: OPEN_PR_53; NOT_YET_CANONICAL_ON_MAIN
   prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md
   lesson_path: practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
   scope_boundary: "Modify only app/page.tsx in the existing GAIS project. Title-only task create/display, in-memory state, empty-title validation and Enter submission. No persistence, package/config changes, API, database, Auth, external service or GitHub integration."
