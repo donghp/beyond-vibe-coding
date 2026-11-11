@@ -72,3 +72,12 @@ No new continuity test is marked PASS by this documentation update. Existing tes
 - **Local workspaces:** `C:\beyond-vibe-coding-a4-evidence` was last Owner-verified at `202e780` before PR #47–#49 and is not rechecked at `aff2b42`. `C:\beyond-vibe-coding` remains Owner-reported DIRTY and must be preserved.
 - **Validation status:** CONT-T01 through CONT-T11 remain NOT_RUN. No cold-start, cross-model, sender-release, receiver-acceptance or quota-interruption test is claimed PASS.
 - **Review note:** Contract R5 baseline is `202e780`, while PR #47/#49 updated the Contract file itself after that checkpoint. AC-011 requires the full VCS-derived inventory from the approved baseline; that control-plane Contract-file change must be accounted for without disguising it as one of the 13 authorized output paths. AC-011 is therefore NOT_YET_VERIFIED pending resolution and documented inventory treatment.
+
+## 7. Draft PR #50 — current reconciliation proposal
+
+- **PR:** https://github.com/donghp/beyond-vibe-coding/pull/50
+- **State:** OPEN / DRAFT / NOT READY FOR MERGE.
+- **Current-main diff:** 13 output paths (12 MODIFY, 1 CREATE, 0 DELETE); 766 diff lines; zero binary files.
+- **Baseline AC-011:** NOT_YET_VERIFIED. The compare from the approved source baseline `202e780...` includes the Contract file changed by separate PRs #47/#49; that path is not one of the authorized 13 output paths.
+- **Static validation:** Project State was JSON-parsed. Full Draft 2020-12 schema validation, YAML parsing, CSV/path validation, and Contract Validator VC-004/VC-007 remain NOT_RUN.
+- **No test is marked PASS based on this Draft PR.**
