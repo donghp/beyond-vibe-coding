@@ -23,6 +23,8 @@ A merged PR is not automatically acceptance of its deliverables. A passing check
 
 ## 3. Mandatory startup sequence
 
+Use [START_HERE.md](./START_HERE.md) as the concise orientation page, then follow this Bootstrap and the full resume prompt. START_HERE is navigation only; it does not replace canonical records or authority.
+
 ### Step 0 — Read the repository verification procedure
 
 Read [GITHUB_REPOSITORY_VERIFICATION.md](./GITHUB_REPOSITORY_VERIFICATION.md) before making repository-state claims or taking consequential action. It is an operational procedure under this Bootstrap, not a separate authority hierarchy or project-state store. Follow it according to the actual GitHub connector, API, or local Git capabilities available to the executor.

@@ -28,6 +28,12 @@ Keep the original screenshot supplied by the Human Owner. If redaction or annota
 
 A checkpoint marked OBSERVED in the conversation is not automatically a repository asset. Synchronize the authentic image file before embedding a Markdown image link or marking the lesson Ready for Review.
 
+## Phase B — Build Your First Task
+
+| Checkpoint | Filename | Purpose | Status |
+|---|---|---|---|
+| B1-08 | phase-b/b1-08-gais-preview-after-refresh.png | Actual GAIS Preview after refreshing the in-memory task list | **OWNER-SUPPLIED / OBSERVED_PASS (2026-11-11); BINARY NOT YET VERIFIED ON GITHUB.** The supplied screenshot shows an empty task list, blank input, cleared validation message and friendly empty state. Do not embed a Markdown image link until the original binary is committed and checksum-verified. |
+
 ## Asset publication note
 
 The Phase A JPG/PNG files above are authentic owner-supplied GAIS screenshots. A1–A3 original lesson screenshots and A4-01/A4-02 are published on main. The follow-up A3-02R screenshot was supplied in conversation on 2026-11-10 and is recorded as observed evidence; its binary is not yet synchronized as a repository asset. No screenshot has been synthesized to represent the GAIS interface.

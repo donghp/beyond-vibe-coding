@@ -1,6 +1,6 @@
 evidence_index_version: 0.1.0
 project_id: BVC-TASK-MANAGEMENT
-evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_CONTRACT_AND_PROMPT_CANONICAL; GAIS_EXECUTION_NOT_STARTED
+evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_EXECUTION_REPORTED; B1_EVIDENCE_PARTIAL; OWNER_ACCEPTANCE_PENDING
 classification_legend:
   REPOSITORY_VERIFIED: Directly checked against current GitHub main or canonical file.
   OWNER_SUPPLIED: Provided by Human Owner in the conversation; binary/source may not be committed.
@@ -139,3 +139,25 @@ evidence:
   observed_at: '2026-11-11T17:28:01+07:00'
   claim: "PR #53 was Squash & Merged. Merge commit and current main HEAD are ff2f1685d8dbc797c29377c090b972aa1922ab15. Contract BVC-TM-TC-004 Revision 1 and BVCTM-PROMPT-0004 are canonical on main."
   limitations: "B1 GAIS execution remains NOT_STARTED. Live app identity and current app/page.tsx must be preflighted before running the prompt; local Windows worktree status after the merge is NOT_VERIFIED."
+
+- evidence_id: BVC-EV-021
+  subject: B1 GAIS implementation report after BVCTM-PROMPT-0004
+  classification: OWNER_REPORTED
+  source: "Human Owner pasted Gemini 3.8 Flash execution response in ChatGPT on 2026-11-11"
+  observed_at: '2026-11-11'
+  claim: "Gemini reports only app/page.tsx changed, React in-memory task state, no persistence or dependency changes, ESLint zero errors/warnings, and successful Next.js production build."
+  limitations: "Exact app/page.tsx diff was not independently fetched. Browser E2E was not run; some behaviors were described as code-path analysis. This is execution-report evidence, not Owner acceptance."
+- evidence_id: BVC-EV-022
+  subject: B1 Preview before refresh
+  classification: OWNER_SUPPLIED
+  source: "Human Owner supplied GAIS Preview screenshot in ChatGPT on 2026-11-11"
+  observed_at: '2026-11-11'
+  claim: "Preview visibly showed two task rows, an empty title input and a validation message."
+  limitations: "The screenshot alone does not prove the interaction sequence, exact source diff or full B1 acceptance."
+- evidence_id: BVC-EV-023
+  subject: B1-08 Preview after refresh
+  classification: OWNER_SUPPLIED
+  source: "Human Owner supplied GAIS Preview screenshot after refresh in ChatGPT on 2026-11-11"
+  observed_at: '2026-11-11'
+  claim: "Screenshot visibly shows an empty task list, blank input, cleared validation and friendly empty state after refresh. Record B1-08 as OBSERVED_PASS."
+  limitations: "The original binary is not yet verified on GitHub. Keep OWNER_SUPPLIED/OBSERVED classification until the exact image bytes are committed and checksum-verified."

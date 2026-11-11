@@ -7,7 +7,7 @@
 **Learning outcome:** Enter a task title, add the task, and see it appear in a simple list.  
 **Implementation scope:** [BVC-TM-TC-004 Revision 1 — APPROVED](../../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml). MODIFY `app/page.tsx` only in the existing GAIS app.  
 **Canonical prompt:** [BVCTM-PROMPT-0004 — Phase B1: Create Your First Task](../../prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md).  
-**Lesson status:** Contract approved; application implementation NOT_STARTED. Preview evidence and Human Owner acceptance are still required.
+**Lesson status:** Contract and Prompt published; implementation reported by the Owner; technical evidence partial; Human Owner acceptance pending.
 
 ## 1. What you will make
 
@@ -138,7 +138,11 @@ After AI reports that it has finished, inspect the actual Preview. Try these ste
 4. **Reject an empty title:** leave the field empty and select **Add task**. No new task should appear; a helpful validation message should be shown.
 5. **Reject spaces only:** enter three spaces and select **Add task**. No blank task should be created.
 6. **Keyboard check:** enter a valid title and use the keyboard to submit the form. The task should be added once, not twice.
-7. **Temporary-memory check:** refresh the Preview. The temporary tasks may disappear. That is the expected B1 result; B2 will teach saving.
+7. **Temporary-memory check:** add at least two tasks, then refresh the Preview. Confirm the tasks disappear, the input is blank, any previous validation message is cleared, and the friendly empty state appears. This is the expected B1 result; B2 will teach saving.
+
+### Owner-supplied checkpoint — B1-08 refresh
+
+The Human Owner supplied a GAIS Preview screenshot after refresh on 2026-11-11. It visibly shows the empty task state, a blank input, no stale validation message and the friendly empty-state text. Record this as **OBSERVED_PASS** for B1-08. The screenshot remains **OWNER_SUPPLIED** until its original binary is committed to this repository and its checksum is verified. Do not use a mock image or placeholder asset.
 
 If the actual labels or layout differ, record what you observe. Do not change the lesson to describe a control you cannot see.
 
