@@ -29,7 +29,7 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 
 | Lesson | Status | Required dependency / evidence |
 |---|---|---|
-| B1 — Create Your First Task | Contract BVC-TM-TC-004 Revision 1 approved; implementation NOT_STARTED | Contract authorizes MODIFY app/page.tsx only in the existing GAIS app. Run BVCTM-PROMPT-0004 after the Contract is published on main and live source preflight passes. Verify title-only creation, list display, empty-title validation, Enter submission and in-memory-only behavior in GAIS Preview. |
+| B1 — Create Your First Task | Contract BVC-TM-TC-004 Revision 1 approved; implementation NOT_STARTED | Contract authorizes MODIFY app/page.tsx only in the existing GAIS app. Contract #004 and Prompt #0004 are now canonical on main through PR #53. First verify the existing GAIS app identity and current app/page.tsx; if it matches the expected scaffold, run BVCTM-PROMPT-0004. Stop if materially different. Verify title-only creation, list display, empty-title validation, Enter submission and in-memory-only behavior in GAIS Preview. |
 | B2 — Save Your Task | Planned — gated | Resolve DR-005 first-use storage disclosure and approve a separate B2 implementation scope; then verify actual browser persistence. |
 | B3 — Close and Reopen | Planned — depends on B2 | Same app origin and browser profile must show the exact saved task after reload/reopen. |
 | B4 — Improve One Small Thing | Planned — depends on B1–B3 | One bounded, approved improvement is made; relevant B1–B3 regression checks pass. |

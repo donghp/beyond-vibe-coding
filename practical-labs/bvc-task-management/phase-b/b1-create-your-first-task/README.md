@@ -36,8 +36,8 @@ For this first lesson, tasks exist only in the page's current memory.
 1. Open your existing BVC Task Management project in GAIS.
 2. Open **Code** and **Preview**.
 3. Confirm the current project still shows the blank scaffold screen.
-4. Make sure BVC-TM-TC-004 Revision 1 is published on `main` and available to the AI session.
-5. Confirm that the Contract authorizes only `app/page.tsx` and that the current GAIS file still matches the inspected scaffold.
+4. Confirm BVC-TM-TC-004 Revision 1 and Prompt #0004 are available on `main` (both were published by merged PR #53).
+5. Confirm that the Contract authorizes only `app/page.tsx`. Inspect the current GAIS file and compare it with the expected scaffold; stop if it differs materially.
 6. Open the canonical [Prompt #0004](../../prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md).
 
 If the active Contract is missing, its scope differs from this lesson, or AI says another file must change, stop and ask the Human Owner. Do not expand the scope yourself.
