@@ -1,0 +1,306 @@
+schema_version: "0.2.0"
+document_id: "BVC-TM-P3.3-003-GAIS-SCAFFOLD-INVENTORY"
+project_id: "BVC-TASK-MANAGEMENT"
+task_id: "BVC-TM-P3.3-003"
+contract:
+  id: "BVC-TM-TC-003"
+  revision: 1
+  status: "APPROVED"
+  path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+inventory_status: "SOURCE_ZIP_INVENTORY_COMPLETE; CONTRACT_ACCEPTANCE_PARTIAL"
+observed_at: "2026-11-11"
+source_archive:
+  file_name: "bvc-task-management-scaffold-inspection.zip"
+  classification: "HUMAN_OWNER_UPLOADED_SOURCE_EXPORT"
+  sha256: "fd2de957853cccefd5c1c0f5f887bb1ab34fabe34eeaf1bfe86bb982c62c2723"
+  archive_bytes: 8884
+  uncompressed_bytes: 6754
+  file_count: 18
+  zip_integrity: "PASS"
+  extraction_into_repository: false
+  note: "All 18 file entries in the uploaded ZIP were inspected. This does not prove whether GAIS excluded remote metadata or files outside the exported archive."
+repository_checkpoint:
+  repository: "https://github.com/donghp/beyond-vibe-coding"
+  main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
+  evidence_branch: "docs/bvctm-task003-scaffold-evidence"
+application:
+  platform: "Google AI Studio Build mode"
+  display_name: "BVC Task Management Scaffold Inspection"
+  app_id: "ca589018-617d-4919-bbe2-6b9c588ccd85"
+  app_url: "https://aistudio.google.com/apps/ca589018-617d-4919-bbe2-6b9c588ccd85"
+  intended_type: "WEB"
+  app_type_label_observed: false
+  app_type_status: "PARTIAL; explicit GAIS UI label and Owner confirmation still required"
+  preview:
+    status: "OWNER_SUPPLIED_OBSERVED"
+    visible_text: "BVC Task Management Scaffold Inspection"
+    build_result: "NOT_VERIFIED"
+    runtime_result: "NOT_VERIFIED"
+  model:
+    label: "Gemini 3.8 Flash"
+    evidence: "A4 screenshot only"
+framework:
+  name: "Next.js"
+  declared_version: "^15.4.9"
+  evidence:
+    - "package.json dependency"
+    - "next.config.ts"
+    - "next-env.d.ts"
+    - "app/page.tsx"
+    - "app/layout.tsx"
+    - "app/not-found.tsx"
+  version_status: "DECLARED_RANGE_ONLY; RESOLVED_INSTALLED_VERSION_UNKNOWN"
+language:
+  name: "TypeScript / TSX"
+  declared_typescript_version: "5.9.3"
+  evidence:
+    - "tsconfig.json"
+    - ".ts, .tsx and .d.ts files"
+  react:
+    declared_version: "^19.2.1"
+    react_dom_declared_version: "^19.2.1"
+package_management:
+  package_json:
+    path: "package.json"
+    package_name: "ai-studio-applet"
+    package_version: "0.1.0"
+    private: true
+    package_manager_field: "ABSENT"
+  readme_instructions:
+    runtime_prerequisite: "Node.js"
+    install_command: "npm install"
+    dev_command: "npm run dev"
+  bun_lock:
+    path: "bun.lock"
+    exists: true
+    size_bytes: 0
+    sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    status: "EMPTY; NOT A POPULATED LOCKFILE"
+  package_lock_json:
+    present_in_supplied_zip: false
+  package_manager_determination: "NOT_CONFIRMED; README documents npm instructions, package.json has no packageManager field, bun.lock is empty"
+scripts:
+  dev: "next dev"
+  build: "next build"
+  start: "next start"
+  lint: "eslint ."
+  clean: "next clean"
+  execution_status: "NOT_RUN"
+dependencies:
+  direct:
+    "@google/genai": "^2.4.0"
+    "@hookform/resolvers": "^5.2.1"
+    "autoprefixer": "^10.4.21"
+    "class-variance-authority": "^0.7.1"
+    "clsx": "^2.1.1"
+    "lucide-react": "^0.553.0"
+    "motion": "^12.23.24"
+    "next": "^15.4.9"
+    "postcss": "^8.5.6"
+    "react": "^19.2.1"
+    "react-dom": "^19.2.1"
+    "tailwind-merge": "^3.3.1"
+  dev:
+    "@tailwindcss/postcss": "4.1.11"
+    "@tailwindcss/typography": "^0.5.19"
+    "@types/node": "^20"
+    "@types/react": "^19"
+    "@types/react-dom": "^19"
+    "eslint": "9.39.1"
+    "eslint-config-next": "16.0.8"
+    "firebase-tools": "^15.0.0"
+    "tailwindcss": "4.1.11"
+    "tw-animate-css": "^1.4.0"
+    "typescript": "5.9.3"
+  resolved_versions: "UNKNOWN; empty bun.lock provides no resolution"
+configuration:
+  next_config:
+    file: "next.config.ts"
+    react_strict_mode: true
+    eslint_ignore_during_builds: true
+    typescript_ignore_build_errors: false
+    output: "standalone"
+    transpile_packages:
+      - "motion"
+    image_remote_pattern:
+      protocol: "https"
+      hostname: "picsum.photos"
+      pathname: "/**"
+    webpack_hmr_condition: "When dev and DISABLE_HMR equals true, all file watching is ignored"
+  typescript:
+    strict: true
+    no_emit: true
+    module_resolution: "bundler"
+    jsx: "preserve"
+    target: "ES2017"
+    path_alias:
+      "@/*": "./*"
+  postcss:
+    file: "postcss.config.mjs"
+    plugins:
+      - "@tailwindcss/postcss"
+      - "autoprefixer"
+  tailwind:
+    css_entry: "app/globals.css"
+    import: "tailwindcss"
+    declared_version: "4.1.11"
+  eslint:
+    flat_config: "eslint.config.mjs"
+    legacy_config: ".eslintrc.json"
+    declared_eslint_version: "9.39.1"
+    declared_eslint_config_next_version: "16.0.8"
+    declared_next_version: "^15.4.9"
+    finding: "Two ESLint config styles coexist; eslint-config-next major version 16 differs from Next.js major version 15. Effective configuration and compatibility have not been tested."
+metadata:
+  file: "metadata.json"
+  name: "BVC Task Management Scaffold Inspection"
+  description: "Minimal project scaffold inspection for BVC Task Management (BVCTM)."
+  request_frame_permissions: []
+  major_capabilities:
+    - "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  interpretation: "Declared platform capability only; does not prove an API call or live Gemini integration."
+environment:
+  example_file: ".env.example"
+  variable_names:
+    - "GEMINI_API_KEY"
+    - "APP_URL"
+  values_in_supplied_example: "PLACEHOLDERS_ONLY"
+  real_secret_values_identified: false
+  gitignore:
+    ignores_env_glob: true
+    re_includes_env_example: true
+  live_secrets_panel_inspected: false
+integration_status:
+  google_genai_dependency_present: true
+  firebase_tools_dev_dependency_present: true
+  gemini_api_calls_found_in_supplied_source: false
+  firebase_configuration_or_live_connection_found_in_supplied_source: false
+  github_connection_status_from_gais: "NOT_VERIFIED"
+  database_auth_rls_status: "NOT_VERIFIED"
+  external_services_status: "NOT_VERIFIED"
+  hosting_deployment_status: "NOT_VERIFIED"
+  note: "Absence of integration code in this 18-file export is not proof of the state of external GAIS account configuration or runtime secrets."
+observed_directories:
+  - "app/"
+  - "hooks/"
+  - "lib/"
+files:
+  - path: "metadata.json"
+    size_bytes: 246
+    sha256: "1dbdad04bdc529b8476e5cb3296a723a673eb208d2029f3fd8ae371e8774fff7"
+    classification: "JSON_PLATFORM_METADATA"
+    inspected: true
+  - path: "tsconfig.json"
+    size_bytes: 658
+    sha256: "68015f80f40f7f7523e2575b8ddac5f410455a3a9148da9a037df33ed7193c8d"
+    classification: "TYPESCRIPT_CONFIG"
+    inspected: true
+  - path: "bun.lock"
+    size_bytes: 0
+    sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    classification: "EMPTY_LOCKFILE"
+    inspected: true
+  - path: "app/layout.tsx"
+    size_bytes: 819
+    sha256: "88737eb883e749526d7a72d917a446dd67959cb2bdc66780538ea6d6d41f410b"
+    classification: "NEXT_APP_LAYOUT"
+    inspected: true
+  - path: "eslint.config.mjs"
+    size_bytes: 314
+    sha256: "81f2f39167e00dc07cc0016759bd12c3583fe25d4342248c59ac9c6ac0fe2e11"
+    classification: "ESLINT_FLAT_CONFIG"
+    inspected: true
+  - path: "app/globals.css"
+    size_bytes: 23
+    sha256: "42070e0b45bb201b2b838a52aaaa6e965f964e0b542d97f1fe517fe59c4b75a8"
+    classification: "GLOBAL_CSS"
+    inspected: true
+  - path: "hooks/use-mobile.ts"
+    size_bytes: 524
+    sha256: "09e4adaed27fc85d3cb3e00e5c8b1978596f2f695efcd1b4c0e725229b6415c2"
+    classification: "RESPONSIVE_HOOK"
+    inspected: true
+  - path: ".env.example"
+    size_bytes: 445
+    sha256: "b6d12c728de0aac8b0bc6239e53aa8088c1431bcb4f9a3d61e5e8a2df1c7c400"
+    classification: "ENVIRONMENT_TEMPLATE"
+    inspected: true
+  - path: ".gitignore"
+    size_bytes: 67
+    sha256: "d3b60dc325939dcbc5e350e074ed78102ae93efb1a519e461e24c31920da7246"
+    classification: "GIT_IGNORE_CONFIG"
+    inspected: true
+  - path: ".eslintrc.json"
+    size_bytes: 24
+    sha256: "a66f8ca4ad166f1999822967959ede701f895533cee9bff92b4edc92a47e8a25"
+    classification: "ESLINT_LEGACY_CONFIG"
+    inspected: true
+  - path: "app/page.tsx"
+    size_bytes: 325
+    sha256: "0ad827a10491ddcf8b4ba6b5f9d2db88134682258a4f0ecf6cc5428fb52d2dcd"
+    classification: "ROOT_PAGE_PLACEHOLDER"
+    inspected: true
+  - path: "app/not-found.tsx"
+    size_bytes: 329
+    sha256: "8073ae7aa75f4b06d00356209fafbbb0c173f9598b85e45a76c34414fdea7e75"
+    classification: "NOT_FOUND_PAGE_PLACEHOLDER"
+    inspected: true
+  - path: "package.json"
+    size_bytes: 972
+    sha256: "b0e3374f2520f28c38bea18a462e44ccfd51328035caff0f9fb1d5e7c1b0e92e"
+    classification: "PACKAGE_MANIFEST"
+    inspected: true
+  - path: "postcss.config.mjs"
+    size_bytes: 168
+    sha256: "37036f1d557b163b84bcd0d8af54069578cd97f9dd8686a1da79e78537267129"
+    classification: "POSTCSS_CONFIG"
+    inspected: true
+  - path: "next.config.ts"
+    size_bytes: 870
+    sha256: "f850c0166355ee9c296bdf04a6c0f2a598b70550e0d62ff3c8f758a17a325e85"
+    classification: "NEXT_CONFIG"
+    inspected: true
+  - path: "lib/utils.ts"
+    size_bytes: 166
+    sha256: "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+    classification: "UTILITY_MODULE"
+    inspected: true
+  - path: "next-env.d.ts"
+    size_bytes: 262
+    sha256: "85ae5aee75f011967cf2d25cbc342f62d69314e9d925f7f4aa3456fc2cffcca6"
+    classification: "NEXT_TYPESCRIPT_ENV"
+    inspected: true
+  - path: "README.md"
+    size_bytes: 542
+    sha256: "2c78b6e085a31bf60e4a80bd852c7c60573caad7bb5b6200e93c13f0efe04a17"
+    classification: "SOURCE_README"
+    inspected: true
+application_source_observations:
+  - path: "app/page.tsx"
+    observed: "Page component returns a main element containing one h1 with BVC Task Management Scaffold Inspection."
+    task_management_features: false
+  - path: "app/not-found.tsx"
+    observed: "NotFound component renders the same placeholder heading."
+  - path: "app/layout.tsx"
+    observed: "Imports Metadata from next; sets title/description, Open Graph and Twitter metadata; imports app/globals.css; returns html lang en."
+  - path: "app/globals.css"
+    observed: "Imports tailwindcss."
+  - path: "hooks/use-mobile.ts"
+    observed: "Uses React.useSyncExternalStore and a 768px mobile breakpoint."
+  - path: "lib/utils.ts"
+    observed: "Exports cn helper using clsx and tailwind-merge."
+acceptance_status:
+  AC-001: "PARTIAL; explicit app-type label and Owner external-resource confirmation pending"
+  AC-002: "PARTIAL_SUPPORTED; placeholder-only app page, but template metadata/dependencies present"
+  AC-003: "EVIDENCED_FOR_SUPPLIED_ZIP; all 18 entries inventoried"
+  AC-004: "PARTIAL; manifest/config inspected, package resolution and runtime versions unknown, bun.lock empty"
+  AC-005: "OWNER_SUPPLIED_PREVIEW_OBSERVED; build/test not run"
+  AC-006: "PARTIAL_NOT_VERIFIED; no real secret found in archive, external account/secrets/connectivity state not inspected"
+  AC-007: "PENDING_YAML_PARSE_AND_REPORT_CONSISTENCY_CHECK"
+  AC-008: "PENDING_VCS_INVENTORY_AND_CONTRACT_VALIDATOR"
+required_remaining_evidence:
+  - "Human Owner confirms app type is WEB from GAIS UI."
+  - "Human Owner confirms whether this app was connected to GitHub or another external integration."
+  - "Run VC-006 YAML parser and Markdown whitespace validation."
+  - "Run VC-007 with a VCS-derived inventory proving exactly two CREATE, zero MODIFY, zero DELETE, zero binary files."
+  - "Human Owner reviews and records Contract #003 acceptance."
