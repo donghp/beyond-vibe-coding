@@ -3,19 +3,21 @@ project_id: BVC-TASK-MANAGEMENT
 register_status: PILOT
 systems:
 - system_id: GAIS
-  name: Google AI Studio
+  name: Google AI Studio Build mode
   url: https://aistudio.google.com/apps
   owner: Human Owner
-  purpose: Create and inspect one blank WEB app under BVC-TM-TC-003.
-  access_mode: Human-operated; AI analyzes screenshots and exported files supplied by Owner.
-  observed_status: Apps landing screen shown in screenshot supplied during chat.
-  app_created: NOT_VERIFIED
-  app_type: NOT_VERIFIED
-  app_name: NOT_VERIFIED
-  preview_status: NOT_VERIFIED
-  code_tree_status: NOT_VERIFIED
+  purpose: Create and inspect the isolated blank WEB scaffold under BVC-TM-TC-003.
+  access_mode: Human-operated; ChatGPT reviews only screenshots/files explicitly supplied by the Owner.
+  current_status: OWNER_SUPPLIED_APP_TITLE_AND_EXPECTED_PREVIEW_HEADING; TECHNICAL_INVENTORY_NOT_VERIFIED
+  app_name_observed: BVC Task Management Scaffold Inspection
+  app_type: UNKNOWN
+  preview_status: OWNER_SUPPLIED_OBSERVED_EXPECTED_HEADING_VISIBLE
+  visible_preview_text: "BVC Task Management Scaffold Inspection"
+  code_tree_status: PHASE_A_SCREENSHOTS_SHOW_A_VISUAL_TREE; CURRENT_MANIFEST_AND_TOOLCHAIN_INVENTORY_NOT_VERIFIED
   export_status: NOT_VERIFIED
-  last_evidence_ref: A1-01 supplied screenshot; image sync to repository not verified.
+  model_label: UNKNOWN_IN_LATEST_SCREENSHOT
+  quota_status: UNKNOWN
+  last_evidence_ref: "Human Owner supplied GAIS Preview screenshot in ChatGPT on 2026-11-11."
   prohibited_data:
   - API key values
   - tokens
@@ -29,48 +31,78 @@ systems:
   owner: Human Owner / BVC governance
   purpose: Canonical repository, source history, PR review and continuity storage.
   default_branch: main
-  observed_main_sha: 53ed2649bd5ee687ae76be686db5838f4b9b0173
-  observed_at: '2026-11-05T21:54:16+07:00'
+  observed_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
+  observed_at: "2026-11-11T08:30:00+07:00"
   open_prs_at_last_check: []
   recently_merged_prs:
-  - number: 15
-    url: https://github.com/donghp/beyond-vibe-coding/pull/15
+  - number: 47
+    url: https://github.com/donghp/beyond-vibe-coding/pull/47
     status: MERGED
-    merge_commit: 53ed2649bd5ee687ae76be686db5838f4b9b0173
-    canonical: YES — changes are now on main
+    merge_commit: 0c2ad6c00a5219cc9bb0e394987997545065f77f
+  - number: 48
+    url: https://github.com/donghp/beyond-vibe-coding/pull/48
+    status: MERGED
+    merge_commit: eb7b8757474e8a40a72835ceb26cee99132b1aa3
+  - number: 49
+    url: https://github.com/donghp/beyond-vibe-coding/pull/49
+    status: MERGED
+    merge_commit: aff2b42da26ec548de8088bf77de455a94723773
   merge_authority: Human Owner
-  auto_merge: Not assumed; follow current repository settings and the Global Continuity protocol.
-- system_id: LOCAL-WORKSPACE
-  name: Windows local repository
+  branch_protection: "main was last observed unprotected; no settings changed."
+- system_id: LOCAL-WORKSPACE-MAIN
+  name: Windows candidate canonical-main worktree
+  owner: Human Owner
+  canonical_path: C:\beyond-vibe-coding-a4-evidence
+  access_mode: Owner-supplied terminal output; ChatGPT does not directly inspect Windows files.
+  current_status: OWNER_REPORTED_CLEAN_AT_202e780; EXPECTED_BEHIND_THREE_MERGED_COMMITS; NOT_RECHECKED
+  current_branch: main
+  last_local_commit: "202e78065e96d339f78d5a406edcd19ccf687e7f"
+  last_verified_origin_main: "202e78065e96d339f78d5a406edcd19ccf687e7f"
+  current_remote_main: "aff2b42da26ec548de8088bf77de455a94723773"
+  last_observed_at: "2026-11-11T08:30:00+07:00"
+  sync_status: NOT_VERIFIED_AFTER_PR_47_48_49
+  next_safe_action: "Run a fresh status check, fetch origin, confirm clean main and zero local-ahead commits, then git merge --ff-only origin/main."
+- system_id: LOCAL-WORKSPACE-DIRTY
+  name: Windows historical/working worktree
   owner: Human Owner
   canonical_path: C:\beyond-vibe-coding
-  project_path: C:\beyond-vibe-coding\projects\task-management
-  project_continuity_path: C:\beyond-vibe-coding\projects\task-management\continuity
-  template_path: C:\beyond-vibe-coding\templates\project-continuity
-  purpose: Local extraction, screenshot capture, validation and Git synchronization.
-  access_mode: Human-operated; remote assistant cannot inspect local filesystem.
-  working_tree_status: UNKNOWN
-  current_branch: UNKNOWN
-  last_local_commit: UNKNOWN
-  required_local_checks:
-  - git branch --show-current
-  - git status --short --branch
-  - git rev-parse HEAD
-  - compare local main with origin/main before starting a new branch
+  access_mode: Owner-supplied terminal output; not directly inspected by ChatGPT.
+  current_status: DIRTY_PRESERVE
+  current_branch: docs/bvctm-continuity-contract-r3
+  last_local_commit: c2f4b7987a08151f46606f5a68200629b71ab691
+  modified_files:
+  - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
+  untracked_files:
+  - practical-labs/bvc-task-management/phase-a/a1-01-gais-start-screen.png
+  - practical-labs/bvc-task-management/phase-a/a1-02-bvctm-initial-scaffold-preview.png
+  stash_count: 6
+  linked_worktree_count: 7
+  git_common_dir: C:/beyond-vibe-coding/.git
+  instruction: Preserve all local-only content, stashes and worktrees. Do not reset, clean, switch, pop stashes or overwrite.
+- system_id: DEEPSEEK-VSCODE
+  name: DeepSeek / VS Code execution environment
+  owner: Human Owner
+  access_mode: Human-operated; each model, session, quota and repository capability must be verified in that session.
+  current_status: UNKNOWN
+  model_label: UNKNOWN
+  quota_status: UNKNOWN
+  local_git_access: OWNER_TOOL_AVAILABLE; CURRENT_SESSION_NOT_VERIFIED
 - system_id: SCREENSHOT-STORE
   name: Practical Labs Screenshot Store
-  owner: Human Owner
+  owner: Human Owner / repository maintainers
   canonical_root: practical-labs/assets/screenshots/
-  local_root: C:\beyond-vibe-coding\practical-labs\assets\screenshots
-  phase_folders:
-  - phase-a
-  - phase-b
-  - phase-c
-  - phase-d
-  status: Directory layout proposed; actual image binaries must be checked individually.
+  status: SIX_PHASE_A_IMAGE_ASSETS_RECORDED_AS_COMMITTED_ON_MAIN_BY_LESSON_REGISTER_AND_MERGED_PR_EVIDENCE
+  files:
+  - practical-labs/assets/screenshots/phase-a/a1-01-gais-start-screen.png
+  - practical-labs/assets/screenshots/phase-a/a1-02-bvctm-initial-scaffold-preview.jpg
+  - practical-labs/assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg
+  - practical-labs/assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg
+  - practical-labs/assets/screenshots/phase-a/a4-01-gais-prompt-0003-response.png
+  - practical-labs/assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png
+  limitation: "GitHub connector did not decode the binary files as UTF-8; publication status follows the canonical Lesson Status Register and merged PR records."
 - system_id: TEMPLATE-STORE
   name: BVC Project Continuity Template Folder
   owner: Human Owner / BVC architecture governance
   local_path: C:\beyond-vibe-coding\templates\project-continuity
-  status: OWNER_REPORTED_CREATED_LOCALLY; repository publication not verified
-  purpose: Hold generic reusable continuity starter templates, not BVCTM-specific state.
+  status: OWNER_REPORTED_CREATED_LOCALLY; REPOSITORY_PUBLICATION_NOT_VERIFIED
+  purpose: Hold generic reusable continuity starter templates, not BVCTM-specific project state.
