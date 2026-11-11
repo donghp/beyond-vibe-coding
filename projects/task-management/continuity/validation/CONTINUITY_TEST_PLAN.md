@@ -36,6 +36,7 @@ Do not run a recovery test against files that exist only in an unmerged branch a
 | CONT-T08 | Prompt sequence integrity | Ask AI to prepare the next BVCTM prompt. | AI reads Prompt Register, uses the next unused number, does not reuse an ID, and checks Contract authorization first. | NOT_RUN |
 | CONT-T09 | State/schema validation | Run JSON Schema validation and YAML/CSV parsing on project continuity files. | Valid syntax and required schema compliance; semantic inconsistencies are reported, not hidden. | NOT_RUN |
 | CONT-T10 | Recovery after interrupted work | Stop a task mid-way, record handoff, then resume in a new session. | New session identifies completed vs uncompleted steps, recovery point, uncommitted/local unknowns, and a safe next action. | NOT_RUN |
+| CONT-T11 | GAIS quota interruption and GAIS-to-DeepSeek/VS Code recovery | Begin with an approved GAIS task and a checkpoint that is either committed to main or explicitly exported and supplied. Simulate a quota/session interruption; record sender identity, last remote SHA, exact files/artifacts, local synchronization, and sender release. A receiver in DeepSeek/VS Code independently verifies the checkpoint and records acceptance before writing. | Receiver reconstructs the task, scope, exact checkpoint, completed/uncompleted work and one permitted next action without assuming access to private GAIS or uncommitted in-memory state; no concurrent writer remains. | NOT_RUN |
 
 ## 4. Scoring
 
@@ -68,3 +69,25 @@ Re-run relevant tests after material changes to:
 - Task Contract execution gates;
 - session bootstrap instructions;
 - external system registration and evidence model.
+
+
+## 3.1 GAIS quota interruption and DeepSeek/VS Code receiver test (CONT-T11)
+
+**Status: NOT_RUN.** This scenario is designed only; no simulated interruption, sender release, receiver acceptance, or cross-provider execution is claimed.
+
+Preconditions:
+- A specific approved Task Contract and one active task/branch are identified.
+- The sender records the last committed GitHub SHA and exact changed-file inventory. Any uncommitted GAIS state is separately exported and supplied; otherwise it is explicitly LOCAL_ONLY / NOT_RECOVERABLE_FROM_GITHUB.
+- The sender stops writing and records an explicit release. The handoff record reuses `docs/continuity/WORKER_HANDOFF.schema.json` and `docs/continuity/WORKER_HANDOFF.template.yaml`.
+- The receiving DeepSeek/VS Code session declares its actual model, environment, repository access and quota state; no capability is assumed.
+
+Pass conditions:
+- The receiver independently verifies repository identity, source SHA, branch, diff, Contract scope, evidence and workspace synchronization.
+- The receiver records explicit acceptance of the exact checkpoint before becoming the single active writer.
+- Any GAIS-only or uncommitted work is not inferred from GitHub; missing exports block dependent writes.
+- The receiver reports completed work, remaining work, verification evidence, limitations and exactly one authorized next action.
+
+Stop conditions:
+- No sender release, conflicting writer, unknown branch/SHA, dirty/untracked state not supplied, missing export, scope mismatch or failed verification.
+
+Evidence required for a future run: sender transcript/checkpoint, handoff YAML, receiver identity/capability declaration, receiver verification report, exact branch/SHA and Owner review. Keep the status NOT_RUN until all are captured.
