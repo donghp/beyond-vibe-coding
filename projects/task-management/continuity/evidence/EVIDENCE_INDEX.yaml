@@ -81,3 +81,10 @@ evidence:
   source: projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md
   claim: Continuity recovery tests remain NOT_RUN, including fresh-window, cross-model and quota interruption.
   limitations: Test plan content is not evidence of test execution.
+- evidence_id: BVC-EV-013
+  subject: PR #50 — R5 continuity completion proposal
+  classification: PROPOSAL_ONLY
+  source: https://github.com/donghp/beyond-vibe-coding/pull/50
+  observed_at: '2026-11-11T08:30:00+07:00'
+  claim: "Draft PR #50 contains exactly 13 paths compared with current main: 12 MODIFY and one CREATE; current-main diff is 766 additions-plus-deletions, no binary files."
+  limitations: "PR is DRAFT and not canonical. AC-011 remains NOT_YET_VERIFIED because compare from approved R5 source baseline 202e780 also includes the separate Contract control-plane update from PRs #47/#49. Static validators and full baseline inventory have not passed."
