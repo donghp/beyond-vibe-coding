@@ -1,13 +1,13 @@
 profile_schema_version: 0.1.0
 profile_id: BVC-TM-CONTINUITY-PROFILE
-profile_revision: 5
+profile_revision: 6
 profile_status: PILOT
 project:
   project_id: BVC-TASK-MANAGEMENT
   display_name: BVC Task Management
   repository: https://github.com/donghp/beyond-vibe-coding
   default_branch: main
-  current_main_sha: "58ee43cefff59b3e99a48314a322d639652b38fb"
+  current_main_sha: "ff2f1685d8dbc797c29377c090b972aa1922ab15"
   last_reconciled_at: "2026-11-11"
   project_index: projects/task-management/README.md
   domain: SOFTWARE_PRODUCT_AND_BEGINNER_AI_VIBE_CODING
@@ -127,19 +127,14 @@ external_systems:
     owner: Human Owner / repository governance
     role: Canonical source repository, PR review, commit history and continuity storage
     access_mode: GitHub connector verified in originating ChatGPT session; new sessions must re-authenticate independently
-    current_status: MAIN_SHA_VERIFIED; PR_50_PR_51_PR_52_MERGED; B1_CONTRACT_PR_53_PROPOSED
-    observed_main_sha: "58ee43cefff59b3e99a48314a322d639652b38fb"
+    current_status: MAIN_SHA_VERIFIED; PR_50_TO_PR_53_MERGED; B1_CONTRACT_AND_PROMPT_CANONICAL; GAIS_EXECUTION_NOT_STARTED
+    observed_main_sha: "ff2f1685d8dbc797c29377c090b972aa1922ab15"
     observed_at: "2026-11-11"
     open_pr_count_at_main_checkpoint: 0
     current_open_proposals: []
-    prepared_proposals:
-      - id: B1_CONTRACT_PUBLICATION
-        status: OPEN_PR_53; REVIEW_PENDING
-        branch: docs/bvctm-task004-b1-first-task
-        next_expected_pr: 53
-    recent_merged_prs: [47, 48, 49, 50, 51, 52]
+    recent_merged_prs: [47, 48, 49, 50, 51, 52, 53]
     main_branch_protected: false
-    local_sync_after_pr_50_51_52: NOT_VERIFIED
+    local_sync_after_pr_50_51_52_53: NOT_VERIFIED
     recently_merged_prs:
       - number: 37
         status: MERGED
@@ -187,6 +182,9 @@ external_systems:
       - number: 52
         status: MERGED
         merge_commit: 58ee43cefff59b3e99a48314a322d639652b38fb
+      - number: 53
+        status: MERGED
+        merge_commit: ff2f1685d8dbc797c29377c090b972aa1922ab15
     merge_authority: Human Owner
     auto_merge: Not assumed; follow current repository settings and the Global Continuity protocol.
   - system_id: LOCAL-WORKSPACE-MAIN
