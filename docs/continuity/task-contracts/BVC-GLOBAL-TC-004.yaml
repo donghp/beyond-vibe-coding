@@ -1,9 +1,9 @@
 # BVC Global Task Contract 004
-# Proposed by ChatGPT Chief Architect for Human Owner review.
-# PROPOSED is not execution authority. Do not create implementation prompts or modify implementation outputs until this exact revision is approved and canonical on main.
+# Revision 2 — Owner-authorized correction of executor metadata and approval trace.
+# APPROVED; implementation remains subject to the exact scope, preflight gates, and Human Owner review/merge authority.
 contract_version: "0.1.0"
 contract_id: "BVC-GLOBAL-TC-004"
-revision: 1
+revision: 2
 status: APPROVED
 created_at: "2026-11-11T00:00:00Z"
 
@@ -215,7 +215,7 @@ required_context:
     purpose: "Establish ChatGPT's Chief Architect/Orchestrator role, Gemini's GAIS implementation role, DeepSeek's VS Code review/test role, and mandatory Owner review of every new ChatGPT session's project-understanding report."
     authority: APPROVED
     required: true
-    freshness_requirement: "The Human Owner explicitly approved the exact Contract scope, R2 classification and Acceptance Criteria AC-001 through AC-010 on 2026-11-11."
+    freshness_requirement: "The Human Owner explicitly authorized this exact Revision 2 metadata correction on 2026-11-11; the preserved implementation scope, R2 classification and Acceptance Criteria AC-001 through AC-010 remain unchanged."
 
 dependencies:
   - reference: "BVC-GLOBAL-TC-001 Revision 1"
@@ -227,9 +227,9 @@ dependencies:
   - reference: "BVC-TM-CONT-001 Revision 5"
     relationship: INFORMATIONAL
     reason: "BVCTM project continuity remains a separate project-specific extension; project registers are deliberately outside this Contract."
-  - reference: "Human Owner review of this proposed Contract"
+  - reference: "Human Owner approval and merge of BVC-GLOBAL-TC-004 Revision 2"
     relationship: MUST_COMPLETE_FIRST
-    reason: "No implementation files or executor prompts may be created until this exact Contract is approved and canonical on main."
+    reason: "No implementation files or executor prompts may be created until this exact approved Revision 2 is canonical on main and all other preflight gates pass."
 
 expected_outputs:
   - id: "OUT-001"
@@ -361,10 +361,12 @@ authority:
   policy_ref: "docs/continuity/BOOTSTRAP.md; docs/continuity/TASK_LIFECYCLE.md; docs/continuity/CROSS_EXECUTOR_CONTINUITY.md; specifications/v0.1/task-contract.md. The role assignment does not override Human Owner authority."
   requested_by: "Human Owner / Product Owner"
   authorized_by: "Human Owner / Product Owner"
-  authorization_reference: "Human Owner instructed ChatGPT to act as Chief Architect and proactively complete the project-understanding bootstrap/resume mechanism on 2026-11-11. Explicit approval of this exact Contract Revision 1 remains PENDING."
+  authorization_reference: "Human Owner explicitly authorized ChatGPT in the 2026-11-11 conversation to publish Revision 2 through a dedicated GitHub branch and Pull Request. This correction is limited to executor metadata and stale approval references; Revision 1's objective, R2 risk, exact 9-file implementation scope, AC-001 through AC-010, verification plan and Change Budget are preserved. Human Owner retains implementation-PR review and merge authority."
   executor:
     class: HYBRID
-    identifier: "ChatGPT GPT-6 as Chief Architect / Project Engineering Orchestrator; Human Owner performs final review and merge. Gemini GAIS and DeepSeek VS Code are role targets, not assumed connected executors during this documentation task."
+    identifier: "ChatGPT — Chief Architect / Project Engineering Orchestrator"
+    provider: "OpenAI"
+    model: "GPT-6"
     capability_requirements:
       - "Read live GitHub main, source manifests, canonical continuity records, relevant Contracts and recent PR/check evidence."
       - "Create the exact approved documentation files on a dedicated branch after this Contract is approved and merged."
@@ -382,8 +384,8 @@ authority:
     required: true
     status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "Human Owner explicit approval in the ChatGPT conversation on 2026-11-11: approved BVC-GLOBAL-TC-004 Revision 1, including three-AI roles, R2 risk, exact 9-file scope and Acceptance Criteria."
-    rationale: "The Human Owner explicitly approved this exact Contract Revision 1. This approval authorizes the Contract only; implementation may begin only after the APPROVED Contract is canonical on main and all other preconditions are met."
+    approval_reference: "Human Owner explicit authorization in the ChatGPT conversation on 2026-11-11 to complete this exact Revision 2 repair directly on GitHub. Authorization covers the bounded metadata correction while preserving the approved implementation scope and all acceptance/verification controls."
+    rationale: "The Human Owner explicitly authorized this exact Revision 2 metadata correction. The approval preserves the original implementation scope; implementation may begin only after this APPROVED Revision 2 is canonical on main and all other preconditions are met."
 
 stopping_conditions:
   - scope_expansion_required
