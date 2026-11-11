@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Enter a task title, add the task, and see it appear in a simple list.  
-**Implementation scope:** [BVC-TM-TC-004 Revision 1 — APPROVED](../../../../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml). MODIFY `app/page.tsx` only in the existing GAIS app.  
+**Implementation scope:** [BVC-TM-TC-004 Revision 1 — APPROVED](../../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml). MODIFY `app/page.tsx` only in the existing GAIS app.  
 **Canonical prompt:** [BVCTM-PROMPT-0004 — Phase B1: Create Your First Task](../../prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md).  
 **Lesson status:** Contract approved; application implementation NOT_STARTED. Preview evidence and Human Owner acceptance are still required.
 
