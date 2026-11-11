@@ -1,139 +1,137 @@
-﻿# 00 — BVC Project Continuity Entry Point
+# 00 — BVC Project Continuity Entry Point
 
-**Project:** BVC Task Management (BVCTM)\
-**Project ID:** `BVC-TASK-MANAGEMENT`\
-**Former filename:** `00_BVC_CHATGPT_CONTINUITY.md`\
-**Purpose:** Recover this project in any authorized AI executor across providers, models, applications, and sessions, without copying the previous conversation history.\
-**Principle:** Project owns continuity. AI executors consume continuity.\
-**Prepared against `main`:** `53ed2649bd5ee687ae76be686db5838f4b9b0173`\
-**Status:** PILOT — live bootstrap is required on every new session.
-
----
-
-## Start here — instructions for a new AI session
-
-You are joining an existing BVC project. Do not assume that the previous chat's summary, model memory, or this file alone is sufficient. Reconstruct the current state from the repository.
-
-### Step 1 — Confirm project and repository
-
-- Project: **BVC Task Management (BVCTM)**.
-- Project ID: `BVC-TASK-MANAGEMENT`.
-- Repository: https://github.com/donghp/beyond-vibe-coding
-- Default branch: `main`.
-- Read the live `main` HEAD. The SHA recorded in this entry point is a historical preparation checkpoint, not a substitute for a live check.
-
-### Step 2 — Read BVC Global Continuity
-
-Read these current files from `main`:
-
-1. `docs/continuity/README.md`
-2. `docs/continuity/BOOTSTRAP.md`
-3. `docs/continuity/CONTINUITY_PROTOCOL.md`
-4. `docs/continuity/CURRENT_STATE.yaml`
-5. `docs/continuity/DECISIONS.md`
-6. `docs/continuity/HANDOFF_LOG.md`
-7. `docs/continuity/HANDOFF_TEMPLATE.md`
-8. `docs/continuity/SOURCE_MANIFEST.csv`
-9. `docs/continuity/BVC_NEXT_CHAT_PROMPT.md`
-
-Follow the live Global Bootstrap authority order and execution gates. Do not replace or weaken them with this project-specific file.
-
-### Step 3 — Read BVCTM Project Continuity
-
-Read in this order:
-
-1. `projects/task-management/continuity/README.md`
-2. `projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml`
-3. `projects/task-management/continuity/PROJECT_STATE.json`
-4. `projects/task-management/continuity/SOURCE_MANIFEST.csv`
-5. `projects/task-management/continuity/HANDOFF_LOG.md`
-6. Relevant files in `registers/`, `evidence/`, and `validation/`.
-
-### Step 4 — Reconcile live project authority
-
-At minimum, inspect the current versions on `main` of:
-
-- `projects/task-management/README.md`
-- `projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md`
-- `projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md`
-- `projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md`
-- `projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md`
-- `projects/task-management/design/ux/v0.1/PHASE3_1_UX_DESIGN_REVIEW_AND_ACCEPTANCE.md`
-- `projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml`
-- `projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-002_TASK_CONTRACT_V0.1.yaml`
-- `projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml`
-- `projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md`
-- `projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml`
-
-Inspect all currently open PRs and distinguish proposals from `main`. PR #15 is already merged and must be treated as historical merged work, not an open proposal. A branch or open PR does not update canonical project state.
-
-### Step 5 — Reconcile external and local systems
-
-Use `registers/EXTERNAL_SYSTEM_REGISTER.yaml` and `evidence/EVIDENCE_INDEX.yaml`.
-
-- Google AI Studio is operated by the Human Owner. The AI must not claim direct account access.
-- Confirm the current GAIS app/project and visible state from screenshots supplied during the active session.
-- Confirm whether the screenshot files are actually present locally and committed to GitHub.
-- Confirm the local branch and `git status` on the Human Owner's computer before giving any commit/push instructions.
-- Never infer local working-tree cleanliness from GitHub.
-
-### Step 6 — Classify every material statement
-
-Use these labels in the recovery report:
-
-- `VERIFIED_FACT`: confirmed against a current canonical source or reproducible evidence.
-- `OWNER_REPORTED`: reported by the Human Owner but not independently verified in the current session.
-- `PROPOSAL`: content in an open PR or branch.
-- `ASSUMPTION`: plausible but not proven.
-- `UNKNOWN`: no sufficient evidence.
-- `STALE`: historical or superseded.
-
-### Step 7 — Report the recovered state before acting
-
-Return a concise Vietnamese report containing:
-
-1. Current `main` SHA and open PRs.
-2. Current Product / UX / Architecture authority and any open decisions relevant to the next action.
-3. Active Task ID, exact Contract revision/status, and remaining authorized work.
-4. Prompt Register sequence and whether the next prompt has actually been run.
-5. GAIS app state, screenshot evidence, and local/remote synchronization state.
-6. Continuity Health: COMPLETE / PARTIAL / BLOCKED, with reasons.
-7. One next action that is authorized by the live Contract.
-
-Do not invent context-window capacity percentages. If the UI exposes no capacity meter, say that it is unknown.
+**Project:** BVC Task Management (BVCTM)  
+**Project ID:** `BVC-TASK-MANAGEMENT`  
+**Purpose:** Recover the current project in any authorized AI executor without copying an old conversation.  
+**Principle:** Project owns continuity. AI executors consume continuity.  
+**Current snapshot prepared against:** `main@202e78065e96d339f78d5a406edcd19ccf687e7f`  
+**Record status:** PILOT — live bootstrap is mandatory for every new session.
 
 ---
 
-## Execution gate — before any write or external action
+## One provider-neutral bootstrap prompt
 
-1. Confirm that the relevant Task Contract is still APPROVED on current `main`.
-2. Read its complete scope, allowed paths, required context, stopping conditions, verification, and Change Budget.
-3. Confirm the exact baseline and recovery point; inspect local status when local files are involved.
-4. Stop if the work exceeds the Contract or if required context, authority, or evidence conflicts.
-5. Do not connect GAIS to GitHub or push the generated app unless a later Contract explicitly permits it.
-6. Do not claim a Preview is a production build, persistence test, security test, or deployment.
-7. Human Owner approval and Merge remain required for repository changes under the current BVC governance model.
+Copy the prompt below as one message into a new authorized AI session. Do not paste an old conversation transcript. The executor must connect to GitHub independently if a connector is available and must not assume capabilities transfer across sessions.
 
-## Current known checkpoint at package preparation (revision 2)
+### COPY-READY PROMPT — BVCTM CONTINUITY BOOTSTRAP
 
-- Current remote `main` HEAD observed after PR #15 merge: `53ed2649bd5ee687ae76be686db5838f4b9b0173`.
-- Product Definition v0.2.0: current Product Owner-approved baseline.
-- Phase 3.2 Architecture Design: accepted design baseline.
-- Phase 3.1 formal UX Acceptance: OPEN.
-- BVC-TM-TC-003 Revision 1: APPROVED; one isolated blank WEB scaffold inspection only.
-- Current Task #003 execution: NOT_STARTED_OR_NOT_EVIDENCED; no scaffold result has been evidenced in the repository at this checkpoint.
-- PR #15: MERGED on 2026-11-05; merge commit / current `main` HEAD: `53ed2649bd5ee687ae76be686db5838f4b9b0173`. Lesson A1 and Prompt #0001 are canonical on `main`.
-- A1-01 screen: supplied by the Human Owner in chat; repository PNG synchronization not verified.
-- BVCTM-PROMPT-0001: published on `main`, but execution in GAIS is NOT_VERIFIED / NOT_STARTED_OR_NOT_EVIDENCED.
-- Local working tree: UNKNOWN from this remote-only inspection.
+You are joining an existing project: **BVC Task Management (BVCTM)**, project ID **BVC-TASK-MANAGEMENT**, in repository https://github.com/donghp/beyond-vibe-coding.
 
-Always refresh this section after material project events. Never use it in place of live reconciliation.
+This is a continuity recovery, not a new project. Follow the Global authority order and the active BVCTM Task Contract.
 
+**1. Declare actual capabilities**
+- State your real alias, model/tool label and environment.
+- Confirm only capabilities you can actually use: GitHub read/write, local Git/terminal, GAIS Build Mode, DeepSeek/VS Code.
+- Use UNKNOWN or UNAVAILABLE when not verified. Do not infer access from a product name.
 
-## Revision 2 source checkpoint
+**2. Verify GitHub live**
+- Confirm repository identity, repository ID 1442470565, default branch main and current main SHA.
+- Enumerate open PRs and inspect relevant PRs/branches, diffs, reviews, comments and checks where available.
+- Distinguish main from open-PR proposals and merged history.
+- Do not use this file's SHA as a substitute for live main.
 
-- PR #15 merged: `https://github.com/donghp/beyond-vibe-coding/pull/15`.
-- Current `main` commit: `https://github.com/donghp/beyond-vibe-coding/commit/53ed2649bd5ee687ae76be686db5838f4b9b0173`.
-- Verified at: `2026-11-05T21:54:16+07:00`.
-- Repository open-PR query: no open PRs returned at this checkpoint.
+**3. Read Global Continuity first**
+Read current main versions of:
+- docs/continuity/README.md
+- docs/continuity/BOOTSTRAP.md
+- docs/continuity/CONTINUITY_PROTOCOL.md
+- docs/continuity/CURRENT_STATE.yaml
+- docs/continuity/DECISIONS.md
+- docs/continuity/HANDOFF_LOG.md
+- docs/continuity/HANDOFF_TEMPLATE.md
+- docs/continuity/SOURCE_MANIFEST.csv
+- docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md
+- docs/continuity/CROSS_EXECUTOR_CONTINUITY.md
+- docs/continuity/CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md
+- docs/continuity/WORKER_HANDOFF.schema.json
+- docs/continuity/WORKER_HANDOFF.template.yaml
+
+**4. Read BVCTM continuity in order**
+Read the current main versions of:
+1. projects/task-management/continuity/README.md
+2. projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
+3. projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml
+4. projects/task-management/continuity/PROJECT_STATE.json
+5. projects/task-management/continuity/SOURCE_MANIFEST.csv
+6. projects/task-management/continuity/HANDOFF_LOG.md
+7. projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml
+8. projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml
+9. projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml
+10. projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml
+11. projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md
+12. projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md
+13. projects/task-management/continuity/handoffs/README.md
+
+Follow SOURCE_MANIFEST.csv, but verify every authority and file path against its source.
+
+**5. Reconcile product and learning authority**
+Read current main:
+- projects/task-management/README.md
+- Product Definition v0.2.0
+- PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md
+- BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
+- Phase 3.1 UX acceptance record
+- Phase 3.2 Architecture acceptance record
+- Phase 3.3 readiness/context pack and Contracts #001/#002/#003
+- Practical Labs Curriculum Map V0.2 and Lesson Status Register V0.2
+- Prompt files #0001/#0002/#0003.
+
+Preserve:
+- Phase A A1–A4 learning path is COMPLETED.
+- This is not equivalent to product-feature completion.
+- Phase B is the next product focus, but feature implementation requires a separate approved and canonical First Vertical Slice Task Contract.
+- Formal Phase 3.1 UX Acceptance remains OPEN.
+- Phase 3.2 is an accepted design baseline only.
+- DR-005 remains OPEN; DR-014 is accepted for design only, runtime verification remains required.
+- BVC-TM-P3.3-003 / BVC-TM-TC-003 R1 is a separate scaffold-inspection Contract. Its execution remains NOT_STARTED_OR_NOT_EVIDENCED until its actual authorized report and inventory are delivered and verified.
+- Do not confuse BVCTM Task #003 with Global BVC-GLOBAL-TC-003 (public website).
+
+**6. Treat evidence correctly**
+Use VERIFIED_FACT, OWNER_REPORTED, PROPOSAL, ASSUMPTION, OPEN_QUESTION, STALE and PARTIAL / NOT VERIFIED.
+A PR merge proves publication, not prompt execution, runtime behavior or Human Owner acceptance.
+The 2026-11-11 GAIS screenshot only shows a project title and blank Preview. Do not infer code-tree details, framework, dependencies, versions, package manager, scripts, build or export behavior from it.
+A2/A4 repository screenshots show a visual code tree; they do not replace the scaffold inventory output.
+
+**7. Check local worktrees only from actual evidence**
+The last Owner-supplied output:
+- C:\beyond-vibe-coding-a4-evidence: clean main at d2ac0f5, origin/main fetched to 202e780, 0 ahead / 3 behind. It is safe for a fast-forward only after a fresh clean-status check.
+- C:\beyond-vibe-coding: DIRTY on docs/bvctm-continuity-contract-r3; one modified continuity Markdown file, two untracked A1 PNGs, six stashes; linked worktrees share a common Git directory.
+Do not reset, clean, switch, pop stashes, overwrite or delete local-only work. Recheck current status before local operations.
+
+**8. Writer and handoff rules**
+One active writer per task/branch. Do not invent sender release, receiver acceptance, task completion or handoff records. Use the Global Worker Handoff schema only for a real handoff with verified checkpoint, file inventory, verification, sender release and receiver acceptance. No handoff record is required just because the ChatGPT window changes.
+
+**9. Before any write**
+- Verify the exact current approved Task Contract on main.
+- Read its entire scope, exact CREATE/MODIFY/DELETE paths, required context, stopping conditions and Change Budget.
+- Verify baseline and local worktree if local files are involved.
+- Use a dedicated branch and PR; never write directly to main or merge.
+- The executor may not self-certify IN_PROGRESS, READY_FOR_ACCEPTANCE or COMPLETED_ACCEPTED.
+- Stop on conflicting evidence, local writer conflict, missing authority or scope expansion.
+
+**10. Report before acting**
+Return a Vietnamese recovery report with:
+- current main SHA and open PRs;
+- current product/UX/architecture/decision state;
+- Task IDs, Contract revisions, risk, execution status and exact next authorized action;
+- prompt publication/execution/learning status separately;
+- evidence and local-sync status;
+- continuity tests actually run;
+- executor capabilities and unknowns;
+- Continuity Health and Window Capacity Risk separately.
+Do not invent context-window percentages. During this bootstrap, perform read-only inspection only. End with exactly one status: GREEN, AMBER or RED.
+
+### End of copy-ready prompt
+
+## Current verified checkpoint
+
+- Current main: `202e78065e96d339f78d5a406edcd19ccf687e7f`
+- Open PRs: 0 at last live check.
+- Continuity Contract: BVC-TM-CONT-TC-001 Revision 4, APPROVED.
+- Product baseline: Product Definition v0.2.0.
+- Phase A: learning A1–A4 completed.
+- Phase B: next focus, implementation not yet authorized.
+- Task #003: approved Contract, execution NOT_STARTED_OR_NOT_EVIDENCED; report/inventory outputs absent.
+- Continuity pilot: T01–T11 NOT_RUN.
+- Local worktrees: one clean-but-behind main clone and one dirty historical worktree, per latest Owner terminal output.
 
