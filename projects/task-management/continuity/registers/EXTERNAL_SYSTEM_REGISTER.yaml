@@ -40,6 +40,11 @@ systems:
     status: DRAFT; NOT_READY_FOR_MERGE
     head: docs/bvctm-continuity-r5-completion
     url: https://github.com/donghp/beyond-vibe-coding/pull/50
+  - number: 51
+    title: docs(bvctm): record authentic GAIS scaffold inspection evidence
+    status: DRAFT; PARTIAL; NOT_READY_FOR_ACCEPTANCE
+    head: docs/bvctm-task003-scaffold-evidence
+    url: https://github.com/donghp/beyond-vibe-coding/pull/51
   recently_merged_prs:
   - number: 47
     url: https://github.com/donghp/beyond-vibe-coding/pull/47
