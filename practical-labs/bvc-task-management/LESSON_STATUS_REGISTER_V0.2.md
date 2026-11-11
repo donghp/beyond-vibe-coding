@@ -29,12 +29,12 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 
 | Lesson | Status | Required dependency / evidence |
 |---|---|---|
-| B1 — Create Your First Task | Contract BVC-TM-TC-004 Revision 1 approved; implementation NOT_STARTED | Contract authorizes MODIFY app/page.tsx only in the existing GAIS app. Contract #004 and Prompt #0004 are now canonical on main through PR #53. First verify the existing GAIS app identity and current app/page.tsx; if it matches the expected scaffold, run BVCTM-PROMPT-0004. Stop if materially different. Verify title-only creation, list display, empty-title validation, Enter submission and in-memory-only behavior in GAIS Preview. |
+| B1 — Create Your First Task | **EXECUTION_REPORTED; EVIDENCE_PARTIAL; OWNER ACCEPTANCE PENDING** | Owner supplied Gemini 3.8 Flash report claiming one-file app/page.tsx change, React in-memory state, no persistence/dependency changes, ESLint PASS and production build PASS. Owner supplied Preview screenshots. B1-08 refresh is OBSERVED_PASS: tasks cleared, input blank, validation cleared and friendly empty state visible. | Exact GAIS changed-file diff not independently inspected. Browser E2E not run. Valid add, whitespace validation, Enter and complete criterion trace still need individually classified evidence. Screenshot binary must be checksum-verified on GitHub before repository publication. Do not mark B1 accepted yet. |
 | B2 — Save Your Task | Planned — gated | Resolve DR-005 first-use storage disclosure and approve a separate B2 implementation scope; then verify actual browser persistence. |
 | B3 — Close and Reopen | Planned — depends on B2 | Same app origin and browser profile must show the exact saved task after reload/reopen. |
 | B4 — Improve One Small Thing | Planned — depends on B1–B3 | One bounded, approved improvement is made; relevant B1–B3 regression checks pass. |
 
-**Gate:** Task #003 is COMPLETED_ACCEPTED by explicit Owner decision with known limitations recorded in the report, inventory and Task Execution Register. B1 Contract BVC-TM-TC-004 Revision 1 is approved by the Human Owner; publication and GAIS execution are still pending. B2 remains blocked until DR-005 is resolved and a separate B2 Task Contract is approved. Publishing a Contract or lesson does not prove application behavior.
+**Gate:** Task #003 is COMPLETED_ACCEPTED by explicit Owner decision with known limitations. B1 Contract BVC-TM-TC-004 Revision 1 and Prompt #0004 are canonical on main. The Owner reports GAIS execution complete; evidence is partial and Owner acceptance remains pending. B2 remains blocked until DR-005 is resolved and a separate B2 Task Contract is approved. Publishing a Contract or lesson does not prove application behavior.
 
 
 ### Phase A closure and Phase B entry gate

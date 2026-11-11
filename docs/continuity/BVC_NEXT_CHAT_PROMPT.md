@@ -11,6 +11,8 @@ Recover the current project state from the repository, verify the handoff and ac
 
 ## Required sequence
 
+0. Read `docs/continuity/START_HERE.md` first, then follow this full sequence and `BOOTSTRAP.md`.
+
 1. Read `docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md` and `docs/continuity/BOOTSTRAP.md` completely.
 2. Verify live repository identity, repository ID, default branch, `main` HEAD, open PRs, relevant branches, changed-file inventories, diffs, reviews, comments, checks, and workflow runs to the extent the current connector/tool supports them. Follow pagination and disclose limitations.
 3. Read all seven canonical continuity records listed in `docs/continuity/README.md`.

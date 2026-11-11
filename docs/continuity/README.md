@@ -8,7 +8,11 @@ The repository owns durable project knowledge. AI executors are temporary and re
 
 ## Start here
 
-Use [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) as the single entry prompt. It directs the receiving session to read [BOOTSTRAP.md](./BOOTSTRAP.md), reconcile live GitHub, then inspect the seven continuity records.
+Use [START_HERE.md](./START_HERE.md) as the first landing page, then paste [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) into a new ChatGPT window. START_HERE is navigation only; the seven canonical continuity records remain unchanged.
+
+## Task lifecycle protocol
+
+- [TASK_LIFECYCLE.md](./TASK_LIFECYCLE.md) defines the mandatory Backlog → Contract → canonical Prompt → GAIS → Evidence → Review → Owner Acceptance flow. It is operating guidance under existing governance and does not create authority or a duplicate register.
 
 ## Supporting operational protocol
 

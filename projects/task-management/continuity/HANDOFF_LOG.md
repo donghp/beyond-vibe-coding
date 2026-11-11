@@ -149,3 +149,21 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Phase boundary:** Learner-owned GitHub repository creation, source-control learning and GAIS↔GitHub synchronization are deferred to Phase C. B2 persistence remains gated by DR-005 and its own approved Contract.
 - **Local status:** Windows local worktrees were not checked after PR #53. Preserve the previously reported dirty worktree and all local-only content.
 - **Handoff status:** Project checkpoint only; no sender release or receiver acceptance is claimed.
+
+
+## H-0008 — B1 Prompt Execution Reported; Refresh Reset Observed
+
+- **Recorded at:** 2026-11-11 (Asia/Bangkok)
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source `main` SHA:** `46d7733ad0e874019b11d397c8f024360b470ae9`
+- **Event type:** TASK_EXECUTION / EVIDENCE_CHECKPOINT
+- **Contracts and prompt:** BVC-TM-TC-004 Revision 1 and BVCTM-PROMPT-0004 are canonical on main through PR #53.
+- **Owner-reported execution:** Human Owner supplied Gemini 3.8 Flash report stating only `app/page.tsx` was modified; React component state only; no persistence/package changes; ESLint zero errors/warnings; production build and static generation completed.
+- **Owner-supplied Preview evidence:** Screenshot before refresh shows two task rows and a validation message. Follow-up screenshot after refresh shows empty list, blank input, cleared validation and friendly empty state.
+- **Evidence classification:** B1-08 refresh is OBSERVED_PASS. Screenshot binary is OWNER_SUPPLIED and must not be called REPOSITORY_VERIFIED until uploaded and checksum-verified.
+- **Not independently verified:** Exact live GAIS `app/page.tsx` diff; actual changed-file inventory from GAIS; manual valid-add, empty/space-only validation, keyboard submission and full criterion execution; automated browser E2E. Gemini states browser E2E was not run and some behavior was code-path analysis.
+- **Acceptance:** Human Owner has not yet issued final B1 acceptance. B1 remains EXECUTION_REPORTED / EVIDENCE_PARTIAL / OWNER_ACCEPTANCE_PENDING.
+- **Next permitted action:** Inspect exact GAIS source diff/export and verify remaining B1 criteria. Then prepare a review/acceptance proposal. B2 remains blocked by DR-005 and its own Contract.
+- **Screenshot limitation:** The candidate PR branch previously contained a 68-byte placeholder PNG at the B1-08 path. It is invalid and must be removed; no placeholder or synthetic image may be used as evidence.
+- **Handoff status:** Material checkpoint only, not a worker handoff. No sender release or receiver acceptance is claimed.
+- **Human Owner review:** REQUIRED.
