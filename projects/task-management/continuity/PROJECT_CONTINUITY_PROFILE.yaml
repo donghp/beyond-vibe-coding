@@ -123,10 +123,15 @@ external_systems:
     owner: Human Owner / repository governance
     role: Canonical source repository, PR review, commit history and continuity storage
     access_mode: GitHub connector verified in originating ChatGPT session; new sessions must re-authenticate independently
-    current_status: MAIN_SHA_VERIFIED; ZERO_OPEN_PRS_AT_LAST_CHECK
+    current_status: MAIN_SHA_VERIFIED; PR_50_DRAFT_OPEN
     observed_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
     observed_at: "2026-11-11T08:30:00+07:00"
-    open_pr_count: 0
+    open_pr_count_at_main_checkpoint: 0
+    current_open_proposals:
+      - number: 50
+        status: DRAFT; NOT_READY_FOR_MERGE
+        url: https://github.com/donghp/beyond-vibe-coding/pull/50
+        head: docs/bvctm-continuity-r5-completion
     recent_merged_prs: [47, 48, 49]
     main_branch_protected: false
     recently_merged_prs:
