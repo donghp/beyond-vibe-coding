@@ -4,7 +4,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-GLOBAL-TC-004"
 revision: 1
-status: PROPOSED
+status: APPROVED
 created_at: "2026-11-11T00:00:00Z"
 
 task:
@@ -380,10 +380,10 @@ authority:
     - run_tests
   human_approval:
     required: true
-    status: PENDING
+    status: APPROVED
     approver_role: "Human Owner / Product Owner"
-    approval_reference: "No approval of this exact Contract Revision 1 has yet been recorded on main."
-    rationale: "This Contract defines the exact files, role model, Bootstrap gate, acceptance criteria and verification controls. Implementation must not begin until the Human Owner approves this revision and the Contract is canonical on main."
+    approval_reference: "Human Owner explicit approval in the ChatGPT conversation on 2026-11-11: approved BVC-GLOBAL-TC-004 Revision 1, including three-AI roles, R2 risk, exact 9-file scope and Acceptance Criteria."
+    rationale: "The Human Owner explicitly approved this exact Contract Revision 1. This approval authorizes the Contract only; implementation may begin only after the APPROVED Contract is canonical on main and all other preconditions are met."
 
 stopping_conditions:
   - scope_expansion_required
