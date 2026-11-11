@@ -149,6 +149,15 @@
         "Human Owner terminal output supplied 2026-11-11",
         "projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-014",
+      "statement": "PR #50 is an open Draft proposal from branch docs/bvctm-continuity-r5-completion. GitHub compare against current main shows exactly 13 authorized continuity output paths (12 MODIFY, 1 CREATE, 0 DELETE), but it is not canonical and is not ready for merge while AC-011 baseline inventory and static validation remain unresolved.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "https://github.com/donghp/beyond-vibe-coding/pull/50",
+        "projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml"
+      ]
     }
   ],
   "decisions": [
@@ -229,6 +238,13 @@
       "status": "OPEN",
       "owner": "Human Owner",
       "reference": "C:\\beyond-vibe-coding-a4-evidence; C:\\beyond-vibe-coding"
+    },
+    {
+      "issue_id": "TM-ISSUE-CONT-AC011",
+      "description": "R5 AC-011 inventory from approved baseline main@202e780 also includes the Contract file changed by the separately merged PR #47/#49 control-plane updates. This is outside the 13 authorized output paths; the full baseline inventory cannot yet be certified PASS. PR #50 remains Draft pending governance resolution and validation.",
+      "status": "BLOCKED",
+      "owner": "Human Owner / BVC governance",
+      "reference": "https://github.com/donghp/beyond-vibe-coding/pull/50; projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml"
     }
   ],
   "next_actions": [
@@ -237,13 +253,6 @@
       "description": "In the existing GAIS scaffold project, open Code/File Explorer and provide the actual visible file tree plus package.json and applicable lockfile/config evidence; keep the exercise read-only.",
       "priority": "URGENT",
       "owner": "Human Owner",
-      "related_task_id": "BVC-TM-P3.3-003"
-    },
-    {
-      "action_id": "TM-NEXT-002",
-      "description": "Prepare the two authorized Task #003 outputs — scaffold inspection report and YAML inventory — using only the supplied actual files/screenshots; label unavailable details UNKNOWN.",
-      "priority": "HIGH",
-      "owner": "ChatGPT prepares; Human Owner reviews",
       "related_task_id": "BVC-TM-P3.3-003"
     },
     {
@@ -271,6 +280,12 @@
       "description": "Run continuity cold-start, cross-model and GAIS-to-DeepSeek recovery scenarios only when the required sender release, receiver acceptance and inspectable checkpoint evidence exist.",
       "priority": "NORMAL",
       "owner": "Human Owner / independent executor"
+    },
+    {
+      "action_id": "TM-NEXT-007",
+      "description": "Resolve the R5 AC-011 baseline/control-plane distinction and run JSON Schema, YAML, CSV, source-path and Contract inventory validators on Draft PR #50 before marking the reconciliation ready for Owner acceptance.",
+      "priority": "URGENT",
+      "owner": "ChatGPT prepares; Human Owner / BVC governance approves resolution"
     }
   ],
   "recovery": {
@@ -278,7 +293,7 @@
     "source_commit": "aff2b42da26ec548de8088bf77de455a94723773",
     "verified": true,
     "last_verified_at": "2026-11-11T08:30:00+07:00",
-    "notes": "GitHub live main and PR #47/#48/#49 merge states were verified in this session; open PR query returned zero. This is a remote repository checkpoint. The canonical local worktree was last Owner-verified clean at 202e780 before those three merges and is not yet rechecked at aff2b42. The second linked worktree remains Owner-reported DIRTY; neither local path was directly inspected by ChatGPT."
+    "notes": "GitHub live main and PR #47/#48/#49 merge states were verified in this session; open PR query returned zero. This is a remote repository checkpoint. The canonical local worktree was last Owner-verified clean at 202e780 before those three merges and is not yet rechecked at aff2b42. The second linked worktree remains Owner-reported DIRTY; neither local path was directly inspected by ChatGPT. Draft PR #50 is now open on docs/bvctm-continuity-r5-completion; its current-main diff matches 13 authorized outputs, but AC-011 baseline inventory remains blocked because PR #47/#49 modified the Contract file after the approved source baseline."
   },
   "updated_by": "AI-prepared Project State revision 3 from live GitHub and Owner-supplied evidence; Human Owner review required. Project State v0.1.0 remains Draft/Experimental."
 }
