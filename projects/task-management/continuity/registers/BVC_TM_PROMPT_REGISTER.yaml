@@ -5,7 +5,7 @@ sequence_policy:
   prefix: BVCTM-PROMPT
   numbering_width: 4
   start_number: 1
-  next_number: 2
+  next_number: 4
   monotonic: true
   never_reuse_ids: true
   allocate_next_id_only_after_prompt_identity_is_recorded: true
@@ -37,3 +37,40 @@ prompts:
     accounts, database, APIs, GitHub connection, hosting or deployment.
   sequence_note: 'Prompt text and lesson embedding are canonical on main after PR #15 merged. Reconcile the exact
     prompt against the live approved Contract before execution; publication does not mean execution.'
+
+- prompt_id: BVCTM-PROMPT-0002
+  title: Project Instructions Understanding Check
+  contract_ref:
+    contract_id: BVC-TM-P3.3-003
+    revision: 1
+    status: APPROVED
+    path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml
+  authorization_status: AUTHORIZED_READ_ONLY_LEARNING_EXERCISE
+  execution_status: OWNER_REPORTED_EXECUTED_RESPONSE_RECEIVED_AND_REVIEWED
+  publication_status: CANONICAL_ON_MAIN; PROMPT_FILE_AND_LESSON_PUBLISHED
+  learning_status: LEARNING_EXERCISE_COMPLETED
+  prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md
+  lesson_path: practical-labs/bvc-task-management/phase-a/03-set-up-project-instructions/README.md
+  evidence_refs:
+  - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md
+  - https://github.com/donghp/beyond-vibe-coding/pull/41
+  evidence_limitations: "Execution and response review are Owner-reported. Exact close/reopen sequence, independent before/after file integrity, and Gemini technology-version claims remain NOT_VERIFIED."
+  scope_boundary: "Read-only instruction-understanding check. No file modification, build, package installation, configuration change, external service, GitHub connection or deployment."
+- prompt_id: BVCTM-PROMPT-0003
+  title: Task Understanding and Read-Only Planning Exercise
+  contract_ref:
+    contract_id: HUMAN-OWNER-APPROVED-READ-ONLY-LEARNING-EXERCISE
+    revision: 1
+    status: OWNER_APPROVED_FOR_LEARNING_EXERCISE
+    path: practical-labs/bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md
+  authorization_status: AUTHORIZED_READ_ONLY_LEARNING_EXERCISE
+  execution_status: OWNER_REPORTED_EXECUTED_RESPONSE_RECEIVED_AND_REVIEWED
+  publication_status: CANONICAL_ON_MAIN; PROMPT_FILE_AND_LESSON_PUBLISHED
+  learning_status: LEARNING_EXERCISE_COMPLETED
+  prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md
+  lesson_path: practical-labs/bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/README.md
+  evidence_refs:
+  - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md
+  - https://github.com/donghp/beyond-vibe-coding/pull/41
+  evidence_limitations: "Execution and response review are Owner-reported. Independent before/after file integrity remains NOT_VERIFIED. The prompt itself explicitly did not authorize implementation."
+  scope_boundary: "Read-only task understanding and planning exercise only; no code generation, file changes, package installation, configuration changes, database, GitHub connection or deployment."
