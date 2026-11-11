@@ -1,6 +1,6 @@
 evidence_index_version: 0.1.0
 project_id: BVC-TASK-MANAGEMENT
-evidence_status: RECONCILED_CHECKPOINT; TASK_003_AND_CONTINUITY_PILOT_REMAIN_OPEN
+evidence_status: TASK_003_OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_CONTRACT_APPROVED_PENDING_CANONICAL_PUBLICATION
 classification_legend:
   REPOSITORY_VERIFIED: Directly checked against current GitHub main or canonical file.
   OWNER_SUPPLIED: Provided by Human Owner in the conversation; binary/source may not be committed.
@@ -13,7 +13,7 @@ evidence:
   classification: REPOSITORY_VERIFIED
   source: https://github.com/donghp/beyond-vibe-coding/commit/aff2b42da26ec548de8088bf77de455a94723773
   observed_at: '2026-11-11T08:30:00+07:00'
-  claim: "Live main HEAD is aff2b42da26ec548de8088bf77de455a94723773; PR #47, #48 and #49 are merged; open PR query returned zero."
+  claim: "Historical checkpoint at aff2b42da26ec548de8088bf77de455a94723773 before PR #50, #51 and #52 merged."
   limitations: Does not prove local worktree synchronization or GAIS runtime state.
 - evidence_id: BVC-EV-002
   subject: Product Definition v0.2.0
@@ -55,8 +55,8 @@ evidence:
   subject: Prompt #0001/#0002/#0003 publication and execution distinctions
   classification: REPOSITORY_VERIFIED
   source: projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml
-  claim: The three canonical prompt identities and paths are published on main; #0002 and #0003 execution/response review are marked OWNER_REPORTED in the register; next_number is 4.
-  limitations: Prompt #0002/#0003 responses were Owner-reported; the register does not claim independent session telemetry. Prompt #0001 exact execution remains NOT_VERIFIED.
+  claim: Prompt #0001 through #0003 remain canonical on main. Prompt #0004 is allocated and registered on the B1 preparation branch; next_number is 5.
+  limitations: Prompt #0004 is not canonical until the B1 publication PR is merged. Prompt #0002/#0003 execution is Owner-reported; Prompt #0001 exact execution remains NOT_VERIFIED.
 - evidence_id: BVC-EV-009
   subject: Current GAIS app title and Preview heading
   classification: OWNER_SUPPLIED
@@ -67,8 +67,8 @@ evidence:
   subject: Task #003 required scaffold report and inventory
   classification: REPOSITORY_VERIFIED
   source: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml
-  claim: The approved Contract requires GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md and GAIS_SCAFFOLD_INVENTORY_V0.1.yaml; both expected paths returned 404 on current main.
-  limitations: Absence of the report/inventory does not establish that no work happened in GAIS; it establishes only that these outputs are not published on main.
+  claim: The two required Task #003 report/inventory outputs are published on main through merged PR #51 and were accepted by the Human Owner with known limitations.
+  limitations: VC-006 and VC-007 were not independently run; explicit GAIS app-type label and live external connection/secrets panel remain NOT_VERIFIED.
 - evidence_id: BVC-EV-011
   subject: Local worktree synchronization
   classification: OWNER_REPORTED
@@ -86,12 +86,48 @@ evidence:
   classification: PROPOSAL_ONLY
   source: https://github.com/donghp/beyond-vibe-coding/pull/50
   observed_at: '2026-11-11T08:30:00+07:00'
-  claim: "Draft PR #50 contains exactly 13 paths compared with current main: 12 MODIFY and one CREATE; current-main diff is 766 additions-plus-deletions, no binary files."
-  limitations: "PR is DRAFT and not canonical. AC-011 remains NOT_YET_VERIFIED because compare from approved R5 source baseline 202e780 also includes the separate Contract control-plane update from PRs #47/#49. Static validators and full baseline inventory have not passed."
+  claim: "PR #50 is MERGED; its 13 continuity outputs (12 MODIFY, 1 CREATE) are published on main."
+  limitations: "AC-011 baseline/control-plane reconciliation remains unresolved; the merge does not establish that all continuity validators passed."
 - evidence_id: BVC-EV-014
   subject: PR #51 — Task #003 scaffold report and inventory proposal
   classification: PROPOSAL_ONLY
   source: https://github.com/donghp/beyond-vibe-coding/pull/51
   observed_at: '2026-11-11T10:12:00+07:00'
-  claim: "Draft PR #51 contains exactly the two CREATE paths authorized by BVC-TM-P3.3-003 R1; A2/A4 screenshots show the scaffold file tree and partial Next.js/TypeScript source observations; the Owner-supplied Preview screenshot shows the expected heading."
-  limitations: "PR is PARTIAL and not accepted. Manifest and lockfile contents, package versions/scripts/runtime, exact PostCSS config, WEB type label, export ZIP, environment variable names and full security/integration review remain NOT_VERIFIED."
+  claim: "PR #51 is MERGED and publishes exactly the two report/inventory outputs based on the Owner-supplied 18-file GAIS source ZIP and A2/A4/Preview evidence. The Human Owner closed Task #003 with known limitations."
+  limitations: "VC-006/VC-007 were not independently run; GAIS app-type label and live external connection/secrets-panel state remain NOT_VERIFIED. Runtime/build/lint/test results are not claimed."
+
+- evidence_id: BVC-EV-015
+  subject: GitHub main checkpoint after PR #50, #51 and #52
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/commit/58ee43cefff59b3e99a48314a322d639652b38fb
+  observed_at: '2026-11-11'
+  claim: "Live main HEAD is 58ee43cefff59b3e99a48314a322d639652b38fb. PR #50, #51 and #52 are merged."
+  limitations: "Local Windows worktrees were not rechecked after these merges."
+- evidence_id: BVC-EV-016
+  subject: Task #003 Owner acceptance with known limitations
+  classification: OWNER_REPORTED
+  source: "Human Owner approval in the 2026-11-11 ChatGPT conversation; merged outputs in PR #51"
+  observed_at: '2026-11-11'
+  claim: "Human Owner explicitly closed BVC-TM-P3.3-003 after reviewing the supplied source ZIP, report and inventory."
+  limitations: "VC-006/VC-007 were not independently run. GAIS app-type label, live external connections and secrets panel remain NOT_VERIFIED."
+- evidence_id: BVC-EV-017
+  subject: PR #50 continuity reconciliation publication
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/50
+  observed_at: '2026-11-11'
+  claim: "PR #50 is merged and publishes the approved 13-path continuity reconciliation."
+  limitations: "AC-011 baseline/control-plane reconciliation concern remains open; merge does not prove all static validators passed."
+- evidence_id: BVC-EV-018
+  subject: PR #51 Task #003 report and inventory publication
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/51
+  observed_at: '2026-11-11'
+  claim: "PR #51 is merged and publishes the report and inventory; Task #003 was explicitly closed by the Owner with known limitations."
+  limitations: "VC-006/VC-007 were not independently run; live GAIS external-connection status remains NOT_VERIFIED/NOT_RUN."
+- evidence_id: BVC-EV-019
+  subject: B1 Contract and Prompt #0004 Owner approval
+  classification: OWNER_REPORTED
+  source: "Human Owner approval in the 2026-11-11 ChatGPT conversation"
+  observed_at: '2026-11-11'
+  claim: "Human Owner approved BVC-TM-TC-004 Revision 1 for title-only in-memory task creation in app/page.tsx only. Prompt #0004 is registered and prepared on docs/bvctm-task004-b1-first-task."
+  limitations: "Contract and prompt are not canonical on main until the publication PR is merged. GAIS execution remains NOT_STARTED."
