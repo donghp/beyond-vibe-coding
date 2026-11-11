@@ -69,7 +69,7 @@ The Task #003 Contract's own baseline is historical and must not be silently rew
 
 Revision 5 is APPROVED on `main` after PR #47 published the baseline refresh and PR #49 recorded the Human Owner's explicit approval. It authorizes exactly one CREATE and twelve MODIFY paths under this continuity directory, with no DELETE.
 
-PR #48 merged three MODIFY outputs (README, entry point and profile). Draft PR #50 now proposes the remaining nine MODIFY paths and the one CREATE path. PR #50 is not canonical and is NOT READY FOR MERGE while AC-011 baseline inventory and static validation remain unresolved.
+PR #48 merged three MODIFY outputs (README, entry point and profile). Draft PR #50 proposes the remaining nine MODIFY paths and the one CREATE path; it is NOT READY FOR MERGE while AC-011 baseline inventory and static validation remain unresolved. Draft PR #51 separately proposes the two Task #003 scaffold report/inventory files; it is partial and not accepted.
 
 ## Phase A evidence distinctions
 
@@ -120,3 +120,11 @@ Never store secrets, API keys, tokens, passwords, recovery information, customer
 - The approved GAIS scaffold inspection remains a prerequisite. Its two report/inventory outputs are absent from main; the current Owner-supplied Preview screenshot does not show the generated file tree or technical manifests.
 - DR-005 first-use storage disclosure remains OPEN; DR-014 browser persistence is ACCEPTED FOR DESIGN only and still needs runtime verification.
 - A separate First Vertical Slice Task Contract must be approved and canonical before feature implementation.
+
+
+## Current Draft proposals
+
+- PR #50 — R5 continuity completion: OPEN / DRAFT / NOT READY FOR MERGE; AC-011 and static validation remain unresolved.
+- PR #51 — Task #003 scaffold report/inventory: OPEN / DRAFT / PARTIAL; actual package/config file contents, app-type confirmation, ZIP export and full external-connection review remain pending.
+
+Both are proposals only. Neither is canonical until reviewed and merged by the Human Owner.
