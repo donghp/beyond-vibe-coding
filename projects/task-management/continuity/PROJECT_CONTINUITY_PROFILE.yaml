@@ -134,7 +134,7 @@ external_systems:
     current_open_proposals: []
     prepared_proposals:
       - id: B1_CONTRACT_PUBLICATION
-        status: BRANCH_ONLY; PR_NOT_YET_OPEN
+        status: OPEN_PR_53; REVIEW_PENDING
         branch: docs/bvctm-task004-b1-first-task
         next_expected_pr: 53
     recent_merged_prs: [47, 48, 49, 50, 51, 52]
