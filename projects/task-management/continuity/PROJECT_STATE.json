@@ -1,28 +1,30 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 2,
+  "revision": 3,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-05T21:54:16+07:00",
+  "state_as_of": "2026-11-11T08:30:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
     "default_branch": "main"
   },
   "baseline": {
-    "source_commit": "53ed2649bd5ee687ae76be686db5838f4b9b0173",
-    "working_tree_status": "UNKNOWN"
+    "source_commit": "aff2b42da26ec548de8088bf77de455a94723773",
+    "working_tree_status": "UNKNOWN",
+    "pre_existing_changes_ref": "Owner-verified C:\\beyond-vibe-coding-a4-evidence was clean and equal to origin/main at 202e780 on 2026-11-11, before PR #47, #48 and #49 merged. It is therefore expected to be behind current main by those three commits, but local status has not been rechecked after the merges. C:\\beyond-vibe-coding remains a separate DIRTY linked worktree on docs/bvctm-continuity-contract-r3 at c2f4b7987a08151f46606f5a68200629b71ab691 with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees. Preserve all local-only content."
   },
   "current_milestone": {
-    "milestone_id": "BVC-TM-P3.3-GAIS-SCAFFOLD-INSPECTION",
-    "title": "Create and inspect one isolated blank WEB app scaffold in Google AI Studio",
-    "status": "IN_PROGRESS"
+    "milestone_id": "BVC-TM-PHASE-B-FIRST-VERTICAL-SLICE-ENTRY",
+    "title": "Complete the authorized GAIS scaffold inspection and prepare the first Phase B vertical-slice implementation contract",
+    "status": "BLOCKED"
   },
   "current_objectives": [
-    "Execute the approved GAIS scaffold inspection under BVC-TM-TC-003 Revision 1 without expanding into product feature implementation.",
-    "Record observed scaffold, Preview, generated files, runtime/toolchain and export evidence without inference.",
-    "Run BVCTM as the BVC Reference Project for adaptive, AI-independent Project Continuity and validate recovery across a new AI session.",
-    "Develop Practical Labs in parallel from authentic practice checkpoints while preserving the separation between learner-facing lessons and internal project governance."
+    "Preserve one evolving BVC Task Management product across Beginner, Intermediate and Advanced learning levels.",
+    "Complete the approved read-only GAIS blank WEB scaffold inspection and publish its two evidence-backed outputs without implementing features.",
+    "Prepare the first Beginner vertical slice around one title-only personal task, keeping create/display separate from persistence until its own task scope is approved.",
+    "Resolve the applicable first-use storage disclosure decision and verify actual scaffold/toolchain facts before authorizing implementation.",
+    "Keep Phase A learning completion, product implementation, runtime verification, and formal acceptance as separate states."
   ],
   "facts": [
     {
@@ -36,7 +38,7 @@
     },
     {
       "fact_id": "TM-FACT-002",
-      "statement": "Phase 3.2 Architecture Design Baseline is accepted as a design baseline; this does not establish runtime, security, integration, or deployment acceptance.",
+      "statement": "Phase 3.2 Architecture is an accepted design baseline only; this does not establish application runtime, security, integration, or deployment acceptance.",
       "classification": "VERIFIED_FACT",
       "source_refs": [
         "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
@@ -53,56 +55,118 @@
     },
     {
       "fact_id": "TM-FACT-004",
-      "statement": "BVC-TM-TC-003 Revision 1 is APPROVED and authorizes one isolated non-production blank WEB scaffold inspection plus two documentation outputs; it does not authorize Task Management functionality or GitHub app connection.",
+      "statement": "DR-005 first-use storage disclosure timing and exact copy remains OPEN; DR-014 browser localStorage is ACCEPTED FOR DESIGN only and still requires runtime verification.",
       "classification": "VERIFIED_FACT",
       "source_refs": [
-        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+        "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
       ]
     },
     {
       "fact_id": "TM-FACT-005",
-      "statement": "The live GitHub main HEAD was observed as 53ed2649bd5ee687ae76be686db5838f4b9b0173 after PR #15 was merged. The Task #003 contract declares the earlier task baseline bdbd226ed8bd1402999d3e16f5961072a4f882b1; do not silently rewrite the contract baseline.",
+      "statement": "The Phase A learning path A1–A4 is recorded COMPLETED in the canonical Practical Labs Lesson Status Register v0.2.0; that does not mean product features have been implemented.",
       "classification": "VERIFIED_FACT",
       "source_refs": [
-        "https://github.com/donghp/beyond-vibe-coding/commit/53ed2649bd5ee687ae76be686db5838f4b9b0173",
-        "https://github.com/donghp/beyond-vibe-coding/pull/15",
-        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+        "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md",
+        "https://github.com/donghp/beyond-vibe-coding/pull/37",
+        "https://github.com/donghp/beyond-vibe-coding/pull/41",
+        "https://github.com/donghp/beyond-vibe-coding/pull/43"
       ]
     },
     {
       "fact_id": "TM-FACT-006",
-      "statement": "The A1-01 Google AI Studio Apps landing screenshot was supplied by the Human Owner in the ChatGPT conversation; the PNG binary has not been verified as present on main.",
-      "classification": "OPEN_QUESTION",
+      "statement": "BVCTM-PROMPT-0001, BVCTM-PROMPT-0002 and BVCTM-PROMPT-0003 are published as canonical prompt files on main; publication is distinct from execution and learning acceptance.",
+      "classification": "VERIFIED_FACT",
       "source_refs": [
-        "Human Owner supplied screenshot in conversation",
-        "https://github.com/donghp/beyond-vibe-coding/pull/15"
+        "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md",
+        "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md",
+        "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md",
+        "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
       ]
     },
     {
       "fact_id": "TM-FACT-007",
-      "statement": "The local working-tree state on C:\\beyond-vibe-coding cannot be determined from remote GitHub evidence and remains UNKNOWN until checked locally.",
-      "classification": "OPEN_QUESTION",
+      "statement": "The current GitHub main checkpoint is aff2b42da26ec548de8088bf77de455a94723773; PRs #47, #48 and #49 are merged and the live open-PR query returned zero.",
+      "classification": "VERIFIED_FACT",
       "source_refs": [
-        "Human Owner local workspace path; live local git status not available to remote inspection"
+        "https://github.com/donghp/beyond-vibe-coding/commit/aff2b42da26ec548de8088bf77de455a94723773",
+        "https://github.com/donghp/beyond-vibe-coding/pull/47",
+        "https://github.com/donghp/beyond-vibe-coding/pull/48",
+        "https://github.com/donghp/beyond-vibe-coding/pull/49"
       ]
     },
     {
       "fact_id": "TM-FACT-008",
-      "statement": "BVCTM Project Continuity is a pilot design. Cold-start recovery and cross-model recovery have not yet been run.",
+      "statement": "BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5 is APPROVED on main; PR #48 published only three of its twelve MODIFY outputs, and the remaining nine MODIFY plus one CREATE are being completed in a follow-up branch.",
       "classification": "VERIFIED_FACT",
       "source_refs": [
-        "projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md"
+        "projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml",
+        "https://github.com/donghp/beyond-vibe-coding/pull/48",
+        "https://github.com/donghp/beyond-vibe-coding/pull/49"
       ]
     },
     {
       "fact_id": "TM-FACT-009",
-      "statement": "PR #15 was merged by the Human Owner into main on 2026-11-05 at 2026-11-05T21:50:29+07:00; its Lesson A1 and BVCTM-PROMPT-0001 documentation changes are now canonical on main. This does not prove the GAIS prompt has been executed.",
+      "statement": "BVC-TM-P3.3-003 / BVC-TM-TC-003 Revision 1 remains APPROVED for one isolated blank WEB scaffold inspection and two documentation outputs only; its execution is still NOT_STARTED_OR_NOT_EVIDENCED in the Task Execution Register.",
       "classification": "VERIFIED_FACT",
       "source_refs": [
-        "https://github.com/donghp/beyond-vibe-coding/pull/15",
-        "https://github.com/donghp/beyond-vibe-coding/commit/53ed2649bd5ee687ae76be686db5838f4b9b0173",
-        "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md",
-        "practical-labs/bvc-task-management/phase-a/01-meet-google-ai-studio/README.md"
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml",
+        "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-010",
+      "statement": "The required Task #003 inspection report and YAML scaffold inventory are absent from current main; both expected paths returned GitHub 404.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md",
+        "projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml",
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-011",
+      "statement": "The current Owner-supplied GAIS screenshot shows the project title BVC Task Management Scaffold Inspection and the expected Preview heading; it does not expose the generated file tree or technical manifests.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "Human Owner supplied GAIS screenshot in the 2026-11-11 ChatGPT conversation",
+        "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-012",
+      "statement": "BVCTM continuity recovery tests CONT-T01 through CONT-T11 remain NOT_RUN; no independent cold-start, cross-model or GAIS-to-DeepSeek handoff pilot is claimed.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md",
+        "projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-013",
+      "statement": "The canonical local main worktree was last Owner-verified clean at 202e780 before PRs #47–#49; after those merges local synchronization to aff2b42 has not been rechecked. The separate C:\\beyond-vibe-coding worktree was Owner-reported DIRTY and must be preserved.",
+      "classification": "OPEN_QUESTION",
+      "source_refs": [
+        "Human Owner terminal output supplied 2026-11-11",
+        "projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-014",
+      "statement": "PR #50 is an open Draft proposal from branch docs/bvctm-continuity-r5-completion. GitHub compare against current main shows exactly 13 authorized continuity output paths (12 MODIFY, 1 CREATE, 0 DELETE), but it is not canonical and is not ready for merge while AC-011 baseline inventory and static validation remain unresolved.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "https://github.com/donghp/beyond-vibe-coding/pull/50",
+        "projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-015",
+      "statement": "Draft PR #51 proposes the two Task #003 report/inventory outputs using authentic repository-published A2/A4 screenshots and the 2026-11-11 Owner-supplied GAIS Preview screenshot. Both files remain proposal-only; technical manifests, app-type confirmation and export are unverified.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "https://github.com/donghp/beyond-vibe-coding/pull/51",
+        "practical-labs/assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg",
+        "practical-labs/assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png"
       ]
     }
   ],
@@ -125,14 +189,30 @@
       "contract_revision": 1,
       "status": "APPROVED",
       "owner": "Human Owner / AI-assisted reviewer",
-      "next_action": "Human Owner installs the refreshed Continuity package locally, checks the local Git working tree, then prepares a dedicated branch/PR for Continuity publication. After continuity publication and recovery checks, run only BVCTM-PROMPT-0001 as authorized by the approved Contract."
+      "next_action": "Complete the authorized scaffold inspection by opening the actual Code/File Explorer, recording the file tree and manifests, then prepare the two approved report/inventory outputs. Current execution register remains NOT_STARTED_OR_NOT_EVIDENCED."
+    },
+    {
+      "task_id": "BVC-TM-CONT-001",
+      "contract_id": "BVC-TM-CONT-TC-001",
+      "contract_revision": 5,
+      "status": "APPROVED",
+      "owner": "ChatGPT prepares bounded records; Human Owner reviews and merges",
+      "next_action": "Complete the remaining nine MODIFY outputs and one CREATE output under Revision 5, validate the exact 13-path baseline diff, and submit the reconciliation PR for Human Owner review."
     }
   ],
-  "blocked_items": [],
+  "blocked_items": [
+    {
+      "issue_id": "TM-BLOCK-PHASE-B-FIRST-SLICE",
+      "description": "Phase B feature implementation is not authorized yet. Complete the approved scaffold inventory, resolve or explicitly defer DR-005 for the first Beginner onboarding experience, review applicable UX gates, and obtain a separate approved First Vertical Slice Task Contract before writing application code.",
+      "status": "BLOCKED",
+      "owner": "Human Owner / Product Owner",
+      "reference": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml; projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md"
+    }
+  ],
   "open_risks": [
     {
       "risk_id": "TM-RISK-001",
-      "description": "The Project Continuity bootstrap and recovery approach has not yet been validated across independent AI executor sessions or materially different providers/models.",
+      "description": "BVCTM continuity remains a PILOT; independent cold-start, cross-model and GAIS-to-DeepSeek recovery tests have not been run.",
       "severity": "MEDIUM",
       "status": "OPEN",
       "owner": "Human Owner / BVC architecture workstream",
@@ -140,7 +220,7 @@
     },
     {
       "risk_id": "TM-RISK-002",
-      "description": "The risk policy file records Product Owner approval but retains publication-pending header metadata; the Task #003 contract explicitly preserves this as a governance finding.",
+      "description": "The Task Management risk policy file records Product Owner approval but retains publication-pending header metadata; this reconciliation does not authorize editing that protected policy file.",
       "severity": "MEDIUM",
       "status": "OPEN",
       "owner": "Product Owner / Human Owner",
@@ -149,52 +229,88 @@
   ],
   "open_issues": [
     {
-      "issue_id": "TM-ISSUE-SCREENSHOT-A1-01",
-      "description": "The A1-01 screenshot was supplied in conversation, but its canonical local filename and committed GitHub binary status still need confirmation.",
+      "issue_id": "TM-ISSUE-TASK003-OUTPUTS",
+      "description": "The approved GAIS scaffold inspection report and YAML inventory are not present on main; the actual Code/File Explorer and technical manifests must be inspected before creating the two outputs.",
       "status": "OPEN",
-      "owner": "Human Owner",
-      "reference": "practical-labs/assets/screenshots/phase-a/a1-01-gais-start-screen.png"
+      "owner": "Human Owner / ChatGPT reviews supplied evidence",
+      "reference": "projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md; projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml"
     },
     {
-      "issue_id": "TM-ISSUE-LOCAL-STATE",
-      "description": "The current local branch and working-tree status have not been inspected in this continuity bootstrap.",
+      "issue_id": "TM-ISSUE-DR005",
+      "description": "First-use storage disclosure timing and exact copy remains an open Product Owner decision required before dependent Beginner onboarding implementation.",
+      "status": "OPEN",
+      "owner": "Product Owner / Human Owner",
+      "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md#DR-005"
+    },
+    {
+      "issue_id": "TM-ISSUE-LOCAL-SYNC",
+      "description": "The candidate local main worktree was last synchronized to 202e780 before PR #47–#49; current local main synchronization to aff2b42 is not verified. A separate linked worktree remains DIRTY with one modified Markdown file and two untracked A1 screenshots.",
       "status": "OPEN",
       "owner": "Human Owner",
-      "reference": "C:\\beyond-vibe-coding"
+      "reference": "C:\\beyond-vibe-coding-a4-evidence; C:\\beyond-vibe-coding"
+    },
+    {
+      "issue_id": "TM-ISSUE-CONT-AC011",
+      "description": "R5 AC-011 inventory from approved baseline main@202e780 also includes the Contract file changed by the separately merged PR #47/#49 control-plane updates. This is outside the 13 authorized output paths; the full baseline inventory cannot yet be certified PASS. PR #50 remains Draft pending governance resolution and validation.",
+      "status": "BLOCKED",
+      "owner": "Human Owner / BVC governance",
+      "reference": "https://github.com/donghp/beyond-vibe-coding/pull/50; projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml"
+    },
+    {
+      "issue_id": "TM-ISSUE-TASK003-TECHNICAL-EXPORT",
+      "description": "Draft PR #51 records the screenshot-visible scaffold tree and Preview but package.json, bun.lock, next.config.ts, tsconfig.json, .env.example contents, exact PostCSS filename, WEB app-type label, external connection state and actual ZIP export remain NOT_VERIFIED. Obtain the read-only ZIP outside the BVC repository or supply redacted screenshots/text.",
+      "status": "OPEN",
+      "owner": "Human Owner",
+      "reference": "https://github.com/donghp/beyond-vibe-coding/pull/51"
     }
   ],
   "next_actions": [
     {
       "action_id": "TM-NEXT-001",
-      "description": "Install the refreshed BVCTM Continuity package locally; inspect the extracted files and verify JSON/YAML/CSV and ZIP integrity.",
-      "priority": "HIGH",
-      "owner": "Human Owner"
-    },
-    {
-      "action_id": "TM-NEXT-002",
-      "description": "Check local Git branch and working tree, then publish the Continuity package through a dedicated branch and Human Owner-reviewed Pull Request.",
-      "priority": "HIGH",
-      "owner": "Human Owner / AI prepares changes"
+      "description": "Use the GAIS Export control to download one read-only ZIP outside the BVC repository, if available, and upload it for inspection; otherwise supply redacted screenshots/text of package.json, bun.lock, next.config.ts, tsconfig.json, .env.example and the complete PostCSS config filename.",
+      "priority": "URGENT",
+      "owner": "Human Owner",
+      "related_task_id": "BVC-TM-P3.3-003"
     },
     {
       "action_id": "TM-NEXT-003",
-      "description": "After the Continuity records are published and the cold-start recovery checkpoint is ready, return to GAIS and execute only the approved blank-web scaffold prompt BVCTM-PROMPT-0001 under BVC-TM-TC-003 Revision 1.",
+      "description": "Record a Product Owner decision for DR-005 (storage disclosure timing and exact first-use copy) or explicitly defer it from the first slice.",
       "priority": "HIGH",
-      "owner": "Human Owner"
+      "owner": "Human Owner / Product Owner",
+      "related_task_id": "BVC-TM-P3.3-003"
     },
     {
       "action_id": "TM-NEXT-004",
-      "description": "Run and record the first cold-start recovery test in a fresh, independent AI executor session using only the published project-owned continuity sources.",
+      "description": "Prepare a separate First Vertical Slice Task Contract for Phase B B1 — create and display one title-only personal task, explicitly excluding persistence until a later authorized step; obtain Owner approval before implementation.",
+      "priority": "HIGH",
+      "owner": "ChatGPT prepares; Human Owner approves",
+      "related_task_id": "BVC-TM-P3.3-003"
+    },
+    {
+      "action_id": "TM-NEXT-005",
+      "description": "Fast-forward C:\\beyond-vibe-coding-a4-evidence to the latest main only after a fresh clean-status check; preserve C:\\beyond-vibe-coding and all linked worktree/stash contents.",
       "priority": "NORMAL",
-      "owner": "Human Owner / independent AI session"
+      "owner": "Human Owner"
+    },
+    {
+      "action_id": "TM-NEXT-006",
+      "description": "Run continuity cold-start, cross-model and GAIS-to-DeepSeek recovery scenarios only when the required sender release, receiver acceptance and inspectable checkpoint evidence exist.",
+      "priority": "NORMAL",
+      "owner": "Human Owner / independent executor"
+    },
+    {
+      "action_id": "TM-NEXT-007",
+      "description": "Resolve the R5 AC-011 baseline/control-plane distinction and run JSON Schema, YAML, CSV, source-path and Contract inventory validators on Draft PR #50 before marking the reconciliation ready for Owner acceptance.",
+      "priority": "URGENT",
+      "owner": "ChatGPT prepares; Human Owner / BVC governance approves resolution"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@53ed2649bd5ee687ae76be686db5838f4b9b0173",
-    "source_commit": "53ed2649bd5ee687ae76be686db5838f4b9b0173",
+    "recovery_point_ref": "main@aff2b42da26ec548de8088bf77de455a94723773",
+    "source_commit": "aff2b42da26ec548de8088bf77de455a94723773",
     "verified": true,
-    "last_verified_at": "2026-11-05T21:54:16+07:00",
-    "notes": "Remote main SHA and PR #15 merge state were verified from GitHub. PR #15 is included in main. No open PRs were returned by the repository open-PR query at this checkpoint. This does not verify the local working tree, GAIS session, or uncommitted files."
+    "last_verified_at": "2026-11-11T08:30:00+07:00",
+    "notes": "GitHub live main and PR #47/#48/#49 merge states were verified in this session; open PR query returned zero. This is a remote repository checkpoint. The canonical local worktree was last Owner-verified clean at 202e780 before those three merges and is not yet rechecked at aff2b42. The second linked worktree remains Owner-reported DIRTY; neither local path was directly inspected by ChatGPT. Draft PR #50 is now open on docs/bvctm-continuity-r5-completion; its current-main diff matches 13 authorized outputs, but AC-011 baseline inventory remains blocked because PR #47/#49 modified the Contract file after the approved source baseline. Draft PR #51 is open from docs/bvctm-task003-scaffold-evidence and contains two partial Task #003 output files. They use authentic repository A2/A4 screenshots and the current Owner-supplied Preview image; no ZIP or package/config file contents have been inspected."
   },
-  "updated_by": "AI-prepared Continuity revision 2 from verified GitHub state; Human Owner review required before treating semantic state as accepted."
+  "updated_by": "AI-prepared Project State revision 3 from live GitHub and Owner-supplied evidence; Human Owner review required. Project State v0.1.0 remains Draft/Experimental."
 }

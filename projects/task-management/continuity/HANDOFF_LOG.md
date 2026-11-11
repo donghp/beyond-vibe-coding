@@ -43,3 +43,77 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Evidence references:**
 - **Next permitted action:**
 - **Human Owner review:** REQUIRED / NOT_REQUIRED_BY_POLICY
+
+## H-0003 — Revision 5 Continuity and Phase B Entry Checkpoint
+
+- **Recorded at:** 2026-11-11T08:30:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source `main` SHA:** `aff2b42da26ec548de8088bf77de455a94723773`
+- **Event type:** RECOVERY / TASK_TRANSITION
+- **Continuity Contract:** BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5 — APPROVED on main after PR #47 and explicit approval-record PR #49.
+- **Verified facts:**
+  - PR #47 merged at `0c2ad6c00a5219cc9bb0e394987997545065f77f`.
+  - PR #48 merged at `eb7b8757474e8a40a72835ceb26cee99132b1aa3`; it published three MODIFY paths only.
+  - PR #49 merged at `aff2b42da26ec548de8088bf77de455a94723773`; R5 Contract and Human Owner approval are APPROVED on main.
+  - The live open-PR query returned zero at this checkpoint.
+  - Phase A A1–A4 learning completion is recorded in Practical Labs Lesson Status Register V0.2.
+  - Task #003 remains APPROVED with execution NOT_STARTED_OR_NOT_EVIDENCED; its two required report/inventory outputs are absent from main.
+  - Formal Phase 3.1 UX Acceptance remains OPEN; DR-005 remains OPEN; DR-014 is ACCEPTED FOR DESIGN only.
+- **Owner-reported facts:**
+  - The candidate local main worktree was clean and equal to remote main at `202e780` before PR #47–#49 merged; its current synchronization to `aff2b42` has not been rechecked.
+  - The separate `C:\beyond-vibe-coding` linked worktree remains DIRTY with one modified continuity Markdown file, two untracked A1 screenshots, and six stash entries; preserve all of them.
+  - The Human Owner supplied a GAIS screenshot showing the project title and expected Preview heading; code-tree/package inventory is not visible in that screenshot.
+- **Open issues / risks:**
+  - R5 continuity reconciliation is partial: PR #48 published 3 of 12 MODIFY outputs; the follow-up R5 completion branch must finish the remaining 9 MODIFY and 1 CREATE.
+  - CONT-T01 through CONT-T11 have not been executed; continuity remains PILOT.
+  - The First Vertical Slice feature implementation Contract does not yet exist as an approved canonical Contract.
+- **Contracts and authority checked:**
+  - BVC-TM-CONT-001 Revision 5 — APPROVED.
+  - BVC-TM-P3.3-003 / BVC-TM-TC-003 Revision 1 — APPROVED, scaffold inspection only.
+  - No authority for application feature implementation is created by this checkpoint.
+- **Evidence references:**
+  - PR #47: https://github.com/donghp/beyond-vibe-coding/pull/47
+  - PR #48: https://github.com/donghp/beyond-vibe-coding/pull/48
+  - PR #49: https://github.com/donghp/beyond-vibe-coding/pull/49
+  - Phase A status: `practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md`
+  - Task #003 authority: `projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml`
+- **Next permitted action:** Complete the remaining R5 continuity records, then finish the read-only scaffold inventory and prepare a separate First Vertical Slice Contract before Phase B implementation.
+- **Handoff status:** This is a material checkpoint entry, **not** a worker handoff. No sender release, receiver acceptance, or handoff YAML is claimed.
+- **Human Owner review:** REQUIRED.
+
+## H-0004 — R5 Continuity Completion Draft PR Prepared
+
+- **Recorded at:** 2026-11-11T08:30:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source `main` SHA:** `aff2b42da26ec548de8088bf77de455a94723773`
+- **Event type:** TASK_TRANSITION / BLOCKER
+- **Event:** Draft PR #50 was opened from `docs/bvctm-continuity-r5-completion` for the remaining R5 continuity outputs.
+- **Verified facts:**
+  - GitHub compare against current main shows exactly 13 authorized output paths: 12 MODIFY, 1 CREATE, 0 DELETE.
+  - Current-main diff totals 766 additions-plus-deletions, under the 3,000-line Change Budget; no binary path is changed.
+  - Project State parses as JSON; Prompt Register contains #0001/#0002/#0003 and `next_number: 4`; CONT-T11 remains NOT_RUN.
+  - PR #50 is DRAFT and not canonical.
+- **Blocker:** Compare from the approved R5 source baseline `202e780...` to the candidate also includes the Contract YAML changed by the separately merged PR #47/#49 control-plane updates. This Contract path is outside the 13 authorized output paths. AC-011 is NOT_YET_VERIFIED; no validator PASS is claimed.
+- **Other pending validation:** Draft 2020-12 Project State schema, YAML syntax, CSV parser/source-path resolution and Contract Validator VC-004/VC-007 have not been run in a full checkout.
+- **Phase B boundary:** Task #003 scaffold inspection is still NOT_STARTED_OR_NOT_EVIDENCED; DR-005 remains OPEN; no First Vertical Slice implementation Contract has been approved.
+- **Evidence:** https://github.com/donghp/beyond-vibe-coding/pull/50
+- **Next permitted action:** Resolve AC-011's control-plane/baseline distinction and execute the required static validators; then update PR #50 from Draft only when the evidence supports readiness.
+- **Handoff status:** Material task checkpoint only, not a worker handoff. No sender release or receiver acceptance is claimed.
+- **Human Owner review:** REQUIRED.
+
+## H-0005 — Task #003 Scaffold Evidence Draft Prepared
+
+- **Recorded at:** 2026-11-11T10:12:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source `main` SHA:** `aff2b42da26ec548de8088bf77de455a94723773`
+- **Event type:** TASK_TRANSITION / EVIDENCE_CHECKPOINT
+- **Event:** Draft PR #51 was opened from `docs/bvctm-task003-scaffold-evidence` with the two report/inventory outputs authorized by BVC-TM-P3.3-003 Revision 1.
+- **Verified screenshot evidence:**
+  - A2 screenshot blob `1b57ea2119642bfd328d92b160d752e78b9ea781` shows the file explorer tree, `app/page.tsx` placeholder and Export control.
+  - A4 screenshot blob `d26e0a2692066f5b79d257f9533de6c8f2331d75` shows the tree and partial `app/layout.tsx` import from `next`.
+  - Owner-supplied 2026-11-11 Preview screenshot shows the expected project name and heading.
+- **Proposal:** PR #51 is OPEN / DRAFT, exactly two CREATE files, 437 additions, 0 deletions; not canonical.
+- **Still NOT_VERIFIED:** package.json and bun.lock contents, exact versions/scripts/runtime, full PostCSS filename/config, .env.example variable names, WEB app type label, GitHub/external connection state, ZIP export, and complete file inventory.
+- **Next permitted action:** Human Owner supplies the read-only GAIS ZIP export outside the BVC repository, if available; otherwise supplies redacted file contents/screenshots. Then finish report/inventory and run VC-006/VC-007.
+- **Handoff status:** Material evidence checkpoint, not worker handoff. No sender release or receiver acceptance is claimed.
+- **Human Owner review:** REQUIRED.

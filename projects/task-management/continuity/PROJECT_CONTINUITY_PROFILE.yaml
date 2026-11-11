@@ -1,14 +1,14 @@
 profile_schema_version: 0.1.0
 profile_id: BVC-TM-CONTINUITY-PROFILE
-profile_revision: 3
+profile_revision: 4
 profile_status: PILOT
 project:
   project_id: BVC-TASK-MANAGEMENT
   display_name: BVC Task Management
   repository: https://github.com/donghp/beyond-vibe-coding
   default_branch: main
-  current_main_sha: "202e78065e96d339f78d5a406edcd19ccf687e7f"
-  last_reconciled_at: "2026-11-11T06:44:00+07:00"
+  current_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
+  last_reconciled_at: "2026-11-11T08:30:00+07:00"
   project_index: projects/task-management/README.md
   domain: SOFTWARE_PRODUCT_AND_BEGINNER_AI_VIBE_CODING
   product_baseline:
@@ -71,7 +71,7 @@ canonical_authority:
   risk_policy_ref: projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
   risk_policy_note: >-
     The risk policy header still says publication pending even though PR #7 merged. This is stale metadata
-    that remains visible under Continuity Contract R4; this task does not authorize editing the policy file.
+    that remains visible under Continuity Contract R5; this task does not authorize editing the policy file.
   decision_register_ref: projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md
   critical_open_decisions:
     - DR-005 first-use storage disclosure timing/copy remains OPEN.
@@ -115,18 +115,30 @@ external_systems:
     app_name_observed: BVC Task Management Scaffold Inspection
     model_label_observed_in_screenshot: Gemini 3.8 Flash
     preview_status: OWNER_SUPPLIED_OBSERVED_BLANK_PREVIEW_WITH_EXPECTED_HEADING
-    code_tree_status: PHASE_A_SCREENSHOTS_SHOW_VISUAL_TREE; PACKAGE_AND_TOOLCHAIN_INVENTORY_NOT_VERIFIED
-    export_status: NOT_VERIFIED
+    code_tree_status: A2_AND_A4_SCREENSHOTS_SHOW_FILE_TREE_AND_PARTIAL_PAGE_LAYOUT_SOURCE; PACKAGE_AND_TOOLCHAIN_INVENTORY_NOT_VERIFIED
+    app_id_observed: ca589018-617d-4919-bbe2-6b9c588ccd85
+    export_control_visible: true
+    export_status: CONTROL_VISIBLE; ZIP_NOT_DOWNLOADED_OR_INSPECTED
     secrets_policy: Never record API keys, tokens, credentials, or account-private details.
   - system_id: GITHUB
     system_name: GitHub
     owner: Human Owner / repository governance
     role: Canonical source repository, PR review, commit history and continuity storage
     access_mode: GitHub connector verified in originating ChatGPT session; new sessions must re-authenticate independently
-    current_status: MAIN_SHA_VERIFIED; ZERO_OPEN_PRS_AT_LAST_CHECK
-    observed_main_sha: "202e78065e96d339f78d5a406edcd19ccf687e7f"
-    observed_at: "2026-11-11T06:44:00+07:00"
-    branch_refs_returned: 45
+    current_status: MAIN_SHA_VERIFIED; PR_50_DRAFT_OPEN
+    observed_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
+    observed_at: "2026-11-11T08:30:00+07:00"
+    open_pr_count_at_main_checkpoint: 0
+    current_open_proposals:
+      - number: 50
+        status: DRAFT; NOT_READY_FOR_MERGE
+        url: https://github.com/donghp/beyond-vibe-coding/pull/50
+        head: docs/bvctm-continuity-r5-completion
+      - number: 51
+        status: DRAFT; PARTIAL; NOT_READY_FOR_ACCEPTANCE
+        url: https://github.com/donghp/beyond-vibe-coding/pull/51
+        head: docs/bvctm-task003-scaffold-evidence
+    recent_merged_prs: [47, 48, 49]
     main_branch_protected: false
     recently_merged_prs:
       - number: 37
@@ -156,6 +168,16 @@ external_systems:
       - number: 46
         status: MERGED
         merge_commit: 202e78065e96d339f78d5a406edcd19ccf687e7f
+      - number: 47
+        status: MERGED
+        merge_commit: 0c2ad6c00a5219cc9bb0e394987997545065f77f
+      - number: 48
+        status: MERGED
+        merge_commit: eb7b8757474e8a40a72835ceb26cee99132b1aa3
+        note: "Three continuity MODIFY outputs only; final reconciliation remains partial."
+      - number: 49
+        status: MERGED
+        merge_commit: aff2b42da26ec548de8088bf77de455a94723773
     merge_authority: Human Owner
     auto_merge: Not assumed; follow current repository settings and the Global Continuity protocol.
   - system_id: LOCAL-WORKSPACE-MAIN
@@ -163,13 +185,14 @@ external_systems:
     owner: Human Owner
     canonical_path: C:\beyond-vibe-coding-a4-evidence
     access_mode: Owner-supplied terminal output; not directly inspected by ChatGPT
-    current_status: CLEAN_MAIN_BEHIND_3_AFTER_FETCH
+    current_status: OWNER_REPORTED_CLEAN_AT_202e780; EXPECTED_BEHIND_3_AFTER_PR_47_48_49; NOT_RECHECKED
     current_branch: main
-    last_local_commit: d2ac0f5b6e53f0618df20663a66a5af7e1abc9df
-    origin_main_commit: 202e78065e96d339f78d5a406edcd19ccf687e7f
-    ahead_behind: "0 3"
-    last_observed_at: "2026-11-11T06:44:00+07:00"
-    sync_status: NOT_YET_FAST_FORWARDED
+    last_local_commit: 202e78065e96d339f78d5a406edcd19ccf687e7f
+    origin_main_commit_at_last_local_check: 202e78065e96d339f78d5a406edcd19ccf687e7f
+    current_remote_main: aff2b42da26ec548de8088bf77de455a94723773
+    expected_ahead_behind: "0 3"
+    last_observed_at: "2026-11-11T08:30:00+07:00"
+    sync_status: NOT_VERIFIED_AFTER_PR_47_48_49
   - system_id: LOCAL-WORKSPACE-DIRTY
     system_name: Windows historical/working worktree
     owner: Human Owner

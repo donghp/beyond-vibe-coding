@@ -43,6 +43,27 @@ tasks:
   - projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml
   external_outputs:
   - One isolated non-production blank WEB app; read-only ZIP export outside repository if export is available
-  next_action: Run one exact scaffold-only prompt and gather actual GAIS Preview / code-tree evidence.
+  next_action: "Draft PR #51 records the screenshot-visible tree and Preview. Obtain the read-only GAIS ZIP or redacted manifest/config evidence; then complete the inventory and run VC-006/VC-007."
   scope: No product features, localStorage, Auth, database, external API, GitHub app sync, hosting, or
     deployment.
+  draft_evidence_pr: https://github.com/donghp/beyond-vibe-coding/pull/51
+  draft_evidence_status: PARTIAL_NOT_ACCEPTED; manifest/export/app-type verification pending
+
+- task_id: BVC-TM-CONT-001
+  contract_id: BVC-TM-CONT-TC-001
+  revision: 5
+  title: BVCTM Project Continuity Reconciliation and Cross-Executor Resume
+  status: APPROVED
+  risk_level: R1
+  execution_status: "PARTIAL / NOT ACCEPTED"
+  contract_status: APPROVED_ON_MAIN
+  contract_path: projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml
+  evidence_refs:
+  - https://github.com/donghp/beyond-vibe-coding/pull/47
+  - https://github.com/donghp/beyond-vibe-coding/pull/48
+  - https://github.com/donghp/beyond-vibe-coding/pull/49
+  published_outputs:
+  - projects/task-management/continuity/README.md
+  - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
+  notes: "Revision 5 is APPROVED on main. PR #48 published three of the twelve MODIFY outputs. Draft PR #50 now proposes the remaining nine MODIFY paths and one CREATE path; the PR is not canonical and is NOT READY FOR MERGE. AC-011 baseline inventory and required static validation remain unresolved. Do not self-promote lifecycle status beyond APPROVED; no final acceptance is claimed."
+  next_action: "Resolve AC-011, run the seven Contract verification checks with evidence, obtain Human Owner review, and merge only after all acceptance criteria are verified."
