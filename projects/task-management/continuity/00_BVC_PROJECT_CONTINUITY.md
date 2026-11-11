@@ -84,7 +84,7 @@ Preserve:
 - Phase 3.2 is an accepted design baseline only.
 - DR-005 remains OPEN; DR-014 is accepted for design only, runtime verification remains required.
 - BVC-TM-P3.3-003 / BVC-TM-TC-003 R1 is a separate scaffold-inspection Contract. It remains APPROVED; its execution is NOT_STARTED_OR_NOT_EVIDENCED and both required report/inventory outputs are absent from main.
-- BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5 is APPROVED on main after PR #49. PR #48 published three of twelve MODIFY outputs; R5 completion is preparing the remaining nine MODIFY outputs and one CREATE output.
+- BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5 is APPROVED on main after PR #49. PR #48 published three of twelve MODIFY outputs. Draft PR #50 proposes the remaining nine MODIFY outputs and one CREATE output; it remains NOT READY FOR MERGE pending AC-011 baseline inventory resolution and static validation.
 - Do not confuse BVCTM Task #003 with Global BVC-GLOBAL-TC-003 (public website).
 
 **6. Treat evidence correctly**
@@ -127,9 +127,9 @@ Do not invent context-window percentages. During this bootstrap, perform read-on
 ## Current verified checkpoint
 
 - Current main: `aff2b42da26ec548de8088bf77de455a94723773`
-- Open PRs: 0 at last live check.
+- At checkpoint `aff2b42` before PR #50 was opened, open PRs: 0. Current proposal: PR #50 OPEN / DRAFT.
 - Continuity Contract: BVC-TM-CONT-TC-001 Revision 5, APPROVED after PR #47 and approval-record PR #49.
-- PR #48: merged partial reconciliation of three MODIFY paths; final R5 completion remains a separate proposal.
+- PR #48: merged partial reconciliation of three MODIFY paths. PR #50 proposes the remaining 9 MODIFY + 1 CREATE outputs; it is not canonical and not ready for merge.
 - Product baseline: Product Definition v0.2.0.
 - Phase A: learning A1–A4 completed.
 - Phase B: next focus; implementation requires completion of scaffold inspection, applicable UX decision gates and a separate approved First Vertical Slice Task Contract.
