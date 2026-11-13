@@ -2,7 +2,7 @@
   "contract_version": "0.1.0",
   "contract_id": "BVC-TM-TC-005",
   "revision": 1,
-  "status": "PROPOSED",
+  "status": "APPROVED",
   "created_at": "2026-11-13",
   "project": {
     "project_id": "BVC-TASK-MANAGEMENT",
@@ -34,15 +34,15 @@
       "DR-014 ACCEPTED FOR DESIGN; runtime verification required"
     ],
     "prior_contract": "BVC-TM-TC-004 Revision 1 APPROVED — B1 accepted by Human Owner 2026-11-12 with known limitations",
-    "approval_status": "PROPOSED — Human Owner approval required before GAIS implementation",
+    "approval_status": "APPROVED — Human Owner merged PR #64 on 2026-11-13",
     "risk_owner": "Human Owner / Product Owner",
-    "execution_authorization": "NOT_GRANTED",
+    "execution_authorization": "NOT_GRANTED — Contract approval does not itself authorize GAIS implementation. A separate explicit Owner instruction is required.",
     "authorization_reference": "Human Owner request to construct the B2 Task Contract in the current conversation; this request authorizes drafting and publication of a proposed Contract only. It does not authorize execution or app-code modification.",
     "human_approval": {
       "required": true,
-      "status": "PENDING",
+      "status": "APPROVED",
       "approver_role": "Human Owner / Product Owner",
-      "approval_reference": "Human Owner must explicitly approve this Contract before execution; this is a proposed Contract only."
+      "approval_reference": "Human Owner confirmed successful merge of PR #64 in ChatGPT conversation on 2026-11-13; GitHub confirms PR #64 merged at commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
     },
     "permitted_actions": [
       "read",
@@ -418,12 +418,13 @@
       "id": "RC-001",
       "item": "PR #62 DR-005 is merged and visible on main.",
       "status": "PASS",
-      "evidence": "merge commit b59d274be0567709dbd7824d31d52ac5fc30a1a7"
+      "evidence": "PR #62 merge commit b59d274be0567709dbd7824d31d52ac5fc30a1a7."
     },
     {
       "id": "RC-002",
       "item": "BVC-TM-TC-005 Revision 1 is explicitly approved by Human Owner.",
-      "status": "PENDING"
+      "status": "PASS",
+      "evidence": "Owner confirmed PR #64 merged; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
     },
     {
       "id": "RC-003",
@@ -515,11 +516,11 @@
     }
   ],
   "authorization_and_gate": {
-    "owner_decision_required": "Human Owner must explicitly approve BVC-TM-TC-005 Revision 1.",
+    "owner_decision_required": "PASS — Human Owner approval evidenced by merged PR #64 (merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b).",
     "dr005_publication": "PASS — PR #62 is merged; verify the canonical Decision Register on main before execution.",
     "pre_edit_inspection": "Reinspect the live GAIS app identity and exact app/page.tsx immediately before execution.",
     "separate_execution_authorization": "Contract approval and a separate Owner instruction to execute B2 are both required.",
-    "status": "PROPOSED; NOT AUTHORIZED FOR EXECUTION"
+    "status": "APPROVED; IMPLEMENTATION NOT AUTHORIZED"
   },
   "expected_outputs": [
     {
