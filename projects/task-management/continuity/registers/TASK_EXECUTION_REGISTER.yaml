@@ -69,7 +69,7 @@ tasks:
   revision: 1
   title: "Phase B1 — Create and Display the First Task"
   status: APPROVED
-  execution_status: EXECUTION_REPORTED; EVIDENCE_PARTIAL; OWNER_ACCEPTANCE_PENDING
+  execution_status: COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS
   risk_level: R2
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml
   approval_reference: "Human Owner approved Contract Revision 1 on 2026-11-11; canonical through merged PR #53."
@@ -97,7 +97,7 @@ tasks:
   - practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
   - "Owner-supplied GAIS Preview screenshot before refresh; binary repository publication pending"
   - "Owner-supplied GAIS Preview screenshot after B1-08 refresh; binary repository publication pending"
-  next_action: "Inspect exact app/page.tsx diff or exported source and verify remaining manual B1 acceptance criteria; then prepare a Human Owner acceptance proposal. Do not begin B2."
+  next_action: "Retain known evidence limitations; run B1 regression checks under B2 without expanding B1 scope."
   scope: "One title-only task form, one in-memory list, empty-title validation and keyboard submission in app/page.tsx only. Persistence is B2 and is excluded."
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
@@ -117,3 +117,36 @@ tasks:
   - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
   notes: "Revision 5 is APPROVED on main. PRs #48 and #50 are merged and the 13 authorized reconciliation outputs are published. AC-011 approved-baseline/control-plane inventory treatment remains unresolved; PR #50 merge does not prove all validators passed. Execution remains PARTIAL / NOT ACCEPTED until AC-011 and required verification evidence are resolved."
   next_action: "Resolve AC-011 baseline/control-plane treatment and run the required verification checks; keep PARTIAL / NOT ACCEPTED until evidence and Owner acceptance support closure."
+
+- task_id: BVC-TM-P3.3-005
+  title: "Phase B2 — Save Your Task"
+  status: APPROVED
+  execution_status: NOT_STARTED; PRE-EXECUTION_GATES_PENDING
+  contract:
+    id: BVC-TM-TC-005
+    revision: 1
+    status: APPROVED
+    publication: MERGED_PR_64
+    approval_reference: "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
+  risk_level: R2
+  allowed_changes:
+    create: []
+    modify:
+      - app/page.tsx
+    delete: []
+  change_budget:
+    max_changed_files: 1
+    max_diff_lines: 350
+    dependencies: false
+    config: false
+    database: false
+    auth: false
+    external_services: false
+  approved_dependencies:
+    - "DR-005 — APPROVED via merged PR #62."
+    - "DR-014 — ACCEPTED FOR DESIGN; runtime verification required."
+  execution_authorization: NOT_GRANTED
+  next_action: "Preflight GAIS identity, current app/page.tsx, source parity, changed-file inventory and single-writer status. Prepare Context Pack/Prompt; execute only after separate Human Owner instruction."
+  evidence:
+    - "PR #64 merged — https://github.com/donghp/beyond-vibe-coding/pull/64"
+    - "Canonical Contract: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
