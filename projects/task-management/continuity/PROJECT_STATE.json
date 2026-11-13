@@ -269,7 +269,6 @@
       "contract_revision": 5,
       "status": "APPROVED",
       "owner": "ChatGPT prepares bounded records; Human Owner reviews",
-      "execution_status": "PARTIAL / NOT ACCEPTED",
       "next_action": "Resolve AC-011 baseline/control-plane treatment and run required verification; do not claim closure."
     },
     {
@@ -279,14 +278,6 @@
       "status": "APPROVED",
       "owner": "Human Owner operates GAIS; Gemini executes after separate instruction; ChatGPT reviews and coordinates",
       "next_action": "Complete live GAIS preflight, verify app/page.tsx source parity and no competing writer, prepare the lesson Context Pack and Prompt, then wait for the separate Owner execution instruction."
-    },
-    {
-      "task_id": "BVC-TM-CONT-001",
-      "contract_id": "BVC-TM-CONT-TC-001",
-      "contract_revision": 5,
-      "status": "APPROVED",
-      "owner": "ChatGPT prepares bounded records; Human Owner reviews",
-      "next_action": "Resolve AC-011 baseline/control-plane treatment and run the required verification checks; do not claim continuity task acceptance."
     }
   ],
   "blocked_items": [
