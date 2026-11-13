@@ -3,7 +3,7 @@
 **Learning level:** Beginner  
 **Theme:** First Vertical Slice  
 **Environment:** The existing BVC Task Management project in Google AI Studio (GAIS)  
-**Learning status:** B1 scope approved by the Human Owner; implementation and runtime evidence are tracked separately.
+**Learning status:** B1 was closed by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`. B2 implementation remains gated by the DR-005 Product Owner decision and a separate approved B2 Task Contract.
 
 Phase B turns the blank scaffold from Phase A into a small, useful task manager. Build and understand one outcome at a time. Do not ask AI to create the whole product in one request.
 
@@ -11,7 +11,7 @@ Phase B turns the blank scaffold from Phase A into a small, useful task manager.
 
 | Lesson | What you will learn | What must be true before moving on |
 |---|---|---|
-| [B1 — Create Your First Task](b1-create-your-first-task/README.md) | Enter a title, add a task, and see it in a list. The first version uses temporary page memory. | A non-empty title creates a visible task; an empty title is rejected. |
+| [B1 — Create Your First Task](b1-create-your-first-task/README.md) | Enter a title, add a task, and see it in a list. The first version uses temporary page memory. | Owner-accepted on 2026-11-12 with known verification limitations; see the lesson record. |
 | [B2 — Save Your Task](b2-save-your-task/README.md) | Save the task in the current browser profile using the approved Beginner storage approach. | The save behavior is tested and the app gives truthful feedback. |
 | [B3 — Close and Reopen](b3-close-and-reopen/README.md) | Reload or reopen the app in the same browser profile. | The previously saved task is still available. |
 | [B4 — Improve One Small Thing](b4-improve-one-small-thing/README.md) | Ask AI for one bounded improvement and protect the existing behavior. | The improvement works and B1–B3 regression checks still pass. |

@@ -7,7 +7,28 @@
 **Learning outcome:** Enter a task title, add the task, and see it appear in a simple list.  
 **Implementation scope:** [BVC-TM-TC-004 Revision 1 — APPROVED](../../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml). MODIFY `app/page.tsx` only in the existing GAIS app.  
 **Canonical prompt:** [BVCTM-PROMPT-0004 — Phase B1: Create Your First Task](../../prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md).  
-**Lesson status:** Contract and Prompt published; implementation reported by the Owner; technical evidence partial; Human Owner acceptance pending.
+**Lesson status:** `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS` — the Human Owner closed B1 on 2026-11-12 after reviewing the supplied source and confirming that the GAIS Code view contains one `Page` component. The complete manual Preview test set and repository-committed before/after source-diff evidence are not recorded; do not claim those checks passed.
+
+## Owner acceptance record — 2026-11-12
+
+**Owner decision:** B1 is closed; proceed to the DR-005 decision.
+
+**Recorded status:** `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`.
+
+**Evidence reviewed:**
+- The supplied `app/page.tsx` source was reviewed against the B1 Contract.
+- The Human Owner confirmed that the actual GAIS Code view contains exactly one `Page` component (the repeated copies in the chat message were a paste duplication, not duplicate source).
+- The supplied GAIS Preview shows the initial task-capture screen and empty-state presentation.
+- The earlier Owner-supplied post-refresh Preview checkpoint records the empty list after refresh as expected B1 behavior.
+
+**Known verification limitations retained:**
+- The repository does not contain a complete, independently reviewable GAIS before/after changed-file inventory for AC-008.
+- The full set of manual Preview interactions (two successful additions, empty input, spaces-only input, clearing after validation, and Enter submission) is not captured as a complete evidence set in this lesson record.
+- No independent browser end-to-end test, local build, lint run, or automated test result is claimed.
+
+This is an explicit Human Owner acceptance with known limitations. It does not turn unrecorded checks into PASS and does not authorize B2 implementation. B2 remains gated by an approved DR-005 decision and a separate approved B2 Task Contract.
+
+The checklist below remains a learner verification guide; it is not a claim that every item has independently archived evidence.
 
 ## 1. What you will make
 
