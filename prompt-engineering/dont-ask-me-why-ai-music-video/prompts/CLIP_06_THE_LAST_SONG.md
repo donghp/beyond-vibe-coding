@@ -1,4 +1,4 @@
-# PROJECT: DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+# PROJECT: DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 ## DHEVS_06 — THE LAST SONG
 
 Timeline: 01:15–01:30 | Exactly 15 seconds | Landscape 16:9 | 480p | 1 output  
@@ -15,7 +15,7 @@ Use only these Start/End Frame anchors. No extra Image/Video References or morph
 
 ### 2. CREATIVE OBJECTIVE
 
-This is the emotional centerpiece of **“Đừng Hỏi Em Vì Sao”**. Alone in the same room from DHEVS_05, DongHP finally plays guitar. The song is a private conversation with the woman he loved; the flower, letter and photo quietly connect him to the past. Keep his performance restrained and sincere, never theatrical. Emotional progression: **first chord → remembered touch → emotion behind his eyes → keepsakes → lingering final chord**. No new location or character.
+This is the emotional centerpiece of **“Don't Ask Me Why”**. Alone in the same room from DHEVS_05, DongHP finally plays guitar. The song is a private conversation with the woman he loved; the flower, letter and photo quietly connect him to the past. Keep his performance restrained and sincere, never theatrical. Emotional progression: **first chord → remembered touch → emotion behind his eyes → keepsakes → lingering final chord**. No new location or character.
 
 ### 3. SHOT 01 — THE FIRST CHORD | 00:00–00:02.5
 
