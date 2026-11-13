@@ -36,7 +36,19 @@
     "prior_contract": "BVC-TM-TC-004 Revision 1 APPROVED — B1 accepted by Human Owner 2026-11-12 with known limitations",
     "approval_status": "PROPOSED — requires explicit Human Owner approval before execution",
     "risk_owner": "Human Owner / Product Owner",
-    "execution_authorization": "NOT_GRANTED"
+    "execution_authorization": "NOT_GRANTED — no GAIS edit is permitted by this Contract revision until the Human Owner explicitly approves BVC-TM-TC-005 Revision 1 and separately instructs execution.",
+    "authorization_reference": "Human Owner request to construct the B2 Task Contract in the current conversation; this request authorizes drafting and publication of a proposed Contract only. It does not authorize execution or app-code modification.",
+    "human_approval": {
+      "required": true,
+      "status": "PENDING",
+      "approver_role": "Human Owner / Product Owner",
+      "approval_reference": "Explicit confirmation of BVC-TM-TC-005 Revision 1 is required."
+    },
+    "permitted_actions": [
+      "read",
+      "inspect",
+      "run_analysis"
+    ]
   },
   "intent": {
     "learning_outcome": [
@@ -324,15 +336,15 @@
     "phase31": "Formal Phase 3.1 UX Acceptance remains OPEN; implementation must follow existing design package but must not claim final UX acceptance."
   },
   "stopping_conditions": [
-    "The actual GAIS project ID differs from ca589018-617d-4919-bbe2-6b9c588ccd85.",
-    "Current app/page.tsx differs materially from the B1 source provided by the Owner.",
-    "A second file must change.",
-    "A new dependency, configuration, layout, CSS or route is required.",
-    "localStorage is unavailable or a safe failure path cannot be implemented in the allowed file.",
-    "The exact DR-005 copy or session acknowledgement approach requires scope/decision change.",
-    "A workspace migration beyond formatVersion 1 is needed.",
-    "Malformed existing data might be overwritten or lost.",
-    "An unresolved UX/Product decision affects implementation."
+    "The GAIS project id differs from ca589018-617d-4919-bbe2-6b9c588ccd85.",
+    "The current page source differs materially from the Owner-provided B1 source.",
+    "More than app/page.tsx must change.",
+    "Any dependency, lockfile, config, route, layout, global CSS or external service is required.",
+    "Browser storage is unavailable or fails and safe handling cannot be provided.",
+    "Persisted data is malformed/unsupported and a non-destructive safe path is unclear.",
+    "Workspace identifiers cannot be generated safely under the existing runtime.",
+    "Any requirement expands into export/import, project/checklist entities or later-level capabilities.",
+    "Required context or authorization is missing or contradictory."
   ],
   "reporting": {
     "required": [
@@ -357,7 +369,15 @@
     "reviewer": "ChatGPT reviews the source, contract scope, evidence and UX alignment",
     "fallback": "Gemini 3.8 Pro if available and quota permits; otherwise ChatGPT prepares/reviews the work, but no other runtime is introduced.",
     "difficulty": "HIGH_RISK",
-    "instruction": "Inspect first; no edits before the Human Owner approves this Contract and instructs execution."
+    "instruction": "Inspect first; no edits before the Human Owner approves this Contract and instructs execution.",
+    "capability_requirements": [
+      "Read the canonical Project Instructions and this approved Contract.",
+      "Inspect the exact current app/page.tsx and confirm the GAIS project identity.",
+      "Modify exactly app/page.tsx and no other file.",
+      "Use the existing Next.js App Router and TypeScript/TSX scaffold without adding packages.",
+      "Implement only the Beginner localStorage task workspace and approved DR-005 disclosure behavior.",
+      "Provide actual Preview evidence and exact changed-file inventory."
+    ]
   },
   "constraints": [
     "Use only the exact existing GAIS app id and current project.",
