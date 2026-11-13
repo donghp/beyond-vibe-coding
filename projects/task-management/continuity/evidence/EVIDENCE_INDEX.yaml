@@ -1,6 +1,6 @@
 evidence_index_version: 0.1.0
 project_id: BVC-TASK-MANAGEMENT
-evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_EXECUTION_REPORTED; B1_EVIDENCE_PARTIAL; OWNER_ACCEPTANCE_PENDING
+evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS; DR005_APPROVED; B2_CONTRACT_APPROVED; B2_EXECUTION_NOT_STARTED
 classification_legend:
   REPOSITORY_VERIFIED: Directly checked against current GitHub main or canonical file.
   OWNER_SUPPLIED: Provided by Human Owner in the conversation; binary/source may not be committed.
@@ -129,8 +129,8 @@ evidence:
   classification: OWNER_REPORTED
   source: "Human Owner approval in the 2026-11-11 ChatGPT conversation"
   observed_at: '2026-11-11'
-  claim: "Human Owner approved BVC-TM-TC-004 Revision 1 for title-only in-memory task creation in app/page.tsx only. Contract #004 and Prompt #0004 are now canonical on main through merged PR #53."
-  limitations: "GAIS execution remains NOT_STARTED pending app identity and app/page.tsx preflight. Local Windows worktree synchronization after PR #53 remains NOT_VERIFIED."
+  claim: "BVC-TM-TC-004 Revision 1 and Prompt #0004 were published on main through PR #53. The Human Owner later closed B1 on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; PR #60 records the acceptance."
+  limitations: "The complete manual Preview test set and independent GAIS before/after changed-file inventory are not archived in the repository. Browser E2E is not claimed."
 
 - evidence_id: BVC-EV-020
   subject: PR #53 publication of B1 Contract #004 and Prompt #0004
@@ -161,3 +161,35 @@ evidence:
   observed_at: '2026-11-11'
   claim: "Screenshot visibly shows an empty task list, blank input, cleared validation and friendly empty state after refresh. Record B1-08 as OBSERVED_PASS."
   limitations: "The original binary is not yet verified on GitHub. Keep OWNER_SUPPLIED/OBSERVED classification until the exact image bytes are committed and checksum-verified."
+
+- evidence_id: BVC-EV-024
+  subject: B1 Human Owner acceptance with known limitations
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/60
+  observed_at: '2026-11-13'
+  claim: "The Human Owner closed BVC-TM-P3.3-004 on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS after reviewing the supplied app/page.tsx and confirming one Page component in the GAIS Code view."
+  limitations: "Complete manual Preview test evidence and independently reviewable GAIS before/after changed-file inventory are not archived. Browser E2E is not claimed."
+
+- evidence_id: BVC-EV-025
+  subject: DR-005 first-use storage disclosure approval
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/62
+  observed_at: '2026-11-13'
+  claim: "DR-005 was approved and published on main through PR #62; the canonical Decision Register contains the approved Beginner disclosure copy, placement, acknowledgement action and level-specific constraints."
+  limitations: "Approval of the disclosure does not prove the notice has been implemented or runtime-verified in GAIS."
+
+- evidence_id: BVC-EV-026
+  subject: B2 Task Contract approval and publication
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/64
+  observed_at: '2026-11-13'
+  claim: "BVC-TM-TC-005 Revision 1 for BVC-TM-P3.3-005 was approved and published on main by the Human Owner through PR #64. The Contract permits modifying app/page.tsx only and excludes dependencies, external services, database and Auth."
+  limitations: "Contract approval and merge do not mean B2 execution has started or that browser persistence works."
+
+- evidence_id: BVC-EV-027
+  subject: Global and BVCTM operating synchronization proposal
+  classification: PROPOSAL_ONLY
+  source: docs/continuity/BVC_PROJECT_OPERATING_STANDARD_V1.0.md
+  observed_at: '2026-11-13'
+  claim: "This synchronization branch proposes one BVC-wide operating standard, one BVCTM project playbook, a B2 Context Pack, and a read-only B2 GAIS preflight Prompt."
+  limitations: "These files become canonical only after the Human Owner merges the synchronization PR. No GAIS application code is changed."
