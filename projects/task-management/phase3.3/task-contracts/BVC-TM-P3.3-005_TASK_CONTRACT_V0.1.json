@@ -108,7 +108,36 @@
       "allow_external_services": false,
       "allow_architecture_changes": false
     },
-    "reclassification_rule": "If the change requires multiple components/shared data flows, reclassify at least R3; if it affects identity, access controls, secrets, database schema/migration or security boundaries, stop and classify under R4. Do not proceed under R2."
+    "reclassification_rule": "If the change requires multiple components/shared data flows, reclassify at least R3; if it affects identity, access controls, secrets, database schema/migration or security boundaries, stop and classify under R4. Do not proceed under R2.",
+    "forbidden_paths": [
+      "package.json",
+      "bun.lock",
+      "package-lock.json",
+      "yarn.lock",
+      "pnpm-lock.yaml",
+      "next.config.ts",
+      "tsconfig.json",
+      "postcss.config.mjs",
+      "eslint.config.mjs",
+      ".eslintrc.json",
+      ".env.example",
+      "metadata.json",
+      "app/layout.tsx",
+      "app/globals.css",
+      "app/not-found.tsx",
+      "README.md"
+    ],
+    "forbidden_path_prefixes": [
+      ".github/",
+      "node_modules/",
+      "supabase/",
+      "firebase/",
+      "prisma/",
+      "app/api/"
+    ],
+    "scope_expansion_allowed": false,
+    "scope_expansion_policy": "STOP_AND_REQUEST_APPROVAL",
+    "stop_if_out_of_scope_change_detected": true
   },
   "storage": {
     "level": "Beginner",
@@ -361,25 +390,28 @@
     "model_selection_note": "No current Gemini quota data was verified in this session. Check the model picker/quota in GAIS before execution; do not claim availability."
   },
   "constraints": [
-    "Use only the exact existing GAIS app id and current project.",
-    "Inspect current app/page.tsx before editing. If it differs materially from the Owner-supplied B1 source, stop.",
-    "Modify exactly one file: app/page.tsx. Any second file requirement means STOP.",
-    "No dependencies, lockfiles, configuration, routes, APIs, external services or other project levels.",
-    "Use browser localStorage only, under key bvc-task-management:workspace:v1.",
-    "Use the canonical envelope: format, formatVersion, sourceMode, workspaceId and data collections.",
-    "Preserve all accepted B1 behaviors and do not redesign the existing UI.",
-    "Show the approved DR-005 notice inline, not in a modal or full-screen onboarding.",
-    "Do not persist acknowledgement separately; retain it in page memory for the current session.",
-    "Load/validate existing storage before any write. Never write initial empty state before load completes.",
-    "Malformed or unsupported stored data must remain untouched; block writes and show a recovery message.",
-    "Attempt one full-envelope setItem before updating React task state or clearing the input.",
-    "On storage errors preserve existing task list and input; do not claim saved.",
-    "Report actual changed files and all checks run; distinguish NOT_RUN and NOT_VERIFIED."
+    "Read BVC Task Management Project Instructions and all required approved sources listed in this Contract.",
+    "Inspect the actual app/page.tsx before editing; compare it with the Owner-supplied B1 source.",
+    "Modify exactly one file: app/page.tsx. Do not create, modify, rename, move or delete another file.",
+    "Use the existing framework and packages only; no dependency, lockfile, configuration, layout, CSS, route, API or external service changes.",
+    "Use browser localStorage only, under the exact workspace key in this Contract.",
+    "Use the proposed versioned runtime workspace envelope in this Contract. Do not present it as the full backup/export schema.",
+    "Display the exact approved DR-005 Beginner disclosure inline before the first persisted task; use the approved action label.",
+    "Keep acknowledgement only in component memory during the current page session; do not write a separate acknowledgement key.",
+    "On page load, read and validate stored data before enabling writes. Do not initialize by writing an empty workspace.",
+    "If storage is missing, start with an in-memory empty workspace. If the stored content is malformed or unsupported, preserve it unchanged, block writes and show a truthful message.",
+    "On task submission, build the next full workspace, write it once to localStorage, and only after success commit React state and clear the input.",
+    "If the storage write fails, preserve prior tasks and input and show an error; never claim the task was saved.",
+    "Preserve all B1 behaviors: trim, exact empty-title message, successful input clearing, insertion order, Enter submission, label association and empty state.",
+    "Do not add projects, checklist, notes, priority, due date, status, edit/delete/complete, backup/export/import/restore, Settings, More navigation, cross-tab sync, cloud sync, account or database.",
+    "Match the existing Phase 3.1 UX baseline: compact inline notice, no modal/full-screen onboarding, accessible and responsive.",
+    "Report exact changed files and distinguish checks actually run from NOT_RUN/NOT_VERIFIED. Do not claim unperformed build, lint, E2E or storage-failure tests passed."
   ],
   "risk": {
     "level": "R2",
-    "policy_ref": "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md §R2 — BOUNDED COMPONENT / SINGLE-MODULE CHANGE",
-    "rationale": "The Contract limits changes to one existing page component/file and does not alter database schema, authentication, authorization, security controls, architecture baseline or external infrastructure. Persistence integrity is controlled with validation, non-destructive error handling and Owner-reviewed evidence. Reclassify if scope crosses into shared adapters/components or a protected technical domain."
+    "policy_ref": "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md §R2",
+    "rationale": "The Contract limits changes to one existing page component/file and does not alter database schema, authentication, authorization, security controls, architecture baseline or external infrastructure. Persistence integrity is controlled with validation, non-destructive error handling and Owner-reviewed evidence. Reclassify if scope crosses into shared adapters/components or a protected technical domain.",
+    "reclassification": "If implementation crosses the single component boundary into multiple components/shared state flows, reclassify R3 and issue a revised Contract; protected identity/security/database domains require R4 review."
   },
   "readiness_checks": [
     {
@@ -408,5 +440,99 @@
       "status": "PENDING"
     }
   ],
-  "execution_gate": "Do not execute until RC-001 to RC-005 are PASS and the Human Owner separately instructs the executor to implement B2."
+  "execution_gate": "Do not execute until RC-001 to RC-005 are PASS and the Human Owner separately instructs the executor to implement B2.",
+  "required_context": [
+    {
+      "reference": "practical-labs/bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md",
+      "purpose": "Project identity, file integrity, UX compliance, privacy and verification rules.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md",
+      "purpose": "Current product authority and Beginner learning level; no external database/identity.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_APPLICATION_ARCHITECTURE_V0.1.md",
+      "purpose": "Beginner browser localStorage architecture, adapter separation and error handling.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md",
+      "purpose": "Task entity and versioned workspace envelope reference; B2 runtime envelope is narrowed and explicitly proposed by this Contract.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/design/ux/v0.1/README.md",
+      "purpose": "UX package design authority and level-specific disclosures.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md",
+      "purpose": "Task capture and approved DR-005 notice placement/behavior.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_RESPONSIVE_UI_SPECIFICATION_V0.1.md",
+      "purpose": "Responsive and no-overflow requirements.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_UI_DESIGN_SYSTEM_V0.1.md",
+      "purpose": "Existing tokens, surfaces, text, states and visual consistency.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_UX_ACCEPTANCE_CRITERIA_V0.1.md",
+      "purpose": "UX-002 level-specific disclosure and UX-025/026 transparency requirements.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md",
+      "purpose": "DR-005 decision and DR-014 accepted-for-design status.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml",
+      "purpose": "Observed scaffold file list and package/toolchain baseline; not a substitute for live GAIS inspection.",
+      "required": true
+    },
+    {
+      "reference": "practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md",
+      "purpose": "Accepted B1 user flow and regression criteria.",
+      "required": true
+    },
+    {
+      "reference": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml",
+      "purpose": "B1 boundary and inherited single-file constraints.",
+      "required": true
+    }
+  ],
+  "authorization_and_gate": {
+    "owner_decision_required": "Human Owner must approve this Contract Revision 1 before implementation.",
+    "pr62": "DR-005 governance PR #62 must be merged to main and verified before B2 implementation.",
+    "pre_edit_inspection": "Reinspect the live GAIS project id and exact app/page.tsx immediately before editing.",
+    "separate_execution_authorization": "After approving the Contract, the Human Owner must separately instruct the executor to implement B2.",
+    "status": "PROPOSED; NOT AUTHORIZED FOR EXECUTION"
+  },
+  "expected_outputs": [
+    {
+      "id": "OUT-001",
+      "kind": "CODE",
+      "path": "app/page.tsx",
+      "description": "One modified GAIS page implementing B2 storage, load, DR-005 disclosure and storage error handling while preserving B1.",
+      "required": true
+    },
+    {
+      "id": "OUT-002",
+      "kind": "EVIDENCE",
+      "description": "Owner-captured authentic GAIS Preview screenshots and manual test results for disclosure, save, reload, B1 regressions, error/invalid data handling and responsive review.",
+      "required": true
+    }
+  ],
+  "retry_policy": {
+    "max_repair_attempts": 1,
+    "additional_attempts_require_approval": true,
+    "repair_scope": "Only app/page.tsx within existing change budget; any other file or design/schema expansion requires stop and revised Contract."
+  }
 }
