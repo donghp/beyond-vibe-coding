@@ -1,0 +1,271 @@
+{
+  "contract_version": "0.1.0",
+  "contract_id": "BVC-TM-TC-005",
+  "revision": 1,
+  "status": "PROPOSED",
+  "created_at": "2026-11-13",
+  "project": {
+    "project_id": "BVC-TASK-MANAGEMENT",
+    "name": "BVC Task Management — A Simple Daily Work Manager",
+    "learning_level": "Beginner",
+    "environment": "Existing Google AI Studio Build mode project",
+    "gais_app_id": "ca589018-617d-4919-bbe2-6b9c588ccd85",
+    "repository": "https://github.com/donghp/beyond-vibe-coding",
+    "default_branch": "main"
+  },
+  "task": {
+    "id": "BVC-TM-P3.3-005",
+    "title": "PHASE B2 — SAVE YOUR TASK",
+    "objective": "Extend the accepted B1 in-memory task capture flow with a small versioned browser-local workspace using localStorage, load the saved task list on the next page load, and disclose the Beginner storage behavior under approved DR-005 before any task is persisted.",
+    "parent_task_id": "BVC-TM-P3.3-004",
+    "requested_by": "Human Owner / Product Owner",
+    "risk_level": "R3",
+    "risk_note": "This changes data persistence and introduces browser data integrity and failure-handling behavior. It is not equivalent to B1's transient UI-only change."
+  },
+  "authority": {
+    "product_baseline": "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md",
+    "architecture_baseline": "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_APPLICATION_ARCHITECTURE_V0.1.md",
+    "data_model": "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md",
+    "ux_baseline": "projects/task-management/design/ux/v0.1/README.md",
+    "interaction_specification": "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md",
+    "decision_register": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md",
+    "approved_decisions": [
+      "DR-005 APPROVED 2026-11-13",
+      "DR-014 ACCEPTED FOR DESIGN; runtime verification required"
+    ],
+    "prior_contract": "BVC-TM-TC-004 Revision 1 APPROVED — B1 accepted by Human Owner 2026-11-12 with known limitations",
+    "approval_status": "PROPOSED — requires explicit Human Owner approval before execution"
+  },
+  "intent": {
+    "learning_outcome": [
+      "Understand the difference between in-memory React state and browser-local persistence.",
+      "Save a task workspace to the current browser profile without a database or sign-in.",
+      "Understand the exact Beginner storage disclosure before relying on persistence.",
+      "Observe honest save/load feedback and storage errors."
+    ],
+    "expected_outcome": "A task created in the existing B1 UI is written to a versioned workspace in localStorage; after a normal reload in the same browser profile and app origin, the task is loaded back and displayed once in the existing list.",
+    "non_goal": "This lesson does not implement the complete product data model, a general storage framework, backup/import/export, cloud sync, Projects, Checklists, Starter Kits, task editing/deletion/completion, settings navigation, or advanced architecture."
+  },
+  "recovery_point": {
+    "source_of_truth": "Existing GAIS project identified by app id ca589018-617d-4919-bbe2-6b9c588ccd85",
+    "pre_edit_required": "Re-open Code view and inspect current app/page.tsx immediately before editing; compare with the Owner-provided B1 source and report differences.",
+    "user_supplied_b1_source": {
+      "status": "OWNER_SUPPLIED_IN_CHAT",
+      "structure": "One Page component with Task { id, title }, title/tasks/errorMessage React state, semantic form, Add task submit handler, task list and empty state.",
+      "source_commit": "NOT_AVAILABLE",
+      "sha256": "NOT_AVAILABLE",
+      "note": "The actual GAIS export/source for B1 has not yet been provided as a verifiable repository artifact. Do not fabricate a Git source commit or hash."
+    }
+  },
+  "scope": {
+    "mode": "WRITE",
+    "allowed_changes": {
+      "create": [],
+      "modify": [
+        "app/page.tsx"
+      ],
+      "delete": []
+    },
+    "max_changed_files": 1,
+    "max_created_files": 0,
+    "max_modified_files": 1,
+    "max_deleted_files": 0,
+    "max_binary_files": 0,
+    "max_diff_lines": 250,
+    "dependencies": false,
+    "lockfiles": false,
+    "config": false,
+    "routes": false,
+    "external_services": false,
+    "database_schema": false,
+    "architecture_redesign": false
+  },
+  "storage": {
+    "level": "Beginner",
+    "provider": "Browser localStorage",
+    "key": "bvc-task-management:workspace:v1",
+    "format": {
+      "format": "bvc-task-management-workspace",
+      "formatVersion": 1,
+      "workspaceId": "UUID generated once for an empty new workspace",
+      "data": {
+        "tasks": [
+          {
+            "id": "UUID",
+            "title": "Non-empty trimmed title"
+          }
+        ]
+      }
+    },
+    "scope_note": "This is a deliberately narrow B2 implementation envelope containing tasks only. The architecture's full envelope also has projects, checklistItems, settings, timezone and appliedStarterKits; those collections are deferred until their features are taught. A later Contract must define any schema extension or migration.",
+    "id_generation": "Use crypto.randomUUID() only if supported in the actual target Preview runtime; otherwise use an existing safe browser-compatible UUID strategy without adding packages. Stop and report if no safe strategy is available.",
+    "validation": [
+      "Confirm JSON parses.",
+      "Confirm exact format identifier and supported formatVersion=1.",
+      "Confirm data.tasks is an array.",
+      "For each task, require a non-empty trimmed title and a non-empty unique id.",
+      "Reject unsupported or malformed persisted data without overwriting it automatically.",
+      "Do not silently delete or reset corrupted data."
+    ],
+    "initialization": "If localStorage key is absent, treat it as a new empty workspace in memory. The first valid task submission may create the versioned persisted workspace after DR-005 acknowledgement.",
+    "write_order": "For a new or updated task: validate -> construct next workspace snapshot -> attempt localStorage.setItem -> only on successful write update visible task state and clear the input/error. If write fails, retain the current input and current in-memory list; show truthful storage error and do not claim the task was saved.",
+    "load_order": "On initial client mount, read the key once, validate, and initialize the visible tasks. Prevent writing the initial empty React state over existing stored data before the load has completed.",
+    "atomicity_note": "localStorage.setItem is atomic for a single key from the application's perspective; use one versioned workspace key and never split a task across multiple keys.",
+    "quota_and_access_errors": "Catch storage exceptions (including quota/security/unavailable storage errors), show a plain-language message, preserve the current data and entered title, and allow the user to retry. Do not silently fall back to sessionStorage or memory while displaying a saved-success state.",
+    "cross_tab": "Cross-tab synchronization is out of scope. No BroadcastChannel or storage-event synchronization is required.",
+    "acknowledgement": {
+      "dr": "DR-005",
+      "display_before_persisted_task": "Show exact approved disclosure inline at top of workspace, before task entry is enabled for the first persisted task.",
+      "copy": "Where your tasks are stored — In Beginner mode, your tasks are stored in this browser on this device. They do not automatically sync to other browsers or devices. Clearing this site's browser data may delete your tasks. Browser storage is not a separate backup. You will learn to export a JSON backup in a later lesson. Do not enter passwords, API keys, or sensitive information in this learning app.",
+      "action": "Got it — continue",
+      "remember_state": "NOT DECIDED BY DR-005. This Contract proposes component-memory acknowledgement only for the current page session; when the page reloads before a task is persisted, disclose again. If the learner reloads after successfully saving a task, the saved workspace is loaded, and the disclosure must remain accessible via a lightweight 'Where your tasks are stored' help link/notice within current page UI only if this fits one-file scope. No acknowledgement localStorage key, cookie, server state, or separate persistence is authorized in this revision.",
+      "critical_open_point": "If the UI must suppress the notice across reloads while no task exists, a separate approved acknowledgement storage rule is needed; do not invent one. Owner approval of this proposed session-only acknowledgement rule is required."
+    }
+  },
+  "behavior": [
+    "Preserve the B1 title-only input, Add task, trimmed titles, exact empty input validation, task insertion order, empty state, semantic label and Enter submission.",
+    "On initial load, display any valid tasks stored under the workspace key.",
+    "Before the first valid task is persisted in a new workspace/session, display the DR-005 inline disclosure; the Add task interaction must not persist a task before acknowledgement.",
+    "When the learner acknowledges, enable task entry; acknowledgment alone must not write a workspace or claim a backup exists.",
+    "When a valid task is submitted, attempt to persist the next workspace. Show it as saved only after localStorage.setItem succeeds.",
+    "When a stored workspace exists, subsequent tasks update the same versioned workspace and maintain insertion order.",
+    "On refresh, previously saved tasks are reloaded from the same app origin and browser profile.",
+    "No automatic cross-device sync is provided.",
+    "No export/import, restore, cloud backup or account sign-in is included."
+  ],
+  "ux_constraints": [
+    "Preserve current B1 UI layout and component structure as much as practical.",
+    "Use the Phase 3.1 design package as the design authority; do not redesign the app.",
+    "DR-005 appears as a concise inline notice at the top of the current workspace, not a blocking modal or full-screen onboarding flow.",
+    "Use current typography, spacing, surfaces, border and responsive behavior already present. Do not invent new global color tokens.",
+    "At phone width, the notice must wrap naturally without horizontal scrolling and the task input/Add task remain usable.",
+    "Provide accessible heading, text, action, focus state and clear success/error status.",
+    "Do not claim settings navigation exists; More -> Settings & Backup remains a future full-product location until implemented."
+  ],
+  "out_of_scope": [
+    "Projects, checklists, notes, priority, due dates, status, task edit/delete/complete.",
+    "Supabase, PostgreSQL, Auth, RLS, Firebase, Gemini API, GitHub integration, remote sync, cloud storage.",
+    "Backup download/import/restore UI and DR-006 conflict semantics.",
+    "More navigation and Settings & Backup screen.",
+    "Cross-tab synchronization.",
+    "Any new package, lockfile, configuration, global CSS, layout, route, image asset or documentation file inside GAIS."
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "B2-AC-001",
+      "statement": "On first use before the first persisted task, the exact DR-005 Beginner disclosure is visible at the top of the workspace and the learner must select Got it — continue before a task can be persisted.",
+      "verification": "Open a fresh browser profile/app origin with no stored workspace; inspect notice and attempt submit before acknowledging; confirm no data is written.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-002",
+      "statement": "The disclosure explains browser/device scope, no automatic sync, possible loss when site data is cleared, no backup by itself, later JSON export and no sensitive data.",
+      "verification": "Compare rendered copy word-for-word with the approved DR-005 English text.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-003",
+      "statement": "A valid task added after acknowledgement is persisted to the agreed single versioned localStorage key.",
+      "verification": "Add a sample task and inspect browser storage through available Preview/browser tools; if internal storage inspection is unavailable, retain code-level inspection and reload evidence and mark direct key inspection NOT_VERIFIED.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-004",
+      "statement": "A previously persisted valid workspace is loaded on normal page refresh in the same app origin and browser profile.",
+      "verification": "Add two distinct tasks, refresh Preview, and confirm both appear once in the original order.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-005",
+      "statement": "The B1 title trim, empty/space-only validation, Enter submission, clear-input, clear-error, insertion-order and empty-state behaviors remain correct.",
+      "verification": "Run the B1 regression checklist after B2 implementation.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-006",
+      "statement": "A malformed or unsupported stored workspace is not silently overwritten or cleared.",
+      "verification": "With Owner supervision, test malformed JSON and an unsupported version in a disposable browser profile; verify an explicit recovery/error state and no automatic destructive reset.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-007",
+      "statement": "If localStorage read/write throws, the app reports the failure honestly, preserves the current input/list and never shows a false saved-success state.",
+      "verification": "Use an available controlled storage-failure simulation if GAIS supports it; otherwise perform static exception-path review and record runtime injection as NOT_RUN.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-008",
+      "statement": "Exactly app/page.tsx changes; no other GAIS file, dependency, lockfile, route, configuration, global style or external service changes.",
+      "verification": "Review GAIS Code/File Explorer before/after changed-file inventory.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-009",
+      "statement": "The app remains usable at phone and desktop widths with no horizontal overflow caused by the disclosure.",
+      "verification": "Inspect GAIS Preview at representative compact and desktop widths; capture authentic screenshots.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-010",
+      "statement": "Human Owner reviews the actual GAIS Preview, code diff and evidence and explicitly accepts B2.",
+      "verification": "Owner confirmation; AI completion text alone is insufficient.",
+      "required": true
+    }
+  ],
+  "verification": {
+    "minimum_evidence_level": 2,
+    "checks": [
+      "VC-001 pre-edit project identity and current app/page.tsx inspection",
+      "VC-002 static workspace key/format/validation and no-prohibited-API review",
+      "VC-003 DR-005 copy and acknowledgement-gate review",
+      "VC-004 first valid task saves after acknowledgement",
+      "VC-005 two tasks survive refresh in correct order",
+      "VC-006 B1 regression: trim, empty, spaces-only, Enter, clearing and order",
+      "VC-007 malformed/unsupported workspace preservation check",
+      "VC-008 storage exception handling review/test",
+      "VC-009 responsive notice at compact and desktop widths",
+      "VC-010 exact changed file inventory and Human Owner acceptance"
+    ],
+    "reporting": "Distinguish RUN/PASS/FAIL/NOT_RUN/NOT_VERIFIED. Do not claim persistence, build, lint, E2E or storage failure simulation passed unless directly evidenced."
+  },
+  "limits": {
+    "no_claim_of": "cloud sync, backup service, cross-device sync, security certification, production readiness, full Data Model implementation, Supabase readiness",
+    "phase31": "Formal Phase 3.1 UX Acceptance remains OPEN; implementation must follow existing design package but must not claim final UX acceptance."
+  },
+  "stopping_conditions": [
+    "The actual GAIS project ID differs from ca589018-617d-4919-bbe2-6b9c588ccd85.",
+    "Current app/page.tsx differs materially from the B1 source provided by the Owner.",
+    "A second file must change.",
+    "A new dependency, configuration, layout, CSS or route is required.",
+    "localStorage is unavailable or a safe failure path cannot be implemented in the allowed file.",
+    "The exact DR-005 copy or session acknowledgement approach requires scope/decision change.",
+    "A workspace migration beyond formatVersion 1 is needed.",
+    "Malformed existing data might be overwritten or lost.",
+    "An unresolved UX/Product decision affects implementation."
+  ],
+  "reporting": {
+    "required": [
+      "task id and contract id",
+      "actual changed file list",
+      "workspace key and versioned shape",
+      "DR-005 disclosure behavior",
+      "load/save order",
+      "storage error behavior",
+      "B1 regression results",
+      "B2 acceptance criteria results",
+      "screenshots/evidence refs",
+      "unrun checks and limits",
+      "checkpoint and next action"
+    ],
+    "output": "Provide exact concise run report; no acceptance claim before Owner review."
+  },
+  "executor": {
+    "class": "HYBRID",
+    "primary": "Gemini 3.8 Flash in existing GAIS Build mode",
+    "human": "Human Owner operates the authenticated GAIS Preview/Code view and accepts the result",
+    "reviewer": "ChatGPT reviews the source, contract scope, evidence and UX alignment",
+    "fallback": "Gemini 3.8 Pro if available and quota permits; otherwise ChatGPT prepares/reviews the work, but no other runtime is introduced.",
+    "difficulty": "HIGH_RISK — local persistence and existing data preservation; task is still bounded to one file.",
+    "instruction": "Inspect first; no edits before the Human Owner approves this Contract and instructs execution."
+  }
+}
