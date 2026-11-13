@@ -240,10 +240,11 @@ No automatic cross-device synchronization is provided by the Beginner browser-st
 
 ## 15. Local-data disclosure
 
-**Proposed timing under DR-005 (still OPEN):** show the level-specific storage/access disclosure before first important data entry. The Product Owner must still confirm its exact placement and copy. The disclosure content should explain:
+**Approved timing under DR-005 (2026-11-13):** show the level-specific storage/access disclosure before the first meaningful data entry that will be persisted. For Beginner, use a concise inline notice at the top of the workspace and require an explicit acknowledgement before the first persisted task. Keep the full explanation accessible through More → Settings & Backup. The disclosure content should explain:
 
-- **Beginner:** the workspace is stored in this browser profile; it does not automatically appear in other browsers/devices; export a JSON backup for portability.
-- **Intermediate/Advanced:** the workspace is saved to the user's signed-in Supabase account. RLS restricts records to that account. Do not imply a team workspace or claim that database persistence itself is a backup.
+- **Beginner:** use the exact approved copy recorded under DR-005 in the canonical Product/UX Decision Register. The workspace is stored in this browser on this device; it does not automatically sync to other browsers/devices; clearing this site's browser data may delete the tasks; browser storage is not a separate backup; teach JSON export as a later portability mechanism; tell learners not to enter passwords, API keys or sensitive information.
+- **Intermediate:** explain that the workspace is saved to the user's signed-in Supabase account and RLS restricts records to that account. Do not imply a team workspace or claim that database persistence itself is a backup.
+- **Advanced:** retain the same authenticated personal-workspace truth; explain source control, migrations, CI and controlled deployment where relevant. Do not imply team sharing.
 
 Keep the explanation accessible later through More → Settings & Backup. For Beginner export, do not imply that the app controls the user's chosen file-storage location.
 

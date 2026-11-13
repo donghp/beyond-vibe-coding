@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Planned — do not implement until the storage-disclosure decision and a separate B2 Task Contract are approved.
+**Lesson status:** Design preparation — DR-005 approved on 2026-11-13; implementation remains blocked until a separate B2 Task Contract is approved.
 
 ## 1. What you will learn
 
@@ -23,13 +23,29 @@ For the Beginner learning level:
 - It is not a cloud database or a backup service.
 - Never use real passwords, API keys, private customer information, or sensitive data in the learning app.
 
-**Before implementing B2:** Product/UX decision DR-005 (the timing and exact wording of the first-use storage disclosure) must be resolved by the Product Owner. A separate B2 implementation Contract must also be approved. Do not copy a proposed disclosure sentence into the app and treat it as approved.
+**Approved disclosure — DR-005 (2026-11-13):** Before the first task that will be persisted, show this concise inline notice at the top of the workspace. The learner must acknowledge it before continuing. Keep the full explanation available later through More → Settings & Backup.
+
+> **Where your tasks are stored**
+>
+> In Beginner mode, your tasks are stored in this browser on this device. They do not automatically sync to other browsers or devices.
+>
+> Clearing this site's browser data may delete your tasks.
+>
+> Browser storage is not a separate backup. You will learn to export a JSON backup in a later lesson.
+>
+> Do not enter passwords, API keys, or sensitive information in this learning app.
+>
+> **Action:** Got it — continue
+
+A Vietnamese reference translation is recorded in the canonical Product/UX Decision Register. The approved English copy above is authoritative for the current Beginner implementation.
+
+**Before implementing B2:** A separate B2 implementation Contract must be approved. It must explicitly define the acknowledgement state, whether and where acknowledgement is remembered, how it behaves when browser site data is cleared, the notice placement, storage-error behavior, and objective verification criteria. Do not add an acknowledgement persistence mechanism unless that Contract authorizes it.
 
 ## 3. Before you begin
 
 - B1 has been implemented and its create/validation behavior has been accepted.
 - The active B2 Task Contract is available and identifies the allowed files and verification requirements.
-- DR-005 has an approved decision and the required user-facing disclosure is ready.
+- DR-005 is approved; its exact Beginner disclosure and placement are documented above.
 - The current source and data shape are inspected before asking AI to modify persistence.
 
 If any condition is missing, use this lesson for understanding only. Do not ask AI to write storage code.
