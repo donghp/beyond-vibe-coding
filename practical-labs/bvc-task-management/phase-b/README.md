@@ -16,6 +16,14 @@ Phase B turns the blank scaffold from Phase A into a small, useful task manager.
 | [B3 — Close and Reopen](b3-close-and-reopen/README.md) | Reload or reopen the app in the same browser profile. | The previously saved task is still available. |
 | [B4 — Improve One Small Thing](b4-improve-one-small-thing/README.md) | Ask AI for one bounded improvement and protect the existing behavior. | The improvement works and B1–B3 regression checks still pass. |
 
+## B1 closeout and B2 entry gate
+
+B1 was accepted by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`. The code review confirmed the supplied `app/page.tsx` contains one page component. The available record does not include a complete archived Preview test set or an independently reviewable GAIS before/after file inventory; those limitations are retained in the B1 lesson record.
+
+**DR-005 — first-use storage disclosure:** APPROVED by the Human Owner on 2026-11-13. The exact Beginner notice and placement are recorded in the B2 lesson and the canonical Product/UX Decision Register.
+
+**B2 is not yet authorized for implementation.** Before asking GAIS to modify application code, prepare and approve a separate B2 Task Contract that defines the persistence boundary, exact allowed files, versioned workspace data shape, notice acknowledgement behavior, loading/saving/error behavior, and verification evidence.
+
 ## The most important distinction: create first, save next
 
 B1 and B2 are deliberately separate:
