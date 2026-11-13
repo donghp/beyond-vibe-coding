@@ -6,7 +6,7 @@
 
 ## One-minute resume
 
-A new ChatGPT window must begin in read-only bootstrap mode. Read BVC_PROJECT_OPERATING_STANDARD_V1.0.md for the repository-wide operating model first:
+A new ChatGPT window must begin in read-only bootstrap mode. Read the [BVC Project Operating Standard v1.0](./BVC_PROJECT_OPERATING_STANDARD_V1.0.md) for the repository-wide operating model first:
 1. Read BVC_PROJECT_OPERATING_STANDARD_V1.0.md, this file, `BOOTSTRAP.md`, `GITHUB_REPOSITORY_VERIFICATION.md` and `AI_EXECUTOR_ROLE_MODEL.md`.
 2. Verify live repository identity, `main` SHA, open PRs, relevant branches, diffs/reviews/checks and any incomplete writer handoff.
 3. Read the seven canonical continuity records listed in `README.md`.
