@@ -90,12 +90,12 @@
       "format": "bvc-task-management-workspace",
       "formatVersion": 1,
       "sourceMode": "browser",
-      "workspaceId": "UUID",
+      "workspaceId": "One generated UUID string persisted in the workspace envelope; stable across all future saves.",
       "data": {
         "projects": [],
         "tasks": [
           {
-            "id": "UUID",
+            "id": "One UUID string generated for each new task; unique within the workspace.",
             "title": "Non-empty trimmed title"
           }
         ],
@@ -105,16 +105,16 @@
       }
     },
     "scope_note": "This is the canonical Phase 3.2 Data Model envelope shape narrowed to the B2 task-only vertical slice. B2 writes/reads data.tasks and preserves the other collection fields as empty values. Export-specific fields such as exportedAt and timezone are not added to the runtime workspace in this task; they belong to the versioned backup contract/lesson.",
-    "id_generation": "Use crypto.randomUUID() if supported by the actual GAIS Preview runtime. If unavailable, stop and report rather than introducing a package or insecure custom ID generator.",
+    "id_generation": "Generate one workspaceId when a new workspace is first persisted, then reuse it for every subsequent write. Use crypto.randomUUID() if available in the actual GAIS Preview runtime. If unavailable, stop and report; do not introduce a package or insecure fallback.",
     "validation": [
       "Parse JSON successfully.",
       "Require format=bvc-task-management-workspace.",
       "Require formatVersion=1.",
       "Require sourceMode=browser.",
-      "Require a non-empty workspaceId.",
-      "Require data object with projects, tasks, checklistItems, settings and appliedStarterKits using the agreed empty types.",
-      "Require each task to have a unique non-empty id and non-empty trimmed title.",
-      "Preserve unknown data only when it does not conflict with the explicit formatVersion 1 envelope; otherwise stop and report.",
+      "Require workspaceId to be a non-empty string.",
+      "Require data object with projects, tasks, checklistItems and appliedStarterKits arrays, and settings object.",
+      "Require each task to have a unique non-empty id and a non-empty trimmed title.",
+      "B2 only creates/reads task fields id and title; other canonical task fields are deferred until their lessons/contracts require them.",
       "Do not silently clear, replace or overwrite malformed or unsupported stored content."
     ],
     "initialization": "If localStorage key is absent, treat it as a new empty workspace in memory. The first valid task submission may create the versioned persisted workspace after DR-005 acknowledgement.",
