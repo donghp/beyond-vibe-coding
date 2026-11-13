@@ -95,6 +95,15 @@ The Beginner path starts with GAIS and prepared prompts. It does not require pri
 
 The Phase 3.1 UX package remains the original v0.1.0 design reference, authored against Product Definition v0.1.0. The governance reconciliation in PR #6 (merged on 2026-11-05) updates authority metadata, learning-level data disclosures, and FR/AC traceability against current Product Definition v0.2.0; it does not redesign the visual, navigation, or interaction direction. Formal Phase 3.1 UX review and acceptance remain a separate OPEN gate.
 
+### Operating model & continuity
+
+- [BVC Task Management Project Operating Playbook v1.0](continuity/BVCTM_PROJECT_OPERATING_PLAYBOOK_V1.0.md)
+- [BVCTM Project Continuity](continuity/README.md)
+- [Global BVC Project Operating Standard v1.0](../../docs/continuity/BVC_PROJECT_OPERATING_STANDARD_V1.0.md)
+- [B2 Beginner Context Pack](phase3.3/BEGINNER_CONTEXT_PACK_B2_V0.1.yaml)
+
+GitHub is the canonical source for product, UX, architecture, governance, Contracts, prompts, evidence and continuity. GAIS is the learner's application workspace; do not mirror repository governance/design folders into the GAIS newbie app.
+
 ### Governance & decisions
 
 - [Governance records index](governance/README.md)
@@ -294,7 +303,7 @@ A lesson must stop at a meaningful checkpoint before adding the next layer of co
 
 **Phase 3.3 implementation status**
 
-- Phase 3.3 readiness and learning-curriculum preparation are underway. The blank scaffold exists in the Human Owner's GAIS workspace; the first functional Task Management feature has not yet been implemented.
+- Phase 3.3 has produced the first Beginner vertical slice in the existing GAIS workspace: B1 title-only task capture. The Human Owner accepted B1 with known limitations through PR #60. B2 is the next implementation task under approved Contract #005; it has not yet been executed.
 - A blank GAIS web-app scaffold has been generated using BVCTM-PROMPT-0001. The actual Preview shows the exact text **“BVC Task Management Scaffold Inspection”**; the Preview image is committed in the Phase A lesson assets. The actual Code / File Explorer screenshot is also committed and supports the read-only A2 inspection lesson.
 - The GAIS conversation screenshot shows an initial development-server startup problem followed by the AI reporting that dependencies were installed, the Next.js development server was running on port 3000, and the Preview request returned HTTP 200 OK. The visible Preview is **OBSERVED**; the recovery details are the AI's reported actions, not an independently repeated build or test.
 - The Custom Instructions summary card is visible in GAIS Chat settings, and the Human Owner supplied the complete response to the read-only BVCTM-PROMPT-0002 understanding check. The response's exact technology-version claims remain NOT VERIFIED because the response also states that no project files were read during that turn. Independent before/after file-tree evidence remains pending.
