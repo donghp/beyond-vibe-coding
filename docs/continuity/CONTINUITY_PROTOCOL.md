@@ -47,7 +47,7 @@ The two classes must never be silently mixed.
 - Supports a manual `workflow_dispatch` refresh on `main`.
 - Runs updater unit tests before creating an update.
 - Compares the last observed `main` SHA with the current event SHA, so a missed earlier event can be included in the next refresh.
-- Ignores continuity-only changes, its own updater/test/workflow paths and avoids self-triggered refresh loops.
+- Ignores global docs/continuity and project-owned projects/<project>/continuity paths, its own updater/test/workflow paths and avoids self-triggered refresh loops. It watches practical-labs/** so learner-material changes are not missed.
 - Updates only `machine_snapshot` in `CURRENT_STATE.yaml`.
 - Pushes to the reserved `automation/continuity-refresh` branch and opens or updates one PR against `main`.
 - Never pushes to `main` and never changes semantic project state.
