@@ -1,107 +1,124 @@
-# DHEVS — Create an AI Cinematic Music Video: “Don’t Ask Me Why”
+# Don't Ask Me Why — AI Cinematic Music Video Production Lab
 
-> A complete eight-clip Prompt Engineering lab built from the eight canonical production prompt files. The Vietnamese script in each prompt is retained for director review; the English production prompt is the copy-ready generation brief.
+A practical Prompt Engineering case study for independent creators, filmmakers, musicians, and AI-assisted video producers in the United States and Canada. This lab documents an eight-chapter cinematic music video, from the opening neon-city portrait to a hopeful sunrise ending.
 
-## Lab overview
+The production documents are based on the project's eight supplied canonical prompt files. Their shot order, timing, model labels, frame instructions, technical settings, output names, and production constraints are preserved. The first two chapters also include English-language director storyboards for review before generation.
 
-**Project:** DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO  
-**Master timeline:** 00:00–02:00  
-**Structure:** 8 clips × 15 seconds  
-**Format:** Landscape 16:9, 480p target, one output per clip  
-**Production environment:** ElevenLabs Image & Video  
+## Project at a glance
 
-### What you will learn
+| Item | Specification |
+|---|---|
+| Project | **Don't Ask Me Why — DongHP Cinematic Music Video** |
+| Master timeline | 00:00–02:00 |
+| Structure | 8 clips × 15 seconds |
+| Video format | Landscape 16:9 |
+| Generation target | 480p; one output per clip |
+| Production platform | ElevenLabs Image & Video |
+| Post-production | CapCut Desktop or another non-linear editor |
+| Soundtrack | Original or properly licensed audio, added during editing |
 
-- Turn a story idea into a timed, shot-by-shot cinematic sequence.
-- Separate director-facing storyboards from copy-ready English generation prompts.
-- Declare image references and Start/End Frame roles explicitly.
-- Maintain character identity, wardrobe, props, location, lighting and screen direction across clips.
-- Write camera direction, negative constraints and final output contracts.
-- Generate one clip at a time, inspect it, approve it, and use its actual final frame as the next clip’s continuity anchor when specified.
+**Production note:** The prompts intentionally specify different video models across the eight chapters. Do not assume that every clip uses the same model or input mode. Confirm the exact model label, availability, and supported reference/frame inputs in the current ElevenLabs interface before generating.
 
-## 1. Eight-clip story map
+## Learning outcomes
 
-| Clip | Timeline | Chapter | Model specified in source prompt |
+By completing this lab, you will learn to:
+
+- Turn a story concept into a timed, shot-by-shot production plan.
+- Separate a director-facing storyboard from a copy-ready video-generation prompt.
+- Declare the role of every reference image, Start Frame, and End Frame.
+- Maintain a recurring character's identity, wardrobe, props, and visual continuity.
+- Direct camera movement, lighting, color, composition, and editorial cuts through precise language.
+- Write negative constraints and output requirements that reduce common generation defects.
+- Generate, review, approve, and archive one clip at a time.
+- Assemble a music video by adding the original or properly licensed soundtrack in post-production.
+
+## 1. Eight-chapter story map
+
+| Clip | Timeline | Chapter | Model specified in the production brief |
 |---|---:|---|---|
-| DHEVS_01 | 00:00–00:15 of the 2-minute MV | A Lonely Man In The City | Seedance 2.5 |
-| DHEVS_02 | 00:15–00:30 of the 2-minute MV | The Street Remembers | Seedance 2.5 |
+| DHEVS_01 | 00:00–00:15 | A Lonely Man in the City | Seedance 2.5 |
+| DHEVS_02 | 00:15–00:30 | The Street Remembers | Seedance 2.5 |
 | DHEVS_03 | 00:30–00:45 | The Forgotten Letter | MiniMax H3 |
-| DHEVS_04 | 00:45–01:00 | Golden Memories | MINIMAX H3 MAX |
-| DHEVS_05 | 01:00–01:15 | Rain Of Memories | MiniMax H3 Max (preferred; select the exact label if available) |
-| DHEVS_06 | 01:15–01:30 | The Last Song | MiniMax H3 Max (preferred; choose this exact label if available) |
-| DHEVS_07 | 01:30–01:45 | Learning To Let Go | MiniMax H3 Max |
-| DHEVS_08 | 01:45–02:00 | A New Beginning | MiniMax H3 Max preferred; record the exact model label used |
+| DHEVS_04 | 00:45–01:00 | Golden Memories | MiniMax H3 Max |
+| DHEVS_05 | 01:00–01:15 | Rain of Memories | MiniMax H3 Max (preferred; see prompt for fallback) |
+| DHEVS_06 | 01:15–01:30 | The Last Song | MiniMax H3 Max (preferred; see prompt for fallback) |
+| DHEVS_07 | 01:30–01:45 | Learning to Let Go | MiniMax H3 Max |
+| DHEVS_08 | 01:45–02:00 | A New Beginning | MiniMax H3 Max (preferred; record the exact label used) |
 
 ## 2. Production workflow
 
-### Step 1 — Read the full clip brief
+### Step 1 — Review the chapter brief
 
-Read Section A (Vietnamese director-facing script) first where present. Confirm the story beat, emotional purpose, shot order and timeline before generating. Clips 03–08 use a more compact prompt format and may begin directly with frame declarations and copy-ready production instructions.
+Read the director's storyboard and creative objective before generating. Confirm the chapter's narrative purpose, emotional progression, shot order, and timing. Use the storyboard to understand the intended scene. Paste the production prompt into the video-generation workflow as directed by that chapter.
 
-### Step 2 — Prepare the exact inputs
+### Step 2 — Prepare the declared inputs
 
-Use only the reference assets declared by the relevant clip. Do not assume all clips use the same input mode: DHEVS_01 is the opening clip and has no preceding-clip Start Frame; DHEVS_02 declares its predecessor’s actual final frame as Start Frame and S08 as End Frame; DHEVS_03 uses Frame Mode; DHEVS_04–08 define their own Start/End Frame contracts. Respect each source prompt’s restrictions on extra image/video references.
+Use only the assets and input roles declared by the relevant chapter. The opening clip has no incoming Start Frame from a previous DHEVS chapter. Later clips may require an actual final frame from the approved preceding MP4, a supplied End Frame, or a specific identity-reference set. Do not substitute a planned design frame for an actual exported-video frame when the prompt explicitly requires the actual frame. Do not add extra references when the prompt prohibits them.
 
-### Step 3 — Confirm the model and settings
+### Step 3 — Confirm the model and generation mode
 
-The canonical prompts intentionally specify different model labels across clips. DHEVS_01–02 specify Seedance 2.5; DHEVS_03 specifies MiniMax H3; DHEVS_04 specifies MiniMax H3 Max; DHEVS_05–08 prefer MiniMax H3 Max (with fallback/recording instructions in their respective files). Use the model stated in the individual prompt and verify the exact selectable label and supported frame/reference mode in ElevenLabs before generating. Do not silently substitute a model or input mode.
+The source production briefs specify Seedance 2.5 for DHEVS_01–02 and MiniMax H3 / H3 Max for DHEVS_03–08. Follow the exact model and input-mode instructions in each individual prompt. Check the current interface for model availability, duration options, resolution, and supported combinations of Start Frame, End Frame, and image references. Never silently substitute a model or input mode.
 
-### Step 4 — Generate one clip and review
+### Step 4 — Generate one clip at a time
 
-Generate one output for the current clip. Review identity, glasses, hair, wardrobe, shot timing, action, props, hands, camera motion, lighting and frame continuity. Do not proceed to the next clip until the current clip is accepted. Use the acceptance checklist below as a practical review gate.
+Generate one output for the current chapter. Do not ask the video model to create the entire two-minute music video in one generation. Review the result before moving forward. When a defect appears, make a targeted refinement and change one issue at a time.
 
-### Step 5 — Preserve actual-frame continuity
+### Step 5 — Review and approve
 
-Where the prompt requires an actual final frame from an approved predecessor, extract the final decoded frame from the approved MP4. Do not substitute a planned End Frame or a design reference when the prompt explicitly calls for the actual exported-video frame. Keep fallback images clearly identified as fallbacks.
+Use the acceptance checklist below. Check character identity, glasses, hair, wardrobe, shot timing, action, camera movement, lighting, props, hand anatomy, visual artifacts, and the final frame. Approve the clip only after it meets the chapter's requirements.
 
-### Step 6 — Assemble in CapCut
+### Step 6 — Preserve continuity with actual frames
 
-Arrange DHEVS_01–08 in timeline order. Add the original/authorized MP3 separately in post-production. The prompts request silent generated visuals; keep generated audio off where the tool exposes that setting. Inspect the complete master for abrupt cuts, identity drift, prop discontinuity and audio sync.
+When a chapter requires the actual final frame of an approved predecessor, extract the final decoded frame from that approved MP4. Name and archive it clearly. Record whether any provided image is an actual exported frame or a fallback design reference. Do not blur that distinction.
 
-## 3. Prompt engineering pattern
+### Step 7 — Assemble the master edit
 
-Across the eight clips, the production documents use a recurring set of controls:
+Arrange the eight approved clips in order in CapCut Desktop or another non-linear editor. Add the original or properly licensed soundtrack separately. The prompts call for silent visual generation; disable generated audio wherever the tool provides that control. Use cuts and transitions that support the music without hiding continuity problems.
 
-1. **Project and technical metadata** — clip ID, title, timeline, duration, aspect ratio, resolution and model.
-2. **Input/reference contract** — exact role of Start Frame, End Frame and any image references.
-3. **Creative objective** — what the viewer should understand and feel.
-4. **Character/continuity lock** — identity, glasses, hairstyle, wardrobe and proportions.
-5. **Timed shot list** — explicit shot boundaries, actions and camera behavior.
-6. **Visual direction** — lighting, color, texture, lens/depth cues and movement.
-7. **Negative constraints** — prevent identity drift, unwanted characters, malformed anatomy, morphing, text and generated sound.
-8. **Final output contract** — one output, target duration/format, input declarations and output filename.
+## 3. Prompt structure used in this project
 
-## 4. Review and acceptance gate
+The eight production briefs use a consistent set of controls, adapted to each chapter:
 
-- [ ] Clip duration and aspect ratio match the brief.
-- [ ] Correct model and supported input mode were selected.
-- [ ] Start Frame begins from the intended predecessor frame, when required.
-- [ ] End Frame matches the specified target composition, when provided.
-- [ ] DongHP’s face, rectangular glasses, short dark hair and wardrobe remain consistent whenever visible.
-- [ ] No extra person, duplicate face, ghosting or unintended reflection appears.
-- [ ] Hands and fingers are anatomically plausible; props do not duplicate, disappear or change identity.
-- [ ] Shot actions and transitions follow the prompt’s timing and order.
-- [ ] Camera movement is smooth and intentional.
-- [ ] No unexpected captions, subtitles, logos, watermarks, dialogue, lip-sync, music or sound effects are present.
-- [ ] Final frame is stable and suitable for the next clip’s continuity requirement.
-- [ ] Approved MP4 and actual final frame are saved with clear filenames.
+1. **Project metadata:** chapter ID, title, timeline, duration, aspect ratio, resolution, and model.
+2. **Reference and frame contract:** the role of each supplied image, Start Frame, End Frame, and identity reference.
+3. **Creative objective:** the story event and intended audience emotion.
+4. **Character continuity:** facial identity, glasses, hairstyle, wardrobe, and proportions.
+5. **Timed shot direction:** shot boundaries, actions, camera behavior, and transitions.
+6. **Visual direction:** lighting, color palette, texture, depth of field, and movement.
+7. **Negative constraints:** unwanted identity changes, extra characters, anatomy defects, morphing, text, or generated audio.
+8. **Output contract:** number of outputs, duration, format, frame inputs, audio setting, and output filename.
 
-## 5. Canonical production prompts
+## 4. Review and acceptance checklist
 
-Each section below contains the full canonical prompt text supplied for that clip. Every prompt is placed in its own collapsible section to keep the README navigable. GitHub sanitizes inline CSS in README files, so a custom fixed-height vertical scrollbar cannot be reliably embedded here; use the standalone Markdown link for the full prompt in its own page. Use **Open raw prompt** to view or download the standalone `.md` file. The standalone files are the authoritative copy for editing and reuse.
+- [ ] The selected model matches the chapter brief, and the current interface supports the required input mode.
+- [ ] Duration, aspect ratio, and resolution match the production requirements.
+- [ ] The correct reference images are attached in the intended roles and order.
+- [ ] The opening frame matches the required Start Frame when one is specified.
+- [ ] The final composition matches the required End Frame or continuity target when one is specified.
+- [ ] DongHP's recognizable facial appearance, rectangular glasses, short dark hair, and wardrobe remain consistent whenever visible.
+- [ ] No duplicate person, unintended face, ghosting, or misleading reflection appears.
+- [ ] Hands, fingers, and body movement look anatomically plausible.
+- [ ] Key props remain consistent and do not disappear, duplicate, or change appearance.
+- [ ] Shot timing, actions, and transitions follow the production brief.
+- [ ] Camera movement is controlled and intentional.
+- [ ] No unwanted titles, captions, subtitles, logos, watermarks, dialogue, lip-sync, music, or sound effects appear.
+- [ ] The final frame is stable and supports the next chapter's continuity requirement.
+- [ ] The approved MP4 and its actual final frame are archived with clear filenames.
 
-### DHEVS_01 — A Lonely Man In The City
+## 5. Complete production prompts
 
-**Timeline:** 00:00–00:15 of the 2-minute MV  
-**Model:** Seedance 2.5  
-**Standalone file:** [`CLIP_01_A_LONELY_MAN_IN_THE_CITY.md`](prompts/CLIP_01_A_LONELY_MAN_IN_THE_CITY.md)  
-**Open raw prompt:** [View full Markdown](prompts/CLIP_01_A_LONELY_MAN_IN_THE_CITY.md?raw=1)
+Each chapter below contains the complete production document in an independently collapsible section. Expand a chapter to review its storyboard, reference declarations, production prompt, constraints, and output contract. The standalone Markdown file is linked in the chapter heading for independent editing and reuse.
+
+> GitHub sanitizes custom inline CSS in README files, so a fixed-height vertical scroll panel cannot be relied on here. Each long prompt is therefore placed in its own collapsible section to keep the README compact and navigable.
 
 <details>
-<summary>Expand full DHEVS_01 prompt</summary>
+<summary>DHEVS_01 — A Lonely Man in the City | 00:00–00:15</summary>
 
-```text
-# DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+**Model:** Seedance 2.5  
+**Production file:** [CLIP_01_A_LONELY_MAN_IN_THE_CITY.md](prompts/CLIP_01_A_LONELY_MAN_IN_THE_CITY.md)
+
+````markdown
+# DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 
 ## DHEVS_01 — A LONELY MAN IN THE CITY
 
@@ -114,58 +131,58 @@ Each section below contains the full canonical prompt text supplied for that cli
 
 ---
 
-## A. KỊCH BẢN TIẾNG VIỆT — ĐỂ DUYỆT Ý ĐỒ ĐẠO DIỄN
+## A. DIRECTOR'S STORYBOARD AND CREATIVE INTENT
 
-### Ý tưởng
+### Story Concept
 
-DHEVS_01 mở đầu câu chuyện bằng hình ảnh DongHP xuất hiện một mình giữa thành phố về đêm. Ánh đèn neon xanh, cyan và magenta bao quanh nhân vật, tạo nên một không gian đô thị hiện đại nhưng lạnh lẽo. Anh giữ vẻ bình tĩnh, trầm tư; thành phố rộng lớn và rực sáng đối lập với cảm giác cô độc của người đàn ông.
+DHEVS_01 opens with DongHP alone in a city at night. Blue, cyan, and magenta neon lights surround him, creating a modern urban environment that feels bright yet emotionally cold. He remains calm and thoughtful, while the scale and energy of the city contrast with his sense of isolation.
 
-Cảnh mở đầu lần lượt mở rộng từ chân dung nhân vật ra toàn cảnh thành phố, theo bước chân anh trên con phố ướt ánh đèn, rồi trở lại khuôn hình cận 3/4 khi anh ngước nhìn lên những ánh đèn neon. Đây là điểm kết thúc có chủ đích để DHEVS_02 tiếp tục bằng khoảnh khắc anh hạ ánh mắt và bắt đầu hành trình đi sâu hơn vào thành phố.
+The sequence gradually expands from a character portrait to a wide city view, follows him along a neon-reflective street, and then returns to a three-quarter close-up as he looks up toward the neon lights. This final image is intentional: DHEVS_02 continues from this moment as he lowers his gaze and begins walking deeper into the city.
 
 ### SHOT 01 — THE FACE IN THE NEON NIGHT (00:00–00:03.0)
 
-- Mở bằng khuôn hình trung cận chính diện của DongHP giữa phố đêm neon.
-- DongHP đứng yên, nhìn về phía trước; biểu cảm bình tĩnh, kín đáo và có chút suy tư.
-- Máy quay giữ ổn định với chuyển động tiến nhẹ, rất chậm.
-- Kính chữ nhật, gương mặt, kiểu tóc ngắn và áo khoác da đen phải nhất quán.
-- Ánh đèn xanh và magenta tạo bokeh mềm phía sau; không biến cảnh thành một màn trình diễn hành động.
+- Open on a front-facing medium close-up of DongHP on a neon-lit city street at night.
+- He stands still and looks ahead with a calm, reserved, slightly thoughtful expression.
+- Keep the camera stable with a very subtle, slow push-in.
+- Preserve his rectangular glasses, facial appearance, short hairstyle, and black leather jacket.
+- Blue and magenta lights create soft background bokeh; do not turn the scene into an action sequence.
 
 ### SHOT 02 — THE CITY FROM ABOVE (00:03.0–00:06.0)
 
-- Cắt rõ ràng sang toàn cảnh thành phố nhìn từ trên cao.
-- Một con phố đô thị kéo sâu giữa các tòa nhà, hai bên là những biển đèn neon xanh, cyan, tím và hồng.
-- Mặt đường ướt phản chiếu ánh sáng; có lớp sương/haze nhẹ tạo chiều sâu điện ảnh.
-- DongHP chỉ là một nhân vật nhỏ trong không gian thành phố, không cần nhìn rõ mặt ở góc toàn cảnh.
-- Cảnh này mở rộng thế giới của MV và nhấn mạnh sự nhỏ bé, cô độc của nhân vật giữa đô thị rộng lớn.
+- Make a clean cut to a high-angle wide view of the city.
+- A deep urban street runs between buildings, with blue, cyan, violet, and pink neon signs on both sides.
+- Wet pavement reflects the lights; a light layer of atmospheric haze adds cinematic depth.
+- DongHP appears only as a small figure within the city; his face does not need to be visible in this wide shot.
+- Expand the visual world of the music video and emphasize how small and isolated he feels within the vast city.
 
 ### SHOT 03 — WALKING ALONE (00:06.0–00:11.0)
 
-- Cắt sang góc máy phía sau DongHP.
-- Anh mặc áo khoác da đen và trang phục tối màu, bước chậm một mình trên con phố đêm.
-- Camera tracking phía sau ở tầm người, giữ khoảng cách vừa phải và chuyển động mượt theo nhịp bước.
-- Ánh neon phản chiếu trên mặt đường ướt; các tòa nhà, cửa hiệu và ánh đèn tạo chiều sâu phía trước.
-- Ưu tiên dáng người, mái tóc và trang phục nhất quán; không cần ép nhân vật quay mặt về camera.
+- Cut to a rear view of DongHP.
+- Wearing his black leather jacket and dark clothing, he walks slowly and alone along the nighttime street.
+- Track behind him at approximately human height, maintaining a moderate distance and smooth movement that follows his pace.
+- Neon lights reflect across the wet pavement; buildings, storefronts, and lights create depth ahead of him.
+- Prioritize consistent body silhouette, hairstyle, and wardrobe. Do not force him to turn toward the camera.
 
 ### SHOT 04 — LOOKING TOWARD THE NEON LIGHT (00:11.0–00:15.0)
 
-- Cắt sang góc cận trung 3/4 hơi thấp của DongHP, trong cùng bối cảnh phố đêm.
-- Anh ngước nhìn lên phía ánh sáng neon ngoài khung hình; chuyển động đầu và mắt chậm, tự nhiên.
-- Ánh xanh/cyan chiếu từ một phía, dải magenta nổi bật ở nền phía sau; ánh đèn vàng ấm xuất hiện nhẹ ở xa.
-- Giữ rõ khuôn mặt, kính và áo khoác da; không thay đổi danh tính hay tạo hiệu ứng biến dạng khi chuyển góc.
-- Giữ bố cục cuối ổn định: DongHP nhìn lên, sẵn sàng nối sang DHEVS_02 — The Street Remembers.
+- Cut to a slightly low-angle, three-quarter medium close-up of DongHP in the same nighttime setting.
+- He slowly looks up toward a neon light just outside the frame. His head and eye movements remain natural and restrained.
+- Blue/cyan light comes from one side; a vivid magenta strip stands out in the background, with a subtle warm light in the distance.
+- Keep his face, glasses, and leather jacket clear. Do not change his identity or distort his features during the angle change.
+- Hold the final composition steadily: DongHP is looking upward, ready to connect with DHEVS_02 — The Street Remembers.
 
-### Cảm xúc và mục đích
+### Emotional Purpose
 
-- Giới thiệu DongHP và thế giới đô thị về đêm của MV.
-- Thiết lập bảng màu neon xanh/cyan/magenta và bề mặt đường ướt phản chiếu.
-- Tạo đối lập giữa thành phố rực sáng và trạng thái cô độc, trầm tư của nhân vật.
-- Kết thúc bằng ánh nhìn hướng lên để DHEVS_02 có thể tiếp tục liền mạch từ khung hình cuối.
+- Introduce DongHP and the nighttime urban world of the music video.
+- Establish the blue/cyan/magenta neon palette and reflective wet pavement.
+- Contrast the bright city with the protagonist's quiet, introspective isolation.
+- End with his upward gaze so DHEVS_02 can continue naturally from the final frame.
 
 ---
 
-## B. ENGLISH PRODUCTION PROMPT — COPY INTO ELEVENLABS
+## B. PRODUCTION PROMPT — COPY INTO ELEVENLABS
 
-# PROJECT: DUNG HOI EM VI SAO
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_01 — A LONELY MAN IN THE CITY
@@ -190,7 +207,7 @@ DHEVS_01 is the opening segment; there is no preceding DHEVS clip from which to 
 
 Act as a professional cinematic music-video director and cinematographer.
 
-Create the opening 15-second segment of the Vietnamese romantic music video **"Đừng Hỏi Em Vì Sao"**, titled **"A Lonely Man in the City"**.
+Create the opening 15-second segment of the romantic music video **"Don't Ask Me Why"**, titled **"A Lonely Man in the City"**.
 
 Introduce DongHP alone in a neon-lit city at night. Establish the urban environment and the emotional contrast between the bright, living city and the protagonist's quiet isolation. Tell the story visually through four connected cinematic shots: an opening portrait, a high-angle city view, a rear-tracking walk, and a final three-quarter close-up of DongHP looking upward.
 
@@ -326,22 +343,18 @@ This standardized document was reconstructed from the saved 15-second Seedance 2
 The original text prompt submitted to ElevenLabs was not present in the available project files. Therefore, the four-shot timing and visual sequence above describe the approved exported video as observed; the English production prompt is a faithful reconstruction for documentation and repeatability, not a verbatim recovery of the original prompt text. The exact original reference filenames and input-slot mapping were also not available and are intentionally not guessed.
 
 **Observed exported-video properties:** approximately 15.072 seconds, 24 fps, 852 × 480 pixels. The production target remains 480p landscape 16:9.
-```
+````
 
 </details>
 
-### DHEVS_02 — The Street Remembers
-
-**Timeline:** 00:15–00:30 of the 2-minute MV  
-**Model:** Seedance 2.5  
-**Standalone file:** [`CLIP_02_THE_STREET_REMEMBERS.md`](prompts/CLIP_02_THE_STREET_REMEMBERS.md)  
-**Open raw prompt:** [View full Markdown](prompts/CLIP_02_THE_STREET_REMEMBERS.md?raw=1)
-
 <details>
-<summary>Expand full DHEVS_02 prompt</summary>
+<summary>DHEVS_02 — The Street Remembers | 00:15–00:30</summary>
 
-```text
-# DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+**Model:** Seedance 2.5  
+**Production file:** [CLIP_02_THE_STREET_REMEMBERS.md](prompts/CLIP_02_THE_STREET_REMEMBERS.md)
+
+````markdown
+# DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 
 ## DHEVS_02 — THE STREET REMEMBERS
 **Duration:** 15 seconds  
@@ -353,53 +366,53 @@ The original text prompt submitted to ElevenLabs was not present in the availabl
 
 ---
 
-## A. KỊCH BẢN TIẾNG VIỆT — ĐỂ DUYỆT Ý ĐỒ ĐẠO DIỄN
+## A. DIRECTOR'S STORYBOARD AND CREATIVE INTENT
 
-### Ý tưởng
+### Story Concept
 
-Sau khoảnh khắc ngước nhìn ánh đèn ở cuối DHEVS_01, DongHP hạ ánh mắt và tiếp tục bước đi. Thành phố mở ra trước mắt người xem: đường phố sau mưa, mặt đường phản chiếu neon, những cửa hiệu đã vắng khách. Anh đi ngang một cửa hàng âm nhạc cũ. Ánh sáng ấm bên trong và những chiếc cassette, đĩa nhạc, cây guitar trong tủ kính gợi lên một ký ức mà anh chưa sẵn sàng đối diện.
+After looking up toward the lights at the end of DHEVS_01, DongHP lowers his gaze and continues walking. The city opens up around him: rain-darkened streets, neon reflections across the pavement, and quiet storefronts after closing time. He passes an old-fashioned music store. Warm light inside reveals cassette tapes, vinyl records, and a guitar in the window—details that hint at a memory he is not yet ready to face.
 
-Đây là cảnh chuyển từ “một người đàn ông trong thành phố” sang “một thành phố chứa đầy ký ức”. Không giải thích quá nhiều; chỉ gieo một dấu hiệu thị giác để khán giả tò mò về câu chuyện phía sau.
+This chapter shifts the story from “a man in the city” to “a city filled with memories.” Keep the storytelling visual and understated. Introduce a clue that makes the audience curious about the story behind him without explaining too much.
 
 ### SHOT 01 — FROM THE LOOK TO THE JOURNEY (00:00–00:02.0)
 
-- **Start Frame:** Khung hình cuối thực tế của DHEVS_01.
-- Bắt đầu đúng góc cận 3/4, DongHP đang nhìn lên.
-- Anh từ từ hạ ánh mắt về phía con phố và hơi xoay vai như chuẩn bị bước tiếp.
-- Chỉ giữ cận mặt trong khoảng 1–2 giây; không kéo dài cảnh chân dung.
-- Cắt điện ảnh sang toàn cảnh phố, không morph khuôn mặt.
+- **Start Frame:** The actual final frame of DHEVS_01.
+- Begin on the three-quarter close-up of DongHP looking upward.
+- He slowly lowers his gaze toward the street and subtly turns his shoulders as if preparing to continue walking.
+- Hold the close-up for only 1–2 seconds; do not prolong the portrait shot.
+- Make a clean editorial cut to the wide street view. Do not morph his face.
 
 ### SHOT 02 — THE EMPTY NEON STREET (00:02.0–00:09.5)
 
-- Góc rộng từ trên cao hoặc góc phố nhìn sâu vào con đường sau mưa.
-- DongHP đi một mình, quay lưng về camera; áo da đen là dấu hiệu nhận diện chính.
-- Camera hạ dần về tầm đường và tracking phía sau bước chân.
-- Các vũng nước phản chiếu ánh neon xanh, cyan, magenta và vàng hổ phách.
-- Không khí thành phố sống động nhưng nhân vật vẫn cô độc.
-- Không cần cận mặt trong phần này.
+- Use a high-angle wide shot or a street-level view looking deep into the rain-darkened road.
+- DongHP walks alone, seen from behind; his black leather jacket is the primary visual identifier.
+- The camera gradually lowers toward street level and tracks behind his footsteps.
+- Puddles reflect blue, cyan, magenta, and warm amber neon lights.
+- The city feels alive, but the protagonist remains isolated.
+- A close-up of his face is not needed in this section.
 
 ### SHOT 03 — THE MUSIC STORE MEMORY (00:09.5–00:15.0)
 
-- Camera tracking ngang khi DongHP đi ngang một cửa hàng âm nhạc cũ.
-- Qua lớp kính có thể thấy cassette, đĩa vinyl và một cây guitar trong ánh đèn vàng ấm.
-- Tương phản giữa ánh sáng ấm trong cửa hàng và con phố neon lạnh bên ngoài.
-- DongHP chậm bước, nhìn vào cửa kính; biểu cảm tò mò, hoài niệm nhưng tiết chế.
-- Không tạo thêm người phụ nữ hoặc nhân vật phụ.
-- Camera kết thúc bằng góc nghiêng toàn thân/3/4 bên, khớp bố cục ảnh S08.
-- Giữ frame cuối ổn định để nối sang DHEVS_03 — The Forgotten Letter.
+- Use a side-tracking camera move as DongHP walks past an old-fashioned music store.
+- Through the glass, show cassette tapes, vinyl records, and a guitar under warm amber lighting.
+- Contrast the store's warm interior with the cool neon street outside.
+- DongHP slows down and looks through the window. His expression is curious and nostalgic, but restrained.
+- Do not add a woman or any other supporting character.
+- End on a full-body or three-quarter side view that matches the composition of image S08.
+- Hold the final frame steadily to connect with DHEVS_03 — The Forgotten Letter.
 
-### Cảm xúc và mục đích
+### Emotional Purpose
 
-- Mở rộng thế giới MV sau cảnh mở đầu.
-- Tăng cảm giác cô độc và hoài niệm.
-- Đưa “âm nhạc/cassette/guitar” vào câu chuyện như một manh mối ký ức.
-- Tạo cầu nối tự nhiên sang phân đoạn lá thư và quá khứ ở DHEVS_03.
+- Expand the world established in the opening chapter.
+- Deepen the sense of loneliness and nostalgia.
+- Introduce music, cassette tapes, and the guitar as visual clues to a memory.
+- Create a natural bridge to the letter and the past revealed in DHEVS_03.
 
 ---
 
-## B. ENGLISH PRODUCTION PROMPT — COPY INTO ELEVENLABS
+## B. PRODUCTION PROMPT — COPY INTO ELEVENLABS
 
-# PROJECT: DUNG HOI EM VI SAO
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_02 — THE STREET REMEMBERS
@@ -436,7 +449,7 @@ Use clean cinematic cuts between shots. Do not morph one facial pose into anothe
 
 Act as a professional cinematic music-video director and cinematographer.
 
-Create the second 15-second segment of a Vietnamese romantic heartbreak music video titled "Đừng Hỏi Em Vì Sao".
+Create the second 15-second segment of a Vietnamese romantic heartbreak music video titled "Don't Ask Me Why".
 
 The sequence is titled "The Street Remembers".
 
@@ -597,22 +610,18 @@ The final frame must be stable and suitable for the opening of DHEVS_03 — The 
 DHEVS_02_THE_STREET_REMEMBERS.mp4
 
 END OF PRODUCTION PROMPT.
-```
+````
 
 </details>
 
-### DHEVS_03 — The Forgotten Letter
-
-**Timeline:** 00:30–00:45  
-**Model:** MiniMax H3  
-**Standalone file:** [`CLIP_03_THE_FORGOTTEN_LETTER.md`](prompts/CLIP_03_THE_FORGOTTEN_LETTER.md)  
-**Open raw prompt:** [View full Markdown](prompts/CLIP_03_THE_FORGOTTEN_LETTER.md?raw=1)
-
 <details>
-<summary>Expand full DHEVS_03 prompt</summary>
+<summary>DHEVS_03 — The Forgotten Letter | 00:30–00:45</summary>
 
-```text
-# PROJECT: DUNG HOI EM VI SAO
+**Model:** MiniMax H3  
+**Production file:** [CLIP_03_THE_FORGOTTEN_LETTER.md](prompts/CLIP_03_THE_FORGOTTEN_LETTER.md)
+
+````markdown
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_03 — THE FORGOTTEN LETTER
@@ -639,7 +648,7 @@ Use it as the target final composition: the opened old letter, sepia keepsake ph
 
 ## COPY-READY PROMPT
 
-PROJECT: DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+PROJECT: DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 DHEVS_03 — THE FORGOTTEN LETTER
 TIMELINE: 00:30–00:45 | DURATION: 15 SECONDS | LANDSCAPE 16:9 | 480P
 
@@ -653,7 +662,7 @@ Create a coherent 15-second cinematic sequence between these two frames. Use cle
 
 ### CREATIVE OBJECTIVE
 
-This is the third chapter of the Vietnamese romantic music video “Đừng Hỏi Em Vì Sao”. After leaving the music store, DongHP returns to his quiet apartment and discovers an old farewell letter. He opens it and finds a faded photograph and a pressed flower — small objects that bring back a lost relationship.
+This is the third chapter of the romantic music video “Don't Ask Me Why”. After leaving the music store, DongHP returns to his quiet apartment and discovers an old farewell letter. He opens it and finds a faded photograph and a pressed flower — small objects that bring back a lost relationship.
 
 The letter and keepsakes are the emotional focus. Do not make this another portrait scene. Show DongHP briefly and naturally; let the environment, his black leather sleeve, hands and the old letter tell the story.
 
@@ -698,26 +707,22 @@ Generate exactly one 15-second video, landscape 16:9, 480p, using MiniMax H3. Us
 OUTPUT FILE: `DHEVS_03_THE_FORGOTTEN_LETTER.mp4`
 
 END OF PROMPT.
-```
+````
 
 </details>
 
-### DHEVS_04 — Golden Memories
-
-**Timeline:** 00:45–01:00  
-**Model:** MINIMAX H3 MAX  
-**Standalone file:** [`CLIP_04_GOLDEN_MEMORIES.md`](prompts/CLIP_04_GOLDEN_MEMORIES.md)  
-**Open raw prompt:** [View full Markdown](prompts/CLIP_04_GOLDEN_MEMORIES.md?raw=1)
-
 <details>
-<summary>Expand full DHEVS_04 prompt</summary>
+<summary>DHEVS_04 — Golden Memories | 00:45–01:00</summary>
 
-```text
-PROJECT: DUNG HOI EM VI SAO
+**Model:** MiniMax H3 Max  
+**Production file:** [CLIP_04_GOLDEN_MEMORIES.md](prompts/CLIP_04_GOLDEN_MEMORIES.md)
+
+````markdown
+PROJECT: DON'T ASK ME WHY
 DONGHP — CINEMATIC MUSIC VIDEO
 
 DHEVS_04 — GOLDEN MEMORIES
-Vietnamese title: Những Ngày Tháng Hạnh Phúc
+Flashback chapter title: The Happy Days We Shared
 TIMELINE: 00:45–01:00 | DURATION: EXACTLY 15 SECONDS
 FORMAT: LANDSCAPE 16:9 | TARGET: 480p | MODEL: MINIMAX H3 MAX
 
@@ -731,7 +736,7 @@ Create ONE 15-second video anchored by these frames. No additional Image or Vide
 
 2. STORY AND EMOTIONAL OBJECTIVE
 
-This is chapter four of “Đừng Hỏi Em Vì Sao”. DHEVS_03 revealed a forgotten letter and pressed flower. Now reveal the memory behind it: DongHP and the woman he loved shared a beautiful sunset, and she gave him the flower when it was fresh.
+This is chapter four of “Don't Ask Me Why”. DHEVS_03 revealed a forgotten letter and pressed flower. Now reveal the memory behind it: DongHP and the woman he loved shared a beautiful sunset, and she gave him the flower when it was fresh.
 
 Create a warm, intimate, tender and nostalgic flashback, subtly suggesting this happiness belongs to the past. Make the connection between DHEVS_03's dried flower and this fresh flower unmistakable. Tell the story through gestures, silhouettes, hands and light—not dialogue or exaggerated acting.
 
@@ -795,22 +800,18 @@ Preserve opening continuity from DHEVS_03 and closely match the supplied flower-
 OUTPUT FILE: DHEVS_04.mp4
 
 END OF PRODUCTION PROMPT.
-```
+````
 
 </details>
 
-### DHEVS_05 — Rain Of Memories
-
-**Timeline:** 01:00–01:15  
-**Model:** MiniMax H3 Max (preferred; select the exact label if available)  
-**Standalone file:** [`CLIP_05_RAIN_OF_MEMORIES.md`](prompts/CLIP_05_RAIN_OF_MEMORIES.md)  
-**Open raw prompt:** [View full Markdown](prompts/CLIP_05_RAIN_OF_MEMORIES.md?raw=1)
-
 <details>
-<summary>Expand full DHEVS_05 prompt</summary>
+<summary>DHEVS_05 — Rain of Memories | 01:00–01:15</summary>
 
-```text
-# PROJECT: DUNG HOI EM VI SAO
+**Model:** MiniMax H3 Max (preferred; see prompt for fallback)  
+**Production file:** [CLIP_05_RAIN_OF_MEMORIES.md](prompts/CLIP_05_RAIN_OF_MEMORIES.md)
+
+````markdown
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_05 — RAIN OF MEMORIES
@@ -829,7 +830,7 @@ Use these as the opening and ending anchors. No additional Image or Video Refere
 
 ### 2. CREATIVE OBJECTIVE
 
-Create chapter five of the Vietnamese romantic music video **“Đừng Hỏi Em Vì Sao”**. DHEVS_04 showed DongHP and the woman he loved sharing a fresh white flower at sunset. Return to the present: she is gone, the city is raining, and DongHP is alone with the same flower. He walks through the rain, protects the flower, returns to a dim music room and approaches his acoustic guitar. The flower links the happy past to the lonely present.
+Create chapter five of the romantic music video **“Don't Ask Me Why”**. DHEVS_04 showed DongHP and the woman he loved sharing a fresh white flower at sunset. Return to the present: she is gone, the city is raining, and DongHP is alone with the same flower. He walks through the rain, protects the flower, returns to a dim music room and approaches his acoustic guitar. The flower links the happy past to the lonely present.
 
 Emotional progression: **last touch → return to the present → isolation in the rain → fragile keepsake → music as his remaining expression**. Keep acting restrained and believable. Tell the story visually, without dialogue or lyrics.
 
@@ -872,22 +873,18 @@ Generate ONE video: `DHEVS_05.mp4`; 15 seconds; landscape 16:9; 480p; one output
 OUTPUT FILE: DHEVS_05.mp4
 
 END OF PRODUCTION PROMPT.
-```
+````
 
 </details>
 
-### DHEVS_06 — The Last Song
-
-**Timeline:** 01:15–01:30  
-**Model:** MiniMax H3 Max (preferred; choose this exact label if available)  
-**Standalone file:** [`CLIP_06_THE_LAST_SONG.md`](prompts/CLIP_06_THE_LAST_SONG.md)  
-**Open raw prompt:** [View full Markdown](prompts/CLIP_06_THE_LAST_SONG.md?raw=1)
-
 <details>
-<summary>Expand full DHEVS_06 prompt</summary>
+<summary>DHEVS_06 — The Last Song | 01:15–01:30</summary>
 
-```text
-# PROJECT: DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+**Model:** MiniMax H3 Max (preferred; see prompt for fallback)  
+**Production file:** [CLIP_06_THE_LAST_SONG.md](prompts/CLIP_06_THE_LAST_SONG.md)
+
+````markdown
+# PROJECT: DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 ## DHEVS_06 — THE LAST SONG
 
 Timeline: 01:15–01:30 | Exactly 15 seconds | Landscape 16:9 | 480p | 1 output  
@@ -904,7 +901,7 @@ Use only these Start/End Frame anchors. No extra Image/Video References or morph
 
 ### 2. CREATIVE OBJECTIVE
 
-This is the emotional centerpiece of **“Đừng Hỏi Em Vì Sao”**. Alone in the same room from DHEVS_05, DongHP finally plays guitar. The song is a private conversation with the woman he loved; the flower, letter and photo quietly connect him to the past. Keep his performance restrained and sincere, never theatrical. Emotional progression: **first chord → remembered touch → emotion behind his eyes → keepsakes → lingering final chord**. No new location or character.
+This is the emotional centerpiece of **“Don't Ask Me Why”**. Alone in the same room from DHEVS_05, DongHP finally plays guitar. The song is a private conversation with the woman he loved; the flower, letter and photo quietly connect him to the past. Keep his performance restrained and sincere, never theatrical. Emotional progression: **first chord → remembered touch → emotion behind his eyes → keepsakes → lingering final chord**. No new location or character.
 
 ### 3. SHOT 01 — THE FIRST CHORD | 00:00–00:02.5
 
@@ -945,23 +942,19 @@ Generate ONE video: `DHEVS_06.mp4`; 15 seconds; 16:9 landscape; 480p; one output
 OUTPUT FILE: DHEVS_06.mp4
 
 END OF PRODUCTION PROMPT.
-```
+````
 
 </details>
 
-### DHEVS_07 — Learning To Let Go
-
-**Timeline:** 01:30–01:45  
-**Model:** MiniMax H3 Max  
-**Standalone file:** [`CLIP_07_LEARNING_TO_LET_GO.md`](prompts/CLIP_07_LEARNING_TO_LET_GO.md)  
-**Open raw prompt:** [View full Markdown](prompts/CLIP_07_LEARNING_TO_LET_GO.md?raw=1)
-
 <details>
-<summary>Expand full DHEVS_07 prompt</summary>
+<summary>DHEVS_07 — Learning to Let Go | 01:30–01:45</summary>
 
-```text
+**Model:** MiniMax H3 Max  
+**Production file:** [CLIP_07_LEARNING_TO_LET_GO.md](prompts/CLIP_07_LEARNING_TO_LET_GO.md)
 
-# PROJECT: DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+````markdown
+
+# PROJECT: DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 ## DHEVS_07 — LEARNING TO LET GO
 
 Timeline: 01:30–01:45 | Exactly 15 seconds
@@ -979,7 +972,7 @@ Use only these Start/End Frame anchors. Do not add Image or Video References. Us
 
 ### 2. CREATIVE OBJECTIVE
 
-Create chapter seven of **“Đừng Hỏi Em Vì Sao”**. After the last guitar performance, DongHP accepts that the past will remain part of him, but he no longer needs to hold on to it. He acknowledges the flower, letter and old photograph, leaves the room, and walks beside the water at first light. This is not forgetting or rejecting the woman; it is accepting the memory with gratitude and choosing to continue living.
+Create chapter seven of **“Don't Ask Me Why”**. After the last guitar performance, DongHP accepts that the past will remain part of him, but he no longer needs to hold on to it. He acknowledges the flower, letter and old photograph, leaves the room, and walks beside the water at first light. This is not forgetting or rejecting the woman; it is accepting the memory with gratitude and choosing to continue living.
 
 Emotional progression: **last chord → quiet acknowledgement → respectful farewell → first steps outside → calm forward movement**. Keep acting restrained, mature and believable. No melodrama, dialogue or lyrics on screen.
 
@@ -998,3 +991,126 @@ Cut to a medium-wide rear/side view. DongHP rises, turns from the table and walk
 ### 6. SHOT 04 — A QUIETER HEART | 00:09.0–00:12.0
 
 Show a brief medium close side/profile view outdoors in soft early-morning light. Preserve DongHP's natural facial geometry, short dark hair and rectangular dark-framed glasses. His expression is calm and reflective; he takes one gentle breath and looks toward the brightening sky. No crying, forced smile, lip-sync or theatrical acting. Keep the same jacket and dark clothing. Use a subtle, steady camera move; avoid a long frontal close-up.
+
+### 7. SHOT 05 — WALKING FORWARD | 00:12.0–00:15.0
+
+Cut to a wide rear view along a quiet riverside promenade at sunrise. DongHP walks away from camera toward the warm horizon at a natural pace. Wet paving stones reflect golden light; leafy trees frame the left; calm water and a distant city skyline open to the right. Match the End Frame composition and hold steadily for the final moment. His posture is relaxed and determined, not hurried. No woman, extra character or umbrella. End with an open, hopeful feeling leading into DHEVS_08 — **A NEW BEGINNING**.
+
+### 8. CAMERA, LIGHT AND COLOR
+
+Use five distinct shots and clean cuts: exact room opening, keepsake macro, rear doorway transition, brief side-profile, wide riverside ending. Evolve from cool rainy blue/magenta and amber practical light to soft neutral dawn and warm gold sunrise. Preserve natural skin tones, realistic reflections and cinematic depth. Camera moves: controlled macro push-in, slow follow, gentle profile drift and stable wide ending. No rapid zooms, whip pans, orbiting, shake, repeated portraits or shots without a new event.
+
+### 9. CHARACTER AND PROP CONTINUITY LOCK
+
+DongHP is the same adult Vietnamese man from DHEVS_01–06 and approved S11 reference. Preserve his recognizable face geometry, natural skin, short dark hair and rectangular dark-framed glasses whenever visible. No identity drift, replacement, beautification, age change or redesign. Keep black leather jacket, dark shirt and dark trousers throughout. The single white flower, folded letter and sepia photo stay in the room and do not reappear outdoors. The guitar stays in the room. The woman is absent; no silhouette, reflection, ghost or generated face.
+
+### 10. STRICT NEGATIVE CONSTRAINTS
+
+No face/identity drift, distorted glasses, wardrobe or hairstyle change, duplicate people, woman, ghost, human-shaped reflection or extra characters. No malformed hands, extra/fused fingers, broken wrists or unnatural contact. No duplicated/changing flower, photo or letter; no floating props, readable text, captions, subtitles, lyrics, logos or watermarks. No morphing, double exposure, fantasy portal, flashback overlay, location transformation, flicker, jitter, unstable reflections or impossible camera movement. No rain indoors, no guitar outdoors, no umbrella. No crying, shouting, exaggerated gestures, dialogue, singing, lip-sync, narration, generated music or sound effects. Add the original MP3 separately in CapCut; generated audio off.
+
+### 11. FINAL OUTPUT CONTRACT
+
+Generate ONE video: `DHEVS_07.mp4`; exactly 15 seconds; landscape 16:9; 480p; one output. Use MiniMax H3 Max if available; otherwise use the exact model label used for DHEVS_06 and record it. Start Frame: `DHEVS_07_START_FRAME_FROM_DHEVS_06_ACTUAL_LAST_FRAME.png` (actual final frame of approved DHEVS_06). End Frame: `DHEVS_07_END_FRAME_RIVERSIDE_SUNRISE.png`. No extra references. Audio off. Preserve opening continuity, DongHP identity and wardrobe, and closely match the sunrise End Frame.
+
+OUTPUT FILE: DHEVS_07.mp4
+
+END OF PRODUCTION PROMPT.
+````
+
+</details>
+
+<details>
+<summary>DHEVS_08 — A New Beginning | 01:45–02:00</summary>
+
+**Model:** MiniMax H3 Max (preferred; record the exact label used)  
+**Production file:** [CLIP_08_A_NEW_BEGINNING.md](prompts/CLIP_08_A_NEW_BEGINNING.md)
+
+````markdown
+
+# PROJECT: DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
+## DHEVS_08 — A NEW BEGINNING
+
+Timeline: 01:45–02:00 | Exactly 15 seconds  
+Model: MiniMax H3 Max preferred; record the exact model label used  
+Format: Landscape 16:9 | 480p | Outputs: 1  
+Output: `DHEVS_08.mp4`
+
+### 1. OPENING / ENDING FRAME CONTRACT
+
+**START FRAME:** Use `DHEVS_08_START_FRAME_FROM_DHEVS_07_ACTUAL_LAST_FRAME.png`, the actual final frame of approved DHEVS_07 (832x480). It shows DongHP from behind on the wet lakeside path toward sunrise. Match position, black jacket, trousers, railing, trees, lake, skyline and light; continue his walk naturally. No opening redraw or location morph.
+
+**END FRAME:** Use `DHEVS_08_END_FRAME_NEW_BEGINNING.png` (1672x941). Match its close-medium portrait: DongHP in black leather jacket, dark shirt and rectangular glasses, looking toward sunrise over water and skyline. Keep the final 1–1.5 seconds steady on this composition.
+
+### 2. FIVE AVATAR REFERENCES — ONE IDENTICAL PERSON
+
+The five files in `AVATAR_REFERENCES` are different views of **one person: DongHP**: REF_01 right 3/4; REF_02 left 3/4; REF_03 master portrait; REF_04 frontal; REF_05 upward gaze. Treat them only as identity references, never as a collage or separate characters. If ElevenLabs supports Character/Identity References together with Start/End Frames, attach all five. If not, do not force an incompatible mode; keep the actual Start/End Frames and follow this identity lock.
+
+**IDENTITY LOCK — highest priority:** Preserve the same face: outline, forehead/hairline, short dark hair, eyebrows, eye spacing, eyelids, nose, cheeks, jaw, lips, natural skin texture, apparent age and black rectangular glasses with the same proportions. No generic lookalike, face replacement, beautification, slimming, age change, smoothing, stylization or identity drift. Match right angle to REF_01/03, left to REF_02, frontal to REF_04, upward gaze to REF_05. All five show the same man.
+
+Wardrobe: same black leather jacket, dark shirt and dark trousers from DHEVS_01–07; preserve jacket cut, collar and color.
+
+### 3. CREATIVE OBJECTIVE — A POSITIVE, MEMORABLE ENDING
+
+Continue the exact lakeside walk from DHEVS_07. DongHP pauses in morning light, breathes, looks at the horizon and moves forward with quiet confidence. He has accepted the past, not erased it. End hopeful, cinematic and emotionally satisfying, never melodramatic. Progression: **final steps → face revealed → calm breath → quiet hope → final portrait**. No woman, romance, flashback, flower, letter or guitar.
+
+### 4. SHOT 01 — CONTINUE THE JOURNEY | 00:00–00:02.5
+
+Start exactly on DHEVS_07's final frame. Rear wide shot; same wet promenade, sunrise and DongHP. He takes one or two natural steps, then slows. Match body proportions, jacket, trousers, path, railing, trees, water and skyline. Camera follows steadily. No jump, new person or time change.
+
+### 5. SHOT 02 — THE LIGHT ON HIS FACE | 00:02.5–00:05.5
+
+Cut to a medium three-quarter-right view as DongHP pauses by the railing. Match REF_01/03. He turns slightly toward sunrise; no full head spin or face morph. Keep glasses, eyes, nose, jaw and hairline stable. Warm light touches his cheek and jacket. Same lake and skyline; gentle lateral move, no orbit.
+
+### 6. SHOT 03 — A QUIETER HEART | 00:05.5–00:08.5
+
+Cut to close-medium portrait guided by REF_03/04. DongHP looks toward the horizon, breathes and allows a subtle natural smile. Preserve face proportions and skin texture. Expression is calm relief, not broad grin or crying. Slow restrained push-in. Relaxed lips; no dialogue, singing, lip-sync or graphics.
+
+### 7. SHOT 04 — LOOKING AHEAD | 00:08.5–00:11.5
+
+Cut to three-quarter-left / near-profile matching REF_02/05. DongHP raises his gaze as sunrise catches his glasses. Same jacket and shirt. Gentle camera drift; preserve lakeside geography and direction. Same face from both angles; no altered features or washed-out skin.
+
+### 8. SHOT 05 — A NEW BEGINNING | 00:11.5–00:15.0
+
+Return to close-medium three-quarter-right hero portrait matching the End Frame and REF_01/03. DongHP looks just above the horizon, calm and hopeful. Golden lake and soft skyline behind him. Subtle pullback or steady hold; settle into End Frame for the final 1–1.5 seconds. End on his face, not black, title card or wide shot.
+
+### 9. CINEMATOGRAPHY / COLOR
+
+Photorealistic romantic cinema. Warm sunrise, natural skin tones, subtle leather highlights, soft cool shadows and realistic water reflections. Smooth movement, motivated cuts; same promenade, water, skyline and sun direction. Natural depth of field; eyes and glasses sharp. Final grade warmer and more open than rainy blue/magenta chapters.
+
+**FACE PERFORMANCE AND MATCH CUTS:** Keep facial acting minimal: one natural blink if needed, a small gaze shift and a relaxed jaw. Do not animate the face continuously. Between portrait cuts, preserve head scale, eye line, glasses position and facial proportions; only the viewing angle and gaze may change. The 3/4-right End Frame is the final authority for the last shot. Avoid reflective surfaces producing a second face or mismatched glasses. Keep the skin real and textured, with no over-sharpening or smoothing.
+
+### 10. STRICT NEGATIVE CONSTRAINTS
+
+No face drift, lookalike, beautification, slimming, smoothing, age/hairline/glasses change or distorted features. No duplicate person, woman, ghost, reflection, romance, flashback, flower, letter or guitar. No wardrobe change, umbrella, new location or time jump. No morphing, double exposure, jitter, flicker, warped railing, melting skyline or impossible reflections. No exaggerated smile, crying, lip-sync, dialogue, narration, AI music or effects. No text, subtitles, lyrics, logos or watermarks. Do not end on another face. Add original MP3 in CapCut; audio off.
+
+### 11. FINAL OUTPUT CONTRACT
+
+Generate ONE video `DHEVS_08.mp4`, 15 seconds, 16:9, 480p. Model: MiniMax H3 Max preferred; otherwise use and record the exact DHEVS_07 model label. Start Frame: actual final DHEVS_07 frame. End Frame: `DHEVS_08_END_FRAME_NEW_BEGINNING.png`. Attach all five avatar refs if supported. Preserve DongHP's face, glasses, hair and wardrobe. Audio off. Connect seamlessly from DHEVS_07 and end on the supplied portrait with a positive, memorable feeling.
+
+OUTPUT FILE: DHEVS_08.mp4
+
+END OF PRODUCTION PROMPT.
+````
+
+</details>
+
+## 6. Project-wide continuity principles
+
+- **One recurring protagonist:** DongHP is the same adult man throughout the sequence. Preserve his recognizable facial appearance, rectangular dark-framed glasses, short dark hair, natural skin texture, and body proportions whenever visible.
+- **Wardrobe continuity:** Keep the black leather jacket and dark clothing consistent wherever the individual chapter prompt requires them.
+- **Visual progression:** Neon blue/cyan/magenta city at night → warm golden-hour memory → rainy blue/magenta present and intimate music room → quiet dawn and a hopeful riverside ending.
+- **Key story props:** The fresh white flower connects the memory and the present. The letter and sepia photograph are physical keepsakes. The acoustic guitar becomes the protagonist's personal expression. Follow each chapter's prop instructions exactly.
+- **Editorial continuity:** Use clean cuts between separate locations. Do not morph a face, room, street, or prop into an unrelated scene. Use actual exported frames when the production brief requires them.
+- **Soundtrack workflow:** Add the original or properly licensed recording during post-production. Do not rely on generated music or sound to carry the story.
+
+## 7. Source accuracy and change control
+
+The eight standalone prompt files are based on the eight canonical production documents supplied for this lab. Their shot order, timing, model labels, frame declarations, reference restrictions, technical settings, output names, and source-accuracy notes are retained. The director-facing Vietnamese sections in the first two source documents have been translated into English for this edition; the production instructions have not been replaced with a different story treatment.
+
+The standalone chapter files are the authoritative production briefs. This README provides the English-language learning path, navigation, and review framework. When a project-specific detail differs, follow the corresponding standalone chapter prompt.
+
+**Before each generation:** Confirm the current model label, availability, duration choices, resolution, and supported input combinations in ElevenLabs. Platform interfaces and model capabilities can change; this lab does not assume that an option remains available indefinitely.
+
+## 8. Publishing and music rights
+
+Use only music that you own or are authorized to use. Public availability on a streaming or video platform does not, by itself, grant permission to reuse a recording in a new production. Confirm the rights to the composition and the specific sound recording before publishing or distributing the finished video.
