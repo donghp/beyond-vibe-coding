@@ -1,5 +1,5 @@
 
-# PROJECT: DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+# PROJECT: DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 ## DHEVS_07 — LEARNING TO LET GO
 
 Timeline: 01:30–01:45 | Exactly 15 seconds
@@ -17,7 +17,7 @@ Use only these Start/End Frame anchors. Do not add Image or Video References. Us
 
 ### 2. CREATIVE OBJECTIVE
 
-Create chapter seven of **“Đừng Hỏi Em Vì Sao”**. After the last guitar performance, DongHP accepts that the past will remain part of him, but he no longer needs to hold on to it. He acknowledges the flower, letter and old photograph, leaves the room, and walks beside the water at first light. This is not forgetting or rejecting the woman; it is accepting the memory with gratitude and choosing to continue living.
+Create chapter seven of **“Don't Ask Me Why”**. After the last guitar performance, DongHP accepts that the past will remain part of him, but he no longer needs to hold on to it. He acknowledges the flower, letter and old photograph, leaves the room, and walks beside the water at first light. This is not forgetting or rejecting the woman; it is accepting the memory with gratitude and choosing to continue living.
 
 Emotional progression: **last chord → quiet acknowledgement → respectful farewell → first steps outside → calm forward movement**. Keep acting restrained, mature and believable. No melodrama, dialogue or lyrics on screen.
 
