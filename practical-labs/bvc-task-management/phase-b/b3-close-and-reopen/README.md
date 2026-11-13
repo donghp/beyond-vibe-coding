@@ -5,16 +5,11 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Confirm that a task saved in B2 is still available after the app is reloaded or reopened.  
-**Lesson status:** Planned — requires an implemented B2 save flow and actual same-profile runtime evidence.
+**Lesson status:** Planned — requires B2 implementation and acceptance. B2 Contract already verifies the initial save/load behavior; B3 is the learner's separate close/reopen and recovery exercise.
 
 ## 1. Why this lesson matters
 
-Seeing a task in the list immediately after adding it proves only that the current page can display it. It does not prove that the task was saved.
-
-B3 checks the important difference:
-
-- **Before reload:** the task is visible after being added and saved.
-- **After reload/reopen:** the same task is loaded again from the Beginner browser workspace.
+B2 teaches how the application saves and loads the Beginner workspace. B3 asks the learner to perform the everyday action of closing and reopening the app and confirm that the same work is still available. This reinforces the difference between a task visible only on the current page and a task saved in the same browser profile.
 
 ## 2. Before you begin
 
@@ -30,12 +25,12 @@ If B2 has not saved a task successfully, stop here. B3 cannot prove persistence 
 
 1. Open the BVC Task Management app in the browser profile used in B2.
 2. Locate the saved example task and note its exact title.
-3. Capture a screenshot showing the task before reload. Avoid exposing private account information.
-4. Reload the Preview or close and reopen the same app using the same browser profile.
-5. Wait for the app to finish loading.
-6. Look for the exact same task title in the list.
-7. Capture a second screenshot showing the task after reload/reopen.
-8. Compare the two screenshots and record whether the task remained available.
+3. Capture a screenshot showing the task before closing the app. Avoid exposing private account information.
+4. Close the app tab. Do not clear browser site data or switch profiles.
+5. Open the same GAIS Preview/app URL again in the same browser profile.
+6. Wait for the app to finish loading.
+7. Look for the exact same task title in the list.
+8. Capture a second screenshot after reopening and compare it with the first.
 
 Do not edit or re-create the task between the two screenshots. Doing so would make the test invalid.
 
@@ -73,7 +68,7 @@ Beginner browser storage is local to the current browser profile and application
 
 ## 7. Next lesson
 
-After B1–B3 are working and accepted, continue to [B4 — Improve One Small Thing](../b4-improve-one-small-thing/README.md).
+After the independent close/reopen exercise is complete and accepted, continue to [B4 — Improve One Small Thing](../b4-improve-one-small-thing/README.md).
 
 ---
 
