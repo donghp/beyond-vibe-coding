@@ -6,7 +6,7 @@ This directory contains practical, project-based lessons for planning and produc
 
 - [Create a Personal Cinematic Music Video with AI — “Don't Ask Me Why”](./dont-ask-me-why-ai-music-video/README.md)
 
-The lab uses the eight-part case study **“Đừng Hỏi Em Vì Sao”** (*Don't Ask Me Why*) to teach an end-to-end workflow: avatar preparation, story development, shot planning, prompt writing, video generation, continuity control, review, and CapCut editing.
+The lab uses the eight-part case study **Don't Ask Me Why**  to teach an end-to-end workflow: avatar preparation, story development, shot planning, prompt writing, video generation, continuity control, review, and CapCut editing.
 
 ## Learning outcomes
 
