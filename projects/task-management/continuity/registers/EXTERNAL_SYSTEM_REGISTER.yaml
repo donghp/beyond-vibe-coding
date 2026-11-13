@@ -6,18 +6,18 @@ systems:
   name: Google AI Studio Build mode
   url: https://aistudio.google.com/apps
   owner: Human Owner
-  purpose: Create and inspect the isolated blank WEB scaffold under BVC-TM-TC-003.
+  purpose: Build and preview the existing BVC Task Management newbie application under the active, task-specific Contracts.
   access_mode: Human-operated; ChatGPT reviews only screenshots/files explicitly supplied by the Owner.
-  current_status: OWNER_SUPPLIED_APP_TITLE_AND_EXPECTED_PREVIEW_HEADING; TECHNICAL_INVENTORY_NOT_VERIFIED
+  current_status: OWNER_SUPPLIED_B1_PREVIEW_AND_CODE_CONTEXT; B1_OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS; B2_CONTRACT_APPROVED; B2_LIVE_PREFLIGHT_PENDING
   app_name_observed: BVC Task Management Scaffold Inspection
   app_type: UNKNOWN
-  preview_status: OWNER_SUPPLIED_OBSERVED_EXPECTED_HEADING_VISIBLE
+  preview_status: OWNER_SUPPLIED_OBSERVED_B1_TASK_CAPTURE_SCREEN_VISIBLE_ON_2026_11_13; B2_STORAGE_NOT_VERIFIED
   visible_preview_text: "BVC Task Management Scaffold Inspection"
-  code_tree_status: PHASE_A_SCREENSHOTS_SHOW_A_VISUAL_TREE; CURRENT_MANIFEST_AND_TOOLCHAIN_INVENTORY_NOT_VERIFIED
+  code_tree_status: PHASE_A_SCREENSHOTS_SHOW_A_VISUAL_TREE; CURRENT_B2_FILE_INVENTORY_NOT_REINSPECTED
   export_status: NOT_VERIFIED
-  model_label: UNKNOWN_IN_LATEST_SCREENSHOT
+  model_label: GEMINI_3_8_FLASH_VISIBLE_IN_OWNER_SUPPLIED_GAIS_SCREENSHOT_2026_11_13
   quota_status: UNKNOWN
-  last_evidence_ref: "Human Owner supplied GAIS Preview screenshot in ChatGPT on 2026-11-11."
+  last_evidence_ref: "Human Owner supplied GAIS Preview screenshot on 2026-11-13 showing B1 task-capture UI and Gemini 3.8 Flash panel; the app ID is visible in the URL. The Code/File Explorer is not shown."
   prohibited_data:
   - API key values
   - tokens
@@ -31,21 +31,23 @@ systems:
   owner: Human Owner / BVC governance
   purpose: Canonical repository, source history, PR review and continuity storage.
   default_branch: main
-  observed_main_sha: "aff2b42da26ec548de8088bf77de455a94723773"
-  observed_at: "2026-11-11T08:30:00+07:00"
-  open_prs_at_main_checkpoint: []
-  current_open_prs:
-  - number: 50
-    title: docs(bvctm-continuity): complete revision 5 project record reconciliation
-    status: DRAFT; NOT_READY_FOR_MERGE
-    head: docs/bvctm-continuity-r5-completion
-    url: https://github.com/donghp/beyond-vibe-coding/pull/50
-  - number: 51
-    title: docs(bvctm): record authentic GAIS scaffold inspection evidence
-    status: DRAFT; PARTIAL; NOT_READY_FOR_ACCEPTANCE
-    head: docs/bvctm-task003-scaffold-evidence
-    url: https://github.com/donghp/beyond-vibe-coding/pull/51
+  observed_main_sha: "6910a6b3b667b6695742cf0c80f0f0bc47fcc3df"
+  observed_at: "2026-11-13T16:54:00+07:00"
+  open_prs_at_main_checkpoint: NOT_ENUMERATED_IN_THIS_SYNC
+  current_open_prs: NOT_ENUMERATED_IN_THIS_SYNC
   recently_merged_prs:
+  - number: 60
+    url: https://github.com/donghp/beyond-vibe-coding/pull/60
+    status: MERGED
+    note: B1 Owner acceptance with known limitations.
+  - number: 62
+    url: https://github.com/donghp/beyond-vibe-coding/pull/62
+    status: MERGED
+    note: DR-005 approval.
+  - number: 64
+    url: https://github.com/donghp/beyond-vibe-coding/pull/64
+    status: MERGED
+    note: B2 Contract TC-005 R1 Owner approval; execution remains separately gated.
   - number: 47
     url: https://github.com/donghp/beyond-vibe-coding/pull/47
     status: MERGED
@@ -59,7 +61,8 @@ systems:
     status: MERGED
     merge_commit: aff2b42da26ec548de8088bf77de455a94723773
   merge_authority: Human Owner
-  branch_protection: "main was last observed unprotected; no settings changed."
+  branch_protection: NOT_RECHECKED_IN_THIS_SYNC; no repository settings were changed.
+  actions_pr_creation_permission: NOT_VERIFIED; Human Owner/repository admin must confirm GitHub Actions can create pull requests for the machine continuity refresh workflow.
 - system_id: LOCAL-WORKSPACE-MAIN
   name: Windows candidate canonical-main worktree
   owner: Human Owner

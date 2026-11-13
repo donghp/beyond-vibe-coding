@@ -2,7 +2,7 @@
 
 ## 1. Operating model
 
-Continuity is updated on meaningful project events, not after every chat message or every file commit. The goal is to keep current state recoverable without creating noisy, repetitive commits or conflicting copies of project truth.
+Continuity is updated on meaningful project events, not after every chat message or every file commit. The goal is to keep current state recoverable without creating noisy, repetitive commits or conflicting copies of project truth. The mandatory repository-wide procedure is [REPOSITORY_CHANGE_SYNC_STANDARD.md](./REPOSITORY_CHANGE_SYNC_STANDARD.md), with machine-enforced companion-file rules in [SYNC_IMPACT_MATRIX.yaml](./SYNC_IMPACT_MATRIX.yaml).
 
 There are two update classes:
 
@@ -97,3 +97,12 @@ A change of model, provider, chat session, GAIS worker, or IDE is a continuity e
 The receiver must not treat a connected account, visible preview, successful file import, or prior worker report as proof that its own workspace is synchronized. Verify the repository, branch, commit SHA, and actual tool capabilities in the receiving session.
 
 See [CROSS_EXECUTOR_CONTINUITY.md](./CROSS_EXECUTOR_CONTINUITY.md) for lifecycle rules and [CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md](./CROSS_EXECUTOR_RECOVERY_TEST_PLAN.md) for pilot scenarios. The schema and validator are consistency checks, not a distributed lock or task-acceptance engine.
+
+
+## 9. One-event / one-PR semantic synchronization
+
+For every material approval, Contract revision, prompt publication, GAIS evidence intake, Owner acceptance or learner-status transition, use one focused PR containing the canonical source and all required dependent records. Run `scripts/validate_repository_sync.py` against `SYNC_IMPACT_MATRIX.yaml` before Owner review. Do not split one semantic event across separate register-only PRs.
+
+A feature-branch commit remains a proposal. A merge to `main` publishes the complete semantic transaction. The post-merge machine updater then captures only Git metadata in the global `CURRENT_STATE.yaml`; it does not re-interpret project meaning or rewrite project-specific state.
+
+GitHub Actions cannot observe a decision made only in chat. The assistant must prepare the semantic sync PR after the Owner decision is clear. Repository Actions must be permitted to create pull requests for the reserved machine-snapshot workflow; see the setting requirement in [REPOSITORY_CHANGE_SYNC_STANDARD.md](./REPOSITORY_CHANGE_SYNC_STANDARD.md).

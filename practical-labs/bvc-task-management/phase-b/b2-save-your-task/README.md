@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Design preparation — DR-005 approved on 2026-11-13; implementation remains blocked until a separate B2 Task Contract is approved.
+**Lesson status:** Contract approved — `BVC-TM-TC-005` Revision 1 was published through merged PR #64 on 2026-11-13. GAIS implementation is NOT_STARTED; live preflight, canonical Prompt #0005 and a separate Owner execution instruction remain required.
 
 ## 1. What you will learn
 
@@ -39,7 +39,7 @@ For the Beginner learning level:
 
 A Vietnamese reference translation is recorded in the canonical Product/UX Decision Register. The approved English copy above is authoritative for the current Beginner implementation.
 
-**Before implementing B2:** A separate B2 implementation Contract must be approved. It must explicitly define the acknowledgement state, whether and where acknowledgement is remembered, how it behaves when browser site data is cleared, the notice placement, storage-error behavior, and objective verification criteria. Do not add an acknowledgement persistence mechanism unless that Contract authorizes it.
+**Implementation authority:** `BVC-TM-TC-005 Revision 1` is the approved Contract. It defines the exact one-file boundary, workspace schema, DR-005 acknowledgement behavior, load/save order, storage-error handling and acceptance criteria. Contract approval does not itself start implementation. Do not edit GAIS until live preflight passes, the canonical B2 Prompt is published and the Human Owner separately instructs execution.
 
 ## 3. Before you begin
 
@@ -73,21 +73,27 @@ Do not let AI add Supabase, Firebase, an account, API calls, or cloud synchroniz
 - A record of any error and how the app responds.
 - The actual changed-file list and the verification result required by the B2 Contract.
 
-A success message alone is not proof that data was saved. The reload check belongs to B3 and must be performed there before claiming persistence is verified.
+A success message alone is not proof that data was saved. B2 Contract requires initial save/load verification, including a normal refresh in the same browser profile. B3 remains a separate learner exercise on closing/reopening and recovery; it does not repeat B2 implementation.
 
 ## 6. B2 completion checklist
 
-- [ ] DR-005 is resolved and its approved disclosure is visible at the required point.
-- [ ] A separate B2 Task Contract is approved.
+- [x] DR-005 is approved and published through PR #62; the actual GAIS disclosure still requires runtime verification.
+- [x] BVC-TM-TC-005 Revision 1 is Owner-approved and canonical on main through PR #64.
 - [ ] Beginner storage uses only the approved browser-local approach.
 - [ ] No external database, account, or cloud sync has been added.
 - [ ] The saved workspace can be loaded after a reload.
 - [ ] Storage errors are reported truthfully.
 - [ ] The learner understands that clearing browser site data may remove the workspace.
 
-## 7. Next lesson
+## 7. GAIS preflight and source-of-truth boundary
 
-Continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) to verify persistence in the same browser profile.
+Before execution, verify the existing GAIS app ID, inspect the live `app/page.tsx`, compare it with the Owner-provided B1 source, review the Code/File Explorer changed-file inventory and confirm there is no competing writer. Stop if more than `app/page.tsx` must change. GitHub is the canonical home for Product, UX, Architecture, Governance, Contracts, Prompts and evidence. GAIS is only the app build/Preview workspace. Do not create repository-level `design/`, `governance/`, `task-contracts/`, `continuity/` or register folders inside GAIS. Supply only the lesson Context Pack, approved Contract and canonical Prompt.
+
+**Prompt status:** Prompt #0005 has not yet been created or published. Do not ask Gemini to modify code until the preflight is complete and the canonical Prompt is available.
+
+## 8. Next lesson
+
+After B2 is implemented, verified and accepted, continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) for an independent learner-focused close/reopen and recovery exercise.
 
 ---
 
