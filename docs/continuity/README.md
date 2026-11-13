@@ -10,6 +10,11 @@ The repository owns durable project knowledge. AI executors are temporary and re
 
 Use [START_HERE.md](./START_HERE.md) as the first landing page, then paste [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) into a new ChatGPT window. START_HERE is navigation only; the seven canonical continuity records remain unchanged.
 
+## BVC-wide operating standard
+
+- [BVC Project Operating Standard v1.0](./BVC_PROJECT_OPERATING_STANDARD_V1.0.md) defines authority, repository layers, the full task lifecycle, the GitHub/GAIS boundary, one-writer rules and one-bundle event-driven synchronization.
+- Project-specific playbooks specialize the standard without overriding canonical product/design/architecture sources.
+
 ## Task lifecycle protocol
 
 - [TASK_LIFECYCLE.md](./TASK_LIFECYCLE.md) defines the mandatory Backlog → Contract → canonical Prompt → GAIS → Evidence → Review → Owner Acceptance flow. It is operating guidance under existing governance and does not create authority or a duplicate register.
