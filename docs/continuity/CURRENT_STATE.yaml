@@ -25,60 +25,89 @@ portfolio:
 machine_snapshot:
   updater_version: 3.0.0
   repository: donghp/beyond-vibe-coding
-  last_observed_main_sha: ef538a3ec1925f9039c332e71fb9c6b67493561c
-  last_observed_main_url: https://github.com/donghp/beyond-vibe-coding/commit/ef538a3ec1925f9039c332e71fb9c6b67493561c
-  last_observed_at_utc: '2026-11-05T16:35:40+00:00'
+  last_observed_main_sha: 357e34467bf4ea4cb8be6bc59d0e6bcddfd99391
+  last_observed_main_url: https://github.com/donghp/beyond-vibe-coding/commit/357e34467bf4ea4cb8be6bc59d0e6bcddfd99391
+  last_observed_at_utc: '2026-11-13T08:43:01+00:00'
   event_name: push
-  previous_main_sha: 5641482236b2b7dc2f515a5125aa6e4c554139ef
-  commit_count_since_previous_snapshot: 9
-  changed_path_count: 46
+  previous_main_sha: ef538a3ec1925f9039c332e71fb9c6b67493561c
+  commit_count_since_previous_snapshot: 48
+  changed_path_count: 75
   changed_paths:
-  - practical-labs/AUTHORIZATION_AND_SCOPE.md
+  - .github/workflows/validate-cross-executor-continuity.yml
+  - README.md
   - practical-labs/README.md
   - practical-labs/assets/screenshots/README.md
-  - practical-labs/bvc-task-management/CURRICULUM_MAP_V0.1.md
-  - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.1.md
+  - practical-labs/assets/screenshots/phase-a/a1-01-gais-start-screen.png
+  - practical-labs/assets/screenshots/phase-a/a1-02-bvctm-initial-scaffold-preview.jpg
+  - practical-labs/assets/screenshots/phase-a/a2-01-gais-code-file-explorer.jpg
+  - practical-labs/assets/screenshots/phase-a/a3-02-gais-project-instructions-saved.jpg
+  - practical-labs/assets/screenshots/phase-a/a4-01-gais-prompt-0003-response.png
+  - practical-labs/assets/screenshots/phase-a/a4-02-gais-post-prompt-code-view.png
+  - practical-labs/bvc-task-management/CURRICULUM_MAP_V0.2.md
+  - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md
+  - practical-labs/bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md
+  - practical-labs/bvc-task-management/README.md
   - practical-labs/bvc-task-management/phase-a/01-meet-google-ai-studio/A1-01_SCREENSHOT_EVIDENCE_NOTE.md
   - practical-labs/bvc-task-management/phase-a/01-meet-google-ai-studio/README.md
   - practical-labs/bvc-task-management/phase-a/02-create-your-first-blank-web-app/README.md
+  - practical-labs/bvc-task-management/phase-a/03-set-up-project-instructions/README.md
   - practical-labs/bvc-task-management/phase-a/03-talk-to-ai-like-a-teammate/README.md
+  - practical-labs/bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/A4-01_PROMPT_0003_EVIDENCE_NOTE.md
+  - practical-labs/bvc-task-management/phase-a/04-talk-to-ai-like-a-teammate/README.md
+  - practical-labs/bvc-task-management/phase-a/README.md
   - practical-labs/bvc-task-management/phase-b/README.md
   - practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
   - practical-labs/bvc-task-management/phase-b/b2-save-your-task/README.md
   - practical-labs/bvc-task-management/phase-b/b3-close-and-reopen/README.md
   - practical-labs/bvc-task-management/phase-b/b4-improve-one-small-thing/README.md
-  - practical-labs/bvc-task-management/phase-c/README.md
-  - practical-labs/bvc-task-management/phase-d/README.md
-  - practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0001_INITIAL_WEB_APP_SCAFFOLD.md
-  - practical-labs/standards/DONG_HONG_STYLE_PRACTICAL_LAB_AUTHORING_STANDARD_V0.1.md
+  - practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0002_PROJECT_INSTRUCTIONS_UNDERSTANDING_CHECK.md
+  - practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0003_TASK_UNDERSTANDING_AND_READ_ONLY_PLAN.md
+  - practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md
+  - practical-labs/bvc-task-management/prompts/README.md
+  - practical-labs/standards/BVC_PRACTICAL_LABS_AUTHORING_STANDARD_V0.2.md
+  - practical-labs/standards/BVC_PROJECT_INSTRUCTIONS_STANDARD_V0.1.md
+  - practical-labs/standards/BVC_TASK_PROMPT_STANDARD_V0.1.md
+  - practical-labs/templates/PRACTICAL_LESSON_TEMPLATE_V0.2.md
+  - practical-labs/templates/PROJECT_INSTRUCTIONS_TEMPLATE_V0.1.md
+  - practical-labs/templates/TASK_PROMPT_TEMPLATE_V0.1.md
+  - projects/task-management/README.md
   - projects/task-management/continuity/00_BVC_CHATGPT_CONTINUITY.md
+  - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
   - projects/task-management/continuity/HANDOFF_LOG.md
   - projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml
   - projects/task-management/continuity/PROJECT_STATE.json
   - projects/task-management/continuity/README.md
   - projects/task-management/continuity/SOURCE_MANIFEST.csv
   - projects/task-management/continuity/evidence/EVIDENCE_INDEX.yaml
-  - projects/task-management/continuity/evidence/README.md
+  - projects/task-management/continuity/handoffs/README.md
   - projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml
   - projects/task-management/continuity/registers/EXTERNAL_SYSTEM_REGISTER.yaml
   - projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml
+  - projects/task-management/continuity/task-contracts/BVC-TM-CONT-001_TASK_CONTRACT_V0.1.yaml
   - projects/task-management/continuity/validation/CONTINUITY_TEST_PLAN.md
   - projects/task-management/continuity/validation/CONTINUITY_TEST_RESULTS.md
-  - projects/task-management/continuity/validation/README.md
-  - projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_V0.1.yaml
-  - projects/task-management/phase3.3/BEGINNER_IMPLEMENTATION_READINESS_V0.1.md
-  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-001_TASK_CONTRACT_V0.1.yaml
-  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-002_TASK_CONTRACT_V0.1.yaml
-  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-003_TASK_CONTRACT_V0.1.yaml
+  - projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md
+  - projects/task-management/design/ux/v0.1/README.md
+  - projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md
+  - projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md
+  - projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml
+  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml
+  - projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json
+  - prompt-engineering/README.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/README.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_01_A_LONELY_MAN_IN_THE_CITY.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_02_THE_STREET_REMEMBERS.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_03_THE_FORGOTTEN_LETTER.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_04_GOLDEN_MEMORIES.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_05_RAIN_OF_MEMORIES.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_06_THE_LAST_SONG.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_07_LEARNING_TO_LET_GO.md
+  - prompt-engineering/dont-ask-me-why-ai-music-video/prompts/CLIP_08_A_NEW_BEGINNING.md
+  - scripts/validate_worker_handoff.py
+  - templates/project-continuity/00_BVC_PROJECT_CONTINUITY.template.md
   - templates/project-continuity/00_PROJECT_AI_CONTINUITY.template.md
-  - templates/project-continuity/HANDOFF_LOG.template.md
-  - templates/project-continuity/PROJECT_CONTINUITY_PROFILE.template.yaml
-  - templates/project-continuity/PROJECT_STATE.template.json
   - templates/project-continuity/README.md
-  - templates/project-continuity/SOURCE_MANIFEST.template.csv
-  - templates/project-continuity/evidence/EVIDENCE_INDEX.template.yaml
-  - templates/project-continuity/registers/REGISTER_DESIGN_GUIDE.md
-  - templates/project-continuity/validation/CONTINUITY_TEST_PLAN.template.md
+  - tests/test_worker_handoff.py
   changed_paths_truncated: false
   semantic_review_required: true
   semantic_review_status: PENDING_AI_AND_OWNER_REVIEW
