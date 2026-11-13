@@ -19,8 +19,8 @@
     "objective": "Extend the accepted B1 in-memory task capture flow with a small versioned browser-local workspace using localStorage, load the saved task list on the next page load, and disclose the Beginner storage behavior under approved DR-005 before any task is persisted.",
     "parent_task_id": "BVC-TM-P3.3-004",
     "requested_by": "Human Owner / Product Owner",
-    "risk_level": "R2",
-    "risk_note": "A bounded single-component change introducing browser-local persistence and user-facing data transparency. The implementation is reversible and uses only synthetic learning data, but storage failure and preservation controls are mandatory."
+    "risk_level": "R3",
+    "risk_note": "R3 is selected because this task introduces a persistent data path and changes the application's state/data lifecycle. The change is bounded to one page, but loss or corruption of user-entered data has meaningful impact and requires preservation and recovery controls."
   },
   "authority": {
     "product_baseline": "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md",
@@ -71,7 +71,7 @@
     "max_modified_files": 1,
     "max_deleted_files": 0,
     "max_binary_files": 0,
-    "max_diff_lines": 250,
+    "max_diff_lines": 350,
     "dependencies": false,
     "lockfiles": false,
     "config": false,
@@ -87,7 +87,6 @@
     "format": {
       "format": "bvc-task-management-workspace",
       "formatVersion": 1,
-      "exportedAt": "<ISO 8601 UTC timestamp>",
       "sourceMode": "browser",
       "workspaceId": "<UUID>",
       "data": {
@@ -103,7 +102,7 @@
         "appliedStarterKits": []
       }
     },
-    "scope_note": "This B2 lesson follows the canonical Phase 3.2 Data Model envelope. The B2 vertical slice reads and writes only data.tasks and preserves all other envelope collections as empty collections/empty settings. Projects, checklists, Starter Kits, workspace preferences, timezone semantics and richer entities are deferred to later Contracts. The timezone field from the design example is intentionally not included in this B2 envelope because it is not required by the task-only Beginner vertical slice.",
+    "scope_note": "B2 adopts the canonical Phase 3.2 Data Model workspace envelope and persists only the task collection needed for this lesson. Other collections remain empty and are preserved as-is. B2 does not introduce those features. The envelope is not yet the complete export/backup artifact; exportedAt and portability semantics belong to the later backup/import lesson.",
     "id_generation": "Use crypto.randomUUID() if available in the actual GAIS Preview. If not available, inspect existing scaffold/browser support and propose a safe UUID strategy; stop if implementation would require a package or unsupported assumption.",
     "validation": [
       "Parse JSON without coercing malformed values.",
@@ -122,13 +121,26 @@
     "cross_tab": "Cross-tab synchronization is out of scope. No BroadcastChannel or storage-event synchronization is required.",
     "acknowledgement": {
       "dr": "DR-005",
-      "display_before_persisted_task": "Show exact approved disclosure inline at top of workspace, before task entry is enabled for the first persisted task.",
+      "display_before_persisted_task": "Show the approved Beginner disclosure inline at the top of the workspace before the user can create the first task that will be persisted.",
       "copy": "Where your tasks are stored — In Beginner mode, your tasks are stored in this browser on this device. They do not automatically sync to other browsers or devices. Clearing this site's browser data may delete your tasks. Browser storage is not a separate backup. You will learn to export a JSON backup in a later lesson. Do not enter passwords, API keys, or sensitive information in this learning app.",
       "action": "Got it — continue",
-      "remember_state": "Proposed Contract rule: keep acknowledgement in component memory only for the current page session. On a fresh page load, show DR-005 before enabling creation of the first persisted task. Once an existing valid saved workspace is loaded, storage disclosure remains accessible through an inline 'Where your tasks are stored' information control in this same page; it does not block adding tasks again. Do not persist acknowledgement separately in localStorage/cookies/sessionStorage in this revision.",
-      "critical_open_point": "The proposed session-only rule above is part of this Contract proposal and requires explicit Human Owner approval. Do not implement until approved."
+      "session_behavior": "Acknowledgement is held in component memory only for the current page session; it is not separately persisted. On a fresh page load, display the disclosure again before enabling the first persisted task. If a valid workspace is already present, the notice remains accessible through a non-blocking 'Where your tasks are stored' disclosure control; the user may continue adding tasks without repeating the blocking acknowledgement.",
+      "reminder": "Do not create a separate localStorage key, cookie or sessionStorage entry for acknowledgement in this Contract."
     },
-    "workspace_id_creation": "Generate one workspaceId when a new, previously unsaved workspace is first persisted; retain that id on subsequent writes. Never generate a new workspaceId on every task add or page refresh."
+    "workspace_id_creation": "Generate one workspaceId when a new workspace is first persisted and keep it for all subsequent writes. Reuse a secure UUID function available in the runtime; if crypto.randomUUID is unavailable, stop and ask for review rather than invent a weak ID generation method.",
+    "formatValidation": [
+      "JSON parses successfully.",
+      "Top-level format is exactly bvc-task-management-workspace.",
+      "formatVersion is exactly 1.",
+      "sourceMode is exactly browser.",
+      "workspaceId is a non-empty UUID generated once and stable across writes.",
+      "data is an object and data.tasks is an array.",
+      "projects, checklistItems and appliedStarterKits are arrays; settings is an object; they remain empty in this B2 lesson.",
+      "Each task has a unique non-empty id and a non-empty trimmed title.",
+      "Malformed JSON, unknown version or invalid task data must not be auto-cleared or overwritten."
+    ],
+    "read_failure": "If the key does not exist, initialize an empty in-memory workspace and wait for acknowledgement before first persist. If it exists but is malformed/unsupported, preserve it untouched, disable writes, and show a clear recovery message; do not silently treat corruption as empty.",
+    "write_failure": "Use a single localStorage.setItem call for the full serialized workspace. If it throws, retain the previous React task list and the learner's input, show a non-blocking but clearly associated storage error, and do not claim a save occurred."
   },
   "behavior": [
     "Preserve the B1 title-only input, Add task, trimmed titles, exact empty input validation, task insertion order, empty state, semantic label and Enter submission.",
@@ -161,8 +173,8 @@
   "acceptance_criteria": [
     {
       "id": "B2-AC-001",
-      "statement": "On a fresh page session, before the first task to be persisted, the exact DR-005 Beginner disclosure is shown at the top of the workspace and the learner must select Got it — continue before persistence is enabled. After a valid workspace is loaded on a later refresh, the disclosure remains accessible without repeatedly blocking normal task entry.",
-      "verification": "Use a fresh browser profile for first-use test; acknowledge; add a task; reload and verify tasks load and disclosure remains accessible. Attempting to submit before acknowledgement must not write data.",
+      "statement": "In a fresh page session with no existing saved workspace, the exact DR-005 disclosure appears at the top before the first persisted task and must be acknowledged; on later reloads with an existing valid workspace, the disclosure remains available without blocking ordinary task entry.",
+      "verification": "Test a fresh app/browser profile, acknowledge, save a task, refresh, confirm task loads and disclosure can be reopened/seen non-blockingly.",
       "required": true
     },
     {
@@ -191,8 +203,8 @@
     },
     {
       "id": "B2-AC-006",
-      "statement": "A malformed or unsupported stored workspace is not silently overwritten or cleared.",
-      "verification": "With Owner supervision, test malformed JSON and an unsupported version in a disposable browser profile; verify an explicit recovery/error state and no automatic destructive reset.",
+      "statement": "Malformed or unsupported stored workspace data is preserved and is never silently overwritten, reset or cleared.",
+      "verification": "In a disposable profile, simulate malformed JSON and unsupported formatVersion, reload, and confirm raw data remains unchanged and writes are blocked.",
       "required": true
     },
     {
