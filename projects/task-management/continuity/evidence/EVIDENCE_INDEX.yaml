@@ -1,6 +1,6 @@
 evidence_index_version: 0.1.0
 project_id: BVC-TASK-MANAGEMENT
-evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_EXECUTION_REPORTED; B1_EVIDENCE_PARTIAL; OWNER_ACCEPTANCE_PENDING
+evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; B2_CONTRACT_APPROVED; B2_EXECUTION_NOT_STARTED
 classification_legend:
   REPOSITORY_VERIFIED: Directly checked against current GitHub main or canonical file.
   OWNER_SUPPLIED: Provided by Human Owner in the conversation; binary/source may not be committed.
@@ -161,3 +161,39 @@ evidence:
   observed_at: '2026-11-11'
   claim: "Screenshot visibly shows an empty task list, blank input, cleared validation and friendly empty state after refresh. Record B1-08 as OBSERVED_PASS."
   limitations: "The original binary is not yet verified on GitHub. Keep OWNER_SUPPLIED/OBSERVED classification until the exact image bytes are committed and checksum-verified."
+
+- evidence_id: BVC-EV-024
+  subject: B1 Human Owner acceptance with known limitations
+  classification: OWNER_REPORTED
+  source: "Human Owner decision in ChatGPT on 2026-11-12; merged PR #60"
+  observed_at: '2026-11-12'
+  claim: "Human Owner closed BVC-TM-P3.3-004 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS after reviewing supplied app/page.tsx and confirming the live GAIS Code view contains one Page component."
+  limitations: "A complete archived manual Preview test set and an independently reviewable before/after GAIS file inventory are not present; unrecorded checks are not PASS."
+- evidence_id: BVC-EV-025
+  subject: DR-005 approval publication
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/62
+  observed_at: '2026-11-13'
+  claim: "PR #62 merged and publishes the Human Owner-approved first-use storage disclosure timing, placement, acknowledgement and Beginner copy."
+  limitations: "Publication does not prove the disclosure is implemented or shown in the GAIS application."
+- evidence_id: BVC-EV-026
+  subject: B2 Task Contract TC-005 R1 approval
+  classification: REPOSITORY_VERIFIED
+  source: https://github.com/donghp/beyond-vibe-coding/pull/64
+  observed_at: '2026-11-13'
+  claim: "PR #64 merged and publishes Owner-approved BVC-TM-TC-005 Revision 1 for BVC-TM-P3.3-005. It permits MODIFY app/page.tsx only, with the stated 350-line change budget."
+  limitations: "Contract approval is not B2 execution. Live GAIS preflight and a separate Owner execution instruction remain pending."
+- evidence_id: BVC-EV-027
+  subject: GAIS newbie B1 Preview and session context
+  classification: OWNER_SUPPLIED
+  source: "Human Owner supplied GAIS screenshot in ChatGPT on 2026-11-13; app URL shows app id ca589018-617d-4919-bbe2-6b9c588ccd85"
+  observed_at: '2026-11-13'
+  claim: "Screenshot shows the existing BVC Task Management GAIS project, B1 task-capture Preview (title input, Add task, Tasks empty state), Gemini 3.8 Flash chat panel and a visible B1 Contract #004 one-file instruction."
+  limitations: "The screenshot does not show the Code/File Explorer or actual changed-file inventory. It does not prove B2 source preflight or localStorage persistence."
+- evidence_id: BVC-EV-028
+  subject: Unified BVC repository synchronization package
+  classification: PROPOSAL_ONLY
+  source: "Branch docs/bvc-unified-synchronization-standard; base main@6910a6b3b667b6695742cf0c80f0f0bc47fcc3df"
+  observed_at: '2026-11-13'
+  claim: "A unified repository change synchronization standard, impact matrix, validator, tests, GitHub Actions workflow and reconciled BVCTM continuity/learner records have been prepared together."
+  limitations: "The branch is not yet merged; CI checks and post-merge machine snapshot remain pending."

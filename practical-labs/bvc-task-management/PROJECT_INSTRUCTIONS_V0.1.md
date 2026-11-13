@@ -76,6 +76,19 @@ Inspect before modifying. Do not rewrite the entire application to implement one
 
 Avoid unnecessary abstractions, duplicated logic, and dependencies.
 
+## 05A. GITHUB AND GAIS BOUNDARY
+
+GitHub is the canonical source for the product, UI/UX, architecture, governance, Task Contracts, Prompts, registers, lessons and evidence.
+
+The GAIS project is the learner's application build and Preview workspace only:
+- Do not create repository-level folders such as `design/`, `governance/`, `task-contracts/`, `continuity/` or `registers/` inside the application.
+- Do not copy the whole GitHub repository into GAIS.
+- Use this canonical Project Instructions file as the Custom Instructions source; the saved GAIS copy is only an execution-time copy.
+- For each lesson, use only its lesson-specific Context Pack, active approved Task Contract and canonical Prompt, with links to the full GitHub sources.
+- Change only application files explicitly authorized by the active Task Contract.
+
+After a material Owner decision, Contract/Prompt publication, GAIS execution, evidence intake or acceptance, update the canonical source and all affected project/lesson registers in one semantic PR according to `docs/continuity/REPOSITORY_CHANGE_SYNC_STANDARD.md`. Do not create separate conflicting copies or update individual registers in isolation.
+
 ## 06. FILE INTEGRITY
 
 Do not create, modify, rename, move, or delete files outside the authorized task scope.

@@ -167,3 +167,25 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Screenshot limitation:** The candidate PR branch previously contained a 68-byte placeholder PNG at the B1-08 path. It is invalid and must be removed; no placeholder or synthetic image may be used as evidence.
 - **Handoff status:** Material checkpoint only, not a worker handoff. No sender release or receiver acceptance is claimed.
 - **Human Owner review:** REQUIRED.
+
+ 
+## H-0009 — Unified Repository Synchronization Standard and BVCTM B2 Reconciliation Prepared
+
+- **Recorded at:** 2026-11-13 (Asia/Bangkok)
+- **Project:** BVC Task Management under BEYOND VIBE CODING — Build & Learn
+- **Source main SHA:** `6910a6b3b667b6695742cf0c80f0f0bc47fcc3df`
+- **Proposal branch:** `docs/bvc-unified-synchronization-standard` (not merged at checkpoint)
+- **Event type:** REPOSITORY_GOVERNANCE / CONTINUITY_RECONCILIATION / TASK_TRANSITION
+- **Repository-wide proposal:** Added `REPOSITORY_CHANGE_SYNC_STANDARD.md`, `SYNC_IMPACT_MATRIX.yaml`, `scripts/validate_repository_sync.py`, `tests/test_repository_sync.py` and `validate-repository-sync.yml`. Updated global continuity protocol, task lifecycle, bootstrap, start guide, source manifest and continuity-refresh path filters.
+- **BVCTM semantic reconciliation proposal:** Updated Project State revision 6, Task Execution Register, Prompt Register, Contract #005 approval metadata, project continuity README/entrypoint/profile/source manifest, external-system register, evidence index and this Handoff Log.
+- **Learner-facing reconciliation proposal:** Updated Task Management Project Index, Phase B index, B2 README, Project Instructions and Lesson Status Register to match B1/DR-005/TC-005 current decisions.
+- **Verified source events:** PR #60 B1 Owner acceptance with known limitations; PR #62 DR-005 approval; PR #64 B2 Contract TC-005 R1 approval.
+- **Current B1 status:** `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`. The complete archived manual-test set and an independent before/after GAIS file inventory remain limitations.
+- **Current B2 status:** Contract approved; implementation NOT_STARTED. Allowed GAIS change remains MODIFY `app/page.tsx` only. Live GAIS preflight, source parity, single-writer check and separate Owner execution instruction remain pending.
+- **GAIS evidence:** Owner-supplied 2026-11-13 screenshot shows B1 task-capture Preview and Gemini 3.8 Flash panel. It does not show the current source tree or prove B2 persistence.
+- **Machine automation boundary:** The existing continuity updater still changes only the global `CURRENT_STATE.yaml` machine snapshot. The new validator checks companion files in one semantic PR; it does not infer approvals or runtime behavior.
+- **Known automation dependency:** Repository setting allowing GitHub Actions to create pull requests has not been verified. The prior workflow failed PR creation due permissions; do not claim post-merge machine snapshot succeeded until the workflow run is checked.
+- **Unrelated governance items retained:** Phase 3.1 UX acceptance OPEN; DR-013 contrast audit VERIFICATION REQUIRED; DR-014 runtime behavior remains unverified; Continuity Contract AC-011 and cold-start/cross-model tests remain open/NOT_RUN; local Windows worktrees not inspected.
+- **Next permitted action:** Validate the unified PR diff and synchronization check; Human Owner reviews/merges. After merge, verify main SHA and Actions run. Then perform live GAIS B2 preflight and wait for separate execution authorization.
+- **Handoff status:** Material project checkpoint, not a worker handoff. No sender release or receiver acceptance is claimed.
+- **Human Owner review:** REQUIRED.

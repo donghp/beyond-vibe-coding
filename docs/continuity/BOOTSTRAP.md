@@ -27,7 +27,7 @@ Use [START_HERE.md](./START_HERE.md) as the concise orientation page, then follo
 
 ### Step 0 — Read the repository verification procedure
 
-Read [GITHUB_REPOSITORY_VERIFICATION.md](./GITHUB_REPOSITORY_VERIFICATION.md) before making repository-state claims or taking consequential action. It is an operational procedure under this Bootstrap, not a separate authority hierarchy or project-state store. Follow it according to the actual GitHub connector, API, or local Git capabilities available to the executor.
+Read [GITHUB_REPOSITORY_VERIFICATION.md](./GITHUB_REPOSITORY_VERIFICATION.md) and [REPOSITORY_CHANGE_SYNC_STANDARD.md](./REPOSITORY_CHANGE_SYNC_STANDARD.md) before making repository-state claims, preparing a synchronization PR or taking consequential action. It is an operational procedure under this Bootstrap, not a separate authority hierarchy or project-state store. Follow it according to the actual GitHub connector, API, or local Git capabilities available to the executor.
 
 ### Step 1 — Establish repository identity and live head
 
@@ -51,7 +51,7 @@ Read all seven files in `docs/continuity/` named in `README.md`. The machine upd
 
 ### Step 4 — Read project authority from the manifest
 
-Use `SOURCE_MANIFEST.csv` as a navigation index. At minimum inspect the current repository README and the relevant project's README, product definition, decision register, risk policy, UX/architecture acceptance records, active Task Contract, Context Manifest and verification/change evidence. Read the full current Task Contract and verify each required context path.
+Use `SOURCE_MANIFEST.csv` as a navigation index and `SYNC_IMPACT_MATRIX.yaml` to determine which dependent records must be updated together in a semantic PR. At minimum inspect the current repository README and the relevant project's README, product definition, decision register, risk policy, UX/architecture acceptance records, active Task Contract, Context Manifest and verification/change evidence. Read the full current Task Contract and verify each required context path.
 
 The manifest does not override the source files and may itself become stale. Recheck paths and authority on live `main`.
 
@@ -127,3 +127,8 @@ Before the receiver writes, it must independently verify the sender's release, e
 Use [WORKER_HANDOFF.template.yaml](./WORKER_HANDOFF.template.yaml), validate it against [WORKER_HANDOFF.schema.json](./WORKER_HANDOFF.schema.json), and preserve the record in the relevant project's authorized continuity location. The global template/schema do not create a second project-state store.
 
 If the sender has not released, the checkpoint cannot be verified, another writer may still be active, or local/AI workspace state is unknown, stop writes. Recover only from the last remotely verified commit. Do not claim that uncommitted in-memory work has been recovered.
+
+
+## Repository synchronization transaction
+
+For any material event, follow `REPOSITORY_CHANGE_SYNC_STANDARD.md`: classify the event, update the source and affected project/learner records in one focused PR, run the repository synchronization validator, request Human Owner review/merge, then verify the post-merge machine snapshot. The GitHub machine updater cannot observe a decision made only in chat or change semantic task/acceptance fields. Never create duplicate governance folders inside GAIS.

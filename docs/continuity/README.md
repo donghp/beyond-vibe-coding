@@ -10,6 +10,12 @@ The repository owns durable project knowledge. AI executors are temporary and re
 
 Use [START_HERE.md](./START_HERE.md) as the first landing page, then paste [BVC_NEXT_CHAT_PROMPT.md](./BVC_NEXT_CHAT_PROMPT.md) into a new ChatGPT window. START_HERE is navigation only; the seven canonical continuity records remain unchanged.
 
+## Unified repository synchronization
+
+- [REPOSITORY_CHANGE_SYNC_STANDARD.md](./REPOSITORY_CHANGE_SYNC_STANDARD.md) defines the one-event/one-PR procedure across BVC, all projects, Practical Labs and GAIS execution.
+- [SYNC_IMPACT_MATRIX.yaml](./SYNC_IMPACT_MATRIX.yaml) is the machine-readable companion-record map.
+- [scripts/validate_repository_sync.py](../../scripts/validate_repository_sync.py) and [validate-repository-sync.yml](../../.github/workflows/validate-repository-sync.yml) verify that one PR includes the records required by the matrix. The check does not approve semantic content.
+
 ## Task lifecycle protocol
 
 - [TASK_LIFECYCLE.md](./TASK_LIFECYCLE.md) defines the mandatory Backlog → Contract → canonical Prompt → GAIS → Evidence → Review → Owner Acceptance flow. It is operating guidance under existing governance and does not create authority or a duplicate register.
@@ -60,11 +66,11 @@ A conversation that produces no repository event cannot be detected by GitHub Ac
 - Machine-observed Git facts and semantic project state are separate.
 - No workflow writes directly to `main`.
 - The automation branch is reserved for generated continuity snapshots.
-- The updater uses the repository-provided `GITHUB_TOKEN`, with only contents and pull-request permissions in its job. It does not require a personal access token.
+- The updater uses the repository-provided `GITHUB_TOKEN` with contents and pull-request permissions. GitHub additionally requires the repository-level setting **Allow GitHub Actions to create and approve pull requests**; see the Repository Change Synchronization Standard. No personal access token is required when that setting is enabled.
 - No workflow run or absent check is represented as PASS without actual evidence.
 - Project State, Context Manifest, Change Record and Verification Evidence retain their own BVC Core Specification meanings. This portfolio continuity index does not replace them.
 
-See [CONTINUITY_PROTOCOL.md](./CONTINUITY_PROTOCOL.md) for detailed event rules and [SOURCE_MANIFEST.csv](./SOURCE_MANIFEST.csv) for the startup reading map.
+See [REPOSITORY_CHANGE_SYNC_STANDARD.md](./REPOSITORY_CHANGE_SYNC_STANDARD.md) for the single-transaction update procedure, [CONTINUITY_PROTOCOL.md](./CONTINUITY_PROTOCOL.md) for event rules and [SOURCE_MANIFEST.csv](./SOURCE_MANIFEST.csv) for the startup reading map.
 
 ## Cross-executor continuity and recovery
 

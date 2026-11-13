@@ -16,7 +16,7 @@ Before continuing work in a new ChatGPT window, complete the read-only Vietnames
 
 ## Canonical sequence
 
-`PRODUCT BACKLOG → TASK SPECIFICATION → TASK CONTRACT → OWNER APPROVAL → CONTRACT MERGED ON MAIN → PROMPT DRAFT → PROMPT REVIEW → PROMPT MERGED ON MAIN → GAIS EXECUTION → EVIDENCE INTAKE → TECHNICAL REVIEW → OWNER ACCEPTANCE → REGISTER RECONCILIATION`
+`PRODUCT BACKLOG → TASK SPECIFICATION → TASK CONTRACT → OWNER APPROVAL → CONTRACT + REGISTER SYNC PR → MERGED ON MAIN → PROMPT + PROMPT REGISTER + LESSON SYNC PR → MERGED ON MAIN → GAIS PREFLIGHT / EXECUTION → EVIDENCE + REGISTER + LESSON SYNC PR → TECHNICAL REVIEW → OWNER ACCEPTANCE → ACCEPTANCE SYNC PR → MERGED ON MAIN → POST-MERGE MACHINE SNAPSHOT`
 
 For implementation tasks, the order is mandatory. A write-capable prompt must not be given to a newbie until its approved Task Contract and exact prompt are canonical on `main`. Read-only learning exercises may use another explicitly recorded authorization basis.
 
@@ -59,7 +59,11 @@ Do not infer acceptance from a merge, prompt response, build, passing check or A
 
 ## 5. Update GitHub records as one transaction
 
-After a material event, update relevant files together in one focused PR where practical: Task Execution Register; Prompt Register; Evidence Index and asset index; Lesson Status Register and lesson README; Project State and Handoff Log; Source Manifest when a canonical source is added/changed. Keep machine-observed Git metadata separate from semantic state. Automation must not infer task progress or Owner acceptance.
+Follow [REPOSITORY_CHANGE_SYNC_STANDARD.md](./REPOSITORY_CHANGE_SYNC_STANDARD.md) and validate the same-PR companion paths in [SYNC_IMPACT_MATRIX.yaml](./SYNC_IMPACT_MATRIX.yaml).
+
+After a material event, update the authoritative source and all affected dependent records together in one focused PR: Project State; Task Execution Register; Prompt Register when a Prompt event occurs; Evidence Index when evidence changes; Lesson Status Register and lesson README when learner outcomes/status change; Source Manifest when canonical paths/authority change; and Handoff Log only for a meaningful checkpoint/handoff. Do not create multiple register-only PRs for the same event.
+
+The sync validator checks completeness, not semantic correctness or Owner intent. Keep machine-observed Git metadata separate from semantic state. Automation must not infer task progress, decision approval, task completion or Owner acceptance.
 
 ## 6. ChatGPT-window / quota interruption checkpoint
 
@@ -76,3 +80,15 @@ For `BVC-TM-P3.3-004 / BVC-TM-TC-004 R1 / BVCTM-PROMPT-0004`:
 - Exact GAIS changed-file diff was not independently inspected. Browser E2E was not run; some checks were code-path analysis.
 - Human Owner acceptance remains pending. Do not declare B1 accepted or unlock B2.
 - B1-08 original binary must be committed and checksum-verified before it is REPOSITORY_VERIFIED.
+
+
+## 7. Synchronization gate
+
+A material PR is not ready for Owner review until:
+1. the canonical source is correct;
+2. every required companion record in the impact matrix is included;
+3. the repository sync validator passes;
+4. relevant schema/Contract/unit tests are run or explicitly marked NOT_RUN;
+5. the PR body states what is synchronized, what is not, and why.
+
+After merge, the machine snapshot is a separate deterministic Git-metadata refresh. It must not be treated as a second semantic approval.

@@ -9,7 +9,7 @@
 A new ChatGPT window must begin in read-only bootstrap mode:
 1. Read this file, `BOOTSTRAP.md`, `GITHUB_REPOSITORY_VERIFICATION.md` and `AI_EXECUTOR_ROLE_MODEL.md`.
 2. Verify live repository identity, `main` SHA, open PRs, relevant branches, diffs/reviews/checks and any incomplete writer handoff.
-3. Read the seven canonical continuity records listed in `README.md`.
+3. Read the canonical continuity records listed in `README.md`, then read [REPOSITORY_CHANGE_SYNC_STANDARD.md](./REPOSITORY_CHANGE_SYNC_STANDARD.md) and [SYNC_IMPACT_MATRIX.yaml](./SYNC_IMPACT_MATRIX.yaml).
 4. Read the current approved project sources relevant to the active project/task: Product Definition, Decision Register, Risk Policy, UX/architecture acceptance, Task Contract, Task/Prompt Registers, evidence and handoff.
 5. Build a structured Vietnamese Project Understanding Review using `PROJECT_UNDERSTANDING_REVIEW.template.md`; cite current sources and classify each material claim.
 6. State capability limits and unresolved conflicts explicitly. Never infer local Windows, GAIS or VS Code state from GitHub.
@@ -43,3 +43,6 @@ ChatGPT maps each item to the active Task ID and criteria, classifies evidence, 
 Record verified `main` SHA, active branch/PR SHA, lifecycle stage, completed/uncompleted criteria, evidence paths/checksums, local-only artifacts, blockers and one next permitted action. Do not claim a worker handoff unless sender release and receiver acceptance are explicit.
 
 **Recovery principle:** GitHub-first, evidence-backed, independent of conversation memory.
+
+
+**Synchronization rule:** one material event is reconciled in one semantic PR. After it is merged, the machine updater performs a separate Git-metadata snapshot; semantic records remain governed by the Human Owner.
