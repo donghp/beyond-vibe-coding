@@ -1,106 +1,225 @@
-# Clip 01 — Opening Portrait (C01)
+# DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
 
-**Project:** 80s Retro Music Video — Personal Avatar Edition  
-**Clip ID:** C01  
-**Scene:** Opening Portrait  
-**Timeline:** Opening shot  
-**Target duration:** 8 seconds (use 9 seconds only if that duration is explicitly available)  
-**Frame:** Landscape 16:9  
-**Reference image:** \`S01_Portrait_-_Front_Close-up_1920x1080.jpg\`  
-**Reference policy:** Use S01 as the only visual reference for this generation.  
-**Purpose:** Create the opening shot of the music video. This is a silent visual clip; the licensed/original soundtrack will be added later in the video editor.
+## DHEVS_01 — A LONELY MAN IN THE CITY
 
-> **Source-of-truth note:** This lesson documents the actual C01 workflow and prompt supplied for this production. It replaces the earlier generic 15-second rainy-city prompt, which did not match the prompt used to generate C01.
+**Duration:** 15 seconds  
+**Timeline:** 00:00–00:15 of the 2-minute MV  
+**Production:** Image-to-Video using DongHP portrait / visual references; preserve the originally supplied reference set and supported input mode  
+**Model:** Seedance 2.5  
+**Resolution:** 480p  
+**Aspect ratio:** Landscape 16:9
 
 ---
 
-## 1. How to use this prompt in Gemini
+## A. KỊCH BẢN TIẾNG VIỆT — ĐỂ DUYỆT Ý ĐỒ ĐẠO DIỄN
 
-1. Open <https://gemini.google.com/app>.
-2. Choose **Videos** / **Create video** in the prompt tools. Do not use the ordinary text-only chat as the final generation step.
-3. Click **Add image** and upload **only the S01 image** named above for this C01 generation. The declared reference for C01 is **S01**. Do not upload a contact sheet or collage.
-4. Select **Landscape** if the interface asks for an aspect ratio. Because S01 is 16:9, the generated clip should follow that landscape framing.
-5. Paste the complete English prompt in Section 2 and submit.
-6. Review the generated clip before accepting it. Download the MP4 and save it as \`C01_S01_Opening_Portrait.mp4\`.
+### Ý tưởng
 
-**Model note:** In the screenshot, choices such as **3.1 Pro** and **3.6 Flash** are general Gemini chat/reasoning choices. They are not the name of the video-generation model. For actual video creation, use **Videos / Create video**; Gemini's current help describes video generation through **Gemini Omni 1.2 Flash**. Use Pro for planning or refining a complex prompt in the chat if needed, but do not mistake that chat-model selector for the video engine.
+DHEVS_01 mở đầu câu chuyện bằng hình ảnh DongHP xuất hiện một mình giữa thành phố về đêm. Ánh đèn neon xanh, cyan và magenta bao quanh nhân vật, tạo nên một không gian đô thị hiện đại nhưng lạnh lẽo. Anh giữ vẻ bình tĩnh, trầm tư; thành phố rộng lớn và rực sáng đối lập với cảm giác cô độc của người đàn ông.
 
----
+Cảnh mở đầu lần lượt mở rộng từ chân dung nhân vật ra toàn cảnh thành phố, theo bước chân anh trên con phố ướt ánh đèn, rồi trở lại khuôn hình cận 3/4 khi anh ngước nhìn lên những ánh đèn neon. Đây là điểm kết thúc có chủ đích để DHEVS_02 tiếp tục bằng khoảnh khắc anh hạ ánh mắt và bắt đầu hành trình đi sâu hơn vào thành phố.
 
-## 2. COPY-PASTE PROMPT FOR GEMINI VIDEO
+### SHOT 01 — THE FACE IN THE NEON NIGHT (00:00–00:03.0)
 
-Paste the complete prompt below into Gemini **Videos / Create video** after uploading only S01.
+- Mở bằng khuôn hình trung cận chính diện của DongHP giữa phố đêm neon.
+- DongHP đứng yên, nhìn về phía trước; biểu cảm bình tĩnh, kín đáo và có chút suy tư.
+- Máy quay giữ ổn định với chuyển động tiến nhẹ, rất chậm.
+- Kính chữ nhật, gương mặt, kiểu tóc ngắn và áo khoác da đen phải nhất quán.
+- Ánh đèn xanh và magenta tạo bokeh mềm phía sau; không biến cảnh thành một màn trình diễn hành động.
 
-\`\`\`text
-PROJECT: 80s RETRO MUSIC VIDEO — C01 OPENING PORTRAIT
+### SHOT 02 — THE CITY FROM ABOVE (00:03.0–00:06.0)
 
-REFERENCE IMAGE — S01 (AUTHORITATIVE)
-Use the single uploaded image S01 as the sole and authoritative visual reference for this clip. Animate this image into a photorealistic cinematic video. Preserve the same adult man shown in S01: his recognizable facial appearance, facial proportions, eyes, nose, lips, jawline, natural skin texture, short dark hairstyle, and rectangular eyeglasses. Keep the glasses on his face throughout the entire clip. Preserve the black leather jacket, dark inner shirt, portrait framing, and neon-lit night-city atmosphere visible in S01. Do not substitute another person or redesign his appearance.
+- Cắt rõ ràng sang toàn cảnh thành phố nhìn từ trên cao.
+- Một con phố đô thị kéo sâu giữa các tòa nhà, hai bên là những biển đèn neon xanh, cyan, tím và hồng.
+- Mặt đường ướt phản chiếu ánh sáng; có lớp sương/haze nhẹ tạo chiều sâu điện ảnh.
+- DongHP chỉ là một nhân vật nhỏ trong không gian thành phố, không cần nhìn rõ mặt ở góc toàn cảnh.
+- Cảnh này mở rộng thế giới của MV và nhấn mạnh sự nhỏ bé, cô độc của nhân vật giữa đô thị rộng lớn.
 
-ROLE AND CREATIVE DIRECTION
-You are a professional music-video director and cinematographer creating the opening shot of an original 1980s-inspired retro rock / synthwave music video. The mood is confident, restrained, atmospheric, nostalgic, and cinematic—not an action scene.
+### SHOT 03 — WALKING ALONE (00:06.0–00:11.0)
 
-SCENE AND SUBJECT
-The man stands still on a neon-lit city street at night, facing the camera in a medium close-up. He has a calm, quietly confident expression. The background remains an out-of-focus urban night scene with soft blue, cyan, magenta, and restrained warm-amber lights. The black leather jacket catches subtle colored reflections. Keep the scene faithful to S01; do not add new people, props, vehicles, signs, or locations.
+- Cắt sang góc máy phía sau DongHP.
+- Anh mặc áo khoác da đen và trang phục tối màu, bước chậm một mình trên con phố đêm.
+- Camera tracking phía sau ở tầm người, giữ khoảng cách vừa phải và chuyển động mượt theo nhịp bước.
+- Ánh neon phản chiếu trên mặt đường ướt; các tòa nhà, cửa hiệu và ánh đèn tạo chiều sâu phía trước.
+- Ưu tiên dáng người, mái tóc và trang phục nhất quán; không cần ép nhân vật quay mặt về camera.
 
-ACTION TIMELINE — ONE CONTINUOUS SHOT
-0–2 seconds: Begin by holding the composition from S01. The man looks toward the camera with a composed expression. Only subtle natural breathing is visible.
-2–5 seconds: The camera makes a very slow, smooth cinematic push-in toward his face. He makes one small, natural eye movement toward the neon lights just off-camera, followed by a gentle blink. His head and shoulders remain almost still.
-5–8 seconds: The camera eases to a stop in a slightly tighter close-up. The man returns his gaze toward the camera and holds a calm, confident expression. Keep the final frame steady for a clean edit into C02.
+### SHOT 04 — LOOKING TOWARD THE NEON LIGHT (00:11.0–00:15.0)
 
-CAMERA AND MOTION
-Use a stable, controlled dolly-in / slow push-in. Keep the man's eyes and face sharply in focus while the city lights remain softly blurred with realistic optical bokeh. Natural human motion only. No handheld shake, no fast zoom, no orbit, no abrupt camera movement, and no cuts inside the clip.
+- Cắt sang góc cận trung 3/4 hơi thấp của DongHP, trong cùng bối cảnh phố đêm.
+- Anh ngước nhìn lên phía ánh sáng neon ngoài khung hình; chuyển động đầu và mắt chậm, tự nhiên.
+- Ánh xanh/cyan chiếu từ một phía, dải magenta nổi bật ở nền phía sau; ánh đèn vàng ấm xuất hiện nhẹ ở xa.
+- Giữ rõ khuôn mặt, kính và áo khoác da; không thay đổi danh tính hay tạo hiệu ứng biến dạng khi chuyển góc.
+- Giữ bố cục cuối ổn định: DongHP nhìn lên, sẵn sàng nối sang DHEVS_02 — The Street Remembers.
 
-1980s VISUAL LANGUAGE
-Authentic 1980s-inspired music-video cinematography, subtle 35mm film grain, gentle highlight halation, rich but controlled neon blue and magenta, restrained amber practical lights, realistic reflections on the leather jacket, cinematic contrast, and natural skin tones. Avoid excessive VHS distortion, over-saturated colors, artificial skin smoothing, or a cartoon / video-game look.
+### Cảm xúc và mục đích
 
-CONTINUITY AND CONSTRAINTS
-- One person only: the same man from S01.
-- One continuous shot; no montage, split screen, panels, or picture-in-picture.
-- Preserve the eyeglasses, hairstyle, facial geometry, jacket, and overall composition.
-- No face morphing, identity drift, age change, facial beautification, or replacement face.
-- No deformed hands, extra fingers, duplicated features, flickering glasses, or unstable facial details.
-- Do not add captions, subtitles, titles, logos, watermarks, or readable text.
-- No dialogue, no lip-sync, no singing, and no generated soundtrack. This clip will be combined with the music separately in post-production.
-- Do not change the scene into a different location.
-
-OUTPUT
-Generate one photorealistic landscape 16:9 video, approximately 8 seconds long, based on the uploaded S01 reference image. The result must feel like the opening shot of a professionally directed 1980s retro music video and must end on a stable close-up suitable for cutting to the next shot.
-\`\`\`
+- Giới thiệu DongHP và thế giới đô thị về đêm của MV.
+- Thiết lập bảng màu neon xanh/cyan/magenta và bề mặt đường ướt phản chiếu.
+- Tạo đối lập giữa thành phố rực sáng và trạng thái cô độc, trầm tư của nhân vật.
+- Kết thúc bằng ánh nhìn hướng lên để DHEVS_02 có thể tiếp tục liền mạch từ khung hình cuối.
 
 ---
 
-## 3. C01 acceptance checklist
+## B. ENGLISH PRODUCTION PROMPT — COPY INTO ELEVENLABS
 
-After generation, check these points before accepting the MP4:
+# PROJECT: DUNG HOI EM VI SAO
+# DONGHP — CINEMATIC MUSIC VIDEO
 
-- [ ] The face still looks like the man in S01.
-- [ ] Rectangular glasses remain consistent and do not flicker or disappear.
-- [ ] Hair, skin tone, jacket, and dark inner shirt remain consistent.
-- [ ] The movement is subtle and physically natural.
-- [ ] The camera performs a slow push-in rather than an abrupt zoom or orbit.
-- [ ] Background neon remains softly blurred and does not produce distracting text.
-- [ ] There is no extra person, split screen, collage, or unexpected scene change.
-- [ ] The final frame is steady enough to transition into C02.
-- [ ] Any automatically generated audio is muted or removed in the editor; the chosen song is added separately.
+## DHEVS_01 — A LONELY MAN IN THE CITY
+
+**Timeline:** 00:00–00:15 of the complete music video  
+**Duration:** 15 seconds  
+**Aspect Ratio:** Landscape 16:9  
+**Resolution:** 480p  
+**Model:** Seedance 2.5
+
+### 1. REFERENCE IMAGE DECLARATION
+
+Use the supplied DongHP portrait / visual reference images as the visual guidance for this opening clip. They all represent the same real adult man. Use the front-facing portrait as the main identity anchor and any supplied alternate-angle portraits only to preserve the same facial identity from different viewpoints. Do not treat the references as a collage or as different people.
+
+Preserve the same recognizable face, natural facial proportions, short dark hairstyle, rectangular dark-framed eyeglasses, black leather jacket and dark inner shirt. Keep the neon-lit night-city appearance consistent with the supplied visual references.
+
+DHEVS_01 is the opening segment; there is no preceding DHEVS clip from which to take a continuity Start Frame. The exact original input-slot mapping and original reference filenames for this generation are not recorded here. Use the original reference assets supplied for DHEVS_01 in the input mode supported by the selected Seedance model. Do not invent substitute filenames or add unrelated reference images.
+
+**FINAL CONTINUITY TARGET — NOT AN INPUT START FRAME:** The final frame of the approved DHEVS_01 video was extracted and saved as `DHEVS_01_LAST_FRAME_FOR_DHEVS_02.jpg`. It shows DongHP in a three-quarter close-up, looking upward toward the neon lights. This is the continuity image for the beginning of DHEVS_02; it is the result to preserve at the end of this clip, not a frame from a preceding clip.
+
+### 2. CREATIVE OBJECTIVE
+
+Act as a professional cinematic music-video director and cinematographer.
+
+Create the opening 15-second segment of the Vietnamese romantic music video **"Đừng Hỏi Em Vì Sao"**, titled **"A Lonely Man in the City"**.
+
+Introduce DongHP alone in a neon-lit city at night. Establish the urban environment and the emotional contrast between the bright, living city and the protagonist's quiet isolation. Tell the story visually through four connected cinematic shots: an opening portrait, a high-angle city view, a rear-tracking walk, and a final three-quarter close-up of DongHP looking upward.
+
+The final composition must lead naturally into DHEVS_02 — The Street Remembers. Do not turn the sequence into a fast action montage or an unrelated location change.
+
+### 3. CHARACTER IDENTITY LOCK — HIGHEST PRIORITY
+
+The protagonist is the same real adult Vietnamese man shown in the supplied DongHP references.
+
+Preserve his recognizable facial identity, facial geometry, natural skin texture, short dark hairstyle, rectangular dark-framed eyeglasses, black leather jacket and dark inner shirt.
+
+His glasses must remain consistent in shape, size and position whenever his face is visible. Keep his natural age, skin tone, body proportions and wardrobe unchanged throughout the sequence.
+
+In wide city and rear-tracking shots, prioritize a consistent silhouette, hairstyle and black leather jacket. In the final close-up, preserve the three-quarter facial appearance and upward-looking gaze shown in the approved DHEVS_01 ending.
+
+Never replace, beautify, redesign or reinterpret his face. Facial identity preservation is more important than motion complexity.
+
+### 4. SHOT 01 — THE FACE IN THE NEON NIGHT
+**00:00–00:03.0**
+
+Open on a medium close-up of DongHP standing alone on a neon-lit city street at night. He faces forward with a calm, restrained and thoughtful expression.
+
+Use a stable composition with a very subtle, smooth camera push-in. Keep his eyes, face and rectangular glasses sharp and recognizable. Blue and cyan light, magenta neon and a small amount of warm-amber practical light form soft, realistic bokeh in the background.
+
+Keep the black leather jacket and dark inner shirt consistent with the supplied references. His movement is minimal and natural: quiet breathing and a small eye movement only. Do not introduce another main character or a new prop.
+
+### 5. SHOT 02 — THE CITY FROM ABOVE
+**00:03.0–00:06.0**
+
+Make a clean editorial cut to a high-angle aerial view looking down a deep urban street at night. Tall buildings and storefronts frame the road. Neon signs and architectural lights glow in blue, cyan, violet and magenta, with restrained warm-amber highlights.
+
+The street surface is wet and reflects the colored lights. Add subtle atmospheric haze and cinematic depth. The city should feel spacious and alive, while DongHP appears small and isolated within the environment if visible.
+
+Keep this as a wide environmental shot. Do not force a close view of the protagonist's face. Do not morph the portrait into the aerial city; use a clean cut.
+
+### 6. SHOT 03 — WALKING ALONE
+**00:06.0–00:11.0**
+
+Cut to a rear view of DongHP walking alone down the same neon-lit city street. He wears the same black leather jacket and dark clothing. His pace is slow, measured and natural.
+
+Use a smooth rear tracking camera at approximately human height, following him from behind without overtaking him. Keep his body proportions, hairstyle and jacket consistent. The wet pavement reflects blue, cyan, pink and magenta lights from the surrounding buildings and storefronts.
+
+Let the city environment and his solitary movement carry the emotion. Keep his face turned away or only partially visible; do not force a frontal portrait in this shot. Avoid sudden walking-speed changes, unnatural limb movement or camera shake.
+
+### 7. SHOT 04 — LOOKING TOWARD THE NEON LIGHT
+**00:11.0–00:15.0**
+
+Make a clean cut to a slightly low-angle, three-quarter medium close-up of DongHP in the same nighttime city environment.
+
+DongHP gradually raises his gaze toward a neon light above or just outside the frame. His head movement is restrained and believable; his eyes follow the light naturally. Preserve his real facial identity, rectangular glasses, short dark hairstyle, black leather jacket and dark inner shirt.
+
+A strong blue/cyan light source glows on one side of the frame, while a vivid magenta neon strip crosses the background. A small warm-amber light may remain softly blurred in the distance. Keep the background out of focus and the face sharply detailed.
+
+End on the stable three-quarter close-up with DongHP looking upward. Match the approved final composition represented by `DHEVS_01_LAST_FRAME_FOR_DHEVS_02.jpg` as closely as possible. Hold the final image long enough for a clean cut into DHEVS_02. Do not add a new location or dissolve into the next scene.
+
+### 8. VISUAL STYLE AND CINEMATOGRAPHY
+
+Create authentic 1980s-inspired retro romantic cinema using modern photorealistic cinematography.
+
+Use:
+- Neon blue and cyan as the dominant cool light sources.
+- Magenta and soft pink neon accents.
+- Restrained warm-amber practical lights in the distance.
+- Rain-wet or recently wet reflective asphalt.
+- Tall urban facades and deep street perspective.
+- Subtle atmospheric haze.
+- Soft optical bokeh and realistic depth of field.
+- Subtle 35mm film grain and gentle highlight halation.
+- Natural skin texture and realistic reflections on the leather jacket.
+- Stable camera movement and natural human motion.
+- A consistent night-city color grade across all four shots.
+
+Use four distinct shots connected through clean editorial cuts:
+1. Opening portrait.
+2. High-angle city establishing shot.
+3. Rear-tracking walk through the city.
+4. Three-quarter upward-looking close-up ending on the DHEVS_01 continuity frame.
+
+Do not morph the character's face or transform one location into another.
+
+### 9. STRICT NEGATIVE CONSTRAINTS AND FINAL OUTPUT CONTRACT
+
+Do not:
+- Change DongHP's facial identity, facial geometry, apparent age or skin tone.
+- Remove, replace, resize or distort his rectangular eyeglasses.
+- Change his short dark hairstyle, black leather jacket or dark inner shirt.
+- Generate duplicate faces, ghosting or unstable facial details.
+- Add a detailed female character or an unnecessary second main character.
+- Add random foreground people that distract from the protagonist.
+- Change to a different city, daytime setting or unrelated location.
+- Use facial morphing, melting transitions or dissolving transformations between shots.
+- Add captions, subtitles, lyrics, titles, logos, watermarks or newly invented readable text.
+- Use cartoon, anime or video-game aesthetics.
+- Add dialogue, singing, lip-sync, narration, generated music or sound effects.
+- Introduce exaggerated gestures, fast action, handheld shake or unnatural body movement.
+
+The original / licensed MP3 soundtrack will be added separately during post-production. Keep this a silent visual clip.
+
+Generate exactly ONE photorealistic video with the following specifications:
+
+- Project ID: DHEVS_01
+- Title: A Lonely Man in the City
+- Duration: 15 seconds
+- Timeline: 00:00–00:15 of the complete MV
+- Aspect Ratio: Landscape 16:9
+- Resolution: 480p
+- Model: Seedance 2.5
+- Reference Images: Use the original DongHP reference set supplied for DHEVS_01; do not add unrelated images
+- Incoming Start Frame: None from a previous DHEVS clip; this is the opening segment
+- Continuity End Frame: Stable three-quarter close-up of DongHP looking upward, matching `DHEVS_01_LAST_FRAME_FOR_DHEVS_02.jpg`
+- Number of Generations: 1
+- Generated Audio: Off
+
+**Shot structure:**
+- 00:00–00:03.0: Opening portrait in the neon city.
+- 00:03.0–00:06.0: High-angle aerial city establishing shot.
+- 00:06.0–00:11.0: Rear-tracking walk through the wet neon street.
+- 00:11.0–00:15.0: Three-quarter close-up; DongHP looks upward and holds the final frame.
+
+Preserve DongHP's identity while establishing the lonely nighttime city and building visual continuity with DHEVS_02 — The Street Remembers.
+
+**OUTPUT FILE:**
+DHEVS_01_A_LONELY_MAN_IN_THE_CITY.mp4
+
+END OF PRODUCTION PROMPT.
 
 ---
 
-## 4. Optional refinement prompt
+## C. PRODUCTION RECORD AND SOURCE ACCURACY NOTE
 
-Use this only if the first result has a specific defect. Keep the same C01 conversation and make one targeted correction at a time.
+This standardized document was reconstructed from the saved 15-second Seedance 2.5 video export for DHEVS_01, its sampled frames, the extracted hand-off image `DHEVS_01_LAST_FRAME_FOR_DHEVS_02.jpg`, and the continuity description in `DHEVS_02_PROMPT.md`.
 
-\`\`\`text
-Refine the existing C01 video only. Keep the same S01 reference, same person, same framing, same black leather jacket, same rectangular glasses, and same neon night-city setting. Do not redesign or regenerate the scene from scratch. Correct only this issue: [DESCRIBE ONE SPECIFIC ISSUE]. Preserve the slow camera push-in and subtle natural movement. Keep the clip landscape 16:9 and approximately the same duration.
-\`\`\`
+The original text prompt submitted to ElevenLabs was not present in the available project files. Therefore, the four-shot timing and visual sequence above describe the approved exported video as observed; the English production prompt is a faithful reconstruction for documentation and repeatability, not a verbatim recovery of the original prompt text. The exact original reference filenames and input-slot mapping were also not available and are intentionally not guessed.
 
----
-
-**File naming:** \`C01_S01_Opening_Portrait.mp4\`  
-**Next scene:** C02 — Looking Up / Three-quarter Left View (reference S02).
-
-## 5. Production accuracy and platform-version note
-
-This file records the workflow and prompt text provided for the C01 generation. Video-generation model names, availability, duration options, and interface labels can change over time. The model note above reflects the production notes supplied with this prompt; verify the current Gemini interface/help before repeating the exercise. Do not reinterpret the general chat model selector as the video-generation engine.
-
-**Important distinction:** C01 is an 8-second opening portrait shot—not the 15-second “A Lonely Man in the City” scene in the earlier generic lesson. The lesson title, timeline, input reference, generation tool, action, and output filename have therefore been corrected to match this C01 source prompt.
+**Observed exported-video properties:** approximately 15.072 seconds, 24 fps, 852 × 480 pixels. The production target remains 480p landscape 16:9.
