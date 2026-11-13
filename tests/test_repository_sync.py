@@ -39,6 +39,8 @@ class RepositorySyncValidationTests(unittest.TestCase):
             "projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml",
             "practical-labs/bvc-task-management/prompts/README.md",
             "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md",
+            "projects/task-management/continuity/PROJECT_STATE.json",
+            "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml",
         ]
         self.assertEqual(validate_paths(changed, self.matrix), [])
 
