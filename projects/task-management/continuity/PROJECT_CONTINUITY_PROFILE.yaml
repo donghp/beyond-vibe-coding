@@ -121,7 +121,7 @@ external_systems:
     code_tree_status: OWNER_CONFIRMED_ONE_PAGE_COMPONENT_IN_APP_PAGE_TSX; COMPLETE_GAIS_CHANGED_FILE_INVENTORY_NOT_VERIFIED
     app_id_observed: ca589018-617d-4919-bbe2-6b9c588ccd85
     export_control_visible: true
-    export_status: OWNER_SUPPLIED_ZIP_INSPECTED; 18_FILES_SHA256_RECORDED
+    export_status: INITIAL_SCAFFOLD_ZIP_OWNER_SUPPLIED_AND_INSPECTED; NOT_A_CURRENT_B1_SOURCE_EXPORT
     secrets_policy: Never record API keys, tokens, credentials, or account-private details.
   - system_id: GITHUB
     system_name: GitHub
@@ -205,14 +205,14 @@ external_systems:
     owner: Human Owner
     canonical_path: C:\beyond-vibe-coding-a4-evidence
     access_mode: Owner-supplied terminal output; not directly inspected by ChatGPT
-    current_status: OWNER_REPORTED_CLEAN_AT_202e780; EXPECTED_BEHIND_3_AFTER_PR_47_48_49; NOT_RECHECKED
+    current_status: OWNER_REPORTED_CLEAN_AT_202e780; NOT_RECHECKED_AFTER_MERGED_PRS_47_48_49_50_51_52_53_60_62_64
     current_branch: main
     last_local_commit: 202e78065e96d339f78d5a406edcd19ccf687e7f
     origin_main_commit_at_last_local_check: 202e78065e96d339f78d5a406edcd19ccf687e7f
-    current_remote_main: aff2b42da26ec548de8088bf77de455a94723773
-    expected_ahead_behind: "0 3"
+    current_remote_main: 4cb64b511fca813674fd7bf492da0f5d69f6ccd2
+    expected_ahead_behind: UNKNOWN
     last_observed_at: "2026-11-11T08:30:00+07:00"
-    sync_status: NOT_VERIFIED_AFTER_PR_47_48_49
+    sync_status: NOT_VERIFIED_AFTER_PR_47_48_49_50_51_52_53_60_62_64
   - system_id: LOCAL-WORKSPACE-DIRTY
     system_name: Windows historical/working worktree
     owner: Human Owner
