@@ -76,7 +76,8 @@ prompts:
     status: APPROVED
     path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml
   authorization_status: AUTHORIZED_WITHIN_CONTRACT_SCOPE
-  execution_status: NOT_STARTED
+  execution_status: EXECUTED; OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS
+  acceptance_reference: "Human Owner closeout 2026-11-12; published via PR #60."
   publication_status: CANONICAL_ON_MAIN_VIA_MERGED_PR_53
   prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md
   lesson_path: practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
@@ -89,3 +90,14 @@ prompts:
   - "Keyboard submission result"
   - "Refresh result confirming temporary state reset"
   sequence_note: "Prompt #0004 is canonical on main through merged PR #53 and is the first write-capable Phase B prompt. Do not execute until the live GAIS app identity and current app/page.tsx source preflight are complete."
+
+- prompt_id: BVCTM-PROMPT-0005
+  title: "Phase B2 — Save Your Task"
+  task_id: BVC-TM-P3.3-005
+  contract_id: BVC-TM-TC-005
+  contract_revision: 1
+  authorization_status: AUTHORIZED_WITHIN_CONTRACT_SCOPE_AFTER_SEPARATE_OWNER_EXECUTION_INSTRUCTION
+  execution_status: NOT_CREATED
+  publication_status: NOT_PUBLISHED
+  prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md
+  status: PLANNED; PRE-EXECUTION_GATES_PENDING
