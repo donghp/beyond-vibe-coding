@@ -1,8 +1,8 @@
-PROJECT: DUNG HOI EM VI SAO
+PROJECT: DON'T ASK ME WHY
 DONGHP — CINEMATIC MUSIC VIDEO
 
 DHEVS_04 — GOLDEN MEMORIES
-Vietnamese title: Những Ngày Tháng Hạnh Phúc
+Flashback chapter title: The Happy Days We Shared
 TIMELINE: 00:45–01:00 | DURATION: EXACTLY 15 SECONDS
 FORMAT: LANDSCAPE 16:9 | TARGET: 480p | MODEL: MINIMAX H3 MAX
 
@@ -16,7 +16,7 @@ Create ONE 15-second video anchored by these frames. No additional Image or Vide
 
 2. STORY AND EMOTIONAL OBJECTIVE
 
-This is chapter four of “Đừng Hỏi Em Vì Sao”. DHEVS_03 revealed a forgotten letter and pressed flower. Now reveal the memory behind it: DongHP and the woman he loved shared a beautiful sunset, and she gave him the flower when it was fresh.
+This is chapter four of “Don't Ask Me Why”. DHEVS_03 revealed a forgotten letter and pressed flower. Now reveal the memory behind it: DongHP and the woman he loved shared a beautiful sunset, and she gave him the flower when it was fresh.
 
 Create a warm, intimate, tender and nostalgic flashback, subtly suggesting this happiness belongs to the past. Make the connection between DHEVS_03's dried flower and this fresh flower unmistakable. Tell the story through gestures, silhouettes, hands and light—not dialogue or exaggerated acting.
 
