@@ -27,6 +27,8 @@ class ContinuityUpdaterTests(unittest.TestCase):
     def test_continuity_only_paths_do_not_trigger_semantic_refresh(self):
         self.assertFalse(is_material_path("docs/continuity/CURRENT_STATE.yaml"))
         self.assertFalse(is_material_path("docs/continuity/HANDOFF_LOG.md"))
+        self.assertFalse(is_material_path("projects/task-management/continuity/PROJECT_STATE.json"))
+        self.assertFalse(is_material_path("projects/another-project/continuity/registers/TASK_REGISTER.yaml"))
         self.assertFalse(is_material_path("scripts/update_continuity_state.py"))
         self.assertFalse(is_material_path("tests/test_continuity_updater.py"))
         self.assertFalse(is_material_path(".github/workflows/continuity-refresh.yml"))
@@ -34,6 +36,7 @@ class ContinuityUpdaterTests(unittest.TestCase):
     def test_project_and_other_repository_changes_are_material(self):
         for path in (
             "projects/task-management/README.md",
+            "practical-labs/bvc-task-management/phase-b/b2-save-your-task/README.md",
             "specifications/v0.1/task-contract.schema.json",
             "docs/framework-overview.md",
             "README.md",
