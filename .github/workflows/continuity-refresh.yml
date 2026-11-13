@@ -13,6 +13,7 @@ on:
       - ".github/workflows/**"
       - "README.md"
       - "requirements-dev.txt"
+      - "practical-labs/**"
 
   pull_request:
     branches: [main]
