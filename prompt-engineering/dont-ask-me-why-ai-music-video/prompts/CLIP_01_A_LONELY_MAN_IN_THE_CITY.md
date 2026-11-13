@@ -1,4 +1,4 @@
-# DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+# DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 
 ## DHEVS_01 — A LONELY MAN IN THE CITY
 
@@ -11,58 +11,58 @@
 
 ---
 
-## A. KỊCH BẢN TIẾNG VIỆT — ĐỂ DUYỆT Ý ĐỒ ĐẠO DIỄN
+## A. DIRECTOR'S STORYBOARD AND CREATIVE INTENT
 
-### Ý tưởng
+### Story Concept
 
-DHEVS_01 mở đầu câu chuyện bằng hình ảnh DongHP xuất hiện một mình giữa thành phố về đêm. Ánh đèn neon xanh, cyan và magenta bao quanh nhân vật, tạo nên một không gian đô thị hiện đại nhưng lạnh lẽo. Anh giữ vẻ bình tĩnh, trầm tư; thành phố rộng lớn và rực sáng đối lập với cảm giác cô độc của người đàn ông.
+DHEVS_01 opens with DongHP alone in a city at night. Blue, cyan, and magenta neon lights surround him, creating a modern urban environment that feels bright yet emotionally cold. He remains calm and thoughtful, while the scale and energy of the city contrast with his sense of isolation.
 
-Cảnh mở đầu lần lượt mở rộng từ chân dung nhân vật ra toàn cảnh thành phố, theo bước chân anh trên con phố ướt ánh đèn, rồi trở lại khuôn hình cận 3/4 khi anh ngước nhìn lên những ánh đèn neon. Đây là điểm kết thúc có chủ đích để DHEVS_02 tiếp tục bằng khoảnh khắc anh hạ ánh mắt và bắt đầu hành trình đi sâu hơn vào thành phố.
+The sequence gradually expands from a character portrait to a wide city view, follows him along a neon-reflective street, and then returns to a three-quarter close-up as he looks up toward the neon lights. This final image is intentional: DHEVS_02 continues from this moment as he lowers his gaze and begins walking deeper into the city.
 
 ### SHOT 01 — THE FACE IN THE NEON NIGHT (00:00–00:03.0)
 
-- Mở bằng khuôn hình trung cận chính diện của DongHP giữa phố đêm neon.
-- DongHP đứng yên, nhìn về phía trước; biểu cảm bình tĩnh, kín đáo và có chút suy tư.
-- Máy quay giữ ổn định với chuyển động tiến nhẹ, rất chậm.
-- Kính chữ nhật, gương mặt, kiểu tóc ngắn và áo khoác da đen phải nhất quán.
-- Ánh đèn xanh và magenta tạo bokeh mềm phía sau; không biến cảnh thành một màn trình diễn hành động.
+- Open on a front-facing medium close-up of DongHP on a neon-lit city street at night.
+- He stands still and looks ahead with a calm, reserved, slightly thoughtful expression.
+- Keep the camera stable with a very subtle, slow push-in.
+- Preserve his rectangular glasses, facial appearance, short hairstyle, and black leather jacket.
+- Blue and magenta lights create soft background bokeh; do not turn the scene into an action sequence.
 
 ### SHOT 02 — THE CITY FROM ABOVE (00:03.0–00:06.0)
 
-- Cắt rõ ràng sang toàn cảnh thành phố nhìn từ trên cao.
-- Một con phố đô thị kéo sâu giữa các tòa nhà, hai bên là những biển đèn neon xanh, cyan, tím và hồng.
-- Mặt đường ướt phản chiếu ánh sáng; có lớp sương/haze nhẹ tạo chiều sâu điện ảnh.
-- DongHP chỉ là một nhân vật nhỏ trong không gian thành phố, không cần nhìn rõ mặt ở góc toàn cảnh.
-- Cảnh này mở rộng thế giới của MV và nhấn mạnh sự nhỏ bé, cô độc của nhân vật giữa đô thị rộng lớn.
+- Make a clean cut to a high-angle wide view of the city.
+- A deep urban street runs between buildings, with blue, cyan, violet, and pink neon signs on both sides.
+- Wet pavement reflects the lights; a light layer of atmospheric haze adds cinematic depth.
+- DongHP appears only as a small figure within the city; his face does not need to be visible in this wide shot.
+- Expand the visual world of the music video and emphasize how small and isolated he feels within the vast city.
 
 ### SHOT 03 — WALKING ALONE (00:06.0–00:11.0)
 
-- Cắt sang góc máy phía sau DongHP.
-- Anh mặc áo khoác da đen và trang phục tối màu, bước chậm một mình trên con phố đêm.
-- Camera tracking phía sau ở tầm người, giữ khoảng cách vừa phải và chuyển động mượt theo nhịp bước.
-- Ánh neon phản chiếu trên mặt đường ướt; các tòa nhà, cửa hiệu và ánh đèn tạo chiều sâu phía trước.
-- Ưu tiên dáng người, mái tóc và trang phục nhất quán; không cần ép nhân vật quay mặt về camera.
+- Cut to a rear view of DongHP.
+- Wearing his black leather jacket and dark clothing, he walks slowly and alone along the nighttime street.
+- Track behind him at approximately human height, maintaining a moderate distance and smooth movement that follows his pace.
+- Neon lights reflect across the wet pavement; buildings, storefronts, and lights create depth ahead of him.
+- Prioritize consistent body silhouette, hairstyle, and wardrobe. Do not force him to turn toward the camera.
 
 ### SHOT 04 — LOOKING TOWARD THE NEON LIGHT (00:11.0–00:15.0)
 
-- Cắt sang góc cận trung 3/4 hơi thấp của DongHP, trong cùng bối cảnh phố đêm.
-- Anh ngước nhìn lên phía ánh sáng neon ngoài khung hình; chuyển động đầu và mắt chậm, tự nhiên.
-- Ánh xanh/cyan chiếu từ một phía, dải magenta nổi bật ở nền phía sau; ánh đèn vàng ấm xuất hiện nhẹ ở xa.
-- Giữ rõ khuôn mặt, kính và áo khoác da; không thay đổi danh tính hay tạo hiệu ứng biến dạng khi chuyển góc.
-- Giữ bố cục cuối ổn định: DongHP nhìn lên, sẵn sàng nối sang DHEVS_02 — The Street Remembers.
+- Cut to a slightly low-angle, three-quarter medium close-up of DongHP in the same nighttime setting.
+- He slowly looks up toward a neon light just outside the frame. His head and eye movements remain natural and restrained.
+- Blue/cyan light comes from one side; a vivid magenta strip stands out in the background, with a subtle warm light in the distance.
+- Keep his face, glasses, and leather jacket clear. Do not change his identity or distort his features during the angle change.
+- Hold the final composition steadily: DongHP is looking upward, ready to connect with DHEVS_02 — The Street Remembers.
 
-### Cảm xúc và mục đích
+### Emotional Purpose
 
-- Giới thiệu DongHP và thế giới đô thị về đêm của MV.
-- Thiết lập bảng màu neon xanh/cyan/magenta và bề mặt đường ướt phản chiếu.
-- Tạo đối lập giữa thành phố rực sáng và trạng thái cô độc, trầm tư của nhân vật.
-- Kết thúc bằng ánh nhìn hướng lên để DHEVS_02 có thể tiếp tục liền mạch từ khung hình cuối.
+- Introduce DongHP and the nighttime urban world of the music video.
+- Establish the blue/cyan/magenta neon palette and reflective wet pavement.
+- Contrast the bright city with the protagonist's quiet, introspective isolation.
+- End with his upward gaze so DHEVS_02 can continue naturally from the final frame.
 
 ---
 
-## B. ENGLISH PRODUCTION PROMPT — COPY INTO ELEVENLABS
+## B. PRODUCTION PROMPT — COPY INTO ELEVENLABS
 
-# PROJECT: DUNG HOI EM VI SAO
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_01 — A LONELY MAN IN THE CITY
@@ -87,7 +87,7 @@ DHEVS_01 is the opening segment; there is no preceding DHEVS clip from which to 
 
 Act as a professional cinematic music-video director and cinematographer.
 
-Create the opening 15-second segment of the Vietnamese romantic music video **"Đừng Hỏi Em Vì Sao"**, titled **"A Lonely Man in the City"**.
+Create the opening 15-second segment of the romantic music video **"Don't Ask Me Why"**, titled **"A Lonely Man in the City"**.
 
 Introduce DongHP alone in a neon-lit city at night. Establish the urban environment and the emotional contrast between the bright, living city and the protagonist's quiet isolation. Tell the story visually through four connected cinematic shots: an opening portrait, a high-angle city view, a rear-tracking walk, and a final three-quarter close-up of DongHP looking upward.
 
