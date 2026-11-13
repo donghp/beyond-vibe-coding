@@ -82,14 +82,11 @@ prompts:
   prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md
   lesson_path: practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md
   scope_boundary: "Modify only app/page.tsx in the existing GAIS project. Title-only task create/display, in-memory state, empty-title validation and Enter submission. No persistence, package/config changes, API, database, Auth, external service or GitHub integration."
-  next_evidence:
-  - "Live GAIS app identity and pre-edit app/page.tsx inspection"
-  - "Exact one-file changed-file list"
-  - "Preview screenshot showing valid task creation"
-  - "Preview screenshot showing empty/whitespace-only validation"
-  - "Keyboard submission result"
-  - "Refresh result confirming temporary state reset"
-  sequence_note: "Prompt #0004 is canonical on main through merged PR #53 and is the first write-capable Phase B prompt. Do not execute until the live GAIS app identity and current app/page.tsx source preflight are complete."
+  evidence_limitations:
+  - "Complete archived manual Preview test set is unavailable in the repository."
+  - "Independent GAIS before/after changed-file inventory is not archived; AC-008 must not be claimed fully verified."
+  - "Automated browser E2E is not claimed."
+  sequence_note: "Prompt #0004 is canonical on main through merged PR #53. The Human Owner later accepted B1 with known limitations through PR #60; do not reopen B1 solely to add persistence."
 
 - prompt_id: BVCTM-PROMPT-0005
   title: Phase B2 — GAIS Preflight (Read-Only)
@@ -101,7 +98,7 @@ prompts:
     path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json
   authorization_status: AUTHORIZED_READ_ONLY_PREPARATION_ONLY
   execution_status: NOT_STARTED
-  publication_status: CANONICAL_ON_MAIN_VIA_THIS_SYNC_PR
+  publication_status: CANONICAL_ON_MAIN_IF_THIS_SYNC_PR_IS_MERGED
   prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_GAIS_PREFLIGHT.md
   lesson_path: practical-labs/bvc-task-management/phase-b/b2-save-your-task/README.md
   scope_boundary: "Read-only: verify app identity, inspect current app/page.tsx and visible file inventory, confirm source parity and report preflight. No file may be created, modified, renamed, moved or deleted. No package/config changes."
