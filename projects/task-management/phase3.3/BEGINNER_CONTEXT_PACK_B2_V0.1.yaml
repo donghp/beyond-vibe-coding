@@ -1,0 +1,116 @@
+context_pack_id: BVCTM-B2-CONTEXT-PACK
+version: 0.1.0
+status: PROPOSED_ON_SYNC_PR
+project_id: BVC-TASK-MANAGEMENT
+task_id: BVC-TM-P3.3-005
+contract_id: BVC-TM-TC-005
+contract_revision: 1
+learning_level: Beginner
+purpose: >-
+  Give Gemini and the learner only the approved context needed to understand the B2 task.
+  This file is a navigation/summarization artifact and does not replace canonical sources.
+canonical_environment:
+  provider: Google AI Studio Build mode
+  app_id: ca589018-617d-4919-bbe2-6b9c588ccd85
+  app_url: https://aistudio.google.com/apps/ca589018-617d-4919-bbe2-6b9c588ccd85?showAssistant=true&showPreview=true
+  observed_project_label: BVC Task Management Scaffold Inspection
+  access_mode: Human Owner operated; ChatGPT reviews only evidence supplied by the Owner
+canonical_sources:
+  product:
+    path: projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md
+    rule: Product Definition v0.2.0 controls current product scope and Beginner boundaries.
+  ux:
+    index: projects/task-management/design/ux/v0.1/README.md
+    interaction: projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md
+    responsive: projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_RESPONSIVE_UI_SPECIFICATION_V0.1.md
+    design_system: projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_UI_DESIGN_SYSTEM_V0.1.md
+    rule: Preserve the current B1 layout and add only the approved inline DR-005 notice and B2 save/load states.
+  architecture:
+    application: projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_APPLICATION_ARCHITECTURE_V0.1.md
+    data_model: projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md
+    rule: Beginner uses a small versioned browser-local JSON workspace; it is not a cloud database or Local-First architecture.
+  governance:
+    decision_register: projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md
+    risk_policy: projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md
+    approved_decisions:
+      - DR-005: APPROVED via merged PR #62
+      - DR-014: ACCEPTED FOR DESIGN; runtime verification remains required
+    risk_level: R2
+  contract:
+    path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json
+    status: APPROVED
+    approved_via: https://github.com/donghp/beyond-vibe-coding/pull/64
+    allowed_changes:
+      create: []
+      modify:
+        - app/page.tsx
+      delete: []
+    change_budget:
+      max_changed_files: 1
+      max_diff_lines: 350
+      dependencies: false
+      config: false
+      external_services: false
+      database: false
+      auth: false
+    execution_status: NOT_STARTED; preflight and separate Owner execution instruction required
+  previous_lesson:
+    lesson: B1 — Create Your First Task
+    task_id: BVC-TM-P3.3-004
+    status: COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS
+    behavior_to_preserve:
+      - title input and label
+      - Add task submit
+      - trim title
+      - reject empty/space-only title with exact message
+      - clear input after successful add
+      - clear validation after correction/success
+      - preserve insertion order
+      - Enter submits form
+      - task list and empty state
+    limitations:
+      - Complete archived manual Preview test set is not in GitHub
+      - Independent before/after GAIS file inventory is not available
+      - Browser E2E is not claimed
+b2_scope:
+  outcome: >-
+    Persist the Beginner task workspace in the current browser profile and load saved tasks
+    when the same app is opened again in the same browser profile and origin.
+  storage:
+    provider: localStorage
+    key: bvc-task-management:workspace:v1
+    format: bvc-task-management-workspace
+    formatVersion: 1
+    sourceMode: browser
+    envelope_reference: BVC-TM-TC-005 Revision 1
+  disclosure:
+    decision: DR-005
+    placement: Compact inline notice at the top of the workspace before first persistence
+    acknowledgement: Got it — continue
+    copy: >-
+      Where your tasks are stored
+
+      In Beginner mode, your tasks are stored in this browser on this device. They do not automatically sync to other browsers or devices.
+
+      Clearing this site's browser data may delete your tasks.
+
+      Browser storage is not a separate backup. You will learn to export a JSON backup in a later lesson.
+
+      Do not enter passwords, API keys, or sensitive information in this learning app.
+  data_integrity:
+    - Load and validate before enabling writes
+    - Do not write an empty default workspace on mount
+    - Preserve malformed/unsupported stored data; never silently clear or overwrite
+    - Attempt one complete workspace write before committing the new React state or clearing input
+    - If storage fails, preserve prior task list/input and report the error truthfully
+out_of_scope:
+  - Supabase, PostgreSQL, Auth, RLS, Firebase and any remote API
+  - Cloud sync, cross-tab sync or cross-device sync
+  - Projects, Checklists, task status/priority/due dates, edit/delete/complete
+  - Backup export/import/restore
+  - More navigation or a Settings & Backup page
+  - New dependencies, lockfiles, configuration, routes or any file other than app/page.tsx
+learner_delivery_rule: >-
+  Do not create or copy design/, governance/, task-contracts/, continuity/ or repository
+  directories inside GAIS. The learner uses the lesson, this Context Pack, the approved
+  Contract and the canonical Prompt. GitHub links remain the source of truth.
