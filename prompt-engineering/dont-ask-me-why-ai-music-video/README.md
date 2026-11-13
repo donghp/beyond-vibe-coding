@@ -88,7 +88,7 @@ Across the eight clips, the production documents use a recurring set of controls
 
 ## 5. Canonical production prompts
 
-Each section below contains the full canonical prompt text supplied for that clip. The preview is placed in a separately collapsible, collapsible prompt section to keep this README navigable. Use **Open raw prompt** to view or download the standalone `.md` file. The standalone files are the authoritative copy for editing and reuse.
+Each section below contains the full canonical prompt text supplied for that clip. Every prompt is placed in its own collapsible section to keep the README navigable. GitHub sanitizes inline CSS in README files, so a custom fixed-height vertical scrollbar cannot be reliably embedded here; use the standalone Markdown link for the full prompt in its own page. Use **Open raw prompt** to view or download the standalone `.md` file. The standalone files are the authoritative copy for editing and reuse.
 
 ### DHEVS_01 — A Lonely Man In The City
 
@@ -98,7 +98,7 @@ Each section below contains the full canonical prompt text supplied for that cli
 **Open raw prompt:** [View full Markdown](prompts/CLIP_01_A_LONELY_MAN_IN_THE_CITY.md?raw=1)
 
 <details>
-<summary>Show full DHEVS_01 prompt (expand to read the complete prompt)</summary>
+<summary>Expand full DHEVS_01 prompt</summary>
 
 ```text
 # DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
@@ -338,7 +338,7 @@ The original text prompt submitted to ElevenLabs was not present in the availabl
 **Open raw prompt:** [View full Markdown](prompts/CLIP_02_THE_STREET_REMEMBERS.md?raw=1)
 
 <details>
-<summary>Show full DHEVS_02 prompt (scroll within the code panel)</summary>
+<summary>Expand full DHEVS_02 prompt</summary>
 
 ```text
 # DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
@@ -609,7 +609,7 @@ END OF PRODUCTION PROMPT.
 **Open raw prompt:** [View full Markdown](prompts/CLIP_03_THE_FORGOTTEN_LETTER.md?raw=1)
 
 <details>
-<summary>Show full DHEVS_03 prompt (scroll within the code panel)</summary>
+<summary>Expand full DHEVS_03 prompt</summary>
 
 ```text
 # PROJECT: DUNG HOI EM VI SAO
@@ -710,7 +710,7 @@ END OF PROMPT.
 **Open raw prompt:** [View full Markdown](prompts/CLIP_04_GOLDEN_MEMORIES.md?raw=1)
 
 <details>
-<summary>Show full DHEVS_04 prompt (scroll within the code panel)</summary>
+<summary>Expand full DHEVS_04 prompt</summary>
 
 ```text
 PROJECT: DUNG HOI EM VI SAO
@@ -807,7 +807,7 @@ END OF PRODUCTION PROMPT.
 **Open raw prompt:** [View full Markdown](prompts/CLIP_05_RAIN_OF_MEMORIES.md?raw=1)
 
 <details>
-<summary>Show full DHEVS_05 prompt (scroll within the code panel)</summary>
+<summary>Expand full DHEVS_05 prompt</summary>
 
 ```text
 # PROJECT: DUNG HOI EM VI SAO
@@ -884,7 +884,7 @@ END OF PRODUCTION PROMPT.
 **Open raw prompt:** [View full Markdown](prompts/CLIP_06_THE_LAST_SONG.md?raw=1)
 
 <details>
-<summary>Show full DHEVS_06 prompt (scroll within the code panel)</summary>
+<summary>Expand full DHEVS_06 prompt</summary>
 
 ```text
 # PROJECT: DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
@@ -957,7 +957,7 @@ END OF PRODUCTION PROMPT.
 **Open raw prompt:** [View full Markdown](prompts/CLIP_07_LEARNING_TO_LET_GO.md?raw=1)
 
 <details>
-<summary>Show full DHEVS_07 prompt (scroll within the code panel)</summary>
+<summary>Expand full DHEVS_07 prompt</summary>
 
 ```text
 
