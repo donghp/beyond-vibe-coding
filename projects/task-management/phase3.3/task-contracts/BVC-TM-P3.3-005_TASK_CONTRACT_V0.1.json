@@ -19,8 +19,8 @@
     "objective": "Extend the accepted B1 in-memory task capture flow with a small versioned browser-local workspace using localStorage, load the saved task list on the next page load, and disclose the Beginner storage behavior under approved DR-005 before any task is persisted.",
     "parent_task_id": "BVC-TM-P3.3-004",
     "requested_by": "Human Owner / Product Owner",
-    "risk_level": "R3",
-    "risk_note": "This changes data persistence and introduces browser data integrity and failure-handling behavior. It is not equivalent to B1's transient UI-only change."
+    "risk_level": "R2",
+    "risk_note": "A bounded single-component change introducing browser-local persistence and user-facing data transparency. The implementation is reversible and uses only synthetic learning data, but storage failure and preservation controls are mandatory."
   },
   "authority": {
     "product_baseline": "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md",
@@ -90,7 +90,6 @@
       "exportedAt": "<ISO 8601 UTC timestamp>",
       "sourceMode": "browser",
       "workspaceId": "<UUID>",
-      "timezone": "Asia/Bangkok",
       "data": {
         "projects": [],
         "tasks": [
@@ -104,19 +103,20 @@
         "appliedStarterKits": []
       }
     },
-    "scope_note": "Use the canonical Phase 3.2 Data Model envelope and keep the non-task collections empty in B2. B2 only reads/writes data.tasks. A missing optional timezone value must not be filled by inventing a timezone; use the browser's resolved timezone only if verified/available, or omit/leave it as the documented default only if the approved source requires it. A later Contract owns richer entities and schema migrations.",
-    "id_generation": "Use crypto.randomUUID() only if supported in the actual target Preview runtime; otherwise use an existing safe browser-compatible UUID strategy without adding packages. Stop and report if no safe strategy is available.",
+    "scope_note": "This B2 lesson follows the canonical Phase 3.2 Data Model envelope. The B2 vertical slice reads and writes only data.tasks and preserves all other envelope collections as empty collections/empty settings. Projects, checklists, Starter Kits, workspace preferences, timezone semantics and richer entities are deferred to later Contracts. The timezone field from the design example is intentionally not included in this B2 envelope because it is not required by the task-only Beginner vertical slice.",
+    "id_generation": "Use crypto.randomUUID() if available in the actual GAIS Preview. If not available, inspect existing scaffold/browser support and propose a safe UUID strategy; stop if implementation would require a package or unsupported assumption.",
     "validation": [
-      "Confirm JSON parses.",
-      "Confirm exact format identifier and supported formatVersion=1.",
-      "Confirm data.tasks is an array.",
-      "For each task, require a non-empty trimmed title and a non-empty unique id.",
-      "Reject unsupported or malformed persisted data without overwriting it automatically.",
-      "Do not silently delete or reset corrupted data."
+      "Parse JSON without coercing malformed values.",
+      "Require format=bvc-task-management-workspace and formatVersion=1.",
+      "Require a non-empty workspaceId.",
+      "Require data.tasks to be an array.",
+      "Require each task to have a unique non-empty id and a non-empty trimmed title.",
+      "Preserve known empty collections projects, checklistItems, settings and appliedStarterKits without adding UI for them.",
+      "For a malformed or unsupported existing value, do not overwrite or clear it; display a recoverable storage error and preserve the raw value."
     ],
     "initialization": "If localStorage key is absent, treat it as a new empty workspace in memory. The first valid task submission may create the versioned persisted workspace after DR-005 acknowledgement.",
-    "write_order": "Validate the candidate next workspace -> serialize the complete supported envelope -> attempt localStorage.setItem for the agreed single key -> only on success update visible task state and clear the input/error. If write fails, preserve current tasks and input; show truthful storage error. Existing stored data must not be mutated before a successful setItem.",
-    "load_order": "On initial client mount, read the key once, validate, and initialize the visible tasks. Prevent writing the initial empty React state over existing stored data before the load has completed.",
+    "write_order": "Construct the complete next envelope in memory -> serialize -> call localStorage.setItem once for the single agreed key -> only after success commit the new React tasks state and clear the input/validation messages. If setItem throws, retain the prior React task list and title input, display a truthful error and do not claim the task was saved.",
+    "load_order": "On first client mount, read the localStorage key once and validate the canonical format identifier, formatVersion 1, workspaceId and data.tasks records. Do not write an initial empty state before load completes. If the key is absent, use an in-memory empty task list as an unsaved new workspace; DR-005 notice must be acknowledged before the first persisted task.",
     "atomicity_note": "localStorage.setItem is atomic for a single key from the application's perspective; use one versioned workspace key and never split a task across multiple keys.",
     "quota_and_access_errors": "Catch storage exceptions (including quota/security/unavailable storage errors), show a plain-language message, preserve the current data and entered title, and allow the user to retry. Do not silently fall back to sessionStorage or memory while displaying a saved-success state.",
     "cross_tab": "Cross-tab synchronization is out of scope. No BroadcastChannel or storage-event synchronization is required.",
@@ -125,9 +125,10 @@
       "display_before_persisted_task": "Show exact approved disclosure inline at top of workspace, before task entry is enabled for the first persisted task.",
       "copy": "Where your tasks are stored — In Beginner mode, your tasks are stored in this browser on this device. They do not automatically sync to other browsers or devices. Clearing this site's browser data may delete your tasks. Browser storage is not a separate backup. You will learn to export a JSON backup in a later lesson. Do not enter passwords, API keys, or sensitive information in this learning app.",
       "action": "Got it — continue",
-      "remember_state": "NOT DECIDED BY DR-005. This Contract proposes component-memory acknowledgement only for the current page session; when the page reloads before a task is persisted, disclose again. If the learner reloads after successfully saving a task, the saved workspace is loaded, and the disclosure must remain accessible via a lightweight 'Where your tasks are stored' help link/notice within current page UI only if this fits one-file scope. No acknowledgement localStorage key, cookie, server state, or separate persistence is authorized in this revision.",
-      "critical_open_point": "If the UI must suppress the notice across reloads while no task exists, a separate approved acknowledgement storage rule is needed; do not invent one. Owner approval of this proposed session-only acknowledgement rule is required."
-    }
+      "remember_state": "Proposed Contract rule: keep acknowledgement in component memory only for the current page session. On a fresh page load, show DR-005 before enabling creation of the first persisted task. Once an existing valid saved workspace is loaded, storage disclosure remains accessible through an inline 'Where your tasks are stored' information control in this same page; it does not block adding tasks again. Do not persist acknowledgement separately in localStorage/cookies/sessionStorage in this revision.",
+      "critical_open_point": "The proposed session-only rule above is part of this Contract proposal and requires explicit Human Owner approval. Do not implement until approved."
+    },
+    "workspace_id_creation": "Generate one workspaceId when a new, previously unsaved workspace is first persisted; retain that id on subsequent writes. Never generate a new workspaceId on every task add or page refresh."
   },
   "behavior": [
     "Preserve the B1 title-only input, Add task, trimmed titles, exact empty input validation, task insertion order, empty state, semantic label and Enter submission.",
@@ -160,8 +161,8 @@
   "acceptance_criteria": [
     {
       "id": "B2-AC-001",
-      "statement": "On first use before the first persisted task, the exact DR-005 Beginner disclosure is visible at the top of the workspace and the learner must select Got it — continue before a task can be persisted.",
-      "verification": "Open a fresh browser profile/app origin with no stored workspace; inspect notice and attempt submit before acknowledging; confirm no data is written.",
+      "statement": "On a fresh page session, before the first task to be persisted, the exact DR-005 Beginner disclosure is shown at the top of the workspace and the learner must select Got it — continue before persistence is enabled. After a valid workspace is loaded on a later refresh, the disclosure remains accessible without repeatedly blocking normal task entry.",
+      "verification": "Use a fresh browser profile for first-use test; acknowledge; add a task; reload and verify tasks load and disclosure remains accessible. Attempting to submit before acknowledgement must not write data.",
       "required": true
     },
     {
