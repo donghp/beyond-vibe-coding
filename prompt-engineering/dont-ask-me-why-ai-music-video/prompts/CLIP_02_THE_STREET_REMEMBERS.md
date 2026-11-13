@@ -1,4 +1,4 @@
-# DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+# DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 
 ## DHEVS_02 — THE STREET REMEMBERS
 **Duration:** 15 seconds  
@@ -10,53 +10,53 @@
 
 ---
 
-## A. KỊCH BẢN TIẾNG VIỆT — ĐỂ DUYỆT Ý ĐỒ ĐẠO DIỄN
+## A. DIRECTOR'S STORYBOARD AND CREATIVE INTENT
 
-### Ý tưởng
+### Story Concept
 
-Sau khoảnh khắc ngước nhìn ánh đèn ở cuối DHEVS_01, DongHP hạ ánh mắt và tiếp tục bước đi. Thành phố mở ra trước mắt người xem: đường phố sau mưa, mặt đường phản chiếu neon, những cửa hiệu đã vắng khách. Anh đi ngang một cửa hàng âm nhạc cũ. Ánh sáng ấm bên trong và những chiếc cassette, đĩa nhạc, cây guitar trong tủ kính gợi lên một ký ức mà anh chưa sẵn sàng đối diện.
+After looking up toward the lights at the end of DHEVS_01, DongHP lowers his gaze and continues walking. The city opens up around him: rain-darkened streets, neon reflections across the pavement, and quiet storefronts after closing time. He passes an old-fashioned music store. Warm light inside reveals cassette tapes, vinyl records, and a guitar in the window—details that hint at a memory he is not yet ready to face.
 
-Đây là cảnh chuyển từ “một người đàn ông trong thành phố” sang “một thành phố chứa đầy ký ức”. Không giải thích quá nhiều; chỉ gieo một dấu hiệu thị giác để khán giả tò mò về câu chuyện phía sau.
+This chapter shifts the story from “a man in the city” to “a city filled with memories.” Keep the storytelling visual and understated. Introduce a clue that makes the audience curious about the story behind him without explaining too much.
 
 ### SHOT 01 — FROM THE LOOK TO THE JOURNEY (00:00–00:02.0)
 
-- **Start Frame:** Khung hình cuối thực tế của DHEVS_01.
-- Bắt đầu đúng góc cận 3/4, DongHP đang nhìn lên.
-- Anh từ từ hạ ánh mắt về phía con phố và hơi xoay vai như chuẩn bị bước tiếp.
-- Chỉ giữ cận mặt trong khoảng 1–2 giây; không kéo dài cảnh chân dung.
-- Cắt điện ảnh sang toàn cảnh phố, không morph khuôn mặt.
+- **Start Frame:** The actual final frame of DHEVS_01.
+- Begin on the three-quarter close-up of DongHP looking upward.
+- He slowly lowers his gaze toward the street and subtly turns his shoulders as if preparing to continue walking.
+- Hold the close-up for only 1–2 seconds; do not prolong the portrait shot.
+- Make a clean editorial cut to the wide street view. Do not morph his face.
 
 ### SHOT 02 — THE EMPTY NEON STREET (00:02.0–00:09.5)
 
-- Góc rộng từ trên cao hoặc góc phố nhìn sâu vào con đường sau mưa.
-- DongHP đi một mình, quay lưng về camera; áo da đen là dấu hiệu nhận diện chính.
-- Camera hạ dần về tầm đường và tracking phía sau bước chân.
-- Các vũng nước phản chiếu ánh neon xanh, cyan, magenta và vàng hổ phách.
-- Không khí thành phố sống động nhưng nhân vật vẫn cô độc.
-- Không cần cận mặt trong phần này.
+- Use a high-angle wide shot or a street-level view looking deep into the rain-darkened road.
+- DongHP walks alone, seen from behind; his black leather jacket is the primary visual identifier.
+- The camera gradually lowers toward street level and tracks behind his footsteps.
+- Puddles reflect blue, cyan, magenta, and warm amber neon lights.
+- The city feels alive, but the protagonist remains isolated.
+- A close-up of his face is not needed in this section.
 
 ### SHOT 03 — THE MUSIC STORE MEMORY (00:09.5–00:15.0)
 
-- Camera tracking ngang khi DongHP đi ngang một cửa hàng âm nhạc cũ.
-- Qua lớp kính có thể thấy cassette, đĩa vinyl và một cây guitar trong ánh đèn vàng ấm.
-- Tương phản giữa ánh sáng ấm trong cửa hàng và con phố neon lạnh bên ngoài.
-- DongHP chậm bước, nhìn vào cửa kính; biểu cảm tò mò, hoài niệm nhưng tiết chế.
-- Không tạo thêm người phụ nữ hoặc nhân vật phụ.
-- Camera kết thúc bằng góc nghiêng toàn thân/3/4 bên, khớp bố cục ảnh S08.
-- Giữ frame cuối ổn định để nối sang DHEVS_03 — The Forgotten Letter.
+- Use a side-tracking camera move as DongHP walks past an old-fashioned music store.
+- Through the glass, show cassette tapes, vinyl records, and a guitar under warm amber lighting.
+- Contrast the store's warm interior with the cool neon street outside.
+- DongHP slows down and looks through the window. His expression is curious and nostalgic, but restrained.
+- Do not add a woman or any other supporting character.
+- End on a full-body or three-quarter side view that matches the composition of image S08.
+- Hold the final frame steadily to connect with DHEVS_03 — The Forgotten Letter.
 
-### Cảm xúc và mục đích
+### Emotional Purpose
 
-- Mở rộng thế giới MV sau cảnh mở đầu.
-- Tăng cảm giác cô độc và hoài niệm.
-- Đưa “âm nhạc/cassette/guitar” vào câu chuyện như một manh mối ký ức.
-- Tạo cầu nối tự nhiên sang phân đoạn lá thư và quá khứ ở DHEVS_03.
+- Expand the world established in the opening chapter.
+- Deepen the sense of loneliness and nostalgia.
+- Introduce music, cassette tapes, and the guitar as visual clues to a memory.
+- Create a natural bridge to the letter and the past revealed in DHEVS_03.
 
 ---
 
-## B. ENGLISH PRODUCTION PROMPT — COPY INTO ELEVENLABS
+## B. PRODUCTION PROMPT — COPY INTO ELEVENLABS
 
-# PROJECT: DUNG HOI EM VI SAO
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_02 — THE STREET REMEMBERS
@@ -93,7 +93,7 @@ Use clean cinematic cuts between shots. Do not morph one facial pose into anothe
 
 Act as a professional cinematic music-video director and cinematographer.
 
-Create the second 15-second segment of a Vietnamese romantic heartbreak music video titled "Đừng Hỏi Em Vì Sao".
+Create the second 15-second segment of a Vietnamese romantic heartbreak music video titled "Don't Ask Me Why".
 
 The sequence is titled "The Street Remembers".
 
