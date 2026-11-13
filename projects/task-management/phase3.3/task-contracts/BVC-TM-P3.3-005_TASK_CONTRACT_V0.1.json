@@ -87,17 +87,24 @@
     "format": {
       "format": "bvc-task-management-workspace",
       "formatVersion": 1,
-      "workspaceId": "UUID generated once for an empty new workspace",
+      "exportedAt": "<ISO 8601 UTC timestamp>",
+      "sourceMode": "browser",
+      "workspaceId": "<UUID>",
+      "timezone": "Asia/Bangkok",
       "data": {
+        "projects": [],
         "tasks": [
           {
-            "id": "UUID",
+            "id": "<UUID>",
             "title": "Non-empty trimmed title"
           }
-        ]
+        ],
+        "checklistItems": [],
+        "settings": {},
+        "appliedStarterKits": []
       }
     },
-    "scope_note": "This is a deliberately narrow B2 implementation envelope containing tasks only. The architecture's full envelope also has projects, checklistItems, settings, timezone and appliedStarterKits; those collections are deferred until their features are taught. A later Contract must define any schema extension or migration.",
+    "scope_note": "Use the canonical Phase 3.2 Data Model envelope and keep the non-task collections empty in B2. B2 only reads/writes data.tasks. A missing optional timezone value must not be filled by inventing a timezone; use the browser's resolved timezone only if verified/available, or omit/leave it as the documented default only if the approved source requires it. A later Contract owns richer entities and schema migrations.",
     "id_generation": "Use crypto.randomUUID() only if supported in the actual target Preview runtime; otherwise use an existing safe browser-compatible UUID strategy without adding packages. Stop and report if no safe strategy is available.",
     "validation": [
       "Confirm JSON parses.",
@@ -108,7 +115,7 @@
       "Do not silently delete or reset corrupted data."
     ],
     "initialization": "If localStorage key is absent, treat it as a new empty workspace in memory. The first valid task submission may create the versioned persisted workspace after DR-005 acknowledgement.",
-    "write_order": "For a new or updated task: validate -> construct next workspace snapshot -> attempt localStorage.setItem -> only on successful write update visible task state and clear the input/error. If write fails, retain the current input and current in-memory list; show truthful storage error and do not claim the task was saved.",
+    "write_order": "Validate the candidate next workspace -> serialize the complete supported envelope -> attempt localStorage.setItem for the agreed single key -> only on success update visible task state and clear the input/error. If write fails, preserve current tasks and input; show truthful storage error. Existing stored data must not be mutated before a successful setItem.",
     "load_order": "On initial client mount, read the key once, validate, and initialize the visible tasks. Prevent writing the initial empty React state over existing stored data before the load has completed.",
     "atomicity_note": "localStorage.setItem is atomic for a single key from the application's perspective; use one versioned workspace key and never split a task across multiple keys.",
     "quota_and_access_errors": "Catch storage exceptions (including quota/security/unavailable storage errors), show a plain-language message, preserve the current data and entered title, and allow the user to retry. Do not silently fall back to sessionStorage or memory while displaying a saved-success state.",
