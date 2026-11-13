@@ -3,7 +3,7 @@
 **Learning level:** Beginner  
 **Theme:** First Vertical Slice  
 **Environment:** The existing BVC Task Management project in Google AI Studio (GAIS)  
-**Learning status:** B1 was closed by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`. B2 implementation remains gated by the DR-005 Product Owner decision and a separate approved B2 Task Contract.
+**Learning status:** B1 was closed by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`. DR-005 and BVC-TM-TC-005 Revision 1 are Owner-approved and merged; B2 implementation awaits live GAIS preflight and a separate execution instruction.
 
 Phase B turns the blank scaffold from Phase A into a small, useful task manager. Build and understand one outcome at a time. Do not ask AI to create the whole product in one request.
 
@@ -22,7 +22,7 @@ B1 was accepted by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNO
 
 **DR-005 — first-use storage disclosure:** APPROVED by the Human Owner on 2026-11-13. The exact Beginner notice and placement are recorded in the B2 lesson and the canonical Product/UX Decision Register.
 
-**B2 is not yet authorized for implementation.** Before asking GAIS to modify application code, prepare and approve a separate B2 Task Contract that defines the persistence boundary, exact allowed files, versioned workspace data shape, notice acknowledgement behavior, loading/saving/error behavior, and verification evidence.
+**B2 Contract is approved; implementation has not started.** BVC-TM-TC-005 Revision 1 is canonical on main through PR #64. Complete the live GAIS preflight, review the read-only Prompt #0005 result, and obtain the Human Owner's separate execution instruction before using any write-capable prompt.
 
 ## The most important distinction: create first, save next
 
@@ -30,7 +30,7 @@ B1 and B2 are deliberately separate:
 
 - **B1 — Create:** the app holds the task in its current page memory. You can see it in the list while the page is running.
 - **B2 — Save:** the app writes the workspace to browser storage so it can be loaded again later.
-- **B3 — Reopen:** you test whether the saved task is still there after reloading or reopening.
+- **B3 — Close and Reopen:** the learner performs an independent close/reopen exercise, confirms the same saved task is still available and learns how to report a failure without re-creating the task. B2 Contract already includes its own initial save/load verification.
 
 When you refresh the page during B1, the temporary task may disappear. That is expected. Do not add `localStorage` to B1 just to prevent it; persistence belongs to B2.
 
