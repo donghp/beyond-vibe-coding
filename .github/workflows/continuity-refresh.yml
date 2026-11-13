@@ -22,6 +22,8 @@ on:
       - "scripts/update_continuity_state.py"
       - "tests/test_continuity_updater.py"
       - ".github/workflows/continuity-refresh.yml"
+      - "projects/**"
+      - "practical-labs/**"
 
   workflow_dispatch:
 
