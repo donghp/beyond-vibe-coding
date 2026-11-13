@@ -30,7 +30,7 @@
     "interaction_specification": "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md",
     "decision_register": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md",
     "approved_decisions": [
-      "DR-005 APPROVED 2026-11-13",
+      "DR-005 APPROVED on main through PR #62; merge commit b59d274be0567709dbd7824d31d52ac5fc30a1a7",
       "DR-014 ACCEPTED FOR DESIGN; runtime verification required"
     ],
     "prior_contract": "BVC-TM-TC-004 Revision 1 APPROVED — B1 accepted by Human Owner 2026-11-12 with known limitations",
@@ -416,8 +416,9 @@
   "readiness_checks": [
     {
       "id": "RC-001",
-      "item": "PR #62 DR-005 governance change is merged and visible on main.",
-      "status": "PENDING"
+      "item": "PR #62 DR-005 is merged and visible on main.",
+      "status": "PASS",
+      "evidence": "merge commit b59d274be0567709dbd7824d31d52ac5fc30a1a7"
     },
     {
       "id": "RC-002",
@@ -426,21 +427,26 @@
     },
     {
       "id": "RC-003",
-      "item": "The current GAIS app/page.tsx is re-inspected immediately before execution.",
+      "item": "The current GAIS app/page.tsx is reinspected immediately before execution.",
       "status": "PENDING"
     },
     {
       "id": "RC-004",
-      "item": "The source confirms no competing writer or unsynchronized source change.",
+      "item": "No competing writer or unsynchronized source change is present.",
       "status": "PENDING"
     },
     {
       "id": "RC-005",
-      "item": "The one-file scope is confirmed and understood by the GAIS executor.",
+      "item": "The one-file scope is confirmed and understood by GAIS executor.",
+      "status": "PENDING"
+    },
+    {
+      "id": "RC-006",
+      "item": "Continuity registers are reconciled with Owner-accepted B1, merged DR-005 and current B2 Contract status.",
       "status": "PENDING"
     }
   ],
-  "execution_gate": "Do not execute until RC-001 to RC-005 are PASS and the Human Owner separately instructs the executor to implement B2.",
+  "execution_gate": "Do not execute until RC-001 through RC-006 are PASS and the Human Owner separately instructs the executor to implement B2.",
   "required_context": [
     {
       "reference": "practical-labs/bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md",
@@ -509,10 +515,10 @@
     }
   ],
   "authorization_and_gate": {
-    "owner_decision_required": "Human Owner must approve this Contract Revision 1 before implementation.",
-    "pr62": "DR-005 governance PR #62 must be merged to main and verified before B2 implementation.",
-    "pre_edit_inspection": "Reinspect the live GAIS project id and exact app/page.tsx immediately before editing.",
-    "separate_execution_authorization": "After approving the Contract, the Human Owner must separately instruct the executor to implement B2.",
+    "owner_decision_required": "Human Owner must explicitly approve BVC-TM-TC-005 Revision 1.",
+    "dr005_publication": "PASS — PR #62 is merged; verify the canonical Decision Register on main before execution.",
+    "pre_edit_inspection": "Reinspect the live GAIS app identity and exact app/page.tsx immediately before execution.",
+    "separate_execution_authorization": "Contract approval and a separate Owner instruction to execute B2 are both required.",
     "status": "PROPOSED; NOT AUTHORIZED FOR EXECUTION"
   },
   "expected_outputs": [
@@ -534,5 +540,15 @@
     "max_repair_attempts": 1,
     "additional_attempts_require_approval": true,
     "repair_scope": "Only app/page.tsx within existing change budget; any other file or design/schema expansion requires stop and revised Contract."
-  }
+  },
+  "notes": [
+    "The GAIS workspace is an application execution environment, not a mirror of the GitHub repository.",
+    "The learner receives a lesson-level context pack and current approved contract/prompt excerpt, not all governance/design folders.",
+    "Full canonical sources remain in GitHub; source links are included in the context pack.",
+    "Any mismatch between this Contract and main branch governance must be resolved before execution.",
+    "The GitHub repository is canonical for product, UX, architecture, governance and Contracts.",
+    "GAIS is only the learner's app build/preview workspace; do not duplicate design/, governance/ or task-contracts/ inside GAIS.",
+    "The learner receives only the current lesson's context pack, Contract excerpt and Prompt, linked to canonical GitHub sources.",
+    "Continuity registers still contain stale historical values and require controlled reconciliation before B2 execution."
+  ]
 }
