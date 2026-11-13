@@ -19,8 +19,8 @@
     "objective": "Extend the accepted B1 in-memory task capture flow with a small versioned browser-local workspace using localStorage, load the saved task list on the next page load, and disclose the Beginner storage behavior under approved DR-005 before any task is persisted.",
     "parent_task_id": "BVC-TM-P3.3-004",
     "requested_by": "Human Owner / Product Owner",
-    "risk_level": "R3",
-    "risk_note": "Bounded single-page change introducing persistent browser data and its error/recovery path. Persistence creates a higher data-integrity impact than B1 transient state."
+    "risk_level": "R2",
+    "risk_note": "R2 — bounded component/single-module change under the current one-file scope. The implementation is limited to app/page.tsx and introduces browser persistence behavior within that page component. If implementation requires a separate storage adapter/component, shared state across modules, data migration, security/identity controls or another file, stop and reclassify/re-contract before editing."
   },
   "authority": {
     "product_baseline": "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md",
@@ -42,7 +42,7 @@
       "required": true,
       "status": "PENDING",
       "approver_role": "Human Owner / Product Owner",
-      "approval_reference": "Explicit confirmation of BVC-TM-TC-005 Revision 1 is required."
+      "approval_reference": "Human Owner must explicitly approve this Contract before execution; this is a proposed Contract only."
     },
     "permitted_actions": [
       "read",
@@ -107,7 +107,8 @@
       "allow_authentication_changes": false,
       "allow_external_services": false,
       "allow_architecture_changes": false
-    }
+    },
+    "reclassification_rule": "If the change requires multiple components/shared data flows, reclassify at least R3; if it affects identity, access controls, secrets, database schema/migration or security boundaries, stop and classify under R4. Do not proceed under R2."
   },
   "storage": {
     "level": "Beginner",
@@ -131,7 +132,7 @@
         "appliedStarterKits": []
       }
     },
-    "scope_note": "This matches the canonical Phase 3.2 Data Model envelope, narrowed to B2's task-only vertical slice. B2 reads/writes data.tasks and keeps other collections empty. It is not the full backup/export artifact; backup-specific fields and import/export behavior belong to later lessons.",
+    "scope_note": "Proposed runtime-persistence envelope for B2, derived from the Phase 3.2 Data Model's format identifier, formatVersion, sourceMode, workspaceId and data collections. It is intentionally not identical to the later export/backup JSON: fields such as exportedAt and timezone belong to the export/use-case specification and are not runtime fields for this bounded lesson. B2 persists only tasks and preserves the other canonical collections as empty. This runtime envelope must be treated as a Contract proposal subject to Owner approval, not as a pre-existing approved runtime schema.",
     "id_generation": "Generate one workspaceId when a new workspace is first persisted, then reuse it for every subsequent write. Use crypto.randomUUID() if available in the actual GAIS Preview runtime. If unavailable, stop and report; do not introduce a package or insecure fallback.",
     "validation": [
       "Parse JSON successfully.",
@@ -178,20 +179,22 @@
       "format": "bvc-task-management-workspace",
       "formatVersion": 1,
       "sourceMode": "browser",
-      "workspaceId": "<UUID — generated once and stable>",
+      "workspaceId": "<stable UUID>",
       "data": {
         "projects": [],
         "tasks": [
           {
             "id": "<UUID>",
-            "title": "<trimmed non-empty string>"
+            "title": "<trimmed task title>"
           }
         ],
         "checklistItems": [],
         "settings": {},
         "appliedStarterKits": []
       }
-    }
+    },
+    "export_boundary": "No export/import functionality is implemented in B2. Do not add exportedAt, file download, file picker, validation preview, merge/replace or restore flows. A later task must adopt the complete backup envelope defined in Data Model §7 and its own Contract.",
+    "data_preservation": "Existing valid workspace data is loaded before writes. Every write serializes a complete next workspace snapshot to the same key. Invalid data or a storage exception must never cause the prior value to be silently cleared or replaced."
   },
   "behavior": [
     "Preserve the B1 title-only input, Add task, trimmed titles, exact empty input validation, task insertion order, empty state, semantic label and Enter submission.",
@@ -374,8 +377,9 @@
     "Report actual changed files and all checks run; distinguish NOT_RUN and NOT_VERIFIED."
   ],
   "risk": {
-    "level": "R3",
-    "rationale": "The scope is a one-file, reversible frontend change, but it introduces durable user work data and therefore requires explicit read/write/error/data-integrity handling. R3 reflects the data-integrity impact rather than file count."
+    "level": "R2",
+    "policy_ref": "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md §R2 — BOUNDED COMPONENT / SINGLE-MODULE CHANGE",
+    "rationale": "The Contract limits changes to one existing page component/file and does not alter database schema, authentication, authorization, security controls, architecture baseline or external infrastructure. Persistence integrity is controlled with validation, non-destructive error handling and Owner-reviewed evidence. Reclassify if scope crosses into shared adapters/components or a protected technical domain."
   },
   "readiness_checks": [
     {
