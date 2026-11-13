@@ -72,7 +72,7 @@ Responsive layout and data persistence are separate concerns. Storage/access dis
 - **Intermediate:** data is saved to the user's Supabase PostgreSQL workspace through Supabase Auth; RLS restricts access to that user's records.
 - **Advanced:** the same authenticated personal workspace is managed through source control, migrations, CI and controlled deployment. This does not introduce team sharing.
 
-The disclosure must be presented before important data entry and remain accessible from More → Settings & Backup.
+**DR-005 approved 2026-11-13:** the applicable learning-level disclosure is presented before the first meaningful data entry that will be persisted, as a concise inline notice at the top of the workspace. Beginner requires the explicit **Got it — continue** acknowledgement before the first persisted task. The full explanation remains available from More → Settings & Backup. B1 is memory-only and is not retroactively changed. The acknowledgement's persistence/reset mechanics must be specified in the approved B2 Task Contract.
 
 ## 6. Canonical decisions
 
