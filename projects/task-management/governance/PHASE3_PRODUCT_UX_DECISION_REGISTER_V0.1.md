@@ -42,9 +42,70 @@ The UX documents remain versioned as the original v0.1.0 design package. They we
 | DR-002 | Today's Focus lifetime/reset | DEC-UX-002; UJ-OPEN-02; INT-OPEN-01 | Focus marker scoped to the current local calendar date | OPEN | Resolve before implementing Focus persistence/reset |
 | DR-003 | Project removal behavior | DEC-UX-003; UJ-OPEN-03; INT-OPEN-02 | Preserve tasks and detach them to No project; never cascade-delete | OPEN | Resolve before implementing project deletion |
 | DR-004 | Reapplying a Starter Kit | DEC-UX-004; UJ-OPEN-04; INT-OPEN-03 | Skip recognized/already-applied items and report added/skipped items | OPEN | Resolve before implementing repeat-application/merge logic |
-| DR-005 | Timing and exact copy of first-use storage disclosure | DEC-UX-005; UJ-OPEN-05; UX-002 | Explain the active learning level before important data entry | OPEN | Resolve placement/copy before first Beginner onboarding task |
+| DR-005 | Timing, placement and exact copy of first-use storage/access disclosure | DEC-UX-005; UJ-OPEN-05; UX-002 | Present a concise, level-specific disclosure before the first meaningful data entry that will be persisted; place it inline at the start of the workspace, require explicit acknowledgement before continuing, and keep the full explanation available at More → Settings & Backup. Use the approved Beginner copy recorded below; Intermediate/Advanced must use the distinct account/RLS wording in Interaction Specification §15. | APPROVED — 2026-11-13 | Apply when the corresponding learning level first persists user data; does not apply to B1 in-memory task capture. B2 must implement only the Beginner disclosure before persistence is enabled. |
 | DR-006 | Restore conflict and replacement semantics | INT-OPEN-04 | Validate first; preview the effect; require explicit confirmation before replacing the current workspace; preserve existing data on failure | OPEN | Resolve before implementing Beginner restore |
 | DR-007 | Task deletion interaction | INT-OPEN-05; UX-019 | Confirmation dialog or a reliable, accessible undo mechanism; no silent deletion | OPEN | Resolve before implementing delete interaction |
+
+
+#### DR-005 — Approved decision record (2026-11-13)
+
+| Field | Decision |
+|---|---|
+| Canonical ID | DR-005 |
+| Decision owner | Human Owner / Product Owner |
+| Decision date | 2026-11-13 |
+| Status | APPROVED |
+| Scope | First meaningful data entry that will be persisted, with level-specific behavior across Beginner, Intermediate and Advanced |
+| Source aliases | DEC-UX-005; UJ-OPEN-05; UX-002 |
+| Rationale | Users must understand where their work data is stored, whether it synchronizes, and what backup does and does not mean before they begin relying on persistence. The disclosure must remain understandable without turning Beginner onboarding into a technical setup flow. |
+
+**Approved timing and placement**
+
+1. Present the applicable level-specific disclosure before the first meaningful data entry that will be persisted.
+2. For Beginner, show a concise inline notice at the top of the workspace, before the task-entry area is enabled for the first persisted task. Require the user to acknowledge it through an explicit **Got it — continue** action.
+3. Keep the full explanation accessible later through **More → Settings & Backup**. The notice must not imply that the user has created a backup simply by acknowledging it.
+4. The disclosure is specific to the selected learning level. Do not reuse Beginner browser-storage wording for Intermediate or Advanced.
+5. B1 is memory-only and is not retroactively changed by this decision. The disclosure becomes mandatory for the B2 persistence implementation.
+6. The acknowledgement state and its storage mechanism, reset behavior, and relationship to browser data clearing must be explicitly described and approved in the B2 Task Contract before implementation. Do not add an unapproved persistence mechanism solely to remember acknowledgement.
+
+**Approved Beginner copy (English)**
+
+> **Where your tasks are stored**
+>
+> In Beginner mode, your tasks are stored in this browser on this device. They do not automatically sync to other browsers or devices.
+>
+> Clearing this site's browser data may delete your tasks.
+>
+> Browser storage is not a separate backup. You will learn to export a JSON backup in a later lesson.
+>
+> Do not enter passwords, API keys, or sensitive information in this learning app.
+>
+> **Action:** Got it — continue
+
+**Vietnamese reference translation**
+
+> **Dữ liệu công việc của bạn được lưu ở đâu?**
+>
+> Ở cấp độ Beginner, các công việc của bạn được lưu trong trình duyệt trên thiết bị này. Dữ liệu không tự động đồng bộ sang trình duyệt hoặc thiết bị khác.
+>
+> Nếu bạn xóa dữ liệu trang web của trình duyệt, các công việc đã lưu có thể bị mất.
+>
+> Dữ liệu trong trình duyệt không phải là một bản sao lưu riêng biệt. Bạn sẽ được học cách xuất bản sao lưu JSON trong bài học sau.
+>
+> Không nhập mật khẩu, API key hoặc thông tin nhạy cảm vào ứng dụng thực hành này.
+
+**Level-specific constraints**
+
+- **Beginner:** disclose current browser-profile/device storage, no automatic cross-device synchronization, risk of loss when site data is cleared, and JSON export as the later portability mechanism. Never call browser storage a cloud database or a backup service.
+- **Intermediate:** use the signed-in Supabase personal-workspace disclosure and state that RLS restricts records to that account. Do not describe this as team sharing or as a backup service.
+- **Advanced:** retain the same authenticated personal-workspace truth while explaining the additional source-control, migration, CI and deployment responsibilities where relevant. Do not imply team sharing.
+
+**Follow-up controls**
+
+- Update the learner-facing B2 lesson to link to this approved decision.
+- The B2 Task Contract must specify the exact approved Beginner copy, the notice placement, acknowledgement behavior, storage/error behavior, and objective verification criteria.
+- Do not implement B2 persistence or acknowledgement state until that separate Contract is approved.
+- Retain the distinct Intermediate/Advanced wording from Interaction Specification §15; this DR does not authorize a redesign of the full UX package or close Phase 3.1 UX acceptance.
 
 ### 3.2 Visual system and usability
 
