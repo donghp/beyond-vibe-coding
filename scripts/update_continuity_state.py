@@ -41,6 +41,11 @@ def is_material_path(path: str) -> bool:
         normalized = normalized[2:]
     if normalized.startswith("docs/continuity/"):
         return False
+    # Project-owned continuity records are semantic state, not product/source changes.
+    # Their semantic sync PR must not trigger a redundant machine-snapshot refresh.
+    path_parts = normalized.split("/")
+    if len(path_parts) >= 3 and path_parts[0] == "projects" and path_parts[2] == "continuity":
+        return False
     if normalized in SELF_MANAGED_PATHS:
         return False
     return bool(normalized)
