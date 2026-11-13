@@ -167,3 +167,21 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Screenshot limitation:** The candidate PR branch previously contained a 68-byte placeholder PNG at the B1-08 path. It is invalid and must be removed; no placeholder or synthetic image may be used as evidence.
 - **Handoff status:** Material checkpoint only, not a worker handoff. No sender release or receiver acceptance is claimed.
 - **Human Owner review:** REQUIRED.
+
+## H-0009 — B1 Accepted; DR-005 and B2 Contract Approved; Operating Sync Prepared
+
+- **Recorded at:** 2026-11-13T16:10:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Source main checkpoint before this synchronization PR:** 4cb64b511fca813674fd7bf492da0f5d69f6ccd2
+- **Event type:** OWNER_ACCEPTANCE / DECISION_APPROVAL / CONTRACT_APPROVAL / CONTINUITY_RECONCILIATION
+- **B1 acceptance:** The Human Owner closed BVC-TM-P3.3-004 on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS. PR #60 publishes the acceptance record. The supplied app/page.tsx was reviewed and the Owner confirmed the GAIS Code view contains one Page component.
+- **B1 known limitations:** A complete archived Preview test set and independently reviewable GAIS before/after file inventory are not present in the repository. Browser E2E is not claimed. These checks are not marked PASS.
+- **DR-005:** Approved and published through merged PR #62; merge commit b59d274be0567709dbd7824d31d52ac5fc30a1a7.
+- **B2 Contract:** BVC-TM-TC-005 Revision 1 for BVC-TM-P3.3-005 approved and published through merged PR #64; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b. Risk R2. Only MODIFY app/page.tsx; no CREATE/DELETE; max 350 diff lines.
+- **B2 execution:** NOT_STARTED. Contract approval is separate from execution authorization. Live GAIS app identity, current app/page.tsx, visible file inventory and competing-writer state must be preflighted; a separate Owner execution instruction is required.
+- **Operating synchronization:** A BVC-wide Project Operating Standard, BVCTM-specific Playbook, B2 Context Pack and read-only GAIS preflight Prompt #0005 are proposed in the current synchronization PR. GitHub remains canonical for project records; GAIS remains only the application build/preview workspace.
+- **Automatic update boundary:** GitHub Actions can observe main-branch repository events and update machine metadata. It cannot observe chat-only Owner decisions. Semantic records are prepared as one idempotent reconciliation PR in the active session. The workflow must not infer acceptance or task progress.
+- **Unresolved items retained:** Formal Phase 3.1 UX Acceptance remains OPEN; DR-013 contrast audit remains VERIFICATION REQUIRED; DR-014 is accepted for design and runtime verification remains required; AC-011 and continuity pilot tests CONT-T01–T11 remain unresolved/NOT_RUN; local Windows worktrees remain NOT_VERIFIED or DIRTY_PRESERVE per prior Owner-supplied evidence.
+- **Next permitted action:** Review and merge the single BVC operating-standard/continuity synchronization PR. Then run the read-only B2 GAIS preflight Prompt #0005. Do not implement B2 until preflight passes and the Human Owner separately instructs execution.
+- **Handoff status:** Material project checkpoint only; this is not a worker handoff. No sender release or receiver acceptance is claimed.
+- **Human Owner review:** REQUIRED.
