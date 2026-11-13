@@ -42,7 +42,7 @@
       "required": true,
       "status": "APPROVED",
       "approver_role": "Human Owner / Product Owner",
-      "approval_reference": "Human Owner confirmed successful merge of PR #64 in ChatGPT conversation on 2026-11-13; GitHub confirms PR #64 merged at commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
+      "approval_reference": "Human Owner confirmed successful merge of PR #64 in ChatGPT conversation on 2026-11-13; GitHub confirms merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
     },
     "permitted_actions": [
       "read",
@@ -424,7 +424,7 @@
       "id": "RC-002",
       "item": "BVC-TM-TC-005 Revision 1 is explicitly approved by Human Owner.",
       "status": "PASS",
-      "evidence": "Owner confirmed PR #64 merged; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
+      "evidence": "Human Owner confirmed PR #64 merged; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
     },
     {
       "id": "RC-003",
@@ -447,7 +447,7 @@
       "status": "PENDING"
     }
   ],
-  "execution_gate": "Do not execute until RC-001 through RC-006 are PASS and the Human Owner separately instructs the executor to implement B2.",
+  "execution_gate": "Do not execute until remaining readiness checks RC-003 to RC-006 are PASS and the Human Owner separately instructs the executor to implement B2.",
   "required_context": [
     {
       "reference": "practical-labs/bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md",
