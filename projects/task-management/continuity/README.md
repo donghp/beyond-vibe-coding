@@ -1,15 +1,14 @@
 # BVCTM Project Continuity
 
 **Project:** BVC Task Management (BVCTM)  
-**Project ID:** `BVC-TASK-MANAGEMENT`  
-**Continuity profile:** `BVC-TM-CONTINUITY-PROFILE` v0.1.0, revision 4  
-**Maturity:** PILOT — independent cold-start and cross-model recovery are NOT_RUN  
-**Current canonical source:** `main@aff2b42da26ec548de8088bf77de455a94723773`  
-**Reconciled at:** 2026-11-11T08:30:00+07:00
+**Project ID:** BVC-TASK-MANAGEMENT  
+**Maturity:** PILOT — cold-start, cross-model and quota-recovery tests remain NOT_RUN  
+**Current main checkpoint before this synchronization PR:** `4cb64b511fca813674fd7bf492da0f5d69f6ccd2`  
+**Reconciled at:** 2026-11-13
 
 ## Purpose
 
-This directory is the single project-owned continuity record set for BVC Task Management. It enables an authorized executor or maintainer to reconstruct current project state from live repository sources without relying on an earlier chat.
+This directory is the single project-owned continuity record set for BVC Task Management. It enables an authorized executor to reconstruct project state from live repository sources without relying on old chat history.
 
 **Project owns continuity. AI executors consume continuity.**
 
@@ -17,114 +16,77 @@ This directory is the single project-owned continuity record set for BVC Task Ma
 
 | File | Responsibility | Update trigger |
 |---|---|---|
-| `00_BVC_PROJECT_CONTINUITY.md` | The one provider-neutral BVCTM entry point and copy-ready recovery prompt | Bootstrap, authority, recovery or current-state changes |
-| `PROJECT_CONTINUITY_PROFILE.yaml` | BVCTM-specific continuity architecture, domain and external-system rules | Project or continuity architecture changes |
-| `PROJECT_STATE.json` | Single project snapshot conforming to Draft / Experimental Project State v0.1.0 schema | Material project, task, decision, risk or recovery change |
-| `SOURCE_MANIFEST.csv` | Single navigation map to canonical sources and evidence | Source, authority, PR, path or bootstrap requirement changes |
-| `HANDOFF_LOG.md` | Append-only material checkpoint and event history | Meaningful checkpoint, decision, blocker, milestone or actual handoff |
-| `registers/TASK_EXECUTION_REGISTER.yaml` | Task IDs, Contract links, lifecycle and execution-evidence distinction | Contract/task status or evidence change |
-| `registers/BVC_TM_PROMPT_REGISTER.yaml` | Prompt identities, publication, execution evidence and learning outcomes | Prompt publication or actual execution event |
-| `registers/EXTERNAL_SYSTEM_REGISTER.yaml` | GitHub, GAIS, local worktrees, DeepSeek/VS Code and screenshot-store observations | External-system or local evidence change |
-| `evidence/EVIDENCE_INDEX.yaml` | Evidence classification and canonical references | New or corrected evidence |
-| `validation/CONTINUITY_TEST_PLAN.md` | Recovery test definitions, including GAIS quota interruption | Test scenario or precondition changes |
-| `validation/CONTINUITY_TEST_RESULTS.md` | Append-only validation outcomes; NOT_RUN remains explicit until tested | A test is actually executed |
-| `handoffs/README.md` | Rules for real worker handoff records using Global schema/template | Handoff procedure changes |
+| `00_BVC_PROJECT_CONTINUITY.md` | Provider-neutral bootstrap and recovery prompt | Bootstrap, authority or current-state change |
+| `PROJECT_CONTINUITY_PROFILE.yaml` | BVCTM continuity architecture, source precedence and external systems | Project or continuity architecture change |
+| `PROJECT_STATE.json` | Single project snapshot using Draft/Experimental Project State v0.1.0 | Material project/task/decision/risk/recovery change |
+| `SOURCE_MANIFEST.csv` | Canonical source and evidence navigation | Path, authority or source change |
+| `HANDOFF_LOG.md` | Append-only material checkpoint and real handoff history | Meaningful milestone, decision or handoff |
+| `registers/TASK_EXECUTION_REGISTER.yaml` | Task IDs, Contract revisions, lifecycle and evidence | Task/Contract/execution/acceptance change |
+| `registers/BVC_TM_PROMPT_REGISTER.yaml` | Prompt IDs, publication, execution, learning status and next sequence | Prompt allocation/publication/execution |
+| `registers/EXTERNAL_SYSTEM_REGISTER.yaml` | GitHub, GAIS, local worktrees, DeepSeek/VS Code and screenshot store | External or local-state observation |
+| `evidence/EVIDENCE_INDEX.yaml` | Evidence classifications and source references | New or corrected evidence |
+| `validation/CONTINUITY_TEST_PLAN.md` | Recovery test definitions | Test scenario/precondition change |
+| `validation/CONTINUITY_TEST_RESULTS.md` | Append-only actual test results | A test is actually run |
+| `handoffs/README.md` | Procedure for real worker handoffs | Handoff procedure change |
 
-## Authority and source precedence
+## Authority and precedence
 
-1. Current explicit Human Owner decisions in approved canonical governance records on `main`.
-2. Current approved project governance, Product Definition, and accepted design baselines on `main`.
-3. The exact current approved Task Contract and its required context.
-4. Published execution records and verification evidence on `main`.
-5. `PROJECT_STATE.json` and `HANDOFF_LOG.md` as snapshots/history that must be reconciled with live sources.
-6. Open PRs and feature branches as proposals only; they are not canonical until merged.
-7. Chat history, AI memory and Owner-supplied screenshots as historical or supporting evidence, never a substitute for current source verification.
+1. Current explicit Human Owner decisions on main.
+2. Approved project governance and risk policy.
+3. Current Product Definition and accepted UX/Architecture baselines.
+4. Exact approved Task Contract and required Context Pack.
+5. Published implementation and verification evidence.
+6. Project State and Handoff Log as reconciled summaries.
+7. Open PRs/branches as proposals only.
+8. Chat history and AI memory as historical leads, not canonical authority.
 
-The Global Continuity Bootstrap controls overall continuity behavior. This profile and its records define BVCTM-specific continuity.
+The Global BVC Project Operating Standard and Global Continuity Protocol govern the operating model. This directory defines BVCTM-specific state and does not replace Product/UX/Architecture/Governance authorities.
 
-## Current product and learning position
+## Current project checkpoint
 
-- Product Definition v0.2.0 is the current Product Owner-approved product baseline.
-- Phase A learning path A1–A4 is recorded COMPLETED in Practical Labs Lesson Status Register v0.2 and the merged Phase A records.
-- Phase A learning completion is not product-feature completion.
-- Phase B — Build Your First Task — is the next product milestone, but feature implementation is NOT_AUTHORIZED until the scaffold-inspection work and applicable UX/decision gates are reconciled and a separate First Vertical Slice Task Contract is approved and canonical.
-- Phase 3.1 formal UX Acceptance remains OPEN.
-- Phase 3.2 Architecture is an accepted design baseline only; it is not runtime, security, integration or deployment acceptance.
-- DR-005 remains OPEN for first-use storage disclosure timing/copy.
-- DR-014 is ACCEPTED FOR DESIGN only; browser persistence still needs runtime evidence.
+- Product Definition v0.2.0 remains the current product baseline.
+- Phase A A1–A4 is recorded COMPLETED as a learning path; this is not equivalent to product feature completion.
+- Phase 3.1 formal UX Acceptance remains OPEN. Phase 3.2 is an accepted design baseline only.
+- DR-005 is APPROVED through merged PR #62. DR-014 is accepted for design; runtime verification remains required.
+- B1 / BVC-TM-P3.3-004 / BVC-TM-TC-004 R1 was Owner-accepted on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS and published by PR #60.
+- B2 / BVC-TM-P3.3-005 / BVC-TM-TC-005 R1 was Owner-approved and published by PR #64. Execution has NOT_STARTED.
+- GAIS remains the Human Owner-operated application workspace. GitHub remains the canonical repository for Product, UX, Architecture, Governance, Contracts, Prompts, continuity and evidence.
 
-## Active task boundaries
+## B1 and B2 boundaries
 
-### BVC-TM-P3.3-003 / BVC-TM-TC-003 Revision 1
+### B1 — Create Your First Task
+- B1 uses React in-memory state only. Persistence is explicitly excluded.
+- The Owner reviewed the supplied app/page.tsx and confirmed the GAIS Code view contains one Page component.
+- Known limitations: a complete archived manual Preview test set and independently reviewable before/after GAIS file inventory are not in the repository; browser E2E is not claimed.
 
-Approved for one isolated, non-production blank WEB app scaffold inspection and two documentation outputs only:
-- `projects/task-management/phase3.3/GAIS_SCAFFOLD_INSPECTION_REPORT_V0.1.md`
-- `projects/task-management/phase3.3/GAIS_SCAFFOLD_INVENTORY_V0.1.yaml`
+### B2 — Save Your Task
+- Contract: `BVC-TM-TC-005` Revision 1, published by merged PR #64.
+- DR-005 was approved by merged PR #62.
+- Risk: R2; allowed change is MODIFY `app/page.tsx` only; CREATE 0; DELETE 0; maximum 350 diff lines.
+- No new dependencies, lockfiles, config, routes, CSS, database, Supabase, Auth, external services, cloud sync, cross-tab sync, Projects, Checklists, Backup/Restore or Settings page.
+- Execution remains NOT_STARTED. Live GAIS identity/source/file-inventory/one-writer preflight and a separate Owner execution instruction are required.
+- Canonical B2 Context Pack: `projects/task-management/phase3.3/BEGINNER_CONTEXT_PACK_B2_V0.1.yaml`.
+- Canonical read-only preflight Prompt #0005: `practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_GAIS_PREFLIGHT.md`.
 
-At this checkpoint the Task Execution Register still records `NOT_STARTED_OR_NOT_EVIDENCED`. The Owner-supplied GAIS screenshot on 2026-11-11 shows the project title and expected Preview heading; Phase A screenshots show a visual scaffold tree. They do not replace the two required outputs or independently verify package manifests, runtime, dependencies, scripts, versions, build/export behavior.
+## GitHub / Practical Labs / GAIS separation
 
-The Task #003 Contract's own baseline is historical and must not be silently rewritten. Any baseline/context revision must be handled under the applicable authority and approval process.
+- `projects/task-management/` owns product, design, architecture, governance, implementation Contracts and project continuity.
+- `practical-labs/bvc-task-management/` owns the learner-facing curriculum, lesson instructions, Context Packs, Prompts, templates and learning evidence.
+- GAIS holds the app and its Project Instructions only. Do not recreate repository folders such as design, governance, task-contracts or continuity inside the newbie app.
+- Each lesson receives only the relevant Context Pack, approved Contract and canonical Prompt with links back to source documents.
 
-### BVC-TM-CONT-001 / BVC-TM-CONT-TC-001 Revision 5
+## One-bundle synchronization rule
 
-Revision 5 is APPROVED on `main` after PR #47 published the baseline refresh and PR #49 recorded the Human Owner's explicit approval. It authorizes exactly one CREATE and twelve MODIFY paths under this continuity directory, with no DELETE.
+After a material Owner approval, PR merge/main commit, GAIS checkpoint, task acceptance or milestone change, prepare one idempotent semantic synchronization PR for all affected records. Update Project State, Task Register, Prompt Register, Evidence Index, External System Register, lesson/status records, Project Profile, Source Manifest and Handoff Log only where affected. Use the source SHA/PR or explicit Owner decision as the event key; reuse an existing open sync PR for the same event.
 
-PR #48 merged three MODIFY outputs (README, entry point and profile). Draft PR #50 proposes the remaining nine MODIFY paths and the one CREATE path; it is NOT READY FOR MERGE while AC-011 baseline inventory and static validation remain unresolved. Draft PR #51 separately proposes the two Task #003 scaffold report/inventory files; it is partial and not accepted.
-
-## Phase A evidence distinctions
-
-- A1: authentic Apps landing and blank Preview files are repository assets published by merged PR #37.
-- A2: the Code / File Explorer screenshot is on `main`; the detailed technical profile is still NOT_VERIFIED.
-- A3: learning exercise completed; save is OWNER-CONFIRMED; the Instructions view and response evidence are recorded. Exact close/reopen and independent before/after file integrity remain NOT_VERIFIED.
-- A4: read-only learning exercise completed; the response was reviewed; original A4-01/A4-02 screenshots are on `main` through PR #41. Independent before/after file integrity remains NOT_VERIFIED.
-
-Publication, prompt execution, learning completion, technical verification and product acceptance are separate states.
-
-## Current GitHub checkpoint
-
-- Repository: https://github.com/donghp/beyond-vibe-coding
-- Current main SHA: `aff2b42da26ec548de8088bf77de455a94723773`
-- At the `aff2b42` checkpoint before PR #50 was opened, the live open-PR query returned 0.
-- PR #47, #48 and #49 are merged. PR #50 is now OPEN as a Draft proposal for the remaining R5 continuity outputs; it is not canonical.
-- Main branch protection was `false` at the last repository endpoint check; do not change settings under this Contract.
-
-## External and local-state boundaries
-
-- GAIS is Human Owner-operated. ChatGPT must not claim direct account or private project access.
-- The 2026-11-11 GAIS screenshot is OWNER_SUPPLIED and shows the project title and expected Preview heading; the screenshot does not expose the Code/File Explorer tree or technical manifests.
-- `C:\beyond-vibe-coding-a4-evidence` was Owner-verified clean and equal to `origin/main@202e780` after fast-forward. PR #47, #48 and #49 subsequently added three commits, so current remote `main@aff2b42` is expected to be three commits ahead; local status has not been rechecked after those merges.
-- `C:\beyond-vibe-coding` remains DIRTY on `docs/bvctm-continuity-contract-r3` at `c2f4b798...` with one modified continuity Markdown file and two untracked A1 PNGs. Preserve it and all six stash entries.
-- The two paths are linked worktrees in the same local Git common directory; inspect worktree relationships before any local branch switch.
-- Local state is Owner-supplied terminal evidence, not direct ChatGPT filesystem inspection.
-
-## Worker handoffs
-
-No actual sender-release / receiver-acceptance handoff has been recorded. Do not create a handoff YAML merely because a chat window changes. Use `handoffs/README.md` and the Global Worker Handoff schema only for a real transition with a verified checkpoint and explicit writer release/receiver acceptance.
+GitHub Actions may capture deterministic main SHA/path/CI facts and update only the machine snapshot. It cannot read chat-only Owner decisions or infer semantic acceptance. The assistant must prepare the semantic sync PR in the same active session; this is not background automation.
 
 ## Validation and maturity
 
-BVCTM Continuity remains PILOT. CONT-T01 through CONT-T11 are NOT_RUN. JSON Schema, YAML, CSV and source-path validation for this reconciliation must be performed against the candidate branch before acceptance. Do not claim a test PASS from content inspection alone.
+BVCTM continuity remains PILOT. CONT-T01 through CONT-T11 remain NOT_RUN until the actual scenarios are executed and evidence is appended. AC-011 baseline/control-plane treatment remains unresolved under its own continuity task. Local Windows worktrees remain UNKNOWN or DIRTY_PRESERVE unless the Owner supplies fresh inspection evidence.
 
-## Update protocol
+## Recovery
 
-Update semantic records only on material, evidence-backed events. Keep machine-observed Git facts separate from Owner-reported local/external facts and AI-prepared interpretation. A machine updater must not change task completion, product decisions, acceptance or risk status.
+Every new AI session must verify live main and open PRs, read Global Start Here and this project record map, inspect the active Contract and reconcile all registers. Do not copy old chat transcripts or assume local/GAIS state from GitHub. One active writer per task. A chat-window change alone is not a worker handoff.
 
-Never store secrets, API keys, tokens, passwords, recovery information, customer data or confidential business data in continuity records.
-
-
-
-## Phase B priority checkpoint — 2026-11-11
-
-- Phase A A1–A4 learning path: COMPLETED in the canonical Practical Labs Lesson Status Register V0.2.
-- Phase B B1 — Create Your First Task: next product implementation target, but not yet authorized for code changes.
-- The approved GAIS scaffold inspection remains a prerequisite. Its two report/inventory outputs are absent from main; the current Owner-supplied Preview screenshot does not show the generated file tree or technical manifests.
-- DR-005 first-use storage disclosure remains OPEN; DR-014 browser persistence is ACCEPTED FOR DESIGN only and still needs runtime verification.
-- A separate First Vertical Slice Task Contract must be approved and canonical before feature implementation.
-
-
-## Current Draft proposals
-
-- PR #50 — R5 continuity completion: OPEN / DRAFT / NOT READY FOR MERGE; AC-011 and static validation remain unresolved.
-- PR #51 — Task #003 scaffold report/inventory: OPEN / DRAFT / PARTIAL; actual package/config file contents, app-type confirmation, ZIP export and full external-connection review remain pending.
-
-Both are proposals only. Neither is canonical until reviewed and merged by the Human Owner.
+---
