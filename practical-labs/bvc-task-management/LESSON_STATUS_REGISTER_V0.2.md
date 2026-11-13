@@ -29,28 +29,30 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 
 | Lesson | Status | Required dependency / evidence |
 |---|---|---|
-| B1 — Create Your First Task | **EXECUTION_REPORTED; EVIDENCE_PARTIAL; OWNER ACCEPTANCE PENDING** | Owner supplied Gemini 3.8 Flash report claiming one-file app/page.tsx change, React in-memory state, no persistence/dependency changes, ESLint PASS and production build PASS. Owner supplied Preview screenshots. B1-08 refresh is OBSERVED_PASS: tasks cleared, input blank, validation cleared and friendly empty state visible. | Exact GAIS changed-file diff not independently inspected. Browser E2E not run. Valid add, whitespace validation, Enter and complete criterion trace still need individually classified evidence. Screenshot binary must be checksum-verified on GitHub before repository publication. Do not mark B1 accepted yet. |
-| B2 — Save Your Task | Planned — gated | Resolve DR-005 first-use storage disclosure and approve a separate B2 implementation scope; then verify actual browser persistence. |
-| B3 — Close and Reopen | Planned — depends on B2 | Same app origin and browser profile must show the exact saved task after reload/reopen. |
-| B4 — Improve One Small Thing | Planned — depends on B1–B3 | One bounded, approved improvement is made; relevant B1–B3 regression checks pass. |
+| B1 — Create Your First Task | **COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS** — Owner decision 2026-11-12; published through PR #60 | Owner reviewed the supplied app/page.tsx and confirmed the GAIS Code view contains one Page component. B1 remains a memory-only task capture. Complete archived manual Preview test suite and independently reviewable GAIS before/after file inventory are not in GitHub; browser E2E is not claimed. Preserve these limitations. |
+| B2 — Save Your Task | **CONTRACT_APPROVED; PREFLIGHT_PENDING; EXECUTION_NOT_STARTED** | DR-005 approved through PR #62. BVC-TM-TC-005 Revision 1 approved and published through PR #64. Run read-only Prompt #0005, inspect live GAIS app/page.tsx and file inventory, verify one-writer status, then await separate Owner execution instruction. |
+| B3 — Close and Reopen | Planned — depends on accepted B2 | Learner independently closes and reopens the same app in the same browser profile and confirms the exact saved task remains available. B2 Contract already includes initial save/load verification. |
+| B4 — Improve One Small Thing | Planned — depends on B1–B3 | One bounded, separately approved improvement is made; relevant B1–B3 regression checks pass. |
 
-**Gate:** Task #003 is COMPLETED_ACCEPTED by explicit Owner decision with known limitations. B1 Contract BVC-TM-TC-004 Revision 1 and Prompt #0004 are canonical on main. The Owner reports GAIS execution complete; evidence is partial and Owner acceptance remains pending. B2 remains blocked until DR-005 is resolved and a separate B2 Task Contract is approved. Publishing a Contract or lesson does not prove application behavior.
-
+**Current Phase B gate:** B1 is Owner-accepted with known limitations. DR-005 and BVC-TM-TC-005 Revision 1 are approved and canonical on main. B2 application execution has NOT_STARTED. Contract approval is not execution authorization. The existing GAIS project must pass the read-only preflight and the Human Owner must separately instruct execution before Gemini modifies app/page.tsx.
 
 ### Phase A closure and Phase B entry gate
 
 **Phase A learning path is COMPLETED (A1–A4).**
 
-- A1: A1-01 and A1-02 authentic screenshots are published on main.
-- A2: The blank Preview and scaffold file tree are evidenced. Exact framework/runtime/dependency/package-manager/build facts remain NOT VERIFIED; do not invent them.
-- A3: Learning exercise completed. Save is OWNER-CONFIRMED; the new Instructions screenshot is OBSERVED; Prompt #0002 response received and reviewed. Exact close/reopen sequence and independent before/after file integrity remain NOT VERIFIED as supplementary checks.
-- A4: The read-only learning exercise is complete; all eight response sections were reviewed. Original A4-01/A4-02 PNGs are published on main by merged PR #41. Independent file integrity remains NOT VERIFIED.
+- A1: authentic GAIS Apps landing and blank Preview screenshots are published on main.
+- A2: the Code/File Explorer screenshot and Owner-supplied 18-file scaffold ZIP inspection are recorded. App-type label, external connection/secrets panel and exact runtime/build status retain the documented limitations.
+- A3: learning exercise completed; Project Instructions save is Owner-confirmed; supplementary close/reopen and independent before/after file integrity remain NOT_VERIFIED.
+- A4: read-only learning exercise completed and response reviewed; authentic screenshots are published on main.
+- Task #003 was explicitly closed by the Human Owner on 2026-11-11 with known limitations. VC-006/VC-007 were not independently run and are not PASS.
 
-**Phase A learning path is COMPLETED (A1–A4).** The Human Owner explicitly closed Task #003 on 2026-11-11 after reviewing the source ZIP, report and inventory. The acceptance record preserves the app-type/external-connection limitations and the fact that VC-006/VC-007 were not run.
+**B1 closeout:** Contract #004 and Prompt #0004 were published through PR #53. Owner acceptance with known limitations was published through PR #60. B1 persistence is out of scope.
 
-**Phase B entry:** B1 Contract BVC-TM-TC-004 Revision 1 is approved by the Human Owner. It authorizes only a modification to `app/page.tsx` in the existing GAIS app. The Contract and Prompt #0004 must be canonical on main before learner execution. Immediately before editing, the current GAIS app identity and `app/page.tsx` must be inspected; stop if the live source differs materially from the supplied snapshot.
+**DR-005:** Approved through PR #62. Approval does not by itself prove the disclosure has been implemented or tested in GAIS.
 
-Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 remains OPEN and blocks B2 storage disclosure/persistence, not B1's in-memory-only task capture. DR-014 is ACCEPTED FOR DESIGN only; browser persistence still requires B2 implementation and runtime verification. Do not implement B2, add `localStorage`, or claim persistence under B1.
+**B2 authorization:** Contract #005 Revision 1 is approved through PR #64. Only MODIFY app/page.tsx is allowed; max 350 diff lines, no CREATE/DELETE, packages, configuration, database, Auth or external services. B2 remains NOT_STARTED until live GAIS preflight and separate execution instruction.
+
+**Formal Phase 3.1 UX Acceptance remains OPEN.** DR-013 contrast audit remains VERIFICATION REQUIRED. DR-014 browser localStorage is ACCEPTED FOR DESIGN; runtime behavior still requires evidence. Do not claim UX phase acceptance from DR-005 approval alone.
 
 ## 3. Phase C — Make It Useful Every Day
 
