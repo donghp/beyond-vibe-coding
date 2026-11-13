@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Design preparation — DR-005 approved on 2026-11-13; implementation remains blocked until a separate B2 Task Contract is approved.
+**Lesson status:** Contract approved — `BVC-TM-TC-005` Revision 1 was published through merged PR #64 on 2026-11-13. GAIS implementation has not started; preflight and a separate Owner execution instruction are still required.
 
 ## 1. What you will learn
 
@@ -39,7 +39,7 @@ For the Beginner learning level:
 
 A Vietnamese reference translation is recorded in the canonical Product/UX Decision Register. The approved English copy above is authoritative for the current Beginner implementation.
 
-**Before implementing B2:** A separate B2 implementation Contract must be approved. It must explicitly define the acknowledgement state, whether and where acknowledgement is remembered, how it behaves when browser site data is cleared, the notice placement, storage-error behavior, and objective verification criteria. Do not add an acknowledgement persistence mechanism unless that Contract authorizes it.
+**Implementation authority:** BVC-TM-TC-005 Revision 1 is the approved Contract. Follow its exact one-file boundary, storage schema, acknowledgement behavior, failure handling and acceptance criteria. Contract approval is not an execution instruction. Do not edit GAIS until live preflight is complete and the Human Owner separately instructs execution.
 
 ## 3. Before you begin
 
@@ -73,21 +73,25 @@ Do not let AI add Supabase, Firebase, an account, API calls, or cloud synchroniz
 - A record of any error and how the app responds.
 - The actual changed-file list and the verification result required by the B2 Contract.
 
-A success message alone is not proof that data was saved. The reload check belongs to B3 and must be performed there before claiming persistence is verified.
+A success message alone is not proof that data was saved. B2 verifies the initial save/load behavior required by Contract. B3 remains a learner-focused close/reopen and recovery exercise; it does not repeat B2 implementation.
 
 ## 6. B2 completion checklist
 
-- [ ] DR-005 is resolved and its approved disclosure is visible at the required point.
-- [ ] A separate B2 Task Contract is approved.
+- [x] DR-005 is approved and published through PR #62; actual GAIS disclosure remains to be verified.
+- [x] BVC-TM-TC-005 Revision 1 is Owner-approved and canonical on main via PR #64.
 - [ ] Beginner storage uses only the approved browser-local approach.
 - [ ] No external database, account, or cloud sync has been added.
 - [ ] The saved workspace can be loaded after a reload.
 - [ ] Storage errors are reported truthfully.
 - [ ] The learner understands that clearing browser site data may remove the workspace.
 
-## 7. Next lesson
+## 7. Implementation preflight
 
-Continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) to verify persistence in the same browser profile.
+Before execution, verify the existing GAIS project ID, inspect the live `app/page.tsx`, confirm that it matches the Owner-provided B1 source, review the current file-change inventory, and confirm there is no competing writer. Stop if more than `app/page.tsx` must change. GitHub contains the canonical Product, UX, Architecture, Governance and Contract documents; GAIS is only the application workspace. Do not create repository-level folders such as `design/`, `governance/` or `task-contracts/` inside GAIS.
+
+## 8. Next lesson
+
+After B2 is implemented and accepted, continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) for the learner's independent close/reopen and recovery exercise.
 
 ---
 
