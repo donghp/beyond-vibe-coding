@@ -641,6 +641,17 @@ Examples may refer to specific technologies where useful, but no provider is end
 
 ---
 
+## Prompt Engineering — Creative AI Video Labs
+
+Explore practical prompt-engineering workflows for creating consistent, story-driven AI videos.
+
+- [Prompt Engineering Lab Index](prompt-engineering/README.md)
+- [Create a Personal Cinematic Music Video with AI — “Don't Ask Me Why”](prompt-engineering/dont-ask-me-why-ai-music-video/README.md)
+
+The featured lab teaches avatar preparation, storyboarding, eight short video prompts, character continuity, output review, and CapCut post-production.
+
+---
+
 ## Repository Roadmap
 
 The project is developed incrementally. Each phase should produce reviewable, documented, and verifiable artifacts.
