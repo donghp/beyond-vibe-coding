@@ -80,7 +80,24 @@ For a meaningful chat-only event, prepare the relevant semantic record or a hand
 - A machine snapshot is not a substitute for live bootstrap.
 - Keep Git history as the audit trail; do not create a duplicate log entry for every commit.
 
-## 8. Cross-executor and worker-switch events
+## 8. Single synchronization bundle per material event
+
+For every material main-branch merge/commit or chat-only Human Owner decision, prepare one semantic synchronization bundle for the affected project(s). The bundle is a single reviewed PR whenever practical, not one commit per changed register.
+
+The bundle must:
+- Identify one event key: source merge commit/main SHA for GitHub events, or the explicit Owner decision reference/date for chat-only approvals.
+- Record the project and task IDs, Contract revision and Prompt ID where applicable.
+- Reconcile the Project State, Task Execution Register, Prompt Register, Evidence Index, External System Register, Lesson Status Register, lesson README, Project Continuity Profile, Source Manifest and Handoff Log only where affected.
+- Update the global portfolio pointer only when the active project/phase/task or global operating rules change.
+- State which paths were inspected, which were changed, which checks actually ran, and which remain NOT_RUN or NOT_VERIFIED.
+- Reuse an existing open sync PR for the same event instead of opening a duplicate.
+- Be idempotent: replaying the same event must not append another identical handoff or evidence record.
+
+**Automation boundary:** GitHub Actions can observe GitHub pushes/merges and validation results. It cannot observe a decision made only in a ChatGPT conversation. For chat-only Owner approvals, the assistant must prepare the semantic sync PR in the same active session. Do not claim autonomous/background synchronization of chat content.
+
+**Post-merge check:** after the semantic PR merges, verify the resulting main SHA and changed files. If the machine snapshot workflow runs, verify its result; a missing or failed workflow is not PASS.
+
+## 9. Cross-executor and worker-switch events
 
 A change of model, provider, chat session, GAIS worker, or IDE is a continuity event when another executor is expected to continue the same task.
 
