@@ -34,7 +34,9 @@
       "DR-014 ACCEPTED FOR DESIGN; runtime verification required"
     ],
     "prior_contract": "BVC-TM-TC-004 Revision 1 APPROVED — B1 accepted by Human Owner 2026-11-12 with known limitations",
-    "approval_status": "PROPOSED — requires explicit Human Owner approval before execution"
+    "approval_status": "PROPOSED — Human Owner approval required before GAIS execution",
+    "risk_owner": "Human Owner / Product Owner",
+    "execution_authorization": "NOT_GRANTED — creation of this proposed Contract does not authorize Gemini/GAIS to edit code."
   },
   "intent": {
     "learning_outcome": [
@@ -230,21 +232,89 @@
       "statement": "Human Owner reviews the actual GAIS Preview, code diff and evidence and explicitly accepts B2.",
       "verification": "Owner confirmation; AI completion text alone is insufficient.",
       "required": true
+    },
+    {
+      "id": "B2-AC-011",
+      "statement": "The exact GAIS source file remains the only modified file, and the existing B1 task list behavior is preserved.",
+      "verification": "Inspect GAIS Code/File Explorer and review diff against the supplied B1 source.",
+      "required": true
+    },
+    {
+      "id": "B2-AC-012",
+      "statement": "No backup/import/export, projects, checklists, settings page, Supabase, Auth, or external API feature is added.",
+      "verification": "Review actual diff and source imports/API calls.",
+      "required": true
     }
   ],
   "verification": {
     "minimum_evidence_level": 2,
     "checks": [
-      "VC-001 pre-edit project identity and current app/page.tsx inspection",
-      "VC-002 static workspace key/format/validation and no-prohibited-API review",
-      "VC-003 DR-005 copy and acknowledgement-gate review",
-      "VC-004 first valid task saves after acknowledgement",
-      "VC-005 two tasks survive refresh in correct order",
-      "VC-006 B1 regression: trim, empty, spaces-only, Enter, clearing and order",
-      "VC-007 malformed/unsupported workspace preservation check",
-      "VC-008 storage exception handling review/test",
-      "VC-009 responsive notice at compact and desktop widths",
-      "VC-010 exact changed file inventory and Human Owner acceptance"
+      {
+        "id": "VC-001",
+        "kind": "MANUAL_REVIEW",
+        "description": "Confirm GAIS project id and inspect actual app/page.tsx before changes.",
+        "required": true
+      },
+      {
+        "id": "VC-002",
+        "kind": "STATIC_ANALYSIS",
+        "description": "Inspect source for storage key, version validation, data preservation, and forbidden APIs.",
+        "required": true
+      },
+      {
+        "id": "VC-003",
+        "kind": "MANUAL_REVIEW",
+        "description": "Compare code diff; exactly app/page.tsx must change.",
+        "required": true
+      },
+      {
+        "id": "VC-004",
+        "kind": "REAL_WORLD_CHECK",
+        "description": "Fresh profile: DR-005 notice shown and task persistence is blocked until Got it — continue.",
+        "required": true
+      },
+      {
+        "id": "VC-005",
+        "kind": "REAL_WORLD_CHECK",
+        "description": "Acknowledge and add two tasks; both display once in insertion order.",
+        "required": true
+      },
+      {
+        "id": "VC-006",
+        "kind": "REAL_WORLD_CHECK",
+        "description": "Refresh Preview in same browser profile; both tasks load.",
+        "required": true
+      },
+      {
+        "id": "VC-007",
+        "kind": "REGRESSION_TEST",
+        "description": "Re-run B1 validation, trim, clear input, clear error, Enter and empty-state checks.",
+        "required": true
+      },
+      {
+        "id": "VC-008",
+        "kind": "DATA_INTEGRITY_TEST",
+        "description": "In disposable profile test malformed JSON and unsupported version; no silent overwrite/reset.",
+        "required": true
+      },
+      {
+        "id": "VC-009",
+        "kind": "ERROR_HANDLING_TEST",
+        "description": "Inspect/test localStorage read/write exception behavior; report unperformed simulation as NOT_RUN.",
+        "required": true
+      },
+      {
+        "id": "VC-010",
+        "kind": "RESPONSIVE_REVIEW",
+        "description": "Check disclosure and form at compact phone and desktop widths.",
+        "required": true
+      },
+      {
+        "id": "VC-011",
+        "kind": "OWNER_ACCEPTANCE",
+        "description": "Human Owner reviews Preview, source diff and evidence; explicit acceptance required.",
+        "required": true
+      }
     ],
     "reporting": "Distinguish RUN/PASS/FAIL/NOT_RUN/NOT_VERIFIED. Do not claim persistence, build, lint, E2E or storage failure simulation passed unless directly evidenced."
   },
@@ -287,5 +357,22 @@
     "fallback": "Gemini 3.8 Pro if available and quota permits; otherwise ChatGPT prepares/reviews the work, but no other runtime is introduced.",
     "difficulty": "HIGH_RISK — local persistence and existing data preservation; task is still bounded to one file.",
     "instruction": "Inspect first; no edits before the Human Owner approves this Contract and instructs execution."
-  }
+  },
+  "constraints": [
+    "Execute only in the existing GAIS app id ca589018-617d-4919-bbe2-6b9c588ccd85.",
+    "Inspect actual current app/page.tsx and compare it with the Owner-supplied B1 source before editing.",
+    "Modify exactly app/page.tsx. Stop if any other file is required.",
+    "No dependencies, lockfiles, config, layout, global CSS, routes, server actions, API calls or external services.",
+    "Use only browser localStorage for Beginner task workspace persistence. No Supabase, database, Auth, Firebase, cloud sync or remote storage.",
+    "Use the exact workspace key bvc-task-management:workspace:v1 and canonical format identifier/version from this Contract.",
+    "Preserve existing B1 create, trim, validate, input clear, insertion order, Enter and empty-state behaviors.",
+    "Display approved DR-005 notice before first task persistence; use exact English copy and action Got it — continue.",
+    "Hold disclosure acknowledgement in component state only for current page session; on a fresh page load, gate first persistence again. If a valid workspace already exists, keep a non-blocking way to review the notice without blocking ordinary task entry.",
+    "If the stored value is malformed or unsupported, preserve it untouched, block writes, and show a truthful recovery message. Never silently reset or overwrite corrupted data.",
+    "Attempt a single full-workspace localStorage.setItem before committing new task state or clearing input. On write failure preserve current UI state and input and show the storage error; do not claim saved.",
+    "Load and validate persisted state before enabling writes; do not overwrite existing storage with initial empty React state during mount.",
+    "Do not build Projects, Checklists, Notes, Priority, Due Dates, status, edit/delete/complete, backup/export/import/restore, settings, More navigation, cloud sync or any later-phase feature.",
+    "Respect current UI/UX design files; inline notice, no modal or full-screen onboarding; responsive and accessible.",
+    "Report actual changed files and exactly which tests/checks were run. No false PASS."
+  ]
 }
