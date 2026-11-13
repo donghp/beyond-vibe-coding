@@ -1,4 +1,4 @@
-# PROJECT: DUNG HOI EM VI SAO
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_03 — THE FORGOTTEN LETTER
@@ -25,7 +25,7 @@ Use it as the target final composition: the opened old letter, sepia keepsake ph
 
 ## COPY-READY PROMPT
 
-PROJECT: DUNG HOI EM VI SAO — DONGHP CINEMATIC MUSIC VIDEO
+PROJECT: DON'T ASK ME WHY — DONGHP CINEMATIC MUSIC VIDEO
 DHEVS_03 — THE FORGOTTEN LETTER
 TIMELINE: 00:30–00:45 | DURATION: 15 SECONDS | LANDSCAPE 16:9 | 480P
 
@@ -39,7 +39,7 @@ Create a coherent 15-second cinematic sequence between these two frames. Use cle
 
 ### CREATIVE OBJECTIVE
 
-This is the third chapter of the Vietnamese romantic music video “Đừng Hỏi Em Vì Sao”. After leaving the music store, DongHP returns to his quiet apartment and discovers an old farewell letter. He opens it and finds a faded photograph and a pressed flower — small objects that bring back a lost relationship.
+This is the third chapter of the romantic music video “Don't Ask Me Why”. After leaving the music store, DongHP returns to his quiet apartment and discovers an old farewell letter. He opens it and finds a faded photograph and a pressed flower — small objects that bring back a lost relationship.
 
 The letter and keepsakes are the emotional focus. Do not make this another portrait scene. Show DongHP briefly and naturally; let the environment, his black leather sleeve, hands and the old letter tell the story.
 
