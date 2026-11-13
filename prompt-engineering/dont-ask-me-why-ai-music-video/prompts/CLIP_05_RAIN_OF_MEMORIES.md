@@ -1,4 +1,4 @@
-# PROJECT: DUNG HOI EM VI SAO
+# PROJECT: DON'T ASK ME WHY
 # DONGHP — CINEMATIC MUSIC VIDEO
 
 ## DHEVS_05 — RAIN OF MEMORIES
@@ -17,7 +17,7 @@ Use these as the opening and ending anchors. No additional Image or Video Refere
 
 ### 2. CREATIVE OBJECTIVE
 
-Create chapter five of the Vietnamese romantic music video **“Đừng Hỏi Em Vì Sao”**. DHEVS_04 showed DongHP and the woman he loved sharing a fresh white flower at sunset. Return to the present: she is gone, the city is raining, and DongHP is alone with the same flower. He walks through the rain, protects the flower, returns to a dim music room and approaches his acoustic guitar. The flower links the happy past to the lonely present.
+Create chapter five of the romantic music video **“Don't Ask Me Why”**. DHEVS_04 showed DongHP and the woman he loved sharing a fresh white flower at sunset. Return to the present: she is gone, the city is raining, and DongHP is alone with the same flower. He walks through the rain, protects the flower, returns to a dim music room and approaches his acoustic guitar. The flower links the happy past to the lonely present.
 
 Emotional progression: **last touch → return to the present → isolation in the rain → fragile keepsake → music as his remaining expression**. Keep acting restrained and believable. Tell the story visually, without dialogue or lyrics.
 
