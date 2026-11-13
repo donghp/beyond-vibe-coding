@@ -6,7 +6,7 @@
 **Learning level:** Beginner to Advanced  
 **Product:** BVC Task Management — A Simple Daily Work Manager  
 **Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. PR #6 Governance Reconciliation was Squash and Merged on 2026-11-05 (commit `5d230516a1eddede51c457c85d5fc6bef23506f8`). Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
-**Implementation status:** A blank GAIS web-app scaffold has been created and its actual Preview and Code / File Explorer screenshots have been synchronized in the Phase A lesson assets. The scaffold is for inspection only; Task Management features have not yet been implemented. The Prompt #0002 understanding-check response has been received; independent file-integrity verification and technical-version checks remain pending.
+**Implementation status:** The existing GAIS newbie app contains the B1 title-only task capture interface. The Human Owner accepted B1 on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS (PR #60). B1 is in-memory only; no persistence is claimed. DR-005 was approved by PR #62 and BVC-TM-TC-005 Revision 1 for B2 was approved by PR #64. B2 execution has NOT_STARTED pending live GAIS preflight and a separate Owner execution instruction.
 
 > **Build something useful. Use it every day. Learn by doing.**
 
@@ -298,17 +298,17 @@ A lesson must stop at a meaningful checkpoint before adding the next layer of co
 - A blank GAIS web-app scaffold has been generated using BVCTM-PROMPT-0001. The actual Preview shows the exact text **“BVC Task Management Scaffold Inspection”**; the Preview image is committed in the Phase A lesson assets. The actual Code / File Explorer screenshot is also committed and supports the read-only A2 inspection lesson.
 - The GAIS conversation screenshot shows an initial development-server startup problem followed by the AI reporting that dependencies were installed, the Next.js development server was running on port 3000, and the Preview request returned HTTP 200 OK. The visible Preview is **OBSERVED**; the recovery details are the AI's reported actions, not an independently repeated build or test.
 - The Custom Instructions summary card is visible in GAIS Chat settings, and the Human Owner supplied the complete response to the read-only BVCTM-PROMPT-0002 understanding check. The response's exact technology-version claims remain NOT VERIFIED because the response also states that no project files were read during that turn. Independent before/after file-tree evidence remains pending.
-- No Task Management feature, task persistence behavior, database, Authentication, Supabase, GitHub integration, or deployment is claimed as implemented or verified.
+- B1 title-only task capture is present in the existing GAIS newbie app and was Owner-accepted with known limitations. B2 browser persistence is not yet implemented or runtime-verified.
 - No provisioned Supabase learning project, application database, hosting project or live deployment is claimed.
-- No runtime security, integration, end-to-end or production deployment test is claimed as passed.
+- No B2 persistence runtime test, automated browser E2E, Supabase/Auth integration or production deployment test is claimed as passed.
 
 **Next gates**
 
-1. Confirm the first Beginner reader journey and the UX acceptance items needed for that scope; review only the Decision Register items on which those first steps depend.
-2. Prepare the first Phase 3.3 Task Contract and its Context Pack, but write the learner-facing work as numbered beginner steps (Step 1, Step 2, Step 3…), with one action, expected result, and verification at each checkpoint.
-3. After the Task Contract is approved, create a blank GAIS app and inspect its actual generated scaffold before selecting build commands or assuming a framework.
-4. Build and verify the first small vertical slice: open the app, create a task, save it, reload the same browser profile, and confirm the task remains available.
-5. Expand to Projects, My Day, Starter Kits, and Backup/Restore only after the relevant behavior and decisions are ready. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
+1. Preflight the existing GAIS newbie app and inspect the exact app/page.tsx; compare it with the Owner-supplied B1 source, review the visible file inventory and confirm no competing writer.
+2. Run the canonical read-only BVCTM-PROMPT-0005 and review its result. It must change zero files.
+3. Obtain the Human Owner's separate instruction before Gemini implements B2 under approved BVC-TM-TC-005 Revision 1. Modify app/page.tsx only.
+4. Verify B2 save/load, DR-005 disclosure, B1 regressions, storage failure behavior, malformed-data preservation and responsive UI using actual evidence.
+5. After B2 acceptance, teach B3 as an independent learner close/reopen exercise, then continue B4 and Phase C one approved outcome at a time.
 
 Branch Protection for `main` is a separate repository-administration task and is currently deferred; it does not block this documentation and readiness follow-up.
 
