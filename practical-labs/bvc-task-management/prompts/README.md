@@ -17,8 +17,9 @@ Use the prompts below only in the BVC Task Management GAIS project. Each prompt 
 | Prompt | Purpose | Lesson |
 |---|---|---|
 | [BVCTM-PROMPT-0004 — Phase B1: Create Your First Task](BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md) | Implement title-only task creation, visible in-memory list, empty-title validation and keyboard submission. | [B1 — Create Your First Task](../phase-b/b1-create-your-first-task/README.md) |
+| [BVCTM-PROMPT-0005 — Phase B2 GAIS Preflight (Read-Only)](BVCTM_PROMPT_0005_PHASE_B2_GAIS_PREFLIGHT.md) | Inspect the existing GAIS app ID, app/page.tsx, visible file inventory, source parity and competing-writer state. **No files may change.** | [B2 — Save Your Task](../phase-b/b2-save-your-task/README.md) |
 
-**Contract requirement:** Prompt #0004 is authorized only by BVC-TM-TC-004 Revision 1. It may modify only `app/page.tsx` in the existing GAIS app. It must not add persistence, dependencies, configuration, database, Auth, APIs or external integrations.
+**Contract requirement:** Prompt #0004 was authorized by BVC-TM-TC-004 Revision 1 and is associated with B1, which the Owner accepted with known limitations. Prompt #0005 is a read-only preflight under approved BVC-TM-TC-005 Revision 1; it must not modify files. A separate write-capable B2 implementation Prompt is not yet published or authorized.
 
 ## Prompt use rules
 
