@@ -34,9 +34,9 @@
       "DR-014 ACCEPTED FOR DESIGN; runtime verification required"
     ],
     "prior_contract": "BVC-TM-TC-004 Revision 1 APPROVED — B1 accepted by Human Owner 2026-11-12 with known limitations",
-    "approval_status": "PROPOSED — requires explicit Human Owner approval before execution",
+    "approval_status": "PROPOSED — Human Owner approval required before GAIS implementation",
     "risk_owner": "Human Owner / Product Owner",
-    "execution_authorization": "NOT_GRANTED — explicit Owner approval of this Contract and separate instruction to execute are both required.",
+    "execution_authorization": "NOT_GRANTED",
     "authorization_reference": "Human Owner request to construct the B2 Task Contract in the current conversation; this request authorizes drafting and publication of a proposed Contract only. It does not authorize execution or app-code modification.",
     "human_approval": {
       "required": true,
@@ -352,7 +352,10 @@
       "Use the existing Next.js App Router and TypeScript/TSX scaffold without adding packages.",
       "Implement only the Beginner localStorage task workspace and approved DR-005 disclosure behavior.",
       "Provide actual Preview evidence and exact changed-file inventory."
-    ]
+    ],
+    "primary_model": "Gemini 3.8 Flash",
+    "fallback_model": "Gemini 3.8 Pro if available and quota permits; otherwise stop and request Owner direction.",
+    "model_selection_note": "No current Gemini quota data was verified in this session. Check the model picker/quota in GAIS before execution; do not claim availability."
   },
   "constraints": [
     "Use only the exact existing GAIS app id and current project.",
@@ -373,5 +376,33 @@
   "risk": {
     "level": "R3",
     "rationale": "The scope is a one-file, reversible frontend change, but it introduces durable user work data and therefore requires explicit read/write/error/data-integrity handling. R3 reflects the data-integrity impact rather than file count."
-  }
+  },
+  "readiness_checks": [
+    {
+      "id": "RC-001",
+      "item": "PR #62 DR-005 governance change is merged and visible on main.",
+      "status": "PENDING"
+    },
+    {
+      "id": "RC-002",
+      "item": "BVC-TM-TC-005 Revision 1 is explicitly approved by Human Owner.",
+      "status": "PENDING"
+    },
+    {
+      "id": "RC-003",
+      "item": "The current GAIS app/page.tsx is re-inspected immediately before execution.",
+      "status": "PENDING"
+    },
+    {
+      "id": "RC-004",
+      "item": "The source confirms no competing writer or unsynchronized source change.",
+      "status": "PENDING"
+    },
+    {
+      "id": "RC-005",
+      "item": "The one-file scope is confirmed and understood by the GAIS executor.",
+      "status": "PENDING"
+    }
+  ],
+  "execution_gate": "Do not execute until RC-001 to RC-005 are PASS and the Human Owner separately instructs the executor to implement B2."
 }
