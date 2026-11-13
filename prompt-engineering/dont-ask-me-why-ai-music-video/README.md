@@ -1,5 +1,5 @@
 # Create a Personal Cinematic Music Video with AI
-## A Complete Practical Lab Using “Don't Ask Me Why” (Đừng Hỏi Em Vì Sao)
+## A Complete Practical Lab Using “Don't Ask Me Why”
 
 **Lab type:** Creative AI / Prompt Engineering / Video Production  
 **Level:** Beginner to Intermediate  
@@ -13,7 +13,7 @@
 
 In this lab, you will plan and produce a short cinematic personal music video featuring one consistent main character based on your own permitted avatar photographs.
 
-The case study is the Vietnamese romantic story **“Đừng Hỏi Em Vì Sao”** (*Don't Ask Me Why*). It follows DongHP through a city at night, memories of a relationship, an old letter, a flower, rain, music, acceptance, and a hopeful new beginning.
+The case study is the Vietnamese romantic story **Don't Ask Me Why** . It follows DongHP through a city at night, memories of a relationship, an old letter, a flower, rain, music, acceptance, and a hopeful new beginning.
 
 The complete case-study timeline contains eight 15-second clips. You can also make a shorter 30–60-second version by selecting a subset of clips or creating a condensed edit. Do not assume that a 2-minute master automatically fits every short-form platform's preferred pacing.
 
@@ -129,7 +129,7 @@ A good video prompt does not rescue a story that has no clear progression.
 
 ### 4.1 Case-study story
 
-**Title:** Đừng Hỏi Em Vì Sao (*Don't Ask Me Why*)
+**Title:** Don't Ask Me Why
 
 **Logline:** A lonely man moves through a neon-lit city, discovers a letter and a flower that revive a happy memory, faces the pain of absence, returns to music, and finally learns to let go and welcome a new beginning.
 
