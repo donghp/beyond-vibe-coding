@@ -6,7 +6,7 @@
 **Learning level:** Beginner to Advanced  
 **Product:** BVC Task Management — A Simple Daily Work Manager  
 **Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. PR #6 Governance Reconciliation was Squash and Merged on 2026-11-05 (commit `5d230516a1eddede51c457c85d5fc6bef23506f8`). Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
-**Implementation status:** A blank GAIS web-app scaffold has been created and its actual Preview and Code / File Explorer screenshots have been synchronized in the Phase A lesson assets. The scaffold is for inspection only; Task Management features have not yet been implemented. The Prompt #0002 understanding-check response has been received; independent file-integrity verification and technical-version checks remain pending.
+**Implementation status (2026-11-13):** Phase B1 — Create Your First Task — was implemented in the existing GAIS newbie project and explicitly accepted by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS` (PR #60). Phase B2 — Save Your Task — has an Owner-approved Task Contract `BVC-TM-TC-005 Revision 1`, merged through PR #64, but GAIS implementation has NOT STARTED. Live GAIS preflight, source parity, single-writer confirmation and a separate Owner execution instruction are still required. Do not claim browser persistence is implemented or verified.
 
 > **Build something useful. Use it every day. Learn by doing.**
 
@@ -290,25 +290,28 @@ A lesson must stop at a meaningful checkpoint before adding the next layer of co
 - Phase 3.1 UX artifacts remain the historical design package originally authored against v0.1.0.
 - PR #6 was merged into `main` on 2026-11-05, publishing the v0.2.0 compatibility reconciliation for authority metadata, level-specific data disclosures, and FR/AC traceability. This did not close formal UX Acceptance, which remains OPEN until its independent review gate is completed.
 - Phase 3.2 Architecture Design Baseline is Product Owner Accepted; PR #5 is merged.
+- DR-005 first-use storage disclosure is APPROVED and published through merged PR #62.
+- BVC-TM-TC-005 Revision 1 for B2 is Owner-approved and published through merged PR #64; approval does not mean GAIS implementation has started.
 - Data Model and Security design acceptance does not mean implementation, RLS tests, secret scanning or runtime verification have passed.
 
 **Phase 3.3 implementation status**
 
-- Phase 3.3 readiness and learning-curriculum preparation are underway. The blank scaffold exists in the Human Owner's GAIS workspace; the first functional Task Management feature has not yet been implemented.
+- Phase 3.3 is in progressive implementation. B1's in-memory task-capture feature is Owner-accepted with known limitations. B2's localStorage save/load implementation is next, but remains NOT_STARTED pending live GAIS preflight and separate execution instruction.
 - A blank GAIS web-app scaffold has been generated using BVCTM-PROMPT-0001. The actual Preview shows the exact text **“BVC Task Management Scaffold Inspection”**; the Preview image is committed in the Phase A lesson assets. The actual Code / File Explorer screenshot is also committed and supports the read-only A2 inspection lesson.
 - The GAIS conversation screenshot shows an initial development-server startup problem followed by the AI reporting that dependencies were installed, the Next.js development server was running on port 3000, and the Preview request returned HTTP 200 OK. The visible Preview is **OBSERVED**; the recovery details are the AI's reported actions, not an independently repeated build or test.
 - The Custom Instructions summary card is visible in GAIS Chat settings, and the Human Owner supplied the complete response to the read-only BVCTM-PROMPT-0002 understanding check. The response's exact technology-version claims remain NOT VERIFIED because the response also states that no project files were read during that turn. Independent before/after file-tree evidence remains pending.
-- No Task Management feature, task persistence behavior, database, Authentication, Supabase, GitHub integration, or deployment is claimed as implemented or verified.
+- B1 task capture is implemented and Owner-accepted with known limitations. B2 browser persistence, database, Authentication, Supabase, GitHub integration and deployment are not claimed as implemented or verified.
 - No provisioned Supabase learning project, application database, hosting project or live deployment is claimed.
 - No runtime security, integration, end-to-end or production deployment test is claimed as passed.
 
 **Next gates**
 
-1. Confirm the first Beginner reader journey and the UX acceptance items needed for that scope; review only the Decision Register items on which those first steps depend.
-2. Prepare the first Phase 3.3 Task Contract and its Context Pack, but write the learner-facing work as numbered beginner steps (Step 1, Step 2, Step 3…), with one action, expected result, and verification at each checkpoint.
-3. After the Task Contract is approved, create a blank GAIS app and inspect its actual generated scaffold before selecting build commands or assuming a framework.
-4. Build and verify the first small vertical slice: open the app, create a task, save it, reload the same browser profile, and confirm the task remains available.
-5. Expand to Projects, My Day, Starter Kits, and Backup/Restore only after the relevant behavior and decisions are ready. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
+1. Preserve the accepted Product Definition v0.2.0 and the Phase 3.1/3.2 design boundaries; formal Phase 3.1 UX acceptance remains OPEN.
+2. Complete B2 live preflight in the existing GAIS app, publish a lesson-specific Context Pack and canonical Prompt #0005, and obtain the separate Human Owner execution instruction.
+3. Implement B2 strictly under `BVC-TM-TC-005 Revision 1`: modify `app/page.tsx` only; add the approved DR-005 notice and Beginner localStorage save/load behavior; no packages, database, Auth, cloud sync or later-phase features.
+4. Verify actual save/load, storage error handling and B1 regressions; capture authentic Preview and source-diff evidence; then request Human Owner acceptance.
+5. Continue B3 as a separate learner-focused close/reopen/recovery exercise and expand to later Phase B/C features only under their own approved scope.
+6. Expand to Projects, My Day, Starter Kits, and Backup/Restore only after the relevant behavior and decisions are ready. Keep Intermediate and Advanced work behind their own task, security, and acceptance gates.
 
 Branch Protection for `main` is a separate repository-administration task and is currently deferred; it does not block this documentation and readiness follow-up.
 

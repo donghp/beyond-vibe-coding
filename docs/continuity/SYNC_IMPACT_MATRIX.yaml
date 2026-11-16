@@ -1,0 +1,110 @@
+version: "1.0"
+standard_id: BVC-GOV-SYNC-001
+purpose: >-
+  Required companion-record matrix for one-PR semantic synchronization.
+  This file is the machine-readable companion to REPOSITORY_CHANGE_SYNC_STANDARD.md.
+rules:
+  - id: GLOBAL_SYNC_STANDARD
+    description: >-
+      A change to the repository-wide sync standard, its matrix, validator, tests
+      or validation workflow must update the global navigation/protocol in the same PR.
+    when_any:
+      - docs/continuity/REPOSITORY_CHANGE_SYNC_STANDARD.md
+      - docs/continuity/SYNC_IMPACT_MATRIX.yaml
+      - scripts/validate_repository_sync.py
+      - tests/test_repository_sync.py
+      - .github/workflows/validate-repository-sync.yml
+      - .github/workflows/continuity-refresh.yml
+    require_all:
+      - docs/continuity/README.md
+      - docs/continuity/CONTINUITY_PROTOCOL.md
+      - docs/continuity/TASK_LIFECYCLE.md
+      - docs/continuity/SOURCE_MANIFEST.csv
+
+  - id: PROJECT_CONTRACT
+    description: >-
+      A Task Management Contract create/revision/publication must update the project
+      snapshot and task lifecycle register in the same PR.
+    when_any:
+      - projects/task-management/phase3.3/task-contracts/*
+    require_all:
+      - projects/task-management/continuity/PROJECT_STATE.json
+      - projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml
+      - projects/task-management/continuity/SOURCE_MANIFEST.csv
+
+  - id: PROJECT_DECISION
+    description: >-
+      A Product/UX Decision Register change must update the project snapshot and
+      impacted task register in the same PR.
+    when_any:
+      - projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md
+    require_all:
+      - projects/task-management/continuity/PROJECT_STATE.json
+      - projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml
+
+  - id: PROJECT_PRODUCT_OR_DESIGN
+    description: >-
+      A Product, UX or Architecture baseline change must update the project index,
+      project state and canonical source navigation in the same PR.
+    when_any:
+      - projects/task-management/product/*
+      - projects/task-management/design/ux/*
+      - projects/task-management/design/architecture/*
+    require_all:
+      - projects/task-management/README.md
+      - projects/task-management/continuity/PROJECT_STATE.json
+      - projects/task-management/continuity/SOURCE_MANIFEST.csv
+
+  - id: TASK_EXECUTION_REGISTER
+    description: >-
+      A change to task execution lifecycle must update the project state snapshot
+      in the same PR.
+    when_any:
+      - projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml
+    require_all:
+      - projects/task-management/continuity/PROJECT_STATE.json
+
+  - id: PROMPT_PUBLICATION
+    description: >-
+      A canonical BVCTM Prompt change must update its Prompt Register, library index
+      and learner status register in the same PR.
+    when_any:
+      - practical-labs/bvc-task-management/prompts/*
+    require_all:
+      - projects/task-management/continuity/registers/BVC_TM_PROMPT_REGISTER.yaml
+      - practical-labs/bvc-task-management/prompts/README.md
+      - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md
+
+  - id: LEARNER_LESSON
+    description: >-
+      A Practical Labs lesson change must update the learner-facing lesson status
+      register in the same PR.
+    when_any:
+      - practical-labs/bvc-task-management/phase-a/*
+      - practical-labs/bvc-task-management/phase-b/*
+      - practical-labs/bvc-task-management/phase-c/*
+      - practical-labs/bvc-task-management/phase-d/*
+    require_all:
+      - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md
+
+  - id: LESSON_STATUS_TO_PROJECT_STATE
+    description: >-
+      A lesson lifecycle/evidence status change must reconcile the project's task
+      state and execution register in the same PR.
+    when_any:
+      - practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md
+    require_all:
+      - projects/task-management/continuity/PROJECT_STATE.json
+      - projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml
+
+  - id: PROJECT_CONTINUITY_ENTRY
+    description: >-
+      Changes to the project continuity entry/profile/index require the project
+      state and source manifest to be updated in the same PR.
+    when_any:
+      - projects/task-management/continuity/README.md
+      - projects/task-management/continuity/00_BVC_PROJECT_CONTINUITY.md
+      - projects/task-management/continuity/PROJECT_CONTINUITY_PROFILE.yaml
+    require_all:
+      - projects/task-management/continuity/PROJECT_STATE.json
+      - projects/task-management/continuity/SOURCE_MANIFEST.csv

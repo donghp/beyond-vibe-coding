@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "projects/**"
+      - "practical-labs/**"
+      - "assets/**"
       - "specifications/**"
       - "templates/**"
       - "docs/**"
@@ -18,6 +20,9 @@ on:
     branches: [main]
     paths:
       - "docs/continuity/**"
+      - "projects/**"
+      - "practical-labs/**"
+      - "assets/**"
       - "scripts/update_continuity_state.py"
       - "tests/test_continuity_updater.py"
       - ".github/workflows/continuity-refresh.yml"

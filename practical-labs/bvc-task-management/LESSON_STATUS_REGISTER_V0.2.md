@@ -29,12 +29,12 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 
 | Lesson | Status | Required dependency / evidence |
 |---|---|---|
-| B1 — Create Your First Task | **EXECUTION_REPORTED; EVIDENCE_PARTIAL; OWNER ACCEPTANCE PENDING** | Owner supplied Gemini 3.8 Flash report claiming one-file app/page.tsx change, React in-memory state, no persistence/dependency changes, ESLint PASS and production build PASS. Owner supplied Preview screenshots. B1-08 refresh is OBSERVED_PASS: tasks cleared, input blank, validation cleared and friendly empty state visible. | Exact GAIS changed-file diff not independently inspected. Browser E2E not run. Valid add, whitespace validation, Enter and complete criterion trace still need individually classified evidence. Screenshot binary must be checksum-verified on GitHub before repository publication. Do not mark B1 accepted yet. |
-| B2 — Save Your Task | Planned — gated | Resolve DR-005 first-use storage disclosure and approve a separate B2 implementation scope; then verify actual browser persistence. |
+| B1 — Create Your First Task | **COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS** (Owner decision 2026-11-12; PR #60) | Human Owner reviewed the supplied `app/page.tsx` and confirmed the live GAIS Code view contains one Page component. The GAIS Preview showed the task-capture screen and the after-refresh empty state. | A complete archived manual Preview test set and independently reviewable before/after GAIS file inventory are not present in the repository. Do not convert unrecorded checks into PASS. Preserve these limitations; B1 remains closed. |
+| B2 — Save Your Task | **CONTRACT APPROVED; EXECUTION NOT STARTED** (PR #64) | DR-005 is approved (PR #62). `BVC-TM-TC-005 Revision 1` is Owner-approved and canonical. It allows MODIFY `app/page.tsx` only. | Live GAIS app/source preflight, source parity, single-writer confirmation, canonical Prompt #0005 and separate Owner execution instruction are pending. No browser persistence is yet claimed. |
 | B3 — Close and Reopen | Planned — depends on B2 | Same app origin and browser profile must show the exact saved task after reload/reopen. |
 | B4 — Improve One Small Thing | Planned — depends on B1–B3 | One bounded, approved improvement is made; relevant B1–B3 regression checks pass. |
 
-**Gate:** Task #003 is COMPLETED_ACCEPTED by explicit Owner decision with known limitations. B1 Contract BVC-TM-TC-004 Revision 1 and Prompt #0004 are canonical on main. The Owner reports GAIS execution complete; evidence is partial and Owner acceptance remains pending. B2 remains blocked until DR-005 is resolved and a separate B2 Task Contract is approved. Publishing a Contract or lesson does not prove application behavior.
+**Phase B status:** B1 is Owner-accepted with known limitations. DR-005 is APPROVED via PR #62. B2 Contract BVC-TM-TC-005 Revision 1 is Owner-approved and canonical via PR #64. B2 implementation remains NOT_STARTED until live GAIS preflight passes and the Human Owner separately instructs execution. Publishing a Contract or lesson does not prove application behavior.
 
 
 ### Phase A closure and Phase B entry gate
@@ -50,7 +50,7 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 
 **Phase B entry:** B1 Contract BVC-TM-TC-004 Revision 1 is approved by the Human Owner. It authorizes only a modification to `app/page.tsx` in the existing GAIS app. The Contract and Prompt #0004 must be canonical on main before learner execution. Immediately before editing, the current GAIS app identity and `app/page.tsx` must be inspected; stop if the live source differs materially from the supplied snapshot.
 
-Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 remains OPEN and blocks B2 storage disclosure/persistence, not B1's in-memory-only task capture. DR-014 is ACCEPTED FOR DESIGN only; browser persistence still requires B2 implementation and runtime verification. Do not implement B2, add `localStorage`, or claim persistence under B1.
+Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 is APPROVED and governs the first-use disclosure for B2. DR-014 is ACCEPTED FOR DESIGN only; browser persistence still requires B2 implementation and runtime verification. Do not add `localStorage` to B1 or retroactively expand B1.
 
 ## 3. Phase C — Make It Useful Every Day
 
