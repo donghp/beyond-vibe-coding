@@ -1,9 +1,9 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 6,
+  "revision": 7,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-13T16:54:00+07:00",
+  "state_as_of": "2026-11-17T22:16:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
@@ -219,6 +219,33 @@
         "docs/continuity/SYNC_IMPACT_MATRIX.yaml",
         "scripts/validate_repository_sync.py"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-021",
+      "statement": "A strict read-only revalidation of the existing GAIS app was completed on 2026-11-17. Runtime Applet ID matched ca589018-617d-4919-bbe2-6b9c588ccd85. app/page.tsx was 3,703 bytes and 115 newline-terminated lines, SHA-256 1d0be58bdf1c8da452c3d2fcb071034fbb90d5506968b688c8449fc8f14fe373, identical to the 2026-11-16 preflight source. No files were written.",
+      "classification": "OWNER_REPORTED",
+      "source_refs": [
+        "Human Owner supplied BVCTM-PREFLIGHT-0001 report dated 2026-11-17",
+        "projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-022",
+      "statement": "On 2026-11-17 the Human Owner confirmed the GAIS editor had no unsaved/dirty changes or pending modifications and reaffirmed that no other person, agent, browser tab, IDE or process was modifying the app. A GitHub connection is not required for the Beginner GAIS application.",
+      "classification": "OWNER_CONFIRMED",
+      "source_refs": [
+        "Human Owner confirmation in ChatGPT dated 2026-11-17",
+        "Human Owner-supplied BVCTM-PREFLIGHT-0001 report dated 2026-11-17"
+      ]
+    },
+    {
+      "fact_id": "TM-FACT-023",
+      "statement": "The Human Owner explicitly issued conditional B2 Execution Authorization on 2026-11-17 for Gemini in Google AI Studio to implement BVC-TM-P3.3-005 within BVC-TM-TC-005 Revision 1. Authorization becomes executable only after RC-003, RC-004 and RC-005 are PASS.",
+      "classification": "OWNER_CONFIRMED",
+      "source_refs": [
+        "Human Owner B2 Execution Authorization in ChatGPT dated 2026-11-17",
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+      ]
     }
   ],
   "decisions": [
@@ -240,6 +267,17 @@
       "authority_reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md",
       "source_refs": [
         "https://github.com/donghp/beyond-vibe-coding/pull/62"
+      ]
+    },
+    {
+      "decision_id": "B2-RUNTIME-ENVELOPE-OWNER-CLARIFICATION-2026-11-17",
+      "statement": "Owner selected Option A: approval of BVC-TM-TC-005 Revision 1 through PR #64 also approved the exact runtime workspace envelope in storage.format. No separate schema approval is required.",
+      "status": "OWNER_CONFIRMED",
+      "decided_by": "Human Owner / Product Owner",
+      "authority_reference": "Human Owner clarification in ChatGPT dated 2026-11-17; BVC-TM-TC-005 Revision 1 approved through PR #64.",
+      "source_refs": [
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json",
+        "https://github.com/donghp/beyond-vibe-coding/pull/64"
       ]
     }
   ],
@@ -273,19 +311,19 @@
       "contract_id": "BVC-TM-TC-005",
       "contract_revision": 1,
       "status": "APPROVED",
-      "owner": "Human Owner operates GAIS; Gemini 3.8 Flash executes after authorization; ChatGPT coordinates and reviews",
-      "execution_status": "NOT_STARTED; PRE_EXECUTION_GATES_PENDING",
+      "owner": "Human Owner operates GAIS; Gemini executes after RC-005 gate; ChatGPT coordinates and reviews",
+      "execution_status": "NOT_STARTED; RC-003 PASS; RC-004 PASS; RC-005 ACKNOWLEDGMENT PENDING; CONDITIONAL_OWNER_AUTHORIZATION_RECEIVED",
       "approval_reference": "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b.",
       "risk_level": "R2",
       "scope": "MODIFY app/page.tsx only; Beginner localStorage task workspace and DR-005 disclosure; no other files, packages, database, Auth or external services.",
-      "next_action": "Preflight the live GAIS app identity and app/page.tsx, verify source parity and one-file change inventory, confirm no competing writer, prepare B2 Context Pack/Prompt and obtain separate Owner execution instruction."
+      "next_action": "Owner reviews and merges Prompt #0005 and its lesson-specific Context Pack; then supplies both to Gemini for RC-005 read-only acknowledgment. No code edit until Owner confirms RC-005 PASS — PROCEED WITH B2."
     }
   ],
   "blocked_items": [
     {
       "issue_id": "TM-BLOCK-B2-PREFLIGHT",
-      "description": "DR-005 and BVC-TM-TC-005 Revision 1 are Owner-approved and canonical. B2 code execution remains blocked until live GAIS preflight, source parity, one-writer confirmation, lesson Context Pack/Prompt publication and separate explicit Owner execution instruction.",
-      "status": "BLOCKED_PENDING_PREFLIGHT_AND_EXECUTION_AUTHORIZATION",
+      "description": "B2 Contract and conditional Owner Execution Authorization are in place. RC-003 and RC-004 are PASS. Code execution remains blocked only until Prompt #0005/Context Pack are canonical and Gemini completes RC-005 acknowledgment, followed by the Owner's RC-005 PASS — PROCEED WITH B2 confirmation.",
+      "status": "BLOCKED_PENDING_CANONICAL_PROMPT_AND_RC005",
       "owner": "Human Owner / ChatGPT coordinator",
       "reference": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json; https://github.com/donghp/beyond-vibe-coding/pull/64"
     }
@@ -341,21 +379,21 @@
   "next_actions": [
     {
       "action_id": "TM-NEXT-B2-001",
-      "description": "Preflight the existing GAIS newbie app ca589018-617d-4919-bbe2-6b9c588ccd85: inspect live app/page.tsx, compare with the Owner-supplied B1 source, review File Explorer changed-file inventory and confirm no competing writer.",
-      "priority": "URGENT",
-      "owner": "Human Owner / Gemini; ChatGPT reviews",
+      "description": "COMPLETED 2026-11-17: strict read-only GAIS revalidation completed; RC-003 PASS and RC-004 PASS. Exact Git-level accepted-B1 source hash remains NOT_VERIFIABLE because the GAIS Beginner workspace has no .git and does not require GitHub connection.",
+      "priority": "NORMAL",
+      "owner": "ChatGPT / Human Owner",
       "related_task_id": "BVC-TM-P3.3-005"
     },
     {
       "action_id": "TM-NEXT-B2-002",
-      "description": "Prepare the lesson-specific B2 Context Pack and canonical execution Prompt, using TC-005 R1 and links to Product/UX/Architecture sources. Do not duplicate repository governance/design folders in GAIS.",
-      "priority": "HIGH",
+      "description": "Prepare and publish Prompt #0005, the B2-specific Context Pack, embedded lesson prompt and companion continuity records in one sync PR.",
+      "priority": "URGENT",
       "owner": "ChatGPT",
       "related_task_id": "BVC-TM-P3.3-005"
     },
     {
       "action_id": "TM-NEXT-B2-003",
-      "description": "Execute B2 only after live preflight passes and the Human Owner separately instructs execution; modify app/page.tsx only.",
+      "description": "After Owner merges the sync PR, supply the canonical Context Pack and Prompt #0005 to Gemini; obtain RC-005 read-only acknowledgment. Execute only after Owner confirms RC-005 PASS — PROCEED WITH B2.",
       "priority": "HIGH",
       "owner": "Human Owner / Gemini",
       "related_task_id": "BVC-TM-P3.3-005"
@@ -365,6 +403,13 @@
       "description": "Continue unrelated continuity pilot and AC-011 baseline/control-plane governance under their own approved Contract; do not conflate them with B2.",
       "priority": "NORMAL",
       "owner": "Human Owner / BVC governance"
+    },
+    {
+      "action_id": "TM-NEXT-B2-004",
+      "description": "After RC-005 passes, Gemini implements and reports B2 strictly under conditional Owner authorization; ChatGPT reviews evidence and the Human Owner alone accepts.",
+      "priority": "HIGH",
+      "owner": "Gemini / ChatGPT / Human Owner",
+      "related_task_id": "BVC-TM-P3.3-005"
     }
   ],
   "recovery": {
@@ -374,5 +419,5 @@
     "last_verified_at": "2026-11-13T16:54:00+07:00",
     "notes": "This revision is prepared against live main SHA 6910a6b3b667b6695742cf0c80f0f0bc47fcc3df before the unified synchronization PR is merged. Reverify main after merge. PR #60 B1 acceptance, PR #62 DR-005 approval and PR #64 B2 Contract approval are merged. Local Windows and GAIS workspace synchronization has not been independently inspected in this pass."
   },
-  "updated_by": "AI-prepared Project State revision 6 from live GitHub main, Owner-approved B1 closeout, merged PR #62 and #64, and BVC unified synchronization package; B2 implementation NOT_STARTED."
+  "updated_by": "AI-prepared Project State revision 7 on B2 synchronization branch; records Owner-confirmed runtime envelope decision A, conditional execution authorization, RC-003 PASS and RC-004 PASS. B2 implementation NOT_STARTED; RC-005 pending."
 }
