@@ -92,11 +92,36 @@ prompts:
   sequence_note: "Prompt #0004 is canonical on main through merged PR #53 and is the first write-capable Phase B prompt. Do not execute until the live GAIS app identity and current app/page.tsx source preflight are complete."
 
 
+- prompt_id: BVCTM-PROMPT-0005
+  title: Phase B2 — Save Your Task
+  authorization_basis: "Human Owner issued explicit conditional B2 Execution Authorization on 2026-11-17 under BVC-TM-TC-005 Revision 1."
+  contract_ref:
+    contract_id: BVC-TM-TC-005
+    revision: 1
+    status: APPROVED
+    path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json
+  context_pack_path: projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml
+  authorization_status: AUTHORIZED_WITHIN_APPROVED_CONTRACT_SCOPE; CONDITIONAL_ON_RC005
+  execution_status: NOT_STARTED; RC005_ACKNOWLEDGMENT_PENDING
+  publication_status: PROPOSED_IN_SYNC_PR; NOT_CANONICAL_UNTIL_MERGED
+  prompt_path: practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md
+  lesson_path: practical-labs/bvc-task-management/phase-b/b2-save-your-task/README.md
+  preflight:
+    rc_001_dr005: PASS
+    rc_002_contract_approval: PASS
+    rc_003_live_gais_preflight: PASS
+    rc_004_clean_editor_and_single_writer: PASS
+    rc_005_executor_scope_acknowledgment: PENDING
+    exact_git_level_b1_source_parity: NOT_VERIFIABLE; not a GAIS GitHub-connection prerequisite
+  owner_decisions:
+    runtime_workspace_envelope: "OWNER CONFIRMED OPTION A on 2026-11-17; PR #64 approval includes the exact storage.format envelope; no separate schema approval."
+    execution_authorization: "OWNER AUTHORIZED WITHIN APPROVED CONTRACT SCOPE on 2026-11-17; conditional on RC-003, RC-004 and RC-005 PASS."
+    gais_github_connection: "NOT_REQUIRED for the Beginner GAIS application workspace."
+  scope_boundary: "MODIFY app/page.tsx only; max 1 changed file, 0 CREATE, 0 DELETE, max 350 diff lines. Browser localStorage only; exact approved envelope and DR-005. No GitHub connection, files, dependencies, config, API, backend, database, Auth, external service, export/import, backup, restore or later-phase features."
+  sequence_note: "After this sync PR is merged, supply the Context Pack and Prompt to Gemini. First response must be the read-only RC-005 acknowledgment; no edit until the Human Owner confirms RC-005 PASS — PROCEED WITH B2. B2 implementation remains NOT_STARTED."
+
 # Next prompt allocation
 next_prompt:
-  next_available_number: 5
-  planned_for_task: BVC-TM-P3.3-005
-  contract_id: BVC-TM-TC-005
-  contract_revision: 1
-  status: NOT_CREATED
-  allocation_rule: "Create and allocate BVCTM-PROMPT-0005 only after live GAIS preflight is complete and the exact prompt content is ready for review. Do not publish or run it before the approved Contract is canonical and the Human Owner separately authorizes execution."
+  next_available_number: 6
+  status: NOT_ALLOCATED
+  allocation_rule: "Allocate BVCTM-PROMPT-0006 only after its task identity, approved Contract and exact prompt are ready for review; never reuse a prior ID."
