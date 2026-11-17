@@ -247,7 +247,7 @@ Validate:
 - projects, tasks, checklistItems and appliedStarterKits are arrays.
 - settings is an object.
 - Each task has a unique non-empty id and a non-empty trimmed title.
-- B2 task records contain only approved id and title fields.
+- Do not create additional task fields in B2. If an existing record contains unrecognized fields that B2 cannot preserve safely, preserve the original stored value and stop rather than stripping or overwriting it.
 
 For malformed JSON, unsupported versions, missing structures or invalid task records:
 - Preserve the original stored value exactly.
