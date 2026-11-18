@@ -58,3 +58,5 @@ BVCTM-050,BVCTM,"docs/continuity/REPOSITORY_CHANGE_SYNC_STANDARD.md; docs/contin
 
 BVCTM-051,BVCTM,practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md,PROMPT,CANONICAL_PROMPT,ON_MAIN,YES_FOR_TASK_005,"Conditional B2 execution prompt; first interaction is the read-only RC-005 executor acknowledgment.","Published by merged PR #67; no GAIS GitHub connection required."
 BVCTM-052,BVCTM,projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml,TASK_CONTEXT_PACK,CANONICAL_CONTEXT_PACK,ON_MAIN,YES_FOR_TASK_005,"B2-specific authority, Owner decisions, preflight, exact runtime envelope, DR-005 copy, scope and acceptance criteria.","Published by merged PR #67; does not amend Contract #005 or grant additional scope."
+
+BVCTM-053,BVCTM,practical-labs/bvc-task-management/GAIS_PROMPT_DELIVERY_STANDARD_V1.0.md,LEARNER_PROMPT_STANDARD,CANONICAL_STANDARD,ON_MAIN,YES_FOR_ALL_GAIS_PROMPTS,"Mandatory Vietnamese-first three-part delivery standard: learner explanation, copy-ready execution prompt, and post-run review guide.","Does not override approved Contracts, Context Packs, Project Instructions or Human Owner authority."
