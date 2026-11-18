@@ -134,9 +134,9 @@ tasks:
   - "https://github.com/donghp/beyond-vibe-coding/pull/64"
   - "Human Owner-supplied BVCTM-PREFLIGHT-0001 report dated 2026-11-17; app/page.tsx SHA-256 1d0be58bdf1c8da452c3d2fcb071034fbb90d5506968b688c8449fc8f14fe373."
   - "Human Owner's conditional B2 Execution Authorization and clean-editor confirmation dated 2026-11-17."
-  - "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md (proposed in this sync PR)."
-  - "projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml (proposed in this sync PR)."
-  next_action: "Owner reviews and merges the Prompt #0005 / Context Pack synchronization PR. Then supply both to Gemini. Gemini must return the read-only RC-005 acknowledgment; implementation may begin only after Owner confirms RC-005 PASS — PROCEED WITH B2."
+  - "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md (canonical on main through merged PR #67; merge commit d4589251f24de90b52460385830bd72738573cba)."
+  - "projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml (canonical on main through merged PR #67; merge commit d4589251f24de90b52460385830bd72738573cba)."
+  next_action: "Supply the canonical Context Pack and Prompt #0005 to Gemini in the existing target GAIS project. Gemini must return the read-only RC-005 acknowledgment; implementation may begin only after Owner confirms RC-005 PASS — PROCEED WITH B2."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
