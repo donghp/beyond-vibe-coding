@@ -1,6 +1,6 @@
 # Stage 4 — Security Testing & Verification
 
-![Stage 4 illustration](images/stage-4-security-testing.png)
+![Stage 4 illustration](images/stage-4-security-testing.svg)
 
 **Purpose:** Demonstrate through authorized testing that security controls behave as intended and that identified weaknesses are fixed and retested.
 
