@@ -1,0 +1,51 @@
+{
+  "guide": "Beyond Vibe Coding - Android Application Security Engineering",
+  "case_study": "Carb SM (fictional delivery platform)",
+  "book": {
+    "title": "BEYOND VIBE CODING",
+    "author": "Dong Hong",
+    "google_play_books_url": "https://play.google.com/store/books/details?id=geQaEgAAQBAJ"
+  },
+  "stages": [
+    {
+      "id": 1,
+      "slug": "play-integrity",
+      "name": "Google Play Integrity API",
+      "purpose": "Evaluate app, device, and account/licensing integrity signals",
+      "owner": ["Android", "Backend"],
+      "illustration": "images/stage-1-play-integrity.png"
+    },
+    {
+      "id": 2,
+      "slug": "rasp",
+      "name": "Runtime Application Self-Protection",
+      "purpose": "Detect runtime tampering and provide risk signals",
+      "owner": ["Android"],
+      "illustration": "images/stage-2-rasp.png"
+    },
+    {
+      "id": 3,
+      "slug": "server-enforcement",
+      "name": "Server-Side Security Enforcement",
+      "purpose": "Authenticate, authorize, validate business rules, and enforce state transitions",
+      "owner": ["Backend"],
+      "illustration": "images/stage-3-server-enforcement.png"
+    },
+    {
+      "id": 4,
+      "slug": "security-testing",
+      "name": "Security Testing and Verification",
+      "purpose": "Test controls, remediate weaknesses, and retain acceptance evidence",
+      "owner": ["QA", "Security", "Engineering"],
+      "illustration": "images/stage-4-security-testing.png"
+    },
+    {
+      "id": 5,
+      "slug": "continuous-security",
+      "name": "Continuous Security and Governance",
+      "purpose": "Monitor, detect, respond, recover, patch, and improve",
+      "owner": ["Product", "Engineering", "Operations"],
+      "illustration": "images/stage-5-continuous-security.png"
+    }
+  ]
+}
