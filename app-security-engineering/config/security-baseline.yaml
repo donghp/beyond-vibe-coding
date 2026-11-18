@@ -1,0 +1,74 @@
+# Illustrative project baseline. Tailor to threat model, policy, and release requirements.
+guide:
+  title: "Beyond Vibe Coding — Security Engineering for Android Applications"
+  case_study: "Carb SM (fictional)"
+  principle: "Security is not a feature. Security is an engineering property."
+  book_url: "https://play.google.com/store/books/details?id=geQaEgAAQBAJ"
+
+release_policy:
+  require_threat_model: true
+  require_security_evidence: true
+  require_backend_authorization_tests: true
+  block_unresolved_critical_findings: true
+  allow_high_risk_exception: true
+  exception_fields:
+    - rationale
+    - risk_owner
+    - approver
+    - compensating_controls
+    - expiry_date
+    - review_date
+
+stages:
+  - id: 1
+    name: "Google Play Integrity API"
+    objective: "Verify app/device/account integrity signals server-side"
+    evidence:
+      - token_verification_test
+      - request_binding_test
+      - freshness_and_replay_test
+      - policy_for_error_and_unavailable
+  - id: 2
+    name: "RASP"
+    objective: "Detect runtime risk and respond proportionately"
+    evidence:
+      - supported_device_test_matrix
+      - runtime_detection_test
+      - false_positive_review
+      - stability_and_privacy_review
+  - id: 3
+    name: "Server-Side Enforcement"
+    objective: "Keep sensitive business actions authoritative on the backend"
+    evidence:
+      - authentication_and_authorization_tests
+      - resource_ownership_tests
+      - workflow_state_tests
+      - atomicity_and_concurrency_tests
+      - replay_idempotency_and_rate_limit_tests
+  - id: 4
+    name: "Security Testing and Verification"
+    objective: "Test defenses, remediate findings, and document outcomes"
+    evidence:
+      - approved_scope_and_test_plan
+      - sast_dast_dependency_reports
+      - penetration_test_report
+      - negative_test_results
+      - retest_and_regression_evidence
+  - id: 5
+    name: "Continuous Security and Governance"
+    objective: "Operate and improve security after release"
+    evidence:
+      - monitoring_and_alert_validation
+      - incident_response_playbook
+      - patch_management
+      - security_kpi_review
+      - exception_and_lessons_learned_review
+
+operational_rules:
+  - "Never treat client-side logic as the final authority."
+  - "Do not store production secrets in the APK, source repository, logs, or AI prompts."
+  - "Use explicit authorization for security testing."
+  - "Use synthetic data in non-production test environments."
+  - "Minimize personal and location data in security telemetry."
+  - "Security signals must be interpreted under documented policy."
+  - "Security exceptions must be approved, time-bounded, and reviewed."
