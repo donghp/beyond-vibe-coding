@@ -1,7 +1,7 @@
 schema_version: "0.1.0"
 pack_id: "BVC-TM-P3.3-005-CONTEXT-PACK"
 title: "B2 — Save Your Task"
-status: "PROPOSED_IN_SYNC_PR; CANONICAL_AFTER_OWNER_MERGE"
+status: "CANONICAL_ON_MAIN; PUBLISHED_BY_MERGED_PR_67"
 prepared_date: "2026-11-17"
 
 project:
@@ -17,7 +17,7 @@ project:
   target_gais_application_id: "ca589018-617d-4919-bbe2-6b9c588ccd85"
   repository: "https://github.com/donghp/beyond-vibe-coding"
   default_branch: "main"
-  inspected_main_sha: "65f8e3856ec6b44ee21a98db77008ae6326f7d58"
+  inspected_main_sha: "d4589251f24de90b52460385830bd72738573cba"
 
 authority:
   order:
@@ -75,6 +75,10 @@ readiness:
     - "On 2026-11-17 the Human Owner confirmed app/page.tsx is fully saved, with no unsaved/dirty editor change or pending editor modification."
     - "Source SHA-256 is identical across 2026-11-16 and 2026-11-17 read-only inspections."
     - "GitHub connection is not required for this Beginner GAIS task; absence of .git is not an unsynchronized-source finding."
+  publication:
+    status: "CANONICAL_ON_MAIN"
+    pull_request: "https://github.com/donghp/beyond-vibe-coding/pull/67"
+    merge_commit: "d4589251f24de90b52460385830bd72738573cba"
   rc_005_executor_scope_acknowledgment: "PENDING"
   rc_005_completion_rule: >-
     Gemini receives this Context Pack and canonical Prompt #0005, returns the
