@@ -30,11 +30,11 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 | Lesson | Status | Required dependency / evidence |
 |---|---|---|
 | B1 — Create Your First Task | **COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS** (Owner decision 2026-11-12; PR #60) | Human Owner reviewed the supplied `app/page.tsx` and confirmed the live GAIS Code view contains one Page component. The GAIS Preview showed the task-capture screen and the after-refresh empty state. | A complete archived manual Preview test set and independently reviewable before/after GAIS file inventory are not present in the repository. Do not convert unrecorded checks into PASS. Preserve these limitations; B1 remains closed. |
-| B2 — Save Your Task | **CONTRACT APPROVED; EXECUTION NOT STARTED** (PR #64) | DR-005 is approved (PR #62). `BVC-TM-TC-005 Revision 1` is Owner-approved and canonical. It allows MODIFY `app/page.tsx` only. | Live GAIS app/source preflight, source parity, single-writer confirmation, canonical Prompt #0005 and separate Owner execution instruction are pending. No browser persistence is yet claimed. |
+| B2 — Save Your Task | **CONTRACT APPROVED; OWNER AUTHORIZED CONDITIONALLY; EXECUTION NOT STARTED** (PR #64; Owner authorization 2026-11-17) | DR-005 and Contract #005 Revision 1 are canonical. RC-003 and RC-004 are PASS based on the 2026-11-17 live revalidation and Owner-confirmed clean editor/single-writer state. The runtime envelope is Owner-confirmed under Option A; no separate schema approval is required. | Prompt #0005 and task-specific Context Pack are proposed in the current sync PR; canonical after Owner merge. Gemini RC-005 acknowledgment remains pending. Exact Git-level parity to a post-B1 source commit is NOT_VERIFIABLE because GAIS has no .git; a GitHub connection is not required. B2 runtime implementation remains NOT_STARTED; no browser persistence is claimed. |
 | B3 — Close and Reopen | Planned — depends on B2 | Same app origin and browser profile must show the exact saved task after reload/reopen. |
 | B4 — Improve One Small Thing | Planned — depends on B1–B3 | One bounded, approved improvement is made; relevant B1–B3 regression checks pass. |
 
-**Phase B status:** B1 is Owner-accepted with known limitations. DR-005 is APPROVED via PR #62. B2 Contract BVC-TM-TC-005 Revision 1 is Owner-approved and canonical via PR #64. B2 implementation remains NOT_STARTED until live GAIS preflight passes and the Human Owner separately instructs execution. Publishing a Contract or lesson does not prove application behavior.
+**Phase B status:** B1 is Owner-accepted with known limitations. DR-005 is APPROVED via PR #62. B2 Contract BVC-TM-TC-005 Revision 1 is Owner-approved and canonical via PR #64. The Human Owner issued conditional execution authorization on 2026-11-17. RC-003 and RC-004 are PASS; RC-005 awaits Gemini's read-only scope acknowledgment after receipt of canonical Prompt #0005 and Context Pack. B2 implementation remains NOT_STARTED until the Owner confirms RC-005 PASS — PROCEED WITH B2. Publishing a Contract or prompt does not prove application behavior.
 
 
 ### Phase A closure and Phase B entry gate
@@ -93,3 +93,6 @@ Do not mark a lesson Published merely because a Markdown file exists.
 A lesson with unverified controls, missing authentic screenshots, incomplete prompt evidence, unresolved decisions, or untested application behavior remains Draft or Evidence Required.
 
 A successful build is not proof of product behavior. A design package is not proof of runtime implementation. AI's final response is not Human Owner acceptance.
+
+
+**B2 gate update — 2026-11-17:** RC-003 PASS; RC-004 PASS (Owner confirmed clean editor and no competing writer). RC-005 PENDING until Gemini receives the canonical Prompt #0005 and Context Pack and returns the read-only scope acknowledgment. The Owner's execution authorization is already received and conditional; do not request it again. No GitHub connection is required in the learner's GAIS project. Exact Git-level accepted-B1 source parity remains NOT_VERIFIABLE, separately from the clean current GAIS editor state.

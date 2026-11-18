@@ -105,30 +105,38 @@ tasks:
   revision: 1
   title: "Phase B2 — Save Your Task"
   status: APPROVED
-  execution_status: NOT_STARTED; PRE_EXECUTION_GATES_PENDING
+  execution_status: NOT_STARTED; CONDITIONAL_AUTHORIZATION_RECEIVED; RC005_ACKNOWLEDGMENT_PENDING
   risk_level: R2
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json
   approval_reference: "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
   publication_status: "MERGED_PR_64; CANONICAL_ON_MAIN"
+  execution_authorization: AUTHORIZED_WITHIN_APPROVED_CONTRACT_SCOPE_CONDITIONAL
+  authorization_reference: "Human Owner issued explicit B2 Execution Authorization in ChatGPT on 2026-11-17. Authorization is conditional on RC-003, RC-004 and RC-005 all being PASS."
   allowed_gaIs_changes:
   - "MODIFY app/page.tsx only"
   forbidden_changes:
   - "No CREATE or DELETE."
-  - "No dependencies, lockfiles, configuration, routes, global CSS, database, Auth, APIs, external services or cloud sync."
-  - "No Projects, Checklists, Settings, backup/import/export/restore or later-phase feature."
-  execution_authorization: NOT_GRANTED
+  - "No dependencies, lockfiles, configuration, routes, global CSS, layout, metadata, database, Auth, APIs, external services or cloud sync."
+  - "No GitHub connection from the Beginner GAIS project."
+  - "No Projects, Checklists, Settings page, backup/import/export/restore or later-phase feature."
   readiness:
     dr005: PASS
     contract_approval: PASS
-    live_gais_preflight: PENDING
-    source_parity: PENDING
-    single_writer_check: PENDING
-    separate_owner_execution_instruction: PENDING
-  next_action: "Preflight the existing GAIS app identity and current app/page.tsx, confirm source parity and one-file scope, verify no competing writer, then prepare the canonical Context Pack/Prompt. Execute only after a separate Human Owner instruction."
-  scope: "Persist the accepted B1 title-only task list in the approved versioned Beginner localStorage workspace, integrate DR-005 disclosure and truthful load/save error behavior. Runtime behavior remains NOT_STARTED."
+    rc_003_live_gais_preflight: PASS
+    rc_004_owner_confirmed_clean_editor_and_single_writer: PASS
+    rc_005_executor_scope_acknowledgment: PENDING
+    exact_git_level_b1_source_parity: NOT_VERIFIABLE
+    gais_github_connection: NOT_REQUIRED
+    execution_gate: BLOCKED_PENDING_RC005
+  scope: "Persist accepted B1 title-only task list in the Owner-approved versioned Beginner localStorage workspace and integrate exact DR-005 disclosure and truthful load/save error behavior. Only app/page.tsx; max 350 diff lines; zero create/delete."
   evidence_refs:
   - "https://github.com/donghp/beyond-vibe-coding/pull/62"
   - "https://github.com/donghp/beyond-vibe-coding/pull/64"
+  - "Human Owner-supplied BVCTM-PREFLIGHT-0001 report dated 2026-11-17; app/page.tsx SHA-256 1d0be58bdf1c8da452c3d2fcb071034fbb90d5506968b688c8449fc8f14fe373."
+  - "Human Owner's conditional B2 Execution Authorization and clean-editor confirmation dated 2026-11-17."
+  - "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md (proposed in this sync PR)."
+  - "projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml (proposed in this sync PR)."
+  next_action: "Owner reviews and merges the Prompt #0005 / Context Pack synchronization PR. Then supply both to Gemini. Gemini must return the read-only RC-005 acknowledgment; implementation may begin only after Owner confirms RC-005 PASS — PROCEED WITH B2."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001

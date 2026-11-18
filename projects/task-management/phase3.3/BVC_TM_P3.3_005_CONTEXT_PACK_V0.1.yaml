@@ -1,0 +1,273 @@
+schema_version: "0.1.0"
+pack_id: "BVC-TM-P3.3-005-CONTEXT-PACK"
+title: "B2 — Save Your Task"
+status: "PROPOSED_IN_SYNC_PR; CANONICAL_AFTER_OWNER_MERGE"
+prepared_date: "2026-11-17"
+
+project:
+  id: "BVC-TASK-MANAGEMENT"
+  name: "BVC Task Management — A Simple Daily Work Manager"
+  program: "BEYOND VIBE CODING — Build & Learn"
+  task_id: "BVC-TM-P3.3-005"
+  task_title: "PHASE B2 — SAVE YOUR TASK"
+  contract_id: "BVC-TM-TC-005"
+  contract_revision: 1
+  contract_status: "APPROVED"
+  risk_level: "R2"
+  target_gais_application_id: "ca589018-617d-4919-bbe2-6b9c588ccd85"
+  repository: "https://github.com/donghp/beyond-vibe-coding"
+  default_branch: "main"
+  inspected_main_sha: "65f8e3856ec6b44ee21a98db77008ae6326f7d58"
+
+authority:
+  order:
+    - "Human Owner decisions and explicit execution authorization."
+    - "Approved Contract BVC-TM-TC-005 Revision 1."
+    - "Approved DR-005 and accepted Beginner design baselines."
+    - "This Context Pack and canonical Prompt #0005; neither may expand the Contract."
+  contract_path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+  contract_url: "https://github.com/donghp/beyond-vibe-coding/blob/main/projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+  owner_decisions:
+    runtime_envelope_approval:
+      date: "2026-11-17"
+      owner_choice: "A"
+      status: "OWNER_CONFIRMED"
+      statement: >-
+        Approval of Contract #005 Revision 1 through merged PR #64 also
+        approved the exact runtime workspace envelope in storage.format.
+        No separate schema approval is required.
+      effect: >-
+        Treat the envelope defined below as approved. The older explanatory
+        sentence in storage.scope_note that calls it a proposal subject to
+        separate approval is superseded on this approval question only.
+        Contract Revision 1 is not modified.
+    execution_authorization:
+      date: "2026-11-17"
+      status: "AUTHORIZED_WITHIN_APPROVED_CONTRACT_SCOPE; CONDITIONAL"
+      authorized_executor: "Gemini in Google AI Studio"
+      condition: "RC-003, RC-004 and RC-005 must all be PASS before any implementation write."
+      effect: >-
+        The Contract's original NOT_GRANTED field describes the state when it
+        was approved. A later, separate Owner authorization is now recorded;
+        it remains conditional until all three readiness gates pass.
+    gais_github_connection:
+      status: "NOT_REQUIRED"
+      statement: >-
+        The Beginner GAIS project is the learner's application build/Preview
+        workspace and does not need a GitHub connection. GitHub is the
+        canonical home for BVC governance and learning documents. Do not
+        connect GitHub from the GAIS project.
+
+readiness:
+  rc_001_dr005: "PASS"
+  rc_002_contract_approval: "PASS"
+  rc_003_live_gais_preflight: "PASS"
+  rc_003_evidence:
+    - "Runtime Applet ID directly observed on 2026-11-17 matches the Contract target."
+    - "Complete app/page.tsx and project inventory re-inspected read-only on 2026-11-17."
+    - "Current source: 3,703 bytes; 115 newline-terminated lines / 116 numbered editor lines."
+    - "Current SHA-256: 1d0be58bdf1c8da452c3d2fcb071034fbb90d5506968b688c8449fc8f14fe373."
+    - "Current source identical to the 2026-11-16 reinspection source."
+    - "Historical Owner screenshot dated 2026-11-16 showed the same app ID in browser URL; runtime metadata independently confirms the current target."
+  rc_004_source_and_single_writer: "PASS"
+  rc_004_evidence:
+    - "Human Owner previously confirmed no other person, agent, browser tab, IDE or process was modifying this GAIS app."
+    - "On 2026-11-17 the Human Owner confirmed app/page.tsx is fully saved, with no unsaved/dirty editor change or pending editor modification."
+    - "Source SHA-256 is identical across 2026-11-16 and 2026-11-17 read-only inspections."
+    - "GitHub connection is not required for this Beginner GAIS task; absence of .git is not an unsynchronized-source finding."
+  rc_005_executor_scope_acknowledgment: "PENDING"
+  rc_005_completion_rule: >-
+    Gemini receives this Context Pack and canonical Prompt #0005, returns the
+    structured acknowledgment without editing any file, and waits for the
+    Human Owner to confirm RC-005 PASS — PROCEED WITH B2.
+  residual_limitations:
+    - "No .git directory exists in the GAIS applet workspace."
+    - "Exact Git-level parity to an authoritative accepted B1 source commit/hash is NOT_VERIFIABLE; no authoritative post-B1 source commit/hash is available."
+    - "This Git-level limitation does not require GAIS to connect to GitHub and does not block RC-003 or RC-004."
+    - "The AI inspector cannot see browser editor chrome; clean editor state is OWNER_CONFIRMED."
+
+preflight_baseline:
+  date: "2026-11-17"
+  mode: "STRICT READ-ONLY; NO IMPLEMENTATION"
+  write_actions: "NONE"
+  app_page_ts:
+    path: "app/page.tsx"
+    bytes: 3703
+    newline_terminated_lines: 115
+    editor_numbered_lines: 116
+    sha256: "1d0be58bdf1c8da452c3d2fcb071034fbb90d5506968b688c8449fc8f14fe373"
+    comparison: "Identical to the 2026-11-16 read-only preflight source."
+    b1_semantic_review: "Eight functional behaviors PASS on static source inspection; browser runtime checks NOT_RUN during strict read-only inspection."
+  inventory:
+    application_source:
+      - "app/page.tsx"
+      - "app/layout.tsx"
+      - "app/not-found.tsx"
+      - "app/globals.css"
+      - "hooks/use-mobile.ts"
+      - "lib/utils.ts"
+    configuration_metadata:
+      - "metadata.json"
+      - "next.config.ts"
+      - "next-env.d.ts"
+      - "tsconfig.json"
+      - "postcss.config.mjs"
+      - "eslint.config.mjs"
+      - ".eslintrc.json"
+      - ".env.example"
+      - ".gitignore"
+    dependency_files:
+      - "package.json"
+      - "bun.lock"
+    runtime_generated:
+      - ".next/"
+      - "node_modules/"
+    git_directory: "ABSENT"
+  unchanged_scaffold_details:
+    - "metadata.json and app/layout.tsx still have historical title BVC Task Management Scaffold Inspection."
+    - "Do not change metadata.json, app/layout.tsx or any other file under B2."
+
+scope:
+  allowed:
+    modify:
+      - "app/page.tsx"
+    create: []
+    delete: []
+  budgets:
+    max_changed_files: 1
+    max_created_files: 0
+    max_modified_files: 1
+    max_deleted_files: 0
+    max_binary_files: 0
+    max_diff_lines: 350
+  prohibited:
+    - "Any file other than app/page.tsx."
+    - "Dependency, lockfile, configuration, metadata, route, layout or CSS changes."
+    - "New packages, API routes, backend services, server filesystem writes or external services."
+    - "Supabase, Firebase, PostgreSQL, Auth, RLS or cloud synchronization."
+    - "GitHub connection or GitHub operations from the learner's GAIS project."
+    - "Task editing/deletion/completion, Projects, Checklists, Settings pages or Starter Kits."
+    - "Backup, restore, JSON export/import or file generation."
+    - "Any change to Contract #005 Revision 1 or the approved runtime workspace envelope."
+  stop_policy: "STOP_WITHOUT_OUT_OF_SCOPE_WRITE; REPORT_AND_WAIT_FOR_OWNER"
+
+learning_outcome:
+  - "Explain React in-memory state versus browser-local persistence."
+  - "Save the B1 title-only task list in the current browser profile."
+  - "Load valid saved tasks after a normal reload in the same app origin/profile."
+  - "Understand storage limitations and exact DR-005 disclosure."
+  - "Observe truthful malformed-data and browser-storage error handling."
+
+storage:
+  provider: "Browser localStorage"
+  key: "bvc-task-management:workspace:v1"
+  envelope:
+    format: "bvc-task-management-workspace"
+    formatVersion: 1
+    sourceMode: "browser"
+    workspaceId: "<stable UUID generated once on first successful persistence>"
+    data:
+      projects: []
+      tasks:
+        - id: "<UUID generated for each new task>"
+          title: "<non-empty trimmed task title>"
+      checklistItems: []
+      settings: {}
+      appliedStarterKits: []
+  rules:
+    - "One key only; never split workspace data across multiple keys."
+    - "Do not write an empty default workspace on mount."
+    - "Read and validate before enabling writes."
+    - "Use crypto.randomUUID() for workspace and task IDs; if unavailable, stop."
+    - "Build the complete next envelope, serialize, call setItem once, then update React state and clear input only after success."
+    - "On write failure preserve previous tasks and title input; never show a false saved state."
+    - "On malformed/unsupported data preserve the exact stored value and disable writes."
+    - "Do not silently fall back to sessionStorage or memory while claiming persistence."
+    - "Cross-tab synchronization is out of scope."
+    - "No backup, export/import, restore or file generation in B2."
+
+dr_005:
+  status: "APPROVED"
+  decision_register: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+  copy: |
+    Where your tasks are stored
+
+    In Beginner mode, your tasks are stored in this browser on this device. They do not automatically sync to other browsers or devices.
+
+    Clearing this site's browser data may delete your tasks.
+
+    Browser storage is not a separate backup. You will learn to export a JSON backup in a later lesson.
+
+    Do not enter passwords, API keys, or sensitive information in this learning app.
+  action: "Got it — continue"
+  acknowledgement_state: "Component memory only for current page session; no extra storage key."
+  new_workspace: "Require acknowledgement before first persisted task."
+  existing_valid_workspace: "Show the disclosure as a readable non-blocking notice/control."
+
+acceptance_criteria:
+  - id: "B2-AC-001"
+    requirement: "Fresh page session shows DR-005 before first task persistence; no write before acknowledgement."
+  - id: "B2-AC-002"
+    requirement: "Rendered disclosure matches approved DR-005 copy exactly."
+  - id: "B2-AC-003"
+    requirement: "Valid task saved under exact key and versioned workspace envelope."
+  - id: "B2-AC-004"
+    requirement: "Workspace reloads after refresh in same origin/profile; two tasks appear once in insertion order."
+  - id: "B2-AC-005"
+    requirement: "All accepted B1 behaviors preserved: trim, validation, Enter, clear input/error, insertion order and empty state."
+  - id: "B2-AC-006"
+    requirement: "Malformed JSON and unsupported version preserved; writes disabled; use disposable profile only."
+  - id: "B2-AC-007"
+    requirement: "Storage read/write failures reported truthfully; previous tasks and title preserved."
+  - id: "B2-AC-008"
+    requirement: "Only app/page.tsx changes."
+  - id: "B2-AC-009"
+    requirement: "Disclosure and form usable at compact phone and desktop widths."
+  - id: "B2-AC-010"
+    requirement: "Human Owner reviews source/diff, Preview and evidence, and explicitly accepts."
+  - id: "B2-AC-011"
+    requirement: "No later-phase feature, API, database, Auth, cloud sync or export/import added."
+
+sources:
+  - id: "CONTRACT-005"
+    authority: "APPROVED"
+    path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+    url: "https://github.com/donghp/beyond-vibe-coding/blob/main/projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+  - id: "DR-005"
+    authority: "APPROVED"
+    path: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    url: "https://github.com/donghp/beyond-vibe-coding/blob/main/projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+  - id: "DATA-MODEL"
+    authority: "APPROVED DESIGN INPUT"
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+    url: "https://github.com/donghp/beyond-vibe-coding/blob/main/projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+  - id: "APPLICATION-ARCHITECTURE"
+    authority: "ACCEPTED DESIGN INPUT"
+    path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_APPLICATION_ARCHITECTURE_V0.1.md"
+    url: "https://github.com/donghp/beyond-vibe-coding/blob/main/projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_APPLICATION_ARCHITECTURE_V0.1.md"
+  - id: "INTERACTION-SPECIFICATION"
+    authority: "APPROVED INPUT"
+    path: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md"
+    url: "https://github.com/donghp/beyond-vibe-coding/blob/main/projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_INTERACTION_SPECIFICATION_V0.1.md"
+  - id: "PROJECT-INSTRUCTIONS"
+    authority: "CANONICAL; EXECUTION-TIME COPY IN GAIS"
+    path: "practical-labs/bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md"
+    url: "https://github.com/donghp/beyond-vibe-coding/blob/main/practical-labs/bvc-task-management/PROJECT_INSTRUCTIONS_V0.1.md"
+  - id: "B1-LESSON"
+    authority: "CANONICAL LEARNER RECORD"
+    path: "practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md"
+    url: "https://github.com/donghp/beyond-vibe-coding/blob/main/practical-labs/bvc-task-management/phase-b/b1-create-your-first-task/README.md"
+
+execution_sequence:
+  - "Owner reviews and merges the single sync PR with Prompt #0005, this Context Pack, lesson embedding and companion records."
+  - "Human Owner supplies the complete Context Pack and canonical Prompt #0005 to Gemini; no GAIS GitHub connection is needed."
+  - "Gemini returns the read-only RC-005 acknowledgment and makes no change."
+  - "Human Owner reviews the acknowledgment and sends RC-005 PASS — PROCEED WITH B2."
+  - "Gemini implements only app/page.tsx under the conditional Owner authorization."
+  - "ChatGPT reviews source, changed-file evidence, Preview behavior and all acceptance criteria."
+  - "Human Owner explicitly accepts or rejects B2."
+non_authority:
+  - "This Context Pack does not amend Contract #005 Revision 1."
+  - "This Context Pack does not grant additional scope or authority."
+  - "This Context Pack does not certify implementation or runtime behavior."
+  - "No B2 implementation has started as of 2026-11-17."

@@ -1,6 +1,6 @@
 evidence_index_version: 0.1.0
 project_id: BVC-TASK-MANAGEMENT
-evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; B2_CONTRACT_APPROVED; B2_EXECUTION_NOT_STARTED
+evidence_status: TASK_003_ACCEPTED_WITH_KNOWN_LIMITATIONS; B1_COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; B2_CONTRACT_APPROVED; RC003_RC004_PASS; OWNER_CONDITIONAL_EXECUTION_AUTHORIZATION_RECEIVED; RC005_PENDING; B2_EXECUTION_NOT_STARTED
 classification_legend:
   REPOSITORY_VERIFIED: Directly checked against current GitHub main or canonical file.
   OWNER_SUPPLIED: Provided by Human Owner in the conversation; binary/source may not be committed.
@@ -197,3 +197,32 @@ evidence:
   observed_at: '2026-11-13'
   claim: "A unified repository change synchronization standard, impact matrix, validator, tests, GitHub Actions workflow and reconciled BVCTM continuity/learner records have been prepared together."
   limitations: "The branch is not yet merged; CI checks and post-merge machine snapshot remain pending."
+
+- evidence_id: BVC-EV-029
+  subject: B2 live GAIS strict read-only revalidation — 2026-11-17
+  classification: OWNER_SUPPLIED
+  source: "Human Owner supplied BVCTM-PREFLIGHT-0001 report in ChatGPT on 2026-11-17"
+  observed_at: '2026-11-17'
+  claim: "Runtime Applet ID matches the B2 target. Current app/page.tsx was re-read as 3,703 bytes, 115 newline-terminated lines, SHA-256 1d0be58bdf1c8da452c3d2fcb071034fbb90d5506968b688c8449fc8f14fe373, identical to the 2026-11-16 preflight source. File inventory and source scans were performed read-only."
+  limitations: "No .git directory exists in GAIS. Exact Git-level parity to an authoritative accepted B1 commit/hash remains NOT_VERIFIABLE. Runtime B1 interactions were not run in this strict read-only inspection."
+- evidence_id: BVC-EV-030
+  subject: Human Owner confirmation of clean GAIS editor and conditional B2 execution authorization
+  classification: OWNER_CONFIRMED
+  source: "Human Owner confirmation and explicit B2 Execution Authorization in ChatGPT on 2026-11-17"
+  observed_at: '2026-11-17'
+  claim: "The Human Owner confirmed app/page.tsx is fully saved with no unsaved/dirty editor changes or pending modifications, reaffirmed single-writer status, and authorized B2 within Contract #005 Revision 1 subject to RC-003, RC-004 and RC-005 all passing."
+  limitations: "This is an Owner confirmation of the external GAIS editor state, not an independently observed browser-editor signal. RC-005 executor acknowledgment remains pending."
+- evidence_id: BVC-EV-031
+  subject: Owner clarification approving B2 runtime workspace envelope — Option A
+  classification: OWNER_CONFIRMED
+  source: "Human Owner clarification in ChatGPT on 2026-11-17"
+  observed_at: '2026-11-17'
+  claim: "Approval of Contract #005 Revision 1 through merged PR #64 also approved the exact runtime workspace envelope in storage.format; no separate schema approval is required."
+  limitations: "The approved envelope remains exactly bounded by Contract #005 Revision 1. Contract file was not revised."
+- evidence_id: BVC-EV-032
+  subject: Prompt #0005 and B2 Context Pack publication proposal
+  classification: PROPOSAL_ONLY
+  source: "Branch bvc/tm-b2-prompt-0005; Prompt and Context Pack paths recorded in the Prompt Register and lesson."
+  observed_at: '2026-11-17'
+  claim: "Prepared B2 execution Prompt #0005, task-specific Context Pack, lesson embedding and synchronized task/prompt/evidence records for Human Owner review."
+  limitations: "These outputs are not canonical until the Human Owner merges the synchronization PR. Gemini has not acknowledged RC-005 and B2 implementation has not started."
