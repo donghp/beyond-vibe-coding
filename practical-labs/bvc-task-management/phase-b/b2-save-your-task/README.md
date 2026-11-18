@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued conditional B2 Execution Authorization on 2026-11-17. RC-003 and RC-004 are PASS; RC-005 remains pending Gemini's read-only scope acknowledgment. Prompt #0005 and the task-specific Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba). GAIS implementation is NOT_STARTED.
+**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued conditional B2 Execution Authorization on 2026-11-17. RC-003, RC-004 and RC-005 are PASS. Gemini returned the complete read-only Stage 1 acknowledgment, and the Human Owner explicitly confirmed RC-005 PASS — PROCEED WITH B2 on 2026-11-18. Prompt #0005 and the task-specific Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba). GAIS implementation is NOT_STARTED.
 
 ## 1. What you will learn
 
@@ -39,7 +39,7 @@ For the Beginner learning level:
 
 A Vietnamese reference translation is recorded in the canonical Product/UX Decision Register. The approved English copy above is authoritative for the current Beginner implementation.
 
-**Implementation authority:** `BVC-TM-TC-005 Revision 1` is the approved Contract. It defines the exact one-file boundary, workspace schema, DR-005 acknowledgement behavior, load/save order, storage-error handling and acceptance criteria. The Human Owner separately issued conditional execution authorization on 2026-11-17. RC-003 and RC-004 are PASS; RC-005 must be completed before any edit. The Owner's Option A clarification confirms that PR #64 also approved the exact runtime envelope in storage.format; no separate schema approval is required.
+**Implementation authority:** `BVC-TM-TC-005 Revision 1` is the approved Contract. It defines the exact one-file boundary, workspace schema, DR-005 acknowledgement behavior, load/save order, storage-error handling and acceptance criteria. The Human Owner separately issued conditional execution authorization on 2026-11-17. All conditions were satisfied when the Owner confirmed RC-005 PASS — PROCEED WITH B2 on 2026-11-18. Stage 2 is authorized, but implementation and runtime persistence are not yet evidenced. The Owner's Option A clarification confirms that PR #64 also approved the exact runtime envelope in storage.format; no separate schema approval is required.
 
 ## 3. Before you begin
 
@@ -89,13 +89,13 @@ A success message alone is not proof that data was saved. B2 Contract requires i
 
 Before execution, verify the existing GAIS app ID, inspect the live `app/page.tsx`, compare it with the Owner-provided B1 source, review the Code/File Explorer changed-file inventory and confirm there is no competing writer. Stop if more than `app/page.tsx` must change. GitHub is the canonical home for Product, UX, Architecture, Governance, Contracts, Prompts and evidence. GAIS is only the app build/Preview workspace. Do not create repository-level `design/`, `governance/`, `task-contracts/`, `continuity/` or register folders inside GAIS. Supply only the lesson Context Pack, approved Contract and canonical Prompt.
 
-**Prompt status:** BVCTM-PROMPT-0005 and its task-specific Context Pack are prepared in the current synchronization PR. They are not canonical until the Human Owner merges that PR. After merge, supply the Context Pack and Prompt to Gemini. Gemini's first response must be the read-only RC-005 acknowledgment. Do not edit until the Human Owner confirms `RC-005 PASS — PROCEED WITH B2`. No GitHub connection is required in the beginner's GAIS project.
+**Prompt status:** BVCTM-PROMPT-0005 and its task-specific Context Pack are canonical on `main` through merged PR #67; their post-merge records were reconciled by PR #68. Stage 1 is complete and the Human Owner confirmed `RC-005 PASS — PROCEED WITH B2` on 2026-11-18. Gemini may begin Stage 2 only after immediate pre-write checks pass. No GitHub connection is required in the beginner's GAIS project.
 
 ## 7.1 Canonical execution prompt — BVCTM-PROMPT-0005
 
 The full copy-ready [Prompt #0005 — Phase B2: Save Your Task](../../prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md) and its [B2 Context Pack](../../../../projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml) are maintained in their canonical locations.
 
-Provide Gemini with the complete canonical Context Pack and Prompt #0005. The first Gemini response is an acknowledgment only. Do not ask Gemini to edit until the Human Owner confirms RC-005 PASS.
+Provide Gemini with the complete canonical Context Pack and Prompt #0005. Stage 1 acknowledgment and the Owner gate are complete. Follow the Stage 2 Vietnamese learner guide below before sending the implementation instruction.
 
 ### Copy-and-paste Prompt #0005
 
@@ -394,6 +394,60 @@ This Prompt and the approved Context Pack apply only to BVC-TM-P3.3-005 under BV
 
 **The first response is RC-005 acknowledgment only. Do not edit until the Human Owner sends: RC-005 PASS — PROCEED WITH B2.**
 ~~~~
+
+
+## 7.2 Stage 2 — Vietnamese guide for the learner
+
+**Bối cảnh:** Newbie đã hoàn thành B1: tạo và hiển thị task bằng React state. Dữ liệu B1 chỉ tồn tại trong bộ nhớ của trang; khi refresh Preview, danh sách không được bảo đảm còn nguyên. B2 bổ sung khả năng lưu workspace vào browser `localStorage` để ứng dụng đọc lại dữ liệu sau khi refresh trong cùng browser profile và app origin.
+
+### Mục đích
+
+Giúp người học hiểu sự khác nhau giữa dữ liệu tạm trong React state và dữ liệu được lưu trong trình duyệt. Đây là bài thực hành đầu tiên về persistence, nhưng vẫn không cần backend, database hay tài khoản người dùng.
+
+### Mục tiêu
+
+1. Hiển thị thông báo DR-005 đúng nội dung và yêu cầu xác nhận trước lần lưu đầu tiên.
+2. Đọc và kiểm tra dữ liệu đã lưu trước khi cho phép ghi.
+3. Lưu task theo đúng workspace envelope và key đã được phê duyệt.
+4. Refresh Preview và nhìn thấy lại task theo thứ tự ban đầu.
+5. Xử lý dữ liệu lỗi và lỗi storage mà không âm thầm xóa hoặc ghi đè dữ liệu.
+6. Giữ nguyên hành vi tạo task của B1.
+
+### Kết quả mong muốn
+
+Newbie tạo hai task, refresh Preview trong cùng browser profile và thấy cả hai task vẫn còn, đúng thứ tự. Workspace dùng key `bvc-task-management:workspace:v1` và format/version trong Contract. `localStorage` không phải cloud sync hoặc backup.
+
+### Gemini sẽ thực hiện gì?
+
+- Kiểm tra lại đúng GAIS application, source hiện tại và danh sách file trước khi sửa.
+- Phân loại read-only thư mục `public/assets/aistudio/` và hai file Prompt/Context Pack đã upload: xác định đây là attachment do nền tảng quản lý hay file thuộc project. Không sửa, xóa, đổi tên hoặc di chuyển chúng.
+- Chỉ tiếp tục nếu việc phân loại xác nhận attachment không làm phát sinh thay đổi ngoài phạm vi Contract.
+- Sửa duy nhất `app/page.tsx` để bổ sung load, validate, disclosure và save.
+- Kiểm tra source, Preview, thao tác tạo task, refresh và báo cáo từng acceptance criterion.
+
+### Newbie cần làm gì?
+
+1. Dùng Gemini 4 Hydrogen — model đang hiển thị trong GAIS và đã thực hiện Stage 1 acknowledgment.
+2. Giữ nguyên project GAIS hiện tại; không Remix, không tạo app mới và không kết nối GitHub.
+3. Gửi Stage 2 instruction dưới đây trong cùng cuộc trò chuyện Gemini.
+4. Quan sát Preview và báo cáo; không yêu cầu thêm tính năng ngoài Contract.
+5. Gửi toàn bộ báo cáo, source/diff và ảnh Preview cho người hướng dẫn review.
+
+### Phạm vi, giới hạn và tiêu chí dừng
+
+Chỉ được sửa `app/page.tsx`. Tối đa 1 file thay đổi và 350 dòng diff; không tạo hoặc xóa file. Không thêm dependency, database, API, Auth, GitHub integration, export/import, backup, restore hoặc tính năng phase sau.
+
+Nếu `app/page.tsx` không còn khớp baseline, editor chưa lưu, có writer khác, hoặc thư mục attachment là file thuộc project mới được thêm sau preflight và làm vi phạm giới hạn zero CREATE, Gemini phải dừng và báo cáo. Không tự tìm cách lách phạm vi.
+
+## 7.3 Stage 2 — Copy-and-paste instruction
+
+The Human Owner has confirmed `RC-005 PASS — PROCEED WITH B2` on 2026-11-18. All conditions of the previously issued conditional execution authorization are satisfied.
+
+Before the first write, re-confirm the target Application ID, current `app/page.tsx` hash, saved editor, single-writer condition and file inventory. The preflight hash is a comparison baseline, not permission to overwrite a changed source.
+
+Special handling for `public/assets/aistudio/`: classify the two uploaded Prompt/Context Pack files read-only. Preserve them. If they are platform-managed attachments that are not application project changes, proceed without modifying them. If they are project-owned files newly added after preflight and therefore conflict with the Contract's zero-create/one-file boundary, STOP and report; do not delete, move or alter them.
+
+If all pre-write checks pass, implement the full B2 requirements in Prompt #0005 and Contract #005 Revision 1. Modify only `app/page.tsx`; maximum 350 diff lines; zero create/delete. Provide the complete source or exact diff, changed-file inventory, hash/line/byte counts, Preview evidence, and B2-AC-001 through B2-AC-011 results. Do not claim Human Owner acceptance.
 
 ## 8. Next lesson
 
