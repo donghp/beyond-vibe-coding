@@ -389,3 +389,18 @@ For the exact chapter sequence and repository traceability, see the [Book Chapte
 ---
 
 **Security First. Human in Control. AI as Executor. Evidence before Acceptance.**
+
+
+## Security is an engineering property
+
+> **Security is not a feature. Security is an engineering property.**
+
+BVC requires security reasoning from the first prompt, not as a final hardening task. Every project must scale security controls to its data, users, exposure, and business impact. Client applications and devices are untrusted; the server remains authoritative for identity, authorization, and critical business rules. AI-generated code must be reviewed and verified with evidence.
+
+The normative baseline and lifecycle gates are defined in [BVC-SEC-STD-001 — Security Architecture & Security Gates](../standards/SECURITY_ARCHITECTURE_GATES.md). Practical execution resources:
+
+- [Threat Modeling Before Implementation](../prompts/security-gates/01_threat_modeling_prompt.md)
+- [Server-Side Security Gate Implementation](../prompts/security-gates/02_server_gate_implementation.md)
+- [Authorized Client Tampering & Server Enforcement Tests](../prompts/security-gates/tamper_test_checklist.md)
+
+This open methodology contains generic patterns and synthetic examples only. It must not contain private production credentials, customer data, internal infrastructure details, or restricted operational evidence.
