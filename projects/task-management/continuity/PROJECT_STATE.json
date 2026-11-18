@@ -1,9 +1,9 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 10,
+  "revision": 11,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-18T11:02:00+07:00",
+  "state_as_of": "2026-11-18T16:10:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
@@ -17,7 +17,7 @@
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-B2-SAVE-YOUR-TASK",
     "title": "Phase B2 — Save Your Task",
-    "status": "B2_IMPLEMENTATION_REPORTED; STATIC_REVIEW_BUILD_LINT_REPORTED_PASS; OWNER_LIVE_VERIFICATION_PENDING"
+    "status": "B2_IMPLEMENTATION_REPORTED; LOCALSTORAGE_KEY_AND_TOP_LEVEL_ENVELOPE_SCREENSHOT_VERIFIED; TASK_RECORD_EXPANSION_AND_RELOAD_PENDING; OWNER_ACCEPTANCE_PENDING"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -27,8 +27,7 @@
     "Phase A A1–A4 is learner-path COMPLETED; this does not mean the full product is complete.",
     "B1 / BVC-TM-P3.3-004 was Owner-accepted on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; preserve the missing archived manual-test and independent changed-file-inventory limitations.",
     "DR-005 is APPROVED and canonical on main through PR #62.",
-    "B2 / BVC-TM-P3.3-005 / BVC-TM-TC-005 Revision 1 is Owner-approved and canonical on main through PR #64; GAIS implementation has not started.",
-    "B2 Stage 2 was reported implemented in app/page.tsx on 2026-11-18. The executor reports build and lint success and static source review. The Human Owner must still verify task save, browser Local Storage, refresh/reload, interactive B1 regressions, responsive layout and safe error tests before acceptance."
+    "B2 Stage 2 was reported implemented in app/page.tsx on 2026-11-18. The executor reports build and lint success and static source review. The Human Owner's Local Storage screenshot shows the correct runtime origin, exact workspace key and parsed top-level envelope metadata alongside two Preview tasks. Expand data.tasks to verify the two stored records, then refresh/reload in the same profile/origin and complete remaining B1/runtime checks before acceptance."
   ],
   "facts": [
     {
@@ -286,6 +285,16 @@
         "https://github.com/donghp/beyond-vibe-coding/actions/runs/44226736083",
         "GitHub Actions job log 134541608638 on 2026-11-18"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-028",
+      "statement": "On 2026-11-18, the Human Owner supplied a GAIS screenshot showing the Task Management Preview with `Prepare weekly work plan` and `Review project milestones`, while Chrome DevTools is open at Application → Storage → Local Storage for runtime origin `https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app`. The exact key `bvc-task-management:workspace:v1` is visible. The parsed value displays `format=bvc-task-management-workspace`, `formatVersion=1`, `sourceMode=browser`, and a non-empty workspaceId. The `data` subtree is collapsed, so the screenshot does not expose the stored task records themselves. The screenshot supports key/top-level envelope inspection; task record comparison and refresh/reload persistence remain pending.",
+      "classification": "OWNER_SUPPLIED",
+      "source_refs": [
+        "Human Owner screenshot supplied in ChatGPT on 2026-11-18",
+        "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-local-storage-devtools.webp",
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+      ]
     }
   ],
   "decisions": [
@@ -352,11 +361,11 @@
       "contract_revision": 1,
       "status": "APPROVED",
       "owner": "Human Owner operates GAIS; Gemini executes after RC-005 gate; ChatGPT coordinates and reviews",
-      "execution_status": "IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; OWNER_LIVE_VERIFICATION_PENDING",
+      "execution_status": "IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; LOCALSTORAGE_KEY_AND_TOP_LEVEL_ENVELOPE_SCREENSHOT_VERIFIED; TASK_RECORD_EXPANSION_AND_RELOAD_PENDING; OWNER_ACCEPTANCE_PENDING",
       "approval_reference": "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b.",
       "risk_level": "R2",
       "scope": "MODIFY app/page.tsx only; Beginner localStorage task workspace and DR-005 disclosure; no other files, packages, database, Auth or external services.",
-      "next_action": "Human Owner manually verifies first-use acknowledgement, creates two tasks, inspects exact browser localStorage key/envelope, refreshes same origin/profile and confirms restoration/order, tests B1 empty/whitespace/Enter behaviors, and reviews desktop/mobile Preview. Use disposable profile for malformed-data and storage-error runtime tests. ChatGPT reviews evidence; Owner alone accepts."
+      "next_action": "Human Owner expands data.tasks in the current Local Storage value and confirms the two stored task IDs/titles match the Preview. Then refresh Preview in the same browser profile/origin and verify both tasks remain in order. Complete B1 interactive regression and responsive checks; ChatGPT reviews evidence and Human Owner alone accepts."
     }
   ],
   "blocked_items": [
@@ -439,39 +448,39 @@
     },
     {
       "action_id": "TM-NEXT-B2-005",
-      "description": "COMPLETED 2026-11-18: PR #67 merged; Prompt #0005 and B2 Context Pack are canonical on main. Continue with Gemini read-only RC-005 acknowledgment.",
+      "description": "COMPLETED: PR #67 merged; Prompt #0005 and Context Pack are canonical. RC-005 and Owner Stage 2 authorization are complete.",
       "priority": "NORMAL",
       "owner": "ChatGPT",
       "related_task_id": "BVC-TM-P3.3-005"
     },
     {
       "action_id": "TM-NEXT-B2-006",
-      "description": "Prepare and run the B2 Stage 2 implementation in target GAIS. Preserve platform-uploaded prompt/context attachments and stop if their classification creates any scope conflict. Only app/page.tsx may be modified.",
-      "priority": "URGENT",
+      "description": "COMPLETED 2026-11-18: Gemini reported Stage 2 implementation in app/page.tsx; source report and Preview evidence recorded.",
+      "priority": "NORMAL",
       "owner": "Gemini / Human Owner",
       "related_task_id": "BVC-TM-P3.3-005"
     },
     {
       "action_id": "TM-NEXT-B2-007",
-      "description": "Complete B2 live acceptance verification: test first-use disclosure, add two tasks, inspect exact localStorage envelope, refresh/reload, run B1 interactive regression and review desktop/mobile Preview. Run malformed-data/storage-error tests only in a disposable profile.",
+      "description": "URGENT: Expand data.tasks in the current Local Storage value; compare both stored IDs/titles with Preview. Refresh Preview in the same profile/origin and confirm both tasks remain in order. Then finish B1 interactive regression and desktop/mobile checks. Use a disposable profile for malformed-data/storage-error tests.",
       "priority": "URGENT",
       "owner": "Human Owner / ChatGPT",
       "related_task_id": "BVC-TM-P3.3-005"
     },
     {
-      "action_id": "TM-NEXT-B2-007",
-      "description": "Complete B2 live acceptance verification: test first-use disclosure, add two tasks, inspect exact localStorage envelope, refresh/reload, run B1 interactive regression and review desktop/mobile Preview. Run malformed-data/storage-error tests only in a disposable browser profile.",
-      "priority": "URGENT",
-      "owner": "Human Owner / ChatGPT",
+      "action_id": "TM-NEXT-B2-008",
+      "description": "Maintain the owner-supplied GAIS Local Storage screenshot and beginner-friendly DevTools walkthrough in the B2 lesson; verify the embedded asset and Markdown references during PR checks.",
+      "priority": "NORMAL",
+      "owner": "ChatGPT",
       "related_task_id": "BVC-TM-P3.3-005"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@ab542dff88e1c8ff2fdc5bd790913dddf285443d (PR #69 squash-merge; latest verified base for B2 evidence synchronization)",
-    "source_commit": "ab542dff88e1c8ff2fdc5bd790913dddf285443d",
+    "recovery_point_ref": "main@4acdb4a805e6718c20bb93a4219f1dc600706c0a (PR #70 merge; latest verified base for Local Storage visual guide)",
+    "source_commit": "4acdb4a805e6718c20bb93a4219f1dc600706c0a",
     "verified": true,
-    "last_verified_at": "2026-11-18T11:02:00+07:00",
-    "notes": "Revision 10 is prepared against main after PR #69 squash-merged at ab542dff88e1c8ff2fdc5bd790913dddf285443d. Repository sync completeness passed. The post-merge continuity refresh machine snapshot push succeeded but the PR creation step failed because GITHUB_TOKEN cannot create pull requests; that machine snapshot is not semantic Owner-reviewed continuity. B2 Stage 2 implementation is executor-reported; live browser persistence verification and Owner acceptance remain pending."
+    "last_verified_at": "2026-11-18T16:10:00+07:00",
+    "notes": "Revision 11 is prepared against main after PR #70 merged at 4acdb4a805e6718c20bb93a4219f1dc600706c0a. B2 implementation remains executor-reported. Owner screenshot shows the exact localStorage key and parsed top-level envelope metadata at the runtime Preview origin, with two tasks visible. The data.tasks branch remains collapsed in the screenshot and must be expanded to compare stored task records. Refresh/reload, B1 interactive regression and final Owner acceptance remain pending. Post-merge continuity-refresh PR creation remains blocked by the GITHUB_TOKEN permission limitation recorded in BVC-EV-034."
   },
-  "updated_by": "AI-prepared Project State revision 10; records Owner-supplied Gemini B2 Stage 2 implementation report, screenshot evidence, outstanding runtime verification, and post-PR-69 workflow permission failure."
+  "updated_by": "AI-prepared Project State revision 11 on Local Storage visual-guide synchronization branch; records Owner-supplied Local Storage screenshot and the precise remaining verification gaps."
 }
