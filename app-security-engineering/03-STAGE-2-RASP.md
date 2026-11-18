@@ -1,6 +1,6 @@
 # Stage 2 — Runtime Application Self-Protection (RASP)
 
-![Stage 2 illustration](images/stage-2-rasp.png)
+![Stage 2 illustration](images/stage-2-rasp.svg)
 
 **Purpose:** Add runtime detection and response capabilities inside the Android app to raise the cost of tampering and provide risk signals.
 
