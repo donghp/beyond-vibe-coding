@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued conditional B2 Execution Authorization on 2026-11-17. RC-003 and RC-004 are PASS; RC-005 remains pending Gemini's read-only scope acknowledgment. Prompt #0005 and the task-specific Context Pack are proposed in the current sync PR and become canonical only after Owner merge. GAIS implementation is NOT_STARTED.
+**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued conditional B2 Execution Authorization on 2026-11-17. RC-003 and RC-004 are PASS; RC-005 remains pending Gemini's read-only scope acknowledgment. Prompt #0005 and the task-specific Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba). GAIS implementation is NOT_STARTED.
 
 ## 1. What you will learn
 
@@ -95,7 +95,7 @@ Before execution, verify the existing GAIS app ID, inspect the live `app/page.ts
 
 The full copy-ready [Prompt #0005 — Phase B2: Save Your Task](../../prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md) and its [B2 Context Pack](../../../../projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml) are maintained in their canonical locations.
 
-After the synchronization PR is merged, provide Gemini with the complete Context Pack and Prompt #0005. The first Gemini response is an acknowledgment only. Do not ask Gemini to edit until the Human Owner confirms RC-005 PASS.
+Provide Gemini with the complete canonical Context Pack and Prompt #0005. The first Gemini response is an acknowledgment only. Do not ask Gemini to edit until the Human Owner confirms RC-005 PASS.
 
 ### Copy-and-paste Prompt #0005
 
