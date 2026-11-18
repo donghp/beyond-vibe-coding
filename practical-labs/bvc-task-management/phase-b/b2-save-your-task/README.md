@@ -466,13 +466,14 @@ Parser kiểm tra chính xác key set và từ chối record có field lạ ho�
 
 **Lưu ý:** review source tĩnh không chứng minh thao tác trong browser đã hoạt động.
 
-### C. Ba ảnh GAIS do Human Owner cung cấp
+### C. Bốn ảnh GAIS do Human Owner cung cấp
 
 Các ảnh chụp màn hình gửi ngày 18/11/2026 được dùng làm bằng chứng hình ảnh cho bài học:
 
 1. **Ảnh Code / Gemini trong lúc thực hiện:** hiển thị GAIS Code Explorer, file `app/page.tsx` và bối cảnh Gemini đang chạy Stage 2.
 2. **Ảnh Preview sau triển khai:** hiển thị BVC Task Management — B2 Browser Storage, toàn bộ thông báo DR-005 và nút `Got it — continue`.
 3. **Ảnh Code Explorer / source cuối:** hiển thị `app/page.tsx` là file đang xem, vùng form và danh sách Tasks ở phần cuối source.
+4. **Ảnh Preview sau khi chạy Stage 2 (ảnh mới nhất):** DR-005 vẫn hiển thị; không còn nút `Got it — continue`; ô `Task title` và nút `Add task` đang hoạt động; danh sách vẫn hiển thị trạng thái rỗng. Điều này phù hợp với trạng thái sau khi acknowledgment đã được thực hiện trong phiên hiện tại hoặc một workspace hợp lệ đã được nạp. Đây là bằng chứng ảnh của giao diện sẵn sàng nhập task, không phải bằng chứng task đã được lưu.
 
 Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. Chúng **không chứng minh** task đã được ghi vào localStorage, còn tồn tại sau refresh, hoặc các tình huống lỗi đã được kiểm thử.
 
