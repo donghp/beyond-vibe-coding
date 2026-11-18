@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. Live task save, Local Storage inspection, refresh/reload and Human Owner acceptance remain pending. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
+**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. The Owner-supplied Local Storage screenshot now shows the correct runtime origin, exact workspace key and parsed top-level envelope metadata alongside the two Preview tasks. The data.tasks array has not yet been expanded in the evidence image, and post-refresh restoration remains pending. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
 
 ## 1. What you will learn
 
@@ -466,16 +466,17 @@ Parser kiểm tra chính xác key set và từ chối record có field lạ ho�
 
 **Lưu ý:** review source tĩnh không chứng minh thao tác trong browser đã hoạt động.
 
-### C. Bốn ảnh GAIS do Human Owner cung cấp
+### C. Năm ảnh GAIS do Human Owner cung cấp
 
 Các ảnh chụp màn hình gửi ngày 18/11/2026 được dùng làm bằng chứng hình ảnh cho bài học:
 
 1. **Ảnh Code / Gemini trong lúc thực hiện:** hiển thị GAIS Code Explorer, file `app/page.tsx` và bối cảnh Gemini đang chạy Stage 2.
 2. **Ảnh Preview sau triển khai:** hiển thị BVC Task Management — B2 Browser Storage, toàn bộ thông báo DR-005 và nút `Got it — continue`.
 3. **Ảnh Code Explorer / source cuối:** hiển thị `app/page.tsx` là file đang xem, vùng form và danh sách Tasks ở phần cuối source.
-4. **Ảnh Preview sau khi chạy Stage 2 (ảnh mới nhất):** DR-005 vẫn hiển thị; không còn nút `Got it — continue`; ô `Task title` và nút `Add task` đang hoạt động; danh sách vẫn hiển thị trạng thái rỗng. Điều này phù hợp với trạng thái sau khi acknowledgment đã được thực hiện trong phiên hiện tại hoặc một workspace hợp lệ đã được nạp. Đây là bằng chứng ảnh của giao diện sẵn sàng nhập task, không phải bằng chứng task đã được lưu.
+4. **Ảnh Preview sau khi chạy Stage 2:** DR-005 vẫn hiển thị; không còn nút `Got it — continue`; ô `Task title` và nút `Add task` đang hoạt động; danh sách lúc đó còn rỗng. Ảnh thể hiện trạng thái sau acknowledgement, trước khi newbie tạo task.
+5. **Ảnh Local Storage thực tế (18/11/2026):** Preview hiển thị hai task; Chrome DevTools đang ở Application → Storage → Local Storage, chọn đúng runtime origin `ais-dev-...run.app`; bảng có key `bvc-task-management:workspace:v1`; parsed value hiển thị `format`, `formatVersion`, `sourceMode` và `workspaceId`. Nút mở rộng `data` vẫn đang thu gọn trong ảnh, vì vậy chưa đọc được hai task records bên trong JSON.
 
-Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. Chúng **không chứng minh** task đã được ghi vào localStorage, còn tồn tại sau refresh, hoặc các tình huống lỗi đã được kiểm thử.
+Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. Ảnh Local Storage mới xác nhận key và metadata cấp cao đang hiển thị; cần mở rộng `data → tasks` để đối chiếu hai record. Ảnh tĩnh này cũng chưa chứng minh các task còn tồn tại sau refresh.
 
 ### D. Trạng thái kiểm chứng
 
@@ -483,7 +484,7 @@ Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. C
 |---|---|---|
 | B2-AC-001 — DR-005 trước lần lưu đầu | SCREENSHOT EVIDENCE; INTERACTIVE NOT_RUN | Owner click nút xác nhận và thử trước/sau xác nhận |
 | B2-AC-002 — Nội dung DR-005 chính xác | STATIC / SCREENSHOT REVIEW REPORTED PASS | Owner đối chiếu nội dung hiển thị trong Preview |
-| B2-AC-003 — Lưu đúng key/envelope | STATIC REVIEW REPORTED PASS; STORAGE INSPECTION NOT_RUN | DevTools Local Storage của app origin |
+| B2-AC-003 — Lưu đúng key/envelope | **OWNER SCREENSHOT: KEY + TOP-LEVEL ENVELOPE VISIBLE; TASK ARRAY NOT EXPANDED** | Mở rộng `data` rồi `tasks`; đối chiếu hai ID và hai title trong value |
 | B2-AC-004 — Hai task còn sau refresh | NOT_RUN | Tạo hai task, refresh cùng profile/origin, kiểm tra thứ tự |
 | B2-AC-005 — B1 regression | STATIC REVIEW REPORTED PASS; INTERACTIVE NOT_RUN | Thử empty, whitespace, Enter, input/error clearing |
 | B2-AC-006 — Malformed/unsupported data | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Disposable profile only |
@@ -501,11 +502,13 @@ Thực hiện trong đúng GAIS app và cùng browser profile:
 2. Tạo task thứ nhất: `Prepare weekly work plan`.
 3. Tạo task thứ hai: `Review project milestones`.
 4. Kiểm tra cả hai task hiển thị đúng một lần và theo thứ tự thêm.
-5. Mở Chrome DevTools → Application → Local Storage → app origin hiện tại. Kiểm tra key `bvc-task-management:workspace:v1` và cấu trúc envelope. Chỉ đọc, không chỉnh sửa giá trị.
-6. Refresh Preview. Xác nhận cả hai task vẫn còn và đúng thứ tự.
-7. Thử input rỗng, chỉ có dấu cách, và gửi task bằng Enter.
-8. Chụp ảnh Preview có hai task và Local Storage key/value. Chỉ dùng tên task giả lập, không đưa dữ liệu nhạy cảm.
-9. Không thử dữ liệu malformed hoặc storage error trên profile trình duyệt đang sử dụng thực tế. Nếu cần, dùng profile dùng một lần (disposable profile).
+5. Mở Chrome DevTools → **Application** → **Storage** → **Local Storage**. Chọn origin runtime của app Preview có dạng `https://ais-dev-...run.app`. Không chọn `https://aistudio.google.com`: đó là trang Google AI Studio bao bọc ứng dụng, không phải origin của Preview.
+6. Chọn key `bvc-task-management:workspace:v1`. Kiểm tra parsed value có `format = bvc-task-management-workspace`, `formatVersion = 1`, `sourceMode = browser` và một `workspaceId` dạng UUID.
+7. Trong cây parsed value phía dưới, bấm tam giác cạnh `data`, sau đó mở `tasks`. Đối chiếu hai object có `id` riêng biệt và `title` lần lượt là `Prepare weekly work plan` và `Review project milestones`. Không chỉ dựa vào danh sách đang hiển thị bên Preview.
+8. Refresh Preview trong cùng browser profile/origin. Hai task phải xuất hiện lại đúng thứ tự. Sau đó kiểm tra Local Storage lần nữa để xác nhận key vẫn còn.
+9. Thử input rỗng, chỉ có dấu cách, và gửi task bằng Enter.
+10. Chụp ảnh Preview có hai task, Local Storage key và phần `data.tasks` đã mở rộng. Chỉ dùng tên task giả lập, không đưa dữ liệu nhạy cảm.
+11. Không thử dữ liệu malformed hoặc storage error trên profile trình duyệt đang sử dụng thực tế. Nếu cần, dùng profile dùng một lần (disposable profile).
 
 Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Việc các thao tác trên đạt kết quả không tự động thay thế quyết định Owner acceptance.
 
@@ -516,6 +519,55 @@ Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Việc
 - **Malformed-data / storage-error runtime:** NOT_RUN.
 - **B2-AC-010 Owner acceptance:** NOT_VERIFIED.
 - **Publication / release / deployment:** NOT_CLAIMED.
+
+## 7.4 Local Storage in Chrome DevTools — GAIS visual walkthrough
+
+### Mục đích
+
+Local Storage là vùng lưu dữ liệu theo **origin** của website. Origin gồm giao thức, hostname và port (nếu có). GAIS Preview chạy trong runtime origin riêng, vì vậy dữ liệu của ứng dụng nằm ở origin runtime, không nằm trong origin của trang Google AI Studio đang bao bọc nó.
+
+### Ảnh minh họa thực tế
+
+Ảnh dưới đây do Human Owner chụp từ GAIS Preview ngày 18/11/2026. Bên trái là ứng dụng với hai task; bên phải là Chrome DevTools đang chọn Application → Storage → Local Storage và key workspace của B2.
+
+![GAIS Preview with two tasks and Chrome DevTools showing the B2 Local Storage key and parsed workspace metadata](assets/b2-local-storage-devtools.webp)
+
+*Hình: Runtime origin của Preview được chọn trong Local Storage. Key `bvc-task-management:workspace:v1` xuất hiện trong bảng; parsed value cho thấy `format`, `formatVersion`, `sourceMode` và `workspaceId`.*
+
+### Làm theo từng bước
+
+1. **Mở Developer Tools:** nhấn `F12` trong Chrome.
+2. **Mở tab Application:** nếu không thấy tab này, bấm dấu `»` ở thanh tab DevTools rồi chọn **Application**.
+3. **Mở Local Storage:** trong thanh điều hướng bên trái của Application, tìm nhóm **Storage**, mở **Local Storage**.
+4. **Chọn đúng origin:** chọn origin runtime của Preview có dạng `https://ais-dev-...run.app`. Trong ảnh minh họa, frame origin là `https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app`. Không chọn origin `https://aistudio.google.com` để tìm dữ liệu của app.
+5. **Tìm key:** trong bảng bên phải, cột **Key** phải có `bvc-task-management:workspace:v1`. Cột **Value** là dữ liệu JSON được lưu.
+6. **Đọc parsed value:** bấm vào dòng key. Ở vùng parsed object phía dưới, xác nhận:
+   - `format`: `bvc-task-management-workspace`
+   - `formatVersion`: `1`
+   - `sourceMode`: `browser`
+   - `workspaceId`: một UUID không rỗng.
+7. **Mở danh sách task:** bấm tam giác cạnh `data`, rồi mở `tasks`. Cần nhìn thấy hai object task và đối chiếu đúng title với Preview. Trong ảnh minh họa hiện tại, `data` vẫn thu gọn; người học cần thực hiện thao tác mở rộng này để hoàn thiện bằng chứng.
+8. **Kiểm tra sau refresh:** refresh Preview trong cùng browser profile/origin. Hai task phải xuất hiện lại đúng thứ tự. Sau đó kiểm tra Local Storage lần nữa để xác nhận key vẫn tồn tại.
+
+### Cách đọc kết quả
+
+| Thành phần | Ý nghĩa | Điều cần xác nhận |
+|---|---|---|
+| Origin | Website/app đang sở hữu vùng lưu trữ | Là runtime `ais-dev-...run.app` |
+| Key | Tên mục lưu trữ | Chính xác `bvc-task-management:workspace:v1` |
+| format | Loại workspace | `bvc-task-management-workspace` |
+| formatVersion | Phiên bản schema | `1` |
+| sourceMode | Nguồn lưu | `browser` |
+| workspaceId | ID ổn định của workspace | UUID không rỗng |
+| data.tasks | Mảng công việc đã lưu | Có hai task; mỗi task có `id` và `title` đúng |
+
+**An toàn:** chỉ quan sát dữ liệu. Không sửa trực tiếp Value, không bấm Delete, không dùng Clear site data/Clear storage và không xóa Local Storage để “thử lại”. Các thử nghiệm malformed data hoặc storage error chỉ được thực hiện trong disposable browser profile.
+
+### Trạng thái bằng chứng của ảnh hiện tại
+
+- **Đã quan sát:** runtime origin được chọn; key chính xác xuất hiện; parsed object cho thấy metadata cấp cao; Preview hiển thị hai task.
+- **Cần làm tiếp:** mở rộng `data → tasks` để đối chiếu hai task records với hai title trong Preview.
+- **Chưa chứng minh:** hai task vẫn còn sau một lần refresh. Cần thực hiện refresh và quan sát lại Preview.
 
 ## 8. Next lesson
 
