@@ -137,7 +137,6 @@ tasks:
   - "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md (canonical on main through merged PR #67; merge commit d4589251f24de90b52460385830bd72738573cba)."
   - "projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml (canonical on main through merged PR #67; merge commit d4589251f24de90b52460385830bd72738573cba)."
   owner_gate_confirmation: "Human Owner explicitly sent RC-005 PASS — PROCEED WITH B2 on 2026-11-18 after reviewing Gemini's complete read-only acknowledgment."
-  evidence_refs:
   - "Gemini Stage 1 RC-005 EXECUTOR ACKNOWLEDGMENT supplied by Human Owner on 2026-11-18; Gemini reported no files were modified."
   next_action: "Gemini performs Stage 2 immediate pre-write checks in target GAIS, classifies and preserves the two uploaded Prompt/Context Pack attachments, then implements only app/page.tsx if all stop checks pass. Human Owner retains final acceptance authority."
 
