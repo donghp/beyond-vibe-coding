@@ -1,9 +1,9 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 7,
+  "revision": 8,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-17T22:16:00+07:00",
+  "state_as_of": "2026-11-18T07:22:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
@@ -17,7 +17,7 @@
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-B2-SAVE-YOUR-TASK",
     "title": "Phase B2 — Save Your Task",
-    "status": "CONTRACT_APPROVED; PRE_EXECUTION_PREFLIGHT_PENDING; EXECUTION_NOT_STARTED"
+    "status": "PROMPT_AND_CONTEXT_CANONICAL; RC005_ACKNOWLEDGMENT_PENDING; EXECUTION_NOT_STARTED"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -28,7 +28,7 @@
     "B1 / BVC-TM-P3.3-004 was Owner-accepted on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; preserve the missing archived manual-test and independent changed-file-inventory limitations.",
     "DR-005 is APPROVED and canonical on main through PR #62.",
     "B2 / BVC-TM-P3.3-005 / BVC-TM-TC-005 Revision 1 is Owner-approved and canonical on main through PR #64; GAIS implementation has not started.",
-    "Before B2 execution, complete the live GAIS app/source preflight, verify the single-file scope and no competing writer, publish a lesson Context Pack/Prompt, then obtain the separate Owner execution instruction required by the Contract."
+    "Prompt #0005 and the B2 Context Pack are canonical on main through merged PR #67; RC-003/RC-004 are PASS, and the remaining pre-execution gate is Gemini's read-only RC-005 acknowledgment followed by the Owner's explicit RC-005 PASS — PROCEED WITH B2."
   ],
   "facts": [
     {
@@ -246,6 +246,16 @@
         "Human Owner B2 Execution Authorization in ChatGPT dated 2026-11-17",
         "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-024",
+      "statement": "PR #67 merged on 2026-11-18 with merge commit d4589251f24de90b52460385830bd72738573cba. It publishes the canonical B2 Prompt #0005 and Context Pack plus the lesson embedding and companion records. This publication does not start GAIS implementation or pass RC-005.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "https://github.com/donghp/beyond-vibe-coding/pull/67",
+        "practical-labs/bvc-task-management/prompts/BVCTM_PROMPT_0005_PHASE_B2_SAVE_YOUR_TASK.md",
+        "projects/task-management/phase3.3/BVC_TM_P3.3_005_CONTEXT_PACK_V0.1.yaml"
+      ]
     }
   ],
   "decisions": [
@@ -316,13 +326,13 @@
       "approval_reference": "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b.",
       "risk_level": "R2",
       "scope": "MODIFY app/page.tsx only; Beginner localStorage task workspace and DR-005 disclosure; no other files, packages, database, Auth or external services.",
-      "next_action": "Owner reviews and merges Prompt #0005 and its lesson-specific Context Pack; then supplies both to Gemini for RC-005 read-only acknowledgment. No code edit until Owner confirms RC-005 PASS — PROCEED WITH B2."
+      "next_action": "Human Owner supplies canonical Context Pack and Prompt #0005 to Gemini in target GAIS; Gemini returns read-only RC-005 acknowledgment. Only after Owner confirms RC-005 PASS — PROCEED WITH B2 may Gemini edit app/page.tsx."
     }
   ],
   "blocked_items": [
     {
       "issue_id": "TM-BLOCK-B2-PREFLIGHT",
-      "description": "B2 Contract and conditional Owner Execution Authorization are in place. RC-003 and RC-004 are PASS. Code execution remains blocked only until Prompt #0005/Context Pack are canonical and Gemini completes RC-005 acknowledgment, followed by the Owner's RC-005 PASS — PROCEED WITH B2 confirmation.",
+      "description": "Prompt #0005 and Context Pack are canonical on main through merged PR #67. RC-003 and RC-004 are PASS. Code execution remains blocked only until Gemini completes RC-005 acknowledgment and the Human Owner confirms RC-005 PASS — PROCEED WITH B2.",
       "status": "BLOCKED",
       "owner": "Human Owner / ChatGPT coordinator",
       "reference": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json; https://github.com/donghp/beyond-vibe-coding/pull/64"
@@ -385,20 +395,6 @@
       "related_task_id": "BVC-TM-P3.3-005"
     },
     {
-      "action_id": "TM-NEXT-B2-002",
-      "description": "Prepare and publish Prompt #0005, the B2-specific Context Pack, embedded lesson prompt and companion continuity records in one sync PR.",
-      "priority": "URGENT",
-      "owner": "ChatGPT",
-      "related_task_id": "BVC-TM-P3.3-005"
-    },
-    {
-      "action_id": "TM-NEXT-B2-003",
-      "description": "After Owner merges the sync PR, supply the canonical Context Pack and Prompt #0005 to Gemini; obtain RC-005 read-only acknowledgment. Execute only after Owner confirms RC-005 PASS — PROCEED WITH B2.",
-      "priority": "HIGH",
-      "owner": "Human Owner / Gemini",
-      "related_task_id": "BVC-TM-P3.3-005"
-    },
-    {
       "action_id": "TM-NEXT-CONT-001",
       "description": "Continue unrelated continuity pilot and AC-011 baseline/control-plane governance under their own approved Contract; do not conflate them with B2.",
       "priority": "NORMAL",
@@ -410,6 +406,13 @@
       "priority": "HIGH",
       "owner": "Gemini / ChatGPT / Human Owner",
       "related_task_id": "BVC-TM-P3.3-005"
+    },
+    {
+      "action_id": "TM-NEXT-B2-005",
+      "description": "COMPLETED 2026-11-18: PR #67 merged; Prompt #0005 and B2 Context Pack are canonical on main. Continue with Gemini read-only RC-005 acknowledgment.",
+      "priority": "NORMAL",
+      "owner": "ChatGPT",
+      "related_task_id": "BVC-TM-P3.3-005"
     }
   ],
   "recovery": {
@@ -419,5 +422,5 @@
     "last_verified_at": "2026-11-13T16:54:00+07:00",
     "notes": "This revision is prepared against live main SHA 6910a6b3b667b6695742cf0c80f0f0bc47fcc3df before the unified synchronization PR is merged. Reverify main after merge. PR #60 B1 acceptance, PR #62 DR-005 approval and PR #64 B2 Contract approval are merged. Local Windows and GAIS workspace synchronization has not been independently inspected in this pass."
   },
-  "updated_by": "AI-prepared Project State revision 7 on B2 synchronization branch; records Owner-confirmed runtime envelope decision A, conditional execution authorization, RC-003 PASS and RC-004 PASS. B2 implementation NOT_STARTED; RC-005 pending."
+  "updated_by": "AI-prepared Project State revision 8 on post-PR-#67 reconciliation branch; records verified merge publication only. RC-005 remains pending and B2 implementation NOT_STARTED."
 }
