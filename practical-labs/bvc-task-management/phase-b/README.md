@@ -53,6 +53,10 @@ When you refresh the page during B1, the temporary task may disappear. That is e
 - Do not claim a task is saved merely because it appears in the list.
 - Capture real Preview evidence. An AI explanation is not proof that the feature works.
 
+## B2 visual guide
+
+For the real GAIS walkthrough of **Application → Storage → Local Storage**, including the owner-supplied screenshot, runtime-origin selection and workspace-key inspection, see [B2 — Local Storage in Chrome DevTools](b2-save-your-task/README.md#local-storage-in-chrome-devtools).
+
 ## Lesson navigation
 
 - [B1 — Create Your First Task](b1-create-your-first-task/README.md)
