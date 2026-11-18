@@ -226,3 +226,18 @@ evidence:
   observed_at: '2026-11-17'
   claim: "Prepared B2 execution Prompt #0005, task-specific Context Pack, lesson embedding and synchronized task/prompt/evidence records for Human Owner review."
   limitations: "These outputs are not canonical until the Human Owner merges the synchronization PR. Gemini has not acknowledged RC-005 and B2 implementation has not started."
+
+- evidence_id: BVC-EV-033
+  subject: B2 Stage 2 implementation report and GAIS screenshots
+  classification: OWNER_SUPPLIED
+  source: "Human Owner supplied Gemini B2 Stage 2 implementation report and three GAIS screenshots in ChatGPT on 2026-11-18"
+  observed_at: '2026-11-18'
+  claim: "Gemini reports only app/page.tsx modified, 10,960 bytes, 302 newline-terminated lines, SHA-256 4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e, zero created/deleted files, build success, ESLint zero errors/warnings, HTTP 200 SSR response, and the two platform-managed prompt/context attachments preserved. Screenshots show the Code/assistant context, B2 Preview with DR-005 disclosure and Got it — continue action, and app/page.tsx Code Explorer/source view."
+  limitations: "Evidence is Owner-supplied and executor-reported. Interactive task save, browser Local Storage inspection, two-task persistence after refresh, B1 interactive regression, malformed-data runtime, storage-error runtime and viewport checks remain NOT_RUN. B2-AC-010 Owner acceptance remains NOT_VERIFIED."
+- evidence_id: BVC-EV-034
+  subject: B2 post-merge continuity-refresh workflow failure after PR #69
+  classification: VERIFIED_FACT
+  source: "GitHub Actions run 44226736123 and job 134541608638 for merge commit ab542dff88e1c8ff2fdc5bd790913dddf285443d"
+  observed_at: '2026-11-18'
+  claim: "The machine snapshot update was committed and pushed to automation/continuity-refresh. The final pull-request creation step failed because GitHub Actions GITHUB_TOKEN is not permitted to create pull requests. Repository sync completeness workflow succeeded."
+  limitations: "The machine snapshot was not submitted through an Owner-reviewed continuity PR and is not treated as canonical semantic status. Do not claim the full continuity refresh workflow succeeded."
