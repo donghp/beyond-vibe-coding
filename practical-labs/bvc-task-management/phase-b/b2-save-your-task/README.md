@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued conditional B2 Execution Authorization on 2026-11-17. RC-003, RC-004 and RC-005 are PASS. Gemini returned the complete read-only Stage 1 acknowledgment, and the Human Owner explicitly confirmed RC-005 PASS — PROCEED WITH B2 on 2026-11-18. Prompt #0005 and the task-specific Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba). GAIS implementation is NOT_STARTED.
+**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. Live task save, Local Storage inspection, refresh/reload and Human Owner acceptance remain pending. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
 
 ## 1. What you will learn
 
@@ -396,7 +396,42 @@ This Prompt and the approved Context Pack apply only to BVC-TM-P3.3-005 under BV
 ~~~~
 
 
-## 7.2 Stage 2 implementation report — 2026-11-18
+## 7.2 Stage 2 — Vietnamese guide for the learner
+
+### Bối cảnh
+
+Ở B1, newbie đã tạo và hiển thị task thành công, nhưng danh sách chỉ nằm trong React state (bộ nhớ tạm của trang). Khi refresh, trang có thể mất danh sách đó. B2 chuyển task sang browser `localStorage` để ứng dụng có thể đọc lại dữ liệu ở lần mở trang tiếp theo trong cùng browser profile và app origin.
+
+### Mục đích
+
+Giúp newbie hiểu và thực hành khái niệm **persistence (lưu dữ liệu lâu dài hơn vòng đời trang)** mà chưa cần backend, database, đăng nhập hay cloud sync.
+
+### Mục tiêu
+
+1. Hiển thị đầy đủ thông báo DR-005 và yêu cầu xác nhận trước lần lưu đầu.
+2. Đọc và kiểm tra dữ liệu lưu sẵn trước khi cho phép ghi.
+3. Lưu task theo đúng key và workspace envelope đã được Owner duyệt.
+4. Refresh cùng Preview/browser profile và khôi phục task theo thứ tự.
+5. Bảo toàn dữ liệu lỗi; báo rõ khi browser storage không truy cập được hoặc không ghi được.
+6. Không làm hỏng những hành vi B1 như trim, validation, Enter submission và empty state.
+
+### Kết quả mong muốn
+
+Newbie thêm hai task, thấy chúng xuất hiện đúng thứ tự, refresh Preview trong cùng browser profile và vẫn nhìn thấy cả hai. Browser storage chỉ thuộc trình duyệt/thiết bị hiện tại; không tự đồng bộ sang thiết bị khác và không phải backup.
+
+### Gemini đã làm gì theo báo cáo Stage 2?
+
+Gemini báo cáo đã sửa duy nhất `app/page.tsx`, thêm bước đọc/validate workspace, DR-005 acknowledgement, tạo UUID, lưu JSON envelope vào localStorage và xử lý lỗi. Build và ESLint được báo cáo thành công. Các kết quả này cần phân biệt với kiểm thử browser thực tế: thao tác Save, xem Local Storage và refresh/reload vẫn chưa được thực hiện trong môi trường kiểm thử được ghi nhận.
+
+### Newbie cần làm gì bây giờ?
+
+Model đang dùng và đã chạy Stage 2: **Gemini 4 Hydrogen**. Giữ nguyên GAIS application hiện tại, không Remix, không tạo app mới và không kết nối GitHub. Thực hiện checklist Owner Preview ở mục 7.3; gửi ảnh Preview hai task, kết quả Local Storage và ảnh sau refresh để review. Không thêm yêu cầu tính năng mới vào bài này.
+
+### Phạm vi và giới hạn
+
+Contract #005 chỉ cho phép sửa `app/page.tsx`, tối đa một file thay đổi và 350 dòng diff; không tạo/xóa file. Không thêm database, API, Auth, dependency, export/import, backup, restore, Settings/More menu hoặc cloud sync. Các test dữ liệu malformed / storage error chỉ được chạy trong disposable browser profile, không trên workspace thật của Owner.
+
+## 7.3 Stage 2 implementation report — 2026-11-18
 
 ### A. Kết quả Gemini báo cáo
 
