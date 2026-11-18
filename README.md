@@ -5,6 +5,8 @@
 > **AI is an executor. The project owns its knowledge, state, authority, and continuity.**
 >
 > **Prompting gets you a prototype. Engineering gets you to production.**
+>
+> **Security is not a feature. Security is an engineering property.**
 
 **Beyond Vibe Coding (BVC)** explores a more disciplined way to build and maintain real software with AI coding tools and agents.
 
@@ -29,9 +31,10 @@ Through **Build & Learn**, readers can apply the method to practical projects an
 1. [Start Here — A 5-Minute Introduction](docs/00-start-here.md)
 2. [Framework Overview](docs/framework-overview.md)
 3. [Task Contract Guide](docs/task-contract.md)
-4. [Core Specifications Index](specifications/v0.1/README.md)
-5. [Build & Learn — BVC Task Management Product Definition v0.2.0](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
-6. [GitHub Repository Verification Protocol](docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md)
+4. [Security Architecture & Security Gates Standard](standards/SECURITY_ARCHITECTURE_GATES.md)
+5. [Core Specifications Index](specifications/v0.1/README.md)
+6. [Build & Learn — BVC Task Management Product Definition v0.2.0](projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md)
+7. [GitHub Repository Verification Protocol](docs/continuity/GITHUB_REPOSITORY_VERIFICATION.md)
 
 You can also explore the [Documentation Index](docs/README.md) for the complete reading path.
 
@@ -783,3 +786,8 @@ Its principles should be tested against real project constraints, reviewed by pr
 
 **Beyond Vibe Coding** — from generating code to engineering software that can be understood, secured, verified, and continued.
 
+
+
+## Security-first engineering
+
+BVC treats security as an engineering property, not a feature added at the end. Security reasoning begins with the first prompt and continues through threat modeling, architecture, implementation, verification, release, and operations. The baseline is defined in [BVC-SEC-STD-001 — Security Architecture & Security Gates](standards/SECURITY_ARCHITECTURE_GATES.md), supported by [threat modeling](prompts/security-gates/01_threat_modeling_prompt.md), [server-side gate implementation](prompts/security-gates/02_server_gate_implementation.md), and the [authorized client tampering test checklist](prompts/security-gates/tamper_test_checklist.md).
