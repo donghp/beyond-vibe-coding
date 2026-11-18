@@ -18,6 +18,12 @@ BVC does not aim to make prompts longer, build more autonomous agents, or depend
 
 ---
 
+## Security Engineering
+
+A practical five-stage guide to securing real Android applications—from Google Play Integrity and runtime protection to server-side enforcement, security verification, and continuous security operations.
+
+[**Android Application Security Engineering Guide**](app-security-engineering/README.md)
+
 ## Start Here
 
 BVC is built primarily for people who design, build, review, and lead software engineering work. It helps developers use AI coding tools and agents without giving up control of product decisions, architecture, code quality, security, or delivery.
