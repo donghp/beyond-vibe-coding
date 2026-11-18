@@ -23,6 +23,8 @@ Use the prompts below only in the BVC Task Management GAIS project. Each prompt 
 
 ## Prompt use rules
 
+Before using a GAIS prompt, read the mandatory [BVC GAIS Prompt Delivery Standard v1.0](../GAIS_PROMPT_DELIVERY_STANDARD_V1.0.md). Every learner-facing prompt must include a detailed Vietnamese explanation before the copy-ready execution instruction, followed by post-run review guidance.
+
 - Read the linked lesson before running a prompt.
 - Copy the complete canonical prompt; do not shorten or silently rewrite it.
 - Use the intended BVC Task Management GAIS project.
@@ -37,4 +39,4 @@ Use the prompts below only in the BVC Task Management GAIS project. Each prompt 
 - [Return to Practical Labs Home](../../README.md)
 
 
-**B2 Contract requirement:** Prompt #0005 is governed by BVC-TM-TC-005 Revision 1. It may modify only app/page.tsx, with a maximum 350-line diff. The Owner issued conditional authorization on 2026-11-17. RC-003 and RC-004 are PASS; Gemini RC-005 acknowledgment is pending. No GitHub connection is required in the Beginner GAIS workspace. Prompt and Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba).
+**B2 Contract requirement:** Prompt #0005 is governed by BVC-TM-TC-005 Revision 1. It may modify only app/page.tsx, with a maximum 350-line diff. The Owner issued conditional authorization on 2026-11-17. RC-003, RC-004 and RC-005 are PASS; the Human Owner explicitly confirmed RC-005 PASS — PROCEED WITH B2 on 2026-11-18. No GitHub connection is required in the Beginner GAIS workspace. Prompt and Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba).
