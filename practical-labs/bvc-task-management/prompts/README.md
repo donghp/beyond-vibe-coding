@@ -37,4 +37,4 @@ Use the prompts below only in the BVC Task Management GAIS project. Each prompt 
 - [Return to Practical Labs Home](../../README.md)
 
 
-**B2 Contract requirement:** Prompt #0005 is governed by BVC-TM-TC-005 Revision 1. It may modify only app/page.tsx, with a maximum 350-line diff. The Owner issued conditional authorization on 2026-11-17. RC-003 and RC-004 are PASS; Gemini RC-005 acknowledgment is pending. No GitHub connection is required in the Beginner GAIS workspace. Prompt and Context Pack become canonical only after the synchronization PR is merged.
+**B2 Contract requirement:** Prompt #0005 is governed by BVC-TM-TC-005 Revision 1. It may modify only app/page.tsx, with a maximum 350-line diff. The Owner issued conditional authorization on 2026-11-17. RC-003 and RC-004 are PASS; Gemini RC-005 acknowledgment is pending. No GitHub connection is required in the Beginner GAIS workspace. Prompt and Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba).
