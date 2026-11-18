@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued conditional B2 Execution Authorization on 2026-11-17. RC-003, RC-004 and RC-005 are PASS. Gemini returned the complete read-only Stage 1 acknowledgment, and the Human Owner explicitly confirmed RC-005 PASS — PROCEED WITH B2 on 2026-11-18. Prompt #0005 and the task-specific Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba). GAIS implementation is NOT_STARTED.
+**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. Live task save, Local Storage inspection, refresh/reload and Human Owner acceptance remain pending. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
 
 ## 1. What you will learn
 
@@ -23,7 +23,7 @@ For the Beginner learning level:
 - It is not a cloud database or a backup service.
 - Never use real passwords, API keys, private customer information, or sensitive data in the learning app.
 
-**Approved disclosure — DR-005 (2026-11-13):** Before the first task that will be persisted, show this concise inline notice at the top of the workspace. The learner must acknowledge it before continuing. Keep the full explanation available later through More → Settings & Backup.
+**Approved disclosure — DR-005 (2026-11-13):** Before the first task that will be persisted, show the full approved disclosure at the top of the workspace. The learner must acknowledge it before continuing. When a valid workspace is loaded later, keep the full disclosure visible as a readable, non-blocking notice. A Settings page or More menu is outside the B2 scope.
 
 > **Where your tasks are stored**
 >
@@ -398,60 +398,128 @@ This Prompt and the approved Context Pack apply only to BVC-TM-P3.3-005 under BV
 
 ## 7.2 Stage 2 — Vietnamese guide for the learner
 
-**Bối cảnh:** Newbie đã hoàn thành B1: tạo và hiển thị task bằng React state. Dữ liệu B1 chỉ tồn tại trong bộ nhớ của trang; khi refresh Preview, danh sách không được bảo đảm còn nguyên. B2 bổ sung khả năng lưu workspace vào browser `localStorage` để ứng dụng đọc lại dữ liệu sau khi refresh trong cùng browser profile và app origin.
+### Bối cảnh
+
+Ở B1, newbie đã tạo và hiển thị task thành công, nhưng danh sách chỉ nằm trong React state (bộ nhớ tạm của trang). Khi refresh, trang có thể mất danh sách đó. B2 chuyển task sang browser `localStorage` để ứng dụng có thể đọc lại dữ liệu ở lần mở trang tiếp theo trong cùng browser profile và app origin.
 
 ### Mục đích
 
-Giúp người học hiểu sự khác nhau giữa dữ liệu tạm trong React state và dữ liệu được lưu trong trình duyệt. Đây là bài thực hành đầu tiên về persistence, nhưng vẫn không cần backend, database hay tài khoản người dùng.
+Giúp newbie hiểu và thực hành khái niệm **persistence (lưu dữ liệu lâu dài hơn vòng đời trang)** mà chưa cần backend, database, đăng nhập hay cloud sync.
 
 ### Mục tiêu
 
-1. Hiển thị thông báo DR-005 đúng nội dung và yêu cầu xác nhận trước lần lưu đầu tiên.
-2. Đọc và kiểm tra dữ liệu đã lưu trước khi cho phép ghi.
-3. Lưu task theo đúng workspace envelope và key đã được phê duyệt.
-4. Refresh Preview và nhìn thấy lại task theo thứ tự ban đầu.
-5. Xử lý dữ liệu lỗi và lỗi storage mà không âm thầm xóa hoặc ghi đè dữ liệu.
-6. Giữ nguyên hành vi tạo task của B1.
+1. Hiển thị đầy đủ thông báo DR-005 và yêu cầu xác nhận trước lần lưu đầu.
+2. Đọc và kiểm tra dữ liệu lưu sẵn trước khi cho phép ghi.
+3. Lưu task theo đúng key và workspace envelope đã được Owner duyệt.
+4. Refresh cùng Preview/browser profile và khôi phục task theo thứ tự.
+5. Bảo toàn dữ liệu lỗi; báo rõ khi browser storage không truy cập được hoặc không ghi được.
+6. Không làm hỏng những hành vi B1 như trim, validation, Enter submission và empty state.
 
 ### Kết quả mong muốn
 
-Newbie tạo hai task, refresh Preview trong cùng browser profile và thấy cả hai task vẫn còn, đúng thứ tự. Workspace dùng key `bvc-task-management:workspace:v1` và format/version trong Contract. `localStorage` không phải cloud sync hoặc backup.
+Newbie thêm hai task, thấy chúng xuất hiện đúng thứ tự, refresh Preview trong cùng browser profile và vẫn nhìn thấy cả hai. Browser storage chỉ thuộc trình duyệt/thiết bị hiện tại; không tự đồng bộ sang thiết bị khác và không phải backup.
 
-### Gemini sẽ thực hiện gì?
+### Gemini đã làm gì theo báo cáo Stage 2?
 
-- Kiểm tra lại đúng GAIS application, source hiện tại và danh sách file trước khi sửa.
-- Phân loại read-only thư mục `public/assets/aistudio/` và hai file Prompt/Context Pack đã upload: xác định đây là attachment do nền tảng quản lý hay file thuộc project. Không sửa, xóa, đổi tên hoặc di chuyển chúng.
-- Chỉ tiếp tục nếu việc phân loại xác nhận attachment không làm phát sinh thay đổi ngoài phạm vi Contract.
-- Sửa duy nhất `app/page.tsx` để bổ sung load, validate, disclosure và save.
-- Kiểm tra source, Preview, thao tác tạo task, refresh và báo cáo từng acceptance criterion.
+Gemini báo cáo đã sửa duy nhất `app/page.tsx`, thêm bước đọc/validate workspace, DR-005 acknowledgement, tạo UUID, lưu JSON envelope vào localStorage và xử lý lỗi. Build và ESLint được báo cáo thành công. Các kết quả này cần phân biệt với kiểm thử browser thực tế: thao tác Save, xem Local Storage và refresh/reload vẫn chưa được thực hiện trong môi trường kiểm thử được ghi nhận.
 
-### Newbie cần làm gì?
+### Newbie cần làm gì bây giờ?
 
-1. Dùng Gemini 4 Hydrogen — model đang hiển thị trong GAIS và đã thực hiện Stage 1 acknowledgment.
-2. Giữ nguyên project GAIS hiện tại; không Remix, không tạo app mới và không kết nối GitHub.
-3. Gửi Stage 2 instruction dưới đây trong cùng cuộc trò chuyện Gemini.
-4. Quan sát Preview và báo cáo; không yêu cầu thêm tính năng ngoài Contract.
-5. Gửi toàn bộ báo cáo, source/diff và ảnh Preview cho người hướng dẫn review.
+Model đang dùng và đã chạy Stage 2: **Gemini 4 Hydrogen**. Giữ nguyên GAIS application hiện tại, không Remix, không tạo app mới và không kết nối GitHub. Thực hiện checklist Owner Preview ở mục 7.3; gửi ảnh Preview hai task, kết quả Local Storage và ảnh sau refresh để review. Không thêm yêu cầu tính năng mới vào bài này.
 
-### Phạm vi, giới hạn và tiêu chí dừng
+### Phạm vi và giới hạn
 
-Chỉ được sửa `app/page.tsx`. Tối đa 1 file thay đổi và 350 dòng diff; không tạo hoặc xóa file. Không thêm dependency, database, API, Auth, GitHub integration, export/import, backup, restore hoặc tính năng phase sau.
+Contract #005 chỉ cho phép sửa `app/page.tsx`, tối đa một file thay đổi và 350 dòng diff; không tạo/xóa file. Không thêm database, API, Auth, dependency, export/import, backup, restore, Settings/More menu hoặc cloud sync. Các test dữ liệu malformed / storage error chỉ được chạy trong disposable browser profile, không trên workspace thật của Owner.
 
-Nếu `app/page.tsx` không còn khớp baseline, editor chưa lưu, có writer khác, hoặc thư mục attachment là file thuộc project mới được thêm sau preflight và làm vi phạm giới hạn zero CREATE, Gemini phải dừng và báo cáo. Không tự tìm cách lách phạm vi.
+## 7.3 Stage 2 implementation report — 2026-11-18
 
-## 7.3 Stage 2 — Copy-and-paste instruction
+### A. Kết quả Gemini báo cáo
 
-The Human Owner has confirmed `RC-005 PASS — PROCEED WITH B2` on 2026-11-18. All conditions of the previously issued conditional execution authorization are satisfied.
+Người học đã chạy Stage 2 trong GAIS bằng Gemini 4 Hydrogen. Gemini cung cấp báo cáo triển khai với các thông tin sau:
 
-Before the first write, re-confirm the target Application ID, current `app/page.tsx` hash, saved editor, single-writer condition and file inventory. The preflight hash is a comparison baseline, not permission to overwrite a changed source.
+| Hạng mục | Kết quả được báo cáo |
+|---|---|
+| GAIS Application ID | `ca589018-617d-4919-bbe2-6b9c588ccd85` |
+| File ứng dụng thay đổi | `app/page.tsx` duy nhất |
+| File tạo mới / xóa | 0 / 0 |
+| Source trước triển khai | 3.703 bytes; 115 dòng kết thúc newline; SHA-256 `1d0be58bdf1c8da452c3d2fcb071034fbb90d5506968b688c8449fc8f14fe373` |
+| Source sau triển khai | 10.960 bytes; 302 dòng kết thúc newline; SHA-256 `4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e` |
+| Chênh lệch kích thước | +7.257 bytes; +187 dòng kết thúc newline |
+| Build | SUCCESS theo báo cáo Gemini |
+| ESLint | 0 errors, 0 warnings theo báo cáo Gemini |
+| Attachment Prompt/Context Pack | Gemini báo cáo đã phân loại là platform-managed và giữ nguyên |
 
-Special handling for `public/assets/aistudio/`: classify the two uploaded Prompt/Context Pack files read-only. Preserve them. If they are platform-managed attachments that are not application project changes, proceed without modifying them. If they are project-owned files newly added after preflight and therefore conflict with the Contract's zero-create/one-file boundary, STOP and report; do not delete, move or alter them.
+Đây là kết quả do executor báo cáo. Báo cáo source và đầy đủ nội dung `app/page.tsx` đã được Human Owner cung cấp trong phiên làm việc; các thao tác trình duyệt tương tác vẫn cần kiểm tra riêng.
 
-If all pre-write checks pass, implement the full B2 requirements in Prompt #0005 and Contract #005 Revision 1. Modify only `app/page.tsx`; maximum 350 diff lines; zero create/delete. Provide the complete source or exact diff, changed-file inventory, hash/line/byte counts, Preview evidence, and B2-AC-001 through B2-AC-011 results. Do not claim Human Owner acceptance.
+### B. Kết quả kiểm tra source tĩnh
+
+Source được cung cấp thể hiện:
+- Dùng đúng key `bvc-task-management:workspace:v1` và workspace envelope đã duyệt.
+- Đọc dữ liệu ở client, không ghi workspace rỗng khi mount.
+- Kiểm tra schema trước khi cho phép ghi.
+- Hiển thị DR-005 và yêu cầu xác nhận ở workspace mới.
+- Dùng `crypto.randomUUID()` để tạo workspace ID và task ID.
+- Gọi `localStorage.setItem` một lần khi lưu task; chỉ cập nhật React state và xóa input sau khi ghi thành công.
+- Nếu đọc/ghi storage lỗi hoặc dữ liệu không hợp lệ, hiển thị lỗi và không tự xóa/ghi đè giá trị đang lưu.
+
+Parser kiểm tra chính xác key set và từ chối record có field lạ hoặc cấu trúc ngoài envelope B2. Đây là hành vi fail-closed theo yêu cầu bảo toàn dữ liệu: dữ liệu không nhận dạng được bị giữ nguyên, thao tác ghi bị khóa. Không tự sửa hoặc bỏ field lạ.
+
+**Lưu ý:** review source tĩnh không chứng minh thao tác trong browser đã hoạt động.
+
+### C. Bốn ảnh GAIS do Human Owner cung cấp
+
+Các ảnh chụp màn hình gửi ngày 18/11/2026 được dùng làm bằng chứng hình ảnh cho bài học:
+
+1. **Ảnh Code / Gemini trong lúc thực hiện:** hiển thị GAIS Code Explorer, file `app/page.tsx` và bối cảnh Gemini đang chạy Stage 2.
+2. **Ảnh Preview sau triển khai:** hiển thị BVC Task Management — B2 Browser Storage, toàn bộ thông báo DR-005 và nút `Got it — continue`.
+3. **Ảnh Code Explorer / source cuối:** hiển thị `app/page.tsx` là file đang xem, vùng form và danh sách Tasks ở phần cuối source.
+4. **Ảnh Preview sau khi chạy Stage 2 (ảnh mới nhất):** DR-005 vẫn hiển thị; không còn nút `Got it — continue`; ô `Task title` và nút `Add task` đang hoạt động; danh sách vẫn hiển thị trạng thái rỗng. Điều này phù hợp với trạng thái sau khi acknowledgment đã được thực hiện trong phiên hiện tại hoặc một workspace hợp lệ đã được nạp. Đây là bằng chứng ảnh của giao diện sẵn sàng nhập task, không phải bằng chứng task đã được lưu.
+
+Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. Chúng **không chứng minh** task đã được ghi vào localStorage, còn tồn tại sau refresh, hoặc các tình huống lỗi đã được kiểm thử.
+
+### D. Trạng thái kiểm chứng
+
+| Tiêu chí / kiểm tra | Trạng thái hiện tại | Bằng chứng còn cần |
+|---|---|---|
+| B2-AC-001 — DR-005 trước lần lưu đầu | SCREENSHOT EVIDENCE; INTERACTIVE NOT_RUN | Owner click nút xác nhận và thử trước/sau xác nhận |
+| B2-AC-002 — Nội dung DR-005 chính xác | STATIC / SCREENSHOT REVIEW REPORTED PASS | Owner đối chiếu nội dung hiển thị trong Preview |
+| B2-AC-003 — Lưu đúng key/envelope | STATIC REVIEW REPORTED PASS; STORAGE INSPECTION NOT_RUN | DevTools Local Storage của app origin |
+| B2-AC-004 — Hai task còn sau refresh | NOT_RUN | Tạo hai task, refresh cùng profile/origin, kiểm tra thứ tự |
+| B2-AC-005 — B1 regression | STATIC REVIEW REPORTED PASS; INTERACTIVE NOT_RUN | Thử empty, whitespace, Enter, input/error clearing |
+| B2-AC-006 — Malformed/unsupported data | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Disposable profile only |
+| B2-AC-007 — Storage read/write failure | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Safe disposable test setup |
+| B2-AC-008 — Chỉ một file thay đổi | EXECUTOR INVENTORY REPORTED PASS | Owner xem Action history / file inventory hiện tại |
+| B2-AC-009 — Phone / desktop layout | STATIC REVIEW REPORTED PASS; VISUAL TEST NOT_RUN | Preview ở cả hai viewport |
+| B2-AC-010 — Owner review và acceptance | NOT_VERIFIED | Quyết định chấp nhận rõ ràng của Owner |
+| B2-AC-011 — Không thêm tính năng ngoài phạm vi | STATIC REVIEW REPORTED PASS | Đối chiếu source/diff cuối cùng |
+
+### E. Hướng dẫn Owner kiểm thử trực tiếp trên Preview
+
+Thực hiện trong đúng GAIS app và cùng browser profile:
+
+1. Nhấn **Got it — continue**.
+2. Tạo task thứ nhất: `Prepare weekly work plan`.
+3. Tạo task thứ hai: `Review project milestones`.
+4. Kiểm tra cả hai task hiển thị đúng một lần và theo thứ tự thêm.
+5. Mở Chrome DevTools → Application → Local Storage → app origin hiện tại. Kiểm tra key `bvc-task-management:workspace:v1` và cấu trúc envelope. Chỉ đọc, không chỉnh sửa giá trị.
+6. Refresh Preview. Xác nhận cả hai task vẫn còn và đúng thứ tự.
+7. Thử input rỗng, chỉ có dấu cách, và gửi task bằng Enter.
+8. Chụp ảnh Preview có hai task và Local Storage key/value. Chỉ dùng tên task giả lập, không đưa dữ liệu nhạy cảm.
+9. Không thử dữ liệu malformed hoặc storage error trên profile trình duyệt đang sử dụng thực tế. Nếu cần, dùng profile dùng một lần (disposable profile).
+
+Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Việc các thao tác trên đạt kết quả không tự động thay thế quyết định Owner acceptance.
+
+### F. Trạng thái B2 hiện tại
+
+- **Implementation:** Gemini báo cáo đã triển khai; source tĩnh, build và lint được báo cáo PASS.
+- **Live task save / reload:** NOT_RUN — chờ Owner kiểm thử.
+- **Malformed-data / storage-error runtime:** NOT_RUN.
+- **B2-AC-010 Owner acceptance:** NOT_VERIFIED.
+- **Publication / release / deployment:** NOT_CLAIMED.
 
 ## 8. Next lesson
 
-After B2 is implemented, verified and accepted, continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) for an independent learner-focused close/reopen and recovery exercise.
+After B2 is verified and accepted, continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) for an independent learner-focused close/reopen and recovery exercise.
 
 ---
 
