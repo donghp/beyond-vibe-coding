@@ -55,7 +55,7 @@ When you refresh the page during B1, the temporary task may disappear. That is e
 
 ## B2 visual guide
 
-For the real GAIS walkthrough of **Application → Storage → Local Storage**, including the owner-supplied screenshot, runtime-origin selection and workspace-key inspection, see [B2 — Local Storage in Chrome DevTools](b2-save-your-task/README.md#local-storage-in-chrome-devtools).
+For the real GAIS walkthrough of **Application → Storage → Local Storage**, including the owner-supplied screenshot, runtime-origin selection and workspace-key inspection, see [B2 — Local Storage in Chrome DevTools](b2-save-your-task/README.md).
 
 ## Lesson navigation
 
