@@ -1,6 +1,6 @@
 # Stage 1 — Google Play Integrity API
 
-![Stage 1 illustration](images/stage-1-play-integrity.svg)
+![Stage 1 illustration](images/stage-1-play-integrity.jpg)
 
 **Purpose:** Use Google-provided integrity signals to help the backend assess whether an operation is coming from an expected app, device, and account context.
 
