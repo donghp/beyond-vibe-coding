@@ -17,7 +17,7 @@ This scenario is fictional and is not a claim about any real delivery platform.
 
 ## Five stages at a glance
 
-![Five-stage Android Security Engineering overview](images/security-engineering-overview.svg)
+![Five-stage Android Security Engineering overview](images/security-engineering-overview.jpg)
 
 | Stage | Plain-English explanation | Contribution |
 |---|---|---|
@@ -73,35 +73,35 @@ If checks pass, the server performs the state transition. Otherwise it rejects, 
 **The app can request; the server must independently verify and authorize; tests must prove; operations must monitor.**
 
 ## Stage 1 — Google Play Integrity API
-![Stage 1 Google Play Integrity](images/stage-1-play-integrity.svg)
+![Stage 1 Google Play Integrity](images/stage-1-play-integrity.jpg)
 
 Use Play Integrity to obtain signed integrity evidence and validate it on the backend. Standard requests can bind a verdict to a request using requestHash; Classic requests use a server-generated nonce. Follow current Google documentation and do not treat a verdict as a complete authorization decision.
 
 [Stage 1 details](02-STAGE-1-PLAY-INTEGRITY.md)
 
 ## Stage 2 — RASP
-![Stage 2 RASP](images/stage-2-rasp.svg)
+![Stage 2 RASP](images/stage-2-rasp.jpg)
 
 Add proportionate runtime checks for app modification, suspicious hooking/debugging, root or virtualized environments, and other risk indicators. Treat detections as signals because client-side controls can be bypassed.
 
 [Stage 2 details](03-STAGE-2-RASP.md)
 
 ## Stage 3 — Server-Side Security Enforcement
-![Stage 3 Server-Side Enforcement](images/stage-3-server-enforcement.svg)
+![Stage 3 Server-Side Enforcement](images/stage-3-server-enforcement.jpg)
 
 Backend verifies credentials, request evidence, resource ownership, permissions, workflow state, business rules, freshness, and abuse controls. The backend—not the app—owns the final decision.
 
 [Stage 3 details](04-STAGE-3-SERVER-ENFORCEMENT.md)
 
 ## Stage 4 — Security Testing & Verification
-![Stage 4 Security Testing](images/stage-4-security-testing.svg)
+![Stage 4 Security Testing](images/stage-4-security-testing.jpg)
 
 Test the design with authorized penetration testing, tampering scenarios, negative tests, authorization checks, API abuse controls, static/dynamic analysis, dependency scanning, and regression tests. Capture reproducible evidence and retest fixes.
 
 [Stage 4 details](05-STAGE-4-SECURITY-TESTING.md)
 
 ## Stage 5 — Continuous Security & Governance
-![Stage 5 Continuous Security](images/stage-5-continuous-security.svg)
+![Stage 5 Continuous Security](images/stage-5-continuous-security.jpg)
 
 Monitor, detect, respond, recover, patch, review exceptions, measure KPIs, and feed incident lessons into the next engineering cycle.
 
