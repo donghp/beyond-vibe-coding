@@ -1,6 +1,6 @@
 # Stage 5 — Continuous Security & Governance
 
-![Stage 5 illustration](images/stage-5-continuous-security.svg)
+![Stage 5 illustration](images/stage-5-continuous-security.jpg)
 
 **Purpose:** Keep the application and its supporting services secure after release through monitoring, detection, response, recovery, patching, governance, and continuous improvement.
 
