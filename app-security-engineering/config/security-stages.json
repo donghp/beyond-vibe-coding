@@ -13,7 +13,7 @@
       "name": "Google Play Integrity API",
       "purpose": "Evaluate app, device, and account/licensing integrity signals",
       "owner": ["Android", "Backend"],
-      "illustration": "images/stage-1-play-integrity.svg"
+      "illustration": "images/stage-1-play-integrity.jpg"
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
       "name": "Runtime Application Self-Protection",
       "purpose": "Detect runtime tampering and provide risk signals",
       "owner": ["Android"],
-      "illustration": "images/stage-2-rasp.svg"
+      "illustration": "images/stage-2-rasp.jpg"
     },
     {
       "id": 3,
@@ -29,7 +29,7 @@
       "name": "Server-Side Security Enforcement",
       "purpose": "Authenticate, authorize, validate business rules, and enforce state transitions",
       "owner": ["Backend"],
-      "illustration": "images/stage-3-server-enforcement.svg"
+      "illustration": "images/stage-3-server-enforcement.jpg"
     },
     {
       "id": 4,
@@ -37,7 +37,7 @@
       "name": "Security Testing and Verification",
       "purpose": "Test controls, remediate weaknesses, and retain acceptance evidence",
       "owner": ["QA", "Security", "Engineering"],
-      "illustration": "images/stage-4-security-testing.svg"
+      "illustration": "images/stage-4-security-testing.jpg"
     },
     {
       "id": 5,
@@ -45,7 +45,7 @@
       "name": "Continuous Security and Governance",
       "purpose": "Monitor, detect, respond, recover, patch, and improve",
       "owner": ["Product", "Engineering", "Operations"],
-      "illustration": "images/stage-5-continuous-security.svg"
+      "illustration": "images/stage-5-continuous-security.jpg"
     }
   ]
 }
