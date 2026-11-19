@@ -1,6 +1,6 @@
 # Stage 3 — Server-Side Security Enforcement
 
-![Stage 3 illustration](images/stage-3-server-enforcement.svg)
+![Stage 3 illustration](images/stage-3-server-enforcement.jpg)
 
 **Purpose:** Keep the Backend as the final authority for authentication, authorization, resource ownership, business rules, and state transitions.
 
