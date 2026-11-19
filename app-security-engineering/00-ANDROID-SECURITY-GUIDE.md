@@ -69,6 +69,41 @@ If checks pass, the server performs the state transition. Otherwise it rejects, 
 - Distinguish UI state from authoritative business state.
 - Follow secure coding and review requirements rather than copying code blindly.
 
+## RACI — Responsibility Matrix Across the Five Security Stages
+
+RACI clarifies who performs the work and who owns each stage-level outcome:
+
+- **R — Responsible:** performs the work.
+- **A — Accountable:** owns the outcome and final decision for that activity.
+- **C — Consulted:** provides input before a decision.
+- **I — Informed:** kept up to date.
+
+| Role | Stage 1 — Play Integrity | Stage 2 — RASP | Stage 3 — Server Enforcement | Stage 4 — Testing & Verification | Stage 5 — Continuous Security |
+|---|---|---|---|---|---|
+| **Project Manager (PM)** | C | C | C | C | C |
+| **Team Leader** | R | R | R | A | A |
+| **Tech Lead / Architect** | A | A | A | C | R |
+| **Developer** | R | R | R | R | R |
+| **Junior Developer** | I | R* | R* | R* | I |
+
+\* Junior Developers contribute under an assigned reviewer and the team's secure coding process; they do not approve security exceptions or release risk.
+
+### Decision rights and role-specific responsibilities
+
+| Role | Decision ownership and expected contribution |
+|---|---|
+| **PM — Business risk owner** | Defines business risk tolerance and accepts documented business/UX trade-offs. Example: decide whether a rooted-device signal should trigger a warning, step-up verification, or restriction for a sensitive workflow. The decision must be informed by the Tech Lead's threat assessment and recorded; it must not waive mandatory legal, contractual, or security policy requirements. |
+| **Tech Lead — Technical authority** | Designs trust boundaries and Server-Side Security Gates; owns Play Integrity integration/configuration decisions with the Android and Backend engineers; defines technical security acceptance criteria and the Definition of Done, including P0/P1 handling and required evidence. |
+| **Team Leader — Delivery and operations coordinator** | Enforces the Code Review and test workflow, ensures owners and evidence are assigned, coordinates remediation and incident response, and oversees operational KPI review and escalation. |
+| **Developer — Implementation owner** | Implements server-authoritative checks and secure Android behavior; follows Zero-Trust Client principles; never hardcodes secrets; adds unit, integration, negative, tamper and regression tests as appropriate; documents limitations and evidence. |
+| **Junior Developer — Supervised contributor** | Implements scoped tasks from approved designs, avoids secrets in code and logs, adds tests with guidance, reports suspicious behavior or uncertainty early, and requests review before changing security-sensitive logic. |
+
+### How to use this matrix
+
+RACI is a working agreement, not a substitute for named owners. Assign an individual to every **A** and **R** before a stage begins. A stage may contain multiple activities with different accountable decision-makers: for example, the Tech Lead owns technical integrity design, while the PM owns documented business-risk acceptance. The Team Leader coordinates delivery but cannot silently accept technical or business risk on behalf of those decision owners.
+
+For P0/P1 findings, release decisions must follow the organization's approved severity and exception policy. A RACI assignment does not itself authorize a risk exception.
+
 ## Security architecture in one sentence
 **The app can request; the server must independently verify and authorize; tests must prove; operations must monitor.**
 
