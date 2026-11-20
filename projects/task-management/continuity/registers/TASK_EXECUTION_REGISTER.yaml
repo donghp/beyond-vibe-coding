@@ -153,19 +153,20 @@ tasks:
     preview_ssr_http: "HTTP 200 REPORTED"
     attachment_classification: "PLATFORM_MANAGED_ATTACHMENT_ASSETS REPORTED; both files preserved"
     interactive_localstorage_save_reload: "NOT_RUN"
-    interactive_localstorage_key_and_envelope_inspection: "PARTIAL_OWNER_SCREENSHOT: correct runtime origin, exact key, format, formatVersion, sourceMode and workspaceId visible; data.tasks remains collapsed"
-    task_record_value_match: "NOT_VERIFIED; expand data.tasks and compare two IDs/titles with Preview"
-    refresh_reload_restoration: "NOT_RUN"
+    interactive_localstorage_key_and_envelope_inspection: "OWNER_SCREENSHOT_PASS: correct runtime origin, exact key, format, formatVersion, sourceMode and workspaceId visible"
+    task_record_value_match: "OWNER_SCREENSHOT_PASS: data.tasks expanded; two unique UUIDs and titles exactly match Preview"
+    refresh_reload_restoration: "NOT_RUN; still requires same-profile/same-origin Preview refresh and task restoration evidence"
     malformed_data_runtime: "NOT_RUN"
     storage_error_runtime: "NOT_RUN"
     b2_ac_010_owner_acceptance: "NOT_VERIFIED"
   evidence_refs:
   - "Human Owner-supplied GAIS Stage 2 implementation report dated 2026-11-18, including complete app/page.tsx source, before/after metrics and per-criterion results."
   - "Human Owner-supplied GAIS screenshots dated 2026-11-18 showing Stage 2 Code/Gemini context, DR-005 first-use disclosure, app/page.tsx Code Explorer, and post-acknowledgement Preview."
-  - "Human Owner-supplied Local Storage screenshot stored at practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-local-storage-devtools.webp; exact runtime origin, workspace key and top-level envelope metadata visible; data.tasks remains collapsed."
+  - "Human Owner-supplied Local Storage overview screenshot stored at practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-local-storage-devtools.webp; exact runtime origin, workspace key and top-level envelope metadata visible."
+  - "Human Owner-supplied expanded task-record screenshot stored at practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp (2026-11-20); data.tasks shows UUID e520ee3c-146a-413b-bcba-641122619dbc / title Prepare weekly work plan and UUID e88047aa-baea-4927-b47f-35f056d40cfa / title Review project milestones, matching Preview."
   - "Gemini reports build SUCCESS and ESLint 0 errors / 0 warnings; interactive browser and Local Storage checks remain NOT_RUN."
   - "PR #69 merged at ab542dff88e1c8ff2fdc5bd790913dddf285443d; post-merge continuity-refresh job failed at gh pr create because GITHUB_TOKEN is not permitted to create PRs."
-  next_action: "Human Owner expands data.tasks in the current Local Storage value and confirms the two stored task IDs/titles match the Preview. Then refresh Preview in the same browser profile/origin and verify both tasks remain in order. Complete B1 interactive regression and responsive checks; ChatGPT reviews evidence and Human Owner alone records acceptance."
+  next_action: "COMPLETED: Human Owner expanded data.tasks; screenshot verifies two distinct task UUIDs and titles matching Preview. NEXT: refresh Preview in the same browser profile/origin and verify both tasks remain in order. Then complete B1 interactive regression and responsive checks; ChatGPT reviews evidence and Human Owner alone records acceptance."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
