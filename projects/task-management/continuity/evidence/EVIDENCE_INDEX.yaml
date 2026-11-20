@@ -241,3 +241,15 @@ evidence:
   observed_at: '2026-11-18'
   claim: "The machine snapshot update was committed and pushed to automation/continuity-refresh. The final pull-request creation step failed because GitHub Actions GITHUB_TOKEN is not permitted to create pull requests. Repository sync completeness workflow succeeded."
   limitations: "The machine snapshot was not submitted through an Owner-reviewed continuity PR and is not treated as canonical semantic status. Do not claim the full continuity refresh workflow succeeded."
+
+- evidence_id: BVC-EV-035
+  subject: B2 actual Local Storage key and workspace metadata in GAIS Preview
+  classification: OWNER_SUPPLIED
+  source: "Human Owner screenshot supplied in ChatGPT on 2026-11-18; optimized WebP derivative committed to the B2 lesson"
+  observed_at: '2026-11-18'
+  artifact_path: "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-local-storage-devtools.webp"
+  artifact_sha256: "387529668b1073404c6a83a1e4d7e17eee06d4fa0837ca1303d059bd37f7cfda"
+  artifact_bytes: 13710
+  artifact_dimensions: "760x378"
+  claim: "Screenshot shows BVC Task Management Preview with two visible tasks and Chrome DevTools Application → Storage → Local Storage for runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app. The exact key bvc-task-management:workspace:v1 is visible. Parsed value exposes format=bvc-task-management-workspace, formatVersion=1, sourceMode=browser and workspaceId."
+  limitations: "The data subtree remains collapsed in the screenshot; task records have not been visually compared with the two Preview titles. No refresh/reload evidence is present. This supports key and top-level envelope inspection only, not full persistence acceptance."
