@@ -484,7 +484,7 @@ Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. �
 |---|---|---|
 | B2-AC-001 — DR-005 trước lần lưu đầu | SCREENSHOT EVIDENCE; INTERACTIVE NOT_RUN | Owner click nút xác nhận và thử trước/sau xác nhận |
 | B2-AC-002 — Nội dung DR-005 chính xác | STATIC / SCREENSHOT REVIEW REPORTED PASS | Owner đối chiếu nội dung hiển thị trong Preview |
-| B2-AC-003 — Lưu đúng key/envelope | **OWNER SCREENSHOT: KEY + TOP-LEVEL ENVELOPE VISIBLE; TASK ARRAY NOT EXPANDED** | Mở rộng `data` rồi `tasks`; đối chiếu hai ID và hai title trong value |
+| B2-AC-003 — Lưu đúng key/envelope | **OWNER SCREENSHOT VERIFIED** | Đúng runtime origin, key và envelope; `data.tasks` đã mở rộng, hai UUID/title khớp Preview |
 | B2-AC-004 — Hai task còn sau refresh | NOT_RUN | Tạo hai task, refresh cùng profile/origin, kiểm tra thứ tự |
 | B2-AC-005 — B1 regression | STATIC REVIEW REPORTED PASS; INTERACTIVE NOT_RUN | Thử empty, whitespace, Enter, input/error clearing |
 | B2-AC-006 — Malformed/unsupported data | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Disposable profile only |
