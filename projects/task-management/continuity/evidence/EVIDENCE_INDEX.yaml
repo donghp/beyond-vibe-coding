@@ -265,3 +265,15 @@ evidence:
   artifact_dimensions: "480x405"
   claim: "Screenshot shows the correct runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app and key bvc-task-management:workspace:v1. The parsed data.tasks array is expanded and shows task ID e520ee3c-146a-413b-bcba-641122619dbc with title Prepare weekly work plan and task ID e88047aa-baea-4927-b47f-35f056d40cfa with title Review project milestones. Both titles match the two tasks displayed in Preview."
   limitations: "This confirms the two stored task records at screenshot time. The evidence asset is canonical on main through merged PR #73 (merge commit 756664479ed00cbb537669820a5f622ba4bf00ed). It does not prove persistence across a Preview refresh/reload. B2-AC-004 remains NOT_RUN pending same-profile, same-origin refresh verification."
+
+- evidence_id: BVC-EV-037
+  subject: B2 GAIS Preview after refresh — both tasks restored in insertion order
+  classification: OWNER_SUPPLIED
+  source: "Human Owner screenshot supplied in ChatGPT on 2026-11-20 and explicitly identified as the result after refreshing the GAIS Preview; optimized WebP derivative committed with the B2 lesson"
+  observed_at: '2026-11-20'
+  artifact_path: "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-preview-after-refresh.webp"
+  artifact_sha256: "cb1d2e78fdb47d1ac5514eb3215d3745dd644f8292a15c91f1bbe1c8614c44da"
+  artifact_bytes: 13060
+  artifact_dimensions: "520x575"
+  claim: "The post-refresh GAIS Preview shows Prepare weekly work plan followed by Review project milestones. Each previously stored task appears exactly once and in the same insertion order. Together with BVC-EV-036, which shows the matching data.tasks records before refresh, this supplies Owner screenshot evidence for B2-AC-004."
+  limitations: "The screenshot is a visual capture of the refreshed Preview, not a browser automation trace. B1 interactive regression, responsive viewport checks, malformed-data/storage-error runtime tests and B2-AC-010 final Owner acceptance remain pending."

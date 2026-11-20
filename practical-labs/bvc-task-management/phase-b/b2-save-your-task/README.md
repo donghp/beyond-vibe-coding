@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. The Owner-supplied Local Storage screenshot now shows the correct runtime origin, exact workspace key and parsed top-level envelope metadata alongside the two Preview tasks. The data.tasks array has not yet been expanded in the evidence image, and post-refresh restoration remains pending. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
+**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. The Owner-supplied Local Storage screenshots show the exact runtime origin, workspace key, envelope metadata and both expanded task records. A separate Owner-supplied Preview screenshot after refresh shows both task titles restored once and in insertion order. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
 
 ## 1. What you will learn
 
@@ -421,11 +421,11 @@ Newbie thêm hai task, thấy chúng xuất hiện đúng thứ tự, refresh Pr
 
 ### Gemini đã làm gì theo báo cáo Stage 2?
 
-Gemini báo cáo đã sửa duy nhất `app/page.tsx`, thêm bước đọc/validate workspace, DR-005 acknowledgement, tạo UUID, lưu JSON envelope vào localStorage và xử lý lỗi. Build và ESLint được báo cáo thành công. Các kết quả này cần phân biệt với kiểm thử browser thực tế: thao tác Save, xem Local Storage và refresh/reload vẫn chưa được thực hiện trong môi trường kiểm thử được ghi nhận.
+Gemini báo cáo đã sửa duy nhất `app/page.tsx`, thêm bước đọc/validate workspace, DR-005 acknowledgement, tạo UUID, lưu JSON envelope vào localStorage và xử lý lỗi. Build và ESLint được báo cáo thành công. Human Owner sau đó đã kiểm tra Local Storage và refresh Preview; hai task được khôi phục đúng thứ tự. Các kiểm thử B1 regression, malformed-data/storage-error và responsive vẫn cần hoàn tất.
 
 ### Newbie cần làm gì bây giờ?
 
-Model đang dùng và đã chạy Stage 2: **Gemini 4 Hydrogen**. Giữ nguyên GAIS application hiện tại, không Remix, không tạo app mới và không kết nối GitHub. Thực hiện checklist Owner Preview ở mục 7.3; gửi ảnh Preview hai task, kết quả Local Storage và ảnh sau refresh để review. Không thêm yêu cầu tính năng mới vào bài này.
+Model đang dùng và đã chạy Stage 2: **Gemini 4 Hydrogen**. Giữ nguyên GAIS application hiện tại, không Remix, không tạo app mới và không kết nối GitHub. Tham khảo checklist Owner Preview ở mục 7.3 để hiểu cách kiểm tra save, Local Storage và refresh. Các bằng chứng hiện tại đã được ghi nhận trong mục 7.3; không thêm yêu cầu tính năng mới vào bài này.
 
 ### Phạm vi và giới hạn
 
@@ -466,7 +466,7 @@ Parser kiểm tra chính xác key set và từ chối record có field lạ ho�
 
 **Lưu ý:** review source tĩnh không chứng minh thao tác trong browser đã hoạt động.
 
-### C. Năm ảnh GAIS do Human Owner cung cấp
+### C. Sáu ảnh GAIS do Human Owner cung cấp
 
 Các ảnh chụp màn hình gửi ngày 18/11/2026 được dùng làm bằng chứng hình ảnh cho bài học:
 
@@ -474,9 +474,10 @@ Các ảnh chụp màn hình gửi ngày 18/11/2026 được dùng làm bằng c
 2. **Ảnh Preview sau triển khai:** hiển thị BVC Task Management — B2 Browser Storage, toàn bộ thông báo DR-005 và nút `Got it — continue`.
 3. **Ảnh Code Explorer / source cuối:** hiển thị `app/page.tsx` là file đang xem, vùng form và danh sách Tasks ở phần cuối source.
 4. **Ảnh Preview sau khi chạy Stage 2:** DR-005 vẫn hiển thị; không còn nút `Got it — continue`; ô `Task title` và nút `Add task` đang hoạt động; danh sách lúc đó còn rỗng. Ảnh thể hiện trạng thái sau acknowledgement, trước khi newbie tạo task.
-5. **Ảnh Local Storage thực tế (18/11/2026):** Preview hiển thị hai task; Chrome DevTools đang ở Application → Storage → Local Storage, chọn đúng runtime origin `ais-dev-...run.app`; bảng có key `bvc-task-management:workspace:v1`; parsed value hiển thị `format`, `formatVersion`, `sourceMode` và `workspaceId`. Nút mở rộng `data` vẫn đang thu gọn trong ảnh, vì vậy chưa đọc được hai task records bên trong JSON.
+5. **Ảnh Local Storage overview (18/11/2026):** Preview hiển thị hai task; Chrome DevTools ở Application → Storage → Local Storage, chọn runtime origin `ais-dev-...run.app`; bảng có key `bvc-task-management:workspace:v1`; parsed value hiển thị `format`, `formatVersion`, `sourceMode` và `workspaceId`.
+6. **Ảnh Preview sau refresh (20/11/2026):** Human Owner xác nhận ảnh được chụp sau khi refresh GAIS Preview. Hai task `Prepare weekly work plan` và `Review project milestones` vẫn xuất hiện đúng một lần và đúng thứ tự. Ảnh được nhúng tại `assets/b2-preview-after-refresh.webp`.
 
-Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. Ảnh Local Storage mới xác nhận key và metadata cấp cao đang hiển thị; cần mở rộng `data → tasks` để đối chiếu hai record. Ảnh tĩnh này cũng chưa chứng minh các task còn tồn tại sau refresh.
+Các ảnh Local Storage overview và expanded-record lần lượt xác nhận key/envelope và hai task records thực tế. Ảnh Preview sau refresh bổ sung bằng chứng hai task được khôi phục và giữ đúng thứ tự. B2-AC-003 và B2-AC-004 hiện có Owner screenshot evidence; các tiêu chí runtime khác vẫn được đánh giá độc lập.
 
 ### D. Trạng thái kiểm chứng
 
@@ -485,7 +486,7 @@ Các ảnh hỗ trợ nhận diện giao diện và bối cảnh triển khai. �
 | B2-AC-001 — DR-005 trước lần lưu đầu | SCREENSHOT EVIDENCE; INTERACTIVE NOT_RUN | Owner click nút xác nhận và thử trước/sau xác nhận |
 | B2-AC-002 — Nội dung DR-005 chính xác | STATIC / SCREENSHOT REVIEW REPORTED PASS | Owner đối chiếu nội dung hiển thị trong Preview |
 | B2-AC-003 — Lưu đúng key/envelope | **OWNER SCREENSHOT VERIFIED** | Đúng runtime origin, key và envelope; `data.tasks` đã mở rộng, hai UUID/title khớp Preview |
-| B2-AC-004 — Hai task còn sau refresh | NOT_RUN | Tạo hai task, refresh cùng profile/origin, kiểm tra thứ tự |
+| B2-AC-004 — Hai task còn sau refresh | **OWNER SCREENSHOT VERIFIED** | Ảnh Preview sau refresh hiển thị hai task đúng một lần và đúng thứ tự; xem `assets/b2-preview-after-refresh.webp` |
 | B2-AC-005 — B1 regression | STATIC REVIEW REPORTED PASS; INTERACTIVE NOT_RUN | Thử empty, whitespace, Enter, input/error clearing |
 | B2-AC-006 — Malformed/unsupported data | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Disposable profile only |
 | B2-AC-007 — Storage read/write failure | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Safe disposable test setup |
@@ -515,7 +516,7 @@ Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Việc
 ### F. Trạng thái B2 hiện tại
 
 - **Implementation:** Gemini báo cáo đã triển khai; source tĩnh, build và lint được báo cáo PASS.
-- **Live task save / reload:** NOT_RUN — chờ Owner kiểm thử.
+- **Live task save / reload:** B2-AC-003 và B2-AC-004 đã có Owner screenshot evidence. B1 interactive regression, responsive Preview checks và malformed-data/storage-error runtime tests vẫn pending.
 - **Malformed-data / storage-error runtime:** NOT_RUN.
 - **B2-AC-010 Owner acceptance:** NOT_VERIFIED.
 - **Publication / release / deployment:** NOT_CLAIMED.
@@ -571,11 +572,20 @@ Human Owner supplied a second, closer screenshot after expanding `data → tasks
 
 *Hình: Hai task records thực tế trong Local Storage. Task 0 có ID `e520ee3c-146a-413b-bcba-641122619dbc` và title `Prepare weekly work plan`. Task 1 có ID `e88047aa-baea-4927-b47f-35f056d40cfa` và title `Review project milestones`. Cả hai title khớp với danh sách task trong Preview.*
 
-### Trạng thái bằng chứng sau ảnh follow-up
+### Ảnh Preview sau refresh — 20/11/2026
 
-- **Đã quan sát:** đúng runtime origin `ais-dev-...run.app`; đúng key `bvc-task-management:workspace:v1`; envelope đúng `format`, `formatVersion`, `sourceMode`, có `workspaceId`; `data.tasks` đã mở rộng và hiển thị đúng hai record, hai ID khác nhau và title khớp Preview.
-- **B2-AC-003:** **OWNER SCREENSHOT VERIFIED** — key, envelope và hai task records đã được đối chiếu bằng ảnh.
-- **Chưa chứng minh:** hai task vẫn tồn tại sau một lần refresh. B2-AC-004 vẫn NOT_RUN cho đến khi Preview được refresh trong cùng browser profile/origin và hai task xuất hiện lại đúng thứ tự.
+Human Owner xác nhận ảnh dưới đây được chụp sau khi refresh lại ứng dụng GAIS Preview. Cả hai task vẫn xuất hiện đúng một lần và giữ nguyên thứ tự.
+
+![GAIS B2 Preview after refresh showing both tasks restored in insertion order](assets/b2-preview-after-refresh.webp)
+
+*Hình: Preview sau refresh hiển thị `Prepare weekly work plan` trước, tiếp theo là `Review project milestones`. Danh sách không mất task và không xuất hiện bản ghi trùng.*
+
+### Trạng thái bằng chứng sau refresh
+
+- **B2-AC-003:** **OWNER SCREENSHOT VERIFIED** — key, workspace envelope và hai task records trong `data.tasks` đã được đối chiếu bằng ảnh DevTools.
+- **B2-AC-004:** **OWNER SCREENSHOT VERIFIED** — Human Owner xác nhận ảnh Preview được chụp sau refresh; cả hai task xuất hiện lại đúng một lần và đúng thứ tự.
+- Bằng chứng refresh xác nhận kết quả khôi phục hiển thị trong Preview. B1 interactive regression, malformed-data/storage-error runtime tests và viewport checks vẫn chưa hoàn tất.
+
 
 ## 8. Next lesson
 
