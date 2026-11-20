@@ -260,8 +260,8 @@ evidence:
   source: "Human Owner screenshot supplied in ChatGPT on 2026-11-20; optimized WebP derivative committed to the B2 lesson"
   observed_at: '2026-11-20'
   artifact_path: "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
-  artifact_sha256: "196a3454622ed93e185c7b24f85e5654111c0f3225747eb5a5bf149a873bf064"
-  artifact_bytes: 38586
-  artifact_dimensions: "720x663"
+  artifact_sha256: "423f0c2f545b19c41dddfb8357df9abf409b5c4a5adaca263ba143e2325cb134"
+  artifact_bytes: 14644
+  artifact_dimensions: "480x405"
   claim: "Screenshot shows the correct runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app and key bvc-task-management:workspace:v1. The parsed data.tasks array is expanded and shows task ID e520ee3c-146a-413b-bcba-641122619dbc with title Prepare weekly work plan and task ID e88047aa-baea-4927-b47f-35f056d40cfa with title Review project milestones. Both titles match the two tasks displayed in Preview."
   limitations: "This confirms the two stored task records at screenshot time. It does not prove persistence across a Preview refresh/reload. B2-AC-004 remains NOT_RUN pending same-profile, same-origin refresh verification."
