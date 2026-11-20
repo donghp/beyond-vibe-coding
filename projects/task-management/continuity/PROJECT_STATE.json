@@ -1,9 +1,9 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 11,
+  "revision": 12,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-18T16:10:00+07:00",
+  "state_as_of": "2026-11-20T20:00:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
@@ -17,7 +17,7 @@
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-B2-SAVE-YOUR-TASK",
     "title": "Phase B2 — Save Your Task",
-    "status": "B2_IMPLEMENTATION_REPORTED; LOCALSTORAGE_KEY_AND_TOP_LEVEL_ENVELOPE_SCREENSHOT_VERIFIED; TASK_RECORD_EXPANSION_AND_RELOAD_PENDING; OWNER_ACCEPTANCE_PENDING"
+    "status": "B2_IMPLEMENTATION_REPORTED; LOCALSTORAGE_KEY_ENVELOPE_AND_TWO_TASK_RECORDS_OWNER_SCREENSHOT_VERIFIED; REFRESH_RELOAD_PENDING; OWNER_ACCEPTANCE_PENDING"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -27,7 +27,7 @@
     "Phase A A1–A4 is learner-path COMPLETED; this does not mean the full product is complete.",
     "B1 / BVC-TM-P3.3-004 was Owner-accepted on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; preserve the missing archived manual-test and independent changed-file-inventory limitations.",
     "DR-005 is APPROVED and canonical on main through PR #62.",
-    "B2 Stage 2 was reported implemented in app/page.tsx on 2026-11-18. The executor reports build and lint success and static source review. The Human Owner's Local Storage screenshot shows the correct runtime origin, exact workspace key and parsed top-level envelope metadata alongside two Preview tasks. Expand data.tasks to verify the two stored records, then refresh/reload in the same profile/origin and complete remaining B1/runtime checks before acceptance."
+    "On 2026-11-20 the Human Owner supplied an expanded Chrome DevTools screenshot proving `data.tasks` contains two distinct task records whose UUIDs and titles match the Preview: e520ee3c-146a-413b-bcba-641122619dbc / Prepare weekly work plan; e88047aa-baea-4927-b47f-35f056d40cfa / Review project milestones. B2-AC-003 now has Owner screenshot evidence. B2-AC-004 still requires a same-profile/same-origin Preview refresh and restoration check before Owner acceptance."
   ],
   "facts": [
     {
@@ -295,6 +295,16 @@
         "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-local-storage-devtools.webp",
         "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-029",
+      "statement": "On 2026-11-20, the Human Owner supplied an expanded Chrome DevTools screenshot for runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app. It shows Local Storage key bvc-task-management:workspace:v1, the expected workspace metadata, and the expanded data.tasks array. Task 0 has ID e520ee3c-146a-413b-bcba-641122619dbc and title Prepare weekly work plan. Task 1 has ID e88047aa-baea-4927-b47f-35f056d40cfa and title Review project milestones. Both titles match the two tasks visible in Preview. This is screenshot evidence for the stored records and B2-AC-003; it does not establish persistence across refresh/reload, which remains NOT_RUN.",
+      "classification": "OWNER_SUPPLIED",
+      "source_refs": [
+        "Human Owner screenshot supplied in ChatGPT on 2026-11-20",
+        "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp",
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+      ]
     }
   ],
   "decisions": [
@@ -361,11 +371,11 @@
       "contract_revision": 1,
       "status": "APPROVED",
       "owner": "Human Owner operates GAIS; Gemini executes after RC-005 gate; ChatGPT coordinates and reviews",
-      "execution_status": "IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; LOCALSTORAGE_KEY_AND_TOP_LEVEL_ENVELOPE_SCREENSHOT_VERIFIED; TASK_RECORD_EXPANSION_AND_RELOAD_PENDING; OWNER_ACCEPTANCE_PENDING",
+      "execution_status": "IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; LOCALSTORAGE_KEY_ENVELOPE_AND_TWO_TASK_RECORDS_OWNER_SCREENSHOT_VERIFIED; REFRESH_RELOAD_PENDING; OWNER_ACCEPTANCE_PENDING",
       "approval_reference": "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b.",
       "risk_level": "R2",
       "scope": "MODIFY app/page.tsx only; Beginner localStorage task workspace and DR-005 disclosure; no other files, packages, database, Auth or external services.",
-      "next_action": "Human Owner expands data.tasks in the current Local Storage value and confirms the two stored task IDs/titles match the Preview. Then refresh Preview in the same browser profile/origin and verify both tasks remain in order. Complete B1 interactive regression and responsive checks; ChatGPT reviews evidence and Human Owner alone accepts."
+      "next_action": "Human Owner refreshes Preview in the same browser profile and runtime origin, then confirms both tasks reappear exactly once and in insertion order. Capture Preview after refresh. Then complete remaining B1 interactive regression and responsive checks; ChatGPT reviews evidence; Human Owner alone accepts."
     }
   ],
   "blocked_items": [
@@ -462,7 +472,7 @@
     },
     {
       "action_id": "TM-NEXT-B2-007",
-      "description": "URGENT: Expand data.tasks in the current Local Storage value; compare both stored IDs/titles with Preview. Refresh Preview in the same profile/origin and confirm both tasks remain in order. Then finish B1 interactive regression and desktop/mobile checks. Use a disposable profile for malformed-data/storage-error tests.",
+      "description": "URGENT: Refresh GAIS Preview in the same browser profile and runtime origin. Confirm both task records reappear once and in insertion order, and capture screenshot. Then finish B1 interactive regression and responsive checks. Use disposable profile for malformed-data/storage-error tests.",
       "priority": "URGENT",
       "owner": "Human Owner / ChatGPT",
       "related_task_id": "BVC-TM-P3.3-005"
@@ -476,11 +486,11 @@
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@4acdb4a805e6718c20bb93a4219f1dc600706c0a (PR #70 merge; latest verified base for Local Storage visual guide)",
-    "source_commit": "4acdb4a805e6718c20bb93a4219f1dc600706c0a",
+    "recovery_point_ref": "main@e133e58ed428988945cfcd1b85d1328564ec957e (PR #71 squash-merge; verified base for expanded task-record evidence)",
+    "source_commit": "e133e58ed428988945cfcd1b85d1328564ec957e",
     "verified": true,
-    "last_verified_at": "2026-11-18T16:10:00+07:00",
-    "notes": "Revision 11 is prepared against main after PR #70 merged at 4acdb4a805e6718c20bb93a4219f1dc600706c0a. B2 implementation remains executor-reported. Owner screenshot shows the exact localStorage key and parsed top-level envelope metadata at the runtime Preview origin, with two tasks visible. The data.tasks branch remains collapsed in the screenshot and must be expanded to compare stored task records. Refresh/reload, B1 interactive regression and final Owner acceptance remain pending. Post-merge continuity-refresh PR creation remains blocked by the GITHUB_TOKEN permission limitation recorded in BVC-EV-034."
+    "last_verified_at": "2026-11-20T20:00:00+07:00",
+    "notes": "Revision 12 is prepared against main after PR #71 merged at e133e58ed428988945cfcd1b85d1328564ec957e. Owner-supplied screenshot evidence dated 2026-11-20 expands data.tasks and shows two distinct UUID/title pairs matching the Preview. B2-AC-003 has screenshot evidence for stored records. B2-AC-004 refresh/reload persistence, interactive B1 regression and final Owner acceptance remain pending."
   },
-  "updated_by": "AI-prepared Project State revision 11 on Local Storage visual-guide synchronization branch; records Owner-supplied Local Storage screenshot and the precise remaining verification gaps."
+  "updated_by": "AI-prepared Project State revision 12; records Owner-supplied expanded Local Storage data.tasks screenshot and exact task record identities; refresh/reload remains pending."
 }
