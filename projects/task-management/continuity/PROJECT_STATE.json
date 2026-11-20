@@ -1,9 +1,9 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 12,
+  "revision": 13,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-20T20:00:00+07:00",
+  "state_as_of": "2026-11-21T06:10:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
@@ -305,6 +305,15 @@
         "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp",
         "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-030",
+      "statement": "Human Owner confirmed PR #73 was successfully merged. GitHub reports merge commit 756664479ed00cbb537669820a5f622ba4bf00ed. PR #73 publishes BVC-EV-036, the expanded Local Storage screenshot and the B2 documentation/continuity updates; BVCTM-055 is therefore canonical on main. This merge does not supply refresh/reload evidence or Owner acceptance of B2.",
+      "classification": "VERIFIED_FACT",
+      "source_refs": [
+        "https://github.com/donghp/beyond-vibe-coding/pull/73",
+        "https://github.com/donghp/beyond-vibe-coding/commit/756664479ed00cbb537669820a5f622ba4bf00ed"
+      ]
     }
   ],
   "decisions": [
@@ -486,11 +495,11 @@
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@e133e58ed428988945cfcd1b85d1328564ec957e (PR #71 squash-merge; verified base for expanded task-record evidence)",
-    "source_commit": "e133e58ed428988945cfcd1b85d1328564ec957e",
+    "recovery_point_ref": "main@756664479ed00cbb537669820a5f622ba4bf00ed (PR #73 squash-merge; BVC-EV-036 and BVCTM-055 are canonical on main)",
+    "source_commit": "756664479ed00cbb537669820a5f622ba4bf00ed",
     "verified": true,
-    "last_verified_at": "2026-11-20T20:00:00+07:00",
-    "notes": "Revision 12 is prepared against main after PR #71 merged at e133e58ed428988945cfcd1b85d1328564ec957e. Owner-supplied screenshot evidence dated 2026-11-20 expands data.tasks and shows two distinct UUID/title pairs matching the Preview. B2-AC-003 has screenshot evidence for stored records. B2-AC-004 refresh/reload persistence, interactive B1 regression and final Owner acceptance remain pending."
+    "last_verified_at": "2026-11-21T06:10:00+07:00",
+    "notes": "PR #73 merged at 756664479ed00cbb537669820a5f622ba4bf00ed and the expanded B2 Local Storage screenshot is canonical on main. B2-AC-003 is Owner-screenshot verified with two task IDs/titles matching Preview. No post-merge Preview refresh evidence was supplied as of this revision; B2-AC-004 remains NOT_RUN and B2-AC-010 remains NOT_VERIFIED. B3 Contract #006 is not present on main, and Prompt #0006 remains NOT_ALLOCATED; no B3 implementation authorization is implied."
   },
-  "updated_by": "AI-prepared Project State revision 12; records Owner-supplied expanded Local Storage data.tasks screenshot and exact task record identities; refresh/reload remains pending."
+  "updated_by": "AI-prepared Project State revision 13; confirms PR #73 merge and publishes BVCTM-055 as canonical on main. B2-AC-004 refresh/reload remains NOT_RUN; B2 Owner acceptance remains pending."
 }
