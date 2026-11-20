@@ -105,7 +105,7 @@ tasks:
   revision: 1
   title: "Phase B2 — Save Your Task"
   status: APPROVED
-  execution_status: IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; OWNER_LIVE_VERIFICATION_PENDING
+  execution_status: IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; B2_AC_003_OWNER_SCREENSHOT_VERIFIED; B2_AC_004_REFRESH_PENDING; OWNER_ACCEPTANCE_PENDING
   risk_level: R2
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json
   approval_reference: "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
