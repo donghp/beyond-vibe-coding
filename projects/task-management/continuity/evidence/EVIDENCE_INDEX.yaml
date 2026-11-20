@@ -253,3 +253,15 @@ evidence:
   artifact_dimensions: "760x378"
   claim: "Screenshot shows BVC Task Management Preview with two visible tasks and Chrome DevTools Application → Storage → Local Storage for runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app. The exact key bvc-task-management:workspace:v1 is visible. Parsed value exposes format=bvc-task-management-workspace, formatVersion=1, sourceMode=browser and workspaceId."
   limitations: "The data subtree remains collapsed in the screenshot; task records have not been visually compared with the two Preview titles. No refresh/reload evidence is present. This supports key and top-level envelope inspection only, not full persistence acceptance."
+
+- evidence_id: BVC-EV-036
+  subject: B2 Local Storage expanded data.tasks records
+  classification: OWNER_SUPPLIED
+  source: "Human Owner screenshot supplied in ChatGPT on 2026-11-20; optimized WebP derivative committed to the B2 lesson"
+  observed_at: '2026-11-20'
+  artifact_path: "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
+  artifact_sha256: "196a3454622ed93e185c7b24f85e5654111c0f3225747eb5a5bf149a873bf064"
+  artifact_bytes: 38586
+  artifact_dimensions: "720x663"
+  claim: "Screenshot shows the correct runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app and key bvc-task-management:workspace:v1. The parsed data.tasks array is expanded and shows task ID e520ee3c-146a-413b-bcba-641122619dbc with title Prepare weekly work plan and task ID e88047aa-baea-4927-b47f-35f056d40cfa with title Review project milestones. Both titles match the two tasks displayed in Preview."
+  limitations: "This confirms the two stored task records at screenshot time. It does not prove persistence across a Preview refresh/reload. B2-AC-004 remains NOT_RUN pending same-profile, same-origin refresh verification."
