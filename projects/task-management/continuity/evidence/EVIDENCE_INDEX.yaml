@@ -264,4 +264,4 @@ evidence:
   artifact_bytes: 14644
   artifact_dimensions: "480x405"
   claim: "Screenshot shows the correct runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app and key bvc-task-management:workspace:v1. The parsed data.tasks array is expanded and shows task ID e520ee3c-146a-413b-bcba-641122619dbc with title Prepare weekly work plan and task ID e88047aa-baea-4927-b47f-35f056d40cfa with title Review project milestones. Both titles match the two tasks displayed in Preview."
-  limitations: "This confirms the two stored task records at screenshot time. It does not prove persistence across a Preview refresh/reload. B2-AC-004 remains NOT_RUN pending same-profile, same-origin refresh verification."
+  limitations: "This confirms the two stored task records at screenshot time. The evidence asset is canonical on main through merged PR #73 (merge commit 756664479ed00cbb537669820a5f622ba4bf00ed). It does not prove persistence across a Preview refresh/reload. B2-AC-004 remains NOT_RUN pending same-profile, same-origin refresh verification."
