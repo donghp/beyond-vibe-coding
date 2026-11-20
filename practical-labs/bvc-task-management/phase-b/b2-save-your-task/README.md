@@ -546,7 +546,7 @@ Local Storage là vùng lưu dữ liệu theo **origin** của website. Origin g
    - `formatVersion`: `1`
    - `sourceMode`: `browser`
    - `workspaceId`: một UUID không rỗng.
-7. **Mở danh sách task:** bấm tam giác cạnh `data`, rồi mở `tasks`. Cần nhìn thấy hai object task và đối chiếu đúng title với Preview. Trong ảnh minh họa hiện tại, `data` vẫn thu gọn; người học cần thực hiện thao tác mở rộng này để hoàn thiện bằng chứng.
+7. **Mở danh sách task:** bấm tam giác cạnh `data`, rồi mở `tasks`. Cần nhìn thấy hai object task và đối chiếu đúng title với Preview. Ảnh overview ban đầu có `data` thu gọn. Ảnh follow-up [expanded task records](assets/b2-localstorage-task-records.webp) minh họa kết quả sau khi mở rộng `data → tasks`.
 8. **Kiểm tra sau refresh:** refresh Preview trong cùng browser profile/origin. Hai task phải xuất hiện lại đúng thứ tự. Sau đó kiểm tra Local Storage lần nữa để xác nhận key vẫn tồn tại.
 
 ### Cách đọc kết quả
@@ -559,15 +559,23 @@ Local Storage là vùng lưu dữ liệu theo **origin** của website. Origin g
 | formatVersion | Phiên bản schema | `1` |
 | sourceMode | Nguồn lưu | `browser` |
 | workspaceId | ID ổn định của workspace | UUID không rỗng |
-| data.tasks | Mảng công việc đã lưu | Có hai task; mỗi task có `id` và `title` đúng |
+| data.tasks | Mảng công việc đã lưu | Hai record có UUID riêng và title khớp Preview; ảnh follow-up xác nhận |
 
 **An toàn:** chỉ quan sát dữ liệu. Không sửa trực tiếp Value, không bấm Delete, không dùng Clear site data/Clear storage và không xóa Local Storage để “thử lại”. Các thử nghiệm malformed data hoặc storage error chỉ được thực hiện trong disposable browser profile.
 
-### Trạng thái bằng chứng của ảnh hiện tại
+### Ảnh follow-up — expanded task records (20/11/2026)
 
-- **Đã quan sát:** runtime origin được chọn; key chính xác xuất hiện; parsed object cho thấy metadata cấp cao; Preview hiển thị hai task.
-- **Cần làm tiếp:** mở rộng `data → tasks` để đối chiếu hai task records với hai title trong Preview.
-- **Chưa chứng minh:** hai task vẫn còn sau một lần refresh. Cần thực hiện refresh và quan sát lại Preview.
+Human Owner supplied a second, closer screenshot after expanding `data → tasks` in the same runtime Local Storage origin.
+
+![Expanded Local Storage data.tasks records showing both B2 task IDs and titles](assets/b2-localstorage-task-records.webp)
+
+*Hình: Hai task records thực tế trong Local Storage. Task 0 có ID `e520ee3c-146a-413b-bcba-641122619dbc` và title `Prepare weekly work plan`. Task 1 có ID `e88047aa-baea-4927-b47f-35f056d40cfa` và title `Review project milestones`. Cả hai title khớp với danh sách task trong Preview.*
+
+### Trạng thái bằng chứng sau ảnh follow-up
+
+- **Đã quan sát:** đúng runtime origin `ais-dev-...run.app`; đúng key `bvc-task-management:workspace:v1`; envelope đúng `format`, `formatVersion`, `sourceMode`, có `workspaceId`; `data.tasks` đã mở rộng và hiển thị đúng hai record, hai ID khác nhau và title khớp Preview.
+- **B2-AC-003:** **OWNER SCREENSHOT VERIFIED** — key, envelope và hai task records đã được đối chiếu bằng ảnh.
+- **Chưa chứng minh:** hai task vẫn tồn tại sau một lần refresh. B2-AC-004 vẫn NOT_RUN cho đến khi Preview được refresh trong cùng browser profile/origin và hai task xuất hiện lại đúng thứ tự.
 
 ## 8. Next lesson
 
