@@ -1,0 +1,30 @@
+schema_version: "1.0"
+project_id: "BVC-PL-PROGRAM-001"
+title: "BEYOND VIBE CODING — Practical Labs"
+owner: "Dong Hong"
+root_path: "practical-labs/"
+default_language: "en"
+reader_levels:
+  - beginner
+  - intermediate
+  - advanced
+authoring_standard: "../standards/BVC_PRACTICAL_LABS_AUTHORING_STANDARD_V0.2.md"
+style_standard: "../standards/DONG_HONG_STYLE_GUIDE_V1.0.md"
+evidence_standard: "../standards/BVC_PRACTICAL_LABS_EVIDENCE_STANDARD_V1.0.md"
+release_standard: "../standards/BVC_PRACTICAL_LABS_RELEASE_STANDARD_V1.0.md"
+projects:
+  - project_id: "BVC-PL-BVCTM-001"
+    slug: "bvc-task-management"
+    title: "BVC Task Management — A Simple Daily Work Manager"
+    entrypoint: "bvc-task-management/README.md"
+    curriculum: "bvc-task-management/CURRICULUM_MAP_V0.2.md"
+    status_register: "bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+    environment: "Google AI Studio"
+    evidence_source_of_truth: "bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+    note: "Do not infer implementation or acceptance from a planned curriculum item."
+governance:
+  changes_must_stay_under: "practical-labs/"
+  use_dedicated_branch: true
+  pull_request_required: true
+  auto_merge: false
+  human_owner_controls_acceptance_and_merge: true
