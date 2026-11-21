@@ -36,3 +36,13 @@ By completing the lab, learners should be able to:
 - Use only images you own or have permission to use. Do not impersonate another person or upload private images without permission.
 - Keep the original soundtrack separate when the workflow requires it; add licensed or owned audio during editing.
 - A prompt cannot guarantee exact identity preservation or perfect anatomy. Use reference images, conservative actions, frame review, and regeneration where needed.
+
+## AI Coding Cost Optimization
+
+A practical lab on using a model provider with Codex in VS Code and reducing the cost of AI-assisted software development through context engineering, cache-aware prompt structure, provider-aware scheduling, and outcome-based measurement.
+
+- [Optimize AI Coding Costs — DeepSeek + Codex Lab](./optimize-ai-coding-costs/README.md)
+- [BVC-ACO-001 — AI Cost Optimization Standard](./optimize-ai-coding-costs/standard/AI_COST_OPTIMIZATION_STANDARD.md)
+- [Historical Case Study — 417 Million Tokens for USD 5.01](./optimize-ai-coding-costs/case-study/417-million-tokens-for-five-dollars.md)
+
+The lab distinguishes historical billing evidence from current provider pricing and treats token volume as telemetry—not proof of engineering quality.
