@@ -1,23 +1,22 @@
 # Case Study Images
 
-Store the original, author-supplied image exhibits for the article:
+Original image files for the article:
 
 [417 Million Tokens for Just USD 5.01](../417-million-tokens-for-five-dollars.md)
 
-## Expected image files
+## Uploaded image assets
 
-| Filename | Article figure | Purpose |
+| Actual filename on GitHub | Article figure | Purpose |
 |---|---:|---|
-| `vscode-codex-deepseek-setup.jpg` | Figure 1 | VS Code, Codex extension and selected DeepSeek model |
-| `deepseek-usage-billing-overview.jpg` | Figure 2 | DeepSeek usage dashboard showing the headline billing figures |
+| `vscode_codex_deepseek.jpg` | Figure 1 | VS Code, Codex extension and selected DeepSeek model |
+| `deepseek_report.jpg` | Figure 2 | DeepSeek usage dashboard showing the headline billing figures |
 
-## Asset requirements
+## Asset notes
 
-- Keep the original screenshots unchanged.
-- Upload genuine image files; do not create placeholder images.
-- Preserve enough interface context to understand what each screenshot shows.
-- Do not expose API keys, account identifiers, payment details, personal data or confidential project information.
-- Use separate derived copies for any redaction or annotation.
-- The article embeds these files using relative paths from the case-study Markdown file.
+- These filenames match the image files already uploaded to this directory on the `main` branch.
+- Keep original screenshots unchanged.
+- Create separate derivative files for any redaction or annotation.
+- Inspect screenshots for API keys, account identifiers, payment details, personal data and confidential project information before redistribution.
+- The article uses relative image paths from the case-study Markdown file.
 
-**Current status:** Directory initialized. The two JPEG binaries must be uploaded separately before the article's image links can render.
+**Status:** Both image files are present on `main`; the case-study Markdown and metadata are being aligned to these exact filenames.
