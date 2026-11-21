@@ -1,0 +1,54 @@
+content_metadata:
+  id: "BVC-ARTICLE-DEEPSEEK-COST-001"
+  title: "417 Million Tokens for Just USD 5.01: My DeepSeek + Codex Experience in VS Code — What Can I Improve to Optimize AI Coding Costs Further?"
+  subtitle: "From a real-world experiment to practical lessons in prompt engineering, context engineering and AI agent cost optimization."
+  version: "1.0.0"
+  status: "published-draft"
+  language: "en"
+  author: "Dong Hong"
+  canonical_entrypoint: "417-million-tokens-for-five-dollars.md"
+  evidence_period:
+    start: "2026-08-29"
+    end: "2026-09-01"
+    reporting_basis: "billing-period"
+    timezone: "Asia/Ho_Chi_Minh"
+  headline_metrics:
+    billed_tokens: 417153568
+    api_requests: 962
+    reconciled_cost_usd: 5.014844192
+    input_cache_hit_tokens: 413217024
+    input_cache_miss_tokens: 2443289
+    output_tokens: 1493255
+    input_cache_hit_rate: 0.994124
+  images:
+    - path: "./images/vscode-codex-deepseek-setup.jpg"
+      role: "development-environment-context"
+      article_figure: 1
+      status: "author-supplied; binary upload pending"
+    - path: "./images/deepseek-usage-billing-overview.jpg"
+      role: "provider-usage-dashboard"
+      article_figure: 2
+      status: "author-supplied; binary upload pending"
+  evidence:
+    primary:
+      - "Author-provided Amount/Usage CSV export"
+      - "Author-provided Cost/Billing CSV export"
+    visual:
+      - "VS Code and Codex screenshot"
+      - "DeepSeek Platform usage dashboard screenshot"
+    missing_for_next_experiment:
+      - "Request-level traces linked to task IDs"
+      - "Tool-call and retry counts"
+      - "Task-level actual API cost"
+      - "Build, test and acceptance evidence"
+  claims_policy:
+    - "Historical cost is an observed result, not a future price guarantee."
+    - "Token total includes cache-hit input, cache-miss input and output."
+    - "Counterfactual savings must be labelled as simulations."
+    - "No cross-provider savings claims without a controlled equivalent workload."
+    - "Token volume is not proof of engineering quality or accepted work."
+  book:
+    title: "BEYOND VIBE CODING"
+    subtitle: "A Practical Guide to Building Real-World Software with AI"
+    author: "Dong Hong"
+    store_url: "https://play.google.com/store/books/details?id=geQaEgAAQBAJ"
