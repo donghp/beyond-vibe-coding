@@ -80,3 +80,10 @@ The book develops the broader engineering discipline behind task decomposition, 
 ## Disclaimer
 
 This is an educational case study, not financial advice or a guarantee of future API prices, model performance, cache hit rates, or project outcomes. Always protect API credentials, inspect scripts before execution, review generated changes, and verify important engineering work.
+
+
+## Published Case Study
+
+- [417 Million Tokens for Just USD 5.01 — DeepSeek + Codex in VS Code](./case-study/417-million-tokens-for-five-dollars.md)
+
+The article uses two author-supplied screenshots as contextual exhibits and relies on reconciled Amount/Usage and Cost/Billing CSV exports for the detailed calculations. Screenshot files are stored in `case-study/images/`. The article distinguishes observed billing from simulations and does not treat token volume as proof of accepted engineering work.
