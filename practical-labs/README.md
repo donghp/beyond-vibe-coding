@@ -112,6 +112,29 @@ For Phase A, you need a modern web browser, an internet connection, and access t
 
 Later phases introduce technical tools only when they become useful and their learning scope is ready.
 
+
+## Shared standards and resources
+
+- [Practical Labs Authoring Standard v0.2.0](standards/BVC_PRACTICAL_LABS_AUTHORING_STANDARD_V0.2.md)
+- [Dong Hong Style Guide v1.0.0](standards/DONG_HONG_STYLE_GUIDE_V1.0.md)
+- [Prompt Package Standard v1.0.0](standards/BVC_PRACTICAL_LABS_PROMPT_PACKAGE_STANDARD_V1.0.md)
+- [Evidence and Screenshot Standard v1.0.0](standards/BVC_PRACTICAL_LABS_EVIDENCE_STANDARD_V1.0.md)
+- [Release and Review Standard v1.0.0](standards/BVC_PRACTICAL_LABS_RELEASE_STANDARD_V1.0.md)
+- [Content Versioning Standard v1.0.0](standards/BVC_PRACTICAL_LABS_VERSIONING_STANDARD_V1.0.md)
+- [Contributor Guide](CONTRIBUTING.md)
+- [Practical Labs Catalog](PRACTICAL_LABS_CATALOG.yaml)
+- [Lesson Metadata Template](templates/PRACTICAL_LAB_METADATA_TEMPLATE.yaml)
+- [Evidence Register Template](templates/LESSON_EVIDENCE_REGISTER_TEMPLATE.yaml)
+- [Review Checklist](templates/PRACTICAL_LAB_REVIEW_CHECKLIST.md)
+- [Metadata JSON Schema](schemas/practical-lab-metadata.schema.json)
+- [Evidence JSON Schema](schemas/practical-lab-evidence.schema.json)
+
+## Repository scope and authority
+
+Practical Labs explain and teach. They do not replace Product Definition, architecture baselines, UX decisions, Security requirements, Task Contracts, or Human Owner authorization. A planned lesson does not mean the feature is approved or implemented.
+
+All repository changes follow the authorization in [AUTHORIZATION_AND_SCOPE.md](AUTHORIZATION_AND_SCOPE.md). Contributions use a dedicated branch and Pull Request. The Human Owner retains acceptance and merge authority; automatic merge is not used.
+
 ## Relationship to the book
 
 The GitHub Practical Labs let readers experience the value of building with AI and learning by doing. **BEYOND VIBE CODING** provides the broader method: turn ideas into clear requirements, guide AI through bounded steps, review changes, verify behavior, and keep the human in control.
