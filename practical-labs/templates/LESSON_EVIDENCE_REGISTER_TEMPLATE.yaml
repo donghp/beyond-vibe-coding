@@ -1,0 +1,13 @@
+schema_version: "1.0"
+lesson_id: "BVC-PL-<PROJECT>-<PHASE>-<NNN>"
+evidence_items:
+  - evidence_id: "EV-001"
+    description: "Describe the actual screenshot, file, test or confirmation."
+    evidence_type: "screenshot" # screenshot | source-file | build | automated-test | manual-test | owner-confirmation | telemetry
+    source: "Human Owner supplied"
+    captured_or_tested_at: null
+    path: "assets/screenshots/..."
+    status: "not-verified" # observed | verified | owner-confirmed | unknown | not-verified | inference | planned
+    supports: []
+    limitations: []
+    privacy_review: "not-reviewed" # not-reviewed | passed | redaction-required
