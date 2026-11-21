@@ -1,0 +1,42 @@
+catalog:
+  id: "BVC-PL-CATALOG-001"
+  title: "Beyond Vibe Coding — Practical Labs Catalog"
+  version: "1.0.0"
+  status: "proposed-for-review"
+  owner: "Dong Hong"
+  repository: "donghp/beyond-vibe-coding"
+  root: "practical-labs/"
+  authoring_standard: "standards/BVC_PRACTICAL_LABS_AUTHORING_STANDARD_V0.2.md"
+  operating_principle: "One lesson = one practical outcome."
+  human_authority: "The Human Owner retains product, acceptance, and merge authority."
+  labs:
+    - id: "BVC-PL-BVCTM-001"
+      slug: "bvc-task-management"
+      title: "BVC Task Management — A Simple Daily Work Manager"
+      status: "active-learning-program"
+      canonical_entrypoint: "bvc-task-management/README.md"
+      curriculum: "bvc-task-management/CURRICULUM_MAP_V0.2.md"
+      lesson_status_register: "bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+      primary_environment: "Google AI Studio"
+      audience: ["beginner", "intermediate", "advanced"]
+      current_progress:
+        phase_a: "learning-path-completed"
+        b1: "completed-accepted-with-known-limitations"
+        b2: "implementation-reported-owner-acceptance-pending-in-source-register"
+        b3: "planned"
+        b4: "planned"
+        phase_c: "planned"
+        phase_d: "planned"
+      evidence_policy: "Use the canonical Lesson Status Register; do not infer implementation or acceptance from curriculum presence."
+  shared_resources:
+    authorization: "AUTHORIZATION_AND_SCOPE.md"
+    standards: "standards/"
+    templates: "templates/"
+    assets: "assets/"
+  governance:
+    authorized_scope: "practical-labs/"
+    branch_required: true
+    pull_request_required: true
+    auto_merge: false
+    owner_merge_authority: true
+    preserve_project_decisions: true
