@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/practical-labs/schemas/practical-lab-metadata.schema.json",
+  "title": "BVC Practical Lab Metadata",
+  "type": "object",
+  "required": ["lesson"],
+  "additionalProperties": false,
+  "properties": {
+    "lesson": {
+      "type": "object",
+      "required": ["id", "title", "project", "phase", "sequence", "level", "version", "status", "primary_outcome"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "project": {"type": "string", "minLength": 1},
+        "phase": {"type": "string", "minLength": 1},
+        "sequence": {"type": "integer", "minimum": 1},
+        "level": {"enum": ["beginner", "intermediate", "advanced"]},
+        "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "status": {"enum": ["draft", "evidence-required", "ready-for-review", "accepted", "superseded", "withdrawn"]},
+        "canonical_entrypoint": {"type": "string"},
+        "owner": {"type": "string"},
+        "author": {"type": "string"},
+        "language": {"enum": ["en", "vi"]},
+        "primary_outcome": {"type": "string", "minLength": 1},
+        "prerequisites": {"type": "array", "items": {"type": "string"}},
+        "tools": {"type": "object"},
+        "source_of_truth": {"type": "array", "items": {"type": "string"}},
+        "prompt_ids": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"type": "object"},
+        "navigation": {"type": "object"},
+        "validation": {"type": "object"},
+        "limitations": {"type": "array", "items": {"type": "string"}},
+        "change_log": {"type": "array", "items": {"type": "object"}}
+      },
+      "additionalProperties": true
+    }
+  }
+}
