@@ -1,0 +1,68 @@
+schema_version: "1.0"
+standard: "BVC-ACO-001"
+task:
+  id: "TASK-001"
+  objective: "Describe one bounded engineering outcome."
+  risk: "low" # low | medium | high | critical
+
+scope:
+  allowed_paths:
+    - "src/feature/"
+  forbidden_paths:
+    - "secrets/"
+    - "production-data/"
+  change_budget:
+    max_files: 5
+    max_lines_changed: 300
+
+context:
+  mandatory:
+    - "docs/architecture.md"
+    - "standards/coding.md"
+  conditional:
+    - "docs/data-model.md"
+  excluded:
+    - "logs/archive/"
+  source_of_truth:
+    - "docs/project-state.md"
+
+constraints:
+  - "Preserve existing public interfaces."
+  - "Do not modify unrelated modules."
+  - "Do not expose credentials."
+
+execution:
+  inspect_before_edit: true
+  plan_before_high_impact_change: true
+  ask_before_scope_expansion: true
+  batch_independent_reads: true
+
+acceptance_criteria:
+  - id: "AC-001"
+    description: "Required behavior works."
+    verification: "Automated test"
+  - id: "AC-002"
+    description: "No unrelated files changed."
+    verification: "Git diff review"
+
+output_contract:
+  required:
+    - "summary"
+    - "changed_files"
+    - "test_results"
+    - "known_limitations"
+  full_file_output: false
+  include_diff_summary: true
+
+cost_measurement:
+  task_id_required: true
+  capture_model: true
+  capture_request_timestamps: true
+  capture_cache_hit_miss: true
+  capture_output_tokens: true
+  capture_actual_cost: true
+
+acceptance:
+  status: "pending" # pending | accepted | rejected | accepted_with_limitations
+  reviewer: null
+  evidence_refs: []
