@@ -28,7 +28,7 @@ content_metadata:
     - path: "./images/deepseek_report.jpg"
       role: "provider-usage-dashboard"
       article_figure: 2
-      status: "author-supplied; binary upload pending"
+      status: "uploaded-to-main; path-verified"
   evidence:
     primary:
       - "Author-provided Amount/Usage CSV export"
