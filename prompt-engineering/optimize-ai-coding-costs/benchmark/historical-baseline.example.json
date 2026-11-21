@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "BVC-ACO-DEEPSEEK-2026-08",
+  "title": "Historical DeepSeek + Codex Usage Baseline",
+  "status": "historical_observation",
+  "observation_window": {
+    "start_date": "2026-08-29",
+    "end_date": "2026-09-01",
+    "reporting_basis": "billing-period",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "provider": "DeepSeek",
+  "historical_model_label": "deepseek-v4-flash",
+  "client_context": {
+    "ide": "Visual Studio Code",
+    "agent_client": "Codex IDE extension",
+    "inference_location": "remote_provider_api",
+    "note": "The screenshot shows a selected DeepSeek V4 Flash Light model in the VS Code Codex panel. The billing exports aggregate requests and do not prove the origin interface for every request."
+  },
+  "observed": {
+    "total_billed_tokens": 417153568,
+    "api_requests": 962,
+    "total_cost_usd": 5.014844192,
+    "input_cache_hit_tokens": 413217024,
+    "input_cache_miss_tokens": 2443289,
+    "output_tokens": 1493255,
+    "input_tokens": 415660313,
+    "input_cache_hit_rate": 0.994124
+  },
+  "historical_unit_prices_usd_per_million": {
+    "off_peak": {
+      "input_cache_hit": 0.007,
+      "input_cache_miss": 0.22,
+      "output": 0.66
+    },
+    "peak": {
+      "input_cache_hit": 0.014,
+      "input_cache_miss": 0.44,
+      "output": 1.32
+    }
+  },
+  "tier_mix": {
+    "off_peak": {
+      "tokens": 348496364,
+      "cost_usd": 3.816337904
+    },
+    "peak": {
+      "tokens": 68657204,
+      "cost_usd": 1.198506288
+    }
+  },
+  "counterfactuals": [
+    {
+      "name": "Peak workload billed at Off-peak rates",
+      "modeled_cost_usd": 0.599253144,
+      "modeled_difference_usd": 0.599253144,
+      "label": "simulation_only",
+      "assumption": "The same Peak workload could be moved to Off-peak without changing operational outcomes."
+    },
+    {
+      "name": "Cache-hit input billed as cache-miss",
+      "modeled_total_cost_usd": 107.60,
+      "modeled_difference_usd": 102.58,
+      "label": "analytical_counterfactual_only",
+      "assumption": "Same historical token volumes and historical tier-specific unit prices; not a measured no-cache experiment."
+    }
+  ],
+  "not_measured": [
+    "Request-level traces mapped to task IDs",
+    "Tool-call counts",
+    "Retry and rework counts",
+    "Cost per accepted task",
+    "Accepted deliverable counts",
+    "Build and test outcomes for the billed workload",
+    "Equivalent controlled cost comparison with another provider"
+  ],
+  "primary_next_metric": "cost_per_accepted_task",
+  "formula": "Attributable API Cost / Number of Accepted Tasks"
+}
