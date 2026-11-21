@@ -1,0 +1,49 @@
+content_metadata:
+  id: "BVC-LAB-ACO-001"
+  title: "Optimize AI Coding Costs — DeepSeek + Codex Lab"
+  version: "1.0.0"
+  status: "experimental"
+  canonical_entrypoint: "README.md"
+  parent_index: "../README.md"
+  maturity: "proposed-standard-and-practical-lab"
+  owner: "Beyond Vibe Coding"
+  author: "Dong Hong"
+  audience:
+    - vibe-coders
+    - software-developers
+    - AI-engineers
+    - technical-leads
+  topics:
+    - model-provider-adapters
+    - codex
+    - visual-studio-code
+    - deepseek
+    - prompt-engineering
+    - context-engineering
+    - prefix-caching
+    - AI-cost-optimization
+    - engineering-verification
+  learning_outcomes:
+    - configure_a_remote_model_provider_for_a_local_coding_agent
+    - distinguish_cache_hit_cache_miss_and_output_billing
+    - design_relevant_stable_context
+    - schedule_deferrable_work_using_provider_pricing_windows
+    - measure_cost_per_accepted_task
+  case_study:
+    period_start: "2026-08-29"
+    period_end: "2026-09-01"
+    total_billed_tokens: 417153568
+    total_api_requests: 962
+    reconciled_cost_usd: 5.014844192
+    input_cache_hit_rate: 0.994124
+  book:
+    title: "BEYOND VIBE CODING"
+    subtitle: "A Practical Guide to Building Real-World Software with AI"
+    author: "Dong Hong"
+    official_store_url: "https://play.google.com/store/books/details?id=geQaEgAAQBAJ"
+    relationship: "This practical lab applies the broader task, context, continuity, authority and verification ideas developed in the book."
+  disclaimer:
+    - "Historical observed result; not a universal cost guarantee."
+    - "API pricing and model identifiers change; consult the provider's current documentation."
+    - "Counterfactual savings are simulations, not measured refunds."
+    - "Token counts do not prove engineering acceptance."

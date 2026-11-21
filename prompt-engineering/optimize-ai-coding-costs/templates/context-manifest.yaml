@@ -1,0 +1,20 @@
+schema_version: "1.0"
+task_id: "TASK-001"
+manifest:
+  authoritative_sources:
+    - path: "docs/architecture.md"
+      revision: "main@<commit-sha>"
+      reason: "Defines current system boundaries."
+  mandatory:
+    - path: "standards/coding.md"
+      reason: "Applies to all code changes in scope."
+  conditional:
+    - path: "docs/data-model.md"
+      condition: "Only if persistence or API contract is changed."
+  excluded:
+    - path: "logs/archive/"
+      reason: "Historical and not relevant to this task."
+  unresolved_conflicts: []
+  freshness_checked_at: null
+  prepared_by: "human-or-agent-identifier"
+  notes: "Select relevant context; do not assume this manifest is a permission grant."

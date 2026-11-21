@@ -1,0 +1,127 @@
+schema_version: "1.0"
+case_study_id: "BVC-ACO-DEEPSEEK-2026-08"
+title: "DeepSeek V4-Flash + Codex + VS Code — 417,153,568 tokens / USD 5.014844192"
+evidence_scope:
+  usage_period_start: "2026-08-29"
+  usage_period_end: "2026-09-01"
+  reporting_basis: "billing-period"
+  timezone_for_presentation: "Asia/Ho_Chi_Minh"
+  source_files:
+    - "amount-2026-08-23_2026-09-01.csv"
+    - "cost-2026-08-23_2026-09-01.csv"
+  note: "The exported report filenames cover a wider query window; the records reconciled for this case study are 2026-08-29 through 2026-09-01."
+
+evidence:
+  - id: "E01"
+    name: "DeepSeek Codex integration documentation"
+    type: "official-documentation"
+    status: "verified"
+    supports:
+      - "Codex can be configured to use DeepSeek through the documented provider integration."
+    reference: "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/"
+
+  - id: "E02"
+    name: "Amount / Usage CSV"
+    type: "provider-export"
+    status: "reviewed-and-reconciled"
+    supports:
+      - "Token totals by billing category."
+      - "Request and API-key attribution fields."
+      - "Historical Peak and Off-peak price application."
+    artifact: "amount-2026-08-23_2026-09-01.csv"
+
+  - id: "E03"
+    name: "Cost / Billing CSV"
+    type: "provider-export"
+    status: "reviewed-and-reconciled"
+    supports:
+      - "Daily aggregate costs."
+      - "Exact reconciliation to calculated Amount CSV cost."
+    artifact: "cost-2026-08-23_2026-09-01.csv"
+
+  - id: "E04"
+    name: "Usage dashboard screenshot"
+    type: "owner-held-screenshot"
+    status: "owner-confirmed-not-inspected-in-this-commit"
+    supports:
+      - "Potential visual corroboration of usage dashboard."
+    publication_requirement: "Attach a redacted image and record capture date before public claim."
+
+  - id: "E05"
+    name: "Billing history screenshot"
+    type: "owner-held-screenshot"
+    status: "owner-confirmed-not-inspected-in-this-commit"
+    supports:
+      - "Potential visual corroboration of billing history."
+    publication_requirement: "Attach a redacted image and record capture date before public claim."
+
+  - id: "E06"
+    name: "Codex configuration screenshot"
+    type: "owner-held-screenshot"
+    status: "owner-confirmed-not-inspected-in-this-commit"
+    supports:
+      - "Potential evidence of local Codex provider/model configuration."
+    publication_requirement: "Redact secrets, account identifiers and private paths."
+
+  - id: "E07"
+    name: "Cache breakdown screenshot"
+    type: "owner-held-screenshot"
+    status: "owner-confirmed; CSV breakdown independently reconciled"
+    supports:
+      - "Cache hit and miss distribution."
+    publication_requirement: "Attach redacted image if used as a visual exhibit."
+
+  - id: "E08"
+    name: "Current provider pricing and schedule"
+    type: "official-documentation"
+    status: "must-refresh-at-publication"
+    reference: "https://api-docs.deepseek.com/quick_start/pricing/"
+    supports:
+      - "Current model price."
+      - "Effective Peak and Off-peak pricing schedule."
+    caution: "Never substitute current rates into historical billing calculations."
+
+  - id: "E09"
+    name: "Request-level traces and task attribution"
+    type: "telemetry"
+    status: "not-provided"
+    required_for:
+      - "Input/output ratio analysis per request."
+      - "Tool-call and retry analysis."
+      - "Cost per accepted task."
+
+  - id: "E10"
+    name: "Repository changes and task acceptance evidence"
+    type: "engineering-evidence"
+    status: "not-linked-to-billing-period"
+    required_for:
+      - "Claims about completed features."
+      - "Claims about accepted deliverables."
+      - "Cost per accepted task."
+
+  - id: "E11"
+    name: "Controlled reproducible benchmark"
+    type: "experiment"
+    status: "planned"
+    required_for:
+      - "Causal claims about prompt/context optimization."
+      - "Cross-provider cost comparisons."
+
+reconciliation:
+  total_tokens: 417153568
+  total_requests: 962
+  total_cost_usd: 5.014844192
+  cache_hit_tokens: 413217024
+  cache_miss_tokens: 2443289
+  output_tokens: 1493255
+  input_cache_hit_rate: 0.994124
+  amount_cost_matches_cost_export: true
+
+publication_controls:
+  redact_api_keys: true
+  redact_account_identifiers: true
+  redact_payment_identifiers: true
+  redact_private_project_material: true
+  label_counterfactuals_as_simulations: true
+  distinguish_historical_and_current_prices: true
+  do_not_claim_cross_provider_savings_without_controlled_benchmark: true
