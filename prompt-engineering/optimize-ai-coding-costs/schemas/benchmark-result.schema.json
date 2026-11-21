@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/prompt-engineering/optimize-ai-coding-costs/schemas/benchmark-result.schema.json",
+  "title": "BVC AI Cost Optimization Benchmark Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "experiment_arm",
+    "repository_commit",
+    "model_id",
+    "request_count",
+    "input_cache_hit_tokens",
+    "input_cache_miss_tokens",
+    "output_tokens",
+    "actual_api_cost_usd",
+    "acceptance_status"
+  ],
+  "properties": {
+    "task_id": { "type": "string", "minLength": 1 },
+    "experiment_arm": { "enum": ["A-baseline", "B-prompt-contract", "C-context-optimized", "D-full-optimization"] },
+    "repository_commit": { "type": "string", "minLength": 7 },
+    "model_id": { "type": "string", "minLength": 1 },
+    "start_time": { "type": ["string", "null"], "format": "date-time" },
+    "end_time": { "type": ["string", "null"], "format": "date-time" },
+    "request_count": { "type": "integer", "minimum": 0 },
+    "input_cache_hit_tokens": { "type": "integer", "minimum": 0 },
+    "input_cache_miss_tokens": { "type": "integer", "minimum": 0 },
+    "output_tokens": { "type": "integer", "minimum": 0 },
+    "actual_api_cost_usd": { "type": "number", "minimum": 0 },
+    "tool_call_count": { "type": ["integer", "null"], "minimum": 0 },
+    "retry_count": { "type": ["integer", "null"], "minimum": 0 },
+    "rework_count": { "type": ["integer", "null"], "minimum": 0 },
+    "changed_files": { "type": ["integer", "null"], "minimum": 0 },
+    "build_result": { "enum": ["pass", "fail", "not_run", "not_applicable"] },
+    "test_result": { "enum": ["pass", "fail", "not_run", "not_applicable"] },
+    "acceptance_status": { "enum": ["accepted", "accepted_with_limitations", "rejected", "pending"] },
+    "acceptance_evidence": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  }
+}
