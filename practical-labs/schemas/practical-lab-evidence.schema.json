@@ -3,26 +3,95 @@
   "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/practical-labs/schemas/practical-lab-evidence.schema.json",
   "title": "BVC Practical Lab Evidence Register",
   "type": "object",
-  "required": ["schema_version", "lesson_id", "evidence_items"],
+  "required": [
+    "schema_version",
+    "lesson_id",
+    "evidence_items"
+  ],
   "properties": {
-    "schema_version": {"type": "string"},
-    "lesson_id": {"type": "string"},
+    "schema_version": {
+      "type": "string"
+    },
+    "lesson_id": {
+      "type": "string"
+    },
     "evidence_items": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["evidence_id", "description", "evidence_type", "status"],
+        "required": [
+          "evidence_id",
+          "description",
+          "evidence_type",
+          "status"
+        ],
         "properties": {
-          "evidence_id": {"type": "string"},
-          "description": {"type": "string"},
-          "evidence_type": {"enum": ["screenshot", "source-file", "build", "automated-test", "manual-test", "owner-confirmation", "telemetry"]},
-          "source": {"type": ["string", "null"]},
-          "captured_or_tested_at": {"type": ["string", "null"], "format": "date-time"},
-          "path": {"type": ["string", "null"]},
-          "status": {"enum": ["observed", "verified", "owner-confirmed", "unknown", "not-verified", "inference", "planned"]},
-          "supports": {"type": "array", "items": {"type": "string"}},
-          "limitations": {"type": "array", "items": {"type": "string"}},
-          "privacy_review": {"enum": ["not-reviewed", "passed", "redaction-required"]}
+          "evidence_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "evidence_type": {
+            "enum": [
+              "screenshot",
+              "source-file",
+              "build",
+              "automated-test",
+              "manual-test",
+              "owner-confirmation",
+              "telemetry"
+            ]
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "captured_or_tested_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "observed",
+              "verified",
+              "owner-confirmed",
+              "unknown",
+              "not-verified",
+              "inference",
+              "planned"
+            ]
+          },
+          "supports": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "privacy_review": {
+            "enum": [
+              "not-reviewed",
+              "passed",
+              "redaction-required"
+            ]
+          }
         },
         "additionalProperties": true
       }
