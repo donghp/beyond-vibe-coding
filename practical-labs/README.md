@@ -129,6 +129,17 @@ Later phases introduce technical tools only when they become useful and their le
 - [Metadata JSON Schema](schemas/practical-lab-metadata.schema.json)
 - [Evidence JSON Schema](schemas/practical-lab-evidence.schema.json)
 
+
+## Repeatable content checks
+
+A small local checker is available at [scripts/check_markdown_links.py](scripts/check_markdown_links.py). Run it from a local repository checkout with:
+
+```bash
+python practical-labs/scripts/check_markdown_links.py
+```
+
+It checks local relative Markdown and HTML references inside `practical-labs/`. It does not verify external URLs, screenshot authenticity, runtime behavior, or technical correctness.
+
 ## Repository scope and authority
 
 Practical Labs explain and teach. They do not replace Product Definition, architecture baselines, UX decisions, Security requirements, Task Contracts, or Human Owner authorization. A planned lesson does not mean the feature is approved or implemented.
