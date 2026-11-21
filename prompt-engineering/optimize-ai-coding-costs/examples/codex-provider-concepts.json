@@ -1,0 +1,19 @@
+{
+  "example_type": "illustrative-provider-concepts-not-a-drop-in-config",
+  "warning": "Use exact current values from the official DeepSeek Codex integration documentation. Do not place API keys in this file.",
+  "model_provider": {
+    "provider_id": "deepseek",
+    "base_url": "https://api.deepseek.com/",
+    "wire_api": "responses"
+  },
+  "model": {
+    "historical_case_study_model": "deepseek-v4-flash",
+    "current_model_alias_at_publication": "deepseek-flash"
+  },
+  "security": {
+    "api_key_in_source_control": false,
+    "api_key_in_screenshots": false,
+    "redact_account_identifiers": true
+  },
+  "official_documentation": "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/"
+}
