@@ -2,7 +2,7 @@ content_metadata:
   id: "BVC-LAB-ACO-001"
   title: "Optimize AI Coding Costs — DeepSeek + Codex Lab"
   version: "1.0.0"
-  status: "experimental"
+  status: "experimental"\n  canonical_entrypoint: "README.md"\n  parent_index: "../README.md"\n  maturity: "proposed-standard-and-practical-lab"
   owner: "Beyond Vibe Coding"
   author: "Dong Hong"
   audience:
