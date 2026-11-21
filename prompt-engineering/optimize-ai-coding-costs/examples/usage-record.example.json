@@ -1,0 +1,15 @@
+{
+  "record_type": "illustrative",
+  "task_id": "TASK-001",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "timestamp": "2026-11-21T22:00:00+07:00",
+  "pricing_tier": "off_peak",
+  "input_tokens": {
+    "cache_hit": 8000,
+    "cache_miss": 2000
+  },
+  "output_tokens": 1000,
+  "cost_usd": null,
+  "cost_calculation_note": "Compute using the applicable model price and request-time pricing tier. This example is not a real billing record."
+}
