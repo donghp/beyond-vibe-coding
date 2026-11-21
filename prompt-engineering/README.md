@@ -46,3 +46,5 @@ A practical lab on using a model provider with Codex in VS Code and reducing the
 - [Historical Case Study — 417 Million Tokens for USD 5.01](./optimize-ai-coding-costs/case-study/417-million-tokens-for-five-dollars.md)
 
 The lab distinguishes historical billing evidence from current provider pricing and treats token volume as telemetry—not proof of engineering quality.
+
+- [417 Million Tokens for Just USD 5.01 — DeepSeek + Codex in VS Code](./optimize-ai-coding-costs/case-study/417-million-tokens-for-five-dollars.md)
