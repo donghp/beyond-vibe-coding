@@ -1,0 +1,38 @@
+lesson:
+  id: "BVC-PL-<PROJECT>-<PHASE>-<NNN>"
+  title: "A clear, action-oriented lesson title"
+  project: "Project name"
+  phase: "A"
+  sequence: 1
+  level: "beginner" # beginner | intermediate | advanced
+  version: "0.1.0"
+  status: "draft" # draft | evidence-required | ready-for-review | accepted | superseded | withdrawn
+  canonical_entrypoint: "README.md"
+  owner: "Human Owner"
+  author: "Dong Hong"
+  language: "en"
+  primary_outcome: "One observable learner outcome."
+  prerequisites: []
+  tools:
+    required: []
+    optional: []
+  source_of_truth: []
+  prompt_ids: []
+  evidence:
+    required: []
+    available: []
+    missing: []
+  navigation:
+    previous: null
+    next: null
+    lesson_index: "../README.md"
+  validation:
+    markdown_review: "not-run"
+    relative_links: "not-run"
+    assets: "not-run"
+    yaml_json: "not-run"
+  limitations: []
+  change_log:
+    - version: "0.1.0"
+      date: "YYYY-MM-DD"
+      summary: "Initial draft."
