@@ -28,7 +28,7 @@ This distinction matters. Configuring a provider in a local coding client does n
 
 The screenshot below records the development environment during the experiment. It shows the Codex extension in VS Code, a project TypeScript file open in the editor, and a Codex conversation using a DeepSeek V4 Flash Light model selection.
 
-![VS Code with the Codex extension and DeepSeek model selected](./images/vscode-codex-deepseek-setup.jpg)
+![VS Code with the Codex extension and DeepSeek model selected](./images/vscode_codex_deepseek.jpg)
 
 *Figure 1. Development environment during the experiment. The screenshot is contextual evidence of the visible VS Code/Codex session and selected model; it does not independently prove that every request in the billing export originated from this interface.*
 
@@ -43,7 +43,7 @@ Provider APIs, model aliases, supported protocols, client versions and authentic
 
 The DeepSeek usage dashboard screenshot shows the headline totals:
 
-![DeepSeek usage dashboard showing USD 5.01, 962 API requests and 417,153,568 tokens](./images/deepseek-usage-billing-overview.jpg)
+![DeepSeek usage dashboard showing USD 5.01, 962 API requests and 417,153,568 tokens](./images/deepseek_report.jpg)
 
 *Figure 2. DeepSeek Platform usage dashboard. The visible summary reports USD 5.01, 962 API requests and 417,153,568 tokens for the selected dashboard range.*
 

@@ -21,14 +21,14 @@ content_metadata:
     output_tokens: 1493255
     input_cache_hit_rate: 0.994124
   images:
-    - path: "./images/vscode-codex-deepseek-setup.jpg"
+    - path: "./images/vscode_codex_deepseek.jpg"
       role: "development-environment-context"
       article_figure: 1
-      status: "author-supplied; binary upload pending"
-    - path: "./images/deepseek-usage-billing-overview.jpg"
+      status: "uploaded-to-main; path-verified"
+    - path: "./images/deepseek_report.jpg"
       role: "provider-usage-dashboard"
       article_figure: 2
-      status: "author-supplied; binary upload pending"
+      status: "uploaded-to-main; path-verified"
   evidence:
     primary:
       - "Author-provided Amount/Usage CSV export"
