@@ -1,5 +1,10 @@
 # Storage & Databases
 
+
+> **Explore the book — Beyond Vibe Coding by Dong Hong**  
+> A practical guide to building real-world software with AI while keeping engineering judgment, project knowledge, and delivery under human control.  
+> [Amazon Kindle](https://www.amazon.com/Beyond-Vibe-Coding-Thinking-Complete-ebook/dp/B0HQHLRK5Q/) · [Google Play Books](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+
 **Purpose:** Storage engines, pages, row/column layouts, indexes, B-trees, transactions, isolation, query planning, logging, and replication.
 
 ## Guiding question
