@@ -2,6 +2,11 @@
 
 **Purpose:** Problem decomposition, abstraction, representation, algorithms, correctness, complexity, recursion, and invariants.
 
+
+> **Explore the book — Beyond Vibe Coding by Dong Hong**  
+> A practical guide to building real-world software with AI while keeping engineering judgment, project knowledge, and delivery under human control.  
+> [Amazon Kindle](https://www.amazon.com/Beyond-Vibe-Coding-Thinking-Complete-ebook/dp/B0HQHLRK5Q/) · [Google Play Books](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+
 ## Guiding question
 How do we turn a real problem into a computable model? How do we know an algorithm is correct? How does input size change resource requirements?
 
