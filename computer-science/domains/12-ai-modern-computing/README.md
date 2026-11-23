@@ -1,5 +1,10 @@
 # AI & Modern Computing
 
+
+> **Explore the book — Beyond Vibe Coding by Dong Hong**  
+> A practical guide to building real-world software with AI while keeping engineering judgment, project knowledge, and delivery under human control.  
+> [Amazon Kindle](https://www.amazon.com/Beyond-Vibe-Coding-Thinking-Complete-ebook/dp/B0HQHLRK5Q/) · [Google Play Books](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+
 **Purpose:** Linear algebra, probability, machine learning, neural networks, embeddings, transformers, GPUs, inference, RAG, agents, evaluation, and serving.
 
 ## Guiding question
