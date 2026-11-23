@@ -5,6 +5,11 @@
 > **AI is a tool. Engineering is our capability.**  
 > **BEYOND VIBE CODING — DONG HONG**
 
+
+> **Explore the book — Beyond Vibe Coding by Dong Hong**  
+> A practical guide to building real-world software with AI while keeping engineering judgment, project knowledge, and delivery under human control.  
+> [Amazon Kindle](https://www.amazon.com/Beyond-Vibe-Coding-Thinking-Complete-ebook/dp/B0HQHLRK5Q/) · [Google Play Books](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)
+
 This directory is the long-term Computer Science research track accompanying *Beyond Vibe Coding* by Dong Hong. It covers the systems beneath software, from computational thinking and algorithms to architecture, operating systems, databases, networks, distributed systems, security, performance, and modern AI systems.
 
 ## Start Here
