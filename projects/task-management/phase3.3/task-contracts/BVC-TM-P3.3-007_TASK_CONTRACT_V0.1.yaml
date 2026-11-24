@@ -252,6 +252,29 @@ data_contract:
       - "A present-but-invalid v2 key is a hard recovery state; do not fall back to a potentially stale v1 copy."
       - "A failed v2 write must leave the v1 key unchanged and preserve the current in-memory task list."
 
+open_product_decisions:
+  - id: "C1-OPEN-001"
+    title: "Visibility of legacy tasks without due date or Focus"
+    status: "OWNER_DECISION_REQUIRED"
+    context: >-
+      The accepted B2 workspace contains two saved tasks with id/title only.
+      After migration they receive status todo and priority normal, but have
+      neither due_date nor focus_date. Under the current four date-driven
+      sections, they would be stored but not visible on My Day.
+    recommended_option: >-
+      Add a supplemental, non-priority "Unscheduled" section after Upcoming
+      and before Add task. Keep the four approved priority sections in their
+      existing order, render each unscheduled active task once, and keep Add
+      task as the final action. This requires an explicit Product Owner
+      decision and a canonical Decision Register entry before execution.
+    alternative: >-
+      Explicitly defer displaying undated tasks until C2 — My Tasks. This
+      must be an informed Owner decision because existing tasks would not be
+      visible on the C1 default screen in the interim.
+    implementation_rule: >-
+      Do not automatically assign Focus or a due date to legacy tasks. Do not
+      mark this question resolved based only on this AI recommendation.
+
 task_behavior:
   task_defaults:
     title: "Required, trimmed and non-empty."
@@ -279,7 +302,7 @@ task_behavior:
     - "A task appears at most once; placement precedence is Overdue, Due Today, Today's Focus, Upcoming."
     - "A focused future-due task appears in Today's Focus, not again in Upcoming."
     - "A legacy task without status is normalized to todo during migration."
-    - "A task without due_date/focus_date remains stored and active but is not displayed in a date-based My Day section."
+    - "C1-OPEN-001 is unresolved: the two B2 legacy tasks have neither due_date nor focus_date. Do not silently leave them undiscoverable in My Day; implementation must stop until the Human Owner approves a visible placement or explicitly accepts temporary deferral to C2."
   focus:
     mark_action: "Set focus_date to today's date in the selected timezone."
     clear_action: "Remove focus_date."
@@ -327,6 +350,9 @@ acceptance_criteria:
   - id: "AC-011"
     statement: "A post-migration code-downgrade/recovery procedure is documented, tested against a copy of the v2 workspace and approved by the Human Owner and the designated Data Privacy / Security domain reviewer before any production-like use."
     required: true
+  - id: "AC-012"
+    statement: "C1-OPEN-001 is resolved by an explicit Human Owner decision recorded in the canonical Product/UX Decision Register; existing undated B2 tasks are visible according to that approved outcome or are explicitly deferred with learner-facing disclosure."
+    required: true
 
 verification:
   required: true
@@ -372,6 +398,10 @@ verification:
       kind: "POST_MIGRATION_ROLLBACK"
       description: "Test a documented downgrade/recovery against a copy of the v2 workspace; preserve all v2 fields and prove that the recovery path does not silently discard task IDs or titles."
       required: true
+    - id: "VC-011"
+      kind: "LEGACY_TASK_VISIBILITY"
+      description: "Verify both original B2 tasks remain visible in the exact section/placement approved for C1-OPEN-001, appear once each, and retain their original IDs and titles."
+      required: true
 
 recovery:
   before_write:
@@ -388,6 +418,7 @@ recovery:
 
   stop_conditions:
     - "Any task ID/title mismatch or unexplained record-count difference."
+    - "C1-OPEN-001 remains unresolved or the approved legacy-task visibility behavior is not testable."
     - "Any v1 source mutation, v2 validation failure, or missing tested post-migration rollback/recovery procedure."
     - "Any unexpected source file change or diff-budget overrun."
 
