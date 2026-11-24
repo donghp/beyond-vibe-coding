@@ -3,7 +3,7 @@
 **Learning level:** Beginner  
 **Theme:** First Vertical Slice  
 **Environment:** The existing BVC Task Management project in Google AI Studio (GAIS)  
-**Learning status:** B1 was accepted with known limitations on 2026-11-12. B2 Contract #005 Revision 1 is approved and Stage 2 was authorized on 2026-11-18. Gemini reports implementation in `app/page.tsx`; Owner screenshots now verify the Local Storage records and restoration after Preview refresh (PRs #73 and #75). B2 final acceptance remains pending while the remaining interactive, responsive and error-path checks are completed.
+**Learning status:** CLOSED — the Human Owner explicitly accepted all four Phase B lessons, the available evidence and continuity on 2026-11-24. Known evidence limitations remain recorded; historical `NOT_RUN` checks are not re-labelled PASS. See the [Phase B Acceptance & Closeout Record](PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
 
 Phase B turns the blank scaffold from Phase A into a small, useful task manager. Build and understand one outcome at a time. Do not ask AI to create the whole product in one request.
 
@@ -11,18 +11,24 @@ Phase B turns the blank scaffold from Phase A into a small, useful task manager.
 
 | Lesson | What you will learn | What must be true before moving on |
 |---|---|---|
-| [B1 — Create Your First Task](b1-create-your-first-task/README.md) | Enter a title, add a task, and see it in a list. The first version uses temporary page memory. | Owner-accepted on 2026-11-12 with known verification limitations; see the lesson record. |
-| [B2 — Save Your Task](b2-save-your-task/README.md) | Save the task in the current browser profile using the approved Beginner storage approach. | Local Storage records and Preview refresh restoration have Owner screenshot evidence; remaining regression, responsive and error-path checks plus final Owner acceptance are complete. |
-| [B3 — Close and Reopen](b3-close-and-reopen/README.md) | Reload or reopen the app in the same browser profile. | The previously saved task is still available. |
-| [B4 — Improve One Small Thing](b4-improve-one-small-thing/README.md) | Ask AI for one bounded improvement and protect the existing behavior. | The improvement works and B1–B3 regression checks still pass. |
+| [B1 — Create Your First Task](b1-create-your-first-task/README.md) | Enter a title, add a task, and see it in a list. The first version uses temporary page memory. | Owner-accepted with known limitations; reaffirmed in Phase B closeout on 2026-11-24. |
+| [B2 — Save Your Task](b2-save-your-task/README.md) | Save the task in the current browser profile using the approved Beginner storage approach. | Owner-accepted with known verification limitations; Local Storage and refresh evidence are published. |
+| [B3 — Close and Reopen](b3-close-and-reopen/README.md) | Reload or reopen the app in the same browser profile. | Owner-accepted as part of Phase B closeout; refresh evidence and known limits are retained. |
+| [B4 — Improve One Small Thing](b4-improve-one-small-thing/README.md) | Ask AI for one bounded improvement and protect the existing behavior. | Owner-accepted as part of Phase B closeout; no unrecorded regression check is represented as PASS. |
 
-## B1 closeout and B2 entry gate
+## Phase B closeout and Phase C handoff
+
+**Phase B is CLOSED by explicit Human Owner decision on 2026-11-24.** The Owner accepted B1–B4, the available evidence and continuity. The closeout record distinguishes accepted learning outcomes from individual tests that remain historically `NOT_RUN` or `NOT_VERIFIED`.
+
+See [Phase B Acceptance & Closeout Record](PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
+
+## Historical B1/B2 implementation notes
 
 B1 was accepted by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS`. The code review confirmed the supplied `app/page.tsx` contains one page component. The available record does not include a complete archived Preview test set or an independently reviewable GAIS before/after file inventory; those limitations are retained in the B1 lesson record.
 
 **DR-005 — first-use storage disclosure:** APPROVED by the Human Owner on 2026-11-13. The exact Beginner notice and placement are recorded in the B2 lesson and the canonical Product/UX Decision Register.
 
-**B2 implementation is reported complete; final acceptance remains open.** Gemini reports one modified file (`app/page.tsx`), build and lint success, and static review of browser-storage logic. Owner screenshots verify the exact Local Storage key/envelope, both saved task records, and restoration of both tasks after Preview refresh. The remaining work is the fresh-session acknowledgement check, full B1 interactive regression, responsive Preview review, safe malformed-data testing in a disposable profile, and a static review of storage exception handling (runtime storage-failure simulation remains NOT_RUN unless a safe method is available). Follow the B2 lesson checklist; do not repeat Stage 2 or modify code unless a real defect is found.
+**Historical B2 implementation evidence:** Gemini reported the one-file `app/page.tsx` implementation, build and ESLint success. Owner screenshots verify the Local Storage key/envelope, two saved task records and restoration after Preview refresh. Some detailed tests remained `NOT_RUN` or `NOT_VERIFIED` at closeout; the Human Owner explicitly accepted the Phase B learning path with those limitations on 2026-11-24. Do not reinterpret those records as individual PASS results.
 
 ## The most important distinction: create first, save next
 
