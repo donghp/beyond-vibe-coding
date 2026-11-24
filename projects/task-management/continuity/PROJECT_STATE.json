@@ -465,7 +465,7 @@
       "status": "DRAFT_NOT_APPROVED",
       "owner": "Human Owner / Product Owner decides; Gemini is the proposed GAIS executor after approval; ChatGPT coordinates and reviews",
       "execution_status": "NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION",
-      "risk_level": "R3",
+      "risk_level": "R4",
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
       "publication_status": "PROPOSAL_IN_PR_85; NOT_APPROVED",
       "proposal_reference": "PR #85 proposal; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
@@ -482,7 +482,7 @@
     },
     {
       "issue_id": "TM-BLOCK-C1-IMPLEMENTATION-AUTHORITY",
-      "description": "DR-001, DR-002 and DR-017 are approved and canonical. Remaining C1 blockers are Owner review/approval of the readiness package and separate R3 implementation Contract #007, explicit execution authorization, and fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
+      "description": "DR-001, DR-002 and DR-017 are approved and canonical. Remaining C1 blockers are Owner review/approval of the readiness package and separate R4 implementation Contract #007 and required Data Privacy/Security domain review, explicit execution authorization, and fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
       "status": "OPEN",
       "owner": "Human Owner / Product Owner",
       "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
@@ -594,7 +594,7 @@
     },
     {
       "action_id": "TM-NEXT-C1-002",
-      "description": "Owner review of C1 readiness Contract #006 Revision 2 and separate R3 implementation Contract #007 Revision 1. Decide each Contract independently. Contract #007 approval and explicit execution authorization are required before Prompt #0006 or any GAIS write; fresh live-source and single-writer preflight must then pass.",
+      "description": "Owner review of C1 readiness Contract #006 Revision 2 and separate R4 implementation Contract #007 and Data Privacy/Security domain review Revision 1. Decide each Contract independently. Contract #007 approval and explicit execution authorization are required before Prompt #0006 or any GAIS write; fresh live-source and single-writer preflight must then pass.",
       "priority": "URGENT",
       "owner": "Human Owner / Product Owner",
       "related_task_id": "BVC-TM-P3.3-006"
@@ -605,7 +605,7 @@
     "source_commit": "a586d4fa47af2fb83330667af5577a0ff1db0db5",
     "verified": true,
     "last_verified_at": "2026-11-24T22:24:32+07:00",
-    "notes": "PR #84 merged at a586d4fa47af2fb83330667af5577a0ff1db0db5; docs/continuity/BVC-PROJECT-REHYDRATION-001.md is canonical on main. DR-001, DR-002 and DR-017 are Owner-approved. C1 readiness and implementation Contract drafts are proposals only; Contract #007 needs separate approval and explicit execution authorization. Prompt #0006 remains NOT_ALLOCATED and GAIS implementation is NOT_AUTHORIZED."
+    "notes": "PR #84 merged at a586d4fa47af2fb83330667af5577a0ff1db0db5; docs/continuity/BVC-PROJECT-REHYDRATION-001.md is canonical on main. DR-001, DR-002 and DR-017 are Owner-approved. C1 readiness and implementation Contract drafts are proposals only; Contract #007 needs separate approval and explicit execution authorization. Prompt #0006 remains NOT_ALLOCATED and GAIS implementation is NOT_AUTHORIZED. Contract #007 is provisionally classified R4 because it changes personal workspace data; domain review and tested post-migration recovery are required before execution."
   },
   "updated_by": "AI-prepared Project State revision 19 proposal; live main checkpoint a586d4 verified 2026-11-24; C1 DR decisions resolved; Contracts #006/#007 remain drafts."
 }
