@@ -276,7 +276,7 @@ evidence:
   artifact_bytes: 13060
   artifact_dimensions: "520x575"
   claim: "The post-refresh GAIS Preview shows Prepare weekly work plan followed by Review project milestones. Each previously stored task appears exactly once and in the same insertion order. Together with BVC-EV-036, which shows the matching data.tasks records before refresh, this supplies Owner screenshot evidence for B2-AC-004."
-  limitations: "The screenshot is a visual capture of the refreshed Preview, not a browser automation trace. B1 interactive regression, responsive viewport checks, malformed-data/storage-error runtime tests and B2-AC-010 final Owner acceptance remain pending. Asset publication is canonical on main through PR #75 (merge commit d1142cbbb8f5473bd5832d477657db1efa71af26)."
+  limitations: "The screenshot is a visual capture of the refreshed Preview, not a browser automation trace. Malformed-data and storage-error runtime simulations remain NOT_RUN; some B1 regression and responsive checks are not independently archived as PASS. The Human Owner subsequently accepted all Phase B lessons, evidence and continuity and declared Phase B closed on 2026-11-24, with these known limitations retained. Asset publication is canonical on main through PR #75 (merge commit d1142cbbb8f5473bd5832d477657db1efa71af26)."
 
 - evidence_id: BVC-EV-038
   subject: Phase B Owner acceptance and declaration of closure
