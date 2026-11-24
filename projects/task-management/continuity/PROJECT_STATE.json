@@ -469,7 +469,7 @@
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
       "publication_status": "PROPOSAL_IN_PR_85; NOT_APPROVED",
       "proposal_reference": "PR #85 proposal; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
-      "next_action": "Await separate Human Owner approval of Contract #007 Revision 1 and explicit execution authorization. Then perform fresh live GAIS app/source and single-writer preflight. Do not allocate Prompt #0006 before these gates pass."
+      "next_action": "Await Human Owner decision on C1-OPEN-001 legacy-task visibility; Contract #007 R4 approval; designated Data Privacy/Security domain review; tested post-migration recovery; explicit execution authorization; then fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED."
     }
   ],
   "blocked_items": [
@@ -482,7 +482,7 @@
     },
     {
       "issue_id": "TM-BLOCK-C1-IMPLEMENTATION-AUTHORITY",
-      "description": "DR-001, DR-002 and DR-017 are approved and canonical. Remaining C1 blockers are Owner review/approval of the readiness package and separate R4 implementation Contract #007 and required Data Privacy/Security domain review, explicit execution authorization, and fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
+      "description": "DR-001, DR-002 and DR-017 are approved and canonical. Remaining C1 blockers are Owner review/approval of the readiness package and separate R4 implementation Contract #007 and required Data Privacy/Security domain review, explicit execution authorization, resolution of C1-OPEN-001 (visibility of the two existing B2 tasks without dates/Focus), a tested post-migration recovery procedure, and fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
       "status": "OPEN",
       "owner": "Human Owner / Product Owner",
       "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
