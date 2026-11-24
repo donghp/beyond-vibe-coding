@@ -219,7 +219,7 @@ tasks:
   risk_level: R4
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml
   publication_status: PROPOSAL_IN_PR_86; NOT_APPROVED
-  scope: "Existing GAIS Beginner app only; proposed MODIFY app/page.tsx, one changed file, maximum 500 diff lines; v1-to-v2 Local Storage migration, date-aware My Day sections and timezone correction. No dependencies, config, database, Auth or external services."
+  scope: "Existing GAIS Beginner app only; proposed MODIFY app/page.tsx, one changed file, maximum 500 diff lines; v1-to-v2 Local Storage migration, date-aware My Day sections including DR-020 Unscheduled placement and timezone correction. No dependencies, config, database, Auth or external services."
   dependencies:
   - "C1 readiness package / Contract #006 Revision 2: OWNER_REVIEW_REQUIRED"
   - "DR-001 — Upcoming horizon: OWNER_DECISION_APPROVED_2026-11-24; next 7 calendar days"
