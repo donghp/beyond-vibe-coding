@@ -147,7 +147,7 @@ expected_outputs:
   - id: "OUT-003"
     kind: "IMPLEMENTATION_CONTRACT_PROPOSAL"
     path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
-    description: "A separate R4 implementation Contract draft with exact app scope, v1-to-v2 migration, recovery controls, date/focus rules, acceptance criteria and Evidence Level 3 checks."
+    description: "A separate R4 implementation Contract draft with exact app scope, v1-to-v2 migration, recovery controls, date/focus rules, explicit legacy-task visibility decision, acceptance criteria and Evidence Level 3/4 checks."
     required: true
 
 acceptance_criteria:
@@ -193,7 +193,7 @@ verification:
       required: true
     - id: "VC-004"
       kind: "CONTRACT_SCOPE_REVIEW"
-      description: "Verify Contract #007 is a separate R4 proposal with exact path, change budget, stop conditions and persisted-data evidence."
+      description: "Verify Contract #007 is a separate R4 proposal with exact path, change budget, stop conditions, persisted-data evidence and an explicit legacy-task visibility decision dependency."
       required: true
     - id: "VC-005"
       kind: "CONTINUITY_SYNC_REVIEW"
