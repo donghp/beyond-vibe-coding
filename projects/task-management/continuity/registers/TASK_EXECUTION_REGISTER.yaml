@@ -198,7 +198,7 @@ tasks:
   execution_status: NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION
   risk_level: R1
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml
-  publication_status: REVISION_1_CANONICAL_DRAFT_ON_MAIN; REVISION_2_PROPOSAL_IN_PR_86
+  publication_status: REVISION_2_CANONICAL_DRAFT_ON_MAIN
   scope: "Documentation and Product Owner decision preparation only. No GAIS source, runtime data, schema, or Product/UX decision status changes."
   dependencies:
   - "DR-001 — Upcoming horizon: OWNER_DECISION_APPROVED_2026-11-24; next 7 calendar days"
