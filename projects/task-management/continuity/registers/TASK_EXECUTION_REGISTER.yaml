@@ -236,7 +236,7 @@ tasks:
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-preview-after-refresh.webp"
-  next_action: "Await separate Human Owner approval of Contract #007 Revision 1, Data Privacy/Security domain approval, tested post-migration recovery and explicit execution authorization. Then perform fresh live GAIS app/source and single-writer preflight. Prompt #0006 remains NOT_ALLOCATED."
+  next_action: "Contract #007 Revision 1 Owner approval is recorded on 2026-11-24. Designate and obtain R4 Data Privacy/Security domain approval; test and approve post-migration recovery against a copy of v2; issue separate explicit execution authorization; then perform fresh live GAIS app/source and single-writer preflight. Prompt #0006 remains NOT_ALLOCATED."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
