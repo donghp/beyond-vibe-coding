@@ -1,7 +1,7 @@
 # Phase C — Make It Useful Every Day
 
 **Learning level:** Beginner Expansion  
-**Status:** ACTIVE — C1 Product/UX decisions approved; Contracts #006 Revision 2 and #007 Revision 1 published on main as drafts for Owner review
+**Status:** ACTIVE — C1 Product/UX decisions approved; Contract #007 Revision 1 Owner-approved; R4 execution gates remain open
 
 Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Phase C proceeds under Product Definition v0.2.0 and Curriculum Map v0.2. The six lesson groups below follow the canonical curriculum order.
 
@@ -9,7 +9,7 @@ Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Pha
 
 | Lesson | Learning area | What the learner will learn | Gate before implementation |
 |---|---|---|---|
-| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows, including the Unscheduled section for undated active tasks. | DR-001, DR-002, DR-017 and DR-020 approved 2026-11-24; implement DR-020's approved Unscheduled placement, approve the separate R4 implementation Contract #007, complete domain review and live preflight. |
+| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows, including the Unscheduled section for undated active tasks. | DR-001, DR-002, DR-017 and DR-020 approved 2026-11-24; Contract #007 Revision 1 Owner-approved 2026-11-24; complete R4 domain approval, tested recovery, separate execution authorization and live preflight. |
 | C2 | **My Tasks** | View, create, edit, complete, prioritize, search and filter tasks. | Approve task-state, priority, search/filter behavior and regression criteria. |
 | C3 | **Projects** | Organize tasks into personal projects or work areas. | Resolve DR-003 project-removal behavior before implementation. |
 | C4 | **Templates** | Understand, preview, customize and apply Role Starter Kits. | Resolve DR-004 repeat-application behavior and DR-015 packaging before dependent implementation. |
@@ -46,9 +46,9 @@ These decisions are approved for C1 and must not be treated as pending. The migr
 - [C1 Readiness Contract #006 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml)
 - [C1 Implementation Contract #007 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml)
 
-**Contract roles are separate:** #006 is an R1 documentation/readiness proposal. #007 is a separate R4 C1 implementation proposal. Both remain DRAFT_NOT_APPROVED until the Human Owner separately approves them. Contract #007 also requires Data Privacy/Security domain review and tested post-migration recovery; DR-020 is approved by the Human Owner; its canonical register update is published on main through merged PR #86. Approval of #006 does not approve #007.
+**Contract roles are separate:** #006 is an R1 documentation/readiness proposal and remains `DRAFT_NOT_APPROVED`. #007 is the R4 C1 implementation Contract; the Human Owner approved Revision 1 on 2026-11-24 (approval publication proposed in PR #88). That approval does not authorize GAIS execution. A designated Data Privacy/Security domain reviewer must approve, post-migration recovery must be tested and approved, the Human Owner must issue separate explicit execution authorization, and fresh live GAIS/single-writer preflight must pass.
 
-**Prompt #0006 has not been allocated.** It may be prepared only after Contract #007 is approved, its exact scope/budget are settled, and the Human Owner separately authorizes execution. The prompt must follow the Vietnamese-first Prompt Delivery Standard: learner explanation, copy-ready prompt, and post-run review instructions.
+**Prompt #0006 has not been allocated.** Contract #007 Revision 1 is Owner-approved, but Prompt #0006 must remain unallocated until R4 domain approval, tested and approved post-migration recovery, separate explicit execution authorization, and fresh live GAIS preflight are complete. The prompt must follow the Vietnamese-first Prompt Delivery Standard: learner explanation, copy-ready prompt, and post-run review instructions.
 
 ## Product and implementation boundaries
 
