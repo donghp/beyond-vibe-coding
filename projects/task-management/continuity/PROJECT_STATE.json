@@ -607,5 +607,5 @@
     "last_verified_at": "2026-11-24T22:24:32+07:00",
     "notes": "PR #84 merged at a586d4fa47af2fb83330667af5577a0ff1db0db5; docs/continuity/BVC-PROJECT-REHYDRATION-001.md is canonical on main. DR-001, DR-002 and DR-017 are Owner-approved. C1 readiness and implementation Contract drafts are proposals only; Contract #007 needs separate approval and explicit execution authorization. Prompt #0006 remains NOT_ALLOCATED and GAIS implementation is NOT_AUTHORIZED. Contract #007 is provisionally classified R4 because it changes personal workspace data; domain review and tested post-migration recovery are required before execution."
   },
-  "updated_by": "AI-prepared Project State revision 19 proposal; live main checkpoint a586d4 verified 2026-11-24; C1 DR decisions resolved; Contracts #006/#007 remain drafts."
+  "updated_by": "Continuity proposal revision 19; submitted for Human Owner review against verified main@a586d4f."
 }
