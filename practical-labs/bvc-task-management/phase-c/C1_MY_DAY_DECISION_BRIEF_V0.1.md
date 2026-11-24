@@ -51,7 +51,7 @@ The UX Journey & Navigation §6.2 adds these placement rules:
 | DR-002 — Today's Focus lifetime/reset | APPROVED — 2026-11-24 | Focus is scoped to the current local calendar date and automatically expires at the next local calendar day |
 | DR-017 — Timezone source and editing | APPROVED — 2026-11-24 | Detect the browser's IANA timezone on first use and allow the user to correct it |
 
-**Decision authority:** Human Owner / Product Owner. The canonical outcomes are recorded in `projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md` §3.4 and were synchronized through merged PR #83.
+**Decision authority:** Human Owner / Product Owner. The canonical outcomes are recorded in `projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md` §3.4. DR-001, DR-002 and DR-017 were published through PR #83; DR-020 was added through merged PR #86.
 
 These decisions are resolved for C1 and must not be reopened as pending. They do not approve an implementation Contract or authorize GAIS changes.
 
