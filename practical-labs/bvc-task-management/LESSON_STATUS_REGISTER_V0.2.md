@@ -56,7 +56,7 @@ Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 is APPROVED and governs the 
 
 | Lesson group | Status | Required dependency / evidence |
 |---|---|---|
-| C1 — My Day | **ACTIVE PREPARATION — OWNER REVIEW OF C1 READINESS PACKAGE** | DR-001, DR-002 and DR-017 are approved. The C1 brief proposes a non-destructive v1-to-v2 migration, date-only task fields, timezone handling and no-duplicate section rules; separate R1 readiness Contract #006 Rev2 and R3 implementation Contract #007 Rev1 are prepared for review. | Both Contracts remain DRAFT_NOT_APPROVED. Contract #007 requires separate Owner approval, explicit execution authorization and fresh live GAIS/single-writer preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS change is authorized. |
+| C1 — My Day | **ACTIVE PREPARATION — OWNER REVIEW OF C1 READINESS PACKAGE** | DR-001, DR-002 and DR-017 are approved. The C1 brief proposes a non-destructive v1-to-v2 migration, date-only task fields, timezone handling and no-duplicate section rules; separate R1 readiness Contract #006 Rev2 and R4 implementation Contract #007 Rev1 are prepared for review. | Both Contracts remain DRAFT_NOT_APPROVED. Contract #007 requires separate Owner approval, Data Privacy/Security domain review, explicit execution authorization, tested post-migration recovery and fresh live GAIS/single-writer preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS change is authorized. |
 | C2 — My Tasks | Planned | Approved task behavior, search/filter, status, and priority checks. |
 | C3 — Projects | Planned | Approved project behavior and removal semantics. |
 | C4 — Templates | Planned | Approved Starter Kit package and repeat-application behavior. |
