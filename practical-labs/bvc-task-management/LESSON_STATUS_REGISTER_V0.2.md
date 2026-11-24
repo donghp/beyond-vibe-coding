@@ -56,7 +56,7 @@ Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 is APPROVED and governs the 
 
 | Lesson group | Status | Required dependency / evidence |
 |---|---|---|
-| C1 — My Day | **ACTIVE PREPARATION** | Resolve DR-001, DR-002 and DR-017; review the C1 data-compatibility brief; approve a bounded implementation Contract before any GAIS write. |
+| C1 — My Day | **ACTIVE PREPARATION — OWNER REVIEW OF C1 READINESS PACKAGE** | DR-001, DR-002 and DR-017 are approved. The C1 brief proposes a non-destructive v1-to-v2 migration, date-only task fields, timezone handling and no-duplicate section rules; separate R1 readiness Contract #006 Rev2 and R4 implementation Contract #007 Rev1 are prepared for review. | Both Contracts remain DRAFT_NOT_APPROVED. Contract #007 also requires the Owner decision on visibility of the two existing undated B2 tasks (C1-OPEN-001), Data Privacy/Security domain review, explicit execution authorization, tested post-migration recovery and fresh live GAIS/single-writer preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS change is authorized. |
 | C2 — My Tasks | Planned | Approved task behavior, search/filter, status, and priority checks. |
 | C3 — Projects | Planned | Approved project behavior and removal semantics. |
 | C4 — Templates | Planned | Approved Starter Kit package and repeat-application behavior. |
@@ -107,4 +107,4 @@ The Human Owner approved the three Product/UX decisions for C1 — My Day on 202
 
 The canonical outcomes are recorded in `projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md` §3.4 and summarized in the C1 Decision Brief.
 
-This update does not change Phase B acceptance. Contract #006 remains `DRAFT_NOT_APPROVED`, Prompt #0006 remains `NOT_ALLOCATED`, B2 workspace compatibility design remains open, and GAIS implementation is not authorized.
+This update does not change Phase B acceptance. Contract #006 Revision 2 and Contract #007 Revision 1 are separate proposals and remain `DRAFT_NOT_APPROVED`. The v1-to-v2 compatibility design is proposed for Owner review, Prompt #0006 remains `NOT_ALLOCATED`, and GAIS implementation is not authorized.

@@ -1,6 +1,6 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-TC-006"
-revision: 1
+revision: 2
 status: DRAFT_NOT_APPROVED
 created_at: "2026-11-24"
 
@@ -8,14 +8,15 @@ task:
   id: "BVC-TM-P3.3-006"
   title: "PHASE C1 — MY DAY: PRODUCT DECISION AND IMPLEMENTATION READINESS"
   objective: >-
-    Prepare a decision-complete, evidence-linked implementation boundary for
-    C1 — My Day. Identify the applicable Product/UX decisions, define the
-    task-data and date semantics needed by the My Day sections, and produce a
-    bounded implementation proposal compatible with the accepted Beginner
-    browser workspace. This draft Contract does not authorize any GAIS source
-    code modification.
-  requested_by: "AI-prepared proposal following the Human Owner's Phase C transition decision dated 2026-11-24"
+    Prepare a decision-complete, evidence-linked C1 readiness package.
+    Confirm the approved DR-001, DR-002 and DR-017 outcomes, specify a
+    backward-compatible evolution of the accepted B2 Beginner workspace,
+    define the C1 date/focus semantics for Owner review, and prepare a
+    separate bounded implementation Contract proposal. This is a
+    documentation-only task and does not authorize GAIS source changes.
   parent_task_id: "BVC-TM-P3.3-005"
+  requested_by: "Human Owner's explicit Phase C acceleration instruction and confirmation of Project Understanding Review on 2026-11-24"
+  risk_level: R1
 
 project:
   project_id: "BVC-TASK-MANAGEMENT"
@@ -23,181 +24,199 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "100c8cc89de42329fe99e484be70e9441efe144e"
+    source_commit: "a586d4fa47af2fb83330667af5577a0ff1db0db5"
     source_branch: "main"
+    baseline_verified: true
+    baseline_note: "Live main HEAD verified after PR #84 merged; this Contract remains a draft proposal."
     architecture_baseline_refs:
       - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
       - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
       - "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md"
       - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
       - "practical-labs/bvc-task-management/CURRICULUM_MAP_V0.2.md"
-    current_gais_application_id: "ca589018-617d-4919-bbe2-6b9c588ccd85"
-    current_reported_app_page_sha256: "4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e"
-    recovery_point:
-      kind: "git_snapshot"
-      reference: "main@100c8cc89de42329fe99e484be70e9441efe144e"
-      verified: true
 
 intent:
   objective: >-
-    Convert C1 — My Day from a curriculum topic into a decision-complete,
-    testable implementation proposal while preserving the existing Beginner
-    workspace and the accepted Phase 3.2 architecture.
-  rationale: >-
-    Phase B has been closed by the Human Owner. The current curriculum defines
-    C1 as My Day. Date horizon, Focus lifetime and timezone behavior were explicitly
-    approved by the Human Owner on 2026-11-24, and the accepted B2 task record
-    contains only id and title. These dependencies must be resolved before
-    asking a beginner's GAIS application to implement date-aware behavior.
+    Convert C1 — My Day into an implementation-ready proposal while preserving
+    existing B2 browser data, approved Product/UX decisions and the Beginner
+    learning boundary.
   expected_outcome: >-
-    A reviewed C1 decision brief maps FR-010, AC-006 and the UX placement rules;
-    DR-001, DR-002 and DR-017 are recorded as approved; task-field and
-    workspace-version compatibility are specified; a separate bounded
-    implementation Contract can then be prepared.
+    A revised C1 brief records the approved decisions and proposes testable
+    task/date/focus/timezone semantics and a recoverable v1-to-v2 workspace
+    migration. A separate R4 C1 implementation Contract #007 is prepared as
+    a draft for Owner review. No implementation authority is created.
   business_or_user_value: >-
-    Prevent ambiguous date/focus behavior, protect existing saved tasks and
-    make the first Phase C learner exercise understandable and verifiable.
+    Reduce ambiguity before implementation, preserve learners' saved tasks,
+    and make the C1 change testable without expanding into C2 or cloud features.
 
 risk:
   level: R1
   rationale: >-
-    This proposed task is documentation and product-decision preparation only.
-    It does not modify the GAIS application, browser data, schema or external
-    services. Any later implementation is a separate authorization.
+    This Contract covers documentation and draft engineering proposals only.
+    No application source, browser runtime data, database schema, external
+    service or accepted architecture baseline is changed.
   reversibility: EASY
   risk_owner: "Human Owner / Product Owner"
 
 scope:
-  mode: "DOCUMENTATION_AND_DECISION_PREPARATION"
+  mode: "DOCUMENTATION_AND_PROPOSAL_PREPARATION"
   allowed_changes:
     create:
+      - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
+    modify:
+      - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml"
       - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
-    modify: []
+      - "practical-labs/bvc-task-management/phase-c/README.md"
+      - "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+      - "projects/task-management/continuity/PROJECT_STATE.json"
+      - "projects/task-management/continuity/registers/TASK_EXECUTION_REGISTER.yaml"
+      - "projects/task-management/continuity/SOURCE_MANIFEST.csv"
     delete: []
+  change_budget:
+    max_changed_files: 8
+    max_created_files: 1
+    max_modified_files: 7
+    max_deleted_files: 0
+    max_binary_files: 0
+    max_total_diff_lines: 1100
   forbidden_changes:
     - "Any GAIS application source, including app/page.tsx."
-    - "Any runtime browser storage or task data."
-    - "Changing the Owner-approved DR-001, DR-002 and DR-017 outcomes recorded in the canonical Product/UX Decision Register."
-    - "The accepted Phase 3.2 Architecture baseline or Product Definition v0.2.0."
+    - "Any live browser storage, task data or runtime application state."
+    - "Changing the approved outcomes or status of DR-001, DR-002 or DR-017."
+    - "Changing Product Definition v0.2.0 or the accepted Phase 3.2 Architecture/Data Model baselines."
+    - "Allocating or publishing Prompt #0006."
+    - "Executing, authorizing or claiming acceptance of Contract #007."
     - "Dependencies, lockfiles, configuration, routes, APIs, databases, Auth, RLS, cloud sync or external services."
-    - "A GAIS implementation prompt or Prompt #0006 allocation before this Contract and the required product decisions are approved."
   scope_expansion_allowed: false
   scope_expansion_policy: "STOP_AND_REQUEST_APPROVAL"
 
 required_context:
   - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
-    purpose: "Current Product Owner-approved baseline; especially §7.2, FR-010 and AC-006."
-    authority: "APPROVED"
+    purpose: "FR-002, FR-006, FR-010, AC-006, My Day order and quick-task defaults."
+    authority: "PRODUCT_OWNER_APPROVED"
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+    purpose: "Task fields, date-only semantics, IANA timezone and versioned workspace principles."
+    authority: "PHASE_3_2_ACCEPTED_DESIGN"
     required: true
   - reference: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md"
-    purpose: "My Day order, non-duplication and task-placement rules."
-    authority: "REFERENCE; FORMAL PHASE 3.1 ACCEPTANCE REMAINS OPEN"
+    purpose: "My Day task-placement and no-duplicate rules."
+    authority: "REFERENCE; FORMAL_PHASE_3_1_ACCEPTANCE_OPEN"
     required: true
   - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
-    purpose: "Canonical OPEN/APPROVED states for DR-001, DR-002 and DR-017."
-    authority: "CANONICAL; DR-001, DR-002 and DR-017 APPROVED BY OWNER 2026-11-24"
+    purpose: "Canonical approved outcomes for DR-001, DR-002 and DR-017."
+    authority: "CANONICAL; ALL_THREE_APPROVED_2026-11-24"
     required: true
-  - reference: "projects/task-management/continuity/PROJECT_STATE.json"
-    purpose: "Phase B Owner closeout, current project state and B2 workspace history."
-    authority: "CANONICAL_AFTER_OWNER_REVIEWED_MERGE"
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+    purpose: "Existing B2 v1 Local Storage key, envelope, validation and write-order boundary."
+    authority: "APPROVED_REVISION_1"
     required: true
-  - reference: "practical-labs/bvc-task-management/phase-c/README.md"
-    purpose: "C1–C6 learner sequence aligned to Curriculum Map v0.2."
-    authority: "CANONICAL_LEARNING_MAP"
+  - reference: "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
+    purpose: "Decision-complete C1 data-compatibility and behavior proposal."
+    authority: "PROPOSED; OWNER_REVIEW_REQUIRED"
     required: true
 
 dependencies:
   - reference: "Phase B — B1 through B4"
-    relationship: "MUST_COMPLETE_FIRST"
-    reason: "Human Owner explicitly accepted and closed all four Phase B lessons on 2026-11-24."
-  - reference: "DR-001 — Upcoming horizon"
+    relationship: "COMPLETED_FIRST"
+    reason: "Human Owner accepted and closed Phase B on 2026-11-24 with known evidence limitations."
+  - reference: "DR-001"
     relationship: "OWNER_DECISION_APPROVED"
-    reason: "Owner approved the next 7 calendar days on 2026-11-24; C1 Contract must define date boundaries and tests."
-  - reference: "DR-002 — Today's Focus lifetime/reset"
+    reason: "Next 7 calendar days; define an explicit, testable date boundary."
+  - reference: "DR-002"
     relationship: "OWNER_DECISION_APPROVED"
-    reason: "Owner approved a Focus marker scoped to the current local calendar date and automatic expiry at the next local calendar day on 2026-11-24."
-  - reference: "DR-017 — Timezone source and editing"
+    reason: "Focus is scoped to the current local calendar date and expires at the next local day."
+  - reference: "DR-017"
     relationship: "OWNER_DECISION_APPROVED"
-    reason: "Owner approved browser IANA timezone detection on first use with user correction on 2026-11-24; C1 Contract must define persistence and fallback behavior."
-  - reference: "B2 Beginner workspace formatVersion 1"
+    reason: "Detect browser IANA timezone on first use and allow user correction."
+  - reference: "B2 workspace formatVersion 1"
     relationship: "COMPATIBILITY_REVIEW_REQUIRED"
-    reason: "Existing tasks contain id/title only; C1 must preserve saved tasks and define a safe path for any new date/focus/status fields."
+    reason: "Preserve existing workspaceId, task IDs and titles while introducing C1 fields."
 
 expected_outputs:
   - id: "OUT-001"
     kind: "DOCUMENT"
     path: "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
-    description: "Decision options, canonical My Day behavior, data compatibility questions, implementation dependencies and acceptance outline."
+    description: "C1 requirements, approved decisions, data migration proposal, date/focus/timezone semantics and acceptance outline."
     required: true
   - id: "OUT-002"
-    kind: "DECISION_INPUT"
-    description: "Explicit Product Owner decisions for DR-001, DR-002 and DR-017. This Contract cannot approve those decisions on the Owner's behalf."
+    kind: "DECISION_TRACE"
+    description: "Verify that DR-001, DR-002 and DR-017 are already Owner-approved and canonical; do not reopen or reapprove them."
     required: true
   - id: "OUT-003"
-    kind: "IMPLEMENTATION_PROPOSAL"
-    description: "A separate bounded C1 implementation scope with exact task fields, workspace compatibility/migration approach, allowed files, diff budget, stop conditions, acceptance criteria and test evidence."
+    kind: "IMPLEMENTATION_CONTRACT_PROPOSAL"
+    path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
+    description: "A separate R4 implementation Contract draft with exact app scope, v1-to-v2 migration, recovery controls, date/focus rules, explicit legacy-task visibility decision, acceptance criteria and Evidence Level 3/4 checks."
     required: true
 
 acceptance_criteria:
   - id: "AC-001"
-    statement: "C1 scope maps Product Definition v0.2.0 FR-010 and AC-006 to the UX My Day section order and no-duplicate placement rules."
+    statement: "C1 maps Product Definition v0.2.0 FR-010 / AC-006 to the canonical My Day order and no-duplicate UX placement rules."
     required: true
   - id: "AC-002"
-    statement: "DR-001, DR-002 and DR-017 are explicitly resolved by the Product Owner before dependent implementation is authorized."
+    statement: "DR-001, DR-002 and DR-017 are accurately recorded as Owner-approved on 2026-11-24; no stale claim says they are pending."
     required: true
   - id: "AC-003"
-    statement: "The proposal defines how existing B2 id/title task records remain readable and are safely evolved if C1 adds due-date, focus or status fields."
+    statement: "The compatibility proposal preserves B2 formatVersion 1 workspaceId, task IDs and titles and defines validation, recovery and non-destructive migration behavior."
     required: true
   - id: "AC-004"
-    statement: "Completed-task exclusion and task-status behavior are coordinated with C2 without silently expanding C1."
+    statement: "Date-only due_date/focus_date, selected IANA timezone, task defaults and C1/C2 boundaries are explicit and traceable to approved product/design sources."
     required: true
   - id: "AC-005"
-    statement: "The C1 implementation proposal specifies observable Preview results, date-boundary tests, duplicate-prevention checks and browser-storage regression evidence."
+    statement: "A separate bounded R4 implementation Contract #007 is prepared as DRAFT_NOT_APPROVED, with no execution authorization."
     required: true
   - id: "AC-006"
-    statement: "No GAIS source, runtime data, Product/UX decision status or architecture baseline is changed by this preparation task."
+    statement: "Project State, Task Execution Register, Source Manifest and Lesson Status Register contain no contradictory C1 decision or publication status."
     required: true
   - id: "AC-007"
-    statement: "Human Owner / Product Owner reviews the decision brief and separately approves the implementation Contract before any GAIS write-capable prompt is issued."
+    statement: "No GAIS source, runtime data, Prompt #0006, Product/UX decision status or accepted architecture baseline is changed."
+    required: true
+  - id: "AC-008"
+    statement: "The Human Owner reviews this readiness proposal and separately reviews/approves Contract #007 before any C1 implementation."
     required: true
 
 verification:
   required: true
   checks:
     - id: "VC-001"
-      kind: "DOCUMENT_REVIEW"
-      description: "Verify Product Definition FR-010 / AC-006 mapping and the My Day ordering/placement rules."
+      kind: "PRODUCT_TRACEABILITY_REVIEW"
+      description: "Verify FR-010 / AC-006, section order and no-duplicate rules against Product Definition and UX sources."
       required: true
     - id: "VC-002"
-      kind: "DECISION_REVIEW"
-      description: "Verify canonical DR-001, DR-002 and DR-017 outcomes are explicitly Owner-approved; proposed defaults alone do not pass."
+      kind: "OWNER_DECISION_TRACE"
+      description: "Verify the exact canonical DR-001, DR-002 and DR-017 outcomes on main."
       required: true
     - id: "VC-003"
       kind: "DATA_COMPATIBILITY_REVIEW"
-      description: "Verify the proposal preserves B2 formatVersion 1 records or defines a reviewed, reversible migration path."
+      description: "Review v1-to-v2 mapping, task-data preservation, error handling and recovery against B2 Contract #005 and the accepted Data Model."
       required: true
     - id: "VC-004"
-      kind: "SCOPE_REVIEW"
-      description: "Confirm the preparation output does not modify GAIS code or runtime data and that later implementation has its own Contract."
+      kind: "CONTRACT_SCOPE_REVIEW"
+      description: "Verify Contract #007 is a separate R4 proposal with exact path, change budget, stop conditions, persisted-data evidence and an explicit legacy-task visibility decision dependency."
+      required: true
+    - id: "VC-005"
+      kind: "CONTINUITY_SYNC_REVIEW"
+      description: "Check Project State, task register, Source Manifest and Lesson Status consistency; preserve draft and authorization semantics."
       required: true
 
 authority:
-  requested_by: "Human Owner's Phase C transition decision, 2026-11-24"
-  authorized_by: "NOT_GRANTED"
+  requested_by: "Human Owner's explicit Phase C acceleration instruction, 2026-11-24"
+  authorized_by: "NOT_GRANTED — this revision remains a proposal for Owner review"
   authorization_status: "DRAFT_ONLY; NOT_APPROVED; NOT_AUTHORIZED_FOR_EXECUTION"
   execution_rule: >-
-    This file is a Contract proposal only. Merging the PR that publishes this
-    draft does not approve the Contract, resolve Product/UX decisions or
-    authorize GAIS edits. Human Owner / Product Owner must explicitly approve
-    the Contract and the applicable decisions before execution. Any later
-    write-capable GAIS task requires an explicit authorization and a fresh
-    live-source preflight.
+    This readiness Contract is a proposal only. Publishing or merging it
+    does not approve the Contract or authorize GAIS edits. Contract #007 is
+    a separate implementation proposal and requires its own explicit Owner
+    approval and a separate execution authorization. Prompt #0006 remains
+    NOT_ALLOCATED until Contract #007 is approved and the required authority
+    and live preflight gates are satisfied.
   executor:
-    class: "DOCUMENTATION_AND_PRODUCT_DECISION_PREPARATION"
-    proposed_owner: "ChatGPT prepares the bounded decision analysis; Human Owner / Product Owner decides."
+    class: "DOCUMENTATION_AND_PROPOSAL_PREPARATION"
+    proposed_owner: "ChatGPT prepares and reconciles the bounded readiness proposal; Human Owner / Product Owner decides."
     gais_executor: "NOT_APPLICABLE_FOR_THIS_READINESS_TASK"
 
 prompt:
   next_prompt_id: "BVCTM-PROMPT-0006"
   allocation_status: "NOT_ALLOCATED"
-  reason: "DR-001, DR-002 and DR-017 are Owner-approved, but this readiness Contract remains DRAFT_NOT_APPROVED and does not define or authorize the bounded GAIS implementation task."
+  reason: "Contract #007 is a separate implementation proposal and remains DRAFT_NOT_APPROVED. Do not allocate Prompt #0006 until Contract #007 is approved and the Human Owner separately authorizes execution."

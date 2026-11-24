@@ -1,0 +1,443 @@
+contract_version: "0.1.0"
+contract_id: "BVC-TM-TC-007"
+revision: 1
+status: DRAFT_NOT_APPROVED
+created_at: "2026-11-24"
+
+task:
+  id: "BVC-TM-P3.3-007"
+  title: "PHASE C1 — MY DAY: IMPLEMENT DATE-AWARE DAILY VIEW"
+  objective: >-
+    Implement the approved C1 — My Day behavior in the existing Beginner GAIS
+    application. Preserve all accepted B2 workspace records, introduce
+    validated date/focus fields and the selected IANA timezone, migrate the
+    version-1 browser workspace safely, and render Overdue, Due Today,
+    Today's Focus and Upcoming without duplicate task rows. This draft
+    Contract does not authorize execution.
+  parent_task_id: "BVC-TM-P3.3-006"
+  requested_by: "Implementation proposal prepared for Human Owner review on 2026-11-24"
+  risk_level: R4
+  risk_rationale: >-
+    My Day changes shared task-state handling, date calculations, workspace
+    migration and cross-section business rules. The project risk policy
+    classifies cross-component business logic as R3. Persisted-data behavior
+    requires Evidence Level 3 migration and recovery evidence. No database,
+    Auth, RLS, identity or external-service change is included.
+
+project:
+  project_id: "BVC-TASK-MANAGEMENT"
+  repository:
+    url: "https://github.com/donghp/beyond-vibe-coding"
+    default_branch: "main"
+  baseline:
+    source_commit: "a586d4fa47af2fb83330667af5577a0ff1db0db5"
+    source_branch: "main"
+    baseline_verified: true
+    architecture_baseline_refs:
+      - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+      - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
+      - "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+      - "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md"
+      - "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+      - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
+    current_gais_application_id: "ca589018-617d-4919-bbe2-6b9c588ccd85"
+    last_owner_reported_app_page_sha256: "4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e"
+    source_freshness: "OWNER_REPORTED_2026-11-24; NOT_A_LIVE_PREFLIGHT; re-read app/page.tsx immediately before execution"
+    recovery_point:
+      kind: "git_snapshot"
+      reference: "main@a586d4fa47af2fb83330667af5577a0ff1db0db5"
+      verified: true
+
+authority:
+  product_baseline: "APPROVED — Product Definition v0.2.0"
+  architecture_baseline: "ACCEPTED DESIGN BASELINE — Phase 3.2; runtime verification remains separate"
+  product_decisions:
+    DR-001: "APPROVED — next 7 calendar days"
+    DR-002: "APPROVED — Focus scoped to current local calendar date; expires at next local day"
+    DR-017: "APPROVED — detect browser IANA timezone on first use; user may correct"
+  readiness_contract:
+    contract_id: "BVC-TM-TC-006"
+    revision: 2
+    status: "DRAFT_NOT_APPROVED"
+    purpose: "C1 decision and compatibility readiness; not implementation authority"
+  execution_authorization: "NOT_GRANTED"
+  authorization_status: "DRAFT_ONLY; NOT_APPROVED; NOT_AUTHORIZED_FOR_EXECUTION"
+  domain_approval_status: "NOT_DESIGNATED; REQUIRED_BEFORE_EXECUTION"
+
+intent:
+  expected_outcome: >-
+    The Beginner app shows the canonical My Day sections in the approved
+    order, assigns each active task to at most one section, applies the
+    selected IANA timezone to all calendar-date calculations, and preserves
+    existing B2 tasks through a validated, recoverable workspace migration.
+  learning_outcomes:
+    - "Understand the distinction between a date-only due date and a timestamp."
+    - "Understand how a selected IANA timezone determines the local calendar day."
+    - "Observe deterministic task placement and no-duplicate behavior."
+    - "Understand how a versioned browser workspace is validated and migrated."
+  non_goals:
+    - "Full My Tasks search, filters, Kanban, task editing or deletion."
+    - "Full priority management, project management, Starter Kits or backup/restore."
+    - "Cloud synchronization, database, Supabase, Auth, RLS, APIs or external services."
+
+risk:
+  level: R4
+  policy_ref: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+  rationale: >-
+    The task migrates and changes handling of personal workspace task data
+    stored in the learner's browser. The project Risk Policy classifies work
+    affecting personal data as R4 even though the implementation is limited
+    to one application file and does not use a database. Cross-section task
+    placement and timezone business rules are additional impacts; file count
+    does not lower the risk category.
+  impact_factors:
+    - "personal_data"
+  reversibility: "LIMITED"
+  reversibility_note: >-
+    The unchanged v1 key is the original pre-migration checkpoint only. It is
+    not a rolling backup and does not include tasks or edits created after v2
+    becomes active. A code downgrade or post-migration rollback requires a
+    separate Owner-approved recovery procedure that preserves the current v2
+    payload and proves the v1-compatible projection before any overwrite.
+  minimum_verification: "EVIDENCE_LEVEL_3 for migration/data integrity; EVIDENCE_LEVEL_4 for actual Preview behavior and Owner-observed user outcomes."
+  domain_review_required: >-
+    Human Owner must designate and obtain approval from the relevant Data
+    Privacy / Security domain reviewer before any execution involving the
+    learner's persisted personal workspace data.
+
+required_context:
+  - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
+    purpose: "FR-002, FR-006, FR-010, §7.2 and §7.3; task capture defaults and My Day order."
+    authority: "PRODUCT_OWNER_APPROVED"
+    required: true
+  - reference: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
+    purpose: "Task status, priority, date-only fields, timezone settings and versioned workspace principles."
+    authority: "PHASE_3_2_ACCEPTED_DESIGN"
+    required: true
+  - reference: "projects/task-management/design/ux/v0.1/BVC_TASK_MANAGEMENT_USER_JOURNEY_AND_NAVIGATION_V0.1.md"
+    purpose: "My Day placement, no-duplicate behavior and UX constraints."
+    authority: "REFERENCE; FORMAL_PHASE_3_1_ACCEPTANCE_OPEN"
+    required: true
+  - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+    purpose: "Canonical DR-001, DR-002 and DR-017 outcomes."
+    authority: "CANONICAL; ALL_THREE_APPROVED_2026-11-24"
+    required: true
+  - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+    purpose: "Exact B2 v1 Local Storage key, envelope, write/load safeguards and scope history."
+    authority: "APPROVED_REVISION_1; HISTORICAL_EXECUTION_BOUNDARY"
+    required: true
+  - reference: "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
+    purpose: "C1 data-compatibility proposal and proposed interaction/date semantics."
+    authority: "PROPOSED; OWNER_REVIEW_REQUIRED"
+    required: true
+  - reference: "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+    purpose: "Phase B limitations and Phase C learning boundary."
+    authority: "CANONICAL_REGISTER"
+    required: true
+  - reference: "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
+    purpose: "Owner-supplied evidence of two saved v1 task records."
+    authority: "OWNER_SUPPLIED_EVIDENCE"
+    required: true
+  - reference: "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-preview-after-refresh.webp"
+    purpose: "Owner-supplied post-refresh evidence for the two v1 tasks."
+    authority: "OWNER_SUPPLIED_EVIDENCE"
+    required: true
+
+dependencies:
+  - reference: "BVC-TM-TC-006 Revision 2"
+    relationship: "READINESS_PROPOSAL_REVIEW"
+    reason: "The migration and interaction proposal must be reviewed before this implementation Contract is approved."
+  - reference: "DR-001"
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Upcoming horizon is 7 calendar days; implementation must make the date range explicit and testable."
+  - reference: "DR-002"
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Focus expires at the next local calendar day; implementation must derive activity from the stored date."
+  - reference: "DR-017"
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Browser IANA timezone is detected on first use and may be corrected by the user."
+  - reference: "B2 workspace formatVersion 1"
+    relationship: "MIGRATION_REQUIRED"
+    reason: "Existing task records contain id/title only and must be preserved exactly."
+
+scope:
+  mode: "WRITE — EXISTING GAIS BEGINNER APP ONLY"
+  allowed_changes:
+    create: []
+    modify:
+      - "app/page.tsx"
+    delete: []
+  change_budget:
+    max_changed_files: 1
+    max_created_files: 0
+    max_modified_files: 1
+    max_deleted_files: 0
+    max_binary_files: 0
+    max_total_diff_lines: 500
+    allow_dependency_changes: false
+    allow_lockfile_changes: false
+    allow_config_changes: false
+    allow_route_changes: false
+    allow_database_schema_changes: false
+    allow_authentication_changes: false
+    allow_external_services: false
+    allow_architecture_changes: false
+  scope_expansion_allowed: false
+  scope_expansion_policy: "STOP_AND_REQUEST_A_NEW_APPROVED_CONTRACT"
+  stop_if:
+    - "The live GAIS app ID does not match the target app ID."
+    - "The live app/page.tsx differs materially from the last Owner-reported source and cannot be reconciled safely."
+    - "Another writer, browser tab, agent or process may be modifying the app."
+    - "The v1 workspace cannot be strictly parsed or validated."
+    - "The v2 workspace cannot be written and read back successfully."
+    - "Implementation requires another file, a dependency, configuration change or more than 500 diff lines."
+    - "The actual migration or runtime behavior conflicts with the approved Product/UX decisions or architecture baseline."
+  forbidden_changes:
+    - "Any file other than app/page.tsx."
+    - "Create/delete operations or changes to package manifests, lockfiles, routes, config, CSS or shared components."
+    - "Database, Supabase, Auth, RLS, API, cloud sync, GitHub integration or external services."
+    - "Full task editing/deletion, search/filter/Kanban, project management, Starter Kits or backup/restore."
+    - "Destructive deletion or cleanup of the v1 workspace key."
+    - "Silently discarding malformed or unsupported workspace data."
+    - "Any claim of C1 acceptance before Owner review."
+
+data_contract:
+  legacy_v1:
+    key: "bvc-task-management:workspace:v1"
+    format: "bvc-task-management-workspace"
+    formatVersion: 1
+    sourceMode: "browser"
+    required_task_fields:
+      - "id"
+      - "title"
+    preservation:
+      - "Preserve workspaceId exactly."
+      - "Preserve every task id and title exactly."
+      - "Do not delete or mutate the v1 key."
+  proposed_v2:
+    key: "bvc-task-management:workspace:v2"
+    format: "bvc-task-management-workspace"
+    formatVersion: 2
+    sourceMode: "browser"
+    data:
+      tasks:
+        required_fields:
+          - "id"
+          - "title"
+          - "status"
+          - "priority"
+        optional_fields:
+          - "due_date"
+          - "focus_date"
+        defaults_for_legacy_tasks:
+          status: "todo"
+          priority: "normal"
+          due_date: "omitted"
+          focus_date: "omitted"
+      settings:
+        timezone: "Valid IANA timezone identifier"
+    migration_algorithm:
+      - "If a v2 key exists, validate it and use it; if it exists but is malformed or unsupported, stop and do not fall back to an older v1 snapshot."
+      - "If v2 is absent and v1 exists, parse and strictly validate the complete v1 envelope and all task IDs/titles."
+      - "Construct the complete v2 envelope in memory, preserving workspaceId and every legacy task ID/title."
+      - "Set legacy task status to todo and priority to normal; do not invent due_date or focus_date values."
+      - "Resolve the initial timezone from browser IANA detection; if detection is unavailable or invalid, ask the user to supply a valid IANA timezone before migration."
+      - "Validate all v2 fields and relationships before writing."
+      - "Write the complete v2 envelope once to the v2 key, read it back, parse it and validate it before activating v2."
+      - "Keep the original v1 key unchanged as the pre-migration checkpoint throughout C1; do not call it a rolling backup or claim it alone supports rollback after v2 writes."
+      - "If migration or read-back fails, do not overwrite v1, do not claim success, show a truthful recoverable error and stop mutations."
+      - "If neither key exists, start with an empty in-memory workspace; do not persist an empty workspace on mount."
+    unknown_or_malformed_data:
+      - "Never silently clear, replace or overwrite malformed or unsupported content."
+      - "A present-but-invalid v2 key is a hard recovery state; do not fall back to a potentially stale v1 copy."
+      - "A failed v2 write must leave the v1 key unchanged and preserve the current in-memory task list."
+
+open_product_decisions:
+  - id: "C1-OPEN-001"
+    title: "Visibility of legacy tasks without due date or Focus"
+    status: "OWNER_DECISION_REQUIRED"
+    context: >-
+      The accepted B2 workspace contains two saved tasks with id/title only.
+      After migration they receive status todo and priority normal, but have
+      neither due_date nor focus_date. Under the current four date-driven
+      sections, they would be stored but not visible on My Day.
+    recommended_option: >-
+      Add a supplemental, non-priority "Unscheduled" section after Upcoming
+      and before Add task. Keep the four approved priority sections in their
+      existing order, render each unscheduled active task once, and keep Add
+      task as the final action. This requires an explicit Product Owner
+      decision and a canonical Decision Register entry before execution.
+    alternative: >-
+      Explicitly defer displaying undated tasks until C2 — My Tasks. This
+      must be an informed Owner decision because existing tasks would not be
+      visible on the C1 default screen in the interim.
+    implementation_rule: >-
+      Do not automatically assign Focus or a due date to legacy tasks. Do not
+      mark this question resolved based only on this AI recommendation.
+
+task_behavior:
+  task_defaults:
+    title: "Required, trimmed and non-empty."
+    status: "todo"
+    priority: "normal"
+  dates:
+    due_date: "Optional date-only YYYY-MM-DD; no UTC-midnight encoding."
+    focus_date: "Optional date-only YYYY-MM-DD representing the local day on which Focus is active."
+    selected_timezone: "Use data.settings.timezone as the selected IANA timezone."
+    today_calculation: "Use timezone-aware date parts from Intl.DateTimeFormat with the selected IANA timezone; never derive the local day from Date.toISOString().slice(0, 10)."
+    calendar_arithmetic: "Calculate day boundaries as calendar dates, not fixed 24-hour durations."
+    upcoming_range: "Proposed interpretation for Owner review: tomorrow through today plus 7 calendar days, inclusive; Due Today remains separate."
+  section_order:
+    - "Overdue"
+    - "Due Today"
+    - "Today's Focus"
+    - "Upcoming"
+    - "Add task"
+  placement_rules:
+    - "Exclude tasks with status done from active My Day sections."
+    - "Overdue: active tasks with due_date earlier than today."
+    - "Due Today: active tasks with due_date equal to today."
+    - "Today's Focus: active tasks with focus_date equal to today and not already placed in Overdue or Due Today."
+    - "Upcoming: active tasks with due_date from tomorrow through today plus 7 calendar days inclusive and not already placed in an earlier section."
+    - "A task appears at most once; placement precedence is Overdue, Due Today, Today's Focus, Upcoming."
+    - "A focused future-due task appears in Today's Focus, not again in Upcoming."
+    - "A legacy task without status is normalized to todo during migration."
+    - "C1-OPEN-001 is unresolved: the two B2 legacy tasks have neither due_date nor focus_date. Do not silently leave them undiscoverable in My Day; implementation must stop until the Human Owner approves a visible placement or explicitly accepts temporary deferral to C2."
+  focus:
+    mark_action: "Set focus_date to today's date in the selected timezone."
+    clear_action: "Remove focus_date."
+    expiry: "A focus marker is active only while focus_date equals today; stale dates are not destructively cleaned at midnight."
+    timezone_change: "Recalculate today using the corrected timezone; do not rewrite the stored focus_date automatically."
+  user_interaction:
+    task_capture: "Keep title-only creation valid; add optional due-date input and an optional Focus today control."
+    visible_task_rows: "Allow a visible My Day task to be marked/unmarked Focus without introducing a new task status."
+    timezone_correction: "Show the selected timezone and provide a minimal accessible control to enter/correct a valid IANA timezone identifier."
+    exclusions: "No full task editing/deletion, search, filters, Kanban, priority management or full Settings screen."
+  disclosure:
+    dr005: "Preserve the approved first-use storage disclosure and acknowledgement behavior. Do not claim that a task is persisted until the v2 write succeeds."
+
+acceptance_criteria:
+  - id: "AC-001"
+    statement: "My Day renders the canonical five-section order and satisfies the Product Definition FR-010 / AC-006 and UX no-duplicate placement rules."
+    required: true
+  - id: "AC-002"
+    statement: "DR-001, DR-002 and DR-017 are implemented exactly as approved; no product decision is silently reinterpreted."
+    required: true
+  - id: "AC-003"
+    statement: "The v1-to-v2 migration preserves workspaceId, every existing task ID and every existing title; migrated records receive only the approved/default values specified in this Contract."
+    required: true
+  - id: "AC-004"
+    statement: "The v1 source key remains unchanged and recoverable; failed parse, validation, write or read-back does not silently overwrite or delete existing data."
+    required: true
+  - id: "AC-005"
+    statement: "Due-date and Focus placement use date-only semantics and the selected IANA timezone, including local-midnight, month/year boundary and applicable daylight-saving tests."
+    required: true
+  - id: "AC-006"
+    statement: "A focused task appears once only; Overdue and Due Today take precedence over Focus, and Focus takes precedence over Upcoming."
+    required: true
+  - id: "AC-007"
+    statement: "Title-only task creation continues to work; optional due date and Focus controls follow the approved C1 interaction boundary."
+    required: true
+  - id: "AC-008"
+    statement: "Completed tasks are excluded from active My Day sections; legacy tasks are treated as active via the todo migration default."
+    required: true
+  - id: "AC-009"
+    statement: "The selected IANA timezone is visible, validated and user-correctable; invalid or unavailable detection does not silently substitute UTC."
+    required: true
+  - id: "AC-010"
+    statement: "B1/B2 task capture and persistence behavior regressions are tested; no database, Auth, external service or out-of-scope file is changed."
+    required: true
+  - id: "AC-011"
+    statement: "A post-migration code-downgrade/recovery procedure is documented, tested against a copy of the v2 workspace and approved by the Human Owner and the designated Data Privacy / Security domain reviewer before any production-like use."
+    required: true
+  - id: "AC-012"
+    statement: "C1-OPEN-001 is resolved by an explicit Human Owner decision recorded in the canonical Product/UX Decision Register; existing undated B2 tasks are visible according to that approved outcome or are explicitly deferred with learner-facing disclosure."
+    required: true
+
+verification:
+  required: true
+  evidence_level: 3
+  checks:
+    - id: "VC-001"
+      kind: "LIVE_PREFLIGHT"
+      description: "Verify the exact GAIS app identity, current app/page.tsx, no dirty editor state, and single-writer condition immediately before editing."
+      required: true
+    - id: "VC-002"
+      kind: "MIGRATION_PRESERVATION"
+      description: "Use a copy of the actual B2 v1 workspace; prove workspaceId, task IDs and titles survive v1-to-v2 migration unchanged."
+      required: true
+    - id: "VC-003"
+      kind: "MIGRATION_FAILURE_RECOVERY"
+      description: "Test malformed v1, unsupported versions, v2 write failure and failed read-back; prove v1 is unchanged and no false save success is shown."
+      required: true
+    - id: "VC-004"
+      kind: "PERSISTENCE_RELOAD"
+      description: "Inspect the exact v2 key and parsed envelope, then refresh/reopen Preview and verify every migrated/new task appears exactly once."
+      required: true
+    - id: "VC-005"
+      kind: "DATE_AND_TIME_BOUNDARIES"
+      description: "Verify overdue/today/upcoming boundaries at local midnight, month-end, year-end, applicable DST changes and after timezone correction."
+      required: true
+    - id: "VC-006"
+      kind: "PLACEMENT_AND_FOCUS"
+      description: "Verify all section precedence cases and that focus expires by local-date comparison without duplicate or destructive cleanup."
+      required: true
+    - id: "VC-007"
+      kind: "REGRESSION_AND_SCOPE"
+      description: "Re-run title-only capture and B2 persistence regressions; inspect the exact changed-file inventory and enforce the one-file/500-line budget."
+      required: true
+    - id: "VC-008"
+      kind: "BUILD_AND_STATIC_CHECKS"
+      description: "Run the actual project's available build, type and lint checks and preserve their outputs; do not infer success."
+      required: true
+    - id: "VC-009"
+      kind: "R4_DOMAIN_REVIEW"
+      description: "Obtain the Human Owner-designated Data Privacy / Security domain review of the data flow, Local Storage handling, migration safety, failure modes and recovery procedure before execution."
+      required: true
+    - id: "VC-010"
+      kind: "POST_MIGRATION_ROLLBACK"
+      description: "Test a documented downgrade/recovery against a copy of the v2 workspace; preserve all v2 fields and prove that the recovery path does not silently discard task IDs or titles."
+      required: true
+    - id: "VC-011"
+      kind: "LEGACY_TASK_VISIBILITY"
+      description: "Verify both original B2 tasks remain visible in the exact section/placement approved for C1-OPEN-001, appear once each, and retain their original IDs and titles."
+      required: true
+
+recovery:
+  before_write:
+    - "Capture the exact current GAIS app ID and app/page.tsx content hash."
+    - "Inspect localStorage v1 key/value read-only and preserve the original payload."
+    - "Confirm no competing writer or unsaved/dirty editor state."
+  rollback:
+    - "Do not delete or mutate the original v1 key during normal C1 migration."
+    - "If v2 migration or read-back fails before v2 activation, stop writes and retain the v1 source unchanged."
+    - "The v1 key is not a current-state backup after v2 becomes active and new changes are saved."
+    - "Before approving execution, define and test an Owner-approved code-downgrade/recovery procedure: stop writes; preserve the full current v2 payload; validate every task id/title; define how a v1-compatible projection is produced without discarding the v2 payload; then require explicit Owner approval before any v1-key replacement."
+    - "Do not attempt automatic rollback, delete v2, overwrite v1, or claim recoverability when the tested recovery procedure is unavailable."
+    - "If implementation is rejected, use an Owner-reviewed app-code and data recovery process; do not improvise a destructive browser-storage reset."
+
+  stop_conditions:
+    - "Any task ID/title mismatch or unexplained record-count difference."
+    - "C1-OPEN-001 remains unresolved or the approved legacy-task visibility behavior is not testable."
+    - "Any v1 source mutation, v2 validation failure, or missing tested post-migration rollback/recovery procedure."
+    - "Any unexpected source file change or diff-budget overrun."
+
+authority:
+  authorized_by: "NOT_GRANTED"
+  authorization_status: "DRAFT_ONLY; NOT_APPROVED; NOT_AUTHORIZED_FOR_EXECUTION"
+  execution_rule: >-
+    This Contract is a proposal only. Publishing or merging it does not
+    approve the Contract or authorize a GAIS write. The Human Owner / Product
+    Owner must explicitly approve this exact revision and issue a separate
+    execution authorization. The executor must complete the fresh live
+    preflight in VC-001 before any edit. Approval of Contract #006 does not
+    approve Contract #007.
+  executor:
+    proposed_class: "HUMAN_OWNER_OPERATES_GAIS; GEMINI_EXECUTES_WITHIN_THE_APPROVED_CONTRACT; CHATGPT_COORDINATES_AND_REVIEWS"
+    gais_executor: "NOT_AUTHORIZED_UNTIL_OWNER_APPROVAL_AND_EXECUTION_AUTHORIZATION"
+    reviewer: "Human Owner / Product Owner; relevant technical reviewer for R4 personal workspace data handling, migration and recovery"
+
+prompt:
+  next_prompt_id: "BVCTM-PROMPT-0006"
+  allocation_status: "NOT_ALLOCATED"
+  allocation_rule: "Do not allocate or publish Prompt #0006 until Contract #007 is approved, its exact scope/budget are settled, and the Human Owner has separately authorized execution. The prompt must follow GAIS_PROMPT_DELIVERY_STANDARD_V1.0."
