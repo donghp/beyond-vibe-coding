@@ -286,3 +286,12 @@ evidence:
   artifact_path: "practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md"
   claim: "The Human Owner accepted B1, B2, B3 and B4, the available evidence and continuity, and declared Phase B closed. This is phase-level learning-path acceptance with known limitations."
   limitations: "Individual test results previously recorded as NOT_RUN or NOT_VERIFIED remain unchanged. This decision does not convert unrun malformed-data/storage-error simulations, missing B3/B4 evidence or other undocumented tests into PASS. It does not imply product release or formal Phase 3.1 UX acceptance."
+
+- evidence_id: BVC-EV-039
+  subject: Human Owner approval of C1 Product/UX decisions DR-001, DR-002 and DR-017
+  classification: OWNER_SUPPLIED
+  source: "Explicit Human Owner approval in ChatGPT on 2026-11-24"
+  observed_at: '2026-11-24'
+  artifact_path: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
+  claim: "The Human Owner approved DR-001 (Upcoming horizon: next 7 calendar days), DR-002 (Today's Focus scoped to the current local calendar date and automatically expires at the next local calendar day), and DR-017 (detect browser IANA timezone on first use and allow user correction). The outcomes are recorded in the canonical Product/UX Decision Register."
+  limitations: "This resolves these three Product/UX decisions for C1 only. Contract #006 remains DRAFT_NOT_APPROVED, Prompt #0006 remains NOT_ALLOCATED, and GAIS implementation is not authorized."
