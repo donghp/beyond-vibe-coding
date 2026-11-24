@@ -23,7 +23,7 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "766febad0e98fbb59dc45738c80f5c47a2571250"
+    source_commit: "100c8cc89de42329fe99e484be70e9441efe144e"
     source_branch: "main"
     architecture_baseline_refs:
       - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
@@ -35,7 +35,7 @@ project:
     current_reported_app_page_sha256: "4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e"
     recovery_point:
       kind: "git_snapshot"
-      reference: "main@766febad0e98fbb59dc45738c80f5c47a2571250"
+      reference: "main@100c8cc89de42329fe99e484be70e9441efe144e"
       verified: true
 
 intent:
@@ -45,13 +45,13 @@ intent:
     workspace and the accepted Phase 3.2 architecture.
   rationale: >-
     Phase B has been closed by the Human Owner. The current curriculum defines
-    C1 as My Day. Date horizon, Focus lifetime and timezone behavior are still
-    OPEN in the Product/UX Decision Register, and the accepted B2 task record
+    C1 as My Day. Date horizon, Focus lifetime and timezone behavior were explicitly
+    approved by the Human Owner on 2026-11-24, and the accepted B2 task record
     contains only id and title. These dependencies must be resolved before
     asking a beginner's GAIS application to implement date-aware behavior.
   expected_outcome: >-
     A reviewed C1 decision brief maps FR-010, AC-006 and the UX placement rules;
-    the Product Owner resolves DR-001, DR-002 and DR-017; task-field and
+    DR-001, DR-002 and DR-017 are recorded as approved; task-field and
     workspace-version compatibility are specified; a separate bounded
     implementation Contract can then be prepared.
   business_or_user_value: >-
@@ -77,7 +77,7 @@ scope:
   forbidden_changes:
     - "Any GAIS application source, including app/page.tsx."
     - "Any runtime browser storage or task data."
-    - "Product/UX Decision Register statuses or decision outcomes; only the Product Owner may approve DR-001, DR-002 or DR-017."
+    - "Changing the Owner-approved DR-001, DR-002 and DR-017 outcomes recorded in the canonical Product/UX Decision Register."
     - "The accepted Phase 3.2 Architecture baseline or Product Definition v0.2.0."
     - "Dependencies, lockfiles, configuration, routes, APIs, databases, Auth, RLS, cloud sync or external services."
     - "A GAIS implementation prompt or Prompt #0006 allocation before this Contract and the required product decisions are approved."
@@ -95,7 +95,7 @@ required_context:
     required: true
   - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
     purpose: "Canonical OPEN/APPROVED states for DR-001, DR-002 and DR-017."
-    authority: "CANONICAL"
+    authority: "CANONICAL; DR-001, DR-002 and DR-017 APPROVED BY OWNER 2026-11-24"
     required: true
   - reference: "projects/task-management/continuity/PROJECT_STATE.json"
     purpose: "Phase B Owner closeout, current project state and B2 workspace history."
@@ -111,14 +111,14 @@ dependencies:
     relationship: "MUST_COMPLETE_FIRST"
     reason: "Human Owner explicitly accepted and closed all four Phase B lessons on 2026-11-24."
   - reference: "DR-001 — Upcoming horizon"
-    relationship: "OWNER_DECISION_REQUIRED"
-    reason: "Must be resolved before Upcoming filtering is implemented."
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Owner approved the next 7 calendar days on 2026-11-24; C1 Contract must define date boundaries and tests."
   - reference: "DR-002 — Today's Focus lifetime/reset"
-    relationship: "OWNER_DECISION_REQUIRED"
-    reason: "Must be resolved before Focus persistence and date-boundary behavior are implemented."
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Owner approved a Focus marker scoped to the current local calendar date and automatic expiry at the next local calendar day on 2026-11-24."
   - reference: "DR-017 — Timezone source and editing"
-    relationship: "OWNER_DECISION_REQUIRED"
-    reason: "Must be resolved before local-date calculations or timezone-sensitive task grouping are implemented."
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Owner approved browser IANA timezone detection on first use with user correction on 2026-11-24; C1 Contract must define persistence and fallback behavior."
   - reference: "B2 Beginner workspace formatVersion 1"
     relationship: "COMPATIBILITY_REVIEW_REQUIRED"
     reason: "Existing tasks contain id/title only; C1 must preserve saved tasks and define a safe path for any new date/focus/status fields."
@@ -200,4 +200,4 @@ authority:
 prompt:
   next_prompt_id: "BVCTM-PROMPT-0006"
   allocation_status: "NOT_ALLOCATED"
-  reason: "No approved C1 implementation Contract or final Product Owner decisions exist yet."
+  reason: "DR-001, DR-002 and DR-017 are Owner-approved, but this readiness Contract remains DRAFT_NOT_APPROVED and does not define or authorize the bounded GAIS implementation task."
