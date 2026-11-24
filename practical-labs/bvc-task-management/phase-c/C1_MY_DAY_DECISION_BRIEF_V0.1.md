@@ -110,7 +110,7 @@ Proposed migration sequence:
 
 A present-but-invalid v2 key must not silently fall back to an older v1 snapshot after v2 may contain newer changes. Stop writes and expose a recovery message instead. Never split one task across multiple keys; v2 is one complete active workspace. The v1 copy is a preserved recovery point, not a second live data store.
 
-This approach is a recommendation for Contract #007 review. The exact migration and recovery controls must be checked against the live GAIS source before execution.
+This approach is a recommendation for Contract #007 review. The unchanged v1 key is only the original pre-migration checkpoint; it is not a rolling backup and does not by itself restore tasks created after v2 becomes active. A tested, Owner-approved post-migration downgrade/recovery procedure is a mandatory R4 execution gate. The exact migration and recovery controls must be checked against the live GAIS source before execution.
 
 ### 4.4 Date, timezone and section semantics
 
