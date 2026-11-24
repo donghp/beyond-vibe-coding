@@ -124,4 +124,5 @@ prompts:
 next_prompt:
   next_available_number: 6
   status: NOT_ALLOCATED
-  allocation_rule: "Allocate BVCTM-PROMPT-0006 only after its task identity, approved Contract and exact prompt are ready for review; never reuse a prior ID."
+  allocation_rule: "Keep BVCTM-PROMPT-0006 NOT_ALLOCATED until C1 My Day product decisions DR-001, DR-002 and DR-017 are explicitly resolved, the implementation Task Contract is approved, and the exact prompt is ready for Owner review; never reuse a prior ID."
+  phase_c_note: "Phase B was closed by Human Owner on 2026-11-24. Contract #006 is currently a DRAFT_NOT_APPROVED decision/readiness proposal only. Its publication or merge does not authorize GAIS edits. When Prompt #0006 is eventually prepared, it must follow GAIS_PROMPT_DELIVERY_STANDARD_V1.0 with a full Vietnamese learner explanation before the copy-ready execution command."
