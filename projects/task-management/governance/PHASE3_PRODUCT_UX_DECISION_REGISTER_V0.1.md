@@ -38,8 +38,8 @@ The UX documents remain versioned as the original v0.1.0 design package. They we
 
 | Canonical ID | Decision | Existing source aliases | Proposed default (not approved) | Current status | Implementation dependency |
 |---|---|---|---|---|---|
-| DR-001 | Upcoming horizon in My Day | DEC-UX-001; UJ-OPEN-01 | Next seven calendar days | OPEN | Resolve before implementing Upcoming date filtering |
-| DR-002 | Today's Focus lifetime/reset | DEC-UX-002; UJ-OPEN-02; INT-OPEN-01 | Focus marker scoped to the current local calendar date | OPEN | Resolve before implementing Focus persistence/reset |
+| DR-001 | Upcoming horizon in My Day | DEC-UX-001; UJ-OPEN-01 | Next seven calendar days | **APPROVED — 2026-11-24** | Use the next 7 calendar days for C1 Upcoming filtering; see Owner decision record §3.4 |
+| DR-002 | Today's Focus lifetime/reset | DEC-UX-002; UJ-OPEN-02; INT-OPEN-01 | Focus marker scoped to the current local calendar date | **APPROVED — 2026-11-24** | Focus is scoped to the current local calendar date and automatically expires at the next local calendar day; see Owner decision record §3.4 |
 | DR-003 | Project removal behavior | DEC-UX-003; UJ-OPEN-03; INT-OPEN-02 | Preserve tasks and detach them to No project; never cascade-delete | OPEN | Resolve before implementing project deletion |
 | DR-004 | Reapplying a Starter Kit | DEC-UX-004; UJ-OPEN-04; INT-OPEN-03 | Skip recognized/already-applied items and report added/skipped items | OPEN | Resolve before implementing repeat-application/merge logic |
 | DR-005 | Timing, placement and exact copy of first-use storage/access disclosure | DEC-UX-005; UJ-OPEN-05; UX-002 | Present a concise, level-specific disclosure before the first meaningful data entry that will be persisted; place it inline at the start of the workspace, require explicit acknowledgement before continuing, and keep the full explanation available at More → Settings & Backup. Use the approved Beginner copy recorded below; Intermediate/Advanced must use the distinct account/RLS wording in Interaction Specification §15. | APPROVED — 2026-11-13 | Apply when the corresponding learning level first persists user data; does not apply to B1 in-memory task capture. B2 must implement only the Beginner disclosure before persistence is enabled. |
@@ -125,10 +125,22 @@ The UX documents remain versioned as the original v0.1.0 design package. They we
 | DR-014 | Beginner browser persistence | DATA-001; ODEC-003 | Small versioned JSON workspace in browser `localStorage`; no external database/Auth/Localhost | ACCEPTED FOR DESIGN; runtime verification required | Do not treat acceptance as proof of persistence behavior; verify in Phase 3.3 |
 | DR-015 | Starter Kit definition packaging | DATA-002 | Static, version-controlled application assets | OPEN | Resolve before choosing the implementation source/format |
 | DR-016 | Beginner-to-Supabase import semantics | DATA-003 | Preview and merge by default; replacement only after explicit confirmation | OPEN | Resolve before Intermediate migration/import implementation |
-| DR-017 | Timezone source and editing | DATA-004 | Detect browser IANA timezone on first use and allow user correction | OPEN | Resolve before date-boundary and Supabase timezone implementation |
+| DR-017 | Timezone source and editing | DATA-004 | Detect browser IANA timezone on first use and allow user correction | **APPROVED — 2026-11-24** | Use browser IANA timezone detection on first use and allow user correction; see Owner decision record §3.4 |
 | DR-018 | Advanced local Supabase stack | DATA-005 | Supabase CLI and migrations are taught; a local database stack remains optional | OPEN | Resolve before writing Advanced local-environment instructions |
 | DR-019 | Supabase Auth method and recovery flow | Security & Environment Design §3 | Choose one supported method (email/password or magic link) and document its recovery flow | OPEN | Must be resolved before the first Intermediate Auth implementation task |
-### 3.4 Phase 3.2 architecture decision crosswalk (ODEC)
+### 3.4 Human Owner approvals — C1 My Day (2026-11-24)
+
+The Human Owner explicitly approved the three proposed defaults for C1 on 2026-11-24. These outcomes are canonical Product/UX decisions:
+
+| Canonical ID | Approved outcome | Effective C1 behavior |
+|---|---|---|
+| DR-001 | Upcoming covers the next **7 calendar days**. | Use a seven-calendar-day Upcoming horizon. The C1 implementation Contract must state date boundaries and tests. |
+| DR-002 | Today's Focus is scoped to the **current local calendar date** and automatically expires at the next local calendar day. | Focus is a daily marker, not task status, priority or project. |
+| DR-017 | Detect the browser's **IANA timezone on first use** and allow the user to correct it. | Use the selected IANA timezone for date grouping and day-boundary calculations; the implementation Contract must define persistence and fallback behavior. |
+
+**Decision authority:** Human Owner / Product Owner. **Decision date:** 2026-11-24. **Source:** explicit Owner approval in ChatGPT on 2026-11-24. These approvals resolve DR-001, DR-002 and DR-017 for C1. They do not approve Contract #006 or authorize GAIS implementation.
+
+### 3.5 Phase 3.2 architecture decision crosswalk (ODEC)
 
 The following ODEC identifiers remain authoritative aliases in the Phase 3.2 Architecture Review & Acceptance record. This crosswalk makes their current state visible beside the canonical DR register; it does not turn technical deferrals into new Product Owner approvals.
 

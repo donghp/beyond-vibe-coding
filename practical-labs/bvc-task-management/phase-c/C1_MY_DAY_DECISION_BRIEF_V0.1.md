@@ -4,7 +4,7 @@
 **Phase:** C — Make It Useful Every Day  
 **Curriculum:** Curriculum Map v0.2.0  
 **Product authority:** Product Definition v0.2.0  
-**Status:** PREPARATION — Product Owner decisions required before implementation  
+**Status:** PREPARATION — DR-001, DR-002 and DR-017 approved by Human Owner on 2026-11-24; implementation Contract approval remains required  
 **Prepared:** 2026-11-24
 
 ---
@@ -36,15 +36,15 @@ The UX Journey & Navigation §6.2 adds these placement rules:
 - Completed tasks are excluded from active My Day sections.
 - Today's Focus is a marker, not a task status, priority or project.
 
-## 3. Product decisions that remain OPEN
+## 3. Product decisions — approved C1 baseline
 
 | Canonical decision | Current status | Existing proposed default | Options for Product Owner consideration |
 |---|---|---|---|
-| DR-001 — Upcoming horizon | OPEN | Next seven calendar days | A. Next 7 calendar days (existing proposal). B. Next 14 days. C. Next 30 days. D. No fixed preview horizon. |
-| DR-002 — Today's Focus lifetime/reset | OPEN | Focus marker scoped to the current local calendar date | A. Automatically expires at the next local calendar day. B. Persists until the user manually removes it. C. Uses a separate explicit planning date. |
-| DR-017 — Timezone source and editing | OPEN | Detect browser IANA timezone on first use and allow user correction | A. Browser-detected IANA timezone with a user-editable setting (existing proposal). B. Explicit timezone selection before date-dependent features. C. Browser timezone only, with no correction control. |
+| DR-001 — Upcoming horizon | APPROVED — 2026-11-24 | Next 7 calendar days | Approved outcome: next 7 calendar days. |
+| DR-002 — Today's Focus lifetime/reset | APPROVED — 2026-11-24 | Focus marker scoped to the current local calendar date | Approved outcome: Focus automatically expires at the next local calendar day. |
+| DR-017 — Timezone source and editing | APPROVED — 2026-11-24 | Detect browser IANA timezone on first use and allow user correction | Approved outcome: detect browser IANA timezone and permit user correction. |
 
-**No option above is approved.** The Product Owner must decide the canonical behavior before C1 implementation depends on it.
+**Owner decision record:** The Human Owner explicitly approved all three defaults on 2026-11-24. The canonical outcomes are recorded in `PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md` §3.4. This resolves the three product decisions for C1, but does not itself approve Contract #006 or authorize GAIS implementation.
 
 ## 4. Data and compatibility implications
 
@@ -90,9 +90,9 @@ Unless a later approved Contract says otherwise, C1 must not silently implement:
 | Phase B Owner closeout | ACCEPTED — 2026-11-24 |
 | Curriculum C1 identity | CONFIRMED — My Day |
 | Product FR-010 / AC-006 | CANONICAL |
-| DR-001 Upcoming horizon | OPEN |
-| DR-002 Focus lifetime/reset | OPEN |
-| DR-017 Timezone source/editing | OPEN |
+| DR-001 Upcoming horizon | APPROVED — 2026-11-24 |
+| DR-002 Focus lifetime/reset | APPROVED — 2026-11-24 |
+| DR-017 Timezone source/editing | APPROVED — 2026-11-24 |
 | Existing B2 workspace compatibility design | REQUIRED |
 | C1 implementation Contract | DRAFT_NOT_APPROVED |
 | Prompt #0006 | NOT_ALLOCATED |

@@ -201,14 +201,14 @@ tasks:
   publication_status: PROPOSAL_ON_BRANCH; NOT_CANONICAL
   scope: "Documentation and Product Owner decision preparation only. No GAIS source, runtime data, schema, or Product/UX decision status changes."
   dependencies:
-  - "DR-001 — Upcoming horizon: OWNER_DECISION_REQUIRED"
-  - "DR-002 — Today's Focus lifetime/reset: OWNER_DECISION_REQUIRED"
-  - "DR-017 — Timezone source and editing: OWNER_DECISION_REQUIRED"
+  - "DR-001 — Upcoming horizon: OWNER_DECISION_APPROVED_2026-11-24; next 7 calendar days"
+  - "DR-002 — Today's Focus lifetime/reset: OWNER_DECISION_APPROVED_2026-11-24; scoped to current local calendar date and expires at next local day"
+  - "DR-017 — Timezone source and editing: OWNER_DECISION_APPROVED_2026-11-24; browser IANA timezone detection with user correction"
   - "B2 workspace formatVersion 1 backward-compatibility review"
   evidence_refs:
   - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml"
-  next_action: "Human Owner / Product Owner resolves DR-001, DR-002 and DR-017, reviews the C1 decision brief, and separately approves or rejects Contract #006. Do not allocate Prompt #0006 or modify GAIS source before these gates are satisfied."
+  next_action: "DR-001, DR-002 and DR-017 were approved by the Human Owner on 2026-11-24. Record their outcomes in the canonical Decision Register and C1 brief. Complete C1 data compatibility and exact implementation scope in Contract #006, then submit Contract #006 for separate Owner approval. Do not allocate Prompt #0006 or modify GAIS source before Contract approval and explicit execution authorization."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001

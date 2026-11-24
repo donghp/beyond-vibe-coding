@@ -96,3 +96,15 @@ A successful build is not proof of product behavior. A design package is not pro
 
 
 **B2 gate history — 2026-11-17 (superseded):** RC-003 PASS; RC-004 PASS (Owner confirmed clean editor and no competing writer). At that time RC-005 was pending until Gemini received the canonical Prompt #0005 and Context Pack. This gate was subsequently satisfied: Gemini supplied the read-only RC-005 acknowledgment and the Human Owner confirmed `RC-005 PASS — PROCEED WITH B2` on 2026-11-18. No GitHub connection is required in the learner's GAIS project. Exact Git-level accepted-B1 source parity remains NOT_VERIFIABLE, separately from the clean current GAIS editor state.
+
+## Phase C1 decision update — 2026-11-24
+
+The Human Owner approved the three Product/UX decisions for C1 — My Day on 2026-11-24:
+
+- DR-001 — Upcoming horizon: next 7 calendar days.
+- DR-002 — Today's Focus: scoped to the current local calendar date and automatically expires at the next local calendar day.
+- DR-017 — Timezone: detect the browser IANA timezone on first use and allow user correction.
+
+The canonical outcomes are recorded in `projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md` §3.4 and summarized in the C1 Decision Brief.
+
+This update does not change Phase B acceptance. Contract #006 remains `DRAFT_NOT_APPROVED`, Prompt #0006 remains `NOT_ALLOCATED`, B2 workspace compatibility design remains open, and GAIS implementation is not authorized.
