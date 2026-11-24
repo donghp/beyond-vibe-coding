@@ -90,9 +90,9 @@ Unless a later approved Contract says otherwise, C1 must not silently implement:
 | Phase B Owner closeout | ACCEPTED — 2026-11-24 |
 | Curriculum C1 identity | CONFIRMED — My Day |
 | Product FR-010 / AC-006 | CANONICAL |
-| DR-001 Upcoming horizon | OPEN |
-| DR-002 Focus lifetime/reset | OPEN |
-| DR-017 Timezone source/editing | OPEN |
+| DR-001 Upcoming horizon | APPROVED — 2026-11-24 |
+| DR-002 Focus lifetime/reset | APPROVED — 2026-11-24 |
+| DR-017 Timezone source/editing | APPROVED — 2026-11-24 |
 | Existing B2 workspace compatibility design | REQUIRED |
 | C1 implementation Contract | DRAFT_NOT_APPROVED |
 | Prompt #0006 | NOT_ALLOCATED |
