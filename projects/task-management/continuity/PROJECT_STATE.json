@@ -17,7 +17,7 @@
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-C1-MY-DAY",
     "title": "Phase C1 — My Day",
-    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DR_001_DR_002_DR_017_OWNER_APPROVED_2026-11-24; C1_READINESS_PACKAGE_PROPOSED; CONTRACT_006_REVISION_2_DRAFT_NOT_APPROVED; CONTRACT_007_REVISION_1_DRAFT_NOT_APPROVED; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_AUTHORIZED"
+    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DR_001_DR_002_DR_017_OWNER_APPROVED_2026-11-24; C1_READINESS_PACKAGE_PUBLISHED; DR_020_CANONICAL_PUBLICATION_PENDING_PR_86; CONTRACT_006_REVISION_2_DRAFT_NOT_APPROVED; CONTRACT_007_REVISION_1_DRAFT_NOT_APPROVED; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_AUTHORIZED"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -466,8 +466,8 @@
       "risk_level": "R1",
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml",
       "proposal_reference": "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
-      "next_action": "Human Owner review of the revised C1 readiness proposal and separate Contract #007 draft. Contract #006 is R1 documentation/readiness only; it does not authorize app implementation. Preserve Prompt #0006 as NOT_ALLOCATED.",
-      "publication_status": "REVISION_1_CANONICAL_DRAFT_ON_MAIN; REVISION_2_PROPOSAL_IN_PR_85"
+      "next_action": "Human Owner review of the C1 readiness package and separate Contract #007 draft. Contract #006 is R1 documentation/readiness only; it does not authorize app implementation. Preserve Prompt #0006 as NOT_ALLOCATED.",
+      "publication_status": "REVISION_2_CANONICAL_DRAFT_ON_MAIN"
     },
     {
       "task_id": "BVC-TM-P3.3-007",
@@ -479,8 +479,8 @@
       "execution_status": "NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION",
       "risk_level": "R4",
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
-      "publication_status": "PROPOSAL_IN_PR_85; NOT_APPROVED",
-      "proposal_reference": "PR #85 proposal; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
+      "publication_status": "PROPOSAL_IN_PR_86; NOT_APPROVED",
+      "proposal_reference": "PR #86 proposal; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
       "next_action": "Await separate Owner approval of Contract #007 Revision 1, designated Data Privacy/Security domain approval, tested post-migration recovery, explicit execution authorization and fresh live GAIS preflight. Implement DR-020's Unscheduled placement exactly. Prompt #0006 remains NOT_ALLOCATED."
     }
   ],
