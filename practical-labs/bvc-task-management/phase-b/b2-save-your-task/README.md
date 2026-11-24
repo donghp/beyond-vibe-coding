@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. The Owner-supplied Local Storage screenshots show the exact runtime origin, workspace key, envelope metadata and both expanded task records. A separate Owner-supplied Preview screenshot after refresh shows both task titles restored once and in insertion order. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
+**Lesson status:** `OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS` — the Human Owner accepted B2 as part of the Phase B closeout on 2026-11-24. Contract `BVC-TM-TC-005` Revision 1, Prompt #0005 and the Context Pack are canonical. Gemini reported Stage 2 implementation, build and lint. Owner screenshots verify the Local Storage key/envelope, two task records and Preview restoration after refresh. Historical `NOT_RUN` / `NOT_VERIFIED` checks remain explicitly recorded and were accepted as known limitations; they are not converted into PASS.
 
 ## 1. What you will learn
 
@@ -668,9 +668,19 @@ Gemini reported that the development server had not started because the containe
 
 **Important:** Restarting a development server is an operational recovery, not an application-code fix. Do not use Remix, restore checkpoints, reinstall packages, edit configuration or modify `app/page.tsx` just because the server has not finished starting. If a restart does not resolve the issue, collect the server log and stop before attempting code or dependency changes.
 
+## Owner acceptance record — 2026-11-24
+
+**Decision:** Human Owner accepted B2 together with B1, B3 and B4 and declared Phase B closed.
+
+**Evidence reviewed:** implementation report, Stage 2 Preview screenshots, Local Storage overview and expanded records, post-refresh Preview screenshot, and subsequent B1 regression Preview screenshot.
+
+**Known limitations accepted:** malformed-data and storage-error runtime simulations remained `NOT_RUN`; fresh-profile acknowledgement and responsive checks were not independently archived as PASS; the full B1 manual test set and independent before/after source inventory remain incomplete. The Owner's phase-level acceptance closes the learning path but does not rewrite these historical test results.
+
+See [Phase B Acceptance & Closeout Record](../PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
+
 ## 8. Next lesson
 
-After B2 is verified and accepted, continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) for an independent learner-focused close/reopen and recovery exercise.
+Phase B has been accepted and closed by the Human Owner. Continue to [Phase C — Make It Useful Every Day](../../phase-c/README.md), beginning with C1 — My Day.
 
 ---
 
