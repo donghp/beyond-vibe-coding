@@ -79,7 +79,7 @@ scope:
     max_modified_files: 7
     max_deleted_files: 0
     max_binary_files: 0
-    max_total_diff_lines: 900
+    max_total_diff_lines: 1100
   forbidden_changes:
     - "Any GAIS application source, including app/page.tsx."
     - "Any live browser storage, task data or runtime application state."
