@@ -20,13 +20,16 @@ This brief contains technical recommendations for Owner review. It is not an app
 
 ## 2. Canonical product behavior
 
-Product Definition v0.2.0 §7.2 defines the My Day order:
+Product Definition v0.2.0 §7.2 defines the four priority sections and the Add task action. DR-020 adds one supplemental section for active tasks that are not assigned to a date-driven section:
 
 1. Overdue.
 2. Due Today.
 3. Today's Focus.
 4. Upcoming.
-5. Add task.
+5. Unscheduled (supplemental section approved by DR-020).
+6. Add task.
+
+DR-020 does not reorder the four Product Definition priority sections; Add task remains the final action.
 
 Product requirement **FR-010** and acceptance criterion **AC-006** require the My Day view to group overdue, due-today, focus and upcoming work without duplicate task rows.
 
@@ -189,4 +192,4 @@ Unless a later approved Contract says otherwise, C1 must not silently implement:
 
 ---
 
-**Conclusion:** Phase C is active and the three C1 Product/UX decisions are resolved. The next gate is Owner review of the data-compatibility proposal and the two separate Contract roles. DR-020 resolves legacy-task visibility but does not approve Contract #007 or authorize GAIS execution. No C1 implementation or Prompt #0006 execution is authorized by this brief or by merging the documentation PR.
+**Conclusion:** Phase C is active and the four C1 Product/UX decisions are resolved. The next gate is Owner review of the data-compatibility proposal and the two separate Contract roles. DR-020 resolves legacy-task visibility but does not approve Contract #007 or authorize GAIS execution. No C1 implementation or Prompt #0006 execution is authorized by this brief or by merging the documentation PR.
