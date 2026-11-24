@@ -87,7 +87,7 @@ A success message alone is not proof that data was saved. B2 Contract requires i
 - [ ] Malformed JSON and unsupported format version are safely tested in a disposable browser profile; original values remain unchanged and writes are blocked (B2-AC-006).
 - [ ] Storage exception paths are reviewed. Runtime read/write failure simulation is recorded separately as PASS or NOT_RUN according to safe test availability (B2-AC-007).
 - [ ] Desktop and compact-phone Preview layouts are inspected with screenshots (B2-AC-009).
-- [ ] Human Owner reviews all source and evidence and explicitly accepts B2 (B2-AC-010).
+- [x] Human Owner accepted B2 as part of the Phase B B1–B4 closeout on 2026-11-24, with known verification limitations preserved (B2-AC-010 phase-level Owner decision).
 
 ## 7. GAIS preflight and source-of-truth boundary
 
@@ -496,7 +496,7 @@ Các ảnh Local Storage overview và expanded-record lần lượt xác nhận 
 | B2-AC-007 — Storage read/write failure | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Safe disposable test setup |
 | B2-AC-008 — Chỉ một file thay đổi | EXECUTOR INVENTORY REPORTED PASS | Owner xem Action history / file inventory hiện tại |
 | B2-AC-009 — Phone / desktop layout | STATIC REVIEW REPORTED PASS; VISUAL TEST NOT_RUN | Preview ở cả hai viewport |
-| B2-AC-010 — Owner review và acceptance | NOT_VERIFIED | Quyết định chấp nhận rõ ràng của Owner |
+| B2-AC-010 — Owner review và acceptance | OWNER ACCEPTED WITH KNOWN LIMITATIONS — PHASE B CLOSEOUT 2026-11-24 | Human Owner explicitly accepted all four Phase B lessons, available evidence and continuity; see the closeout record |
 | B2-AC-011 — Không thêm tính năng ngoài phạm vi | STATIC REVIEW REPORTED PASS | Đối chiếu source/diff cuối cùng |
 
 ### E. Hướng dẫn Owner kiểm thử trực tiếp trên Preview
@@ -515,14 +515,14 @@ Thực hiện trong đúng GAIS app và cùng browser profile:
 10. Chụp ảnh Preview có hai task, Local Storage key và phần `data.tasks` đã mở rộng. Chỉ dùng tên task giả lập, không đưa dữ liệu nhạy cảm.
 11. Không thử dữ liệu malformed hoặc storage error trên profile trình duyệt đang sử dụng thực tế. Nếu cần, dùng profile dùng một lần (disposable profile).
 
-Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Việc các thao tác trên đạt kết quả không tự động thay thế quyết định Owner acceptance.
+Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Kết quả kiểm thử riêng lẻ vẫn phải được ghi đúng PASS/FAIL/NOT_RUN; quyết định Owner acceptance được ghi trong hồ sơ Phase B closeout.
 
 ### F. Trạng thái B2 hiện tại
 
 - **Implementation:** Gemini báo cáo đã triển khai; source tĩnh, build và lint được báo cáo PASS.
 - **Live task save / reload:** B2-AC-003 và B2-AC-004 đã có Owner screenshot evidence. B1 interactive regression, responsive Preview checks và malformed-data/storage-error runtime tests vẫn pending.
 - **Malformed-data / storage-error runtime:** NOT_RUN.
-- **B2-AC-010 Owner acceptance:** NOT_VERIFIED.
+- **B2-AC-010 Owner acceptance:** OWNER ACCEPTED WITH KNOWN LIMITATIONS at Phase B closeout on 2026-11-24. Do not convert individual NOT_RUN / NOT_VERIFIED tests into PASS.
 - **Publication / release / deployment:** NOT_CLAIMED.
 
 ## 7.4 Local Storage in Chrome DevTools — GAIS visual walkthrough
@@ -641,7 +641,7 @@ Chỉ sử dụng Chrome Guest hoặc một Chrome profile tạm thời mới. K
 3. Ảnh Guest/profile tạm thời cho first-use disclosure, malformed JSON và unsupported version.
 4. Báo cáo read-only storage exception-path review, tách rõ static review và runtime simulation.
 
-Dùng `PASS`, `FAIL`, `NOT_RUN` hoặc `NOT_VERIFIED` riêng cho từng kiểm tra. Không tuyên bố B2 đã accepted trước khi Human Owner xem bằng chứng và quyết định.
+Dùng `PASS`, `FAIL`, `NOT_RUN` hoặc `NOT_VERIFIED` riêng cho từng kiểm tra. Với dự án này, Human Owner đã chấp nhận B2 ở cấp Phase B vào 2026-11-24 với các giới hạn bằng chứng được ghi rõ trong [Phase B closeout record](../PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
 
 ## 7.6 Troubleshooting — “The dev server didn't start”
 
