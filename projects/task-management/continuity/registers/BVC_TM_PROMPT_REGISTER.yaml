@@ -118,10 +118,11 @@ prompts:
     execution_authorization: "OWNER AUTHORIZED WITHIN APPROVED CONTRACT SCOPE on 2026-11-17; all conditions were satisfied after explicit Owner confirmation RC-005 PASS — PROCEED WITH B2 on 2026-11-18."
     gais_github_connection: "NOT_REQUIRED for the Beginner GAIS application workspace."
   scope_boundary: "MODIFY app/page.tsx only; max 1 changed file, 0 CREATE, 0 DELETE, max 350 diff lines. Browser localStorage only; exact approved envelope and DR-005. No GitHub connection, files, dependencies, config, API, backend, database, Auth, external service, export/import, backup, restore or later-phase features."
-  sequence_note: "Prompt #0005 and Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba). Gemini Stage 1 acknowledgment was reviewed and Owner confirmed RC-005 PASS — PROCEED WITH B2 on 2026-11-18. Stage 2 was executed according to the Owner-supplied Gemini report. Static review/build/lint are reported PASS; live task save/reload and Owner acceptance remain pending."
+  sequence_note: "Prompt #0005 and Context Pack are canonical on main through merged PR #67 (merge commit d4589251f24de90b52460385830bd72738573cba). Gemini Stage 1 acknowledgment was reviewed and Owner confirmed RC-005 PASS — PROCEED WITH B2 on 2026-11-18. Stage 2 was executed according to the Owner-supplied Gemini report. Static review/build/lint are reported PASS; Local Storage records and Preview refresh restoration have Owner screenshot evidence (PRs #73 and #75). Human Owner accepted B2 as part of Phase B closure on 2026-11-24 with known limitations. Historical NOT_RUN / NOT_VERIFIED outcomes remain unchanged."
 
 # Next prompt allocation
 next_prompt:
   next_available_number: 6
   status: NOT_ALLOCATED
-  allocation_rule: "Allocate BVCTM-PROMPT-0006 only after its task identity, approved Contract and exact prompt are ready for review; never reuse a prior ID."
+  allocation_rule: "Keep BVCTM-PROMPT-0006 NOT_ALLOCATED until C1 My Day product decisions DR-001, DR-002 and DR-017 are explicitly resolved, the implementation Task Contract is approved, and the exact prompt is ready for Owner review; never reuse a prior ID."
+  phase_c_note: "Phase B was closed by Human Owner on 2026-11-24. Contract #006 is currently a DRAFT_NOT_APPROVED decision/readiness proposal only. Its publication or merge does not authorize GAIS edits. When Prompt #0006 is eventually prepared, it must follow GAIS_PROMPT_DELIVERY_STANDARD_V1.0 with a full Vietnamese learner explanation before the copy-ready execution command."

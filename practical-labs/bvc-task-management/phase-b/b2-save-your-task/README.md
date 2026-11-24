@@ -5,7 +5,7 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Save the task workspace in the current browser profile and understand where that data lives.  
-**Lesson status:** Contract `BVC-TM-TC-005` Revision 1 is approved and canonical through PR #64. The Human Owner issued B2 Execution Authorization on 2026-11-17; RC-003, RC-004 and RC-005 are PASS. Gemini reports Stage 2 implementation in `app/page.tsx` (report dated 2026-11-18). Static source review, build and lint are reported PASS. The Owner-supplied Local Storage screenshots show the exact runtime origin, workspace key, envelope metadata and both expanded task records. A separate Owner-supplied Preview screenshot after refresh shows both task titles restored once and in insertion order. Prompt #0005 and Context Pack are canonical through PR #67; continuity was reconciled by PR #68 and the Owner's RC-005 decision by PR #69.
+**Lesson status:** `OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS` — the Human Owner accepted B2 as part of the Phase B closeout on 2026-11-24. Contract `BVC-TM-TC-005` Revision 1, Prompt #0005 and the Context Pack are canonical. Gemini reported Stage 2 implementation, build and lint. Owner screenshots verify the Local Storage key/envelope, two task records and Preview restoration after refresh. Historical `NOT_RUN` / `NOT_VERIFIED` checks remain explicitly recorded and were accepted as known limitations; they are not converted into PASS.
 
 ## 1. What you will learn
 
@@ -87,7 +87,7 @@ A success message alone is not proof that data was saved. B2 Contract requires i
 - [ ] Malformed JSON and unsupported format version are safely tested in a disposable browser profile; original values remain unchanged and writes are blocked (B2-AC-006).
 - [ ] Storage exception paths are reviewed. Runtime read/write failure simulation is recorded separately as PASS or NOT_RUN according to safe test availability (B2-AC-007).
 - [ ] Desktop and compact-phone Preview layouts are inspected with screenshots (B2-AC-009).
-- [ ] Human Owner reviews all source and evidence and explicitly accepts B2 (B2-AC-010).
+- [x] Human Owner accepted B2 as part of the Phase B B1–B4 closeout on 2026-11-24, with known verification limitations preserved (B2-AC-010 phase-level Owner decision).
 
 ## 7. GAIS preflight and source-of-truth boundary
 
@@ -496,7 +496,7 @@ Các ảnh Local Storage overview và expanded-record lần lượt xác nhận 
 | B2-AC-007 — Storage read/write failure | STATIC REVIEW REPORTED PASS; RUNTIME NOT_RUN | Safe disposable test setup |
 | B2-AC-008 — Chỉ một file thay đổi | EXECUTOR INVENTORY REPORTED PASS | Owner xem Action history / file inventory hiện tại |
 | B2-AC-009 — Phone / desktop layout | STATIC REVIEW REPORTED PASS; VISUAL TEST NOT_RUN | Preview ở cả hai viewport |
-| B2-AC-010 — Owner review và acceptance | NOT_VERIFIED | Quyết định chấp nhận rõ ràng của Owner |
+| B2-AC-010 — Owner review và acceptance | OWNER ACCEPTED WITH KNOWN LIMITATIONS — PHASE B CLOSEOUT 2026-11-24 | Human Owner explicitly accepted all four Phase B lessons, available evidence and continuity; see the closeout record |
 | B2-AC-011 — Không thêm tính năng ngoài phạm vi | STATIC REVIEW REPORTED PASS | Đối chiếu source/diff cuối cùng |
 
 ### E. Hướng dẫn Owner kiểm thử trực tiếp trên Preview
@@ -515,14 +515,14 @@ Thực hiện trong đúng GAIS app và cùng browser profile:
 10. Chụp ảnh Preview có hai task, Local Storage key và phần `data.tasks` đã mở rộng. Chỉ dùng tên task giả lập, không đưa dữ liệu nhạy cảm.
 11. Không thử dữ liệu malformed hoặc storage error trên profile trình duyệt đang sử dụng thực tế. Nếu cần, dùng profile dùng một lần (disposable profile).
 
-Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Việc các thao tác trên đạt kết quả không tự động thay thế quyết định Owner acceptance.
+Sau khi hoàn tất, gửi ảnh và kết quả kiểm tra để review. Kết quả kiểm thử riêng lẻ vẫn phải được ghi đúng PASS/FAIL/NOT_RUN; quyết định Owner acceptance được ghi trong hồ sơ Phase B closeout.
 
 ### F. Trạng thái B2 hiện tại
 
 - **Implementation:** Gemini báo cáo đã triển khai; source tĩnh, build và lint được báo cáo PASS.
 - **Live task save / reload:** B2-AC-003 và B2-AC-004 đã có Owner screenshot evidence. B1 interactive regression, responsive Preview checks và malformed-data/storage-error runtime tests vẫn pending.
 - **Malformed-data / storage-error runtime:** NOT_RUN.
-- **B2-AC-010 Owner acceptance:** NOT_VERIFIED.
+- **B2-AC-010 Owner acceptance:** OWNER ACCEPTED WITH KNOWN LIMITATIONS at Phase B closeout on 2026-11-24. Do not convert individual NOT_RUN / NOT_VERIFIED tests into PASS.
 - **Publication / release / deployment:** NOT_CLAIMED.
 
 ## 7.4 Local Storage in Chrome DevTools — GAIS visual walkthrough
@@ -641,7 +641,7 @@ Chỉ sử dụng Chrome Guest hoặc một Chrome profile tạm thời mới. K
 3. Ảnh Guest/profile tạm thời cho first-use disclosure, malformed JSON và unsupported version.
 4. Báo cáo read-only storage exception-path review, tách rõ static review và runtime simulation.
 
-Dùng `PASS`, `FAIL`, `NOT_RUN` hoặc `NOT_VERIFIED` riêng cho từng kiểm tra. Không tuyên bố B2 đã accepted trước khi Human Owner xem bằng chứng và quyết định.
+Dùng `PASS`, `FAIL`, `NOT_RUN` hoặc `NOT_VERIFIED` riêng cho từng kiểm tra. Với dự án này, Human Owner đã chấp nhận B2 ở cấp Phase B vào 2026-11-24 với các giới hạn bằng chứng được ghi rõ trong [Phase B closeout record](../PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
 
 ## 7.6 Troubleshooting — “The dev server didn't start”
 
@@ -668,9 +668,19 @@ Gemini reported that the development server had not started because the containe
 
 **Important:** Restarting a development server is an operational recovery, not an application-code fix. Do not use Remix, restore checkpoints, reinstall packages, edit configuration or modify `app/page.tsx` just because the server has not finished starting. If a restart does not resolve the issue, collect the server log and stop before attempting code or dependency changes.
 
+## Owner acceptance record — 2026-11-24
+
+**Decision:** Human Owner accepted B2 together with B1, B3 and B4 and declared Phase B closed.
+
+**Evidence reviewed:** implementation report, Stage 2 Preview screenshots, Local Storage overview and expanded records, post-refresh Preview screenshot, and subsequent B1 regression Preview screenshot.
+
+**Known limitations accepted:** malformed-data and storage-error runtime simulations remained `NOT_RUN`; fresh-profile acknowledgement and responsive checks were not independently archived as PASS; the full B1 manual test set and independent before/after source inventory remain incomplete. The Owner's phase-level acceptance closes the learning path but does not rewrite these historical test results.
+
+See [Phase B Acceptance & Closeout Record](../PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
+
 ## 8. Next lesson
 
-After B2 is verified and accepted, continue to [B3 — Close and Reopen](../b3-close-and-reopen/README.md) for an independent learner-focused close/reopen and recovery exercise.
+Phase B has been accepted and closed by the Human Owner. Continue to [Phase C — Make It Useful Every Day](../../phase-c/README.md), beginning with C1 — My Day.
 
 ---
 

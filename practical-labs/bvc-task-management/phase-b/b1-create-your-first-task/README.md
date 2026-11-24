@@ -7,7 +7,7 @@
 **Learning outcome:** Enter a task title, add the task, and see it appear in a simple list.  
 **Implementation scope:** [BVC-TM-TC-004 Revision 1 — APPROVED](../../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-004_TASK_CONTRACT_V0.1.yaml). MODIFY `app/page.tsx` only in the existing GAIS app.  
 **Canonical prompt:** [BVCTM-PROMPT-0004 — Phase B1: Create Your First Task](../../prompts/BVCTM_PROMPT_0004_PHASE_B1_CREATE_FIRST_TASK.md).  
-**Lesson status:** `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS` — the Human Owner closed B1 on 2026-11-12 after reviewing the supplied source and confirming that the GAIS Code view contains one `Page` component. The complete manual Preview test set and repository-committed before/after source-diff evidence are not recorded; do not claim those checks passed.
+**Lesson status:** `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS` — initially accepted on 2026-11-12 and reaffirmed within the Human Owner's Phase B closeout decision on 2026-11-24. The complete archived manual Preview test set and independent before/after source-diff evidence are not recorded; do not claim those checks passed.
 
 ## Owner acceptance record — 2026-11-12
 

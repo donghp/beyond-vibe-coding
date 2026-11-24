@@ -36,6 +36,8 @@ Complete the four introductory lessons in order:
 
 **Build Your First Task**
 
+**Status: Phase B CLOSED — Human Owner accepted B1–B4 on 2026-11-24.** Known evidence limitations are documented in the [Phase B closeout record](phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
+
 Continue with the [Phase B learning guide](phase-b/README.md):
 
 1. [B1 — Create Your First Task](phase-b/b1-create-your-first-task/README.md) — enter a title, add the task, and see it in a list. The first version keeps tasks in page memory only.

@@ -264,7 +264,7 @@ evidence:
   artifact_bytes: 14644
   artifact_dimensions: "480x405"
   claim: "Screenshot shows the correct runtime origin https://ais-dev-v4sj3cf5za2d5sdcjpij66-545447457406.asia-northeast1.run.app and key bvc-task-management:workspace:v1. The parsed data.tasks array is expanded and shows task ID e520ee3c-146a-413b-bcba-641122619dbc with title Prepare weekly work plan and task ID e88047aa-baea-4927-b47f-35f056d40cfa with title Review project milestones. Both titles match the two tasks displayed in Preview."
-  limitations: "This confirms the two stored task records at screenshot time. The evidence asset is canonical on main through merged PR #73 (merge commit 756664479ed00cbb537669820a5f622ba4bf00ed). It does not prove persistence across a Preview refresh/reload. B2-AC-004 remains NOT_RUN pending same-profile, same-origin refresh verification."
+  limitations: "This confirms the two stored task records at screenshot time. The evidence asset is canonical on main through merged PR #73 (merge commit 756664479ed00cbb537669820a5f622ba4bf00ed). Preview refresh restoration is evidenced separately by BVC-EV-037. The Human Owner later accepted Phase B on 2026-11-24; historical runtime checks not independently evidenced remain NOT_RUN or NOT_VERIFIED."
 
 - evidence_id: BVC-EV-037
   subject: B2 GAIS Preview after refresh — both tasks restored in insertion order
@@ -276,4 +276,13 @@ evidence:
   artifact_bytes: 13060
   artifact_dimensions: "520x575"
   claim: "The post-refresh GAIS Preview shows Prepare weekly work plan followed by Review project milestones. Each previously stored task appears exactly once and in the same insertion order. Together with BVC-EV-036, which shows the matching data.tasks records before refresh, this supplies Owner screenshot evidence for B2-AC-004."
-  limitations: "The screenshot is a visual capture of the refreshed Preview, not a browser automation trace. B1 interactive regression, responsive viewport checks, malformed-data/storage-error runtime tests and B2-AC-010 final Owner acceptance remain pending. Asset publication is canonical on main through PR #75 (merge commit d1142cbbb8f5473bd5832d477657db1efa71af26)."
+  limitations: "The screenshot is a visual capture of the refreshed Preview, not a browser automation trace. Malformed-data and storage-error runtime simulations remain NOT_RUN; some B1 regression and responsive checks are not independently archived as PASS. The Human Owner subsequently accepted all Phase B lessons, evidence and continuity and declared Phase B closed on 2026-11-24, with these known limitations retained. Asset publication is canonical on main through PR #75 (merge commit d1142cbbb8f5473bd5832d477657db1efa71af26)."
+
+- evidence_id: BVC-EV-038
+  subject: Phase B Owner acceptance and declaration of closure
+  classification: OWNER_SUPPLIED
+  source: "Human Owner explicit declaration in ChatGPT on 2026-11-24, accepting all four Phase B lessons, available evidence and continuity, and directing transition to Phase C"
+  observed_at: '2026-11-24'
+  artifact_path: "practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md"
+  claim: "The Human Owner accepted B1, B2, B3 and B4, the available evidence and continuity, and declared Phase B closed. This is phase-level learning-path acceptance with known limitations."
+  limitations: "Individual test results previously recorded as NOT_RUN or NOT_VERIFIED remain unchanged. This decision does not convert unrun malformed-data/storage-error simulations, missing B3/B4 evidence or other undocumented tests into PASS. It does not imply product release or formal Phase 3.1 UX acceptance."

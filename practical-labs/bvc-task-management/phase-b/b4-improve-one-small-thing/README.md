@@ -5,7 +5,13 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Make one small, clearly bounded improvement with AI and verify that the first task flow still works.  
-**Lesson status:** Planned — complete only after B1–B3 have passed their checks.
+**Lesson status:** `OWNER_ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` — accepted by the Human Owner as part of the Phase B closeout decision on 2026-11-24. A separate B4 implementation diff and full regression evidence set are not independently archived in the current repository record.
+
+## Owner acceptance record — 2026-11-24
+
+The Human Owner explicitly accepted all four Phase B lessons and declared the phase closed. This B4 acceptance is recorded as an Owner decision; it does not imply that a separate B4 code change or every proposed regression check has independent evidence in the repository. Preserve those evidence limits.
+
+See [Phase B Acceptance & Closeout Record](../PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
 
 ## 1. What you will practice
 
@@ -68,9 +74,9 @@ Re-run only the checks that apply to the approved change, but never claim a regr
 
 ## 6. Phase B completion
 
-Phase B is complete only when the four lesson outcomes have been demonstrated with evidence and accepted by the Human Owner. A Markdown lesson being published does not prove that the application behavior works.
+Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. The closeout record preserves the evidence limits and distinguishes Owner acceptance from individual test PASS results.
 
-When Phase B is accepted, continue to [Phase C — Make It Useful Every Day](../../phase-c/README.md).
+Continue to [Phase C — Make It Useful Every Day](../../phase-c/README.md).
 
 ---
 

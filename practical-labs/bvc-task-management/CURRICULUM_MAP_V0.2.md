@@ -47,7 +47,7 @@ Project Instructions and the read-only understanding check do not implement Task
 
 **Learning level:** Beginner  
 **Theme:** First Vertical Slice  
-**Status:** B1 scope approved by the Human Owner; implementation and runtime evidence remain separate acceptance items.
+**Status:** CLOSED — the Human Owner accepted B1–B4, the available evidence and continuity, and declared Phase B closed on 2026-11-24. Known evidence limitations remain recorded; historical `NOT_RUN` checks are not re-labelled PASS.
 
 | Lesson | Title | What the reader will do | Completion checkpoint |
 |---|---|---|---|
@@ -65,6 +65,8 @@ The First Vertical Slice is taught in two separate data-lifecycle steps:
 3. **B3 — Reopen:** verify that the same saved task is loaded again in the same browser profile and application origin.
 
 A task disappearing after refresh during B1 is expected. Do not describe it as a persistence bug or add storage to B1.
+
+**Owner closeout:** Phase B was accepted at the learning-path level on 2026-11-24. B1's earlier known limitations and B2's unrun runtime checks remain visible in the Lesson Status Register and the [Phase B closeout record](phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md). Acceptance does not rewrite those individual results.
 
 ### Phase B implementation gates
 
