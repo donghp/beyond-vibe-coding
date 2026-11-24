@@ -1,7 +1,7 @@
 # Phase C — Make It Useful Every Day
 
 **Learning level:** Beginner Expansion  
-**Status:** ACTIVE — C1 decision and implementation readiness preparation
+**Status:** ACTIVE — C1 Product/UX decisions approved; implementation Contract preparation
 
 Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Phase C now begins with the current Product Definition v0.2.0 and Curriculum Map v0.2. The six lesson groups below follow the canonical curriculum order.
 
@@ -9,7 +9,7 @@ Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Pha
 
 | Lesson | Learning area | What the learner will learn | Gate before implementation |
 |---|---|---|---|
-| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows. | Resolve DR-001 (Upcoming horizon), DR-002 (Today's Focus lifetime/reset) and DR-017 (timezone source/editing); review storage/data-model compatibility; approve a bounded C1 Task Contract. |
+| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows. | DR-001, DR-002 and DR-017 approved 2026-11-24; review storage/data-model compatibility and approve a bounded C1 Task Contract. |
 | C2 | **My Tasks** | View, create, edit, complete, prioritize, search and filter tasks. | Approve exact task-state, priority, search/filter behavior and regression criteria. |
 | C3 | **Projects** | Organize tasks into personal projects or work areas. | Resolve DR-003 project-removal behavior before implementation. |
 | C4 | **Templates** | Understand, preview, customize and apply Role Starter Kits. | Resolve DR-004 repeat-application behavior and DR-015 packaging before dependent implementation. |
@@ -26,17 +26,17 @@ The approved Product Definition v0.2.0 §7.2 defines this order:
 4. Upcoming
 5. Add task
 
-A task must appear only once in My Day. C1 follows the Product Definition and the current UX journey; it does not silently approve proposed date or focus defaults.
+A task must appear only once in My Day. C1 follows the Product Definition and current UX journey. The Human Owner approved DR-001, DR-002 and DR-017 for C1 on 2026-11-24; see the canonical Product/UX Decision Register §3.4.
 
-### Decisions still OPEN
+### Approved C1 Product/UX decisions
 
 | Decision | Current status | Proposed default in existing UX material | Required action |
 |---|---|---|---|
-| DR-001 — Upcoming horizon | OPEN | Next seven calendar days | Human Owner / Product Owner decision required |
-| DR-002 — Today's Focus lifetime/reset | OPEN | Marker scoped to the current local calendar date | Human Owner / Product Owner decision required |
-| DR-017 — Timezone source and editing | OPEN | Detect browser IANA timezone on first use and allow user correction | Human Owner / Product Owner decision required |
+| DR-001 — Upcoming horizon | APPROVED — 2026-11-24 | Next 7 calendar days | Define date boundaries and tests in Contract #006. |
+| DR-002 — Today's Focus lifetime/reset | APPROVED — 2026-11-24 | Expires at next local calendar day | Define storage semantics and day-boundary tests in Contract #006. |
+| DR-017 — Timezone source and editing | APPROVED — 2026-11-24 | Browser IANA timezone detection with user correction | Define persistence and fallback behavior in Contract #006. |
 
-These proposed defaults are not approvals. C1 implementation must not begin until the relevant decisions are resolved and an implementation Contract is approved.
+These three decisions are approved for C1. C1 implementation must not begin until Contract #006 is separately approved and an explicit execution authorization is issued.
 
 ### Current C1 preparation
 
