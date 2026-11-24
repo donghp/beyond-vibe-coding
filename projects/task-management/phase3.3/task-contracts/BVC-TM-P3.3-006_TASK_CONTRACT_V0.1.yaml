@@ -44,7 +44,7 @@ intent:
   expected_outcome: >-
     A revised C1 brief records the approved decisions and proposes testable
     task/date/focus/timezone semantics and a recoverable v1-to-v2 workspace
-    migration. A separate R3 C1 implementation Contract #007 is prepared as
+    migration. A separate R4 C1 implementation Contract #007 is prepared as
     a draft for Owner review. No implementation authority is created.
   business_or_user_value: >-
     Reduce ambiguity before implementation, preserve learners' saved tasks,
@@ -65,6 +65,7 @@ scope:
     create:
       - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
     modify:
+      - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml"
       - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
       - "practical-labs/bvc-task-management/phase-c/README.md"
       - "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
@@ -73,9 +74,9 @@ scope:
       - "projects/task-management/continuity/SOURCE_MANIFEST.csv"
     delete: []
   change_budget:
-    max_changed_files: 7
+    max_changed_files: 8
     max_created_files: 1
-    max_modified_files: 6
+    max_modified_files: 7
     max_deleted_files: 0
     max_binary_files: 0
     max_total_diff_lines: 900
@@ -146,7 +147,7 @@ expected_outputs:
   - id: "OUT-003"
     kind: "IMPLEMENTATION_CONTRACT_PROPOSAL"
     path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
-    description: "A separate R3 implementation Contract draft with exact app scope, v1-to-v2 migration, recovery controls, date/focus rules, acceptance criteria and Evidence Level 3 checks."
+    description: "A separate R4 implementation Contract draft with exact app scope, v1-to-v2 migration, recovery controls, date/focus rules, acceptance criteria and Evidence Level 3 checks."
     required: true
 
 acceptance_criteria:
@@ -163,7 +164,7 @@ acceptance_criteria:
     statement: "Date-only due_date/focus_date, selected IANA timezone, task defaults and C1/C2 boundaries are explicit and traceable to approved product/design sources."
     required: true
   - id: "AC-005"
-    statement: "A separate bounded R3 implementation Contract #007 is prepared as DRAFT_NOT_APPROVED, with no execution authorization."
+    statement: "A separate bounded R4 implementation Contract #007 is prepared as DRAFT_NOT_APPROVED, with no execution authorization."
     required: true
   - id: "AC-006"
     statement: "Project State, Task Execution Register, Source Manifest and Lesson Status Register contain no contradictory C1 decision or publication status."
@@ -192,7 +193,7 @@ verification:
       required: true
     - id: "VC-004"
       kind: "CONTRACT_SCOPE_REVIEW"
-      description: "Verify Contract #007 is a separate R3 proposal with exact path, change budget, stop conditions and persisted-data evidence."
+      description: "Verify Contract #007 is a separate R4 proposal with exact path, change budget, stop conditions and persisted-data evidence."
       required: true
     - id: "VC-005"
       kind: "CONTINUITY_SYNC_REVIEW"
