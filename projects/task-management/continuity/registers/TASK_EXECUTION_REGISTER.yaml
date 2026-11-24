@@ -167,7 +167,7 @@ tasks:
     refresh_reload_restoration: "OWNER_SCREENSHOT_PASS: Human Owner confirms the supplied screenshot is after GAIS Preview refresh; both previously stored task titles reappear exactly once and in insertion order"
     malformed_data_runtime: "NOT_RUN"
     storage_error_runtime: "NOT_RUN"
-    b2_ac_010_owner_acceptance: "NOT_VERIFIED"
+    b2_ac_010_owner_acceptance: "OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS_AT_PHASE_LEVEL_2026-11-24; INDIVIDUAL_NOT_RUN_RESULTS_RETAINED"
   evidence_refs:
   - "Human Owner-supplied GAIS Stage 2 implementation report dated 2026-11-18, including complete app/page.tsx source, before/after metrics and per-criterion results."
   - "Human Owner-supplied GAIS screenshots dated 2026-11-18 showing Stage 2 Code/Gemini context, DR-005 first-use disclosure, app/page.tsx Code Explorer, and post-acknowledgement Preview."
