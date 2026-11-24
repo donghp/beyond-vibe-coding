@@ -1,7 +1,7 @@
 # Phase C — Make It Useful Every Day
 
 **Learning level:** Beginner Expansion  
-**Status:** ACTIVE — C1 Product/UX decisions approved; readiness and implementation Contract proposals prepared for Owner review
+**Status:** ACTIVE — C1 Product/UX decisions approved; Contracts #006 Revision 2 and #007 Revision 1 published on main as drafts for Owner review
 
 Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Phase C proceeds under Product Definition v0.2.0 and Curriculum Map v0.2. The six lesson groups below follow the canonical curriculum order.
 
@@ -27,7 +27,7 @@ The Product Definition v0.2.0 §7.2 defines the four priority sections and Add t
 5. Unscheduled — supplemental group for active tasks with no due date and no Focus active today
 6. Add task
 
-A task must appear only once in My Day. The four priority sections retain their Product Definition order; Unscheduled is supplemental and Add task remains last. The Human Owner approved DR-001, DR-002, DR-017 and DR-020 for C1 on 2026-11-24; see the proposed canonical Decision Register update in PR #86.
+A task must appear only once in My Day. The four priority sections retain their Product Definition order; Unscheduled is supplemental and Add task remains last. The Human Owner approved DR-001, DR-002, DR-017 and DR-020 for C1 on 2026-11-24; see the canonical Decision Register updated through merged PR #86.
 
 ### Approved C1 Product/UX decisions
 
@@ -46,7 +46,7 @@ These decisions are approved for C1 and must not be treated as pending. The migr
 - [C1 Readiness Contract #006 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml)
 - [C1 Implementation Contract #007 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml)
 
-**Contract roles are separate:** #006 is an R1 documentation/readiness proposal. #007 is a separate R4 C1 implementation proposal. Both remain DRAFT_NOT_APPROVED until the Human Owner separately approves them. Contract #007 also requires Data Privacy/Security domain review and tested post-migration recovery; DR-020 is approved by the Human Owner; its canonical register update is submitted in PR #86. Approval of #006 does not approve #007.
+**Contract roles are separate:** #006 is an R1 documentation/readiness proposal. #007 is a separate R4 C1 implementation proposal. Both remain DRAFT_NOT_APPROVED until the Human Owner separately approves them. Contract #007 also requires Data Privacy/Security domain review and tested post-migration recovery; DR-020 is approved by the Human Owner; its canonical register update is published on main through merged PR #86. Approval of #006 does not approve #007.
 
 **Prompt #0006 has not been allocated.** It may be prepared only after Contract #007 is approved, its exact scope/budget are settled, and the Human Owner separately authorizes execution. The prompt must follow the Vietnamese-first Prompt Delivery Standard: learner explanation, copy-ready prompt, and post-run review instructions.
 
