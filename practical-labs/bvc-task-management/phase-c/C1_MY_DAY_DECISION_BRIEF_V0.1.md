@@ -137,7 +137,7 @@ To make the approved My Day sections usable without expanding into C2:
 - Provide a minimal correction control for the selected IANA timezone.
 - Do not add full task editing/deletion, search, filters, Kanban, priority management, project management, backup/restore or cloud features. Those remain outside C1 unless separately approved.
 
-Existing B2 tasks with no due date and no Focus date remain preserved and active, but are not placed into the date-based My Day sections. C2 — My Tasks is the planned destination for the complete task list. The implementation must not hide this distinction from the learner or imply that the old records were deleted.
+Existing B2 tasks with no due date and no Focus date remain preserved and active and are displayed in the approved Unscheduled section. C2 — My Tasks remains the planned destination for the complete task list.
 
 ### 4.6 Legacy B2 tasks with no due date or Focus — Owner decision required
 
@@ -145,7 +145,7 @@ The canonical B2 evidence shows two saved tasks, each represented by an `id` and
 
 Leaving these tasks stored but absent from the My Day screen may make a learner believe their work has disappeared. Do not automatically assign a due date or Focus; that would invent user intent and change task meaning.
 
-**C1-OPEN-001 — Visibility of legacy tasks without due date or Focus** remains a Product Owner decision. Recommended option: add a supplemental `Unscheduled` section after Upcoming and before Add task, preserving the approved order of the four priority sections and keeping Add task last. Each undated active task appears once. Alternative: explicitly defer these tasks to C2 — My Tasks, with clear learner-facing disclosure that the tasks are preserved but not displayed in C1. Either option must be decided by the Human Owner and recorded in the canonical Product/UX Decision Register before implementation.
+**DR-020 — APPROVED 2026-11-24.** The Human Owner approved a supplemental `Unscheduled` section after Upcoming and before Add task. The four approved priority sections retain their existing order. Each active task with no due date and no Focus marker active today appears exactly once in Unscheduled; completed tasks are excluded. No due date or Focus marker is invented for legacy tasks. The canonical decision is recorded in `PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md` §3.4.
 
 ## 5. Recommended implementation sequence
 
@@ -189,4 +189,4 @@ Unless a later approved Contract says otherwise, C1 must not silently implement:
 
 ---
 
-**Conclusion:** Phase C is active and the three C1 Product/UX decisions are resolved. The next gate is Owner review of the data-compatibility proposal, resolution of C1-OPEN-001 legacy-task visibility, and review of the two separate Contract roles. No C1 implementation or Prompt #0006 execution is authorized by this brief or by merging the documentation PR.
+**Conclusion:** Phase C is active and the three C1 Product/UX decisions are resolved. The next gate is Owner review of the data-compatibility proposal and the two separate Contract roles. DR-020 resolves legacy-task visibility but does not approve Contract #007 or authorize GAIS execution. No C1 implementation or Prompt #0006 execution is authorized by this brief or by merging the documentation PR.
