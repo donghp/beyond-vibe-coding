@@ -1,7 +1,7 @@
 contract_version: "0.1.0"
 contract_id: "BVC-TM-TC-007"
 revision: 1
-status: DRAFT_NOT_APPROVED
+status: APPROVED
 created_at: "2026-11-24"
 
 task:
@@ -12,8 +12,8 @@ task:
     application. Preserve all accepted B2 workspace records, introduce
     validated date/focus fields and the selected IANA timezone, migrate the
     version-1 browser workspace safely, and render Overdue, Due Today,
-    Today's Focus and Upcoming without duplicate task rows. This draft
-    Contract does not authorize execution.
+    Today's Focus and Upcoming without duplicate task rows. This approved
+    Contract remains subject to the separate R4 domain, recovery and execution-authorization gates.
   parent_task_id: "BVC-TM-P3.3-006"
   requested_by: "Implementation proposal prepared for Human Owner review on 2026-11-24"
   risk_level: R4
@@ -30,7 +30,7 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "142dfab373f0578c6134c8cbb2f1c0000cb8a5a2"
+    source_commit: "d806f042bf7411d8d4a3ce2869e68e67ba14ae00"
     source_branch: "main"
     baseline_verified: true
     architecture_baseline_refs:
@@ -45,7 +45,7 @@ project:
     source_freshness: "OWNER_REPORTED_2026-11-24; NOT_A_LIVE_PREFLIGHT; re-read app/page.tsx immediately before execution"
     recovery_point:
       kind: "git_snapshot"
-      reference: "main@142dfab373f0578c6134c8cbb2f1c0000cb8a5a2"
+      reference: "main@d806f042bf7411d8d4a3ce2869e68e67ba14ae00"
       verified: true
 
 authority:
@@ -60,10 +60,38 @@ authority:
     contract_id: "BVC-TM-TC-006"
     revision: 2
     status: "DRAFT_NOT_APPROVED"
+    review_disposition: "REVIEWED_AS_INPUT_TO_CONTRACT_007_APPROVAL_2026-11-24"
     purpose: "C1 decision and compatibility readiness; not implementation authority"
+  owner_approval:
+    status: "APPROVED"
+    approved_by: "Human Owner / Product Owner"
+    approved_on: "2026-11-24"
+    approved_revision: 1
+    approval_reference: >-
+      Human Owner explicitly stated in ChatGPT on 2026-11-24:
+      "Tôi phê duyệt Contract #007."
+    approval_scope: "BVC-TM-TC-007 Revision 1 exactly; no scope expansion."
+    approval_effect: >-
+      This records Contract approval only. It does not designate or grant
+      Data Privacy / Security domain approval, complete the required recovery
+      test, grant execution authorization, or establish a live GAIS preflight.
   execution_authorization: "NOT_GRANTED"
-  authorization_status: "DRAFT_ONLY; NOT_APPROVED; NOT_AUTHORIZED_FOR_EXECUTION"
+  authorized_by: "NOT_GRANTED"
+  authorization_status: "APPROVED_CONTRACT; R4_DOMAIN_APPROVAL_PENDING; POST_MIGRATION_RECOVERY_TEST_PENDING; NOT_AUTHORIZED_FOR_EXECUTION"
   domain_approval_status: "NOT_DESIGNATED; REQUIRED_BEFORE_EXECUTION"
+  executor:
+    proposed_class: "HUMAN_OWNER_OPERATES_GAIS; GEMINI_EXECUTES_WITHIN_THE_APPROVED_CONTRACT; CHATGPT_COORDINATES_AND_REVIEWS"
+    gais_executor: "NOT_AUTHORIZED_UNTIL_DOMAIN_APPROVAL_RECOVERY_TEST_SEPARATE_EXECUTION_AUTHORIZATION_AND_LIVE_PREFLIGHT"
+    reviewer: "Human Owner / Product Owner; designated Data Privacy / Security domain reviewer for R4 personal workspace data handling, migration and recovery"
+  execution_rule: >-
+    The Human Owner approved this exact Contract Revision 1 on 2026-11-24.
+    This is Contract approval only and is not permission to edit GAIS.
+    Before any execution, designate and obtain approval from the relevant
+    Data Privacy / Security domain reviewer; complete and test the documented
+    post-migration code-downgrade/recovery procedure against a copy of the v2
+    workspace and obtain the required approvals; issue a separate explicit
+    Human Owner execution authorization; and complete the fresh live GAIS
+    app/source and single-writer preflight in VC-001. Stop if any gate fails.
 
 intent:
   expected_outcome: >-
@@ -122,7 +150,7 @@ required_context:
     required: true
   - reference: "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md"
     purpose: "Canonical DR-001, DR-002 and DR-017 outcomes."
-    authority: "CANONICAL; ALL_THREE_APPROVED_2026-11-24"
+    authority: "CANONICAL; DR_001_DR_002_DR_017_DR_020_APPROVED_2026-11-24"
     required: true
   - reference: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
     purpose: "Exact B2 v1 Local Storage key, envelope, write/load safeguards and scope history."
@@ -148,7 +176,7 @@ required_context:
 dependencies:
   - reference: "BVC-TM-TC-006 Revision 2"
     relationship: "READINESS_PROPOSAL_REVIEW"
-    reason: "The migration and interaction proposal must be reviewed before this implementation Contract is approved."
+    reason: "The Human Owner reviewed the C1 readiness proposal as an input to approving this exact Contract #007 Revision 1 on 2026-11-24. Contract #006 remains DRAFT_NOT_APPROVED and grants no implementation authority."
   - reference: "DR-001"
     relationship: "OWNER_DECISION_APPROVED"
     reason: "Upcoming horizon is 7 calendar days; implementation must make the date range explicit and testable."
@@ -426,22 +454,7 @@ recovery:
     - "Any v1 source mutation, v2 validation failure, or missing tested post-migration rollback/recovery procedure."
     - "Any unexpected source file change or diff-budget overrun."
 
-authority:
-  authorized_by: "NOT_GRANTED"
-  authorization_status: "DRAFT_ONLY; NOT_APPROVED; NOT_AUTHORIZED_FOR_EXECUTION"
-  execution_rule: >-
-    This Contract is a proposal only. Publishing or merging it does not
-    approve the Contract or authorize a GAIS write. The Human Owner / Product
-    Owner must explicitly approve this exact revision and issue a separate
-    execution authorization. The executor must complete the fresh live
-    preflight in VC-001 before any edit. Approval of Contract #006 does not
-    approve Contract #007.
-  executor:
-    proposed_class: "HUMAN_OWNER_OPERATES_GAIS; GEMINI_EXECUTES_WITHIN_THE_APPROVED_CONTRACT; CHATGPT_COORDINATES_AND_REVIEWS"
-    gais_executor: "NOT_AUTHORIZED_UNTIL_OWNER_APPROVAL_AND_EXECUTION_AUTHORIZATION"
-    reviewer: "Human Owner / Product Owner; relevant technical reviewer for R4 personal workspace data handling, migration and recovery"
-
 prompt:
   next_prompt_id: "BVCTM-PROMPT-0006"
   allocation_status: "NOT_ALLOCATED"
-  allocation_rule: "Do not allocate or publish Prompt #0006 until Contract #007 is approved, its exact scope/budget are settled, and the Human Owner has separately authorized execution. The prompt must follow GAIS_PROMPT_DELIVERY_STANDARD_V1.0."
+  allocation_rule: "Contract #007 Revision 1 is Owner-approved on 2026-11-24. Keep Prompt #0006 NOT_ALLOCATED until the designated R4 Data Privacy / Security reviewer approves, the post-migration recovery procedure is tested and approved, the Human Owner issues a separate explicit execution authorization, and the fresh live GAIS preflight passes. Preserve the approved one-file scope and 500-line budget. The prompt must follow GAIS_PROMPT_DELIVERY_STANDARD_V1.0."
