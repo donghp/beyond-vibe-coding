@@ -435,7 +435,7 @@ authority:
   executor:
     proposed_class: "HUMAN_OWNER_OPERATES_GAIS; GEMINI_EXECUTES_WITHIN_THE_APPROVED_CONTRACT; CHATGPT_COORDINATES_AND_REVIEWS"
     gais_executor: "NOT_AUTHORIZED_UNTIL_OWNER_APPROVAL_AND_EXECUTION_AUTHORIZATION"
-    reviewer: "Human Owner / Product Owner; relevant technical reviewer for R3 business logic and persisted-data behavior"
+    reviewer: "Human Owner / Product Owner; relevant technical reviewer for R4 personal workspace data handling, migration and recovery"
 
 prompt:
   next_prompt_id: "BVCTM-PROMPT-0006"
