@@ -53,6 +53,7 @@ authority:
   architecture_baseline: "ACCEPTED DESIGN BASELINE — Phase 3.2; runtime verification remains separate"
   product_decisions:
     DR-001: "APPROVED — next 7 calendar days"
+    DR-020: "APPROVED — supplemental Unscheduled after Upcoming and before Add task"
     DR-002: "APPROVED — Focus scoped to current local calendar date; expires at next local day"
     DR-017: "APPROVED — detect browser IANA timezone on first use; user may correct"
   readiness_contract:
@@ -66,8 +67,9 @@ authority:
 
 intent:
   expected_outcome: >-
-    The Beginner app shows the canonical My Day sections in the approved
-    order, assigns each active task to at most one section, applies the
+    The Beginner app shows Overdue, Due Today, Today's Focus and Upcoming
+    in the approved order, then a supplemental Unscheduled section and the
+    Add task action. Each active task appears at most once and the app applies the
     selected IANA timezone to all calendar-date calculations, and preserves
     existing B2 tasks through a validated, recoverable workspace migration.
   learning_outcomes:
@@ -156,6 +158,9 @@ dependencies:
   - reference: "DR-017"
     relationship: "OWNER_DECISION_APPROVED"
     reason: "Browser IANA timezone is detected on first use and may be corrected by the user."
+  - reference: "DR-020"
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Active tasks without due_date and without Focus active today appear in a supplemental Unscheduled section after Upcoming and before Add task."
   - reference: "B2 workspace formatVersion 1"
     relationship: "MIGRATION_REQUIRED"
     reason: "Existing task records contain id/title only and must be preserved exactly."
@@ -252,28 +257,25 @@ data_contract:
       - "A present-but-invalid v2 key is a hard recovery state; do not fall back to a potentially stale v1 copy."
       - "A failed v2 write must leave the v1 key unchanged and preserve the current in-memory task list."
 
-open_product_decisions:
-  - id: "C1-OPEN-001"
+product_decisions:
+  - id: "DR-020"
     title: "Visibility of legacy tasks without due date or Focus"
-    status: "OWNER_DECISION_REQUIRED"
+    status: "OWNER_DECISION_APPROVED_2026-11-24"
     context: >-
       The accepted B2 workspace contains two saved tasks with id/title only.
       After migration they receive status todo and priority normal, but have
-      neither due_date nor focus_date. Under the current four date-driven
-      sections, they would be stored but not visible on My Day.
-    recommended_option: >-
+      neither due_date nor focus_date.
+    approved_outcome: >-
       Add a supplemental, non-priority "Unscheduled" section after Upcoming
-      and before Add task. Keep the four approved priority sections in their
-      existing order, render each unscheduled active task once, and keep Add
-      task as the final action. This requires an explicit Product Owner
-      decision and a canonical Decision Register entry before execution.
-    alternative: >-
-      Explicitly defer displaying undated tasks until C2 — My Tasks. This
-      must be an informed Owner decision because existing tasks would not be
-      visible on the C1 default screen in the interim.
+      and before Add task. Preserve the four approved priority sections in
+      their existing order. Render each active task with no due_date and no
+      Focus marker active today exactly once; exclude completed tasks. Keep
+      Add task as the final action. Do not automatically assign a due date
+      or Focus marker to any existing task.
+    approval_source: "Explicit Human Owner decision in ChatGPT, 2026-11-24; canonical record DR-020."
     implementation_rule: >-
-      Do not automatically assign Focus or a due date to legacy tasks. Do not
-      mark this question resolved based only on this AI recommendation.
+      Implement the approved placement exactly. Do not reclassify this
+      decision as pending or change the first four section order.
 
 task_behavior:
   task_defaults:
@@ -292,6 +294,7 @@ task_behavior:
     - "Due Today"
     - "Today's Focus"
     - "Upcoming"
+    - "Unscheduled"
     - "Add task"
   placement_rules:
     - "Exclude tasks with status done from active My Day sections."
@@ -299,10 +302,11 @@ task_behavior:
     - "Due Today: active tasks with due_date equal to today."
     - "Today's Focus: active tasks with focus_date equal to today and not already placed in Overdue or Due Today."
     - "Upcoming: active tasks with due_date from tomorrow through today plus 7 calendar days inclusive and not already placed in an earlier section."
-    - "A task appears at most once; placement precedence is Overdue, Due Today, Today's Focus, Upcoming."
+    - "A task appears at most once; placement precedence is Overdue, Due Today, Today's Focus, Upcoming, Unscheduled."
     - "A focused future-due task appears in Today's Focus, not again in Upcoming."
     - "A legacy task without status is normalized to todo during migration."
-    - "C1-OPEN-001 is unresolved: the two B2 legacy tasks have neither due_date nor focus_date. Do not silently leave them undiscoverable in My Day; implementation must stop until the Human Owner approves a visible placement or explicitly accepts temporary deferral to C2."
+    - "Unscheduled: active tasks with no due_date and no Focus marker active today; place once after Upcoming and before Add task."
+    - "Both existing B2 tasks with id/title only receive status todo and priority normal and appear exactly once in Unscheduled; do not invent due_date or focus_date."
   focus:
     mark_action: "Set focus_date to today's date in the selected timezone."
     clear_action: "Remove focus_date."
@@ -318,7 +322,7 @@ task_behavior:
 
 acceptance_criteria:
   - id: "AC-001"
-    statement: "My Day renders the canonical five-section order and satisfies the Product Definition FR-010 / AC-006 and UX no-duplicate placement rules."
+    statement: "My Day renders the four Product Definition priority sections in their existing order, then DR-020's supplemental Unscheduled section and the Add task action; all placement is unique."
     required: true
   - id: "AC-002"
     statement: "DR-001, DR-002 and DR-017 are implemented exactly as approved; no product decision is silently reinterpreted."
@@ -351,7 +355,7 @@ acceptance_criteria:
     statement: "A post-migration code-downgrade/recovery procedure is documented, tested against a copy of the v2 workspace and approved by the Human Owner and the designated Data Privacy / Security domain reviewer before any production-like use."
     required: true
   - id: "AC-012"
-    statement: "C1-OPEN-001 is resolved by an explicit Human Owner decision recorded in the canonical Product/UX Decision Register; existing undated B2 tasks are visible according to that approved outcome or are explicitly deferred with learner-facing disclosure."
+    statement: "DR-020 is implemented exactly: both legacy B2 tasks with no due date and no Focus marker active today appear once in Unscheduled, after Upcoming and before Add task; completed tasks are excluded and no date/Focus values are invented."
     required: true
 
 verification:
@@ -400,7 +404,7 @@ verification:
       required: true
     - id: "VC-011"
       kind: "LEGACY_TASK_VISIBILITY"
-      description: "Verify both original B2 tasks remain visible in the exact section/placement approved for C1-OPEN-001, appear once each, and retain their original IDs and titles."
+      description: "Verify both original B2 tasks remain visible in Unscheduled after Upcoming and before Add task, appear once each, and retain their original IDs and titles."
       required: true
 
 recovery:
@@ -418,7 +422,7 @@ recovery:
 
   stop_conditions:
     - "Any task ID/title mismatch or unexplained record-count difference."
-    - "C1-OPEN-001 remains unresolved or the approved legacy-task visibility behavior is not testable."
+    - "The approved DR-020 Unscheduled placement is not testable or the two B2 task IDs/titles do not appear exactly once."
     - "Any v1 source mutation, v2 validation failure, or missing tested post-migration rollback/recovery procedure."
     - "Any unexpected source file change or diff-budget overrun."
 
