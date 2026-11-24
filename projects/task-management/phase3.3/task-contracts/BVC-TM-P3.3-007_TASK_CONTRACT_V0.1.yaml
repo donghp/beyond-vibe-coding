@@ -15,7 +15,7 @@ task:
     Today's Focus and Upcoming without duplicate task rows. This draft
     Contract does not authorize execution.
   parent_task_id: "BVC-TM-P3.3-006"
-  requested_by: "AI-prepared implementation proposal for Human Owner review on 2026-11-24"
+  requested_by: "Implementation proposal prepared for Human Owner review on 2026-11-24"
   risk_level: R4
   risk_rationale: >-
     My Day changes shared task-state handling, date calculations, workspace
