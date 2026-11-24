@@ -6,7 +6,7 @@
 **Learning level:** Beginner to Advanced  
 **Product:** BVC Task Management — A Simple Daily Work Manager  
 **Governance status:** Product Definition v0.2.0 is the current Product Owner-approved baseline on `main` through merged PR #5. PR #6 Governance Reconciliation was Squash and Merged on 2026-11-05 (commit `5d230516a1eddede51c457c85d5fc6bef23506f8`). Phase 3.2 Architecture Design Baseline is accepted. Phase 3.1 UX Acceptance remains OPEN.  
-**Implementation status (2026-11-13):** Phase B1 — Create Your First Task — was implemented in the existing GAIS newbie project and explicitly accepted by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS` (PR #60). Phase B2 — Save Your Task — has an Owner-approved Task Contract `BVC-TM-TC-005 Revision 1`, merged through PR #64, but GAIS implementation has NOT STARTED. Live GAIS preflight, source parity, single-writer confirmation and a separate Owner execution instruction are still required. Do not claim browser persistence is implemented or verified.
+**Implementation / learning status (2026-11-24):** Phase B (B1–B4) is CLOSED by explicit Human Owner acceptance. B1 remains accepted with known limitations. B2 Stage 2 implementation was reported by Gemini; Local Storage and Preview refresh behavior have Owner-supplied screenshot evidence published through PRs #71, #73 and #75. Some detailed runtime checks remain `NOT_RUN` / `NOT_VERIFIED` and were accepted as known limitations; they are not converted to PASS. Phase C is now active, beginning with C1 — My Day decision and implementation readiness. The relevant Product/UX decisions remain OPEN and no C1 GAIS code change is authorized yet.
 
 > **Build something useful. Use it every day. Learn by doing.**
 
