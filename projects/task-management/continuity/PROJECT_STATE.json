@@ -1,9 +1,9 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 16,
+  "revision": 17,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-24T19:19:00+07:00",
+  "state_as_of": "2026-11-24T20:30:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
@@ -15,9 +15,9 @@
     "pre_existing_changes_ref": "The last observed local worktree outputs predate PRs #50–#53. C:\\\\beyond-vibe-coding-a4-evidence was owner-reported clean at 202e780 before later merges, but its current HEAD/status after PR #53 is NOT_VERIFIED. C:\\\\beyond-vibe-coding remains a separate DIRTY linked worktree with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees from the last owner-supplied output. Preserve all local-only content; do not reset, clean, pop stashes or overwrite it."
   },
   "current_milestone": {
-    "milestone_id": "BVC-TM-PHASE-B2-SAVE-YOUR-TASK",
-    "title": "Phase B2 — Save Your Task",
-    "status": "B2_IMPLEMENTATION_REPORTED; LOCALSTORAGE_KEY_ENVELOPE_AND_TWO_TASK_RECORDS_OWNER_SCREENSHOT_VERIFIED; PREVIEW_REFRESH_RESTORATION_OWNER_SCREENSHOT_VERIFIED; DEV_SERVER_RECOVERY_REPORTED_WITH_UNCHANGED_SOURCE_HASH; FINAL_OWNER_ACCEPTANCE_AND_REMAINING_CHECKS_PENDING"
+    "milestone_id": "BVC-TM-PHASE-C1-MY-DAY",
+    "title": "Phase C1 — My Day",
+    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE_PLANNING; C1_IMPLEMENTATION_BLOCKED_PENDING_DR_001_DR_002_DR_017_AND_APPROVED_CONTRACT"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -27,8 +27,11 @@
     "Phase A A1–A4 is learner-path COMPLETED; this does not mean the full product is complete.",
     "B1 / BVC-TM-P3.3-004 was Owner-accepted on 2026-11-12 as COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS; preserve the missing archived manual-test and independent changed-file-inventory limitations.",
     "DR-005 is APPROVED and canonical on main through PR #62.",
-    "On 2026-11-20 the Human Owner supplied an expanded Chrome DevTools screenshot proving `data.tasks` contains two distinct task records whose UUIDs and titles match the Preview: e520ee3c-146a-413b-bcba-641122619dbc / Prepare weekly work plan; e88047aa-baea-4927-b47f-35f056d40cfa / Review project milestones. B2-AC-003 now has Owner screenshot evidence. B2-AC-004 still requires a same-profile/same-origin Preview refresh and restoration check before Owner acceptance.",
-    "On 2026-11-20 the Human Owner supplied the GAIS Preview screenshot after refreshing the app. Both previously stored tasks—Prepare weekly work plan and Review project milestones—reappear exactly once and in insertion order. B2-AC-004 is now OWNER SCREENSHOT VERIFIED. B1 interactive regression, responsive Preview checks, malformed-data/storage-error runtime tests and explicit Human Owner acceptance remain pending."
+    "On 2026-11-20 the Human Owner supplied the GAIS Preview screenshot after refreshing the app. Both previously stored tasks—Prepare weekly work plan and Review project milestones—reappear exactly once and in insertion order. B2-AC-004 is now OWNER SCREENSHOT VERIFIED. B1 interactive regression, responsive Preview checks, malformed-data/storage-error runtime tests and explicit Human Owner acceptance remain pending.",
+    "PHASE B CLOSED: On 2026-11-24 the Human Owner explicitly accepted all four Phase B lessons (B1-B4), the available evidence and continuity, and declared Phase B closed. Known limitations and historical NOT_RUN / NOT_VERIFIED outcomes remain unchanged; see practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md.",
+    "PHASE C ACTIVE — PLANNING: C1 — My Day is the first lesson in Curriculum Map v0.2 and follows Product Definition v0.2.0 FR-010 / AC-006. The canonical My Day order is Overdue, Due Today, Today's Focus, Upcoming, Add task.",
+    "C1 implementation remains blocked pending Product Owner decisions for DR-001 (Upcoming horizon), DR-002 (Today's Focus lifetime/reset), and DR-017 (timezone source/editing), plus approval of a bounded C1 implementation Contract. The current Contract #006 file is DRAFT_NOT_APPROVED and NOT_AUTHORIZED_FOR_EXECUTION; Prompt #0006 remains NOT_ALLOCATED.",
+    "C1 planning must preserve compatibility with the current Beginner B2 workspace formatVersion 1, whose task records contain id and title. Any new due-date, focus or status fields require an approved backward-compatible data/migration design before GAIS changes."
   ],
   "facts": [
     {
@@ -336,6 +339,16 @@
         "Gemini GAIS response visible in the same screenshot, reporting restart_dev_server, no project file changes, unchanged app/page.tsx SHA-256 and HTTP checks",
         "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-033",
+      "statement": "On 2026-11-24 the Human Owner explicitly accepted all four Phase B lessons (B1-B4), the available evidence and continuity, and declared Phase B closed and the project transitioned to Phase C. The acceptance is at the learning-path level with known evidence limitations. Historical NOT_RUN and NOT_VERIFIED results remain unchanged; no missing runtime test is re-labelled PASS. The canonical closeout record is practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md.",
+      "classification": "OWNER_SUPPLIED",
+      "source_refs": [
+        "Human Owner explicit declaration in ChatGPT on 2026-11-24",
+        "practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md",
+        "practical-labs/bvc-task-management/LESSON_STATUS_REGISTER_V0.2.md"
+      ]
     }
   ],
   "decisions": [
@@ -368,6 +381,18 @@
       "source_refs": [
         "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json",
         "https://github.com/donghp/beyond-vibe-coding/pull/64"
+      ]
+    },
+    {
+      "decision_id": "PHASE-B-CLOSEOUT-2026-11-24",
+      "statement": "Human Owner explicitly accepted all four Phase B lessons (B1-B4), the available evidence and continuity, and declared Phase B closed. This is learning-path-level acceptance with known limitations. Individual test results previously recorded as NOT_RUN or NOT_VERIFIED remain unchanged and are not converted to PASS.",
+      "status": "ACCEPTED",
+      "decided_by": "Human Owner",
+      "decided_at": "2026-11-24",
+      "authority_reference": "Human Owner explicit declaration in ChatGPT on 2026-11-24",
+      "source_refs": [
+        "practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md",
+        "Human Owner statement in ChatGPT dated 2026-11-24"
       ]
     }
   ],
@@ -402,11 +427,25 @@
       "contract_revision": 1,
       "status": "APPROVED",
       "owner": "Human Owner operates GAIS; Gemini executes after RC-005 gate; ChatGPT coordinates and reviews",
-      "execution_status": "IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; B2_AC_003_OWNER_SCREENSHOT_VERIFIED; B2_AC_004_OWNER_SCREENSHOT_VERIFIED; DEV_SERVER_RECOVERY_REPORTED_NO_FILE_CHANGES; REMAINING_RUNTIME_CHECKS_PENDING; OWNER_ACCEPTANCE_PENDING",
+      "execution_status": "COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS_BY_OWNER_PHASE_B_CLOSEOUT_2026-11-24",
       "approval_reference": "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b.",
       "risk_level": "R2",
       "scope": "MODIFY app/page.tsx only; Beginner localStorage task workspace and DR-005 disclosure; no other files, packages, database, Auth or external services.",
-      "next_action": "Complete fresh-profile DR-005 acknowledgement, B1 interactive regression and desktop/compact-phone Preview checks. Test malformed JSON and unsupported format version only in a disposable browser profile; perform a static source review of storage exception paths and attempt runtime failure simulation only if safe. Then Human Owner reviews all evidence and explicitly accepts or rejects B2."
+      "next_action": "CLOSED at Phase B learning-path level by Human Owner on 2026-11-24. Preserve historical NOT_RUN / NOT_VERIFIED results. Reopen only for a specific defect or explicit Owner request.",
+      "acceptance_reference": "Human Owner explicitly accepted B1-B4, available evidence and continuity, and declared Phase B closed on 2026-11-24; see practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md."
+    },
+    {
+      "task_id": "BVC-TM-P3.3-006",
+      "contract_id": "BVC-TM-TC-006",
+      "contract_revision": 1,
+      "title": "Phase C1 — My Day: Product Decision and Implementation Readiness",
+      "status": "DRAFT_NOT_APPROVED",
+      "owner": "ChatGPT prepares bounded decision brief and Contract proposal; Human Owner / Product Owner decides",
+      "execution_status": "NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION",
+      "risk_level": "R1",
+      "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml",
+      "proposal_reference": "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
+      "next_action": "Human Owner / Product Owner resolves DR-001, DR-002 and DR-017 in the canonical Product/UX Decision Register, reviews the C1 decision brief, then separately approves or rejects Contract #006. Do not allocate Prompt #0006 or modify GAIS source before these gates are satisfied."
     }
   ],
   "blocked_items": [
@@ -416,6 +455,13 @@
       "status": "RESOLVED",
       "owner": "Human Owner / ChatGPT coordinator",
       "reference": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json; https://github.com/donghp/beyond-vibe-coding/pull/64"
+    },
+    {
+      "issue_id": "TM-BLOCK-C1-PRODUCT-DECISIONS",
+      "description": "C1 My Day implementation is blocked pending Product Owner decisions for DR-001 (Upcoming horizon), DR-002 (Today's Focus lifetime/reset), and DR-017 (timezone source/editing), plus approval of a bounded C1 implementation Contract. Existing proposals are not approvals. Prompt #0006 remains NOT_ALLOCATED; no GAIS code changes are authorized.",
+      "status": "OPEN",
+      "owner": "Human Owner / Product Owner",
+      "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml"
     }
   ],
   "open_risks": [
@@ -482,8 +528,8 @@
     },
     {
       "action_id": "TM-NEXT-B2-004",
-      "description": "B2-AC-003 Local Storage and B2-AC-004 Preview refresh are Owner-screenshot verified. Current GAIS screenshot (2026-11-24) also shows dev-server recovery with app/page.tsx hash unchanged. Complete fresh-profile DR-005 interaction, full B1 regression, desktop/mobile responsive checks, malformed/unsupported data in a disposable profile, and static storage exception-path review. Do not repeat Stage 2 or modify source unless a defect is found.",
-      "priority": "URGENT",
+      "description": "COMPLETED AT PHASE LEVEL: Human Owner accepted all B1-B4 lessons, available evidence and continuity and declared Phase B closed on 2026-11-24. Preserve individual NOT_RUN / NOT_VERIFIED results as historical limitations.",
+      "priority": "NORMAL",
       "owner": "Gemini / ChatGPT / Human Owner",
       "related_task_id": "BVC-TM-P3.3-005"
     },
@@ -514,14 +560,28 @@
       "priority": "NORMAL",
       "owner": "ChatGPT",
       "related_task_id": "BVC-TM-P3.3-005"
+    },
+    {
+      "action_id": "TM-NEXT-C1-001",
+      "description": "Resolve canonical Product Owner decisions DR-001 (Upcoming horizon), DR-002 (Today's Focus lifetime/reset), and DR-017 (timezone source/editing) using the C1 My Day Decision Brief. Keep proposed defaults unapproved until explicitly decided.",
+      "priority": "URGENT",
+      "owner": "Human Owner / Product Owner",
+      "related_task_id": "BVC-TM-P3.3-006"
+    },
+    {
+      "action_id": "TM-NEXT-C1-002",
+      "description": "Review and separately approve or reject draft Contract #006 for C1 My Day implementation readiness. Before any GAIS write-capable work, define backward-compatible evolution from B2 workspace formatVersion 1, exact file scope, diff budget, stop conditions, acceptance criteria and evidence. Allocate Prompt #0006 only after approved scope and decisions.",
+      "priority": "HIGH",
+      "owner": "Human Owner / Product Owner / ChatGPT",
+      "related_task_id": "BVC-TM-P3.3-006"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@6decd4a26deaa2ed2daa99dff4a9b9bddf5a50e1 (base for Phase B index/troubleshooting synchronization)",
-    "source_commit": "6decd4a26deaa2ed2daa99dff4a9b9bddf5a50e1",
+    "recovery_point_ref": "main@766febad0e98fbb59dc45738c80f5c47a2571250 (base commit inspected for Phase B closeout and Phase C C1 preparation PR)",
+    "source_commit": "766febad0e98fbb59dc45738c80f5c47a2571250",
     "verified": true,
-    "last_verified_at": "2026-11-24T19:19:00+07:00",
-    "notes": "PR #75 is canonical on main at d1142cbbb8f5473bd5832d477657db1efa71af26. B2-AC-003 and B2-AC-004 have Owner screenshot evidence. On 2026-11-24 Gemini reported a dev-server restart with no project-file changes and unchanged app/page.tsx SHA-256 4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e; the Owner screenshot shows Preview and both existing tasks visible. Fresh-profile DR-005, B1 regression, responsive and malformed-data checks, storage exception-path review, and final Owner acceptance remain pending. B3 remains gated on B2 acceptance and a separately approved Contract #006."
+    "last_verified_at": "2026-11-24T20:30:00+07:00",
+    "notes": "Phase B was explicitly closed by the Human Owner on 2026-11-24 after accepting all four lessons, available evidence and continuity. The closeout record preserves known limitations; historical NOT_RUN / NOT_VERIFIED checks remain unchanged. Phase C is active at C1 My Day planning. DR-001, DR-002 and DR-017 remain OPEN. Contract #006 is a draft proposal only; Prompt #0006 remains unallocated and no GAIS implementation is authorized."
   },
-  "updated_by": "AI-prepared Project State revision 16; records 2026-11-24 GAIS server recovery report and updates Phase B remaining checks; no GAIS code or approved Contract changed."
+  "updated_by": "AI-prepared Project State revision 17; records Human Owner Phase B closeout and Phase C C1 planning gates. Awaiting Owner review/merge of the phase transition PR."
 }
