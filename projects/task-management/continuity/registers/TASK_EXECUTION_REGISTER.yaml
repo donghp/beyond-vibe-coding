@@ -151,6 +151,15 @@ tasks:
     build: "SUCCESS_REPORTED"
     eslint: "SUCCESS_REPORTED; 0 errors; 0 warnings"
     preview_ssr_http: "HTTP 200 REPORTED"
+    dev_server_recovery_2026_11_24:
+      cause_reported: "node_modules had just finished populating; Next.js development server had not started yet"
+      action_reported: "Gemini restarted the existing development server using restart_dev_server"
+      file_changes_reported: "0 created; 0 modified; 0 deleted"
+      app_page_sha256_unchanged: "4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e"
+      process_reported: "next-server v15.5.29 running"
+      http_checks_reported: "localhost:3000 HTTP 200; localhost:8080 served BVC Task Management page"
+      owner_screenshot: "Preview rendered with both existing tasks visible"
+      classification: "OPERATIONAL_RECOVERY_REPORTED; NOT_AN_APPLICATION_CODE_CHANGE"
     attachment_classification: "PLATFORM_MANAGED_ATTACHMENT_ASSETS REPORTED; both files preserved"
     interactive_localstorage_save_reload: "OWNER_SCREENSHOT_PASS: Owner supplied two task records in Local Storage and a Preview-after-refresh screenshot showing both tasks restored once and in insertion order"
     interactive_localstorage_key_and_envelope_inspection: "OWNER_SCREENSHOT_PASS: correct runtime origin, exact key, format, formatVersion, sourceMode and workspaceId visible"
@@ -168,7 +177,7 @@ tasks:
   - "Human Owner merged PR #75 at d1142cbbb8f5473bd5832d477657db1efa71af26; BVCTM-056 / BVC-EV-037 post-refresh Preview screenshot is canonical on main."
   - "Gemini reports build SUCCESS and ESLint 0 errors / 0 warnings. Owner screenshots verify the Local Storage key/envelope, two stored task records and task restoration after Preview refresh; remaining B1 regression, responsive and malformed-data/storage-error runtime checks are NOT_RUN."
   - "PR #69 merged at ab542dff88e1c8ff2fdc5bd790913dddf285443d; post-merge continuity-refresh job failed at gh pr create because GITHUB_TOKEN is not permitted to create PRs."
-  next_action: "B2-AC-004 is OWNER SCREENSHOT VERIFIED and its evidence is canonical on main through PR #75 (merge commit d1142cbbb8f5473bd5832d477657db1efa71af26). NEXT: complete B1 interactive regression and responsive Preview checks; run malformed-data/storage-error tests only in a disposable profile if safely available. ChatGPT reviews evidence; Human Owner alone records final B2 acceptance."
+  next_action: "B2-AC-003 and B2-AC-004 are OWNER SCREENSHOT VERIFIED. On 2026-11-24 Gemini reported operational dev-server recovery with zero project-file changes and unchanged app/page.tsx SHA-256. NEXT: complete fresh-profile DR-005 acknowledgement, full B1 interactive regression and responsive Preview checks; test malformed JSON/unsupported version only in a disposable profile; statically review storage exception paths and run runtime failure simulation only if safe. ChatGPT reviews evidence; Human Owner alone records final B2 acceptance."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
