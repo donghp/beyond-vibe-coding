@@ -50,7 +50,7 @@ GAIS reported that no files were changed. An independent before/after file-tree 
 
 **Phase B entry:** B1 Contract BVC-TM-TC-004 Revision 1 is approved by the Human Owner. It authorizes only a modification to `app/page.tsx` in the existing GAIS app. The Contract and Prompt #0004 must be canonical on main before learner execution. Immediately before editing, the current GAIS app identity and `app/page.tsx` must be inspected; stop if the live source differs materially from the supplied snapshot.
 
-Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 is APPROVED and governs the first-use disclosure for B2. DR-014 is ACCEPTED FOR DESIGN only; browser persistence still requires B2 implementation and runtime verification. Do not add `localStorage` to B1 or retroactively expand B1.
+Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 is APPROVED and governs the first-use disclosure for B2. DR-014 remains ACCEPTED FOR DESIGN; B2 implementation and Owner-supplied Local Storage / Preview-refresh evidence are recorded, while the known runtime test limitations remain in the B2 lesson and Phase B closeout record. Do not add `localStorage` to B1 or retroactively expand B1.
 
 ## 3. Phase C — Make It Useful Every Day
 
@@ -95,4 +95,4 @@ A lesson with unverified controls, missing authentic screenshots, incomplete pro
 A successful build is not proof of product behavior. A design package is not proof of runtime implementation. AI's final response is not Human Owner acceptance.
 
 
-**B2 gate update — 2026-11-17:** RC-003 PASS; RC-004 PASS (Owner confirmed clean editor and no competing writer). RC-005 PENDING until Gemini receives the canonical Prompt #0005 and Context Pack and returns the read-only scope acknowledgment. The Owner's execution authorization is already received and conditional; do not request it again. No GitHub connection is required in the learner's GAIS project. Exact Git-level accepted-B1 source parity remains NOT_VERIFIABLE, separately from the clean current GAIS editor state.
+**B2 gate history — 2026-11-17 (superseded):** RC-003 PASS; RC-004 PASS (Owner confirmed clean editor and no competing writer). At that time RC-005 was pending until Gemini received the canonical Prompt #0005 and Context Pack. This gate was subsequently satisfied: Gemini supplied the read-only RC-005 acknowledgment and the Human Owner confirmed `RC-005 PASS — PROCEED WITH B2` on 2026-11-18. No GitHub connection is required in the learner's GAIS project. Exact Git-level accepted-B1 source parity remains NOT_VERIFIABLE, separately from the clean current GAIS editor state.
