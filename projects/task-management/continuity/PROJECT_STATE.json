@@ -1,17 +1,17 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 19,
+  "revision": 20,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-24T22:24:32+07:00",
+  "state_as_of": "2026-11-24T22:58:38+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
     "default_branch": "main"
   },
   "baseline": {
-    "source_commit": "2ede896cb7af1766e5043db5cc67f50d90a803f6",
-    "working_tree_status": "UNKNOWN; current local Windows worktrees and the live GAIS Code/File Explorer state have not been inspected in this synchronization pass.",
+    "source_commit": "142dfab373f0578c6134c8cbb2f1c0000cb8a5a2",
+    "working_tree_status": "UNKNOWN; live local Windows worktrees and GAIS workspace were not inspected in this DR-020 synchronization pass.",
     "pre_existing_changes_ref": "The last observed local worktree outputs predate PRs #50–#53. C:\\\\beyond-vibe-coding-a4-evidence was owner-reported clean at 202e780 before later merges, but its current HEAD/status after PR #53 is NOT_VERIFIED. C:\\\\beyond-vibe-coding remains a separate DIRTY linked worktree with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees from the last owner-supplied output. Preserve all local-only content; do not reset, clean, pop stashes or overwrite it."
   },
   "current_milestone": {
@@ -29,7 +29,7 @@
     "DR-005 is APPROVED and canonical on main through PR #62.",
     "PHASE B CLOSED: On 2026-11-24 the Human Owner explicitly accepted all four Phase B lessons (B1-B4), the available evidence and continuity, and declared Phase B closed. Known limitations and historical NOT_RUN / NOT_VERIFIED outcomes remain unchanged; see practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md.",
     "PHASE C ACTIVE — PLANNING: C1 — My Day is the first lesson in Curriculum Map v0.2 and follows Product Definition v0.2.0 FR-010 / AC-006. The canonical My Day order is Overdue, Due Today, Today's Focus, Upcoming, Add task.",
-    "C1 Product/UX decisions DR-001, DR-002 and DR-017 are approved and canonical. C1 implementation remains blocked pending separate Owner approval of implementation Contract #007 Revision 1, explicit execution authorization and a fresh live GAIS preflight. Readiness Contract #006 Revision 2 is a documentation proposal only; Prompt #0006 remains NOT_ALLOCATED.",
+    "C1 Product/UX decisions DR-001, DR-002, DR-017 and DR-020 are approved and canonical. C1 implementation remains blocked pending separate Owner approval of implementation Contract #007 Revision 1, required R4 Data Privacy/Security domain approval, tested post-migration recovery, explicit execution authorization and a fresh live GAIS preflight. Readiness Contract #006 Revision 2 is a documentation proposal only; Prompt #0006 remains NOT_ALLOCATED.",
     "C1 readiness proposes a non-destructive migration from B2 formatVersion 1 to a separate formatVersion 2 workspace key. Preserve workspaceId, every existing task id/title and the original v1 key; do not execute migration until Contract #007 is approved and authorized."
   ],
   "facts": [
@@ -403,6 +403,18 @@
         "practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md",
         "Human Owner statement in ChatGPT dated 2026-11-24"
       ]
+    },
+    {
+      "decision_id": "DR-020",
+      "statement": "Add a supplemental Unscheduled section after Upcoming and before Add task. Preserve the order of Overdue, Due Today, Today's Focus and Upcoming. Show each active task without a due date and without Focus active today exactly once; exclude completed tasks and do not invent dates or Focus markers.",
+      "status": "ACCEPTED",
+      "decided_by": "Human Owner / Product Owner",
+      "decided_at": "2026-11-24T22:51:00+07:00",
+      "authority_reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md §3.4",
+      "source_refs": [
+        "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md#DR-020",
+        "Human Owner explicit approval in ChatGPT on 2026-11-24"
+      ]
     }
   ],
   "active_tasks": [
@@ -469,7 +481,7 @@
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
       "publication_status": "PROPOSAL_IN_PR_85; NOT_APPROVED",
       "proposal_reference": "PR #85 proposal; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
-      "next_action": "Await Human Owner decision on C1-OPEN-001 legacy-task visibility; Contract #007 R4 approval; designated Data Privacy/Security domain review; tested post-migration recovery; explicit execution authorization; then fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED."
+      "next_action": "Await separate Owner approval of Contract #007 Revision 1, designated Data Privacy/Security domain approval, tested post-migration recovery, explicit execution authorization and fresh live GAIS preflight. Implement DR-020's Unscheduled placement exactly. Prompt #0006 remains NOT_ALLOCATED."
     }
   ],
   "blocked_items": [
@@ -482,7 +494,7 @@
     },
     {
       "issue_id": "TM-BLOCK-C1-IMPLEMENTATION-AUTHORITY",
-      "description": "DR-001, DR-002 and DR-017 are approved and canonical. Remaining C1 blockers are Owner review/approval of the readiness package and separate R4 implementation Contract #007 and required Data Privacy/Security domain review, explicit execution authorization, resolution of C1-OPEN-001 (visibility of the two existing B2 tasks without dates/Focus), a tested post-migration recovery procedure, and fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
+      "description": "DR-001, DR-002, DR-017 and DR-020 are approved and canonical. Remaining C1 blockers are Owner review/approval of the readiness package and separate R4 implementation Contract #007, Data Privacy/Security domain review, tested post-migration recovery, explicit execution authorization and fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
       "status": "OPEN",
       "owner": "Human Owner / Product Owner",
       "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
@@ -594,18 +606,18 @@
     },
     {
       "action_id": "TM-NEXT-C1-002",
-      "description": "Owner review of C1 readiness Contract #006 Revision 2 and separate R4 implementation Contract #007 and Data Privacy/Security domain review Revision 1. Decide each Contract independently. Contract #007 approval and explicit execution authorization are required before Prompt #0006 or any GAIS write; fresh live-source and single-writer preflight must then pass.",
+      "description": "Owner review/approval of C1 readiness Contract #006 Revision 2 and separate R4 implementation Contract #007 Revision 1. DR-001, DR-002, DR-017 and DR-020 are approved. Contract #007 also requires Data Privacy/Security domain approval, tested post-migration recovery, explicit execution authorization and fresh live-source/single-writer preflight before Prompt #0006 or any GAIS write.",
       "priority": "URGENT",
       "owner": "Human Owner / Product Owner",
       "related_task_id": "BVC-TM-P3.3-006"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@a586d4fa47af2fb83330667af5577a0ff1db0db5 (PR #84 merged; canonical rehydration prompt published)",
-    "source_commit": "a586d4fa47af2fb83330667af5577a0ff1db0db5",
+    "recovery_point_ref": "main@142dfab373f0578c6134c8cbb2f1c0000cb8a5a2 (PR #85 merged; readiness and R4 implementation proposal published)",
+    "source_commit": "142dfab373f0578c6134c8cbb2f1c0000cb8a5a2",
     "verified": true,
-    "last_verified_at": "2026-11-24T22:24:32+07:00",
-    "notes": "PR #84 merged at a586d4fa47af2fb83330667af5577a0ff1db0db5; docs/continuity/BVC-PROJECT-REHYDRATION-001.md is canonical on main. DR-001, DR-002 and DR-017 are Owner-approved. C1 readiness and implementation Contract drafts are proposals only; Contract #007 needs separate approval and explicit execution authorization. Prompt #0006 remains NOT_ALLOCATED and GAIS implementation is NOT_AUTHORIZED. Contract #007 is provisionally classified R4 because it changes personal workspace data; domain review and tested post-migration recovery are required before execution."
+    "last_verified_at": "2026-11-24T22:58:38+07:00",
+    "notes": "PR #85 merged at 142dfab373f0578c6134c8cbb2f1c0000cb8a5a2, publishing C1 readiness revision 2 and draft Contract #007. DR-020 is an explicit Human Owner decision from 2026-11-24 and is proposed for canonical publication in PR #86. Contract #007 remains DRAFT_NOT_APPROVED / R4; domain review, tested post-migration recovery, explicit execution authorization and fresh live GAIS preflight remain required. Prompt #0006 remains NOT_ALLOCATED."
   },
-  "updated_by": "Continuity proposal revision 19; submitted for Human Owner review against verified main@a586d4f."
+  "updated_by": "Project State revision 20 proposal; DR-020 approved by Human Owner 2026-11-24; proposal publication pending PR #86."
 }
