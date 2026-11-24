@@ -1,16 +1,16 @@
 # Phase C — Make It Useful Every Day
 
 **Learning level:** Beginner Expansion  
-**Status:** ACTIVE — C1 Product/UX decisions approved; implementation Contract preparation
+**Status:** ACTIVE — C1 Product/UX decisions approved; readiness and implementation Contract proposals prepared for Owner review
 
-Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Phase C now begins with the current Product Definition v0.2.0 and Curriculum Map v0.2. The six lesson groups below follow the canonical curriculum order.
+Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Phase C proceeds under Product Definition v0.2.0 and Curriculum Map v0.2. The six lesson groups below follow the canonical curriculum order.
 
 ## Learning sequence
 
 | Lesson | Learning area | What the learner will learn | Gate before implementation |
 |---|---|---|---|
-| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows. | DR-001, DR-002 and DR-017 approved 2026-11-24; review storage/data-model compatibility and approve a bounded C1 Task Contract. |
-| C2 | **My Tasks** | View, create, edit, complete, prioritize, search and filter tasks. | Approve exact task-state, priority, search/filter behavior and regression criteria. |
+| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows. | DR-001, DR-002 and DR-017 approved 2026-11-24; approve the separate R3 implementation Contract #007 and complete live preflight. |
+| C2 | **My Tasks** | View, create, edit, complete, prioritize, search and filter tasks. | Approve task-state, priority, search/filter behavior and regression criteria. |
 | C3 | **Projects** | Organize tasks into personal projects or work areas. | Resolve DR-003 project-removal behavior before implementation. |
 | C4 | **Templates** | Understand, preview, customize and apply Role Starter Kits. | Resolve DR-004 repeat-application behavior and DR-015 packaging before dependent implementation. |
 | C5 | **Settings & Backup** | Understand preferences, browser workspace, JSON export and restore. | Resolve DR-006 restore conflict/replacement semantics and define safe synthetic-data tests. |
@@ -30,20 +30,23 @@ A task must appear only once in My Day. C1 follows the Product Definition and cu
 
 ### Approved C1 Product/UX decisions
 
-| Decision | Current status | Proposed default in existing UX material | Required action |
+| Decision | Current status | Approved outcome | Implementation detail |
 |---|---|---|---|
-| DR-001 — Upcoming horizon | APPROVED — 2026-11-24 | Next 7 calendar days | Define date boundaries and tests in Contract #006. |
-| DR-002 — Today's Focus lifetime/reset | APPROVED — 2026-11-24 | Expires at next local calendar day | Define storage semantics and day-boundary tests in Contract #006. |
-| DR-017 — Timezone source and editing | APPROVED — 2026-11-24 | Browser IANA timezone detection with user correction | Define persistence and fallback behavior in Contract #006. |
+| DR-001 — Upcoming horizon | APPROVED — 2026-11-24 | Next 7 calendar days | The C1 proposal defines tomorrow through today + 7 calendar days, inclusive, for Owner review. |
+| DR-002 — Today's Focus lifetime/reset | APPROVED — 2026-11-24 | Expires at next local calendar day | The C1 proposal stores a date-only focus marker and derives expiry by comparing it with today. |
+| DR-017 — Timezone source and editing | APPROVED — 2026-11-24 | Browser IANA timezone detection with user correction | The C1 proposal stores a validated IANA timezone in workspace settings. |
 
-These three decisions are approved for C1. C1 implementation must not begin until Contract #006 is separately approved and an explicit execution authorization is issued.
+These decisions are approved for C1 and must not be treated as pending. The migration and implementation details in the C1 brief remain proposals for Owner review.
 
 ### Current C1 preparation
 
 - [C1 — My Day Decision Brief](C1_MY_DAY_DECISION_BRIEF_V0.1.md)
-- [C1 Task Contract #006 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml)
+- [C1 Readiness Contract #006 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml)
+- [C1 Implementation Contract #007 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml)
 
-**Prompt #0006 has not been allocated.** It will be prepared only after the C1 Contract and relevant Product Owner decisions are approved. When a GAIS prompt is issued, it must follow the Vietnamese-first Prompt Delivery Standard: learner explanation, copy-ready prompt, and post-run review instructions.
+**Contract roles are separate:** #006 is an R1 documentation/readiness proposal. #007 is a separate R3 C1 implementation proposal. Both remain DRAFT_NOT_APPROVED until the Human Owner decides. Approval of #006 does not approve #007.
+
+**Prompt #0006 has not been allocated.** It may be prepared only after Contract #007 is approved, its exact scope/budget are settled, and the Human Owner separately authorizes execution. The prompt must follow the Vietnamese-first Prompt Delivery Standard: learner explanation, copy-ready prompt, and post-run review instructions.
 
 ## Product and implementation boundaries
 
