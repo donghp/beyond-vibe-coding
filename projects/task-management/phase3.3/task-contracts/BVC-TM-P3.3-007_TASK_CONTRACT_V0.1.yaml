@@ -16,7 +16,7 @@ task:
     Contract does not authorize execution.
   parent_task_id: "BVC-TM-P3.3-006"
   requested_by: "AI-prepared implementation proposal for Human Owner review on 2026-11-24"
-  risk_level: R3
+  risk_level: R4
   risk_rationale: >-
     My Day changes shared task-state handling, date calculations, workspace
     migration and cross-section business rules. The project risk policy
@@ -62,6 +62,7 @@ authority:
     purpose: "C1 decision and compatibility readiness; not implementation authority"
   execution_authorization: "NOT_GRANTED"
   authorization_status: "DRAFT_ONLY; NOT_APPROVED; NOT_AUTHORIZED_FOR_EXECUTION"
+  domain_approval_status: "NOT_DESIGNATED; REQUIRED_BEFORE_EXECUTION"
 
 intent:
   expected_outcome: >-
@@ -80,16 +81,30 @@ intent:
     - "Cloud synchronization, database, Supabase, Auth, RLS, APIs or external services."
 
 risk:
-  level: R3
+  level: R4
   policy_ref: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
   rationale: >-
-    Shared task-state transformation, section-placement business rules,
-    timezone-dependent date calculations and persisted workspace migration
-    cross the single-component boundary in business behavior. The proposed
-    implementation remains one app file, but the project policy classifies
-    this business-logic risk as R3 rather than lowering risk by file count.
-  reversibility: "RECOVERABLE_IF_V1_KEY_IS_PRESERVED_AND_V2_VALIDATION_PASSES"
-  verification_level: "EVIDENCE_LEVEL_3_FOR_PERSISTED_DATA_BEHAVIOR"
+    The task migrates and changes handling of personal workspace task data
+    stored in the learner's browser. The project Risk Policy classifies work
+    affecting personal data as R4 even though the implementation is limited
+    to one application file and does not use a database. Cross-section task
+    placement and timezone business rules are additional impacts; file count
+    does not lower the risk category.
+  policy_ref: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
+  impact_factors:
+    - "personal_data"
+  reversibility: "LIMITED"
+  reversibility_note: >-
+    The unchanged v1 key is the original pre-migration checkpoint only. It is
+    not a rolling backup and does not include tasks or edits created after v2
+    becomes active. A code downgrade or post-migration rollback requires a
+    separate Owner-approved recovery procedure that preserves the current v2
+    payload and proves the v1-compatible projection before any overwrite.
+  minimum_verification: "EVIDENCE_LEVEL_3 for migration/data integrity; EVIDENCE_LEVEL_4 for actual Preview behavior and Owner-observed user outcomes."
+  domain_review_required: >-
+    Human Owner must designate and obtain approval from the relevant Data
+    Privacy / Security domain reviewer before any execution involving the
+    learner's persisted personal workspace data.
 
 required_context:
   - reference: "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
@@ -230,7 +245,7 @@ data_contract:
       - "Resolve the initial timezone from browser IANA detection; if detection is unavailable or invalid, ask the user to supply a valid IANA timezone before migration."
       - "Validate all v2 fields and relationships before writing."
       - "Write the complete v2 envelope once to the v2 key, read it back, parse it and validate it before activating v2."
-      - "Keep the v1 key unchanged as a recovery copy throughout C1; no cleanup/deletion is permitted."
+      - "Keep the original v1 key unchanged as the pre-migration checkpoint throughout C1; do not call it a rolling backup or claim it alone supports rollback after v2 writes."
       - "If migration or read-back fails, do not overwrite v1, do not claim success, show a truthful recoverable error and stop mutations."
       - "If neither key exists, start with an empty in-memory workspace; do not persist an empty workspace on mount."
     unknown_or_malformed_data:
@@ -354,12 +369,16 @@ recovery:
     - "Inspect localStorage v1 key/value read-only and preserve the original payload."
     - "Confirm no competing writer or unsaved/dirty editor state."
   rollback:
-    - "Do not delete v1."
-    - "If v2 migration fails, stop writes and retain the v1 source unchanged."
-    - "If implementation is rejected, restore through an Owner-reviewed app-code recovery process; do not improvise a destructive browser-storage reset."
+    - "Do not delete or mutate the original v1 key during normal C1 migration."
+    - "If v2 migration or read-back fails before v2 activation, stop writes and retain the v1 source unchanged."
+    - "The v1 key is not a current-state backup after v2 becomes active and new changes are saved."
+    - "Before approving execution, define and test an Owner-approved code-downgrade/recovery procedure: stop writes; preserve the full current v2 payload; validate every task id/title; define how a v1-compatible projection is produced without discarding the v2 payload; then require explicit Owner approval before any v1-key replacement."
+    - "Do not attempt automatic rollback, delete v2, overwrite v1, or claim recoverability when the tested recovery procedure is unavailable."
+    - "If implementation is rejected, use an Owner-reviewed app-code and data recovery process; do not improvise a destructive browser-storage reset."
+
   stop_conditions:
     - "Any task ID/title mismatch or unexplained record-count difference."
-    - "Any v1 source mutation or v2 validation failure."
+    - "Any v1 source mutation, v2 validation failure, or missing tested post-migration rollback/recovery procedure."
     - "Any unexpected source file change or diff-budget overrun."
 
 authority:
