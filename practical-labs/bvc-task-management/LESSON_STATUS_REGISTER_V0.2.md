@@ -56,7 +56,7 @@ Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 is APPROVED and governs the 
 
 | Lesson group | Status | Required dependency / evidence |
 |---|---|---|
-| C1 — My Day | **ACTIVE PREPARATION — CONTRACT REVIEW / IMPLEMENTATION GATES OPEN** | DR-001, DR-002, DR-017 and DR-020 are approved and canonical on main (PR #83 and PR #86). The C1 decision brief, R1 readiness Contract #006 Revision 2, and R4 implementation Contract #007 Revision 1 are published on main for Owner review. | Both Contracts remain `DRAFT_NOT_APPROVED`. Contract #007 requires separate Owner approval, R4 Data Privacy/Security domain review, tested post-migration recovery, explicit execution authorization and fresh live GAIS/single-writer preflight. Prompt #0006 remains `NOT_ALLOCATED`; no GAIS change is authorized. |
+| C1 — My Day | **CONTRACT #007 OWNER-APPROVED — R4 EXECUTION GATES OPEN** | DR-001, DR-002, DR-017 and DR-020 are approved and canonical on main. Human Owner approved Contract #007 Revision 1 on 2026-11-24; its approval record is proposed in PR #88. Contract #006 Revision 2 remains a separate R1 readiness draft. | Contract approval is not execution authorization. Designate/obtain Data Privacy/Security domain approval, test and approve post-migration recovery, obtain separate explicit execution authorization, then complete fresh live GAIS/single-writer preflight. Prompt #0006 remains `NOT_ALLOCATED`; no GAIS change is authorized. |
 | C2 — My Tasks | Planned | Approved task behavior, search/filter, status, and priority checks. |
 | C3 — Projects | Planned | Approved project behavior and removal semantics. |
 | C4 — Templates | Planned | Approved Starter Kit package and repeat-application behavior. |
@@ -108,4 +108,4 @@ The Human Owner approved the four Product/UX decisions for C1 — My Day on 2026
 
 DR-001, DR-002 and DR-017 were published in the canonical Product/UX Decision Register through PR #83; DR-020 was added through merged PR #86. All four outcomes are canonical on main.
 
-This update does not change Phase B acceptance. Contract #006 Revision 2 and Contract #007 Revision 1 are separately published on main but remain `DRAFT_NOT_APPROVED`. The v1-to-v2 compatibility design remains proposed for Owner review, Prompt #0006 remains `NOT_ALLOCATED`, and GAIS implementation is not authorized.
+This update does not change Phase B acceptance. The Human Owner approved Contract #007 Revision 1 on 2026-11-24; its approval record is proposed in PR #88. Contract #006 Revision 2 remains `DRAFT_NOT_APPROVED` and readiness-only. Contract #007 execution remains blocked pending the R4 domain approval, tested post-migration recovery, separate explicit execution authorization and fresh live GAIS preflight. Prompt #0006 remains `NOT_ALLOCATED`, and GAIS implementation is not authorized.
