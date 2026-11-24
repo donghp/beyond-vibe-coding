@@ -24,10 +24,10 @@ project:
     url: "https://github.com/donghp/beyond-vibe-coding"
     default_branch: "main"
   baseline:
-    source_commit: "a586d4fa47af2fb83330667af5577a0ff1db0db5"
+    source_commit: "142dfab373f0578c6134c8cbb2f1c0000cb8a5a2"
     source_branch: "main"
     baseline_verified: true
-    baseline_note: "Live main HEAD verified after PR #84 merged; this Contract remains a draft proposal."
+    baseline_note: "Live main HEAD verified after PR #85 merged at 142dfab373f0578c6134c8cbb2f1c0000cb8a5a2; this Contract remains a draft proposal."
     architecture_baseline_refs:
       - "projects/task-management/product/BVC_TASK_MANAGEMENT_PRODUCT_DEFINITION_V0.2.0.md"
       - "projects/task-management/design/architecture/v0.1/PHASE3_2_ARCHITECTURE_REVIEW_AND_ACCEPTANCE.md"
@@ -130,6 +130,9 @@ dependencies:
   - reference: "DR-017"
     relationship: "OWNER_DECISION_APPROVED"
     reason: "Detect browser IANA timezone on first use and allow user correction."
+  - reference: "DR-020"
+    relationship: "OWNER_DECISION_APPROVED"
+    reason: "Supplemental Unscheduled section approved for active tasks without due date and without Focus active today."
   - reference: "B2 workspace formatVersion 1"
     relationship: "COMPATIBILITY_REVIEW_REQUIRED"
     reason: "Preserve existing workspaceId, task IDs and titles while introducing C1 fields."

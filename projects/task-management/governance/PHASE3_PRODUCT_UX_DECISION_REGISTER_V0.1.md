@@ -130,15 +130,16 @@ The UX documents remain versioned as the original v0.1.0 design package. They we
 | DR-019 | Supabase Auth method and recovery flow | Security & Environment Design §3 | Choose one supported method (email/password or magic link) and document its recovery flow | OPEN | Must be resolved before the first Intermediate Auth implementation task |
 ### 3.4 Human Owner approvals — C1 My Day (2026-11-24)
 
-The Human Owner explicitly approved the three proposed defaults for C1 on 2026-11-24. These outcomes are canonical Product/UX decisions:
+The Human Owner explicitly approved the C1 Product/UX decisions recorded below on 2026-11-24. These outcomes are canonical Product/UX decisions:
 
 | Canonical ID | Approved outcome | Effective C1 behavior |
 |---|---|---|
 | DR-001 | Upcoming covers the next **7 calendar days**. | Use a seven-calendar-day Upcoming horizon. The C1 implementation Contract must state date boundaries and tests. |
 | DR-002 | Today's Focus is scoped to the **current local calendar date** and automatically expires at the next local calendar day. | Focus is a daily marker, not task status, priority or project. |
 | DR-017 | Detect the browser's **IANA timezone on first use** and allow the user to correct it. | Use the selected IANA timezone for date grouping and day-boundary calculations; the implementation Contract must define persistence and fallback behavior. |
+| DR-020 | Add a supplemental **Unscheduled** section after Upcoming and before Add task. | Preserve the first four My Day priority sections in their existing order. Show each active task without a due date and without Focus active today once in Unscheduled. Exclude completed tasks; never invent a due date or Focus. |
 
-**Decision authority:** Human Owner / Product Owner. **Decision date:** 2026-11-24. **Source:** explicit Owner approval in ChatGPT on 2026-11-24. These approvals resolve DR-001, DR-002 and DR-017 for C1. They do not approve Contract #006 or authorize GAIS implementation.
+**Decision authority:** Human Owner / Product Owner. **Decision date:** 2026-11-24. **Source:** explicit Owner approval in ChatGPT on 2026-11-24. These approvals resolve DR-001, DR-002, DR-017 and DR-020 for C1. DR-020 was explicitly approved by the Human Owner on 2026-11-24. They do not approve Contract #006 or #007, grant the required R4 domain approval, or authorize GAIS implementation.
 
 ### 3.5 Phase 3.2 architecture decision crosswalk (ODEC)
 

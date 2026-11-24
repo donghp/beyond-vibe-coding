@@ -9,7 +9,7 @@ Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Pha
 
 | Lesson | Learning area | What the learner will learn | Gate before implementation |
 |---|---|---|---|
-| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows. | DR-001, DR-002 and DR-017 approved 2026-11-24; resolve C1-OPEN-001 legacy-task visibility, approve the separate R4 implementation Contract #007, complete domain review and live preflight. |
+| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows, including the Unscheduled section for undated active tasks. | DR-001, DR-002, DR-017 and DR-020 approved 2026-11-24; implement DR-020's approved Unscheduled placement, approve the separate R4 implementation Contract #007, complete domain review and live preflight. |
 | C2 | **My Tasks** | View, create, edit, complete, prioritize, search and filter tasks. | Approve task-state, priority, search/filter behavior and regression criteria. |
 | C3 | **Projects** | Organize tasks into personal projects or work areas. | Resolve DR-003 project-removal behavior before implementation. |
 | C4 | **Templates** | Understand, preview, customize and apply Role Starter Kits. | Resolve DR-004 repeat-application behavior and DR-015 packaging before dependent implementation. |
@@ -18,15 +18,16 @@ Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Pha
 
 ## C1 — My Day: first entry point
 
-The approved Product Definition v0.2.0 §7.2 defines this order:
+The Product Definition v0.2.0 §7.2 defines the four priority sections and Add task action. DR-020 adds one supplemental group for undated active work:
 
 1. Overdue
 2. Due Today
 3. Today's Focus
 4. Upcoming
-5. Add task
+5. Unscheduled — supplemental group for active tasks with no due date and no Focus active today
+6. Add task
 
-A task must appear only once in My Day. C1 follows the Product Definition and current UX journey. The Human Owner approved DR-001, DR-002 and DR-017 for C1 on 2026-11-24; see the canonical Product/UX Decision Register §3.4.
+A task must appear only once in My Day. The four priority sections retain their Product Definition order; Unscheduled is supplemental and Add task remains last. The Human Owner approved DR-001, DR-002, DR-017 and DR-020 for C1 on 2026-11-24; see the proposed canonical Decision Register update in PR #86.
 
 ### Approved C1 Product/UX decisions
 
@@ -35,7 +36,7 @@ A task must appear only once in My Day. C1 follows the Product Definition and cu
 | DR-001 — Upcoming horizon | APPROVED — 2026-11-24 | Next 7 calendar days | The C1 proposal defines tomorrow through today + 7 calendar days, inclusive, for Owner review. |
 | DR-002 — Today's Focus lifetime/reset | APPROVED — 2026-11-24 | Expires at next local calendar day | The C1 proposal stores a date-only focus marker and derives expiry by comparing it with today. |
 | DR-017 — Timezone source and editing | APPROVED — 2026-11-24 | Browser IANA timezone detection with user correction | The C1 proposal stores a validated IANA timezone in workspace settings. |
-| C1-OPEN-001 — Legacy task visibility | OWNER DECISION REQUIRED | Two existing B2 tasks have no due date or Focus | Recommended supplemental Unscheduled section after Upcoming; alternative is disclosed deferral to C2. |
+| DR-020 — Legacy task visibility | APPROVED — 2026-11-24 | Supplemental Unscheduled section after Upcoming and before Add task | Both legacy tasks appear once without inventing dates or Focus. |
 
 These decisions are approved for C1 and must not be treated as pending. The migration and implementation details in the C1 brief remain proposals for Owner review.
 
@@ -45,7 +46,7 @@ These decisions are approved for C1 and must not be treated as pending. The migr
 - [C1 Readiness Contract #006 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml)
 - [C1 Implementation Contract #007 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml)
 
-**Contract roles are separate:** #006 is an R1 documentation/readiness proposal. #007 is a separate R4 C1 implementation proposal. Both remain DRAFT_NOT_APPROVED until the Human Owner decides. Contract #007 also requires Data Privacy/Security domain review and resolution of C1-OPEN-001. Approval of #006 does not approve #007.
+**Contract roles are separate:** #006 is an R1 documentation/readiness proposal. #007 is a separate R4 C1 implementation proposal. Both remain DRAFT_NOT_APPROVED until the Human Owner separately approves them. Contract #007 also requires Data Privacy/Security domain review and tested post-migration recovery; DR-020 is approved by the Human Owner; its canonical register update is submitted in PR #86. Approval of #006 does not approve #007.
 
 **Prompt #0006 has not been allocated.** It may be prepared only after Contract #007 is approved, its exact scope/budget are settled, and the Human Owner separately authorizes execution. The prompt must follow the Vietnamese-first Prompt Delivery Standard: learner explanation, copy-ready prompt, and post-run review instructions.
 

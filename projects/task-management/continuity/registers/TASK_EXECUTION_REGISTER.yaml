@@ -198,7 +198,7 @@ tasks:
   execution_status: NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION
   risk_level: R1
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml
-  publication_status: REVISION_1_CANONICAL_DRAFT_ON_MAIN; REVISION_2_PROPOSAL_IN_PR_85
+  publication_status: REVISION_2_CANONICAL_DRAFT_ON_MAIN
   scope: "Documentation and Product Owner decision preparation only. No GAIS source, runtime data, schema, or Product/UX decision status changes."
   dependencies:
   - "DR-001 — Upcoming horizon: OWNER_DECISION_APPROVED_2026-11-24; next 7 calendar days"
@@ -208,7 +208,7 @@ tasks:
   evidence_refs:
   - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml"
-  next_action: "Human Owner review of the C1 readiness package and separate Contract #007 implementation proposal. Contract #006 is R1 documentation/readiness only; Contract #007 is a separate R4 implementation authority and remains DRAFT_NOT_APPROVED; C1-OPEN-001 legacy-task visibility also requires explicit Owner decision. Do not allocate Prompt #0006 or modify GAIS source until Contract #007 is approved and explicit execution authorization plus fresh live preflight are complete."
+  next_action: "Human Owner review of the C1 readiness package and separate Contract #007 implementation proposal. Contract #006 is R1 documentation/readiness only; Contract #007 is a separate R4 implementation authority and remains DRAFT_NOT_APPROVED; DR-020 is approved and must be implemented exactly. Do not allocate Prompt #0006 or modify GAIS source until Contract #007 is approved and explicit execution authorization plus fresh live preflight are complete."
 
 - task_id: BVC-TM-P3.3-007
   contract_id: BVC-TM-TC-007
@@ -218,21 +218,21 @@ tasks:
   execution_status: NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION
   risk_level: R4
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml
-  publication_status: PROPOSAL_IN_PR_85; NOT_APPROVED
-  scope: "Existing GAIS Beginner app only; proposed MODIFY app/page.tsx, one changed file, maximum 500 diff lines; v1-to-v2 Local Storage migration, date-aware My Day sections and timezone correction. No dependencies, config, database, Auth or external services."
+  publication_status: PROPOSAL_IN_PR_86; NOT_APPROVED
+  scope: "Existing GAIS Beginner app only; proposed MODIFY app/page.tsx, one changed file, maximum 500 diff lines; v1-to-v2 Local Storage migration, date-aware My Day sections including DR-020 Unscheduled placement and timezone correction. No dependencies, config, database, Auth or external services."
   dependencies:
   - "C1 readiness package / Contract #006 Revision 2: OWNER_REVIEW_REQUIRED"
   - "DR-001 — Upcoming horizon: OWNER_DECISION_APPROVED_2026-11-24; next 7 calendar days"
   - "DR-002 — Today's Focus lifetime/reset: OWNER_DECISION_APPROVED_2026-11-24; current local date, expires next local day"
   - "DR-017 — Timezone source and editing: OWNER_DECISION_APPROVED_2026-11-24; browser IANA detection and user correction"
   - "B2 workspace formatVersion 1: migration and preservation required"
-  - "C1-OPEN-001: Owner decision required for visibility of two undated legacy B2 tasks"
+  - "DR-020 — OWNER_DECISION_APPROVED_2026-11-24; supplemental Unscheduled section after Upcoming and before Add task"
   evidence_refs:
   - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-preview-after-refresh.webp"
-  next_action: "Await separate Human Owner approval of Contract #007 Revision 1 and explicit execution authorization. Then perform fresh live GAIS app/source and single-writer preflight. Prompt #0006 remains NOT_ALLOCATED."
+  next_action: "Await separate Human Owner approval of Contract #007 Revision 1, Data Privacy/Security domain approval, tested post-migration recovery and explicit execution authorization. Then perform fresh live GAIS app/source and single-writer preflight. Prompt #0006 remains NOT_ALLOCATED."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
