@@ -277,3 +277,12 @@ evidence:
   artifact_dimensions: "520x575"
   claim: "The post-refresh GAIS Preview shows Prepare weekly work plan followed by Review project milestones. Each previously stored task appears exactly once and in the same insertion order. Together with BVC-EV-036, which shows the matching data.tasks records before refresh, this supplies Owner screenshot evidence for B2-AC-004."
   limitations: "The screenshot is a visual capture of the refreshed Preview, not a browser automation trace. B1 interactive regression, responsive viewport checks, malformed-data/storage-error runtime tests and B2-AC-010 final Owner acceptance remain pending. Asset publication is canonical on main through PR #75 (merge commit d1142cbbb8f5473bd5832d477657db1efa71af26)."
+
+- evidence_id: BVC-EV-038
+  subject: Phase B Owner acceptance and declaration of closure
+  classification: OWNER_SUPPLIED
+  source: "Human Owner explicit declaration in ChatGPT on 2026-11-24, accepting all four Phase B lessons, available evidence and continuity, and directing transition to Phase C"
+  observed_at: '2026-11-24'
+  artifact_path: "practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md"
+  claim: "The Human Owner accepted B1, B2, B3 and B4, the available evidence and continuity, and declared Phase B closed. This is phase-level learning-path acceptance with known limitations."
+  limitations: "Individual test results previously recorded as NOT_RUN or NOT_VERIFIED remain unchanged. This decision does not convert unrun malformed-data/storage-error simulations, missing B3/B4 evidence or other undocumented tests into PASS. It does not imply product release or formal Phase 3.1 UX acceptance."
