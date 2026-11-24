@@ -5,7 +5,13 @@
 
 **Learning level:** Beginner  
 **Learning outcome:** Confirm that a task saved in B2 is still available after the app is reloaded or reopened.  
-**Lesson status:** Planned — requires an implemented B2 save flow and actual same-profile runtime evidence.
+**Lesson status:** `OWNER_ACCEPTED_WITH_KNOWN_EVIDENCE_LIMITATIONS` — accepted by the Human Owner in the Phase B closeout decision on 2026-11-24. The available B2 same-profile Preview refresh screenshot supports task restoration; a separate B3 close-tab/reopen evidence sequence is not independently archived.
+
+## Owner acceptance record — 2026-11-24
+
+The Human Owner explicitly accepted B3 as part of the four-lesson Phase B learning path. The evidence already published for B2 shows the two saved tasks restored after Preview refresh. No separate close-tab/reopen screenshot set is claimed. This limitation is preserved rather than turning an unrecorded exercise into a test PASS.
+
+See [Phase B Acceptance & Closeout Record](../PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md).
 
 ## 1. Why this lesson matters
 
@@ -73,7 +79,7 @@ Beginner browser storage is local to the current browser profile and application
 
 ## 7. Next lesson
 
-After B1–B3 are working and accepted, continue to [B4 — Improve One Small Thing](../b4-improve-one-small-thing/README.md).
+The Human Owner has accepted Phase B. Continue to [Phase C — Make It Useful Every Day](../../phase-c/README.md).
 
 ---
 
