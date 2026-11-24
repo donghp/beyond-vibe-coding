@@ -591,7 +591,59 @@ Human Owner xác nhận ảnh dưới đây được chụp sau khi refresh lạ
 - **B2-AC-001, AC-005, AC-006, AC-007 và AC-009:** vẫn cần hoàn tất kiểm thử theo checklist mục 6. Storage read/write error simulation chỉ được thực hiện nếu có phương pháp an toàn; nếu không, giữ runtime simulation là NOT_RUN và ghi nhận static exception-path review riêng.
 
 
-## 7.5 Troubleshooting — “The dev server didn't start”
+## 7.5 B2 final verification run — hướng dẫn newbie
+
+Mục tiêu của lượt này là kiểm tra các hành vi còn thiếu mà không yêu cầu Gemini viết lại B2. Giữ nguyên Contract #005 Revision 1: không sửa source nếu chưa phát hiện lỗi cụ thể và chưa có quyết định xử lý phù hợp.
+
+### A. Kiểm tra B1 trên Preview hiện tại
+
+Thực hiện trong GAIS Preview đang giữ hai task mẫu:
+
+1. Để trống ô **Task title**, bấm **Add task**. Kết quả mong đợi: hiện đúng thông báo `Please enter a task title.`; danh sách không tăng thêm task.
+2. Nhập ba dấu cách, bấm **Add task**. Kết quả mong đợi: cùng thông báo trên; danh sách vẫn không tăng thêm task.
+3. Nhập `  B1 regression — Enter key  ` rồi nhấn **Enter** trên bàn phím. Kết quả mong đợi: một task mới có title đã trim là `B1 regression — Enter key`, được thêm cuối danh sách; input được xóa và thông báo lỗi cũ biến mất.
+4. Chụp ảnh Preview để thấy cả ba task theo đúng thứ tự.
+
+**Lưu ý:** B2 không có chức năng xóa task. Bước 3 sẽ lưu task kiểm thử thứ ba vào workspace hiện tại và task này được giữ lại; không tìm cách xóa bằng DevTools hoặc sửa Local Storage.
+
+5. Refresh Preview một lần nữa. Xác nhận ba task vẫn xuất hiện đúng một lần và đúng thứ tự; chụp ảnh sau refresh.
+
+### B. Kiểm tra kích thước desktop và điện thoại
+
+1. Mở Chrome DevTools và bật **Toggle device toolbar** bằng `Ctrl + Shift + M`.
+2. Chọn Responsive và kiểm tra khoảng rộng 390 px, cao khoảng 844 px.
+3. Xác nhận disclosure, nhãn input, ô nhập, nút Add task và danh sách đều đọc được; không có nội dung tràn ngang hoặc điều khiển bị che.
+4. Chuyển về desktop khoảng 1280 × 800 px và xác nhận bố cục vẫn cân đối.
+5. Chụp một ảnh ở kích thước điện thoại và một ảnh desktop.
+
+### C. Kiểm tra first-use và dữ liệu lỗi trong profile dùng một lần
+
+Chỉ sử dụng Chrome Guest hoặc một Chrome profile tạm thời mới. Không xóa, sửa hoặc làm hỏng Local Storage trong profile đang chứa hai task thật của Owner.
+
+1. Mở cùng GAIS application trong profile tạm thời và chờ Preview tải.
+2. Xác nhận workspace ban đầu trống, DR-005 hiển thị đầy đủ và nút Add task chưa cho phép lưu trước khi bấm **Got it — continue**.
+3. Bấm **Got it — continue**, thêm một task thử nghiệm và xác nhận task xuất hiện.
+4. Trong DevTools → Application → Local Storage, chọn đúng origin `ais-dev-...run.app`. Chỉ trong profile tạm thời, sửa value của key `bvc-task-management:workspace:v1` thành chuỗi JSON không hợp lệ, ví dụ `{invalid-json`.
+5. Refresh Preview. Kết quả mong đợi: có thông báo lỗi dễ hiểu, thao tác lưu bị khóa và value lỗi vẫn nguyên vẹn.
+6. Thay value bằng JSON có `formatVersion: 999`, refresh và xác nhận dữ liệu unsupported cũng bị từ chối, không bị tự sửa hoặc ghi đè.
+7. Chụp ảnh từng kết quả. Sau đó đóng profile tạm thời; không cần mang dữ liệu thử nghiệm sang profile chính.
+
+### D. Kiểm tra storage exception và báo cáo
+
+- Nhờ Gemini thực hiện **read-only source review** các nhánh `localStorage.getItem` và `localStorage.setItem`: catch có báo lỗi không, có giữ nguyên tasks/input khi ghi thất bại không, có tránh false success và fallback ngầm không.
+- Không yêu cầu Gemini cài package, tạo API, thay đổi file, hoặc giả lập lỗi bằng cách sửa source.
+- Nếu không có cách mô phỏng lỗi storage an toàn, ghi runtime simulation là `NOT_RUN`; báo cáo riêng kết quả static review. Không đổi NOT_RUN thành PASS.
+
+### E. Hồ sơ cần gửi để review
+
+1. Ảnh Preview sau B1 regression và refresh với ba task.
+2. Ảnh Preview desktop và điện thoại.
+3. Ảnh Guest/profile tạm thời cho first-use disclosure, malformed JSON và unsupported version.
+4. Báo cáo read-only storage exception-path review, tách rõ static review và runtime simulation.
+
+Dùng `PASS`, `FAIL`, `NOT_RUN` hoặc `NOT_VERIFIED` riêng cho từng kiểm tra. Không tuyên bố B2 đã accepted trước khi Human Owner xem bằng chứng và quyết định.
+
+## 7.6 Troubleshooting — “The dev server didn't start”
 
 This recovery note is based on the Human Owner's GAIS screenshot supplied on 2026-11-24.
 
