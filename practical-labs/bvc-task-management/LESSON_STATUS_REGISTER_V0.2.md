@@ -56,7 +56,7 @@ Formal Phase 3.1 UX Acceptance remains OPEN. DR-005 is APPROVED and governs the 
 
 | Lesson group | Status | Required dependency / evidence |
 |---|---|---|
-| C1 — My Day | **ACTIVE PREPARATION — OWNER REVIEW OF C1 READINESS PACKAGE** | DR-001, DR-002, DR-017 and DR-020 are approved. The C1 brief proposes a non-destructive v1-to-v2 migration, date-only task fields, timezone handling and no-duplicate section rules; DR-020 approves a supplemental Unscheduled section after Upcoming and before Add task; separate R1 readiness Contract #006 Rev2 and R4 implementation Contract #007 Rev1 are prepared for review. | Both Contracts remain DRAFT_NOT_APPROVED. Contract #007 must implement DR-020 exactly and requires Data Privacy/Security domain review, explicit execution authorization, tested post-migration recovery and fresh live GAIS/single-writer preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS change is authorized. |
+| C1 — My Day | **ACTIVE PREPARATION — CONTRACT REVIEW / IMPLEMENTATION GATES OPEN** | DR-001, DR-002, DR-017 and DR-020 are approved and canonical on main (PR #83 and PR #86). The C1 decision brief, R1 readiness Contract #006 Revision 2, and R4 implementation Contract #007 Revision 1 are published on main for Owner review. | Both Contracts remain `DRAFT_NOT_APPROVED`. Contract #007 requires separate Owner approval, R4 Data Privacy/Security domain review, tested post-migration recovery, explicit execution authorization and fresh live GAIS/single-writer preflight. Prompt #0006 remains `NOT_ALLOCATED`; no GAIS change is authorized. |
 | C2 — My Tasks | Planned | Approved task behavior, search/filter, status, and priority checks. |
 | C3 — Projects | Planned | Approved project behavior and removal semantics. |
 | C4 — Templates | Planned | Approved Starter Kit package and repeat-application behavior. |
@@ -99,12 +99,13 @@ A successful build is not proof of product behavior. A design package is not pro
 
 ## Phase C1 decision update — 2026-11-24
 
-The Human Owner approved the three Product/UX decisions for C1 — My Day on 2026-11-24:
+The Human Owner approved the four Product/UX decisions for C1 — My Day on 2026-11-24:
 
 - DR-001 — Upcoming horizon: next 7 calendar days.
 - DR-002 — Today's Focus: scoped to the current local calendar date and automatically expires at the next local calendar day.
 - DR-017 — Timezone: detect the browser IANA timezone on first use and allow user correction.
+- DR-020 — Add a supplemental Unscheduled section after Upcoming and before Add task for active tasks without a due date or Focus active today; exclude completed tasks and do not invent dates or Focus markers.
 
-The canonical outcomes are recorded in `projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md` §3.4 and summarized in the C1 Decision Brief.
+DR-001, DR-002 and DR-017 were published in the canonical Product/UX Decision Register through PR #83; DR-020 was added through merged PR #86. All four outcomes are canonical on main.
 
-This update does not change Phase B acceptance. Contract #006 Revision 2 and Contract #007 Revision 1 are separate proposals and remain `DRAFT_NOT_APPROVED`. The v1-to-v2 compatibility design is proposed for Owner review, Prompt #0006 remains `NOT_ALLOCATED`, and GAIS implementation is not authorized.
+This update does not change Phase B acceptance. Contract #006 Revision 2 and Contract #007 Revision 1 are separately published on main but remain `DRAFT_NOT_APPROVED`. The v1-to-v2 compatibility design remains proposed for Owner review, Prompt #0006 remains `NOT_ALLOCATED`, and GAIS implementation is not authorized.
