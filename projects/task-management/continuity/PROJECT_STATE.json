@@ -1,9 +1,9 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 15,
+  "revision": 16,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-21T20:30:00+07:00",
+  "state_as_of": "2026-11-24T19:19:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
@@ -17,7 +17,7 @@
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-B2-SAVE-YOUR-TASK",
     "title": "Phase B2 — Save Your Task",
-    "status": "B2_IMPLEMENTATION_REPORTED; LOCALSTORAGE_KEY_ENVELOPE_AND_TWO_TASK_RECORDS_OWNER_SCREENSHOT_VERIFIED; PREVIEW_REFRESH_RESTORATION_OWNER_SCREENSHOT_VERIFIED; FINAL_OWNER_ACCEPTANCE_PENDING; REMAINING_RUNTIME_CHECKS_PENDING"
+    "status": "B2_IMPLEMENTATION_REPORTED; LOCALSTORAGE_KEY_ENVELOPE_AND_TWO_TASK_RECORDS_OWNER_SCREENSHOT_VERIFIED; PREVIEW_REFRESH_RESTORATION_OWNER_SCREENSHOT_VERIFIED; DEV_SERVER_RECOVERY_REPORTED_WITH_UNCHANGED_SOURCE_HASH; FINAL_OWNER_ACCEPTANCE_AND_REMAINING_CHECKS_PENDING"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -326,6 +326,16 @@
         "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp",
         "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-032",
+      "statement": "On 2026-11-24, the Human Owner supplied a GAIS screenshot after asking Gemini to fix the message 'The dev server didn't start, please fix it'. Gemini reported that node_modules had just finished populating and the Next.js development server had not started. Gemini restarted the development server and reported that no project files were created, modified or deleted; app/page.tsx retained SHA-256 4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e, matching the Stage 2 implementation report. Gemini reported next-server v15.5.29 running, localhost:3000 returning HTTP 200, and localhost:8080 serving the BVC Task Management page. The Owner screenshot shows the Preview working again with both existing tasks visible. This is operational server-recovery evidence; it is not a substitute for the remaining B2 acceptance checks.",
+      "classification": "OWNER_SUPPLIED",
+      "source_refs": [
+        "Human Owner screenshot supplied in ChatGPT on 2026-11-24",
+        "Gemini GAIS response visible in the same screenshot, reporting restart_dev_server, no project file changes, unchanged app/page.tsx SHA-256 and HTTP checks",
+        "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json"
+      ]
     }
   ],
   "decisions": [
@@ -392,11 +402,11 @@
       "contract_revision": 1,
       "status": "APPROVED",
       "owner": "Human Owner operates GAIS; Gemini executes after RC-005 gate; ChatGPT coordinates and reviews",
-      "execution_status": "IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; B2_AC_003_OWNER_SCREENSHOT_VERIFIED; B2_AC_004_OWNER_SCREENSHOT_VERIFIED; REMAINING_RUNTIME_CHECKS_PENDING; OWNER_ACCEPTANCE_PENDING",
+      "execution_status": "IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; B2_AC_003_OWNER_SCREENSHOT_VERIFIED; B2_AC_004_OWNER_SCREENSHOT_VERIFIED; DEV_SERVER_RECOVERY_REPORTED_NO_FILE_CHANGES; REMAINING_RUNTIME_CHECKS_PENDING; OWNER_ACCEPTANCE_PENDING",
       "approval_reference": "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b.",
       "risk_level": "R2",
       "scope": "MODIFY app/page.tsx only; Beginner localStorage task workspace and DR-005 disclosure; no other files, packages, database, Auth or external services.",
-      "next_action": "Complete B1 interactive regression and responsive checks. Assess whether malformed-data/storage-error runtime tests are feasible without altering the Owner's data; use only a disposable profile. Then Human Owner reviews all evidence and explicitly accepts or rejects B2."
+      "next_action": "Complete fresh-profile DR-005 acknowledgement, B1 interactive regression and desktop/compact-phone Preview checks. Test malformed JSON and unsupported format version only in a disposable browser profile; perform a static source review of storage exception paths and attempt runtime failure simulation only if safe. Then Human Owner reviews all evidence and explicitly accepts or rejects B2."
     }
   ],
   "blocked_items": [
@@ -472,7 +482,7 @@
     },
     {
       "action_id": "TM-NEXT-B2-004",
-      "description": "B2 task creation, Local Storage record inspection and Preview refresh restoration are now Owner-screenshot verified. Complete remaining B1 interactive regression, responsive Preview checks and safe malformed-data/storage-error tests; ChatGPT reviews evidence and Human Owner alone accepts.",
+      "description": "B2-AC-003 Local Storage and B2-AC-004 Preview refresh are Owner-screenshot verified. Current GAIS screenshot (2026-11-24) also shows dev-server recovery with app/page.tsx hash unchanged. Complete fresh-profile DR-005 interaction, full B1 regression, desktop/mobile responsive checks, malformed/unsupported data in a disposable profile, and static storage exception-path review. Do not repeat Stage 2 or modify source unless a defect is found.",
       "priority": "URGENT",
       "owner": "Gemini / ChatGPT / Human Owner",
       "related_task_id": "BVC-TM-P3.3-005"
@@ -500,18 +510,18 @@
     },
     {
       "action_id": "TM-NEXT-B2-008",
-      "description": "COMPLETED: Local Storage overview, expanded task-record and Preview-after-refresh screenshot walkthroughs have been embedded/registered in the B2 lesson through the pending refresh-evidence PR.",
+      "description": "COMPLETED: Local Storage overview, expanded task-record and Preview-after-refresh screenshots are canonical through PRs #71, #73 and #75.",
       "priority": "NORMAL",
       "owner": "ChatGPT",
       "related_task_id": "BVC-TM-P3.3-005"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@d1142cbbb8f5473bd5832d477657db1efa71af26 (PR #75 squash-merge; BVCTM-056 and BVC-EV-037 canonical)",
-    "source_commit": "d1142cbbb8f5473bd5832d477657db1efa71af26",
+    "recovery_point_ref": "main@6decd4a26deaa2ed2daa99dff4a9b9bddf5a50e1 (base for Phase B index/troubleshooting synchronization)",
+    "source_commit": "6decd4a26deaa2ed2daa99dff4a9b9bddf5a50e1",
     "verified": true,
-    "last_verified_at": "2026-11-21T20:30:00+07:00",
-    "notes": "PR #75 merged at d1142cbbb8f5473bd5832d477657db1efa71af26. BVCTM-056 and BVC-EV-037 (GAIS Preview after-refresh screenshot) are canonical on main. B2-AC-003 and B2-AC-004 have Owner screenshot evidence. Final B2-AC-010 Owner acceptance is still pending; B1 interactive regression, responsive Preview checks and safe malformed-data/storage-error runtime checks remain outstanding. B3 implementation requires a separately approved Contract #006; no such authorization is implied."
+    "last_verified_at": "2026-11-24T19:19:00+07:00",
+    "notes": "PR #75 is canonical on main at d1142cbbb8f5473bd5832d477657db1efa71af26. B2-AC-003 and B2-AC-004 have Owner screenshot evidence. On 2026-11-24 Gemini reported a dev-server restart with no project-file changes and unchanged app/page.tsx SHA-256 4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e; the Owner screenshot shows Preview and both existing tasks visible. Fresh-profile DR-005, B1 regression, responsive and malformed-data checks, storage exception-path review, and final Owner acceptance remain pending. B3 remains gated on B2 acceptance and a separately approved Contract #006."
   },
-  "updated_by": "AI-prepared Project State revision 15; records PR #75 squash-merge and canonicalizes B2 post-refresh evidence. B2 final Owner acceptance and remaining checks are pending."
+  "updated_by": "AI-prepared Project State revision 16; records 2026-11-24 GAIS server recovery report and updates Phase B remaining checks; no GAIS code or approved Contract changed."
 }

@@ -3,7 +3,7 @@
 **Learning level:** Beginner  
 **Theme:** First Vertical Slice  
 **Environment:** The existing BVC Task Management project in Google AI Studio (GAIS)  
-**Learning status:** B1 was accepted with known limitations on 2026-11-12. B2 Contract #005 Revision 1 is approved; RC-001 through RC-005 passed and Stage 2 was authorized by the Owner on 2026-11-18. Gemini reports implementation in `app/page.tsx`; live storage/reload verification and Owner acceptance remain pending.
+**Learning status:** B1 was accepted with known limitations on 2026-11-12. B2 Contract #005 Revision 1 is approved and Stage 2 was authorized on 2026-11-18. Gemini reports implementation in `app/page.tsx`; Owner screenshots now verify the Local Storage records and restoration after Preview refresh (PRs #73 and #75). B2 final acceptance remains pending while the remaining interactive, responsive and error-path checks are completed.
 
 Phase B turns the blank scaffold from Phase A into a small, useful task manager. Build and understand one outcome at a time. Do not ask AI to create the whole product in one request.
 
@@ -12,7 +12,7 @@ Phase B turns the blank scaffold from Phase A into a small, useful task manager.
 | Lesson | What you will learn | What must be true before moving on |
 |---|---|---|
 | [B1 — Create Your First Task](b1-create-your-first-task/README.md) | Enter a title, add a task, and see it in a list. The first version uses temporary page memory. | Owner-accepted on 2026-11-12 with known verification limitations; see the lesson record. |
-| [B2 — Save Your Task](b2-save-your-task/README.md) | Save the task in the current browser profile using the approved Beginner storage approach. | The save behavior is tested and the app gives truthful feedback. |
+| [B2 — Save Your Task](b2-save-your-task/README.md) | Save the task in the current browser profile using the approved Beginner storage approach. | Local Storage records and Preview refresh restoration have Owner screenshot evidence; remaining regression, responsive and error-path checks plus final Owner acceptance are complete. |
 | [B3 — Close and Reopen](b3-close-and-reopen/README.md) | Reload or reopen the app in the same browser profile. | The previously saved task is still available. |
 | [B4 — Improve One Small Thing](b4-improve-one-small-thing/README.md) | Ask AI for one bounded improvement and protect the existing behavior. | The improvement works and B1–B3 regression checks still pass. |
 
@@ -22,7 +22,7 @@ B1 was accepted by the Human Owner on 2026-11-12 as `COMPLETED_ACCEPTED_WITH_KNO
 
 **DR-005 — first-use storage disclosure:** APPROVED by the Human Owner on 2026-11-13. The exact Beginner notice and placement are recorded in the B2 lesson and the canonical Product/UX Decision Register.
 
-**B2 implementation has been reported by Gemini, but acceptance remains open.** The report records one modified file (`app/page.tsx`), build and lint success, and static review of the browser-storage logic. The Owner must still verify first-use acknowledgement, task creation, Local Storage contents, refresh/reload persistence and B1 interactive regression in the live Preview. Follow the B2 lesson verification checklist; a static source review or success message alone is not proof of persistence.
+**B2 implementation is reported complete; final acceptance remains open.** Gemini reports one modified file (`app/page.tsx`), build and lint success, and static review of browser-storage logic. Owner screenshots verify the exact Local Storage key/envelope, both saved task records, and restoration of both tasks after Preview refresh. The remaining work is the fresh-session acknowledgement check, full B1 interactive regression, responsive Preview review, safe malformed-data testing in a disposable profile, and a static review of storage exception handling (runtime storage-failure simulation remains NOT_RUN unless a safe method is available). Follow the B2 lesson checklist; do not repeat Stage 2 or modify code unless a real defect is found.
 
 ## The most important distinction: create first, save next
 
