@@ -90,7 +90,6 @@ risk:
     to one application file and does not use a database. Cross-section task
     placement and timezone business rules are additional impacts; file count
     does not lower the risk category.
-  policy_ref: "projects/task-management/governance/BVC_TASK_MANAGEMENT_RISK_POLICY_V0.1.md"
   impact_factors:
     - "personal_data"
   reversibility: "LIMITED"
@@ -325,6 +324,9 @@ acceptance_criteria:
   - id: "AC-010"
     statement: "B1/B2 task capture and persistence behavior regressions are tested; no database, Auth, external service or out-of-scope file is changed."
     required: true
+  - id: "AC-011"
+    statement: "A post-migration code-downgrade/recovery procedure is documented, tested against a copy of the v2 workspace and approved by the Human Owner and the designated Data Privacy / Security domain reviewer before any production-like use."
+    required: true
 
 verification:
   required: true
@@ -361,6 +363,14 @@ verification:
     - id: "VC-008"
       kind: "BUILD_AND_STATIC_CHECKS"
       description: "Run the actual project's available build, type and lint checks and preserve their outputs; do not infer success."
+      required: true
+    - id: "VC-009"
+      kind: "R4_DOMAIN_REVIEW"
+      description: "Obtain the Human Owner-designated Data Privacy / Security domain review of the data flow, Local Storage handling, migration safety, failure modes and recovery procedure before execution."
+      required: true
+    - id: "VC-010"
+      kind: "POST_MIGRATION_ROLLBACK"
+      description: "Test a documented downgrade/recovery against a copy of the v2 workspace; preserve all v2 fields and prove that the recovery path does not silently discard task IDs or titles."
       required: true
 
 recovery:
