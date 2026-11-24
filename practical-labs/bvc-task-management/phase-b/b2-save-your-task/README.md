@@ -77,13 +77,17 @@ A success message alone is not proof that data was saved. B2 Contract requires i
 
 ## 6. B2 completion checklist
 
-- [x] DR-005 is approved and published through PR #62; the actual GAIS disclosure still requires runtime verification.
+- [x] DR-005 is approved and published through PR #62; the approved copy is visible in the live Preview.
 - [x] BVC-TM-TC-005 Revision 1 is Owner-approved and canonical on main through PR #64.
-- [ ] Beginner storage uses only the approved browser-local approach.
-- [ ] No external database, account, or cloud sync has been added.
-- [ ] The saved workspace can be loaded after a reload.
-- [ ] Storage errors are reported truthfully.
-- [ ] The learner understands that clearing browser site data may remove the workspace.
+- [x] Gemini reports the approved browser-local implementation in `app/page.tsx`; build and lint are reported PASS.
+- [x] Owner screenshot verifies the exact runtime Local Storage key, workspace envelope and two task records (PR #73).
+- [x] Owner screenshot after Preview refresh verifies both tasks return once and in insertion order (PR #75).
+- [ ] Fresh-profile DR-005 acknowledgement is interactively verified, including no write before acknowledgement (B2-AC-001).
+- [ ] Full B1 regression is interactively verified: trimming, empty/whitespace rejection, exact message, Enter submission, input/error clearing, insertion order and empty state (B2-AC-005).
+- [ ] Malformed JSON and unsupported format version are safely tested in a disposable browser profile; original values remain unchanged and writes are blocked (B2-AC-006).
+- [ ] Storage exception paths are reviewed. Runtime read/write failure simulation is recorded separately as PASS or NOT_RUN according to safe test availability (B2-AC-007).
+- [ ] Desktop and compact-phone Preview layouts are inspected with screenshots (B2-AC-009).
+- [ ] Human Owner reviews all source and evidence and explicitly accepts B2 (B2-AC-010).
 
 ## 7. GAIS preflight and source-of-truth boundary
 
@@ -584,8 +588,33 @@ Human Owner xác nhận ảnh dưới đây được chụp sau khi refresh lạ
 
 - **B2-AC-003:** **OWNER SCREENSHOT VERIFIED** — key, workspace envelope và hai task records trong `data.tasks` đã được đối chiếu bằng ảnh DevTools.
 - **B2-AC-004:** **OWNER SCREENSHOT VERIFIED** — Human Owner xác nhận ảnh Preview được chụp sau refresh; cả hai task xuất hiện lại đúng một lần và đúng thứ tự.
-- Bằng chứng refresh xác nhận kết quả khôi phục hiển thị trong Preview. B1 interactive regression, malformed-data/storage-error runtime tests và viewport checks vẫn chưa hoàn tất.
+- **B2-AC-001, AC-005, AC-006, AC-007 và AC-009:** vẫn cần hoàn tất kiểm thử theo checklist mục 6. Storage read/write error simulation chỉ được thực hiện nếu có phương pháp an toàn; nếu không, giữ runtime simulation là NOT_RUN và ghi nhận static exception-path review riêng.
 
+
+## 7.5 Troubleshooting — “The dev server didn't start”
+
+This recovery note is based on the Human Owner's GAIS screenshot supplied on 2026-11-24.
+
+### What happened
+
+Gemini reported that the development server had not started because the container had only just finished populating `node_modules`; the Next.js development server had not yet come up. The learner asked Gemini: “The dev server didn't start, please fix it”.
+
+### Safe recovery sequence
+
+1. Ask Gemini to diagnose the server startup state before changing application code.
+2. If dependencies have already finished installing and the server process is simply not running, restart the existing development server using the platform's server-restart action.
+3. Wait for the server to report that it is running.
+4. Verify that the GAIS Preview loads and the existing tasks are still visible.
+5. Inspect the changed-file history. Confirm that no application source or project configuration was edited during this operational recovery.
+
+### Evidence from the 2026-11-24 recovery
+
+- Gemini reported that it restarted the development server and created, modified or deleted no project files.
+- Gemini reported that the `app/page.tsx` SHA-256 remained `4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e`, matching the Stage 2 implementation report.
+- Gemini reported `next-server v15.5.29` running, `http://localhost:3000` returning HTTP 200, and `http://localhost:8080` serving the BVC Task Management page.
+- The Human Owner's screenshot shows the Preview running again with the two existing tasks still visible.
+
+**Important:** Restarting a development server is an operational recovery, not an application-code fix. Do not use Remix, restore checkpoints, reinstall packages, edit configuration or modify `app/page.tsx` just because the server has not finished starting. If a restart does not resolve the issue, collect the server log and stop before attempting code or dependency changes.
 
 ## 8. Next lesson
 
