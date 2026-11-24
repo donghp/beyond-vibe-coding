@@ -189,3 +189,20 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Next permitted action:** Validate the unified PR diff and synchronization check; Human Owner reviews/merges. After merge, verify main SHA and Actions run. Then perform live GAIS B2 preflight and wait for separate execution authorization.
 - **Handoff status:** Material project checkpoint, not a worker handoff. No sender release or receiver acceptance is claimed.
 - **Human Owner review:** REQUIRED.
+
+## H-0010 — Contract #007 Revision 1 Owner-Approved; R4 Execution Gates Remain Open
+
+- **Recorded at:** 2026-11-24T23:44:06+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Canonical base checkpoint:** `main@d806f042bf7411d8d4a3ce2869e68e67ba14ae00` (PR #87 merged).
+- **Event type:** CONTRACT_APPROVAL / GOVERNANCE_CHECKPOINT
+- **Contract:** `BVC-TM-TC-007`, Revision 1 — Phase C1 My Day implementation, risk R4.
+- **Human Owner decision:** APPROVED on 2026-11-24. The Owner explicitly stated: “Tôi phê duyệt Contract #007.”
+- **Publication:** Approval metadata and companion-register updates are proposed in PR #88; they are not canonical on `main` until that PR is merged.
+- **Scope preserved:** Modify `app/page.tsx` only; one changed file; maximum 500 diff lines; no new packages, lockfiles, configuration, database, Auth, RLS or external services.
+- **Separate R4 controls still open:** Data Privacy / Security domain reviewer is NOT_DESIGNATED; domain approval has not been granted. The post-migration code-downgrade/recovery procedure has NOT_BEEN_TESTED against a copy of the v2 workspace. Both controls must be completed and approved before execution.
+- **Execution authority:** NOT_GRANTED. Contract approval does not authorize a GAIS edit. A separate explicit Human Owner execution authorization and fresh live GAIS app/source plus single-writer preflight are required.
+- **Prompt:** BVCTM-PROMPT-0006 remains NOT_ALLOCATED until the R4 domain approval, tested recovery, separate execution authorization and live preflight gates are satisfied.
+- **GAIS / runtime:** No GAIS source, Local Storage payload, Preview or runtime state was inspected or changed in this approval synchronization.
+- **Handoff status:** Material project checkpoint only; no worker handoff or execution start is claimed.
+

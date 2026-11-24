@@ -4,7 +4,7 @@
 **Phase:** C — Make It Useful Every Day  
 **Curriculum:** Curriculum Map v0.2.0  
 **Product authority:** Product Definition v0.2.0  
-**Status:** OWNER-APPROVED PRODUCT DECISIONS RECORDED; DATA-COMPATIBILITY AND IMPLEMENTATION-CONTRACT PROPOSALS PREPARED FOR OWNER REVIEW  
+**Status:** FOUR C1 PRODUCT DECISIONS APPROVED; CONTRACT #007 REVISION 1 OWNER-APPROVED; R4 EXECUTION GATES OPEN  
 **Prepared:** 2026-11-24  
 **Proposal revision:** 2
 
@@ -14,7 +14,7 @@
 
 Prepare C1 — My Day for a separate, bounded implementation task without guessing unresolved product behavior or changing the working GAIS application.
 
-C1 introduces an everyday view that helps a user understand what needs attention today. The implementation must follow Product Definition v0.2.0, the existing UX placement rules, the accepted Phase 3.2 Data Model, and the three Product/UX decisions approved by the Human Owner on 2026-11-24.
+C1 introduces an everyday view that helps a user understand what needs attention today. The implementation must follow Product Definition v0.2.0, the existing UX placement rules, the accepted Phase 3.2 Data Model, and the four Product/UX decisions approved by the Human Owner on 2026-11-24.
 
 This brief contains technical recommendations for Owner review. It is not an approved implementation specification, Task Contract, execution authorization, or evidence that C1 has been implemented.
 
@@ -192,4 +192,4 @@ Unless a later approved Contract says otherwise, C1 must not silently implement:
 
 ---
 
-**Conclusion:** Phase C is active and the four C1 Product/UX decisions are resolved. The next gate is Owner review of the data-compatibility proposal and the two separate Contract roles. DR-020 resolves legacy-task visibility but does not approve Contract #007 or authorize GAIS execution. No C1 implementation or Prompt #0006 execution is authorized by this brief or by merging the documentation PR.
+**Conclusion:** Phase C is active and the four C1 Product/UX decisions are resolved. The Human Owner approved Contract #007 Revision 1 on 2026-11-24. Contract #006 Revision 2 remains a separate R1 readiness draft. Contract #007 execution is still blocked pending designation and approval of the R4 Data Privacy/Security reviewer, tested and approved post-migration recovery, separate explicit execution authorization and fresh live GAIS/single-writer preflight. DR-020 resolves legacy-task visibility. This brief and its publication do not authorize GAIS implementation; Prompt #0006 remains NOT_ALLOCATED.
