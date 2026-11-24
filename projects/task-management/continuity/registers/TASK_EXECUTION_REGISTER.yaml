@@ -105,7 +105,7 @@ tasks:
   revision: 1
   title: "Phase B2 — Save Your Task"
   status: APPROVED
-  execution_status: IMPLEMENTATION_REPORTED; STATIC_REVIEW_REPORTED_PASS; BUILD_LINT_REPORTED_PASS; B2_AC_003_OWNER_SCREENSHOT_VERIFIED; B2_AC_004_OWNER_SCREENSHOT_VERIFIED; REMAINING_RUNTIME_CHECKS_PENDING; OWNER_ACCEPTANCE_PENDING
+  execution_status: COMPLETED_ACCEPTED_WITH_KNOWN_LIMITATIONS_BY_OWNER_PHASE_B_CLOSEOUT_2026-11-24
   risk_level: R2
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-005_TASK_CONTRACT_V0.1.json
   approval_reference: "Human Owner merged PR #64 on 2026-11-13; merge commit ff1609db62c5695bef40d5d031de8d5c67acfc5b."
@@ -177,7 +177,38 @@ tasks:
   - "Human Owner merged PR #75 at d1142cbbb8f5473bd5832d477657db1efa71af26; BVCTM-056 / BVC-EV-037 post-refresh Preview screenshot is canonical on main."
   - "Gemini reports build SUCCESS and ESLint 0 errors / 0 warnings. Owner screenshots verify the Local Storage key/envelope, two stored task records and task restoration after Preview refresh; remaining B1 regression, responsive and malformed-data/storage-error runtime checks are NOT_RUN."
   - "PR #69 merged at ab542dff88e1c8ff2fdc5bd790913dddf285443d; post-merge continuity-refresh job failed at gh pr create because GITHUB_TOKEN is not permitted to create PRs."
-  next_action: "B2-AC-003 and B2-AC-004 are OWNER SCREENSHOT VERIFIED. On 2026-11-24 Gemini reported operational dev-server recovery with zero project-file changes and unchanged app/page.tsx SHA-256. NEXT: complete fresh-profile DR-005 acknowledgement, full B1 interactive regression and responsive Preview checks; test malformed JSON/unsupported version only in a disposable profile; statically review storage exception paths and run runtime failure simulation only if safe. ChatGPT reviews evidence; Human Owner alone records final B2 acceptance."
+  owner_acceptance:
+    decision: "OWNER_ACCEPTED_WITH_KNOWN_LIMITATIONS"
+    accepted_at: "2026-11-24"
+    authority: "Human Owner explicit Phase B closeout decision in ChatGPT"
+    scope: "B2 lesson outcome, available implementation reports, Local Storage and Preview refresh evidence, and project continuity; accepted as part of Phase B B1-B4 closeout"
+    limitations_preserved:
+    - "Malformed-data runtime simulation remains NOT_RUN."
+    - "Storage-error runtime simulation remains NOT_RUN."
+    - "Fresh-profile disclosure and responsive checks were not independently archived as PASS."
+    - "Historical test outcomes remain NOT_RUN / NOT_VERIFIED; no test result is retroactively changed."
+    closeout_record: "practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md"
+  next_action: "CLOSED at Phase B learning-path level by the Human Owner on 2026-11-24. Preserve individual NOT_RUN / NOT_VERIFIED results. Reopen B2 only for a specific defect or explicit Owner request."
+
+- task_id: BVC-TM-P3.3-006
+  contract_id: BVC-TM-TC-006
+  revision: 1
+  title: "Phase C1 — My Day: Product Decision and Implementation Readiness"
+  status: DRAFT_NOT_APPROVED
+  execution_status: NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION
+  risk_level: R1
+  contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml
+  publication_status: PROPOSAL_ON_BRANCH; NOT_CANONICAL
+  scope: "Documentation and Product Owner decision preparation only. No GAIS source, runtime data, schema, or Product/UX decision status changes."
+  dependencies:
+  - "DR-001 — Upcoming horizon: OWNER_DECISION_REQUIRED"
+  - "DR-002 — Today's Focus lifetime/reset: OWNER_DECISION_REQUIRED"
+  - "DR-017 — Timezone source and editing: OWNER_DECISION_REQUIRED"
+  - "B2 workspace formatVersion 1 backward-compatibility review"
+  evidence_refs:
+  - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
+  - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml"
+  next_action: "Human Owner / Product Owner resolves DR-001, DR-002 and DR-017, reviews the C1 decision brief, and separately approves or rejects Contract #006. Do not allocate Prompt #0006 or modify GAIS source before these gates are satisfied."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
