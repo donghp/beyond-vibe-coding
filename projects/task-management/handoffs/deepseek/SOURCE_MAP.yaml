@@ -56,6 +56,11 @@ read_order:
     authority: "APPROVED_PRODUCT_DECISIONS"
     required: true
   - id: "S11"
+    path: "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
+    purpose: "Approved C1 implementation Contract #007 Revision 1; authoritative scope, migration algorithm, ACs, VCs and recovery rules."
+    authority: "APPROVED_CONTRACT"
+    required: true
+  - id: "S11"
     path: "projects/task-management/design/architecture/v0.1/BVC_TASK_MANAGEMENT_DATA_MODEL_V0.1.md"
     purpose: "Task fields, browser workspace model and date/time semantics."
     authority: "ACCEPTED_DESIGN_BASELINE"
