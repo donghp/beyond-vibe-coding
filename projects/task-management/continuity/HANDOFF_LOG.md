@@ -238,3 +238,19 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Conditions:** CND-001 v2-preserving copy-based recovery procedure/test; CND-002 exact B2 v1 validation baseline; CND-003 truthful storage error UI; CND-004 no destructive v2 cleanup/fallback. CND-005 public static asset classification remains NOT_VERIFIED; CND-006 verification evidence remains pending.
 - **Execution authority:** NOT_GRANTED. Recovery NOT_TESTED. Fresh GAIS preflight NOT_RUN. Prompt #0006 NOT_ALLOCATED. No GAIS source/runtime/browser storage was modified.
 - **Handoff status:** Conditional R4 domain review decision recorded; conditions remain open and block execution.
+## H-0014 — Human Owner Approves C1 W0–W7 Roadmap and Conditional Gemini Execution Authorization
+
+- **Recorded at:** 2026-11-25T12:00:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT; Phase C1 — My Day.
+- **Canonical base:** `main@81506d9d8be615ea3b7ef7fceba02be711433e91` (PR #92 merged).
+- **Human Owner decisions:** Approve W0–W7 C1 roadmap; authorize Gemini conditionally for exact Contract #007 Revision 1; split CND-003/CND-004 into mandatory implementation/acceptance gates; put the two `public/assets/aistudio/` Context Pack/Prompt assets on HOLD.
+- **Execution authorization:** GRANTED_CONDITIONALLY. It becomes executable only after CND-001 recovery test and CND-002 accepted B2 v1 validation baseline pass, Prompt #0006 is allocated, and fresh VC-001 preflight plus Gemini scope acknowledgment pass.
+- **Pre-execution gates:** CND-001 and CND-002 remain OPEN and block editing.
+- **Implementation/acceptance gates:** CND-003 truthful storage-error UI and CND-004 safe migration failure invariants remain mandatory in Prompt #0006 and must pass before C1 acceptance.
+- **HOLD:** CND-005 assets remain unchanged; do not edit, move, delete or newly distribute them. Runtime exposure is NOT_VERIFIED.
+- **Pre-acceptance evidence:** CND-006 and Contract VC checks remain required.
+- **Governance artifacts proposed in PR:** `projects/task-management/phase3.3/execution/BVC-TM-TC-007_OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_2026-11-25.md`; `projects/task-management/phase3.3/execution/BVC-TM-TC-007_C1_EXECUTION_ROADMAP_2026-11-25.md`.
+- **Contract boundary:** Contract #007 Revision 1 remains unchanged: `app/page.tsx` only, one modified file, <=500 diff lines, no other file/dependency/config/backend/service scope.
+- **Prompt:** Prompt #0006 remains NOT_ALLOCATED.
+- **GAIS:** no source, Preview, Local Storage or runtime was modified during this governance proposal.
+- **Handoff status:** Owner-approved plan and conditional authorization recorded in a proposal; source execution has not started.
