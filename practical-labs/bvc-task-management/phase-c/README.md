@@ -1,7 +1,7 @@
 # Phase C — Make It Useful Every Day
 
 **Learning level:** Beginner Expansion  
-**Status:** ACTIVE — C1 Product/UX decisions approved; Contract #007 Revision 1 Owner-approved; R4 execution gates remain open
+**Status:** ACTIVE — C1 Product/UX decisions approved; Contract #007 Revision 1 Owner-approved; R4 Domain Review APPROVED_WITH_CONDITIONS; execution remains blocked by open conditions
 
 Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Phase C proceeds under Product Definition v0.2.0 and Curriculum Map v0.2. The six lesson groups below follow the canonical curriculum order.
 
