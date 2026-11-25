@@ -1,23 +1,23 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 24,
+  "revision": 25,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-25T11:27:00+07:00",
+  "state_as_of": "2026-11-25T11:45:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
     "default_branch": "main"
   },
   "baseline": {
-    "source_commit": "fb32d21103bb7304c8eb32cd356de0ec349d4145",
+    "source_commit": "81506d9d8be615ea3b7ef7fceba02be711433e91",
     "working_tree_status": "UNKNOWN; live local Windows worktrees and GAIS workspace were not inspected during the Contract #007 approval synchronization.",
     "pre_existing_changes_ref": "The last observed local worktree outputs predate PRs #50–#53. C:\\\\beyond-vibe-coding-a4-evidence was owner-reported clean at 202e780 before later merges, but its current HEAD/status after PR #53 is NOT_VERIFIED. C:\\\\beyond-vibe-coding remains a separate DIRTY linked worktree with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees from the last owner-supplied output. Preserve all local-only content; do not reset, clean, pop stashes or overwrite it."
   },
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-C1-MY-DAY",
     "title": "Phase C1 — My Day",
-    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DR_001_DR_002_DR_017_DR_020_OWNER_APPROVED_CANONICAL_2026-11-24; CONTRACT_007_REVISION_1_OWNER_APPROVED_CANONICAL_PR_88; R4_REPORT_RECEIVED_2026-11-25; CHATGPT_DOMAIN_DISPOSITION_APPROVED_WITH_CONDITIONS; CND_001_TO_CND_004_OPEN_BLOCKING; CND_005_PUBLIC_ASSET_CLASSIFICATION_NOT_VERIFIED; CND_006_VERIFICATION_PENDING; POST_MIGRATION_RECOVERY_TEST_NOT_TESTED; EXECUTION_AUTHORIZATION_NOT_GRANTED; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_AUTHORIZED"
+    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DR_001_DR_002_DR_017_DR_020_OWNER_APPROVED_CANONICAL_2026-11-24; CONTRACT_007_REVISION_1_OWNER_APPROVED_CANONICAL_PR_88; R4_ROLES_CANONICAL_PR_89; R4_REPORT_RECEIVED_2026-11-25; CHATGPT_DOMAIN_DISPOSITION_APPROVED_WITH_CONDITIONS_CANONICAL_PR_92; CND_001_TO_CND_004_OPEN_BLOCKING; CND_005_PUBLIC_ASSET_CLASSIFICATION_NOT_VERIFIED; CND_006_VERIFICATION_PENDING; POST_MIGRATION_RECOVERY_TEST_NOT_TESTED; EXECUTION_AUTHORIZATION_NOT_GRANTED; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_AUTHORIZED"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -499,9 +499,9 @@
       "execution_status": "NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION",
       "risk_level": "R4",
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
-      "publication_status": "CONTRACT_APPROVAL_CANONICAL_ON_MAIN_VIA_MERGED_PR_88; R4_ASSIGNMENT_CANONICAL_ON_MAIN_VIA_MERGED_PR_89; R4_DECISION_PROPOSED_IN_GOVERNANCE_PR",
+      "publication_status": "CONTRACT_APPROVAL_CANONICAL_ON_MAIN_VIA_MERGED_PR_88; R4_ASSIGNMENT_CANONICAL_ON_MAIN_VIA_MERGED_PR_89; R4_DECISION_CANONICAL_ON_MAIN_VIA_MERGED_PR_92",
       "proposal_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md",
-      "next_action": "Close CND-001 through CND-004 as specified in projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md; classify the public static assets and gather verification evidence. ChatGPT then reassesses condition closure. Only afterward may the Human Owner separately authorize execution, followed by fresh live GAIS VC-001 preflight. Prompt #0006 remains NOT_ALLOCATED.",
+      "next_action": "Complete CND-001 through CND-004 and additional CND-005/CND-006 as specified in projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md. Then reassess condition closure; Human Owner must issue separate execution authorization; fresh live GAIS VC-001 preflight is required. Prompt #0006 remains NOT_ALLOCATED.",
       "owner_approval_reference": "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24; canonical via merged PR #88.",
       "r4_domain_approval_status": "APPROVED_WITH_CONDITIONS; CND_001_TO_CND_004_OPEN; EXECUTION_BLOCKED",
       "recovery_verification_status": "NOT_TESTED; CND-001_BLOCKING",
@@ -511,7 +511,7 @@
       "prompt_architect": "ChatGPT",
       "r4_review_assignment_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md",
       "r4_review_mode": "AI_ASSISTED_INTERNAL_DOMAIN_REVIEW; NOT_A_PROFESSIONAL_CERTIFICATION_OR_THIRD_PARTY_AUDIT",
-      "r4_review_status": "DEEPSEEK_REPORT_RECEIVED_2026-11-25; CHATGPT_DISPOSITION_APPROVED_WITH_CONDITIONS; CONDITIONS_OPEN",
+      "r4_review_status": "DEEPSEEK_REPORT_RECEIVED_2026-11-25; CHATGPT_DISPOSITION_APPROVED_WITH_CONDITIONS_CANONICAL_PR_92; CONDITIONS_OPEN",
       "r4_qualified_human_review": "NOT_DESIGNATED; consider supplemental qualified human review where available and required",
       "r4_technical_report_reference": "Human Owner supplied DeepSeek R4 Technical Review in ChatGPT conversation on 2026-11-25; assessed against GAIS export ZIP SHA-256 0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7.",
       "r4_domain_review_decision_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md",
@@ -537,7 +537,7 @@
     },
     {
       "issue_id": "TM-BLOCK-C1-IMPLEMENTATION-AUTHORITY",
-      "description": "DeepSeek's R4 report was received 2026-11-25. ChatGPT issued APPROVED_WITH_CONDITIONS (decision record: projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md). Conditions CND-001 through CND-004 remain OPEN and execution-blocking: v2-preserving copy-based recovery test; explicit B2 v1 schema baseline; truthful storage error state; and no destructive v2 cleanup/fallback. Public static asset classification is NOT_VERIFIED; verification evidence remains pending. Recovery NOT_TESTED; separate Human Owner execution authorization NOT_GRANTED; fresh GAIS preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED; no GAIS source changes authorized.",
+      "description": "Contract #007 Revision 1 is approved. DeepSeek's R4 report was received; ChatGPT issued APPROVED_WITH_CONDITIONS, canonical through merged PR #92. CND-001 through CND-004 remain OPEN and execution-blocking: isolated-copy v2-preserving recovery test; explicit B2 v1 validation baseline; truthful storage error UI; and no destructive v2 cleanup/fallback. CND-005 public static asset classification is NOT_VERIFIED; CND-006 VC evidence pending. Recovery NOT_TESTED; separate Human Owner execution authorization NOT_GRANTED; fresh GAIS VC-001 preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED; no GAIS source changes authorized.",
       "status": "OPEN",
       "owner": "Human Owner / Product Owner",
       "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
@@ -649,18 +649,18 @@
     },
     {
       "action_id": "TM-NEXT-C1-002",
-      "description": "Close ChatGPT R4 Domain Review conditions CND-001 to CND-004 under projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md: define/test v2-preserving recovery against an isolated copy; adopt exact B2 v1 validation baseline; correct truthful storage error UX; preserve no-delete/no-fallback migration failure semantics. Also classify public static Context Pack/Prompt assets (CND-005) and gather verification evidence (CND-006). ChatGPT reassesses closure; Human Owner then considers separate execution authorization and fresh GAIS preflight. Prompt #0006 remains NOT_ALLOCATED.",
+      "description": "Close R4 conditions CND-001 to CND-004 and additional CND-005/CND-006 in the canonical R4 Decision Record. Test full-v2-preserving recovery on an isolated copy; use accepted B2 validation semantics; correct truthful error UI; maintain safe migration failure behavior; classify public static assets and gather verification evidence. ChatGPT reassesses condition closure; Human Owner then separately considers execution authorization and fresh GAIS preflight. Prompt #0006 remains NOT_ALLOCATED.",
       "priority": "URGENT",
       "owner": "DeepSeek / ChatGPT / Human Owner",
       "related_task_id": "BVC-TM-P3.3-006"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@fb32d21103bb7304c8eb32cd356de0ec349d4145 (PR #91 merged)",
-    "source_commit": "fb32d21103bb7304c8eb32cd356de0ec349d4145",
+    "recovery_point_ref": "main@81506d9d8be615ea3b7ef7fceba02be711433e91 (PR #92 merged)",
+    "source_commit": "81506d9d8be615ea3b7ef7fceba02be711433e91",
     "verified": true,
-    "last_verified_at": "2026-11-25T11:27:00+07:00",
-    "notes": "PR #91 merged. Human Owner supplied GAIS Source Export 2026-11-25 (ZIP SHA-256 0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7; app/page.tsx SHA-256 4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e), and DeepSeek R4 report was received. ChatGPT R4 disposition APPROVED_WITH_CONDITIONS; conditions CND-001 through CND-004 are open/blocking. CND-005 public asset classification NOT_VERIFIED; CND-006 verification evidence pending. No GAIS runtime or browser storage changed. Recovery NOT_TESTED; execution authorization NOT_GRANTED; fresh preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED."
+    "last_verified_at": "2026-11-25T11:45:00+07:00",
+    "notes": "PR #92 merged at main@81506d9d8be615ea3b7ef7fceba02be711433e91, canonicalizing ChatGPT R4 APPROVED_WITH_CONDITIONS. CND-001 to CND-004 remain execution-blocking; CND-005 asset classification NOT_VERIFIED; CND-006 evidence pending. DeepSeek report received; recovery NOT_TESTED; execution authorization NOT_GRANTED; GAIS preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED."
   },
-  "updated_by": "Project State revision 24 — records DeepSeek report receipt and ChatGPT R4 APPROVED_WITH_CONDITIONS disposition; CND-001 to CND-004 remain execution-blocking."
+  "updated_by": "Project State revision 25 — PR #92 merged; R4 APPROVED_WITH_CONDITIONS canonical; execution blockers remain."
 }
