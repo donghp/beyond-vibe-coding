@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "snapshot_id": "BVC-TM-DEEPSEEK-SNAPSHOT-2026-11-25",
+  "prepared_at": "2026-11-25",
+  "repository": "https://github.com/donghp/beyond-vibe-coding",
+  "default_branch": "main",
+  "canonical_main_sha_at_handoff": "19e8ec939a1128631211406f95aae268652af54b",
+  "project": {
+    "id": "BVC-TASK-MANAGEMENT",
+    "name": "BVC Task Management",
+    "program": "BEYOND VIBE CODING — Build & Learn",
+    "learner_profile": "Newbie; assume no prior programming, terminal, IDE, Git, database or software-engineering knowledge.",
+    "primary_beginner_environment": "Google AI Studio Build mode and Preview",
+    "teaching_model": "Build & Learn: one small action at a time; explain what to click, why, expected result and how to verify."
+  },
+  "lifecycle": {
+    "phase_a": "LEARNER_PATH_COMPLETED",
+    "phase_b": "CLOSED_BY_HUMAN_OWNER_2026-11-24_WITH_KNOWN_LIMITATIONS",
+    "phase_c": "ACTIVE",
+    "current_milestone": "C1 — My Day"
+  },
+  "product_decisions": {
+    "DR-001": "APPROVED — Upcoming covers next 7 calendar days",
+    "DR-002": "APPROVED — Focus is active for current selected-local date and expires at next local calendar day",
+    "DR-017": "APPROVED — detect browser IANA timezone initially; user can correct it",
+    "DR-020": "APPROVED — supplemental Unscheduled section after Upcoming and before Add task; active legacy tasks without due date/Focus appear once; do not invent dates or Focus"
+  },
+  "contract_007": {
+    "contract_id": "BVC-TM-TC-007",
+    "task_id": "BVC-TM-P3.3-007",
+    "revision": 1,
+    "status": "APPROVED",
+    "risk": "R4",
+    "approval": "Human Owner approved 2026-11-24; canonical via merged PR #88",
+    "purpose": "Implement date-aware C1 My Day in existing GAIS Beginner app",
+    "scope": {
+      "modify": ["app/page.tsx"],
+      "max_changed_files": 1,
+      "max_diff_lines": 500,
+      "forbidden": [
+        "new dependencies or lockfile changes",
+        "configuration or route changes",
+        "database, Supabase, Auth, RLS",
+        "external services, cloud sync, GitHub integration",
+        "other source files, CSS, shared components",
+        "unrelated features"
+      ]
+    },
+    "data": {
+      "v1_key": "bvc-task-management:workspace:v1",
+      "v2_key": "bvc-task-management:workspace:v2",
+      "preserve": ["workspaceId", "every existing task id", "every existing title", "original v1 key unchanged"],
+      "legacy_defaults": {"status": "todo", "priority": "normal"},
+      "do_not_invent": ["due_date", "focus_date"],
+      "invalid_existing_v2": "STOP; do not fall back to stale v1",
+      "activation": "construct in memory -> validate -> write once -> read back -> validate -> activate",
+      "v1_checkpoint": "pre-migration only; not a rolling backup after v2 writes"
+    },
+    "recovery": {
+      "AC-011": "Document, test against copy of v2, preserve all v2-only fields and task identifiers/titles; appropriate Owner and domain approval required.",
+      "VC-010": "Test post-migration code downgrade/recovery against a copy of v2",
+      "status": "NOT_TESTED"
+    }
+  },
+  "r4_review": {
+    "assignment_path": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md",
+    "technical_reviewer": "DeepSeek",
+    "domain_authority": "ChatGPT",
+    "prompt_architect": "ChatGPT",
+    "implementation_executor": "Gemini in Google AI Studio, proposed only",
+    "human_owner": "Dong Hong; final governance and execution authority",
+    "deepseek_report": "PENDING",
+    "chatgpt_domain_disposition": "PENDING",
+    "review_mode": "AI-assisted internal review; not professional certification or third-party audit"
+  },
+  "execution_gates": {
+    "contract_007_approval": "APPROVED",
+    "r4_domain_review": "PENDING",
+    "post_migration_recovery_test": "NOT_TESTED",
+    "separate_human_owner_execution_authorization": "NOT_GRANTED",
+    "fresh_gais_vc001_preflight": "NOT_RUN",
+    "prompt_0006": "NOT_ALLOCATED",
+    "gais_implementation": "NOT_AUTHORIZED"
+  },
+  "latest_owner_supplied_gais_screenshot_2026_11_25": {
+    "app_id": "ca589018-617d-4919-bbe2-6b9c588ccd85",
+    "visible_preview_tasks": [
+      "Prepare weekly work plan",
+      "Review project milestones",
+      "Review Phase B final verification"
+    ],
+    "b2_storage_disclosure_visible": true,
+    "gemini_panel_reports_dev_server_restart": true,
+    "gemini_panel_reports_no_source_files_changed_during_restart": true,
+    "evidence_classification": "OWNER_SUPPLIED_SCREENSHOT_ONLY",
+    "does_not_prove": [
+      "current complete app/page.tsx source",
+      "browser Local Storage values or v2 migration",
+      "C1 implementation",
+      "AC/VC pass",
+      "execution authorization"
+    ]
+  },
+  "important_boundaries": {
+    "phase_3_2": "accepted architecture design baseline only; not runtime/security/migration acceptance",
+    "phase_3_1_ux_acceptance": "OPEN",
+    "contract_006_revision_2": "DRAFT_NOT_APPROVED; R1 readiness-only; no implementation authority",
+    "local_worktree_status": "UNKNOWN; check with Owner before local operations",
+    "machine_continuity_snapshot": "index of Git metadata; not project semantic authority"
+  },
+  "next_action": "DeepSeek reads mandatory source package and assignment, then produces read-only Vietnamese R4 technical review. No source edits, GAIS operation, migration or Prompt #0006 allocation."
+}
