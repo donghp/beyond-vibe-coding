@@ -476,7 +476,7 @@
       "risk_level": "R1",
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml",
       "proposal_reference": "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md",
-      "next_action": "Human Owner review of the C1 readiness package and separate Contract #007 draft. Contract #006 is R1 documentation/readiness only; it does not authorize app implementation. Preserve Prompt #0006 as NOT_ALLOCATED.",
+      "next_action": "Contract #006 remains a separate R1 readiness draft and grants no implementation authority. Contract #007 Revision 1 is Owner-approved and canonical on main; follow its R4 review assignment, recovery, execution-authorization and live preflight gates.",
       "publication_status": "REVISION_2_CANONICAL_DRAFT_ON_MAIN"
     },
     {
