@@ -253,7 +253,7 @@ tasks:
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-preview-after-refresh.webp"
-  next_action: "Complete W0 governance synchronization. Then close CND-001 by testing v2-preserving recovery on an isolated copy and CND-002 by approving the exact B2 v1 validation baseline. After both pass, allocate Prompt #0006 and complete fresh VC-001 before Gemini edits. CND-003/004 are mandatory implementation/acceptance gates; CND-005 remains HOLD; CND-006 is required for acceptance."
+  next_action: "Complete W0 governance synchronization. Then close CND-001 by testing v2-preserving recovery on an isolated copy and CND-002 by approving the exact B2 v1 validation baseline. After both pass, complete fresh read-only GAIS VC-001 and Gemini scope acknowledgment; only then allocate Prompt #0006 and issue it for implementation. CND-003/004 are mandatory implementation/acceptance gates; CND-005 remains HOLD; CND-006 is required for acceptance."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
