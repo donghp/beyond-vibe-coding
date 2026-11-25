@@ -152,13 +152,13 @@ Leaving these tasks stored but absent from the My Day screen may make a learner 
 
 ## 5. Recommended implementation sequence
 
-1. Confirm the C1 data-compatibility proposal and the exact date-boundary interpretation.
-2. Review the readiness Contract #006 Revision 2 and the separate implementation Contract #007 proposal.
-3. Approve or reject Contract #007 separately. Contract #006 is a documentation/readiness task; it does not authorize the C1 app implementation.
-4. Only after Contract #007 is approved, prepare Prompt #0006 under the Vietnamese-first Prompt Delivery Standard.
-5. Obtain explicit execution authorization and run a fresh read-only preflight of the exact GAIS app and current `app/page.tsx`; confirm the single-writer condition.
-6. Execute only within the approved Contract #007 scope.
-7. Review Preview behavior, migration evidence, date-boundary tests and regression results before requesting C1 acceptance.
+1. Treat Contract #007 Revision 1 as the approved C1 implementation authority; Contract #006 Revision 2 remains a separate R1 readiness draft and grants no implementation authority.
+2. DeepSeek completes the read-only R4 technical review using the published assignment; it must report findings and evidence gaps without editing code or GAIS.
+3. ChatGPT, as the Human Owner-designated R4 Domain Authority, independently assesses the DeepSeek report and underlying evidence and records an explicit domain-review disposition. Assignment alone is not approval.
+4. Define and test the post-migration downgrade/recovery procedure against a copy of the complete v2 workspace; preserve every v2 field and obtain the required approvals.
+5. The Human Owner issues a separate, explicit execution authorization for Gemini under Contract #007 Revision 1.
+6. Complete fresh live GAIS app/source and single-writer preflight VC-001. Only after all gates pass may Prompt #0006 be allocated and prepared under the Vietnamese-first Prompt Delivery Standard, followed by Gemini's scope acknowledgment.
+7. Execute only within the approved Contract #007 scope; review Preview behavior, migration evidence, date-boundary tests and regression results before requesting C1 acceptance.
 
 ## 6. Explicit exclusions from C1
 
@@ -184,7 +184,7 @@ Unless a later approved Contract says otherwise, C1 must not silently implement:
 | DR-002 Focus lifetime/reset | APPROVED — 2026-11-24 |
 | DR-017 Timezone source/editing | APPROVED — 2026-11-24 |
 | B2 v1 source and two saved task records | OWNER-SUPPLIED EVIDENCE ON MAIN; must be preserved |
-| C1 v1 → v2 compatibility/migration design | PROPOSED — OWNER REVIEW REQUIRED |
+| C1 v1 → v2 compatibility/migration design | APPROVED IN CONTRACT #007 REVISION 1; runtime migration/recovery NOT TESTED |
 | Readiness Contract #006 Revision 2 | DRAFT_NOT_APPROVED |
 | C1 implementation Contract #007 Revision 1 | OWNER-APPROVED — canonical via merged PR #88 |
 | R4 review assignment | DeepSeek technical review; ChatGPT Domain Authority — report/decision pending | 
