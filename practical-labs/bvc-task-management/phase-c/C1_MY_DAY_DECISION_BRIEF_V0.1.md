@@ -186,10 +186,12 @@ Unless a later approved Contract says otherwise, C1 must not silently implement:
 | B2 v1 source and two saved task records | OWNER-SUPPLIED EVIDENCE ON MAIN; must be preserved |
 | C1 v1 → v2 compatibility/migration design | PROPOSED — OWNER REVIEW REQUIRED |
 | Readiness Contract #006 Revision 2 | DRAFT_NOT_APPROVED |
-| Separate C1 implementation Contract #007 Revision 1 | DRAFT_NOT_APPROVED |
+| C1 implementation Contract #007 Revision 1 | OWNER-APPROVED — canonical via merged PR #88 |
+| R4 review assignment | DeepSeek technical review; ChatGPT Domain Authority — report/decision pending | 
+| Post-migration recovery test | NOT_TESTED |
 | Prompt #0006 | NOT_ALLOCATED |
 | GAIS code changes | NOT_AUTHORIZED |
 
 ---
 
-**Conclusion:** Phase C is active and the four C1 Product/UX decisions are resolved. The Human Owner approved Contract #007 Revision 1 on 2026-11-24. Contract #006 Revision 2 remains a separate R1 readiness draft. Contract #007 execution is still blocked pending designation and approval of the R4 Data Privacy/Security reviewer, tested and approved post-migration recovery, separate explicit execution authorization and fresh live GAIS/single-writer preflight. DR-020 resolves legacy-task visibility. This brief and its publication do not authorize GAIS implementation; Prompt #0006 remains NOT_ALLOCATED.
+**Conclusion:** Phase C is active and the four C1 Product/UX decisions are resolved. Contract #007 Revision 1 is Human Owner-approved and canonical via merged PR #88; Contract #006 Revision 2 remains a separate R1 readiness draft. On 2026-11-25 the Human Owner designated DeepSeek as read-only AI technical reviewer and ChatGPT as R4 Data Privacy/Security Domain Authority and Prompt Architect (see `projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md`). The review report and ChatGPT domain decision are still pending; assignment is not approval. Post-migration recovery remains untested, separate explicit execution authorization has not been granted, and fresh live GAIS/single-writer preflight remains required. DR-020 resolves legacy-task visibility. This brief does not authorize GAIS implementation; Prompt #0006 remains NOT_ALLOCATED.
