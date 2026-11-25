@@ -208,7 +208,7 @@ tasks:
   evidence_refs:
   - "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml"
-  next_action: "Human Owner review of the C1 readiness package and separate Contract #007 implementation proposal. Contract #006 is R1 documentation/readiness only; Contract #007 is a separate R4 implementation authority and remains DRAFT_NOT_APPROVED; DR-020 is approved and must be implemented exactly. Do not allocate Prompt #0006 or modify GAIS source until Contract #007 is approved and explicit execution authorization plus fresh live preflight are complete."
+  next_action: "Contract #006 remains a separate R1 readiness draft and does not authorize implementation. Contract #007 Revision 1 is Owner-approved and canonical on main; follow its R4 review assignment, recovery, execution-authorization and live preflight gates. Do not allocate Prompt #0006 or modify GAIS source until all required gates are complete."
 
 - task_id: BVC-TM-P3.3-007
   contract_id: BVC-TM-TC-007
