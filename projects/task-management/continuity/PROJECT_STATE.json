@@ -29,8 +29,8 @@
     "DR-005 is APPROVED and canonical on main through PR #62.",
     "PHASE B CLOSED: On 2026-11-24 the Human Owner explicitly accepted all four Phase B lessons (B1-B4), the available evidence and continuity, and declared Phase B closed. Known limitations and historical NOT_RUN / NOT_VERIFIED outcomes remain unchanged; see practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md.",
     "PHASE C ACTIVE — PLANNING: C1 — My Day is the first lesson in Curriculum Map v0.2 and follows Product Definition v0.2.0 FR-010 / AC-006. The canonical My Day order is Overdue, Due Today, Today's Focus, Upcoming, Unscheduled, Add task; Unscheduled is supplemental and the first four priority sections retain their existing order.",
-    "C1 Product/UX decisions DR-001, DR-002, DR-017 and DR-020 are approved and canonical on main. Contract #007 Revision 1 is Owner-approved and canonical through merged PR #88; Contract #006 Revision 2 remains DRAFT_NOT_APPROVED and R1 readiness-only. On 2026-11-25 the Human Owner designated DeepSeek as the read-only AI R4 technical reviewer and ChatGPT as R4 Data Privacy/Security Domain Authority and Prompt Architect; see projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md. DeepSeek's report and ChatGPT's domain decision remain pending. Post-migration recovery is NOT_TESTED; separate explicit execution authorization is NOT_GRANTED; fresh live GAIS/single-writer preflight is NOT_RUN; Prompt #0006 remains NOT_ALLOCATED.",
-    "C1 readiness proposes a non-destructive migration from B2 formatVersion 1 to a separate formatVersion 2 workspace key. Preserve workspaceId, every existing task id/title and the original v1 key; do not execute migration until Contract #007 is approved and authorized."
+    "C1 Product/UX decisions DR-001, DR-002, DR-017 and DR-020 are approved and canonical. Contract #007 Revision 1 is Owner-approved and canonical through PR #88; R4 role assignment is canonical through PR #89; ChatGPT R4 disposition APPROVED_WITH_CONDITIONS is canonical through PR #92. On 2026-11-25 the Human Owner approved the W0-W7 roadmap, conditionally authorized Gemini, split CND-003/CND-004 into implementation/acceptance gates, and placed CND-005 public assets on HOLD. CND-001 recovery test and CND-002 exact B2 v1 validation baseline remain pre-execution gates; fresh VC-001 and Prompt #0006 allocation are required before editing. Prompt #0006 remains NOT_ALLOCATED; GAIS implementation has not started.",
+    "C1 uses a non-destructive migration from B2 formatVersion 1 key to the separate v2 workspace key. Preserve workspaceId, every existing task ID/title and the original v1 key; v1 is only a pre-migration checkpoint, not a rolling backup. Gemini must not edit until CND-001 recovery copy-test, CND-002 exact B2 validation baseline and fresh VC-001 pass; CND-003/004 are mandatory implementation/acceptance controls."
   ],
   "facts": [
     {
@@ -515,7 +515,7 @@
       "owner_approval_reference": "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24; canonical via merged PR #88.",
       "r4_domain_approval_status": "APPROVED_WITH_CONDITIONS; CND-001_CND-002_PRE_EXECUTION_BLOCKING; CND-003_CND-004_IMPLEMENTATION_ACCEPTANCE_GATES; CND-005_HOLD; CND-006_PRE_ACCEPTANCE",
       "recovery_verification_status": "NOT_TESTED; CND-001_PRE_EXECUTION_BLOCKING",
-      "execution_authorization": "HUMAN_OWNER_GRANTED_CONDITIONALLY_2026-11-25; EFFECTIVE_AFTER_CND-001_CND-002_AND_VC-001; NO_EDIT_BEFORE_GATES",
+      "execution_authorization": "HUMAN_OWNER_GRANTED_CONDITIONALLY_2026-11-25; EFFECTIVE_AFTER_CND-001_CND-002_PROMPT-0006_VC-001_AND_GEMINI_SCOPE_ACK; NO_EDIT_BEFORE_GATES",
       "r4_technical_reviewer": "DeepSeek",
       "r4_domain_authority": "ChatGPT; Human Owner designated on 2026-11-25",
       "prompt_architect": "ChatGPT",
@@ -672,7 +672,7 @@
       "description": "Complete W0 governance synchronization. Then close CND-001 by testing v2-preserving recovery against an isolated copy and CND-002 by approving the exact B2 v1 validation baseline. After both pass, prepare/allocate Prompt #0006 and complete fresh VC-001 preflight before Gemini edits. CND-003 and CND-004 are mandatory implementation/acceptance gates. CND-005 remains HOLD and CND-006 blocks final acceptance.",
       "priority": "URGENT",
       "owner": "ChatGPT / DeepSeek / Gemini / Human Owner",
-      "related_task_id": "BVC-TM-P3.3-006"
+      "related_task_id": "BVC-TM-P3.3-007"
     }
   ],
   "recovery": {
