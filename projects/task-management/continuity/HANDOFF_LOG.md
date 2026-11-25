@@ -221,3 +221,20 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Current status:** DESIGNATED; DeepSeek report PENDING; ChatGPT domain decision PENDING. Post-migration recovery remains NOT_TESTED; execution authorization NOT_GRANTED; fresh live GAIS preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED.
 - **GAIS state:** No source, Preview or browser workspace changes were made by this governance update.
 - **Handoff status:** Governance record prepared for Human Owner review; this entry does not claim domain approval or execution authorization.
+
+## H-0012 — DeepSeek R4 Report Assessed; ChatGPT Domain Disposition APPROVED_WITH_CONDITIONS
+
+- **Recorded at:** 2026-11-25T11:27:00+07:00
+- **Project:** BVC-TASK-MANAGEMENT
+- **Canonical base checkpoint:** `main@fb32d21103bb7304c8eb32cd356de0ec349d4145` (PR #91 merged).
+- **Event type:** R4_DOMAIN_REVIEW_DECISION / SOURCE_REVIEW_CHECKPOINT
+- **Contract:** `BVC-TM-TC-007`, Revision 1 — APPROVED; Contract content unchanged.
+- **Technical report:** DeepSeek R4 Technical Review supplied by Human Owner in ChatGPT conversation on 2026-11-25.
+- **Implementation source:** Human Owner supplied `BVC_GAIS_Source_Export_2026-11-25.zip`; archive SHA-256 `0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7`; `app/page.tsx` SHA-256 `4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e`.
+- **Domain Authority:** ChatGPT, designated by Human Owner.
+- **Disposition:** `APPROVED_WITH_CONDITIONS`; see `projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md`.
+- **Finding reconciliation:** DS-R4-001 accepted, severity High / blocking; DS-R4-002 and DS-R4-003 partially accepted; DS-R4-004 rejected as a current vulnerability because `task.title` is rendered as a React text child. ChatGPT independently identified a misleading storage-error/empty-state, potential exposure of project Context Pack/Prompt files under `public/`, and a retry-state issue when `crypto.randomUUID()` is unavailable.
+- **Critical correction:** Never delete v2 on failed read-back. Preserve both keys, stop mutations and enter recovery state. A v1 projection must not discard or mutate the preserved full v2 payload.
+- **Conditions:** CND-001 v2-preserving copy-based recovery procedure/test; CND-002 exact B2 v1 validation baseline; CND-003 truthful storage error UI; CND-004 no destructive v2 cleanup/fallback. CND-005 public static asset classification remains NOT_VERIFIED; CND-006 verification evidence remains pending.
+- **Execution authority:** NOT_GRANTED. Recovery NOT_TESTED. Fresh GAIS preflight NOT_RUN. Prompt #0006 NOT_ALLOCATED. No GAIS source/runtime/browser storage was modified.
+- **Handoff status:** Conditional R4 domain review decision recorded; conditions remain open and block execution.
