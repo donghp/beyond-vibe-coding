@@ -93,10 +93,10 @@ Gemini may not make a source change until all of the following are recorded as P
 
 ### GATE-PRE-003 — authorization and live preflight
 - This Owner authorization record is canonical on `main`.
-- Prompt #0006 is allocated and issued only after GATE-PRE-001 and GATE-PRE-002 pass.
-- Gemini acknowledges the exact allowed file, file count, diff budget and stop conditions.
-- Immediately before edit, perform Contract VC-001 on the exact live GAIS app: verify app ID, read current `app/page.tsx`, record content fingerprint, inspect browser v1 storage read-only, ensure no dirty editor state and confirm single-writer.
+- After GATE-PRE-001 and GATE-PRE-002 pass, perform a fresh, read-only Contract VC-001 preflight on the exact live GAIS app: verify app ID, read current `app/page.tsx`, record content fingerprint, inspect browser v1 storage read-only, ensure no dirty editor state and confirm single-writer.
 - Compare the live source against the 2026-11-25 export; material unexplained differences require STOP and re-baselining.
+- Gemini provides a read-only acknowledgment of the exact app, allowed file, file-count/diff budget and stop conditions. This acknowledgment must not edit source and is not Prompt #0006.
+- Only after CND-001, CND-002, VC-001 and Gemini's read-only scope acknowledgment pass may ChatGPT allocate and issue Prompt #0006.
 
 All three pre-execution gates are cumulative. The Human Owner's authorization is already given, but its effective use is conditional on these gates.
 
