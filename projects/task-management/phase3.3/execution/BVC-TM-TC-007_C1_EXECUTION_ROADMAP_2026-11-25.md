@@ -71,7 +71,7 @@ Approved decisions:
 | G0 — Governance publication | Publish Owner authorization and approved gate split; preserve Contract #007 | ChatGPT; Human Owner review/merge | Merged governance PR and canonical Project State |
 | G1 — CND-001 Recovery | Document and execute post-migration downgrade/recovery test against an isolated copy of full v2 payload | ChatGPT prepares; DeepSeek challenges; ChatGPT assesses | Test fixture, procedure, before/after manifest, task ID/title comparison, complete-v2 preservation check, report |
 | G2 — CND-002 V1 baseline | Reconcile accepted B2 v1 schema and validation behavior exactly | ChatGPT prepares; DeepSeek may challenge | V1 validation baseline and case matrix approved by ChatGPT |
-| G3 — Prompt and live preflight | Allocate Prompt #0006 after G1/G2; complete VC-001 on exact live GAIS app; Gemini acknowledges scope | ChatGPT / Human Owner / Gemini | Prompt #0006, app ID and source hash, read-only v1 inspection record, no-dirty-state and single-writer evidence, Gemini scope acknowledgement |
+| G3 — Live preflight, scope acknowledgment and Prompt allocation | After G1/G2 pass, perform read-only VC-001 on the exact live GAIS app; Gemini acknowledges scope without editing; allocate Prompt #0006 only after all preflight checks pass | ChatGPT / Human Owner / Gemini | App ID and source hash, read-only v1 inspection record, no-dirty-state and single-writer evidence, Gemini scope acknowledgment, then allocated Prompt #0006 |
 
 Human Owner has already given separate action-level execution authorization. Its use remains conditional on G1, G2 and G3. This roadmap does not treat that authorization as permission to bypass those gates.
 
@@ -202,15 +202,16 @@ Prompt package must follow the project GAIS Prompt Delivery Standard template:
 - Part C: Vietnamese post-run review guide.
 
 Tasks:
-- W4.1 Allocate BVCTM-PROMPT-0006 only after G1/G2 PASS.
-- W4.2 Identify Contract #007 Revision 1, accepted DR decisions, source files and exact app ID.
-- W4.3 Include scope budget, prohibited operations, CND-003/004 implementation requirements and stop conditions.
-- W4.4 Read current GAIS app ID and current `app/page.tsx` immediately before edit.
-- W4.5 Record current source fingerprint and compare against the 2026-11-25 export.
-- W4.6 Inspect v1 Local Storage read-only and preserve the observed payload using an Owner-approved safe method.
-- W4.7 Confirm no dirty editor state and single-writer.
-- W4.8 Gemini repeats and acknowledges exact file/diff/safety boundary.
-- W4.9 Human Owner confirms VC-001 preflight PASS before Stage 2 source editing.
+Tasks:
+- W4.1 After G1/G2 pass, perform a fresh read-only VC-001 preflight on the exact live GAIS app.
+- W4.2 Verify the exact app ID and inspect the current `app/page.tsx` without editing.
+- W4.3 Record the current source fingerprint and compare against the 2026-11-25 export; unexplained material drift means STOP and re-baseline.
+- W4.4 Inspect v1 Local Storage read-only and preserve the observed payload using an Owner-approved safe method.
+- W4.5 Confirm no dirty editor state and a single-writer condition.
+- W4.6 Gemini provides a read-only acknowledgment of exact app, allowed file, one-file/500-line budget and stop conditions; no source edit is permitted in this acknowledgment.
+- W4.7 Human Owner confirms VC-001 PASS.
+- W4.8 Only after CND-001, CND-002, VC-001 and Gemini's scope acknowledgment pass, allocate BVCTM-PROMPT-0006.
+- W4.9 Finalize the Vietnamese briefing and copy-ready prompt with the actual live source fingerprint; issue Prompt #0006 for the authorized implementation.
 
 Stop if app identity mismatches, source drift is unexplained, workspace data is malformed, the v1 key cannot be safely preserved, another writer is active, or the diff budget cannot be respected.
 
