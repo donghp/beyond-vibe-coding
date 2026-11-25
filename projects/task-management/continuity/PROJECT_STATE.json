@@ -1,23 +1,23 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 22,
+  "revision": 23,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-24T23:44:06+07:00",
+  "state_as_of": "2026-11-25T10:20:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
     "default_branch": "main"
   },
   "baseline": {
-    "source_commit": "d806f042bf7411d8d4a3ce2869e68e67ba14ae00",
+    "source_commit": "688e5f30944b1aefcbdd2d8825a3d45c8a8027a6",
     "working_tree_status": "UNKNOWN; live local Windows worktrees and GAIS workspace were not inspected during the Contract #007 approval synchronization.",
     "pre_existing_changes_ref": "The last observed local worktree outputs predate PRs #50–#53. C:\\\\beyond-vibe-coding-a4-evidence was owner-reported clean at 202e780 before later merges, but its current HEAD/status after PR #53 is NOT_VERIFIED. C:\\\\beyond-vibe-coding remains a separate DIRTY linked worktree with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees from the last owner-supplied output. Preserve all local-only content; do not reset, clean, pop stashes or overwrite it."
   },
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-C1-MY-DAY",
     "title": "Phase C1 — My Day",
-    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DR_001_DR_002_DR_017_DR_020_OWNER_APPROVED_CANONICAL_2026-11-24; CONTRACT_007_REVISION_1_OWNER_APPROVED_2026-11-24; R4_DOMAIN_APPROVAL_PENDING; POST_MIGRATION_RECOVERY_TEST_PENDING; EXECUTION_AUTHORIZATION_NOT_GRANTED; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_AUTHORIZED"
+    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DR_001_DR_002_DR_017_DR_020_OWNER_APPROVED_CANONICAL_2026-11-24; CONTRACT_007_REVISION_1_OWNER_APPROVED_CANONICAL_PR_88; R4_ROLES_DESIGNATED_2026-11-25; DEEPSEEK_TECHNICAL_REPORT_PENDING; CHATGPT_DOMAIN_DECISION_PENDING; POST_MIGRATION_RECOVERY_TEST_PENDING; EXECUTION_AUTHORIZATION_NOT_GRANTED; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_AUTHORIZED"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -29,7 +29,7 @@
     "DR-005 is APPROVED and canonical on main through PR #62.",
     "PHASE B CLOSED: On 2026-11-24 the Human Owner explicitly accepted all four Phase B lessons (B1-B4), the available evidence and continuity, and declared Phase B closed. Known limitations and historical NOT_RUN / NOT_VERIFIED outcomes remain unchanged; see practical-labs/bvc-task-management/phase-b/PHASE_B_ACCEPTANCE_AND_CLOSEOUT_2026-11-24.md.",
     "PHASE C ACTIVE — PLANNING: C1 — My Day is the first lesson in Curriculum Map v0.2 and follows Product Definition v0.2.0 FR-010 / AC-006. The canonical My Day order is Overdue, Due Today, Today's Focus, Upcoming, Unscheduled, Add task; Unscheduled is supplemental and the first four priority sections retain their existing order.",
-    "C1 Product/UX decisions DR-001, DR-002, DR-017 and DR-020 are approved and canonical on main (DR-001/002/017 via PR #83; DR-020 via PR #86). Human Owner approved Contract #007 Revision 1 on 2026-11-24; approval publication is proposed in PR #88. Contract #006 Revision 2 remains DRAFT_NOT_APPROVED and R1 readiness-only. Contract #007 is R4; execution remains blocked pending designation/approval of the Data Privacy/Security domain reviewer, tested and approved post-migration recovery, separate explicit execution authorization and fresh live GAIS/single-writer preflight. Prompt #0006 remains NOT_ALLOCATED.",
+    "C1 Product/UX decisions DR-001, DR-002, DR-017 and DR-020 are approved and canonical on main. Contract #007 Revision 1 is Owner-approved and canonical through merged PR #88; Contract #006 Revision 2 remains DRAFT_NOT_APPROVED and R1 readiness-only. On 2026-11-25 the Human Owner designated DeepSeek as the read-only AI R4 technical reviewer and ChatGPT as R4 Data Privacy/Security Domain Authority and Prompt Architect; see projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md. DeepSeek's report and ChatGPT's domain decision remain pending. Post-migration recovery is NOT_TESTED; separate explicit execution authorization is NOT_GRANTED; fresh live GAIS/single-writer preflight is NOT_RUN; Prompt #0006 remains NOT_ALLOCATED.",
     "C1 readiness proposes a non-destructive migration from B2 formatVersion 1 to a separate formatVersion 2 workspace key. Preserve workspaceId, every existing task id/title and the original v1 key; do not execute migration until Contract #007 is approved and authorized."
   ],
   "facts": [
@@ -358,6 +358,15 @@
         "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md",
         "practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-035",
+      "statement": "On 2026-11-25 the Human Owner designated DeepSeek as the read-only AI R4 technical reviewer and ChatGPT as the R4 Data Privacy/Security Domain Authority and Prompt Architect for Contract #007 Revision 1. This is an AI-assisted internal review assignment only: DeepSeek's report and ChatGPT's domain disposition remain pending; no domain approval or execution authority is inferred.",
+      "classification": "OWNER_REPORTED",
+      "source_refs": [
+        "Human Owner decision in ChatGPT on 2026-11-25",
+        "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md"
+      ]
     }
   ],
   "decisions": [
@@ -476,17 +485,24 @@
       "contract_revision": 1,
       "title": "Phase C1 — My Day: Implement Date-Aware Daily View",
       "status": "APPROVED",
-      "owner": "Human Owner approves; Gemini is the proposed GAIS executor only after R4 gates and separate execution authorization; ChatGPT coordinates and reviews.",
+      "owner": "Human Owner retains final governance and execution authority; ChatGPT is R4 Data Privacy/Security Domain Authority and Prompt Architect; DeepSeek performs read-only AI technical review; Gemini is the proposed executor only after all gates and separate authorization.",
       "execution_status": "NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION",
       "risk_level": "R4",
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
-      "publication_status": "OWNER_APPROVAL_RECORD_PROPOSED_IN_PR_88; NOT_YET_CANONICAL_ON_MAIN",
-      "proposal_reference": "https://github.com/donghp/beyond-vibe-coding/pull/88; Owner approval publication proposed; canonical approval metadata pending merge.",
-      "next_action": "Designate and obtain R4 Data Privacy/Security domain approval; test and approve post-migration recovery against a copy of v2; issue separate explicit execution authorization; complete fresh live GAIS app/source and single-writer preflight. Keep Prompt #0006 NOT_ALLOCATED.",
-      "owner_approval_reference": "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24 in ChatGPT; approval publication proposed in PR #88.",
-      "r4_domain_approval_status": "NOT_DESIGNATED; REQUIRED_BEFORE_EXECUTION",
+      "publication_status": "CONTRACT_APPROVAL_CANONICAL_ON_MAIN_VIA_MERGED_PR_88; R4_REVIEW_ASSIGNMENT_PROPOSED_IN_GOVERNANCE_PR",
+      "proposal_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md",
+      "next_action": "DeepSeek completes the read-only technical review and submits findings; ChatGPT independently assesses the report and evidence and records the R4 domain-review decision. Then test and approve post-migration recovery against a copy of v2; obtain separate explicit Human Owner execution authorization; pass fresh live GAIS app/source and single-writer preflight. Prompt #0006 remains NOT_ALLOCATED.",
+      "owner_approval_reference": "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24; canonical via merged PR #88.",
+      "r4_domain_approval_status": "DESIGNATED; PENDING_REVIEW_AND_DOMAIN_DECISION; NOT_GRANTED",
       "recovery_verification_status": "NOT_TESTED; REQUIRED_BEFORE_EXECUTION",
-      "execution_authorization": "NOT_GRANTED"
+      "execution_authorization": "NOT_GRANTED",
+      "r4_technical_reviewer": "DeepSeek",
+      "r4_domain_authority": "ChatGPT; Human Owner designated on 2026-11-25",
+      "prompt_architect": "ChatGPT",
+      "r4_review_assignment_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md",
+      "r4_review_mode": "AI_ASSISTED_INTERNAL_DOMAIN_REVIEW; NOT_A_PROFESSIONAL_CERTIFICATION_OR_THIRD_PARTY_AUDIT",
+      "r4_review_status": "DESIGNATED; DEEPSEEK_REPORT_PENDING; CHATGPT_DOMAIN_DECISION_PENDING",
+      "r4_qualified_human_review": "NOT_DESIGNATED; consider supplemental qualified human review where available and required"
     }
   ],
   "blocked_items": [
@@ -499,7 +515,7 @@
     },
     {
       "issue_id": "TM-BLOCK-C1-IMPLEMENTATION-AUTHORITY",
-      "description": "DR-001, DR-002, DR-017 and DR-020 are approved and canonical. Human Owner approved Contract #007 Revision 1 on 2026-11-24 (approval publication proposed in PR #88); Contract #006 Revision 2 remains a separate R1 readiness draft. Remaining execution blockers are designation/approval of the R4 Data Privacy/Security domain reviewer, tested and approved post-migration recovery, separate explicit execution authorization and fresh live GAIS/single-writer preflight. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
+      "description": "Contract #007 Revision 1 is Human Owner-approved and canonical via merged PR #88; Contract #006 remains a separate R1 draft. The Human Owner designated DeepSeek for read-only AI technical review and ChatGPT as R4 Domain Authority / Prompt Architect on 2026-11-25 (see projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md). The DeepSeek report and ChatGPT domain disposition are pending. Post-migration recovery remains untested; separate explicit execution authorization is not granted; fresh live GAIS/single-writer preflight remains not run. Prompt #0006 remains NOT_ALLOCATED; no GAIS source changes are authorized.",
       "status": "OPEN",
       "owner": "Human Owner / Product Owner",
       "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
@@ -611,18 +627,18 @@
     },
     {
       "action_id": "TM-NEXT-C1-002",
-      "description": "Contract #007 Revision 1 was approved by the Human Owner on 2026-11-24; publish the approval record. Then designate/obtain the R4 Data Privacy/Security domain approval, complete and approve tested post-migration recovery, obtain separate explicit execution authorization and run fresh live GAIS/source/single-writer preflight. Prompt #0006 stays NOT_ALLOCATED until those gates are satisfied.",
+      "description": "R4 review roles designated 2026-11-25: DeepSeek performs read-only AI technical review; ChatGPT evaluates findings/evidence and records the domain-review disposition under projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md. After domain review, test and approve post-migration recovery against a v2 copy, obtain separate explicit Human Owner execution authorization, and pass fresh live GAIS/single-writer preflight. Keep Prompt #0006 NOT_ALLOCATED until all required gates are complete.",
       "priority": "URGENT",
-      "owner": "Human Owner / Product Owner",
+      "owner": "DeepSeek / ChatGPT / Human Owner",
       "related_task_id": "BVC-TM-P3.3-006"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@d806f042bf7411d8d4a3ce2869e68e67ba14ae00 (PR #87 merged; Contract #007 Owner approval submitted for canonical recording)",
-    "source_commit": "d806f042bf7411d8d4a3ce2869e68e67ba14ae00",
+    "recovery_point_ref": "main@688e5f30944b1aefcbdd2d8825a3d45c8a8027a6 (PR #88 merged; R4 assignment synchronization branch based on this checkpoint)",
+    "source_commit": "688e5f30944b1aefcbdd2d8825a3d45c8a8027a6",
     "verified": true,
-    "last_verified_at": "2026-11-24T23:44:06+07:00",
-    "notes": "PR #87 merged at d806f042bf7411d8d4a3ce2869e68e67ba14ae00. Human Owner approved Contract #007 Revision 1 on 2026-11-24; approval synchronization is proposed in PR #88. Contract #007 approval does not grant execution authority. R4 Data Privacy/Security domain approval remains NOT_DESIGNATED; post-migration recovery remains NOT_TESTED; separate execution authorization remains NOT_GRANTED; fresh live GAIS preflight remains required. Prompt #0006 remains NOT_ALLOCATED. Local Windows worktrees and GAIS workspace were not inspected."
+    "last_verified_at": "2026-11-25T10:20:00+07:00",
+    "notes": "PR #88 merged at 688e5f30944b1aefcbdd2d8825a3d45c8a8027a6, canonicalizing Contract #007 Revision 1 Owner approval. On 2026-11-25 the Human Owner designated DeepSeek as read-only AI technical reviewer and ChatGPT as R4 Domain Authority / Prompt Architect; role assignment is recorded in projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md. DeepSeek report and ChatGPT domain disposition remain pending; post-migration recovery is NOT_TESTED; execution authorization NOT_GRANTED; fresh live GAIS preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED. This governance change did not inspect or modify local Windows worktrees, GAIS source, Preview or browser storage."
   },
-  "updated_by": "Project State revision 22 — records Human Owner approval of Contract #007 Revision 1 on 2026-11-24; R4 domain approval, tested recovery, separate execution authorization and live GAIS preflight remain open."
+  "updated_by": "Project State revision 23 — records Human Owner-designated DeepSeek R4 technical reviewer and ChatGPT R4 Domain Authority / Prompt Architect; review, recovery, execution authorization and live preflight remain open."
 }
