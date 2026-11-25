@@ -511,7 +511,7 @@
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
       "publication_status": "CONTRACT_APPROVAL_CANONICAL_PR_88; R4_ASSIGNMENT_CANONICAL_PR_89; R4_DECISION_CANONICAL_PR_92; OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_PROPOSED_PR",
       "proposal_reference": "projects/task-management/phase3.3/execution/BVC-TM-TC-007_OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_2026-11-25.md",
-      "next_action": "W0 governance synchronization PR: publish Owner gate split and conditional Gemini authorization. After merge, execute W1 isolated-copy recovery test (CND-001) and W2 exact B2 v1 validation baseline (CND-002). Only after both pass may ChatGPT allocate Prompt #0006 and run fresh GAIS VC-001 preflight. CND-003/004 must be included as implementation/acceptance gates; CND-005 remains HOLD; CND-006 blocks acceptance.",
+      "next_action": "W0 governance PR merge; then close CND-001 recovery copy-test and CND-002 exact B2 v1 validation baseline. After both pass, perform fresh read-only VC-001 and Gemini scope acknowledgment; only then allocate Prompt #0006 and issue the execution prompt.",
       "owner_approval_reference": "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24; canonical via merged PR #88.",
       "r4_domain_approval_status": "APPROVED_WITH_CONDITIONS; CND-001_CND-002_PRE_EXECUTION_BLOCKING; CND-003_CND-004_IMPLEMENTATION_ACCEPTANCE_GATES; CND-005_HOLD; CND-006_PRE_ACCEPTANCE",
       "recovery_verification_status": "NOT_TESTED; CND-001_PRE_EXECUTION_BLOCKING",
@@ -669,7 +669,7 @@
     },
     {
       "action_id": "TM-NEXT-C1-002",
-      "description": "Complete W0 governance synchronization. Then close CND-001 by testing v2-preserving recovery against an isolated copy and CND-002 by approving the exact B2 v1 validation baseline. After both pass, prepare/allocate Prompt #0006 and complete fresh VC-001 preflight before Gemini edits. CND-003 and CND-004 are mandatory implementation/acceptance gates. CND-005 remains HOLD and CND-006 blocks final acceptance.",
+      "description": "Complete W0 governance synchronization. Then close CND-001 recovery copy-test and CND-002 exact B2 v1 validation baseline. After both pass, complete fresh read-only GAIS VC-001 and Gemini scope acknowledgment; only then allocate Prompt #0006 and issue it for implementation. CND-003/004 remain mandatory implementation/acceptance gates; CND-005 HOLD; CND-006 blocks acceptance.",
       "priority": "URGENT",
       "owner": "ChatGPT / DeepSeek / Gemini / Human Owner",
       "related_task_id": "BVC-TM-P3.3-007"
