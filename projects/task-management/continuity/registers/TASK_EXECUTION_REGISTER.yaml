@@ -236,7 +236,7 @@ tasks:
   r4_review_mode: AI_ASSISTED_INTERNAL_DOMAIN_REVIEW; NOT_A_CERTIFICATION_OR_THIRD_PARTY_AUDIT
   r4_review_independence_note: "DeepSeek provides a separate model-based technical critique; this is not represented as a qualified human professional review or certification. Add qualified human review where available and required."
   recovery_verification_status: NOT_TESTED; CND-001_PRE_EXECUTION_BLOCKING
-  execution_authorization: HUMAN_OWNER_GRANTED_CONDITIONALLY_2026-11-25; EFFECTIVE_AFTER_CND-001_CND-002_AND_VC-001; NO_EDIT_BEFORE_GATES
+  execution_authorization: HUMAN_OWNER_GRANTED_CONDITIONALLY_2026-11-25; EFFECTIVE_AFTER_CND-001_CND-002_PROMPT-0006_VC-001_AND_GEMINI_SCOPE_ACK; NO_EDIT_BEFORE_GATES
   risk_level: R4
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml
   publication_status: CONTRACT_PR_88; R4_ASSIGNMENT_PR_89; R4_DECISION_PR_92; OWNER_AUTHORIZATION_AND_GATE_SPLIT_PROPOSED_IN_GOVERNANCE_PR; C1_ROADMAP_PROPOSED_IN_GOVERNANCE_PR
