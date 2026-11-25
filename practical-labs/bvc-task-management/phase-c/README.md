@@ -38,7 +38,7 @@ A task must appear only once in My Day. The four priority sections retain their 
 | DR-017 — Timezone source and editing | APPROVED — 2026-11-24 | Browser IANA timezone detection with user correction | The C1 proposal stores a validated IANA timezone in workspace settings. |
 | DR-020 — Legacy task visibility | APPROVED — 2026-11-24 | Supplemental Unscheduled section after Upcoming and before Add task | Both legacy tasks appear once without inventing dates or Focus. |
 
-These decisions are approved for C1 and must not be treated as pending. The migration and implementation details in the C1 brief remain proposals for Owner review.
+These decisions are approved for C1 and must not be treated as pending. Contract #007 Revision 1 is the implementation authority for its approved migration and behavior requirements. Runtime behavior, data preservation and recovery still require evidence under its verification checks.
 
 ### Current C1 preparation
 
@@ -46,7 +46,7 @@ These decisions are approved for C1 and must not be treated as pending. The migr
 - [C1 Readiness Contract #006 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml)
 - [C1 Implementation Contract #007 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml)
 
-**Contract roles are separate:** #006 is an R1 documentation/readiness proposal and remains `DRAFT_NOT_APPROVED`. #007 is the R4 C1 implementation Contract; the Human Owner approved Revision 1 on 2026-11-24, canonical through merged PR #88. On 2026-11-25 the Human Owner designated DeepSeek as read-only AI technical reviewer and ChatGPT as R4 Data Privacy/Security Domain Authority and Prompt Architect; see [R4 review assignment](../../../../projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md). DeepSeek's report and ChatGPT's domain decision are pending. Domain review assignment is not domain approval. Post-migration recovery must still be tested and approved, the Human Owner must issue separate explicit execution authorization, and fresh live GAIS/single-writer preflight must pass.
+**Contract roles are separate:** #006 is an R1 documentation/readiness proposal and remains `DRAFT_NOT_APPROVED`. #007 is the R4 C1 implementation Contract; the Human Owner approved Revision 1 on 2026-11-24, canonical through merged PR #88. On 2026-11-25 the Human Owner designated DeepSeek as read-only AI technical reviewer and ChatGPT as R4 Data Privacy/Security Domain Authority and Prompt Architect; see [R4 review assignment](../../../projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md). DeepSeek's report and ChatGPT's domain decision are pending. Domain review assignment is not domain approval. Post-migration recovery must still be tested and approved, the Human Owner must issue separate explicit execution authorization, and fresh live GAIS/single-writer preflight must pass.
 
 **Prompt #0006 has not been allocated.** Keep it unallocated until DeepSeek's R4 technical review has been assessed, ChatGPT has recorded the domain-review disposition, the post-migration recovery procedure has been tested and approved, the Human Owner has issued separate explicit execution authorization, and fresh live GAIS preflight has passed. The eventual prompt must follow the Vietnamese-first Prompt Delivery Standard: learner explanation, copy-ready prompt, and post-run review instructions.
 
