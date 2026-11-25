@@ -215,25 +215,31 @@ tasks:
   revision: 1
   title: "Phase C1 — My Day: Implement Date-Aware Daily View"
   status: APPROVED
-  execution_status: NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION
+  execution_owner: Gemini in Google AI Studio; conditional Human Owner authorization recorded 2026-11-25
+  execution_status: NOT_STARTED; HUMAN_OWNER_AUTHORIZATION_GRANTED_CONDITIONALLY_2026-11-25; PRE_EXECUTION_GATES_OPEN
   owner_approval_reference: "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24; approval metadata is canonical on main through merged PR #88."
-  r4_domain_approval_status: APPROVED_WITH_CONDITIONS; CND_001_TO_CND_004_OPEN; EXECUTION_BLOCKED
+  r4_domain_approval_status: APPROVED_WITH_CONDITIONS; CND-001_CND-002_PRE_EXECUTION_BLOCKING; CND-003_CND-004_IMPLEMENTATION_ACCEPTANCE_GATES; CND-005_HOLD; CND-006_PRE-ACCEPTANCE
   r4_technical_reviewer: DeepSeek; AI_ASSISTED_READ_ONLY_REVIEW
   r4_domain_authority: ChatGPT; HUMAN_OWNER_DESIGNATED_2026-11-25
   prompt_architect: ChatGPT
   r4_review_assignment_reference: projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md
   r4_domain_review_decision_reference: projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md
+  owner_execution_authorization_reference: projects/task-management/phase3.3/execution/BVC-TM-TC-007_OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_2026-11-25.md
+  c1_execution_roadmap_reference: projects/task-management/phase3.3/execution/BVC-TM-TC-007_C1_EXECUTION_ROADMAP_2026-11-25.md
   r4_technical_report_received: OWNER_SUPPLIED_CHATGPT_CONVERSATION_2026-11-25
   r4_domain_decision: APPROVED_WITH_CONDITIONS
-  r4_blocking_conditions: CND_001; CND_002; CND_003; CND_004
+  r4_pre_execution_gates: CND-001; CND-002
+  r4_implementation_acceptance_gates: CND-003; CND-004
+  r4_hold: CND-005_PUBLIC_ASSETS
+  r4_pre_acceptance_evidence: CND-006
   r4_additional_conditions: CND_005_PUBLIC_ASSET_CLASSIFICATION; CND_006_VERIFICATION_EVIDENCE
   r4_review_mode: AI_ASSISTED_INTERNAL_DOMAIN_REVIEW; NOT_A_CERTIFICATION_OR_THIRD_PARTY_AUDIT
   r4_review_independence_note: "DeepSeek provides a separate model-based technical critique; this is not represented as a qualified human professional review or certification. Add qualified human review where available and required."
-  recovery_verification_status: NOT_TESTED; CND-001_BLOCKING
-  execution_authorization: NOT_GRANTED
+  recovery_verification_status: NOT_TESTED; CND-001_PRE_EXECUTION_BLOCKING
+  execution_authorization: HUMAN_OWNER_GRANTED_CONDITIONALLY_2026-11-25; EFFECTIVE_AFTER_CND-001_CND-002_PROMPT-0006_VC-001_AND_GEMINI_SCOPE_ACK; NO_EDIT_BEFORE_GATES
   risk_level: R4
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml
-  publication_status: CONTRACT_APPROVAL_CANONICAL_ON_MAIN_VIA_MERGED_PR_88; R4_ASSIGNMENT_CANONICAL_ON_MAIN_VIA_MERGED_PR_89; DOMAIN_DECISION_PROPOSED_IN_GOVERNANCE_PR
+  publication_status: CONTRACT_PR_88; R4_ASSIGNMENT_PR_89; R4_DECISION_PR_92; OWNER_AUTHORIZATION_AND_GATE_SPLIT_PROPOSED_IN_GOVERNANCE_PR; C1_ROADMAP_PROPOSED_IN_GOVERNANCE_PR
   scope: "Existing GAIS Beginner app only; MODIFY app/page.tsx, one changed file, maximum 500 diff lines; v1-to-v2 Local Storage migration, date-aware My Day sections including DR-020 Unscheduled placement and timezone correction. No dependencies, config, database, Auth or external services."
   dependencies:
   - "C1 readiness package / Contract #006 Revision 2: OWNER_REVIEWED_AS_INPUT_TO_CONTRACT_007_APPROVAL; CONTRACT_006_REMAINS_DRAFT_NOT_APPROVED"
@@ -247,7 +253,7 @@ tasks:
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-preview-after-refresh.webp"
-  next_action: "Close CND-001 through CND-004 in projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md: test v2-preserving recovery on an isolated copy; use the exact B2 v1 validation baseline; correct storage error/empty-state behavior; preserve safe migration stop behavior. Classify public static Context Pack/Prompt assets (CND-005) and gather VC evidence (CND-006). Then reassess condition closure, obtain separate explicit Human Owner execution authorization, and complete fresh live GAIS preflight. Prompt #0006 remains NOT_ALLOCATED."
+  next_action: "Complete W0 governance synchronization. Then close CND-001 by testing v2-preserving recovery on an isolated copy and CND-002 by approving the exact B2 v1 validation baseline. After both pass, complete fresh read-only GAIS VC-001 and Gemini scope acknowledgment; only then allocate Prompt #0006 and issue it for implementation. CND-003/004 are mandatory implementation/acceptance gates; CND-005 remains HOLD; CND-006 is required for acceptance."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
