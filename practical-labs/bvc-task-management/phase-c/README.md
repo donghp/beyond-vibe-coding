@@ -1,7 +1,7 @@
 # Phase C — Make It Useful Every Day
 
 **Learning level:** Beginner Expansion  
-**Status:** ACTIVE — C1 Product/UX decisions approved; Contract #007 Revision 1 Owner-approved; R4 Domain Review APPROVED_WITH_CONDITIONS; execution remains blocked by open conditions
+**Status:** ACTIVE — Contract #007 Revision 1 approved; R4 APPROVED_WITH_CONDITIONS; Human Owner approved W0–W7 and conditionally authorized Gemini; CND-001/CND-002 pre-execution gates open
 
 Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Phase C proceeds under Product Definition v0.2.0 and Curriculum Map v0.2. The six lesson groups below follow the canonical curriculum order.
 
@@ -9,7 +9,7 @@ Phase B was explicitly accepted and closed by the Human Owner on 2026-11-24. Pha
 
 | Lesson | Learning area | What the learner will learn | Gate before implementation |
 |---|---|---|---|
-| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows, including the Unscheduled section for undated active tasks. | DR-001, DR-002, DR-017 and DR-020 approved 2026-11-24; Contract #007 Revision 1 Owner-approved 2026-11-24; complete R4 domain approval, tested recovery, separate execution authorization and live preflight. |
+| C1 | **My Day** | Understand and use Overdue, Due Today, Today's Focus and Upcoming, without duplicate task rows, including the Unscheduled section for undated active tasks. | Contract #007 Revision 1; CND-001 recovery copy-test and CND-002 B2 v1 baseline; fresh VC-001 and Prompt #0006 before editing; CND-003/004 implementation/acceptance gates. |
 | C2 | **My Tasks** | View, create, edit, complete, prioritize, search and filter tasks. | Approve task-state, priority, search/filter behavior and regression criteria. |
 | C3 | **Projects** | Organize tasks into personal projects or work areas. | Resolve DR-003 project-removal behavior before implementation. |
 | C4 | **Templates** | Understand, preview, customize and apply Role Starter Kits. | Resolve DR-004 repeat-application behavior and DR-015 packaging before dependent implementation. |
@@ -41,6 +41,9 @@ A task must appear only once in My Day. The four priority sections retain their 
 These decisions are approved for C1 and must not be treated as pending. Contract #007 Revision 1 is the implementation authority for its approved migration and behavior requirements. Runtime behavior, data preservation and recovery still require evidence under its verification checks.
 
 ### Current C1 preparation
+
+- [C1 W0–W7 Execution Roadmap](../../../projects/task-management/phase3.3/execution/BVC-TM-TC-007_C1_EXECUTION_ROADMAP_2026-11-25.md)
+- [Owner Execution Authorization and CND Gate Split](../../../projects/task-management/phase3.3/execution/BVC-TM-TC-007_OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_2026-11-25.md)
 
 - [C1 — My Day Decision Brief](C1_MY_DAY_DECISION_BRIEF_V0.1.md)
 - [C1 Readiness Contract #006 proposal](../../../projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml)
