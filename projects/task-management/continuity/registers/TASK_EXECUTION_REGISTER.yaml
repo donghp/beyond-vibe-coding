@@ -216,13 +216,19 @@ tasks:
   title: "Phase C1 — My Day: Implement Date-Aware Daily View"
   status: APPROVED
   execution_status: NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION
-  owner_approval_reference: "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24 in ChatGPT. Approval publication proposed in PR #88."
-  r4_domain_approval_status: NOT_DESIGNATED; REQUIRED_BEFORE_EXECUTION
+  owner_approval_reference: "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24; approval metadata is canonical on main through merged PR #88."
+  r4_domain_approval_status: DESIGNATED; DEEPSEEK_TECHNICAL_REPORT_PENDING; CHATGPT_DOMAIN_DECISION_PENDING; NOT_GRANTED
+  r4_technical_reviewer: DeepSeek; AI_ASSISTED_READ_ONLY_REVIEW
+  r4_domain_authority: ChatGPT; HUMAN_OWNER_DESIGNATED_2026-11-25
+  prompt_architect: ChatGPT
+  r4_review_assignment_reference: projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md
+  r4_review_mode: AI_ASSISTED_INTERNAL_DOMAIN_REVIEW; NOT_A_CERTIFICATION_OR_THIRD_PARTY_AUDIT
+  r4_review_independence_note: "DeepSeek provides a separate model-based technical critique; this is not represented as a qualified human professional review or certification. Add qualified human review where available and required."
   recovery_verification_status: NOT_TESTED; REQUIRED_BEFORE_EXECUTION
   execution_authorization: NOT_GRANTED
   risk_level: R4
   contract_path: projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml
-  publication_status: OWNER_APPROVAL_RECORD_PROPOSED_IN_PR_88; NOT_YET_CANONICAL_ON_MAIN
+  publication_status: CONTRACT_APPROVAL_CANONICAL_ON_MAIN_VIA_MERGED_PR_88; R4_ASSIGNMENT_PROPOSED_IN_GOVERNANCE_PR
   scope: "Existing GAIS Beginner app only; MODIFY app/page.tsx, one changed file, maximum 500 diff lines; v1-to-v2 Local Storage migration, date-aware My Day sections including DR-020 Unscheduled placement and timezone correction. No dependencies, config, database, Auth or external services."
   dependencies:
   - "C1 readiness package / Contract #006 Revision 2: OWNER_REVIEWED_AS_INPUT_TO_CONTRACT_007_APPROVAL; CONTRACT_006_REMAINS_DRAFT_NOT_APPROVED"
@@ -236,7 +242,7 @@ tasks:
   - "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-localstorage-task-records.webp"
   - "practical-labs/bvc-task-management/phase-b/b2-save-your-task/assets/b2-preview-after-refresh.webp"
-  next_action: "Contract #007 Revision 1 Owner approval is recorded on 2026-11-24. Designate and obtain R4 Data Privacy/Security domain approval; test and approve post-migration recovery against a copy of v2; issue separate explicit execution authorization; then perform fresh live GAIS app/source and single-writer preflight. Prompt #0006 remains NOT_ALLOCATED."
+  next_action: "DeepSeek performs the assigned read-only R4 technical review and submits findings against the review assignment. ChatGPT independently assesses the report and evidence as R4 Domain Authority and records the domain-review decision. Then test and approve post-migration recovery against a copy of v2; obtain separate explicit Human Owner execution authorization; perform fresh live GAIS app/source and single-writer preflight. Prompt #0006 remains NOT_ALLOCATED until all required gates are satisfied."
 
 - task_id: BVC-TM-CONT-001
   contract_id: BVC-TM-CONT-TC-001
