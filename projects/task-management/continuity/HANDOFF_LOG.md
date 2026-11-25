@@ -238,3 +238,15 @@ This is a concise event/checkpoint log, not a conversation transcript. Add entri
 - **Conditions:** CND-001 v2-preserving copy-based recovery procedure/test; CND-002 exact B2 v1 validation baseline; CND-003 truthful storage error UI; CND-004 no destructive v2 cleanup/fallback. CND-005 public static asset classification remains NOT_VERIFIED; CND-006 verification evidence remains pending.
 - **Execution authority:** NOT_GRANTED. Recovery NOT_TESTED. Fresh GAIS preflight NOT_RUN. Prompt #0006 NOT_ALLOCATED. No GAIS source/runtime/browser storage was modified.
 - **Handoff status:** Conditional R4 domain review decision recorded; conditions remain open and block execution.
+## H-0013 — PR #92 Merged; R4 Conditional Domain Decision Canonicalized
+
+- **Recorded at:** 2026-11-25T11:45:00+07:00
+- **Main checkpoint:** `main@81506d9d8be615ea3b7ef7fceba02be711433e91`.
+- **PR:** #92 — `governance(r4): record conditional domain review for Contract 007`; GitHub confirms merged.
+- **Canonical decision:** `projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md`; disposition `APPROVED_WITH_CONDITIONS`.
+- **Synchronization:** Project State updated to Revision 25; Task Execution Register and Source Manifest reconciled to PR #92 merged state.
+- **Remaining conditions:** CND-001 to CND-004 remain execution-blocking. CND-005 public static asset classification remains NOT_VERIFIED; CND-006 verification evidence remains pending.
+- **Execution status:** recovery NOT_TESTED; separate Human Owner execution authorization NOT_GRANTED; fresh GAIS VC-001 preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED; Gemini execution NOT_AUTHORIZED.
+- **GAIS:** no app source, Preview, browser Local Storage or runtime was changed by this governance synchronization.
+- **CI:** workflow runs directly associated with merge commit were not returned by the commit-workflow-runs query; no post-merge CI conclusion is claimed by this handoff entry.
+- **Handoff status:** merge and semantic state synchronization checkpoint; execution gates remain open.
