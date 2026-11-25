@@ -1,23 +1,23 @@
 {
   "state_version": "0.1.0",
   "state_id": "BVC-TM-PROJECT-STATE",
-  "revision": 24,
+  "revision": 25,
   "project_id": "BVC-TASK-MANAGEMENT",
-  "state_as_of": "2026-11-25T11:27:00+07:00",
+  "state_as_of": "2026-11-25T12:00:00+07:00",
   "lifecycle_state": "ACTIVE",
   "repository": {
     "url": "https://github.com/donghp/beyond-vibe-coding",
     "default_branch": "main"
   },
   "baseline": {
-    "source_commit": "fb32d21103bb7304c8eb32cd356de0ec349d4145",
+    "source_commit": "81506d9d8be615ea3b7ef7fceba02be711433e91",
     "working_tree_status": "UNKNOWN; live local Windows worktrees and GAIS workspace were not inspected during the Contract #007 approval synchronization.",
     "pre_existing_changes_ref": "The last observed local worktree outputs predate PRs #50–#53. C:\\\\beyond-vibe-coding-a4-evidence was owner-reported clean at 202e780 before later merges, but its current HEAD/status after PR #53 is NOT_VERIFIED. C:\\\\beyond-vibe-coding remains a separate DIRTY linked worktree with one modified continuity Markdown file, two untracked A1 screenshots, six stash entries and other linked worktrees from the last owner-supplied output. Preserve all local-only content; do not reset, clean, pop stashes or overwrite it."
   },
   "current_milestone": {
     "milestone_id": "BVC-TM-PHASE-C1-MY-DAY",
     "title": "Phase C1 — My Day",
-    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DR_001_DR_002_DR_017_DR_020_OWNER_APPROVED_CANONICAL_2026-11-24; CONTRACT_007_REVISION_1_OWNER_APPROVED_CANONICAL_PR_88; R4_REPORT_RECEIVED_2026-11-25; CHATGPT_DOMAIN_DISPOSITION_APPROVED_WITH_CONDITIONS; CND_001_TO_CND_004_OPEN_BLOCKING; CND_005_PUBLIC_ASSET_CLASSIFICATION_NOT_VERIFIED; CND_006_VERIFICATION_PENDING; POST_MIGRATION_RECOVERY_TEST_NOT_TESTED; EXECUTION_AUTHORIZATION_NOT_GRANTED; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_AUTHORIZED"
+    "status": "PHASE_B_CLOSED_BY_HUMAN_OWNER_2026-11-24; PHASE_C_ACTIVE; C1_DECISIONS_AND_CONTRACT_007_OWNER_APPROVED; R4_DECISION_APPROVED_WITH_CONDITIONS_CANONICAL_PR_92; OWNER_APPROVED_W0_W7_ROADMAP_2026-11-25; GEMINI_EXECUTION_AUTHORIZATION_GRANTED_CONDITIONALLY; CND_001_CND_002_PRE_EXECUTION_GATES_OPEN; CND_003_CND_004_IMPLEMENTATION_ACCEPTANCE_GATES; CND_005_HOLD; CND_006_PRE_ACCEPTANCE_VERIFICATION; PROMPT_0006_NOT_ALLOCATED; GAIS_IMPLEMENTATION_NOT_STARTED"
   },
   "current_objectives": [
     "GitHub main is the canonical source for BVC repository governance, project/product/UX/architecture records, Contracts, Prompts, Practical Labs, continuity and evidence.",
@@ -377,6 +377,16 @@
         "Human Owner supplied DeepSeek report in ChatGPT conversation 2026-11-25",
         "BVC_GAIS_Source_Export_2026-11-25.zip"
       ]
+    },
+    {
+      "fact_id": "TM-FACT-037",
+      "statement": "On 2026-11-25 the Human Owner approved the C1 W0-W7 roadmap, granted conditional action-level execution authorization to Gemini for Contract #007 Revision 1, split CND-003/CND-004 into mandatory implementation/acceptance gates rather than separate pre-execution blockers, and placed the two public static Context Pack/Prompt assets on HOLD. CND-001 and CND-002 remain pre-execution gates; Prompt #0006 remains NOT_ALLOCATED until these and fresh VC-001 pass.",
+      "classification": "OWNER_DECISION",
+      "source_refs": [
+        "projects/task-management/phase3.3/execution/BVC-TM-TC-007_OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_2026-11-25.md",
+        "projects/task-management/phase3.3/execution/BVC-TM-TC-007_C1_EXECUTION_ROADMAP_2026-11-25.md",
+        "Human Owner approval in ChatGPT conversation on 2026-11-25"
+      ]
     }
   ],
   "decisions": [
@@ -495,35 +505,45 @@
       "contract_revision": 1,
       "title": "Phase C1 — My Day: Implement Date-Aware Daily View",
       "status": "APPROVED",
-      "owner": "Human Owner retains final governance and execution authority; ChatGPT is R4 Data Privacy/Security Domain Authority and Prompt Architect; DeepSeek performs read-only AI technical review; Gemini is the proposed executor only after all gates and separate authorization.",
-      "execution_status": "NOT_STARTED; NOT_AUTHORIZED_FOR_EXECUTION",
+      "owner": "Human Owner retains final governance and acceptance authority; Gemini has conditional action-level execution authorization for Contract #007 Rev1; ChatGPT coordinates, authors Prompt #0006 and acts as R4 Domain Authority; DeepSeek remains read-only technical reviewer.",
+      "execution_status": "NOT_STARTED; HUMAN_OWNER_AUTHORIZATION_GRANTED_CONDITIONALLY_2026-11-25; PRE_EXECUTION_GATES_OPEN",
       "risk_level": "R4",
       "contract_path": "projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml",
-      "publication_status": "CONTRACT_APPROVAL_CANONICAL_ON_MAIN_VIA_MERGED_PR_88; R4_ASSIGNMENT_CANONICAL_ON_MAIN_VIA_MERGED_PR_89; R4_DECISION_PROPOSED_IN_GOVERNANCE_PR",
-      "proposal_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md",
-      "next_action": "Close CND-001 through CND-004 as specified in projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md; classify the public static assets and gather verification evidence. ChatGPT then reassesses condition closure. Only afterward may the Human Owner separately authorize execution, followed by fresh live GAIS VC-001 preflight. Prompt #0006 remains NOT_ALLOCATED.",
+      "publication_status": "CONTRACT_APPROVAL_CANONICAL_PR_88; R4_ASSIGNMENT_CANONICAL_PR_89; R4_DECISION_CANONICAL_PR_92; OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_PROPOSED_PR",
+      "proposal_reference": "projects/task-management/phase3.3/execution/BVC-TM-TC-007_OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_2026-11-25.md",
+      "next_action": "W0 governance synchronization PR: publish Owner gate split and conditional Gemini authorization. After merge, execute W1 isolated-copy recovery test (CND-001) and W2 exact B2 v1 validation baseline (CND-002). Only after both pass may ChatGPT allocate Prompt #0006 and run fresh GAIS VC-001 preflight. CND-003/004 must be included as implementation/acceptance gates; CND-005 remains HOLD; CND-006 blocks acceptance.",
       "owner_approval_reference": "Human Owner explicitly approved BVC-TM-TC-007 Revision 1 on 2026-11-24; canonical via merged PR #88.",
-      "r4_domain_approval_status": "APPROVED_WITH_CONDITIONS; CND_001_TO_CND_004_OPEN; EXECUTION_BLOCKED",
-      "recovery_verification_status": "NOT_TESTED; CND-001_BLOCKING",
-      "execution_authorization": "NOT_GRANTED",
+      "r4_domain_approval_status": "APPROVED_WITH_CONDITIONS; CND-001_CND-002_PRE_EXECUTION_BLOCKING; CND-003_CND-004_IMPLEMENTATION_ACCEPTANCE_GATES; CND-005_HOLD; CND-006_PRE_ACCEPTANCE",
+      "recovery_verification_status": "NOT_TESTED; CND-001_PRE_EXECUTION_BLOCKING",
+      "execution_authorization": "HUMAN_OWNER_GRANTED_CONDITIONALLY_2026-11-25; EFFECTIVE_AFTER_CND-001_CND-002_AND_VC-001; NO_EDIT_BEFORE_GATES",
       "r4_technical_reviewer": "DeepSeek",
       "r4_domain_authority": "ChatGPT; Human Owner designated on 2026-11-25",
       "prompt_architect": "ChatGPT",
       "r4_review_assignment_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_ASSIGNMENT_2026-11-25.md",
       "r4_review_mode": "AI_ASSISTED_INTERNAL_DOMAIN_REVIEW; NOT_A_PROFESSIONAL_CERTIFICATION_OR_THIRD_PARTY_AUDIT",
-      "r4_review_status": "DEEPSEEK_REPORT_RECEIVED_2026-11-25; CHATGPT_DISPOSITION_APPROVED_WITH_CONDITIONS; CONDITIONS_OPEN",
+      "r4_review_status": "DEEPSEEK_REPORT_RECEIVED; CHATGPT_APPROVED_WITH_CONDITIONS_CANONICAL_PR_92; HUMAN_OWNER_APPROVED_GATE_SPLIT_2026-11-25; CND-001_CND-002_OPEN",
       "r4_qualified_human_review": "NOT_DESIGNATED; consider supplemental qualified human review where available and required",
       "r4_technical_report_reference": "Human Owner supplied DeepSeek R4 Technical Review in ChatGPT conversation on 2026-11-25; assessed against GAIS export ZIP SHA-256 0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7.",
       "r4_domain_review_decision_reference": "projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md",
       "r4_blocking_conditions": [
-        "CND-001 — v2-preserving recovery procedure and isolated-copy test",
-        "CND-002 — exact B2 v1 validation baseline for migration",
-        "CND-003 — truthful storage error UI; remove misleading empty state in error status",
-        "CND-004 — safe migration failure semantics; never automatically delete v2 or fall back from invalid v2"
+        "CND-001 — v2-preserving recovery procedure and isolated-copy test (pre-execution)",
+        "CND-002 — exact accepted B2 v1 validation baseline (pre-execution)"
       ],
       "r4_additional_conditions": [
         "CND-005 — classify public static Context Pack/Prompt assets; exposure NOT_VERIFIED",
         "CND-006 — gather VC verification evidence; build/lint/runtime remain NOT_VERIFIED"
+      ],
+      "execution_roadmap_reference": "projects/task-management/phase3.3/execution/BVC-TM-TC-007_C1_EXECUTION_ROADMAP_2026-11-25.md",
+      "execution_authorization_reference": "projects/task-management/phase3.3/execution/BVC-TM-TC-007_OWNER_GATE_SPLIT_AND_EXECUTION_AUTHORIZATION_2026-11-25.md",
+      "r4_implementation_acceptance_conditions": [
+        "CND-003 — truthful storage error UI; distinct error state and beginner-safe guidance, verified in Preview",
+        "CND-004 — safe migration failure invariant; no fallback from invalid v2, no automatic v2 deletion or v1 overwrite, no false save-success; verified by migration failure tests"
+      ],
+      "r4_hold_conditions": [
+        "CND-005 — HOLD public static Context Pack/Prompt assets; no edit/move/delete/new distribution; exposure NOT_VERIFIED"
+      ],
+      "r4_pre_acceptance_conditions": [
+        "CND-006 — VC evidence and actual build/lint/type/runtime outputs"
       ]
     }
   ],
@@ -537,7 +557,7 @@
     },
     {
       "issue_id": "TM-BLOCK-C1-IMPLEMENTATION-AUTHORITY",
-      "description": "DeepSeek's R4 report was received 2026-11-25. ChatGPT issued APPROVED_WITH_CONDITIONS (decision record: projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md). Conditions CND-001 through CND-004 remain OPEN and execution-blocking: v2-preserving copy-based recovery test; explicit B2 v1 schema baseline; truthful storage error state; and no destructive v2 cleanup/fallback. Public static asset classification is NOT_VERIFIED; verification evidence remains pending. Recovery NOT_TESTED; separate Human Owner execution authorization NOT_GRANTED; fresh GAIS preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED; no GAIS source changes authorized.",
+      "description": "Human Owner granted Gemini conditional execution authorization for Contract #007 Revision 1 on 2026-11-25 and approved the W0-W7 roadmap plus the CND-003/CND-004 split. Authorization is not yet effective for source editing: CND-001 recovery test and CND-002 exact v1 validation baseline remain pre-execution gates; fresh VC-001 and Prompt #0006 are also required. CND-003/004 are implementation/acceptance gates; CND-005 is HOLD; CND-006 is pre-acceptance verification. Prompt #0006 remains NOT_ALLOCATED; GAIS edits NOT_STARTED.",
       "status": "OPEN",
       "owner": "Human Owner / Product Owner",
       "reference": "projects/task-management/governance/PHASE3_PRODUCT_UX_DECISION_REGISTER_V0.1.md; practical-labs/bvc-task-management/phase-c/C1_MY_DAY_DECISION_BRIEF_V0.1.md; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-006_TASK_CONTRACT_V0.1.yaml; projects/task-management/phase3.3/task-contracts/BVC-TM-P3.3-007_TASK_CONTRACT_V0.1.yaml"
@@ -649,18 +669,18 @@
     },
     {
       "action_id": "TM-NEXT-C1-002",
-      "description": "Close ChatGPT R4 Domain Review conditions CND-001 to CND-004 under projects/task-management/phase3.3/reviews/BVC-TM-TC-007_R4_DOMAIN_REVIEW_DECISION_2026-11-25.md: define/test v2-preserving recovery against an isolated copy; adopt exact B2 v1 validation baseline; correct truthful storage error UX; preserve no-delete/no-fallback migration failure semantics. Also classify public static Context Pack/Prompt assets (CND-005) and gather verification evidence (CND-006). ChatGPT reassesses closure; Human Owner then considers separate execution authorization and fresh GAIS preflight. Prompt #0006 remains NOT_ALLOCATED.",
+      "description": "Complete W0 governance synchronization. Then close CND-001 by testing v2-preserving recovery against an isolated copy and CND-002 by approving the exact B2 v1 validation baseline. After both pass, prepare/allocate Prompt #0006 and complete fresh VC-001 preflight before Gemini edits. CND-003 and CND-004 are mandatory implementation/acceptance gates. CND-005 remains HOLD and CND-006 blocks final acceptance.",
       "priority": "URGENT",
-      "owner": "DeepSeek / ChatGPT / Human Owner",
+      "owner": "ChatGPT / DeepSeek / Gemini / Human Owner",
       "related_task_id": "BVC-TM-P3.3-006"
     }
   ],
   "recovery": {
-    "recovery_point_ref": "main@fb32d21103bb7304c8eb32cd356de0ec349d4145 (PR #91 merged)",
-    "source_commit": "fb32d21103bb7304c8eb32cd356de0ec349d4145",
+    "recovery_point_ref": "main@81506d9d8be615ea3b7ef7fceba02be711433e91 (PR #92 merged)",
+    "source_commit": "81506d9d8be615ea3b7ef7fceba02be711433e91",
     "verified": true,
-    "last_verified_at": "2026-11-25T11:27:00+07:00",
-    "notes": "PR #91 merged. Human Owner supplied GAIS Source Export 2026-11-25 (ZIP SHA-256 0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7; app/page.tsx SHA-256 4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e), and DeepSeek R4 report was received. ChatGPT R4 disposition APPROVED_WITH_CONDITIONS; conditions CND-001 through CND-004 are open/blocking. CND-005 public asset classification NOT_VERIFIED; CND-006 verification evidence pending. No GAIS runtime or browser storage changed. Recovery NOT_TESTED; execution authorization NOT_GRANTED; fresh preflight NOT_RUN; Prompt #0006 NOT_ALLOCATED."
+    "last_verified_at": "2026-11-25T12:00:00+07:00",
+    "notes": "Human Owner approved W0-W7 C1 roadmap, authorized Gemini conditionally for Contract #007 Rev1, approved split of CND-003/CND-004 into implementation/acceptance gates, and placed public static assets on HOLD on 2026-11-25. CND-001 and CND-002 remain pre-execution gates; CND-003/004 remain mandatory implementation/acceptance controls; CND-005 remains hold; CND-006 is pre-acceptance evidence. Prompt #0006 NOT_ALLOCATED; GAIS source edits NOT_STARTED."
   },
-  "updated_by": "Project State revision 24 — records DeepSeek report receipt and ChatGPT R4 APPROVED_WITH_CONDITIONS disposition; CND-001 to CND-004 remain execution-blocking."
+  "updated_by": "Project State revision 25 — records Owner-approved W0-W7 roadmap, conditional Gemini execution authorization, CND-003/CND-004 split, and CND-005 HOLD; pre-execution gates CND-001/CND-002 remain open."
 }
