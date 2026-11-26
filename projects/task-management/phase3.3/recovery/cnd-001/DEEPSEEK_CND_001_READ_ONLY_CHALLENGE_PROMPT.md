@@ -11,7 +11,7 @@ Review these artifacts together:
 
 1. `BVC-TM-TC-007_CND-001_RECOVERY_PROCEDURE_V1.0.md`
 2. `BVC-TM-TC-007_CND-001_RECOVERY_TEST_REPORT_2026-11-26.md`
-3. `cnd001-recovery-test.ts`
+3. `cnd001-recovery-test.mjs`
 4. `synthetic-v2-workspace.json`
 5. `preserved-full-v2-workspace.json`
 6. `v1-compatible-projection.json`
@@ -21,7 +21,7 @@ Review these artifacts together:
 Source provenance to consider:
 - Owner-supplied `BVC_GAIS_Source_Export_2026-11-25.zip`, SHA-256 `0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7`.
 - `app/page.tsx`, SHA-256 `4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e`.
-- The harness includes the B2 `parseWorkspace` logic extracted from `app/page.tsx` lines 5-95. Assess whether the copy is faithful to the source logic and whether its test use is accurately described.
+- The harness includes the B2 `parseWorkspace` runtime logic extracted from `app/page.tsx` lines 5-95, with type-only annotations removed. Assess source fidelity. The v2 validator is a test adapter based on Contract #007 and the accepted Phase 3.2 Data Model, not production C1 code; assess whether this limitation is stated accurately.
 
 ## 2. Required challenge questions
 
