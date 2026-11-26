@@ -3,12 +3,12 @@
   "result": "PASS",
   "execution_environment": {
     "runtime": "v22.16.0",
-    "command": "node --experimental-strip-types cnd001-recovery-test.ts synthetic-v2-workspace.json output/"
+    "command": "node cnd001-recovery-test.mjs synthetic-v2-workspace.json output/"
   },
   "source_provenance": {
     "gais_export_zip_sha256": "0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7",
     "app_page_ts_sha256": "4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e",
-    "b2_parser_source": "app/page.tsx lines 5-95; parseWorkspace logic copied without validation changes"
+    "b2_parser_source": "app/page.tsx lines 5-95; runtime validation logic copied without validation changes; type-only TS annotations removed. v2 validator is an isolated test adapter based on Contract #007 and the accepted Phase 3.2 Data Model, not production C1 code."
   },
   "test_summary": {
     "total": 20,
