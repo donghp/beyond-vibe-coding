@@ -1,0 +1,133 @@
+{
+  "report_id": "BVC-TM-TC-007-CND-001-TEST-001",
+  "result": "PASS",
+  "execution_environment": {
+    "runtime": "v22.16.0",
+    "command": "node --experimental-strip-types cnd001-recovery-test.ts synthetic-v2-workspace.json output/"
+  },
+  "source_provenance": {
+    "gais_export_zip_sha256": "0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7",
+    "app_page_ts_sha256": "4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e",
+    "b2_parser_source": "app/page.tsx lines 5-95; parseWorkspace logic copied without validation changes"
+  },
+  "test_summary": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0
+  },
+  "hashes": {
+    "synthetic_v2_sha256_before": "bf07bb2f0279c95033bd69333eda6cd8e0bb3a9394ed0f273631812ce8daa612",
+    "synthetic_v2_sha256_after": "bf07bb2f0279c95033bd69333eda6cd8e0bb3a9394ed0f273631812ce8daa612",
+    "preserved_full_v2_sha256_before": "bf07bb2f0279c95033bd69333eda6cd8e0bb3a9394ed0f273631812ce8daa612",
+    "preserved_full_v2_sha256_after": "bf07bb2f0279c95033bd69333eda6cd8e0bb3a9394ed0f273631812ce8daa612",
+    "v1_projection_sha256": "db8635bab166d46b04ce6869fb1006698dcd70274bc70a785a3a7557e7738359"
+  },
+  "workspace_comparison": {
+    "workspace_id_preserved": true,
+    "source_task_count": 5,
+    "projection_task_count": 5,
+    "id_title_pairs_preserved_in_order": true
+  },
+  "tasks": [
+    {
+      "id": "REC-001",
+      "status": "PASS",
+      "detail": "Valid synthetic v2 workspace is accepted and produces a complete v1-compatible projection"
+    },
+    {
+      "id": "REC-002",
+      "status": "PASS",
+      "detail": "Every source task ID and title is preserved exactly and in order"
+    },
+    {
+      "id": "REC-003",
+      "status": "PASS",
+      "detail": "Full v2-only fields remain intact in the preserved copy"
+    },
+    {
+      "id": "REC-004",
+      "status": "PASS",
+      "detail": "Projection omits v2-only task/settings fields only in the projection"
+    },
+    {
+      "id": "REC-005",
+      "status": "PASS",
+      "detail": "Malformed v2 JSON is rejected before projection construction"
+    },
+    {
+      "id": "REC-006",
+      "status": "PASS",
+      "detail": "Missing required v2 task field is rejected before projection"
+    },
+    {
+      "id": "REC-007",
+      "status": "PASS",
+      "detail": "Duplicate task IDs are rejected"
+    },
+    {
+      "id": "REC-008",
+      "status": "PASS",
+      "detail": "Blank or untrimmed task title is rejected"
+    },
+    {
+      "id": "REC-009",
+      "status": "PASS",
+      "detail": "Invalid or unavailable IANA timezone is rejected"
+    },
+    {
+      "id": "REC-010",
+      "status": "PASS",
+      "detail": "Failed projection is fail-closed and leaves the complete v2 copy unchanged"
+    },
+    {
+      "id": "REC-011",
+      "status": "PASS",
+      "detail": "Interrupted procedure after snapshot leaves source and preserved v2 payload unchanged"
+    },
+    {
+      "id": "REC-012",
+      "status": "PASS",
+      "detail": "B2 parser rejects duplicate projection IDs"
+    },
+    {
+      "id": "REC-013",
+      "status": "PASS",
+      "detail": "B2 parser rejects invalid projection titles"
+    },
+    {
+      "id": "REC-014",
+      "status": "PASS",
+      "detail": "B2 parser rejects a non-UUID workspaceId"
+    },
+    {
+      "id": "REC-016",
+      "status": "PASS",
+      "detail": "Unsupported v2 formatVersion is rejected before projection"
+    },
+    {
+      "id": "REC-017",
+      "status": "PASS",
+      "detail": "Unsupported task status enum is rejected before projection"
+    },
+    {
+      "id": "REC-018",
+      "status": "PASS",
+      "detail": "Unsupported task priority enum is rejected before projection"
+    },
+    {
+      "id": "REC-019",
+      "status": "PASS",
+      "detail": "Impossible due_date is rejected before projection"
+    },
+    {
+      "id": "REC-020",
+      "status": "PASS",
+      "detail": "Impossible focus_date is rejected before projection"
+    },
+    {
+      "id": "REC-015",
+      "status": "PASS",
+      "detail": "Original fixture and preserved full-v2 copy have identical SHA-256 after all tests"
+    }
+  ]
+}
