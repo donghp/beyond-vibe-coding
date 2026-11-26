@@ -24,11 +24,11 @@ This is a technical test PASS for the synthetic fixture. It is **not yet a fully
 | Archive SHA-256 | `0c12a7a4a835947b3cf67eb300a49bc8ab58e3861f9863d130cf09a8751378f7` |
 | `app/page.tsx` SHA-256 | `4f926f8c9836c94505f71651871283f4299182fe181ecb432110d06c462ace5e` |
 | B2 parser source range | `app/page.tsx` lines 5–95 |
-| Parser harness | `cnd001-recovery-test.ts` |
+| Parser harness | `cnd001-recovery-test.mjs` |
 | Runtime | Node.js `v22.16.0` |
-| Command | `node --experimental-strip-types cnd001-recovery-test.ts synthetic-v2-workspace.json output/` |
+| Command | `node cnd001-recovery-test.mjs synthetic-v2-workspace.json output/` |
 
-The harness contains the constants, helper functions and `parseWorkspace` validation logic from the supplied B2 source. TypeScript type declarations are retained in the isolated harness; the parser checks/branch logic are copied without a validation change. The test does not execute the GAIS React component or a live browser runtime.
+The harness contains the constants, helper functions and `parseWorkspace` validation logic from the supplied B2 source. The JavaScript harness removes only type annotations from the source extraction; the B2 parser's runtime validation conditions and branches are copied without a validation change. The v2 validator used for the synthetic fixture is a test adapter based on Contract #007 and the accepted Phase 3.2 Data Model; it is not a production C1 validator because C1 has not been implemented. The test does not execute the GAIS React component or a live browser runtime.
 
 The B2 parser requirements exercised by this test include:
 
@@ -119,8 +119,8 @@ A B2 projection preserves task IDs and titles, but not C1 state semantics. B2 ca
 - No real write to `bvc-task-management:workspace:v1` or `bvc-task-management:workspace:v2` was attempted.
 - No live code downgrade was performed.
 - The parser logic was copied from the exact source export into an isolated test harness rather than imported from a running GAIS app. The source hash and parser range are recorded for review.
-- The synthetic test does not prove compatibility with future v2 fields or a different C1 implementation. Re-run against the exact v2 schema/source hash before any later real recovery.
-- Node 22 emitted its standard experimental type-stripping warning; the test execution completed and all assertions passed.
+- The synthetic test does not prove compatibility with future v2 fields or a different C1 implementation. The v2 validation adapter is a test oracle derived from Contract #007 and the accepted Phase 3.2 Data Model, not code extracted from a future C1 release. Re-run against the exact v2 schema/source hash and deployed C1 validator before any later real recovery.
+- The committed harness is standalone JavaScript and does not require Node's experimental TypeScript type-stripping flag.
 
 ## 9. Disposition and next required actions
 
