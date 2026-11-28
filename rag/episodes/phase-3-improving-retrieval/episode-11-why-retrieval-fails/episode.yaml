@@ -1,0 +1,35 @@
+episode:
+  id: "RAG-011"
+  title: "Why Retrieval Fails"
+  phase_id: 3
+  phase: "Improving Retrieval"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Diagnose retrieval failures across source quality, parsing, query formulation, filters, embeddings, ranking, and evaluation."
+  learning_objectives:
+    - "How are false negatives and false positives produced?"
+    - "How do metadata filters harm recall?"
+    - "How should retrieval failures be triaged?"
+  key_concepts:
+    - "Retrieval Failure"
+    - "Recall"
+    - "Precision"
+    - "Query Mismatch"
+    - "Filter Errors"
+    - "Diagnostics"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
