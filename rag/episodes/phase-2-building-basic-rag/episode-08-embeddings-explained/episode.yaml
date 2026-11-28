@@ -1,0 +1,35 @@
+episode:
+  id: "RAG-008"
+  title: "Embeddings Explained"
+  phase_id: 2
+  phase: "Building Basic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Explain embedding models, vector representations, similarity measures, model compatibility, and limitations."
+  learning_objectives:
+    - "How are text and queries encoded?"
+    - "What do cosine similarity and dot product measure?"
+    - "How do model choice, language, domain, and dimensions affect retrieval?"
+  key_concepts:
+    - "Embedding Model"
+    - "Dense Vector"
+    - "Vector Space"
+    - "Similarity"
+    - "Cosine Similarity"
+    - "Model Compatibility"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
