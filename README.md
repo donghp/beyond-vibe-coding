@@ -1619,10 +1619,4 @@ Its principles should be tested against real project constraints, reviewed by pr
 
 **Beyond Vibe Coding** — from generating code to engineering software that can be understood, secured, verified, and continued.
 
-
-
-## Security-first engineering
-
-BVC treats security as an engineering property, not a feature added at the end. Security reasoning begins with the first prompt and continues through threat modeling, architecture, implementation, verification, release, and operations. The baseline is defined in [BVC-SEC-STD-001 — Security Architecture & Security Gates](standards/SECURITY_ARCHITECTURE_GATES.md), supported by [threat modeling](prompts/security-gates/01_threat_modeling_prompt.md), [server-side gate implementation](prompts/security-gates/02_server_gate_implementation.md), and the [authorized client tampering test checklist](prompts/security-gates/tamper_test_checklist.md).
-
 Copyright © 2026 **Dong Hong · Beyond Vibe Coding**. All rights reserved.
