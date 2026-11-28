@@ -1,0 +1,30 @@
+episode:
+  id: "RAG-024"
+  title: "Designing an Agentic RAG System"
+  phase_id: 5
+  phase: "Agentic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Synthesize retrieval, graph access, tools, agent state, evaluation, guardrails, security, and observability into an end-to-end design."
+  learning_objectives:
+    - "What requirements justify an agentic architecture?"
+    - "How should retrieval and tool actions be bounded?"
+    - "How are quality, safety, latency, cost, and human oversight validated?"
+  key_concepts:
+    - "Agentic RAG"
+    - "System Architecture"
+    - "Tool Orchestration"
+    - "Guardrails"
+    - "Evaluation"
+    - "Observability"
+    - "Human Oversight"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
