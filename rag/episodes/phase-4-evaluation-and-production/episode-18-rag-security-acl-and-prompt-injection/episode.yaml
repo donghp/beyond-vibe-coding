@@ -1,0 +1,30 @@
+episode:
+  id: "RAG-018"
+  title: "RAG Security: ACL, Data Leakage, and Prompt Injection"
+  phase_id: 4
+  phase: "Evaluation and Production"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Threat-model data retrieval and generation, focusing on authorization, tenant isolation, untrusted content, and indirect prompt injection."
+  learning_objectives:
+    - "Where must authorization be enforced?"
+    - "How can retrieved instructions attack the model or tools?"
+    - "How should adversarial testing and audit logging work?"
+  key_concepts:
+    - "ACL"
+    - "RBAC"
+    - "Tenant Isolation"
+    - "Data Leakage"
+    - "Prompt Injection"
+    - "Indirect Prompt Injection"
+    - "Threat Modeling"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
