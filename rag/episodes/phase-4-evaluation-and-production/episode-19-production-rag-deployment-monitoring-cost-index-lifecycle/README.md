@@ -30,6 +30,10 @@ Design production controls for ingestion, incremental indexing, deletion, re-ind
 
 Explain mechanisms before selecting tools. Compare alternatives under clearly stated workloads. Include evaluation design, security controls, failure modes, and operational trade-offs where relevant. Use code and experiments when they demonstrate a mechanism or test a claim.
 
+## Research integration: production observability and reproducibility
+
+The Layer6 reference implementation shows the value of preserving intermediate artifacts across chunking, retrieval, reranking, and generation. The [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md) extends this into production observability: immutable run manifests, artifact lineage, source/document versions, ranking and cutoff traces, context truncation, model/prompt revisions, evaluator versions, and regression evidence. See the [Layer6 RAGEC critical review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md) for implementation/reproducibility caveats.
+
 ## Evidence requirements
 
 Use primary research, official documentation, standards, or reproducible experiments. Record dataset, configuration, metric definitions, version, limitations, and source-to-claim mapping. Do not invent metrics or case studies.
