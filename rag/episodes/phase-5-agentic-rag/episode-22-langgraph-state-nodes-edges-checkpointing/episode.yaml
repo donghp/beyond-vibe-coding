@@ -1,0 +1,30 @@
+episode:
+  id: "RAG-022"
+  title: "LangGraph: State, Nodes, Edges, and Checkpointing"
+  phase_id: 5
+  phase: "Agentic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Explain stateful graph orchestration, nodes, edges, conditional routing, persistence, and checkpoints."
+  learning_objectives:
+    - "How is state represented and updated?"
+    - "How do edges and conditional edges control execution?"
+    - "What do checkpointing and resumability guarantee?"
+  key_concepts:
+    - "LangGraph"
+    - "State"
+    - "Nodes"
+    - "Edges"
+    - "Conditional Edges"
+    - "Checkpointing"
+    - "Persistence"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
