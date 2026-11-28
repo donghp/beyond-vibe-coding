@@ -31,6 +31,10 @@ Design a RAG evaluation protocol across retrieval, context quality, answer groun
 
 Explain mechanisms before selecting tools. Compare alternatives under clearly stated workloads. Include evaluation design, security controls, failure modes, and operational trade-offs where relevant. Use code and experiments when they demonstrate a mechanism or test a claim.
 
+## Research integration: diagnosis and evaluator reliability
+
+The [Layer6 RAGEC review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md) demonstrates why evaluator accuracy must itself be measured: its reported agreement is 57.8% for stage attribution and 40.3% for error-type classification against human labels. Treat LLM-as-a-judge output as a fallible measurement, not ground truth. The [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md) defines human-adjudicated samples, multi-dimensional outcome labels, confidence, and reproducibility requirements.
+
 ## Evidence requirements
 
 Use primary research, official documentation, standards, or reproducible experiments. Record dataset, configuration, metric definitions, version, limitations, and source-to-claim mapping. Do not invent metrics or case studies.
