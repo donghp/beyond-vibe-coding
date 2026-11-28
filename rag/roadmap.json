@@ -1,0 +1,38 @@
+{
+  "series": {
+    "id": "BVC-RAG-SERIES",
+    "title": "RAG & Agentic RAG Learning Series",
+    "brand": "Beyond Vibe Coding",
+    "author": "Dong Hong",
+    "version": "1.0.0",
+    "status": "active",
+    "language": "en",
+    "repository_path": "rag/",
+    "publication": {
+      "primary": {
+        "platform": "DEV.to",
+        "episode_01_url": "https://dev.to/donghp/what-is-rag-how-ai-finds-external-knowledge-before-it-answers-3p76"
+      },
+      "secondary": {
+        "platform": "Viblo",
+        "episode_01_url": "https://viblo.asia/p/bai-01-rag-la-gi-vi-sao-ai-can-tra-cuu-tri-thuc-ben-ngoai-XP4WE9prL7G"
+      }
+    },
+    "phases": [
+      {"id": 1, "slug": "understanding-rag", "title": "Understanding RAG", "episode_ids": ["RAG-001", "RAG-002", "RAG-003", "RAG-004"]},
+      {"id": 2, "slug": "building-basic-rag", "title": "Building Basic RAG", "episode_ids": ["RAG-005", "RAG-006", "RAG-007", "RAG-008", "RAG-009", "RAG-010"]},
+      {"id": 3, "slug": "improving-retrieval", "title": "Improving Retrieval", "episode_ids": ["RAG-011", "RAG-012", "RAG-013", "RAG-014", "RAG-015"]},
+      {"id": 4, "slug": "evaluation-and-production", "title": "Evaluation and Production", "episode_ids": ["RAG-016", "RAG-017", "RAG-018", "RAG-019"]},
+      {"id": 5, "slug": "agentic-rag", "title": "Agentic RAG", "episode_ids": ["RAG-020", "RAG-021", "RAG-022", "RAG-023", "RAG-024"]}
+    ],
+    "counts": {"phases": 5, "episodes": 24},
+    "editorial_principles": [
+      "Research before writing.",
+      "Explain mechanisms, not just tools.",
+      "Verify claims with evidence.",
+      "Make trade-offs explicit.",
+      "Do not invent benchmarks or production case studies.",
+      "Choose the simplest architecture that meets demonstrated requirements."
+    ]
+  }
+}
