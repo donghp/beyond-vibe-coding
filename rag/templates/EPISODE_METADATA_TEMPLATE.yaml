@@ -1,0 +1,28 @@
+episode:
+  id: "RAG-XXX"
+  title: "Episode title"
+  phase_id: 1
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  learning_objectives: []
+  prerequisites: []
+  key_concepts: []
+  research_questions: []
+  references: []
+  figures: []
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
