@@ -1,0 +1,29 @@
+episode:
+  id: "RAG-017"
+  title: "Hallucinations, Source Freshness, and Citations"
+  phase_id: 4
+  phase: "Evaluation and Production"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Analyze unsupported claims, conflicting sources, stale knowledge, citation mapping, and source-grounding verification."
+  learning_objectives:
+    - "How do retrieval and generation errors produce hallucinations?"
+    - "How can freshness and validity be enforced?"
+    - "How can citations be checked against source spans?"
+  key_concepts:
+    - "Hallucination"
+    - "Faithfulness"
+    - "Source Freshness"
+    - "Citation Grounding"
+    - "Contradictory Evidence"
+    - "Evaluation"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
