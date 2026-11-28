@@ -6,7 +6,7 @@
 
 ## 1. Copyright notice
 
-Copyright © 2026 *Dong Hong · Beyond Vibe Coding*. All rights reserved.
+Copyright © 2026 **Dong Hong · Beyond Vibe Coding**. All rights reserved.
 
 Unless a file explicitly states otherwise, original written content, research briefs, editorial structures, diagrams, visual assets, and other original materials in this directory are copyrighted by Dong Hong.
 
