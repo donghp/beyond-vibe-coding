@@ -1,0 +1,35 @@
+episode:
+  id: "RAG-014"
+  title: "Reranking, Cross-Encoders, and MMR"
+  phase_id: 3
+  phase: "Improving Retrieval"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Explain two-stage retrieval, bi-encoder versus cross-encoder computation, reranking latency, and diversity-aware selection."
+  learning_objectives:
+    - "Why not score every document with a cross-encoder?"
+    - "How does pairwise query-passage scoring work?"
+    - "When does MMR reduce redundancy?"
+  key_concepts:
+    - "Bi-Encoder"
+    - "Cross-Encoder"
+    - "Reranking"
+    - "MMR"
+    - "Latency"
+    - "Candidate Set"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
