@@ -1,0 +1,29 @@
+episode:
+  id: "RAG-021"
+  title: "ReAct: Reasoning and Acting"
+  phase_id: 5
+  phase: "Agentic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Explain the reasoning-action-observation loop and its use in retrieval and tool-augmented applications."
+  learning_objectives:
+    - "How does an agent choose an action from observations?"
+    - "How are tools invoked and results interpreted?"
+    - "How should loops, budgets, and stopping criteria be bounded?"
+  key_concepts:
+    - "ReAct"
+    - "Reasoning"
+    - "Action"
+    - "Observation"
+    - "Tool Use"
+    - "Stopping Criteria"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
