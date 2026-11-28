@@ -1,0 +1,25 @@
+episodes:
+  - {id: RAG-001, phase: 1, slug: episode-01-what-is-rag, status: published, title: "What Is RAG? How AI Finds External Knowledge Before It Answers"}
+  - {id: RAG-002, phase: 1, slug: episode-02-prompting-rag-fine-tuning-long-context, status: planned, title: "Prompting vs. RAG vs. Fine-Tuning vs. Long Context"}
+  - {id: RAG-003, phase: 1, slug: episode-03-parametric-vs-external-knowledge, status: planned, title: "Parametric vs. External Knowledge"}
+  - {id: RAG-004, phase: 1, slug: episode-04-how-a-question-flows-through-rag, status: planned, title: "How a Question Flows Through RAG"}
+  - {id: RAG-005, phase: 2, slug: episode-05-data-sources-and-loaders, status: planned, title: "Data Sources and Document Loaders"}
+  - {id: RAG-006, phase: 2, slug: episode-06-parsing-cleaning-metadata, status: planned, title: "Parsing, Cleaning, and Metadata"}
+  - {id: RAG-007, phase: 2, slug: episode-07-chunking-strategies, status: planned, title: "Chunking Strategies"}
+  - {id: RAG-008, phase: 2, slug: episode-08-embeddings-explained, status: planned, title: "Embeddings Explained"}
+  - {id: RAG-009, phase: 2, slug: episode-09-vector-stores-and-semantic-search, status: planned, title: "Vector Stores, Vector Databases, and Semantic Search"}
+  - {id: RAG-010, phase: 2, slug: episode-10-prompt-and-context-construction, status: planned, title: "Prompt and Context Construction"}
+  - {id: RAG-011, phase: 3, slug: episode-11-why-retrieval-fails, status: planned, title: "Why Retrieval Fails"}
+  - {id: RAG-012, phase: 3, slug: episode-12-dense-retrieval-vs-bm25, status: planned, title: "Dense Retrieval vs. BM25"}
+  - {id: RAG-013, phase: 3, slug: episode-13-hybrid-search-and-rrf, status: planned, title: "Hybrid Search and Reciprocal Rank Fusion"}
+  - {id: RAG-014, phase: 3, slug: episode-14-reranking-cross-encoders-mmr, status: planned, title: "Reranking, Cross-Encoders, and MMR"}
+  - {id: RAG-015, phase: 3, slug: episode-15-query-rewriting-multiquery-hyde-decomposition, status: planned, title: "Query Rewriting, Multi-Query, HyDE, and Decomposition"}
+  - {id: RAG-016, phase: 4, slug: episode-16-rag-evaluation, status: planned, title: "RAG Evaluation: From Retrieval Metrics to RAGAS"}
+  - {id: RAG-017, phase: 4, slug: episode-17-hallucinations-freshness-and-citations, status: planned, title: "Hallucinations, Source Freshness, and Citations"}
+  - {id: RAG-018, phase: 4, slug: episode-18-rag-security-acl-and-prompt-injection, status: planned, title: "RAG Security: ACL, Data Leakage, and Prompt Injection"}
+  - {id: RAG-019, phase: 4, slug: episode-19-production-rag-deployment-monitoring-cost-index-lifecycle, status: planned, title: "Production RAG: Deployment, Monitoring, Cost, and Index Lifecycle"}
+  - {id: RAG-020, phase: 5, slug: episode-20-traditional-rag-vs-agentic-rag, status: planned, title: "Traditional RAG vs. Agentic RAG"}
+  - {id: RAG-021, phase: 5, slug: episode-21-react-reasoning-and-acting, status: planned, title: "ReAct: Reasoning and Acting"}
+  - {id: RAG-022, phase: 5, slug: episode-22-langgraph-state-nodes-edges-checkpointing, status: planned, title: "LangGraph: State, Nodes, Edges, and Checkpointing"}
+  - {id: RAG-023, phase: 5, slug: episode-23-graph-retrieval-and-knowledge-graphs, status: planned, title: "Graph Retrieval and Knowledge Graphs"}
+  - {id: RAG-024, phase: 5, slug: episode-24-designing-an-agentic-rag-system, status: planned, title: "Designing an Agentic RAG System"}
