@@ -1,0 +1,35 @@
+episode:
+  id: "RAG-006"
+  title: "Parsing, Cleaning, and Metadata"
+  phase_id: 2
+  phase: "Building Basic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Understand extraction and normalization while preserving document structure, provenance, version information, and access metadata."
+  learning_objectives:
+    - "How are headings, tables, lists, and page structure preserved?"
+    - "How are parsing errors detected?"
+    - "Which metadata fields support versioning, effective dates, filtering, and ACL?"
+  key_concepts:
+    - "Document Parsing"
+    - "Extraction"
+    - "Normalization"
+    - "Metadata"
+    - "Provenance"
+    - "ACL"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
