@@ -68,6 +68,7 @@ The case study refers to the historical model identifier and pricing recorded in
 - `evidence/`: evidence register and publication requirements.
 - `benchmark/`: reproducible experiment protocol and result schema.
 - `schemas/`: JSON Schema for benchmark observations.
+- `community/`: captured practitioner discussions and follow-up article research; treat these as qualitative inputs, not benchmark evidence.
 
 ## Relationship to the book
 
