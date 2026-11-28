@@ -33,6 +33,10 @@ Compare fixed-size, recursive, semantic, hierarchical, parent-child, and layout-
 - Use code or experiments only when they test a specific claim or teach a reproducible mechanism.
 - Record sources, version details, assumptions, and limitations.
 
+## Research integration: chunking failure diagnosis
+
+RAGEC identifies Overchunking, Underchunking, and Context Mismatch as distinct failure types. The [Layer6 RAGEC review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md) also highlights why experimental chunk-size units must be explicit: words, model tokens, characters, and layout units are not interchangeable. Use the [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md) to record tokenizer revision, chunk size units, overlap, source offsets, and parent document identity.
+
 ## Evidence requirements
 
 Create an episode-specific claim-to-source table before drafting. Prefer original papers, official documentation, standards, and reproducible experiments. Do not invent benchmark values or production case studies.
