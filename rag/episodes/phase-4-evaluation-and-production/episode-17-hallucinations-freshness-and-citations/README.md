@@ -27,6 +27,10 @@ Analyze unsupported claims, conflicting sources, stale knowledge, citation mappi
 
 Explain mechanisms before selecting tools. Compare alternatives under clearly stated workloads. Include evaluation design, security controls, failure modes, and operational trade-offs where relevant. Use code and experiments when they demonstrate a mechanism or test a claim.
 
+## Research integration: distinguish generation failure types
+
+Use the [Layer6 RAGEC review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md) to distinguish fabricated content, parametric overreliance, misinterpretation, incomplete answers, contextual misalignment, numerical error, and chronological inconsistency. A single “hallucination” label loses important diagnostic distinctions. Use the [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md) to map claims to evidence and citations.
+
 ## Evidence requirements
 
 Use primary research, official documentation, standards, or reproducible experiments. Record dataset, configuration, metric definitions, version, limitations, and source-to-claim mapping. Do not invent metrics or case studies.
