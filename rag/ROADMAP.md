@@ -97,3 +97,6 @@ The roadmap is a plan, not a claim that all episodes are researched, written, va
 ---
 
 *For readers who would like to explore this engineering mindset further, my book* **[Beyond Vibe Coding: A Practical Guide to Building Real-World Software with AI](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)** *is available on Google Play Books.*
+
+
+Copyright © 2026 **Dong Hong · Beyond Vibe Coding**. All rights reserved.
