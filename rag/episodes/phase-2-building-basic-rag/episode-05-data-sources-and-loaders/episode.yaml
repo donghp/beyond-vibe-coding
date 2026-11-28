@@ -1,0 +1,34 @@
+episode:
+  id: "RAG-005"
+  title: "Data Sources and Document Loaders"
+  phase_id: 2
+  phase: "Building Basic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Understand source systems, connectors, document loaders, file formats, extraction boundaries, and source ownership."
+  learning_objectives:
+    - "Which sources are authoritative?"
+    - "How do loaders preserve identifiers and provenance?"
+    - "How are incremental ingestion, retries, and source errors handled?"
+  key_concepts:
+    - "Document Sources"
+    - "Connectors"
+    - "Loaders"
+    - "Source Identity"
+    - "Provenance"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
