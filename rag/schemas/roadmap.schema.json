@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/rag/schemas/roadmap.schema.json",
+  "title": "Beyond Vibe Coding RAG Roadmap",
+  "type": "object",
+  "required": ["series"],
+  "properties": {
+    "series": {
+      "type": "object",
+      "required": ["id", "title", "author", "brand", "version", "phases", "counts"],
+      "properties": {
+        "id": {"const": "BVC-RAG-SERIES"},
+        "title": {"const": "RAG & Agentic RAG Learning Series"},
+        "author": {"const": "Dong Hong"},
+        "brand": {"const": "Beyond Vibe Coding"},
+        "version": {"type": "string"},
+        "status": {"type": "string"},
+        "phases": {"type": "array", "minItems": 5, "maxItems": 5},
+        "counts": {
+          "type": "object",
+          "required": ["phases", "episodes"],
+          "properties": {"phases": {"const": 5}, "episodes": {"const": 24}}
+        }
+      }
+    }
+  }
+}
