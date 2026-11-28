@@ -77,7 +77,7 @@ Recommended short description:
 
 Use this exact notice in Markdown files where a copyright notice is appropriate:
 
-`Copyright © 2026 *Dong Hong · Beyond Vibe Coding*. All rights reserved.`
+`Copyright © 2026 **Dong Hong · Beyond Vibe Coding**. All rights reserved.`
 
 This notice identifies the author and brand. Third-party source material, software, quotations, diagrams, trademarks, and datasets remain subject to their respective owners and licenses. Always cite and verify reuse permissions.
 
@@ -122,4 +122,4 @@ Only mark a publication as live when the public URL has been checked.
 
 *For readers who would like to explore this engineering mindset further, my book* **[Beyond Vibe Coding: A Practical Guide to Building Real-World Software with AI](https://play.google.com/store/books/details?id=geQaEgAAQBAJ)** *is available on Google Play Books.*
 
-Copyright © 2026 *Dong Hong · Beyond Vibe Coding*. All rights reserved.
+Copyright © 2026 **Dong Hong · Beyond Vibe Coding**. All rights reserved.
