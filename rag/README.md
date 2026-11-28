@@ -55,6 +55,12 @@ See [ROADMAP.md](ROADMAP.md) for the complete episode map and [roadmap.yaml](roa
 DEV.to: https://dev.to/donghp/what-is-rag-how-ai-finds-external-knowledge-before-it-answers-3p76  
 Viblo: https://viblo.asia/p/bai-01-rag-la-gi-vi-sao-ai-can-tra-cuu-tri-thuc-ben-ngoai-XP4WE9prL7G
 
+
+## Advanced research and engineering standards
+
+- [Layer6 RAGEC external research review](research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md): source-grounded critical analysis of the 16-type taxonomy, annotation data, diagnostic method, implementation caveats, and transferability.
+- [BVC RAG Failure Diagnosis and Evaluation Standard v0.1](research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md): proposed BVC diagnostic record, multi-label model, evidence requirements, evaluation protocol, and roadmap integration.
+
 ## Starting points
 
 1. Read [the roadmap](ROADMAP.md).
