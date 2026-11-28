@@ -1,0 +1,35 @@
+episode:
+  id: "RAG-013"
+  title: "Hybrid Search and Reciprocal Rank Fusion"
+  phase_id: 3
+  phase: "Improving Retrieval"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Explain hybrid retrieval and fusion methods, including score fusion and rank fusion."
+  learning_objectives:
+    - "How can lexical and dense rankings be combined?"
+    - "When is RRF useful?"
+    - "How should fusion be tuned against a judged query set?"
+  key_concepts:
+    - "Hybrid Search"
+    - "Lexical Search"
+    - "Dense Search"
+    - "Score Fusion"
+    - "Reciprocal Rank Fusion"
+    - "Evaluation"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
