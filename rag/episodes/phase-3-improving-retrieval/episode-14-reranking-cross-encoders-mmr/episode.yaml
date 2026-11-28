@@ -21,15 +21,9 @@ episode:
     - "Latency"
     - "Candidate Set"
   publication:
-    devto:
-      status: "not_published"
-      url: null
-    viblo:
-      status: "not_published"
-      url: null
-    medium:
-      status: "not_published"
-      url: null
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
   copyright:
     notice: "Copyright © 2026 Dong Hong. All rights reserved."
     license: "All rights reserved"
