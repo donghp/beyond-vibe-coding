@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/donghp/beyond-vibe-coding/blob/main/rag/schemas/episode.schema.json",
+  "title": "Beyond Vibe Coding RAG Episode Metadata",
+  "type": "object",
+  "required": ["episode"],
+  "properties": {
+    "episode": {
+      "type": "object",
+      "required": ["id", "title", "phase_id", "status", "version", "author", "brand", "language", "copyright"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^RAG-[0-9]{3}$"},
+        "title": {"type": "string", "minLength": 5},
+        "phase_id": {"type": "integer", "minimum": 1, "maximum": 5},
+        "status": {"type": "string", "enum": ["planned", "researching", "drafting", "technical_review", "editorial_review", "ready_to_publish", "published"]},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "author": {"const": "Dong Hong"},
+        "brand": {"const": "Beyond Vibe Coding"},
+        "language": {"type": "string", "enum": ["en", "vi"]},
+        "learning_objectives": {"type": "array", "items": {"type": "string"}},
+        "prerequisites": {"type": "array", "items": {"type": "string"}},
+        "key_concepts": {"type": "array", "items": {"type": "string"}},
+        "research_questions": {"type": "array", "items": {"type": "string"}},
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "url"],
+            "properties": {
+              "id": {"type": "string"},
+              "title": {"type": "string"},
+              "url": {"type": "string", "format": "uri"},
+              "source_type": {"type": "string"},
+              "accessed": {"type": ["string", "null"], "format": "date"},
+              "supports": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "figures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "status"],
+            "properties": {
+              "id": {"type": "string"},
+              "title": {"type": "string"},
+              "status": {"type": "string"},
+              "path": {"type": ["string", "null"]},
+              "alt_text": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "publication": {"type": "object"},
+        "copyright": {
+          "type": "object",
+          "required": ["notice", "license"],
+          "properties": {
+            "notice": {"type": "string"},
+            "license": {"type": "string"}
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
