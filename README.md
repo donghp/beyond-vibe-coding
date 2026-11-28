@@ -18,6 +18,33 @@ BVC does not aim to make prompts longer, build more autonomous agents, or depend
 
 ---
 
+## Official Technology Content and Publication
+
+**Dong Hong · Beyond Vibe Coding** is the author identity for the repository's original technology writing.
+
+This repository is the **original engineering content repository and source of truth** for Beyond Vibe Coding: research notes, source manuscripts, technical diagrams, code examples, experiments, citations, and revision history.
+
+The official English technology publication channel is **[DEV.to — @donghp](https://dev.to/donghp)**. Articles published there are linked to their supporting GitHub source files where applicable.
+
+Other channels—including LinkedIn, Medium, X, and Facebook—are used to distribute summaries, commentary, and clearly identified adaptations that point readers back to the official publication and repository source.
+
+**Canonical sources:**
+- GitHub repository: https://github.com/donghp/beyond-vibe-coding
+- DEV.to author profile: https://dev.to/donghp
+- Publication and source-of-truth policy: [PUBLICATION_AND_SOURCE_OF_TRUTH_POLICY.md](docs/PUBLICATION_AND_SOURCE_OF_TRUTH_POLICY.md)
+
+## Beyond Vibe Coding — Technology Topics
+
+This repository brings together engineering material on:
+
+- AI-assisted software development and software engineering practices.
+- Computer Science, data structures, algorithms, and computer architecture.
+- AI systems, Large Language Models, Retrieval-Augmented Generation (RAG), and Agentic RAG.
+- Software security engineering, verification, governance, and maintainability.
+- Practical engineering examples, experiments, and technical research.
+
+Explore the [RAG & Agentic RAG Learning Series](rag/README.md) and [Computer Science research program](computer-science/README.md).
+
 ## Security Engineering
 
 A practical five-stage guide to securing real Android applications—from Google Play Integrity and runtime protection to server-side enforcement, security verification, and continuous security operations.
@@ -798,4 +825,4 @@ Its principles should be tested against real project constraints, reviewed by pr
 
 BVC treats security as an engineering property, not a feature added at the end. Security reasoning begins with the first prompt and continues through threat modeling, architecture, implementation, verification, release, and operations. The baseline is defined in [BVC-SEC-STD-001 — Security Architecture & Security Gates](standards/SECURITY_ARCHITECTURE_GATES.md), supported by [threat modeling](prompts/security-gates/01_threat_modeling_prompt.md), [server-side gate implementation](prompts/security-gates/02_server_gate_implementation.md), and the [authorized client tampering test checklist](prompts/security-gates/tamper_test_checklist.md).
 
-Copyright © 2026 **Dong Hong · Beyond Vibe Coding**. All rights reserved.
+Copyright © 2026 *Dong Hong · Beyond Vibe Coding*. All rights reserved.
