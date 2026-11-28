@@ -1,0 +1,29 @@
+episode:
+  id: "RAG-023"
+  title: "Graph Retrieval and Knowledge Graphs"
+  phase_id: 5
+  phase: "Agentic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Evaluate knowledge graph construction and graph-based retrieval for entity relationships and multi-hop questions."
+  learning_objectives:
+    - "When do graph relationships add value beyond chunk retrieval?"
+    - "How are entities and relations extracted and validated?"
+    - "How should GraphRAG be compared with vector and hybrid baselines?"
+  key_concepts:
+    - "Graph Retrieval"
+    - "Knowledge Graph"
+    - "Entity Resolution"
+    - "Relationship Extraction"
+    - "Multi-hop Retrieval"
+    - "GraphRAG"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
