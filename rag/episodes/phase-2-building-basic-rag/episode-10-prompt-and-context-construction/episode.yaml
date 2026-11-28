@@ -1,0 +1,35 @@
+episode:
+  id: "RAG-010"
+  title: "Prompt and Context Construction"
+  phase_id: 2
+  phase: "Building Basic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Explain how query, evidence, metadata, system instructions, and context budgets are assembled for generation."
+  learning_objectives:
+    - "What belongs in context?"
+    - "How should evidence be ordered and deduplicated?"
+    - "How do token budgets and compression affect grounding?"
+  key_concepts:
+    - "Context Assembly"
+    - "Prompt Construction"
+    - "Token Budget"
+    - "Evidence Ordering"
+    - "Context Compression"
+    - "Lost in the Middle"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
