@@ -28,6 +28,10 @@ Threat-model data retrieval and generation, focusing on authorization, tenant is
 
 Explain mechanisms before selecting tools. Compare alternatives under clearly stated workloads. Include evaluation design, security controls, failure modes, and operational trade-offs where relevant. Use code and experiments when they demonstrate a mechanism or test a claim.
 
+## Research integration: security as a cross-cutting failure dimension
+
+The Layer6 RAGEC paper explicitly limits its taxonomy and excludes adversarial-input and corpus-fault scenarios. BVC therefore treats ACL leakage, tenant isolation, indirect prompt injection, and sensitive-data disclosure as cross-cutting security incidents—not merely ordinary answer-quality labels. See the [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md) and the [Layer6 RAGEC critical review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md).
+
 ## Evidence requirements
 
 Use primary research, official documentation, standards, or reproducible experiments. Record dataset, configuration, metric definitions, version, limitations, and source-to-claim mapping. Do not invent metrics or case studies.
