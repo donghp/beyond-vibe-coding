@@ -20,61 +20,24 @@ BVC does not aim to make prompts longer, build more autonomous agents, or depend
 
 ## Official Technology Content and Publication
 
-**Dong Hong · Beyond Vibe Coding** is the author identity for the repository's original technology writing.
+**Dong Hong · Beyond Vibe Coding** is the official author identity for this repository's original technology writing.
 
-This repository is the **original engineering content repository and source of truth** for Beyond Vibe Coding: research notes, source manuscripts, technical diagrams, code examples, experiments, citations, and revision history.
+This repository is the **canonical source repository and source of truth** for Beyond Vibe Coding technology content: original Markdown manuscripts, research, citations, diagrams, code examples, experiments, publication metadata, and version history.
 
-The official English technology publication channel is **[DEV.to — @donghp](https://dev.to/donghp)**. Articles published there are linked to their supporting GitHub source files where applicable.
+The official English technology publication channel is **[DEV.to — @donghp](https://dev.to/donghp)**. DEV.to is the official reader-facing publication channel; its articles should link back to their relevant GitHub source files where appropriate.
 
-Other channels—including LinkedIn, Medium, X, and Facebook—are used to distribute summaries, commentary, and clearly identified adaptations that point readers back to the official publication and repository source.
+Other channels—including LinkedIn, Medium, X, and Facebook—are distribution channels for summaries, commentary, and clearly identified adaptations that direct readers to the official publication and repository source.
 
 **Canonical sources:**
 - GitHub repository: https://github.com/donghp/beyond-vibe-coding
 - DEV.to author profile: https://dev.to/donghp
-- Publication and source-of-truth policy: [PUBLICATION_AND_SOURCE_OF_TRUTH_POLICY.md](docs/PUBLICATION_AND_SOURCE_OF_TRUTH_POLICY.md)
+- [Publication and Source-of-Truth Policy](docs/PUBLICATION_AND_SOURCE_OF_TRUTH_POLICY.md)
 
 ## Beyond Vibe Coding — Technology Topics
 
-This repository brings together engineering material on:
+This repository covers **Software Engineering, Computer Science, AI-assisted Software Development, Large Language Models, Retrieval-Augmented Generation (RAG), Agentic RAG, and Security Engineering**.
 
-- AI-assisted software development and software engineering practices.
-- Computer Science, data structures, algorithms, and computer architecture.
-- AI systems, Large Language Models, Retrieval-Augmented Generation (RAG), and Agentic RAG.
-- Software security engineering, verification, governance, and maintainability.
-- Practical engineering examples, experiments, and technical research.
-
-Explore the [RAG & Agentic RAG Learning Series](rag/README.md) and [Computer Science research program](computer-science/README.md).
-
-# Beyond Vibe Coding — Repository Metadata
-
-**Official author and brand:** Dong Hong · Beyond Vibe Coding
-
-## Repository description
-
-Beyond Vibe Coding by Dong Hong — software engineering, Computer Science, AI-assisted software development, RAG, and Agentic RAG. Original research and source manuscripts on GitHub; official English articles on DEV.to.
-
-## Canonical properties
-
-- **GitHub source repository:** https://github.com/donghp/beyond-vibe-coding
-- **Official English technology publication:** https://dev.to/donghp
-- **Author identity:** Dong Hong · Beyond Vibe Coding
-- **Technology focus:** Software Engineering, Computer Science, AI-assisted Development, RAG, Agentic RAG, and Security Engineering.
-
-## GitHub About settings
-
-Recommended repository description (concise):
-
-`Beyond Vibe Coding by Dong Hong — Software Engineering, Computer Science, AI-assisted Development, RAG & Agentic RAG.`
-
-Recommended website field:
-
-`https://dev.to/donghp`
-
-Recommended GitHub topics:
-
-`beyond-vibe-coding, vibe-coding, software-engineering, computer-science, ai-assisted-development, artificial-intelligence, rag, retrieval-augmented-generation, agentic-rag, llm, developer-education`
-
-The repository's native About description, website, and topics are repository settings and may need to be configured in GitHub's repository UI if the connected GitHub actions do not expose repository metadata editing.
+Explore the [RAG & Agentic RAG Learning Series](rag/README.md), the [Computer Science research program](computer-science/README.md), and the [practical engineering labs](practical-labs/README.md).
 
 ## Security Engineering
 
