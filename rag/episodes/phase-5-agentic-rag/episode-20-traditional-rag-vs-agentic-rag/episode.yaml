@@ -1,0 +1,29 @@
+episode:
+  id: "RAG-020"
+  title: "Traditional RAG vs. Agentic RAG"
+  phase_id: 5
+  phase: "Agentic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Compare deterministic retrieve-then-generate pipelines with agentic planning, tool selection, iterative retrieval, and bounded execution."
+  learning_objectives:
+    - "What control decisions are delegated to an agent?"
+    - "When does agentic orchestration add value?"
+    - "What are the cost, latency, and reliability trade-offs?"
+  key_concepts:
+    - "Agentic RAG"
+    - "Planning"
+    - "Tool Selection"
+    - "Control Loop"
+    - "Bounded Execution"
+    - "Architecture Selection"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
