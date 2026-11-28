@@ -79,6 +79,10 @@ These topics are integrated into the relevant episodes rather than forced into E
 - **Evaluation discipline:** retrieval and generation metrics, gold datasets, reproducibility, confidence intervals where appropriate, and end-to-end task success (primarily Episode 16).
 - **Multimodal retrieval:** document layout, tables, images, OCR/extraction limitations, and cross-modal retrieval (considered as an extension to Episodes 05–10 or a separately approved module).
 - **Architecture selection:** SQL, APIs, rules engines, lexical search, long-context models, RAG, and fine-tuning are alternatives or complements depending on workload.
+- **Failure diagnosis and error attribution:** preserve the RAGEC four-stage taxonomy as a reference while extending BVC diagnostics to source governance, query processing, context assembly, post-generation verification, security, orchestration, and runtime. Record first observed failure, root cause, contributing labels, downstream symptoms, evidence, and uncertainty (primarily Episodes 11 and 16–19).
+- **Evaluation and evaluator reliability:** separate answer outcome, retrieval/context quality, grounding, citation validity, abstention, and evaluator accuracy. Validate LLM judges against human-adjudicated samples and retain uncertainty instead of forcing unsupported labels (primarily Episode 16).
+- **Reproducible diagnosis:** pin code, datasets, model/tokenizer revisions, chunking units, similarity metric, prompts, filters, Top-K, and artifact lineage for every benchmark run (primarily Episodes 07–09 and 16–19).
+
 
 ## Editorial sequencing
 

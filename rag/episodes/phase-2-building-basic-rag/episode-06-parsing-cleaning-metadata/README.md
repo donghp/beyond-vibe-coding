@@ -33,6 +33,10 @@ Understand extraction and normalization while preserving document structure, pro
 - Use code or experiments only when they test a specific claim or teach a reproducible mechanism.
 - Record sources, version details, assumptions, and limitations.
 
+## Research integration: source and corpus governance
+
+The [Layer6 RAGEC review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md) shows the value of stage-specific diagnosis but also documents that its taxonomy excludes corpus faults. BVC extends the diagnostic boundary to source authority, document freshness, version conflict, extraction fidelity, ACL metadata, and index lifecycle. Apply the [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md) when preserving provenance and source-to-chunk lineage.
+
 ## Evidence requirements
 
 Create an episode-specific claim-to-source table before drafting. Prefer original papers, official documentation, standards, and reproducible experiments. Do not invent benchmark values or production case studies.

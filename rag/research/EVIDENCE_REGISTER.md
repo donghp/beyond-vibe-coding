@@ -15,6 +15,9 @@
 | SRC-009 | [Microsoft Learn: Retrieval-Augmented Generation](https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation) | Official technical documentation | RAG architecture and implementation concepts | Platform-specific details should be identified as such. |
 | SRC-010 | [Google Cloud: Retrieval-Augmented Generation](https://cloud.google.com/use-cases/retrieval-augmented-generation) | Official technical overview | RAG concepts and application patterns | Vendor overview, not a neutral benchmark. |
 
+| SRC-011 | Leung et al. (2026), [Classifying and Addressing the Diversity of Errors in Retrieval-Augmented Generation Systems](https://aclanthology.org/2026.eacl-long.147/) | Peer-reviewed research paper (EACL 2026) | RAG failure taxonomy, stage-oriented diagnosis, human annotations, reference pipeline, and diagnostic limitations | RAGEC reports 57.8% stage agreement and 40.3% error-type accuracy against human labels; distributions depend on dataset and pipeline. Review the [companion source repository](https://github.com/layer6ai-labs/rag-error-classification) and pin the exact commit/configuration before reproduction. |
+| SRC-012 | [Layer6 AI Labs — RAG Error Classification source repository](https://github.com/layer6ai-labs/rag-error-classification) | Research code and annotated data | Inspect taxonomy implementation, stage prompts, classification logic, configurations, and released human-annotated examples | The public main branch is an implementation snapshot, not automatically the exact experimental commit. Check source/dataset licenses and reconcile paper parameters with code before reproducing results. |
+
 ## Evidence requirements
 
 For each episode, add an episode-specific evidence table. Record:
