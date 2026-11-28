@@ -3,7 +3,8 @@
   "series_id": "BVC-RAG-SERIES",
   "author": {
     "display_name": "Dong Hong",
-    "brand": "Beyond Vibe Coding"
+    "brand": "Beyond Vibe Coding",
+    "official_identity": "Dong Hong · Beyond Vibe Coding"
   },
   "brand_statements": {
     "learning": "Learn continuously. Understand deeply. Build thoughtfully. Improve every day.",
@@ -15,14 +16,42 @@
     "url": "https://play.google.com/store/books/details?id=geQaEgAAQBAJ"
   },
   "copyright": {
-    "notice": "Copyright © 2026 Dong Hong. All rights reserved.",
+    "notice": "Copyright © 2026 *Dong Hong · Beyond Vibe Coding*. All rights reserved.",
     "default_license": "All rights reserved",
     "third_party_policy": "Third-party assets and quotations remain subject to their respective licenses and are cited."
   },
   "publication_policy": {
-    "canonical_first_english_publication": "DEV.to",
-    "vietnamese_edition": "Viblo",
-    "syndication": "Set canonical URLs for exact republications; substantially adapted versions must be cross-linked and identified as adaptations.",
+    "canonical_english_publication": "DEV.to",
+    "canonical_source_repository": "GitHub",
+    "vietnamese_publication": "Viblo",
+    "syndication": "Exact republications retain canonical source metadata where supported; substantial adaptations must be identified and cross-linked.",
     "published_status_requires_verified_url": true
-  }
+  },
+  "source_of_truth": {
+    "github_repository": "https://github.com/donghp/beyond-vibe-coding",
+    "role": "Original repository and source of truth for technology manuscripts, research, evidence, diagrams, code, metadata, and revision history."
+  },
+  "official_publication": {
+    "platform": "DEV.to",
+    "author_profile": "https://dev.to/donghp",
+    "role": "Official English-language technology article publication channel."
+  },
+  "distribution_channels": [
+    {
+      "platform": "LinkedIn",
+      "role": "Distribution, excerpts, commentary, and identified adaptations."
+    },
+    {
+      "platform": "Medium",
+      "role": "Distribution, syndication, and identified adaptations with canonical handling."
+    },
+    {
+      "platform": "X",
+      "role": "Short-form distribution and discussion."
+    },
+    {
+      "platform": "Facebook",
+      "role": "Community distribution and discussion."
+    }
+  ]
 }
