@@ -1,12 +1,20 @@
 # RAG & Agentic RAG Learning Series
 
-**Beyond Vibe Coding · Dong Hong**
+**Dong Hong · Beyond Vibe Coding**
 
 > Understand the mechanism. Build with evidence. Think like an engineer.
 
-The **RAG & Agentic RAG Learning Series** is a structured learning and research program that explains Retrieval-Augmented Generation from its foundations through retrieval engineering, evaluation, production operations, and agentic architectures.
+The **RAG & Agentic RAG Learning Series** is an original technical education and research program by **Dong Hong · Beyond Vibe Coding** that explains Retrieval-Augmented Generation from its foundations through retrieval engineering, evaluation, production operations, and agentic architectures.
 
 The program is organized into five phases and 24 episodes. Its purpose is to help readers understand not only how RAG works, but why its components exist, where systems fail, how to measure quality, and when another architecture is more appropriate.
+
+## Official source and publication channels
+
+This GitHub directory is the maintained source repository for this learning series, including research briefs, manuscript source, diagrams, evidence, metadata, and revision history.
+
+The official English publication channel is [DEV.to — @donghp](https://dev.to/donghp). Community channels such as LinkedIn, Medium, X, and Facebook distribute summaries and adaptations that link back to the original source and official publication.
+
+See [the publication and source-of-truth policy](../docs/PUBLICATION_AND_SOURCE_OF_TRUTH_POLICY.md).
 
 ## Learning philosophy
 
