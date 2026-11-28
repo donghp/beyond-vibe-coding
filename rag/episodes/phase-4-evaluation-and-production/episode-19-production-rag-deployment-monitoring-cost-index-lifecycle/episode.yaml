@@ -1,0 +1,32 @@
+episode:
+  id: "RAG-019"
+  title: "Production RAG: Deployment, Monitoring, Cost, and Index Lifecycle"
+  phase_id: 4
+  phase: "Evaluation and Production"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Design production controls for ingestion, incremental indexing, deletion, re-indexing, latency, cost, observability, and rollback."
+  learning_objectives:
+    - "How are stable document IDs and content hashes used?"
+    - "How are upsert, deletion, tombstones, and stale-chunk cleanup coordinated?"
+    - "How are cost, latency, freshness, and quality monitored?"
+  key_concepts:
+    - "Incremental Indexing"
+    - "Document Lifecycle"
+    - "Content Hashing"
+    - "Upsert"
+    - "Deletion"
+    - "Observability"
+    - "Latency"
+    - "Cost"
+    - "Rollback"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
