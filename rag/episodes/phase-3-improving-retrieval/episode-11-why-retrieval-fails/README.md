@@ -33,6 +33,10 @@ Diagnose retrieval failures across source quality, parsing, query formulation, f
 - Use code or experiments only when they test a specific claim or teach a reproducible mechanism.
 - Record sources, version details, assumptions, and limitations.
 
+## Research integration: diagnosing retrieval and pipeline failures
+
+Use the [Layer6 RAGEC review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md) as a comparative taxonomy, not as an unquestioned universal distribution. Distinguish evidence missing from source/chunks, evidence preserved but not retrieved, and evidence retrieved but lost at reranking or context assembly. Use the [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md) to record first observed failure, root cause, contributing labels, downstream symptoms, and evidence separately.
+
 ## Evidence requirements
 
 Create an episode-specific claim-to-source table before drafting. Prefer original papers, official documentation, standards, and reproducible experiments. Do not invent benchmark values or production case studies.
