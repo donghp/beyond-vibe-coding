@@ -1,0 +1,26 @@
+episode:
+  id: "RAG-003"
+  title: "Parametric vs. External Knowledge"
+  phase_id: 1
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  learning_objectives:
+    - "Explain parametric and external knowledge representations."
+    - "Distinguish pretraining, fine-tuning, retrieval, and tool access."
+    - "Describe freshness, provenance, authorization, and update boundaries."
+  key_concepts:
+    - "Parametric Memory"
+    - "External Knowledge"
+    - "Inference-Time Retrieval"
+    - "Tool Access"
+    - "Knowledge Freshness"
+  publication:
+    devto: {status: "not_published", url: null}
+    viblo: {status: "not_published", url: null}
+    medium: {status: "not_published", url: null}
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
