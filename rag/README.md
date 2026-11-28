@@ -64,7 +64,7 @@ Viblo: https://viblo.asia/p/bai-01-rag-la-gi-vi-sao-ai-can-tra-cuu-tri-thuc-ben-
 
 ## Copyright and attribution
 
-Copyright © 2026 *Dong Hong · Beyond Vibe Coding*. All rights reserved.
+Copyright © 2026 **Dong Hong · Beyond Vibe Coding**. All rights reserved.
 
 Original prose, diagrams, research briefs, and editorial structure in this directory are copyrighted by Dong Hong unless a file explicitly states otherwise. Third-party materials remain the property of their respective owners and are cited where used. See [COPYRIGHT.md](governance/COPYRIGHT.md).
 
