@@ -8,8 +8,14 @@ series:
   language: "en"
   repository_path: "rag/"
   canonical_repository: "https://github.com/donghp/beyond-vibe-coding"
+  source_of_truth:
+    platform: "GitHub"
+    repository: "https://github.com/donghp/beyond-vibe-coding"
+    role: "Canonical repository for original manuscripts, research, source assets, code, citations, and revision history."
   primary_publication:
     platform: "DEV.to"
+    author_profile: "https://dev.to/donghp"
+    role: "Official English-language publication channel."
     episode_01_url: "https://dev.to/donghp/what-is-rag-how-ai-finds-external-knowledge-before-it-answers-3p76"
   secondary_publication:
     platform: "Viblo"
