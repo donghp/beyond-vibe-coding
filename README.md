@@ -45,6 +45,37 @@ This repository brings together engineering material on:
 
 Explore the [RAG & Agentic RAG Learning Series](rag/README.md) and [Computer Science research program](computer-science/README.md).
 
+# Beyond Vibe Coding — Repository Metadata
+
+**Official author and brand:** Dong Hong · Beyond Vibe Coding
+
+## Repository description
+
+Beyond Vibe Coding by Dong Hong — software engineering, Computer Science, AI-assisted software development, RAG, and Agentic RAG. Original research and source manuscripts on GitHub; official English articles on DEV.to.
+
+## Canonical properties
+
+- **GitHub source repository:** https://github.com/donghp/beyond-vibe-coding
+- **Official English technology publication:** https://dev.to/donghp
+- **Author identity:** Dong Hong · Beyond Vibe Coding
+- **Technology focus:** Software Engineering, Computer Science, AI-assisted Development, RAG, Agentic RAG, and Security Engineering.
+
+## GitHub About settings
+
+Recommended repository description (concise):
+
+`Beyond Vibe Coding by Dong Hong — Software Engineering, Computer Science, AI-assisted Development, RAG & Agentic RAG.`
+
+Recommended website field:
+
+`https://dev.to/donghp`
+
+Recommended GitHub topics:
+
+`beyond-vibe-coding, vibe-coding, software-engineering, computer-science, ai-assisted-development, artificial-intelligence, rag, retrieval-augmented-generation, agentic-rag, llm, developer-education`
+
+The repository's native About description, website, and topics are repository settings and may need to be configured in GitHub's repository UI if the connected GitHub actions do not expose repository metadata editing.
+
 ## Security Engineering
 
 A practical five-stage guide to securing real Android applications—from Google Play Integrity and runtime protection to server-side enforcement, security verification, and continuous security operations.
