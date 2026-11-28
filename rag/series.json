@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "series_id": "BVC-RAG-SERIES",
+  "author": {
+    "display_name": "Dong Hong",
+    "brand": "Beyond Vibe Coding"
+  },
+  "brand_statements": {
+    "learning": "Learn continuously. Understand deeply. Build thoughtfully. Improve every day.",
+    "engineering": "AI is a tool. Engineering is our capability."
+  },
+  "book_promotion": {
+    "enabled": true,
+    "text": "For readers who would like to explore this engineering mindset further, my book Beyond Vibe Coding: A Practical Guide to Building Real-World Software with AI is available on Google Play Books.",
+    "url": "https://play.google.com/store/books/details?id=geQaEgAAQBAJ"
+  },
+  "copyright": {
+    "notice": "Copyright © 2026 Dong Hong. All rights reserved.",
+    "default_license": "All rights reserved",
+    "third_party_policy": "Third-party assets and quotations remain subject to their respective licenses and are cited."
+  },
+  "publication_policy": {
+    "canonical_first_english_publication": "DEV.to",
+    "vietnamese_edition": "Viblo",
+    "syndication": "Set canonical URLs for exact republications; substantially adapted versions must be cross-linked and identified as adaptations.",
+    "published_status_requires_verified_url": true
+  }
+}
