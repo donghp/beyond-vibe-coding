@@ -1,0 +1,35 @@
+episode:
+  id: "RAG-009"
+  title: "Vector Stores, Vector Databases, and Semantic Search"
+  phase_id: 2
+  phase: "Building Basic RAG"
+  status: "planned"
+  version: "0.1.0"
+  author: "Dong Hong"
+  brand: "Beyond Vibe Coding"
+  language: "en"
+  research_purpose: "Explain vector storage, indexing structures, approximate nearest-neighbor search, filtering, and operational concerns."
+  learning_objectives:
+    - "What is stored with each vector?"
+    - "How do ANN indexes trade recall for latency and memory?"
+    - "How do filtering and metadata affect query execution?"
+  key_concepts:
+    - "Vector Store"
+    - "Vector Database"
+    - "ANN"
+    - "HNSW"
+    - "Filtering"
+    - "Index Lifecycle"
+  publication:
+    devto:
+      status: "not_published"
+      url: null
+    viblo:
+      status: "not_published"
+      url: null
+    medium:
+      status: "not_published"
+      url: null
+  copyright:
+    notice: "Copyright © 2026 Dong Hong. All rights reserved."
+    license: "All rights reserved"
