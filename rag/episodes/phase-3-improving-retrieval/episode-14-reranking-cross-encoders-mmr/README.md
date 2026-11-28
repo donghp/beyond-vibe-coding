@@ -33,6 +33,10 @@ Explain two-stage retrieval, bi-encoder versus cross-encoder computation, rerank
 - Use code or experiments only when they test a specific claim or teach a reproducible mechanism.
 - Record sources, version details, assumptions, and limitations.
 
+## Research integration: candidate recall versus reranker quality
+
+RAGEC separates Missed Retrieval (E4) from Low Recall at Reranking (E7) and Low Precision at Reranking (E8). This distinction matters operationally: a reranker cannot recover evidence that never entered its candidate set. Compare evidence recall before reranking with evidence retention after the reranker cutoff. See the [Layer6 RAGEC review](../../../research/EXTERNAL_RESEARCH_REVIEW_LAYER6_RAG_ERROR_CLASSIFICATION.md) and the [BVC RAG Failure Diagnosis and Evaluation Standard](../../../research/RAG_FAILURE_DIAGNOSIS_AND_EVALUATION_STANDARD_V0.1.md).
+
 ## Evidence requirements
 
 Create an episode-specific claim-to-source table before drafting. Prefer original papers, official documentation, standards, and reproducible experiments. Do not invent benchmark values or production case studies.
